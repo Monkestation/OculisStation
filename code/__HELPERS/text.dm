@@ -647,7 +647,7 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	t = replacetext(t, regex("%s(?:ign)?(?=\\s|$)", "igm"), user ? "<font face=\"[SIGNATURE_FONT]\"><i>[user.real_name]</i></font>" : "<span class=\"paper_field\"></span>")
 
 	t = replacetext(t, regex("\[sign\]", "igm"), user ? "<font face=\"[SIGNATURE_FONT]\"><i>[user.real_name]</i></font>" : "<span class=\"paper_field\"></span>")
-	
+
 	t = replacetext(t, regex("%f(?:ield)?(?=\\s|$)", "igm"), "<span class=\"paper_field\"></span>")
 
 	t = parsemarkdown_basic_step2(t)
@@ -1275,3 +1275,10 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	if(lowercase_regex.Find(input))
 		return FALSE
 	return TRUE
+
+/// Checks to see if a string starts with http:// or https://
+/proc/is_http_protocol(text)
+	var/static/regex/http_regex
+	if(isnull(http_regex))
+		http_regex = new("^https?://")
+	return findtext(text, http_regex)

@@ -1,3 +1,10 @@
+// IRIS ADDITION START
+#define CHECK_AHELP_ACTIVE\
+	if(state != AHELP_ACTIVE) { \
+		return;\
+	};
+// IRIS ADDITION END
+
 /// Client var used for returning the ahelp verb
 /client/var/adminhelptimerid = 0
 /// Client var used for tracking the ticket the (usually) not-admin client is dealing with
@@ -676,6 +683,8 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		if("retitle")
 			Retitle()
 		if("reject")
+			CHECK_AHELP_ACTIVE
+			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_REJECT) // IRIS EDIT ADDITION
 			Reject()
 		if("reply")
 			// NOVA EDIT START - ADMIN HANDLE
@@ -683,10 +692,16 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 				usr?.client.cmd_ahelp_reply(initiator)
 			// NOVA EDIT END
 		if("icissue")
+			CHECK_AHELP_ACTIVE // IRIS EDIT ADDITION
+			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_RESOLVE, AHELP_CLOSEREASON_IC) // IRIS EDIT ADDITION
 			ICIssue()
 		if("close")
+			CHECK_AHELP_ACTIVE // IRIS EDIT ADDITION
+			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_CLOSE) // IRIS EDIT ADDITION
 			Close()
 		if("resolve")
+			CHECK_AHELP_ACTIVE // IRIS EDIT ADDITION
+			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_RESOLVE) // IRIS EDIT ADDITION
 			Resolve()
 		if("reopen")
 			Reopen()
