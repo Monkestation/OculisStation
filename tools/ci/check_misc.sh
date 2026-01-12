@@ -12,7 +12,7 @@ status=$?
 set -e
 
 if [ $status -eq 1 ]; then
-    echo "Error: CatchUnescapedBrackets/pass.dm failed validation."
+    echo "Error: CatchUnescapedBrackets/pass.dm failed validation"
     exit 1
 fi
 
@@ -22,6 +22,6 @@ status=$?
 set -e
 
 if [ $status -eq 0 ]; then
-    echo "Error: CatchUnescapedBrackets/fail.dm passed validation."
+    echo "Error: CatchUnescapedBrackets/fail.dm passed validation"
     exit 1
 fi
