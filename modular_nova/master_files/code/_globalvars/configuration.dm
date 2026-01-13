@@ -85,3 +85,7 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 // Role ID to check if a user has in order for them to be let in.
 /datum/config_entry/string/plexora_verification_required_roleid
 
+// If enabled, allows mentors and admins to bypass verification.
+/datum/config_entry/flag/plexora_verification_whitelist_staff
+	protection = CONFIG_ENTRY_LOCKED
+
