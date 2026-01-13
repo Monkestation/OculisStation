@@ -623,6 +623,7 @@ export function MainPage(props: MainPageProps) {
 
             {/* NOVA EDIT ADDITION START */}
             <Stack.Item position="relative">
+              Preview Clothing Type
               <SideDropdown // IRIS EDIT: Dropdown -> SideDropdown to support https://github.com/Bubberstation/Bubberstation/pull/3015
                 width="100%"
                 selected={data.preview_selection}
@@ -637,6 +638,7 @@ export function MainPage(props: MainPageProps) {
             {/* NOVA EDIT ADDITION END */}
             {/* IRIS EDIT ADDITION START: Background Selection from https://github.com/Bubberstation/Bubberstation/pull/3015*/}
             <Stack.Item position="relative">
+              Preview Background
               <SideDropdown
                 width="100%"
                 selected={data.character_preferences.misc.background_state}
