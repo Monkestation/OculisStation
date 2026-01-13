@@ -34,7 +34,12 @@
 		if (input["format"] == "json")
 			. = list("error" = .)
 	else
-		. = Run(input)
+		// IRIS EDIT START
+		if (input["json"])
+			. = Run(input + json_decode(input["json"]))
+		else
+			. = Run(input)
+		// IRIS EDIT END
 	if (input["format"] == "json")
 		. = json_encode(.)
 	else if(islist(.))
