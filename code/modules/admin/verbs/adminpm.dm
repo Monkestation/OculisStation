@@ -287,10 +287,11 @@ ADMIN_VERB(cmd_admin_pm_panel, R_NONE, "Admin PM", "Show a list of clients to PM
 /// or a /client, in which case we send in the standard form
 /// send_message is the raw message to send, it will be filtered and treated to ensure we do not break any text handling
 /// Returns FALSE if the send failed, TRUE otherwise
-/client/proc/sends_adminpm_message(ambiguious_recipient, send_message)
+/client/proc/sends_adminpm_message(ambiguious_recipient, raw_send_message) // IRIS EDIT CHANGE - ORIGINAL: /client/proc/sends_adminpm_message(ambiguious_recipient, send_message)
 	if(IsAdminAdvancedProcCall())
 		return FALSE
 
+	var/send_message = raw_send_message // monkestation edit: PLEXORA
 	send_message = adminpm_filter_text(ambiguious_recipient, send_message)
 	if(!send_message)
 		return null
