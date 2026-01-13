@@ -36,9 +36,6 @@
 	else if(href_list["ahelp_tickets"])
 		GLOB.ahelp_tickets.BrowseTickets(text2num(href_list["ahelp_tickets"]))
 
-	else if(href_list["stickyban"])
-		stickyban(href_list["stickyban"],href_list)
-
 	else if(href_list["getplaytimewindow"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -1122,7 +1119,14 @@
 		if(!istype(error_viewer))
 			to_chat(usr, span_warning("That runtime viewer no longer exists."), confidential = TRUE)
 			return
-
+		// IRIS EDIT ADDITION START
+		if(href_list["viewruntime_externallog"])
+			error_viewer.send_log_file(owner)
+			return
+		if(href_list["viewruntime_savelog"])
+			error_viewer.save_log(owner, href_list["viewruntime_savelog"])
+			return
+		// IRIS EDIT ADDITION END
 		if(href_list["viewruntime_backto"])
 			error_viewer.show_to(owner, locate(href_list["viewruntime_backto"]), href_list["viewruntime_linear"])
 		else
