@@ -26,9 +26,6 @@
 	if(GLOB.admin_datums[ckey] || GLOB.deadmins[ckey])
 		admin = TRUE
 
-	if (GLOB.mentor_datums[ckey]/* || GLOB.dementors[ckey] || (ckey in GLOB.protected_mentors)*/)
-		mentor = TRUE
-
 	// IRIS EDIT ADDITION START - tracks byond versions in connection logs
 	if (!real_bans_only)
 		log_client_to_db_connection_log_manual(ckey, address, computer_id, "isbanned", type)
