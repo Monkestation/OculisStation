@@ -92,7 +92,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		keyname = "[sheet.icon_tag("emoji-heart")][keyname]"
 
 	//The linkify span classes and linkify=TRUE below make ooc text get clickable chat href links if you pass in something resembling a url
-	/* IRIS EDIT ADDITION - ORIGINAL - im so sorry
+	/*  // IRIS EDIT REMOVAL START
 	for(var/client/receiver as anything in GLOB.clients)
 		if(!receiver.prefs) // Client being created or deleted. Despite all, this can be null.
 			continue
@@ -119,7 +119,8 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 				to_chat(receiver, "<span class='oocplain'><font color='[GLOB.OOC_COLOR]'><b>[span_prefix("OOC:")] <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font></span>", avoid_highlighting = avoid_highlight)
 			else
 				to_chat(receiver, span_ooc(span_prefix("OOC:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]")), avoid_highlighting = avoid_highlight)
-	*/
+	*/ // IRIS EDIT REMOVAL END
+	// IRIS EDIT ADDITION START
 	// pronouns
 	var/pronouns = prefs.read_preference(/datum/preference/text/ooc_pronouns)
 
@@ -154,6 +155,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 				to_chat(receiver, span_oocplain("<font color='[GLOB.OOC_COLOR]'><b>[span_prefix("OOC:")] <EM>[keyfield]:</EM> <span class='message linkify'>[msg]</span></b></font>"), avoid_highlighting = avoid_highlight)
 			else
 				to_chat(receiver, span_ooc(span_prefix("OOC:</span> <EM>[keyfield]:</EM> <span class='message linkify'>[msg]")), avoid_highlighting = avoid_highlight)
+	// IRIS EDIT ADDITION END
 
 
 /proc/toggle_ooc(toggle = null)
