@@ -134,6 +134,8 @@
 		"layer2TG.png" = 'html/images/parallax/layer2TG.png',
 		"layer3TG.png" = 'html/images/parallax/layer3TG.png',
 	)
+	// This window is yet to respect webroot transport, so, this is here for now.
+	legacy = TRUE
 
 /**
  * Removes the titlescreen entirely from a mob.
