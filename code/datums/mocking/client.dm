@@ -43,15 +43,17 @@
 
 	var/static/mock_client_uid = 0
 
-/datum/client_interface/New(key)
+/datum/client_interface/New(key) // IRIS EDIT: Original:  /datum/client_interface/New()
 	..()
 
 	byond_version = world.byond_version
 	byond_build = world.byond_build
 
+	// IRIS ADDITION START
 	if(!key)
 		key = "[src::key]_[mock_client_uid++]"
 	src.key = key
+	// IRIS ADDITION END
 	ckey = ckey(key)
 
 #ifdef UNIT_TESTS // otherwise this shit can leak into production servers which is drather dbad

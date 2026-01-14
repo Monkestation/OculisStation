@@ -15,12 +15,19 @@
 	var/_raw_response
 
 /datum/http_request/proc/prepare(method, url, body = "", list/headers, output_file, timeout_seconds)
+	/* IRIS EDIT ORIGINAL:
+	if (!length(headers))
+		headers = ""
+	else
+		headers = json_encode(headers)
+	*/
 	if (!length(headers))
 		headers = json_encode(list("User-Agent" = get_useragent()))
 	else
 		if (!headers["User-Agent"])
 			headers["User-Agent"] = get_useragent()
 		headers = json_encode(headers)
+	// IRIS EDIT END
 
 	src.method = method
 	src.url = url
@@ -102,30 +109,3 @@
 	.["errored"] = errored
 	.["error"] = error
 	return .
-
-/**
- * Returns a user-agent for http(s) requests
- * * comment - {str || list} String or list, comments to be applied to the user-agent
- *
- * ```
- * // returns `BYOND 516.1666 ss13-oculisstation/deadbeef (Comment-One; Comment-Two)`
- * get_useragent(list("Comment-One", "Comment-Two"))
- * // returns `BYOND 516.1666 ss13-oculisstation/deadbeef (My-comment)`
- * get_useragent("My-comment")
- * ```
- */
-/proc/get_useragent(comment)
-	. = "BYOND/[DM_VERSION].[DM_BUILD] ss13-oculisstation/[copytext(GLOB.revdata.commit, 0, 8) || "NOCOMMIT"] "
-
-	if (istext(comment))
-		. += " ([comment])"
-	else if (islist(comment))
-		var/list/comments = comment
-		if (length(comments))
-			. += " ("
-			for (var/i = 1 to length(comments))
-				. += "[comments[i]]"
-				if (i == length(comments))
-					. += ")"
-					break
-				. += ";"

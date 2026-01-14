@@ -12,7 +12,7 @@
 		return ..() //shunt world topic banchecks to purely to byond's internal ban system
 
 	var/admin = FALSE
-	var/mentor = FALSE
+	var/mentor = FALSE // IRIS ADDITION
 	var/ckey = ckey(key)
 
 	var/client/C = GLOB.directory[ckey]
@@ -27,8 +27,10 @@
 	if(GLOB.admin_datums[ckey] || GLOB.deadmins[ckey])
 		admin = TRUE
 
+	// IRIS EDIT ADDITION START
 	if (GLOB.mentor_datums[ckey]/* || GLOB.dementors[ckey] || (ckey in GLOB.protected_mentors)*/)
 		mentor = TRUE
+	// IRIS EDIT ADDITION end
 
 	// IRIS EDIT ADDITION START - tracks byond versions in connection logs
 	if (!real_bans_only)
