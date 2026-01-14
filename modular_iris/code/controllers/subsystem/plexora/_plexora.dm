@@ -69,6 +69,7 @@ SUBSYSTEM_DEF(plexora)
 		serverstarted()
 
 	RegisterSignal(SSticker, COMSIG_TICKER_ROUND_STARTING, PROC_REF(roundstarted))
+	RegisterSignal(SSticker, COMSIG_TICKER_ROUND_ENDED, PROC_REF(roundended))
 
 	return SS_INIT_SUCCESS
 
