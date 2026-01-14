@@ -39,7 +39,7 @@ GLOBAL_LIST_INIT(pronouns_required, list(
 	if (!value || trim(value) == "")
 		return TRUE
 
-	var/reg = regex(@"^[a-z/]+", "i")
+	var/regex/reg = regex(@"^[a-z/]+", "i")
 	reg.Find(value)
 	if (!length(reg.match))
 		to_chat(usr, span_warning("Could not find any pronouns. Make sure they are separated by slashes (/) and contain only letters."))
