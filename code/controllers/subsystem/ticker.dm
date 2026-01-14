@@ -362,7 +362,6 @@ SUBSYSTEM_DEF(ticker)
 	var/list/allmins = adm["present"]
 	send2adminchat("Server", "Round [GLOB.round_id ? "#[GLOB.round_id]" : ""] has started[allmins.len ? ".":" with no active admins online!"]")
 	setup_done = TRUE
-	SSplexora.roundstarted() // IRIS EDIT ADDITION
 
 	for(var/i in GLOB.start_landmarks_list)
 		var/obj/effect/landmark/start/S = i
