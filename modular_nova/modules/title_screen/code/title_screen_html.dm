@@ -176,7 +176,7 @@ GLOBAL_LIST_EMPTY(startup_messages)
 		// GOD I FUCKING HATE PUTTING JS INSIDE DREAMMAKER CODE,
 		// WHY CANT WE PEOPLE BE NORMAL AND PUT THEM IN HTML FILES AND USE TEMPLATING SYNTAX?!!!!
 		dat += {"
-		<script language="JavaScript>
+		<script language="JavaScript">
 			// Parallax background ported from https://github.com/AffectedArc07/SS13WebMap/tree/archived with some hefty changes
 			(function () {
         const layer1 = document.getElementById("layer1");
