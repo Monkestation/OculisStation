@@ -48,10 +48,6 @@ SUBSYSTEM_DEF(player_ranks)
  * do not actually possess the role. Defaults to `TRUE`.
  */
 /datum/controller/subsystem/player_ranks/proc/is_donator(client/user, admin_bypass = TRUE)
-	// IRIS EDIT ADDITION START
-	if(istype(user, /mob))
-		user = astype(user, /mob).client
-	// IRIS EDIT ADDITION END
 	if(!istype(user))
 		CRASH("Invalid user type provided to is_donator(), expected 'client' and obtained '[user ? user.type : "null"]'.")
 

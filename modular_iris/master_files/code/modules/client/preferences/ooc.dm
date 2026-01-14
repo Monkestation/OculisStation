@@ -1,4 +1,4 @@
-#define MAX_PRONOUNS 4
+#define MAX_PRONOUNS 5
 // This list is non-exhaustive
 GLOBAL_LIST_INIT(pronouns_valid, list(
 	"he", "him", "his",
@@ -14,7 +14,13 @@ GLOBAL_LIST_INIT(pronouns_valid, list(
 	"ne", "nem", "nir", "nirs"
 ))
 
-// at least one is required
+// examples:
+// "she/fae"
+// "she/fae - small comment"
+// "she/her/they - sysadmin"
+// "they/ve - sysadmin"
+
+// at least ONE is required
 GLOBAL_LIST_INIT(pronouns_required, list(
 	"he", "her", "she", "they", "them", "it", "fae", "its"
 ))
@@ -33,24 +39,23 @@ GLOBAL_LIST_INIT(pronouns_required, list(
 	if (!value || trim(value) == "")
 		return TRUE
 
-	// staff/donators/mentors can choose whatever pronouns they want given, you know, we trust them to use them like a normal person
-	if (usr && (is_admin(usr) || usr.client.is_mentor() || SSplayer_ranks.is_donator(usr.client)))
-		to_chat(usr, span_notice("Gentle reminder that since you are staff, you can set this field however you like. But please use it in good faith."))
-		log_game("OOC pronouns set by [usr] ([usr.ckey]) to: [value]")
-		return TRUE
-
-	var/pronouns = splittext(value, "/")
+	var/reg = regex(@"^[a-z/]+", "i")
+	reg.Find(value)
+	if (!length(reg.match))
+		to_chat(usr, span_warning("Could not find any pronouns. Make sure they are separated by slashes (/) and contain only letters."))
+		return FALSE
+	var/pronouns = splittext(reg.match, "/")
 	if (length(pronouns) > MAX_PRONOUNS)
 		to_chat(usr, span_warning("You can only set up to [MAX_PRONOUNS] different pronouns."))
 		return FALSE
 
 
 	for (var/pronoun in pronouns)
-		// pronouns can end in "self" or "selfs" so allow those
-		// if has "self" or "selfs" at the end, remove it
-		if (endswith(pronoun, "selfs"))
-			pronoun = copytext(pronoun, 1, length(pronoun) - 5)
-		else if (endswith(pronoun, "self"))
+		// while parsing, remove common suffixes
+
+		if (endswith(pronoun, "s"))
+			pronoun = copytext(pronoun, 1, length(pronoun) - 1)
+		if (endswith(pronoun, "self"))
 			pronoun = copytext(pronoun, 1, length(pronoun) - 4)
 		pronoun = trim(pronoun)
 
@@ -59,14 +64,14 @@ GLOBAL_LIST_INIT(pronouns_required, list(
 			return FALSE
 
 	if (length(pronouns) != length(unique_list(pronouns)))
-		to_chat(usr, span_warning("You cannot use the same pronoun multiple times."))
+		to_chat(usr, span_warning("You can't use the same pronoun multiple times."))
 		return FALSE
 
 	for (var/pronoun in GLOB.pronouns_required)
 		if (pronoun in pronouns)
 			return TRUE
 
-	to_chat(usr, span_warning("You must include at least one of the following pronouns: [GLOB.pronouns_required.Join(", ")]"))
+	to_chat(usr, span_warning("Please include at least one of the following pronouns: [GLOB.pronouns_required.Join(", ")]"))
 	// Someone may yell at me i dont know
 	return FALSE
 
