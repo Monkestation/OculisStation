@@ -106,7 +106,7 @@ GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 		if (duration > 10 MINUTES)
 			if((tgui_alert(user, "This song is over 10 minutes long. Are you sure you want to play it?", "Length Warning", list("No", "Yes", "Cancel")) != "Yes"))
 				return
-		var/include_song_data = tgui_alert(user, "Show the title of and link to this song to the players?\n[title]", "Song Info", list("Yes", "No", "Cancel"))
+		var/include_song_data = tgui_input_list(user, "Show the title of and link to this song to the players?\n[title]", "Show Info?", list("Yes", "No", "Custom Title", "Cancel")) // IRIS EDIT, ORIGINAL: var/include_song_data = tgui_alert(user, "Show the title of and link to this song to the players?\n[title]", "Song Info", list("Yes", "No", "Cancel"))
 		switch(include_song_data)
 			if("Yes")
 				music_extra_data["title"] = data["title"]
@@ -117,6 +117,14 @@ GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 				music_extra_data["artist"] = "Unknown"
 				music_extra_data["upload_date"] = "XX.YY.ZZZZ"
 				music_extra_data["album"] = "Default"
+			// IRIS EDIT ADDITION START
+			if("Custom Title")
+				var/custom_title = tgui_input_text(user, "Enter the title to show to players", "Custom sound info", null)
+				if (!length(custom_title))
+					tgui_alert(user, "No title specified, using default.", "Custom sound info", list("Okay"))
+				else
+					music_extra_data["title"] = custom_title
+			// IRIS EDIT ADDITION END
 			if("Cancel", null)
 				return
 		var/credit_yourself = tgui_alert(user, "Display who played the song?", "Credit Yourself", list("Yes", "No", "Cancel"))
