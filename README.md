@@ -1,9 +1,9 @@
 ## Oculis ~~Iris~~ Station 13 (/tg/station Downstream)
 
-[![CI Suite](https://github.com/IrisSS13/IrisStation/workflows/CI%20Suite/badge.svg)](https://github.com/IrisSS13/IrisStation/actions?query=workflow%3A%22CI+Suite%22)
-[![Percentage of issues still open](https://isitmaintained.com/badge/open/IrisSS13/IrisStation.svg)](https://isitmaintained.com/project/IrisSS13/IrisStation "Percentage of issues still open")
-[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/IrisSS13/IrisStation.svg)](https://isitmaintained.com/project/IrisSS13/IrisStation "Average time to resolve an issue")
-![Coverage](https://img.shields.io/codecov/c/github/IrisSS13/IrisStation)
+[![CI Suite](https://github.com/Monkestation/OculisStation/workflows/CI%20Suite/badge.svg)](https://github.com/Monkestation/OculisStation/actions?query=workflow%3A%22CI+Suite%22)
+[![Percentage of issues still open](https://isitmaintained.com/badge/open/Monkestation/OculisStation.svg)](https://isitmaintained.com/project/Monkestation/OculisStation "Percentage of issues still open")
+[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/Monkestation/OculisStation.svg)](https://isitmaintained.com/project/Monkestation/OculisStation "Average time to resolve an issue")
+![Coverage](https://img.shields.io/codecov/c/github/Monkestation/OculisStation)
 
 [![resentment](.github/images/badges/built-with-resentment.svg)](.github/images/comics/131-bug-free.png) [![technical debt](.github/images/badges/contains-technical-debt.svg)](.github/images/comics/106-tech-debt-modified.png) [![forinfinityandbyond](.github/images/badges/made-in-byond.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
@@ -18,7 +18,7 @@
 | Iris Station's Discord  | [https://discord.gg/azps5ydx2F](https://discord.gg/azps5ydx2F)                                                                         |
 | Coderbus Discord        | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)                                                                               |
 
-This is Iris' downstream fork of Nova Sector, which in turn is a downstream fork of /tg/station created in BYOND.
+This is Oculis' [Iris' downstream](https://github.com/IrisSS13/IrisStation/) fork of [Nova Sector](https://github.com/NovaSector/NovaSector/), which in turn is a downstream fork of [/tg/station](https://github.com/tgstation/tgstation) created in BYOND.
 
 There are NSFW sprites in the codebase, but all NSFW code has been removed. Sprites will be removed when possible. This is a SFW fork.
 
