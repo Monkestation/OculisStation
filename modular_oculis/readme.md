@@ -375,7 +375,7 @@ If that is not possible, you can wrap your edit in curly brackets e.g.
 **IMPORTANT! When creating a new TGUI file from scratch, please add the following at the very top of the file (line 1):**
 
 ```js
-// THIS IS A OCULIS SECTOR UI FILE
+// THIS IS A OCULIS UI FILE
 ```
 
 This way they are easily identifiable as modular TGUI .tsx/.jsx files. You do not have to do anything further, and there will never be any need for a Oculis edit comment in a modular TGUI file.
