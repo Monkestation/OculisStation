@@ -184,19 +184,29 @@ export class Changelog extends Component {
 
     const header = (
       <Section>
-        <h1>Iris Station</h1>
+        <h1>Oculis Station</h1>
         <p>
           <b>Thanks to: </b>
-          Nova Sector, /tg/station, Skyrat Station 13, Baystation 12,
-          /vg/station, NTstation, CDK Station devs, FacepunchStation,
-          GoonStation devs, the original Space Station 13 developers, and the
-          countless others who have contributed to the game.
+          Iris Station, Nova Sector, /tg/station, Monkestation, Skyrat Station
+          13, Baystation 12, /vg/station, NTstation, CDK Station devs,
+          FacepunchStation, GoonStation devs, the original Space Station 13
+          developers, and the countless others who have contributed to the game.
+        </p>
+        <p>
+          Credits to:
+          <a href="https://bsky.app/profile/euphoriaenby.bsky.social">
+            @euphoricaspentrees
+          </a>{' '}
+          (Original logo drawing) and <a href="https://fleepy.tv">@flleeppyy</a>{' '}
+          (touchups and additional graphics) for the game icon and banner!
         </p>
         <p>
           {'Current project maintainers can be found '}
-          <a href="https://github.com/IrisSS13/IrisStation?tab=members">here</a>
+          <a href="https://github.com/Monkestation/OculisStation?tab=members">
+            here
+          </a>
           {', recent GitHub contributors can be found '}
-          <a href="https://github.com/IrisSS13/IrisStation/pulse/monthly">
+          <a href="https://github.com/Monkestation/OculisStation/pulse/monthly">
             here
           </a>
           .

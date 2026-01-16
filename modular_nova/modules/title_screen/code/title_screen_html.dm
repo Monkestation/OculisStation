@@ -90,6 +90,14 @@ GLOBAL_LIST_EMPTY(startup_messages)
 	else
 		dat += {"<img src="loading_screen.gif" class="bg" alt="">"}
 
+		dat += {"
+			<div style="position: fixed; inset: 0; overflow: hidden; z-index: 10; pointer-events: none; mix-blend-mode: screen;">
+				<div id="layer3"></div>
+				<div id="layer2"></div>
+				<div id="layer1"></div>
+			</div>
+		"}
+
 		if(SStitle.current_notice)
 			dat += {"
 			<div class="container_notice">
@@ -164,6 +172,89 @@ GLOBAL_LIST_EMPTY(startup_messages)
 			function update_loading_progress() {}
 		</script>
 		"}
+
+		// IRIS EDIT ADDITION START - PARALLAX BACKGROUND
+		// GOD I FUCKING HATE PUTTING JS INSIDE DREAMMAKER CODE,
+		// WHY CANT WE PEOPLE BE NORMAL AND PUT THEM IN HTML FILES AND USE TEMPLATING SYNTAX?!!!!
+		dat += {"
+		<script language="JavaScript">
+			// Parallax background ported from https://github.com/AffectedArc07/SS13WebMap/tree/archived with some hefty changes
+			(function () {
+				const layer1 = document.getElementById("layer1");
+				const layer2 = document.getElementById("layer2");
+				const layer3 = document.getElementById("layer3");
+
+				let motionOK = true;
+
+				const mediaQuery = window.matchMedia(
+					"(prefers-reduced-motion: reduce)"
+				);
+
+				function handleMotionChange(e) {
+					motionOK = !e.matches;
+					if (!motionOK) stopFTL();
+				}
+
+				motionOK = !mediaQuery.matches;
+				mediaQuery.addEventListener("change", handleMotionChange);
+
+				/**
+				 * Initialize the parallax
+				 * @param {'N'|'S'|'E'|'W'} dir
+				 * @param {number} speedmodif
+				 */
+				function initFTL(dir = "E", speedmodif = 0) {
+					if (!layer1 || !layer2 || !layer3) {
+						console.error("Layers not found");
+						return;
+					}
+
+					if (!motionOK) {
+						stopFTL();
+						return;
+					}
+
+					const speeds = {
+						l1: Math.max(80 + speedmodif, 1),
+						l2: Math.max(40 + speedmodif, 1),
+						l3: Math.max(20 + speedmodif, 1),
+					};
+
+					layer1.className = "layer1";
+					layer2.className = "layer2";
+					layer3.className = "layer3";
+
+					layer1.style.animationName = `loop_${dir}`;
+					layer2.style.animationName = `loop_${dir}`;
+					layer3.style.animationName = `loop_${dir}`;
+
+					layer1.style.animationDuration = speeds.l1 + "s";
+					layer2.style.animationDuration = speeds.l2 + "s";
+					layer3.style.animationDuration = speeds.l3 + "s";
+
+					console.debug("FTL Translation successful");
+				}
+
+				function stopFTL() {
+					if (layer1) layer1.style.animationName = "none";
+					if (layer2) layer2.style.animationName = "none";
+					if (layer3) layer3.style.animationName = "none";
+				}
+
+				const autoInit = true;
+				const direction = "E";
+				const speedModifier = 0;
+
+				if (autoInit && motionOK) {
+					initFTL(direction, speedModifier);
+				}
+
+				window.initFTL = initFTL;
+				window.stopFTL = stopFTL;
+			})();
+		</script>
+		"}
+	// IRIS EDIT ADDITION END
 
 	// Tell the server this page loaded.
 	dat += {"
