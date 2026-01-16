@@ -1,8 +1,8 @@
-import { CheckboxInput, FeatureToggle } from '../../base';
+import { CheckboxInput, type FeatureToggle } from '../../base';
 
 export const mapvote_hud: FeatureToggle = {
   name: 'Show votes as a HUD element',
-  category: 'OOC',
+  category: 'UI',
   description:
     'Show any new votes as a HUD element on the top-right section of the screen',
   component: CheckboxInput,
