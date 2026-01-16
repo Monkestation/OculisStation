@@ -38,6 +38,7 @@
 	questions = CONFIG_GET(str_list/interview_questions)
 	responses.len = questions.len
 	welcome_message = CONFIG_GET(string/interview_welcome_msg)
+	SSplexora.interview(src) // IRIS EDIT ADDITION
 
 /**
  * Approves the interview, forces reconnect of owner if relevant.
@@ -54,6 +55,8 @@
 	GLOB.interviews.close_interview(src)
 	log_admin_private("[key_name(approved_by)] has approved interview #[id] for [owner_ckey][!owner ? "(DC)": ""].")
 	message_admins(span_adminnotice("[key_name(approved_by)] has approved [link_self()] for [owner_ckey][!owner ? "(DC)": ""]."))
+	SSplexora.interview(src) // IRIS EDIT ADDITION
+
 	if (owner)
 		SEND_SOUND(owner, sound('sound/effects/adminhelp.ogg'))
 		to_chat(owner, "<font color='red' size='4'><b>-- Interview Update --</b></font>" \
@@ -74,6 +77,7 @@
 	log_admin_private("[key_name(denied_by)] has denied interview #[id] for [owner_ckey][!owner ? "(DC)": ""].")
 	message_admins(span_adminnotice("[key_name(denied_by)] has denied [link_self()] for [owner_ckey][!owner ? "(DC)": ""]."))
 	addtimer(CALLBACK(GLOB.interviews, TYPE_PROC_REF(/datum/interview_manager, release_from_cooldown), owner_ckey), 18 SECONDS)
+	SSplexora.interview(src) // IRIS EDIT ADDITION
 	if (owner)
 		SEND_SOUND(owner, sound('sound/effects/adminhelp.ogg'))
 		to_chat(owner, "<font color='red' size='4'><b>-- Interview Update --</b></font>" \

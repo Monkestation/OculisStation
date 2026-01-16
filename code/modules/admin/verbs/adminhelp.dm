@@ -1,3 +1,10 @@
+// IRIS ADDITION START
+#define CHECK_AHELP_ACTIVE\
+	if(state != AHELP_ACTIVE) { \
+		return;\
+	};
+// IRIS ADDITION END
+
 /// Client var used for returning the ahelp verb
 /client/var/adminhelptimerid = 0
 /// Client var used for tracking the ticket the (usually) not-admin client is dealing with
@@ -124,6 +131,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		C.current_ticket.initiator = C
 		C.current_ticket.AddInteraction("Client reconnected.")
 		SSblackbox.LogAhelp(C.current_ticket.id, "Reconnected", "Client reconnected", C.ckey)
+		SSplexora.aticket_connection(C.current_ticket, FALSE) // IRIS EDIT ADDITION
 
 //Dissasociate ticket
 /datum/admin_help_tickets/proc/ClientLogout(client/C)
@@ -133,6 +141,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		//Gotta async this cause clients only logout on destroy, and sleeping in destroy is disgusting
 		INVOKE_ASYNC(SSblackbox, TYPE_PROC_REF(/datum/controller/subsystem/blackbox, LogAhelp), T.id, "Disconnected", "Client disconnected", C.ckey)
 		T.initiator = null
+		SSplexora.aticket_connection(C.current_ticket) // IRIS EDIT ADDITION
 
 //Get a ticket given a ckey
 /datum/admin_help_tickets/proc/CKey2ActiveTicket(ckey)
@@ -252,7 +261,9 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	if(is_bwoink)
 		AddInteraction("<font color='blue'>[key_name_admin(usr)] PM'd [LinkedReplyName()]</font>", player_message = "<font color='blue'>[key_name_admin(usr, include_name = FALSE)] PM'd [LinkedReplyName()]</font>")
 		message_admins("<font color='blue'>Ticket [TicketHref("#[id]")] created</font>")
+		SSplexora.aticket_new(src, msg_raw, is_bwoink, urgent, usr.ckey) // IRIS EDIT ADDITION
 	else
+		SSplexora.aticket_new(src, msg_raw, is_bwoink, urgent) // IRIS EDIT ADDITION
 		MessageNoRecipient(msg_raw, urgent)
 		send_message_to_tgs(msg, urgent)
 	GLOB.ahelp_tickets.active_tickets += src
@@ -481,6 +492,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	log_admin_private(msg)
 	SSblackbox.LogAhelp(id, "Reopened", "Reopened by [usr.key]", usr.ckey)
 	SSblackbox.record_feedback("tally", "ahelp_stats", 1, "reopened")
+	SSplexora.aticket_reopened(src, usr.ckey) // IRIS EDIT ADDITION
 	TicketPanel() //can only be done from here, so refresh it
 
 //private
@@ -676,6 +688,8 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		if("retitle")
 			Retitle()
 		if("reject")
+			CHECK_AHELP_ACTIVE
+			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_REJECT) // IRIS EDIT ADDITION
 			Reject()
 		if("reply")
 			// NOVA EDIT START - ADMIN HANDLE
@@ -683,10 +697,16 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 				usr?.client.cmd_ahelp_reply(initiator)
 			// NOVA EDIT END
 		if("icissue")
+			CHECK_AHELP_ACTIVE // IRIS EDIT ADDITION
+			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_RESOLVE, AHELP_CLOSEREASON_IC) // IRIS EDIT ADDITION
 			ICIssue()
 		if("close")
+			CHECK_AHELP_ACTIVE // IRIS EDIT ADDITION
+			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_CLOSE) // IRIS EDIT ADDITION
 			Close()
 		if("resolve")
+			CHECK_AHELP_ACTIVE // IRIS EDIT ADDITION
+			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_RESOLVE) // IRIS EDIT ADDITION
 			Resolve()
 		if("reopen")
 			Reopen()
@@ -1191,3 +1211,4 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 #undef WEBHOOK_URGENT
 #undef WEBHOOK_NONE
 #undef WEBHOOK_NON_URGENT
+#undef CHECK_AHELP_ACTIVE

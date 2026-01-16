@@ -368,12 +368,14 @@ GLOBAL_VAR(restart_counter)
 	#else
 	if(check_hard_reboot())
 		log_world("World hard rebooted at [time_stamp()]")
+		SSplexora.notify_shutdown(PLEXORA_SHUTDOWN_KILLDD) // IRIS ADDITION
 		shutdown_logging() // See comment below.
 		QDEL_NULL(Tracy)
 		QDEL_NULL(Debugger)
 		TgsEndProcess()
 		return ..()
 
+	SSplexora.notify_shutdown() // IRIS ADDITION
 	log_world("World rebooted at [time_stamp()]")
 
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
