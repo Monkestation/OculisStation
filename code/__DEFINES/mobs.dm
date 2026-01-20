@@ -53,6 +53,7 @@
 #define BLOOD_TYPE_XENO "X*"
 #define BLOOD_TYPE_H2O "H2O"
 #define BLOOD_TYPE_SNAIL "S"
+#define BLOOD_TYPE_DIONA "CH" // IRIS EDIT ADDITION
 
 // Blood exposure behavior flag defines
 /// Add our DNA to turfs/mobs/items, does not correlate with adding decals/overlays
