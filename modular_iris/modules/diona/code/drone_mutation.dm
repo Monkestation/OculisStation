@@ -43,7 +43,7 @@
 		if(!do_after(C, 5 SECONDS, C, NONE, TRUE))
 			return
 		has_drone = TRUE
-		var/mob/living/simple_animal/hostile/retaliate/nymph/nymph = new(C.loc)
+		var/mob/living/basic/nymph/nymph = new(C.loc)
 		nymph.is_drone = TRUE
 		nymph.drone_parent = C
 		nymph.switch_ability = new
@@ -52,7 +52,7 @@
 		S.drone_ref = WEAKREF(nymph)
 
 /datum/action/spell/drone/proc/SwitchTo(mob/living/carbon/M)
-	var/mob/living/simple_animal/hostile/retaliate/nymph/drone = drone_ref?.resolve()
+	var/mob/living/basic/nymph/drone = drone_ref?.resolve()
 	if(!drone)
 		return
 	if(drone.stat == DEAD || QDELETED(drone)) //sanity check

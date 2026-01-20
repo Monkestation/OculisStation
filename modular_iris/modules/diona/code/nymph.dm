@@ -21,6 +21,7 @@
 	hud_type = /datum/hud/nymph
 	butcher_results = list(/obj/item/food/meat/slab/human/mutant/diona = 4)
 	initial_language_holder = /datum/language_holder/diona
+	unique_name = TRUE
 
 	var/brute_damage = 0
 	var/fire_damage = 0
@@ -36,8 +37,6 @@
 
 	var/amount_grown = 0
 	var/max_grown = 150
-	var/time_of_birth
-	var/instance_num
 	var/is_ghost_spawn = TRUE //For if a ghost can become this.
 	var/is_drone = FALSE //Is a remote controlled nymph from a diona.
 	var/drone_parent //The diona which can control the nymph, if there is one
@@ -51,11 +50,8 @@
 
 /mob/living/basic/nymph/Initialize(mapload)
 	. = ..()
-	time_of_birth = world.time
 	evolve_ability = new
 	evolve_ability.Grant(src)
-	instance_num = rand(1, 1000)
-	name = "[initial(name)] ([instance_num])"
 	real_name = name
 	regenerate_icons()
 	ADD_TRAIT(src, TRAIT_MUTE, "nymph")
@@ -197,7 +193,7 @@
 	balloon_alert(arrived_diona, "[arrived_diona] assimilates [src]")
 	QDEL_NULL(src)
 
-/mob/living/basic/nymph/proc/evolve(mob/living/simple_animal/hostile/retaliate/nymph/nymphs)
+/mob/living/basic/nymph/proc/evolve(mob/living/basic/nymph/nymphs)
 	if(istype(loc, /obj/item/clothing/head/mob_holder))
 		var/obj/item/clothing/head/mob_holder/L = loc
 		src.loc = L.loc
@@ -304,7 +300,7 @@
 	var/mob/living/carbon/human/drone_diona = nymph.drone_parent
 	SwitchFrom(nymph, drone_diona)
 
-/datum/action/nymph/SwitchFrom/proc/SwitchFrom(mob/living/simple_animal/hostile/retaliate/nymph/user, mob/living/carbon/M)
+/datum/action/nymph/SwitchFrom/proc/SwitchFrom(mob/living/basic/nymph/user, mob/living/carbon/M)
 	var/datum/mind/C = user.mind
 	M = user.drone_parent
 	if(user.stat == CONSCIOUS)
