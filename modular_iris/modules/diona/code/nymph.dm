@@ -32,7 +32,6 @@
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	attack_sound = 'modular_iris/modules/diona/sounds/hit.ogg'
 	minbodytemp = 2.7
-	var/can_namepick_as_adult = FALSE
 	var/death_msg = "expires with a pitiful chirrup..."
 
 	var/amount_grown = 0
@@ -46,7 +45,6 @@
 	var/list/features = list()
 	var/time_spent_in_light
 	var/assimilating = FALSE
-	var/grown_message_sent = FALSE
 
 /mob/living/basic/nymph/Initialize(mapload)
 	. = ..()
@@ -162,9 +160,6 @@
 		amount_grown++
 	if(amount_grown > max_grown)
 		amount_grown = max_grown
-	if(!grown_message_sent && amount_grown == max_grown)
-		to_chat(src, span_userdanger("You feel like you're ready to grow up by yourself!"))
-		grown_message_sent = TRUE
 
 /mob/living/basic/nymph/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
@@ -183,7 +178,7 @@
 	if(!do_after(arrived_diona, 5 SECONDS, source, progress = TRUE))
 		toggle_ai(AI_IDLE)
 		return
-	playsound(arrived_diona, 'sound/creatures/venus_trap_hit.ogg', 25, 1)
+	playsound(arrived_diona, 'sound/mobs/non-humanoids/venus_trap/venus_trap_hit.ogg', 25, 1)
 	var/obj/item/bodypart/healed_limb = pick(limbs_to_heal)
 	arrived_diona.regenerate_limb(healed_limb)
 	for(var/obj/item/bodypart/body_part in arrived_diona.bodyparts)
@@ -229,7 +224,7 @@
 		adult.real_name = old_name
 		adult.dna.features = features
 	else
-		adult.fully_replace_character_name(name, adult.dna.species.random_name(gender))
+		adult.fully_replace_character_name(name, generate_random_name_species_based(gender, TRUE, /datum/species/diona))
 		adult.dna.features["mcolor"] = sanitize_hexcolor(RANDOM_COLOUR)
 	if(mind)
 		mind.transfer_to(adult)
@@ -256,7 +251,7 @@
 	button_icon_state = "grow"
 	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED
 
-/datum/action/nymph/evolve/on_activate(mob/user, atom/target)
+/datum/action/nymph/evolve/Trigger(mob/user, trigger_flags)
 	var/mob/living/basic/nymph/nymph = owner
 	if(!isnymph(nymph))
 		return
@@ -295,7 +290,7 @@
 		return FALSE
 	. = ..()
 
-/datum/action/nymph/SwitchFrom/on_activate(mob/user, atom/target)
+/datum/action/nymph/SwitchFrom/Activate(mob/user, trigger_flags)
 	var/mob/living/basic/nymph/nymph = owner
 	var/mob/living/carbon/human/drone_diona = nymph.drone_parent
 	SwitchFrom(nymph, drone_diona)
