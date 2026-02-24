@@ -12,7 +12,7 @@
 	nebula_layer = /atom/movable/screen/parallax_layer/random/space_gas/storm
 
 	// Use the procs to change this, since it has to re-register areas and stuff when this changes.
-	VAR_PROTECTED/affected_areas = /area/space
+	VAR_PROTECTED/list/affected_areas = list(/area/space)
 
 /datum/station_trait/nebula/storm/New()
 	. = ..()
