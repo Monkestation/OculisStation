@@ -21,9 +21,10 @@
 	register_new_areas()
 
 /datum/station_trait/nebula/storm/proc/register_new_areas()
-	for(var/area/target as anything in get_areas(affected_areas))
-		RegisterSignal(target, COMSIG_AREA_ENTERED, PROC_REF(on_entered))
-		RegisterSignal(target, COMSIG_AREA_EXITED, PROC_REF(on_exited))
+	for(var/affected_area as anything in affected_areas)
+		for(var/area/target as anything in get_areas(affected_area))
+			RegisterSignal(target, COMSIG_AREA_ENTERED, PROC_REF(on_entered))
+			RegisterSignal(target, COMSIG_AREA_EXITED, PROC_REF(on_exited))
 
 /datum/station_trait/nebula/storm/on_round_start()
 	. = ..()
