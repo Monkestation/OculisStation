@@ -2,24 +2,26 @@
 	name = "Eidolon Storm"
 	trait_type = STATION_TRAIT_NEGATIVE
 	trait_flags = STATION_TRAIT_SPACE_BOUND
-	weight = 1
+	cost = 0
 	show_in_report = TRUE
-	report_message = "This station is located inside the Eidolon Storm. Redspace Anchor functionality must be at top priority."
+	report_message = "This station is located inside Eidolon's Storm. Redspace Anchor functionality must be at top priority."
 	trait_to_give = STATION_TRAIT_EIDOLON_STORM
-
+	force = TRUE // We want this to always be active for all rounds.
 	blacklist = list()
 	dynamic_threat_id = "Eidolon Storm"
-
 	nebula_layer = /atom/movable/screen/parallax_layer/random/space_gas/storm
-	/// Area's that are part of the radioactive nebula
-	var/radioactive_areas = /area/space
+
+	// Use the procs to change this, since it has to re-register areas and stuff when this changes.
+	VAR_PROTECTED/affected_areas = /area/space
 
 /datum/station_trait/nebula/storm/New()
 	. = ..()
 
 	RegisterSignal(SSdcs, COMSIG_RULESET_BODY_GENERATED_FROM_GHOSTS, PROC_REF(on_spawned_mob))
+	register_new_areas()
 
-	for(var/area/target as anything in get_areas(radioactive_areas))
+/datum/station_trait/nebula/storm/proc/register_new_areas()
+	for(var/area/target as anything in get_areas(affected_areas))
 		RegisterSignal(target, COMSIG_AREA_ENTERED, PROC_REF(on_entered))
 		RegisterSignal(target, COMSIG_AREA_EXITED, PROC_REF(on_exited))
 
