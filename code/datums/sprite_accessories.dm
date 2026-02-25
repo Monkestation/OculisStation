@@ -979,18 +979,6 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	hair_appendages_inner = list("hair_ziegler_a1" = HAIR_APPENDAGE_REAR)
 	hair_appendages_outer = list("hair_ziegler_a1o" = HAIR_APPENDAGE_REAR)
 
-/datum/sprite_accessory/hair/inari
-	name = "Inari"
-	icon_state = "hair_inari"
-
-/datum/sprite_accessory/hair/unkemptcurls
-	name = "Unkempt Curls"
-	icon_state = "hair_unkempt_curls"
-
-/datum/sprite_accessory/hair/shrinepriestess
-	name = "Shrine Priestess"
-	icon_state = "hair_shrine_priestess"
-
 /*
 /////////////////////////////////////
 /  =---------------------------=    /
