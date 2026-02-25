@@ -793,7 +793,7 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 		)
 	if(!account_join_date)
 		account_join_date = "Error"
-	/* IRIS EDIT - Original
+	/* OCULIS EDIT - Original
 	SSdbcore.FireAndForget({"
 		INSERT INTO `[format_table_name("connection_log")]` (`id`,`datetime`,`server_ip`,`server_port`,`round_id`,`ckey`,`ip`,`computerid`)
 		VALUES(null,Now(),INET_ATON(:internet_address),:port,:round_id,:ckey,INET_ATON(:ip),:computerid)
@@ -1110,6 +1110,7 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 
 ///Gives someone hearted status for OOC, from behavior commendations
 /client/proc/adjust_heart(duration = 24 HOURS)
+
 	var/new_duration = world.realtime + duration
 	if(prefs.hearted_until > new_duration)
 		return
