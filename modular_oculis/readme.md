@@ -386,10 +386,12 @@ This way they are easily identifiable as modular TGUI .tsx/.jsx files. You do no
 
 #### Option 2: Folder Structuring
 
-Alternatively, you can create a subfolder within the directory where you are making changes and name it `oculis`.
+Alternatively, you can create a subfolder within the directory where you are making changes and name it `oculis`, if it seems fit for this circumstance.
 
 - Place all new files related to your changes inside this `oculis` folder.
 - When using this method, **you do not have to add the text specified in Option 1** to the top of your files.
+
+An example of this NOT being neccessary, is in the `tgui/interfaces` folder, you should use Option 1 for that.
 
 <!-- ## Exemplary PR's // TODO: REPLACE THESE!
 
