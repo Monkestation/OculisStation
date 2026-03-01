@@ -14,6 +14,7 @@
 	. = ..()
 	if(isnull(held_item))
 		context[SCREENTIP_CONTEXT_LMB] = enabled ? "Turn off" : "Turn on"
+		context[SCREENTIP_CONTEXT_RMB] = "Next Slide"
 		return CONTEXTUAL_SCREENTIP_SET
 	return .
 
@@ -30,5 +31,10 @@
 	enabled = !enabled
 	playsound(src, 'modular_iris/modules/emotes/sound/synth_voice/synth_click.ogg', 100, TRUE)
 	balloon_alert_to_viewers("click!")
-	update_icon_state()
+	addtimer(CALLBACK(src, PROC_REF(update_icon_state)), 1 SECONDS)
 
+/obj/machinery/projector/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	balloon_alert_to_viewers("click!")
+	icon_state = "[base_icon_state]-on"
+	addtimer(CALLBACK(src, PROC_REF(update_icon_state)), 1 SECONDS)
