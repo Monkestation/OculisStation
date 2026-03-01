@@ -31,7 +31,7 @@
 	//IRIS EDIT END
 
 	/// The colors we can be
-	var/possible_colors = list(COLOR_TEAL, COLOR_GREEN, COLOR_SILVER, COLOR_YELLOW, COLOR_CYAN, COLOR_ORANGE, COLOR_PURPLE)
+	var/possible_colors = list(COLOR_STRONG_VIOLET, COLOR_VIOLET) //OCULIS EDIT
 	/// The color we are
 	var/parallax_color
 

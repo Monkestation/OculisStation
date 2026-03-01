@@ -66,6 +66,7 @@ jobs:
         run: |
           bash tools/ci/check_grep.sh
           bash modular_nova/tools/nova_check_grep.sh # NOVA EDIT ADDITION - checking modular_nova code
+          bash modular_oculis/tools/oculis_check_grep.sh # OCULIS EDIT ADD
       - name: Ticked File Enforcement
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: |
@@ -73,6 +74,7 @@ jobs:
           tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < tools/ticked_file_enforcement/schemas/unit_tests.json
           tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < tools/ticked_file_enforcement/schemas/modular_nova.json # NOVA EDIT ADDITION - modular tick enforcement
           tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < tools/ticked_file_enforcement/schemas/modular_iris.json # IRIS EDIT ADDITION - modular iris tick enforcement
+          tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < tools/ticked_file_enforcement/schemas/modular_oculis.json # OCULIS EDIT ADDITION - modular oculis tick enforcement
       - name: Check Define Sanity
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: tools/bootstrap/python -m define_sanity.check

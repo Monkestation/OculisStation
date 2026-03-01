@@ -90,6 +90,7 @@ GLOBAL_LIST_EMPTY(startup_messages)
 	else
 		dat += {"<img src="loading_screen.gif" class="bg" alt="">"}
 
+		// OCULIS EDIT ADDITION START
 		dat += {"
 			<div style="position: fixed; inset: 0; overflow: hidden; z-index: 10; pointer-events: none; mix-blend-mode: screen;">
 				<div id="layer3"></div>
@@ -97,6 +98,7 @@ GLOBAL_LIST_EMPTY(startup_messages)
 				<div id="layer1"></div>
 			</div>
 		"}
+		// OCULIS EDIT ADDITION END
 
 		if(SStitle.current_notice)
 			dat += {"
@@ -173,7 +175,7 @@ GLOBAL_LIST_EMPTY(startup_messages)
 		</script>
 		"}
 
-		// IRIS EDIT ADDITION START - PARALLAX BACKGROUND
+		// OCULIS EDIT ADDITION START - PARALLAX BACKGROUND
 		// GOD I FUCKING HATE PUTTING JS INSIDE DREAMMAKER CODE,
 		// WHY CANT WE PEOPLE BE NORMAL AND PUT THEM IN HTML FILES AND USE TEMPLATING SYNTAX?!!!!
 		dat += {"
@@ -254,7 +256,7 @@ GLOBAL_LIST_EMPTY(startup_messages)
 			})();
 		</script>
 		"}
-	// IRIS EDIT ADDITION END
+	// OCULIS EDIT ADDITION END
 
 	// Tell the server this page loaded.
 	dat += {"
