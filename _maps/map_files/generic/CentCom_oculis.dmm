@@ -5073,12 +5073,12 @@
 /turf/open/floor/iron,
 /area/centcom/holding/cafe)
 "bWM" = (
-/obj/effect/mapping_helpers/airlock/access/all/admin,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door/airlock/public/glass,
+/obj/effect/mapping_helpers/airlock/access/all/admin/general,
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "bWP" = (
@@ -5142,7 +5142,7 @@
 	dir = 4
 	},
 /obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = 8
+	teleport_y_offset = 7
 	},
 /turf/open/floor/wood/large,
 /area/centcom/interlink)
@@ -8687,11 +8687,11 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
 	},
-/obj/structure/bed/dogbed/mcgriff{
-	anchored = 1
-	},
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/camera/directional/north,
+/obj/structure/bed/dogbed{
+	name = "Sparkles's bed"
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "hJh" = (
@@ -10019,7 +10019,7 @@
 	dir = 8
 	},
 /obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = 8
+	teleport_y_offset = 7
 	},
 /turf/open/floor/wood/large,
 /area/centcom/interlink)
@@ -10641,6 +10641,16 @@
 	},
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafepark)
+"kLn" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/obj/effect/turf_decal/siding/dark_blue,
+/obj/structure/table/reinforced,
+/obj/machinery/projector{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_half,
+/area/centcom/interlink)
 "kLD" = (
 /obj/machinery/light/directional/south,
 /turf/open/indestructible/hotelwood,
@@ -13305,16 +13315,16 @@
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/caution/stand_clear/red,
 /obj/machinery/door/airlock/public/glass,
-/obj/effect/mapping_helpers/airlock/access/all/admin,
+/obj/effect/mapping_helpers/airlock/access/all/admin/general,
 /turf/open/floor/iron/half,
 /area/centcom/interlink)
 "osn" = (
 /turf/closed/indestructible/steel,
 /area/centcom/interlink/dorm_rooms/room4)
 "oso" = (
-/obj/item/radio/entertainment/microphone/physical,
 /obj/machinery/light/directional/west,
 /obj/structure/table/reinforced,
+/obj/item/megaphone/microphone,
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "osF" = (
@@ -13522,7 +13532,7 @@
 /area/centcom/interlink/dorm_rooms/room2)
 "oCU" = (
 /obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = 8
+	teleport_y_offset = 7
 	},
 /turf/open/floor/wood/large,
 /area/centcom/interlink)
@@ -13586,10 +13596,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/centcom/interlink/dorm_rooms/room4)
-"oHR" = (
-/obj/effect/turf_decal/trimline/white/filled/warning,
-/turf/open/floor/iron/dark/smooth_large,
-/area/centcom/tdome)
 "oHU" = (
 /obj/structure/chair/sofa/bench/left{
 	dir = 4
@@ -15287,9 +15293,9 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "qJV" = (
-/obj/item/radio/entertainment/microphone/physical,
 /obj/structure/table/reinforced,
 /obj/machinery/light/directional/east,
+/obj/item/megaphone/microphone,
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "qKi" = (
@@ -17636,7 +17642,7 @@
 "tVj" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/public/glass,
-/obj/effect/mapping_helpers/airlock/access/all/admin,
+/obj/effect/mapping_helpers/airlock/access/all/admin/general,
 /turf/open/floor/iron/half,
 /area/centcom/interlink)
 "tVL" = (
@@ -18056,7 +18062,7 @@
 "upk" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/public/glass,
-/obj/effect/mapping_helpers/airlock/access/all/admin,
+/obj/effect/mapping_helpers/airlock/access/all/admin/general,
 /turf/open/floor/iron/edge,
 /area/centcom/interlink)
 "upo" = (
@@ -19697,6 +19703,7 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/north,
+/obj/structure/sign/poster/official/nanotrasen_logo/directional/north,
 /turf/open/floor/iron/dark/textured_half,
 /area/centcom/interlink)
 "wKT" = (
@@ -20388,6 +20395,7 @@
 /obj/effect/turf_decal/siding/dark_blue{
 	dir = 1
 	},
+/obj/structure/sign/poster/official/nanotrasen_logo/directional/north,
 /turf/open/floor/iron/dark/textured_half,
 /area/centcom/interlink)
 "xMi" = (
@@ -24712,7 +24720,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+jXJ
 jXJ
 uNE
 pYF
@@ -24969,8 +24977,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 esP
 qWY
 qWY
@@ -25226,8 +25234,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 hFu
 qWY
 qWY
@@ -25483,8 +25491,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 esP
 qWY
 qWY
@@ -25740,8 +25748,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 sVG
 qWY
 qWY
@@ -25749,8 +25757,8 @@ xZx
 rLK
 jXJ
 hHq
-qRl
 aTO
+qRl
 aTO
 aTO
 aTO
@@ -25997,8 +26005,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 esP
 qWY
 cZt
@@ -26254,8 +26262,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 rlN
 qWY
 qWY
@@ -26511,8 +26519,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 esP
 qWY
 qWY
@@ -26768,8 +26776,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 wbK
 qWY
 qWY
@@ -27025,8 +27033,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 wbK
 qWY
 qWY
@@ -27282,8 +27290,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 hFu
 qWY
 cZt
@@ -27539,8 +27547,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 hFu
 qWY
 dqv
@@ -27796,8 +27804,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 hFu
 qWY
 cZt
@@ -28053,8 +28061,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 hFu
 qWY
 qWY
@@ -28310,8 +28318,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 rlN
 qWY
 qWY
@@ -28567,8 +28575,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 hFu
 qWY
 dqv
@@ -28824,8 +28832,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 wbK
 qWY
 qWY
@@ -29081,8 +29089,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 hFu
 qWY
 qWY
@@ -29098,7 +29106,7 @@ chZ
 dKZ
 qnN
 bzB
-oHR
+nVN
 fdo
 fMM
 lMm
@@ -29338,8 +29346,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 hFu
 qWY
 qWY
@@ -29595,8 +29603,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 hFu
 qWY
 qWY
@@ -29852,8 +29860,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 hFu
 qWY
 dqv
@@ -30109,8 +30117,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 hFu
 rsu
 mFT
@@ -30366,8 +30374,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+rLK
 lAx
 oKX
 exf
@@ -30623,8 +30631,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
 jXJ
+adw
 adw
 adw
 adw
@@ -34734,7 +34742,7 @@ jXJ
 bpV
 aTO
 aTO
-ffF
+kLn
 abs
 iih
 iih
@@ -36572,8 +36580,8 @@ wZi
 wZi
 wZi
 tqY
-fLG
 wZi
+fLG
 wZi
 wZi
 wZi
@@ -36829,8 +36837,8 @@ evr
 evr
 evr
 evr
-byI
 evr
+byI
 evr
 evr
 evr
@@ -37086,8 +37094,8 @@ evr
 evr
 evr
 evr
-byI
 evr
+byI
 evr
 evr
 evr
@@ -37343,8 +37351,8 @@ evr
 evr
 evr
 evr
-byI
 evr
+byI
 evr
 evr
 evr
@@ -37600,8 +37608,8 @@ tuv
 tuv
 tuv
 nKw
-kuQ
 tuv
+kuQ
 tuv
 tuv
 tuv
@@ -39360,7 +39368,7 @@ jXJ
 bpV
 aTO
 aTO
-ffF
+kLn
 abs
 iih
 iih

@@ -1,8 +1,9 @@
 /obj/machinery/projector
 	name = "projector"
 	desc = "A projector for showing movies and such."
-	icon = 'icons/obj/machines/stationary_camera.dmi'
-	icon_state = "camera"
+	icon = 'modular_oculis/modules/entertainment/icons/projector.dmi'
+	base_icon_state = "projector"
+	icon_state = "projector-off"
 	var/enabled = FALSE
 
 /obj/machinery/projector/Initialize(mapload)
@@ -17,7 +18,7 @@
 	return .
 
 /obj/machinery/projector/update_icon_state()
-	//icon_state = enabled ? "projector-on" : "projector-off"
+	icon_state = "[base_icon_state][enabled ? "-active" : "-off"]"
 	return ..()
 
 /obj/machinery/projector/examine(mob/user)
@@ -28,5 +29,6 @@
 	. = ..()
 	enabled = !enabled
 	playsound(src, 'modular_iris/modules/emotes/sound/synth_voice/synth_click.ogg', 100, TRUE)
+	balloon_alert_to_viewers("click!")
 	update_icon_state()
 
