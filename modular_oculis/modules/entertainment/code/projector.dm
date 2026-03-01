@@ -26,15 +26,18 @@
 	. = ..()
 	. += "It is [(machine_stat & NOPOWER) ? "unpowered" : (enabled ? "on" : "off")]."
 
+/obj/machinery/projector/proc/update_projector_screen()
+	update_icon_state()
+
 /obj/machinery/projector/interact(mob/user)
 	. = ..()
 	enabled = !enabled
 	playsound(src, 'modular_iris/modules/emotes/sound/synth_voice/synth_click.ogg', 100, TRUE)
 	balloon_alert_to_viewers("click!")
-	addtimer(CALLBACK(src, PROC_REF(update_icon_state)), 1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(update_projector_screen)), 1 SECONDS)
 
 /obj/machinery/projector/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
 	balloon_alert_to_viewers("click!")
 	icon_state = "[base_icon_state]-on"
-	addtimer(CALLBACK(src, PROC_REF(update_icon_state)), 1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(update_projector_screen)), 1 SECONDS)
