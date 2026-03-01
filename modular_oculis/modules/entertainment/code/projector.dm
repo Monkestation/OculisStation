@@ -1,8 +1,8 @@
 /obj/machinery/projector
 	name = "projector"
 	desc = "A projector for showing movies and such."
-	icon = 'icons/obj/machinery/projector.dmi'
-	icon_state = "projector"
+	icon = 'icons/obj/machines/stationary_camera.dmi'
+	icon_state = "camera"
 	var/enabled = FALSE
 
 /obj/machinery/projector/Initialize(mapload)
@@ -12,12 +12,12 @@
 /obj/machinery/projector/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
 	if(isnull(held_item))
-		context[SCREENTIP_CONTEXT_LMB] = enabled ? "Flick off" : "Flick on"
+		context[SCREENTIP_CONTEXT_LMB] = enabled ? "Turn off" : "Turn on"
 		return CONTEXTUAL_SCREENTIP_SET
 	return .
 
 /obj/machinery/projector/update_icon_state()
-	icon_state = enabled ? "projector-on" : "projector-off"
+	//icon_state = enabled ? "projector-on" : "projector-off"
 	return ..()
 
 /obj/machinery/projector/examine(mob/user)
