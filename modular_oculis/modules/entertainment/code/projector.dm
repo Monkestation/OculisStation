@@ -9,6 +9,7 @@
 /obj/machinery/projector/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/redirect_attack_hand_from_turf)
+	register_context()
 
 /obj/machinery/projector/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
@@ -35,9 +36,11 @@
 	playsound(src, 'modular_iris/modules/emotes/sound/synth_voice/synth_click.ogg', 100, TRUE)
 	balloon_alert_to_viewers("click!")
 	addtimer(CALLBACK(src, PROC_REF(update_projector_screen)), 1 SECONDS)
+	return TRUE
 
 /obj/machinery/projector/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
 	balloon_alert_to_viewers("click!")
 	icon_state = "[base_icon_state]-on"
 	addtimer(CALLBACK(src, PROC_REF(update_projector_screen)), 1 SECONDS)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
