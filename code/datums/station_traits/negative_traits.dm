@@ -49,6 +49,7 @@
 	report_message = "Sorry for that, we didn't expect to fly into that vomiting goose while bringing you to your new station."
 	trait_to_give = STATION_TRAIT_LATE_ARRIVALS
 	blacklist = list(/datum/station_trait/random_spawns, /datum/station_trait/hangover)
+	force = TRUE
 
 /datum/station_trait/random_spawns
 	name = "Drive-by landing"
