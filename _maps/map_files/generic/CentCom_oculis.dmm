@@ -4331,12 +4331,6 @@
 /obj/structure/table/wood,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
-"byI" = (
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = -43
-	},
-/turf/open/floor/wood/large,
-/area/centcom/interlink)
 "bzB" = (
 /obj/structure/chair/sofa/bench,
 /turf/open/floor/iron/dark/smooth_large,
@@ -4635,11 +4629,11 @@
 /area/centcom/interlink)
 "bWy" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/door/poddoor/shutters/indestructible/preopen{
-	id = "castorqueue"
-	},
 /obj/effect/turf_decal/trimline/yellow/arrow_ccw{
 	dir = 5
+	},
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "castorqueue"
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
@@ -4708,15 +4702,6 @@
 /obj/effect/turf_decal/caution/stand_clear/red,
 /obj/machinery/door/airlock/public/glass,
 /turf/open/floor/iron/dark/smooth_large,
-/area/centcom/interlink)
-"cfo" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = 7
-	},
-/turf/open/floor/wood/large,
 /area/centcom/interlink)
 "cfs" = (
 /obj/structure/alien/weeds,
@@ -4810,10 +4795,6 @@
 /turf/open/misc/beach/sand,
 /area/centcom/interlink)
 "cps" = (
-/obj/machinery/button/door/directional/south{
-	pixel_x = -8;
-	id = "castorqueue"
-	},
 /obj/machinery/pdapainter,
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/bot,
@@ -4855,6 +4836,16 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding/cafepark)
+"crl" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/machinery/light/directional/west,
+/obj/effect/step_trigger/teleporter/offset{
+	teleport_y_offset = -35
+	},
+/turf/open/floor/wood/large,
+/area/centcom/interlink)
 "crI" = (
 /obj/effect/turf_decal/sand{
 	density = 1
@@ -5011,11 +5002,11 @@
 /area/centcom/holding/cafepark)
 "cYc" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/door/poddoor/shutters/indestructible/preopen{
-	id = "castorqueue"
-	},
 /obj/effect/turf_decal/trimline/yellow/arrow_ccw{
 	dir = 9
+	},
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "castorqueue"
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
@@ -6068,6 +6059,16 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafepark)
+"fGC" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/machinery/light/directional/east,
+/obj/effect/step_trigger/teleporter/offset{
+	teleport_y_offset = 7
+	},
+/turf/open/floor/wood/large,
+/area/centcom/interlink)
 "fHV" = (
 /obj/effect/turf_decal/trimline/red/filled/corner{
 	dir = 8
@@ -6094,14 +6095,9 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
-"fLG" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = -43
-	},
-/turf/open/floor/wood/large,
+"fLL" = (
+/obj/machinery/telecomms/relay/preset/station,
+/turf/open/floor/iron/large,
 /area/centcom/interlink)
 "fMM" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
@@ -6313,11 +6309,11 @@
 "gcx" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/bot,
-/obj/machinery/door/poddoor/shutters/indestructible/preopen{
-	id = "castorqueue"
-	},
 /obj/effect/turf_decal/trimline/yellow/corner{
 	dir = 1
+	},
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "castorqueue"
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
@@ -6350,10 +6346,6 @@
 	},
 /turf/open/floor/fakebasalt,
 /area/centcom/holding/cafepark)
-"ges" = (
-/obj/machinery/telecomms/relay/preset/station,
-/turf/open/floor/iron/large,
-/area/centcom/interlink)
 "geG" = (
 /turf/open/floor/iron/stairs,
 /area/centcom/holding/cafepark)
@@ -7750,6 +7742,9 @@
 "jdh" = (
 /obj/machinery/holopad,
 /obj/effect/turf_decal/bot,
+/obj/machinery/button/door/directional/north{
+	id = "castorqueue"
+	},
 /turf/open/floor/carpet/executive,
 /area/centcom/interlink)
 "jdx" = (
@@ -8011,15 +8006,6 @@
 	dir = 4
 	},
 /area/centcom/interlink)
-"jNv" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = 7
-	},
-/turf/open/floor/wood/large,
-/area/centcom/interlink)
 "jNB" = (
 /obj/machinery/light/floor{
 	alpha = 0;
@@ -8226,15 +8212,6 @@
 /obj/effect/spawner/liquids_spawner,
 /turf/open/floor/iron/pool/cobble,
 /area/centcom/holding/cafepark)
-"kuQ" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = -43
-	},
-/turf/open/floor/wood/large,
-/area/centcom/interlink)
 "kuV" = (
 /obj/structure/flora/bush/leavy/style_2,
 /obj/structure/flora/tree/jungle/style_random,
@@ -9719,6 +9696,12 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafepark)
+"nkv" = (
+/obj/effect/step_trigger/teleporter/offset{
+	teleport_y_offset = -35
+	},
+/turf/open/floor/wood/large,
+/area/centcom/interlink)
 "nkZ" = (
 /obj/machinery/light/directional/west,
 /obj/structure/closet,
@@ -9910,6 +9893,16 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/circuit/green,
 /area/centcom/holding/cafe)
+"nIt" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/machinery/light/directional/west,
+/obj/effect/step_trigger/teleporter/offset{
+	teleport_y_offset = 7
+	},
+/turf/open/floor/wood/large,
+/area/centcom/interlink)
 "nIY" = (
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 10
@@ -10591,6 +10584,7 @@
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 9
 	},
+/obj/machinery/computer/shuttle/arrivals/recall,
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "oYO" = (
@@ -11109,7 +11103,7 @@
 	pixel_y = 2
 	},
 /obj/machinery/door/window/brigdoor/left/directional/north,
-/obj/machinery/door/poddoor/shutters/indestructible/preopen{
+/obj/machinery/door/poddoor/shutters/indestructible{
 	id = "castorqueue"
 	},
 /turf/open/floor/iron/large,
@@ -12184,6 +12178,16 @@
 /obj/item/clothing/suit/costume/hawaiian,
 /turf/open/misc/beach/sand,
 /area/centcom/holding/cafepark)
+"rQg" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/machinery/light/directional/east,
+/obj/effect/step_trigger/teleporter/offset{
+	teleport_y_offset = -35
+	},
+/turf/open/floor/wood/large,
+/area/centcom/interlink)
 "rSa" = (
 /obj/machinery/airalarm/directional/west,
 /obj/structure/reagent_dispensers/water_cooler,
@@ -12485,6 +12489,7 @@
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 5
 	},
+/obj/machinery/computer/shuttle/arrivals/recall,
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "sto" = (
@@ -12764,7 +12769,7 @@
 "sSB" = (
 /obj/structure/window/reinforced/fulltile,
 /obj/structure/flora/grass/jungle,
-/obj/machinery/door/poddoor/shutters/indestructible/preopen{
+/obj/machinery/door/poddoor/shutters/indestructible{
 	id = "castorqueue"
 	},
 /turf/open/floor/grass,
@@ -12946,11 +12951,11 @@
 "tsM" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/bot,
-/obj/machinery/door/poddoor/shutters/indestructible/preopen{
-	id = "castorqueue"
-	},
 /obj/effect/turf_decal/trimline/yellow/arrow_ccw{
 	dir = 1
+	},
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "castorqueue"
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
@@ -14094,11 +14099,11 @@
 "vPr" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/bot,
-/obj/machinery/door/poddoor/shutters/indestructible/preopen{
-	id = "castorqueue"
-	},
 /obj/effect/turf_decal/trimline/yellow/corner{
 	dir = 4
+	},
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "castorqueue"
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
@@ -29319,7 +29324,7 @@ aaa
 aaa
 jXJ
 hwM
-ges
+fLL
 jXJ
 bpV
 aTO
@@ -31163,17 +31168,17 @@ wZi
 wZi
 tqY
 wZi
-fLG
 wZi
 wZi
 wZi
-tqY
 wZi
-jNv
-wZi
+crl
 wZi
 wZi
-tqY
+wZi
+wZi
+wZi
+nIt
 wZi
 wZi
 wZi
@@ -31420,17 +31425,17 @@ evr
 evr
 evr
 evr
-byI
+evr
+evr
+evr
+evr
+nkv
 evr
 evr
 evr
 evr
 evr
 oCU
-evr
-evr
-evr
-evr
 evr
 evr
 evr
@@ -31677,17 +31682,17 @@ evr
 evr
 evr
 evr
-byI
+evr
+evr
+evr
+evr
+nkv
 evr
 evr
 evr
 evr
 evr
 oCU
-evr
-evr
-evr
-evr
 evr
 evr
 evr
@@ -31934,17 +31939,17 @@ evr
 evr
 evr
 evr
-byI
+evr
+evr
+evr
+evr
+nkv
 evr
 evr
 evr
 evr
 evr
 oCU
-evr
-evr
-evr
-evr
 evr
 evr
 evr
@@ -32191,17 +32196,17 @@ tuv
 tuv
 nKw
 tuv
-kuQ
 tuv
 tuv
 tuv
-nKw
 tuv
-cfo
-tuv
+rQg
 tuv
 tuv
-nKw
+tuv
+tuv
+tuv
+fGC
 tuv
 tuv
 tuv
