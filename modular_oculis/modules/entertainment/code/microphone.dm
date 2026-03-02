@@ -7,7 +7,6 @@
 	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 
-
 /obj/item/megaphone/microphone/handle_speech(mob/living/user, list/speech_args)
 	if(HAS_TRAIT(user, TRAIT_SIGN_LANG) || user.get_active_held_item() != src)
 		return
