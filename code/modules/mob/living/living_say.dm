@@ -161,8 +161,10 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 			say_dead(original_message, message_mods[MANNEQUIN_CONTROLLED])
 			return
 
+	/* // OCULIS EDIT REMOVAL START - Moved to be after radios.
 	if(HAS_TRAIT(src, TRAIT_SOFTSPOKEN) && !HAS_TRAIT(src, TRAIT_SIGN_LANG)) // softspoken trait only applies to spoken languages
 		message_mods[WHISPER_MODE] = MODE_WHISPER
+	*/ // OCULIS EDIT REMOVAL END
 
 	if(client && SSlag_switch.measures[SLOWMODE_SAY] && !HAS_TRAIT(src, TRAIT_BYPASS_MEASURES) && !forced && src == usr)
 		if(!COOLDOWN_FINISHED(client, say_slowmode))
@@ -243,6 +245,14 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	var/radio_return = radio(message, message_mods, spans, language)//roughly 27% of living/say()'s total cost
 	if(radio_return & NOPASS)
 		return TRUE
+
+	// OCULIS EDIT ADDITION START: moved softspoken check to after radio
+	if(HAS_TRAIT(src, TRAIT_SOFTSPOKEN) && !HAS_TRAIT(src, TRAIT_SIGN_LANG) && !message_mods[WHISPER_MODE]) // softspoken trait only applies to spoken languages
+		message_range = 1
+		message_mods[WHISPER_MODE] = MODE_WHISPER
+		message_mods[SAY_MOD_VERB] = say_mod(message, message_mods)
+		spans |= SPAN_ITALICS
+	// OCULIS EDIT ADDITION END
 
 	if(radio_return & ITALICS)
 		spans |= SPAN_ITALICS
