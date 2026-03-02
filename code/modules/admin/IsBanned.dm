@@ -12,7 +12,7 @@
 		return ..() //shunt world topic banchecks to purely to byond's internal ban system
 
 	var/admin = FALSE
-	var/mentor = FALSE // IRIS ADDITION
+	var/mentor = FALSE // OCULIS ADDITION
 	var/ckey = ckey(key)
 
 	var/client/C = GLOB.directory[ckey]
