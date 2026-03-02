@@ -15,7 +15,7 @@
 	var/_raw_response
 
 /datum/http_request/proc/prepare(method, url, body = "", list/headers, output_file, timeout_seconds)
-	/* IRIS EDIT ORIGINAL:
+	/* OCULIS EDIT ORIGINAL:
 	if (!length(headers))
 		headers = ""
 	else
@@ -27,7 +27,7 @@
 		if (!headers["User-Agent"])
 			headers["User-Agent"] = get_useragent()
 		headers = json_encode(headers)
-	// IRIS EDIT END
+	// OCULIS EDIT END
 
 	src.method = method
 	src.url = url

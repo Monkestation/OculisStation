@@ -643,7 +643,7 @@
 	var/msg = "has created a [isnull(duration) ? "permanent" : "temporary [time_message]"] [applies_to_admins ? "admin " : ""][is_server_ban ? "server ban" : "role ban from [roles_to_ban.len] roles"] for [target]."
 	log_admin_private("[kn] [msg][is_server_ban ? "" : " Roles: [roles_to_ban.Join(", ")]"] Reason: [reason]")
 	message_admins("[kna] [msg][is_server_ban ? "" : " Roles: [roles_to_ban.Join("\n")]"]\nReason: [reason]")
-	// IRIS EDIT ADDITION START
+	// OCULIS EDIT ADDITION START
 	// Mock player just in case they disconnect and we lose their preferences
 	var/datum/client_interface/mock_player = new(player_key)
 	mock_player.prefs = new /datum/preferences(mock_player)
@@ -663,7 +663,7 @@
 
 	plexora_ban["total_playtime"] = mock_player.get_exp_living()
 	SSplexora.new_ban(plexora_ban)
-	// IRIS EDIT ADDITION END
+	// OCULIS EDIT ADDITION END
 	if(applies_to_admins)
 		send2adminchat("BAN ALERT","[kn] [msg]")
 	if(player_ckey)

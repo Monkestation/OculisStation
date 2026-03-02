@@ -88,7 +88,7 @@
 				log_access("Failed Login: [ckey] - Population cap reached")
 				return list("reason"="popcap", "desc"= "\nReason: [CONFIG_GET(string/extreme_popcap_message)]")
 
-	// IRIS EDIT ADDITION START - Plexora discord verification
+	// OCULIS EDIT ADDITION START - Plexora discord verification
 	//Discord verification checking. This won't be used under normal circumstances, but was ported just in case
 	if (!real_bans_only && !.)
 		if (SSplexora.enabled && CONFIG_GET(flag/require_discord_verification))
@@ -147,7 +147,7 @@
 		else if (CONFIG_GET(flag/require_discord_verification))
 			return list("reason"="internalerror", "desc"="\nInternal server error - Discord Verification is required but Plexora is not enabled! This is a config issue, please alert the sysadmins.")
 
-	// IRIS EDIT ADDITION END - Plexora discord verification
+	// OCULIS EDIT ADDITION END - Plexora discord verification
 
 	if(CONFIG_GET(flag/sql_enabled))
 		if(!SSdbcore.Connect())

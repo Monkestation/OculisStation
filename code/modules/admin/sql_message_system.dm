@@ -99,7 +99,7 @@
 		qdel(query_create_message)
 		return
 	qdel(query_create_message)
-	// IRIS EDIT ADDITION START
+	// OCULIS EDIT ADDITION START
 	var/datum/client_interface/mock_player = new(target_ckey)
 	mock_player.prefs = new /datum/preferences(mock_player)
 
@@ -119,7 +119,7 @@
 
 	plexora_note["total_playtime"] = mock_player.get_exp_living()
 	SSplexora.new_note(plexora_note)
-	// IRIS EDIT ADDITION END
+	// OCULIS EDIT ADDITION END
 	if(logged)
 		log_admin_private(pm)
 		message_admins("[header]:<br>[text]")

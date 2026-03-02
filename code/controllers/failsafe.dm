@@ -71,27 +71,27 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 		if(processing_interval > 0)
 			if(Master.processing && Master.iteration)
 				if (defcon > 1 && (!Master.stack_end_detector || !Master.stack_end_detector.check()))
-					// IRIS EDIT ADDITION - start
+					// OCULIS EDIT ADDITION - start
 					var/msg = "ERROR: The Master Controller code stack has exited unexpectedly, Restarting..."
 					to_chat(GLOB.admins, span_boldannounce(msg))
 					SSplexora.mc_alert(msg, defcon)
-					// IRIS EDIT ADDITION - end
+					// OCULIS EDIT ADDITION - end
 					defcon = 0
 					var/rtn = Recreate_MC()
 					if(rtn > 0)
 						master_iteration = 0
-						// IRIS EDIT ADDITION - start
+						// OCULIS EDIT ADDITION - start
 						msg = "MC restarted successfully"
 						to_chat(GLOB.admins, span_adminnotice(msg))
 						SSplexora.mc_alert(msg, defcon)
-						// IRIS EDIT ADDITION - end
+						// OCULIS EDIT ADDITION - end
 					else if(rtn < 0)
 						log_game("FailSafe: Could not restart MC, runtime encountered. Entering defcon 0")
-						// IRIS EDIT ADDITION - start
+						// OCULIS EDIT ADDITION - start
 						msg = "ERROR: DEFCON [defcon_pretty()]. Could not restart MC, runtime encountered. I will silently keep retrying."
 						to_chat(GLOB.admins, span_boldannounce(msg))
 						SSplexora.mc_alert(msg, defcon)
-						// IRIS EDIT ADDITION - end
+						// OCULIS EDIT ADDITION - end
 				// Check if processing is done yet.
 				if(Master.iteration == master_iteration)
 					switch(defcon)
@@ -99,44 +99,44 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 							--defcon
 
 						if(3)
-							// IRIS EDIT ADDITION - start
+							// OCULIS EDIT ADDITION - start
 							var/msg = "Notice: DEFCON [defcon_pretty()]. The Master Controller has not fired in the last [(5-defcon) * processing_interval] ticks."
 							message_admins(span_adminnotice(msg))
 							SSplexora.mc_alert(msg, defcon)
-							// IRIS EDIT ADDITION - end
+							// OCULIS EDIT ADDITION - end
 							--defcon
 
 						if(2)
-							// IRIS EDIT ADDITION - start
+							// OCULIS EDIT ADDITION - start
 							var/msg = "Warning: DEFCON [defcon_pretty()]. The Master Controller has not fired in the last [(5-defcon) * processing_interval] ticks. Automatic restart in [processing_interval] ticks."
 							to_chat(GLOB.admins, span_boldannounce(msg))
 							SSplexora.mc_alert(msg, defcon)
-							// IRIS EDIT ADDITION - end
+							// OCULIS EDIT ADDITION - end
 							--defcon
 
 						if(1)
-							// IRIS EDIT ADDITION - start
+							// OCULIS EDIT ADDITION - start
 							var/msg = "Warning: DEFCON [defcon_pretty()]. The Master Controller has still not fired within the last [(5-defcon) * processing_interval] ticks. Killing and restarting..."
 							to_chat(GLOB.admins, span_boldannounce(msg))
 							SSplexora.mc_alert(msg, defcon)
-							// IRIS EDIT ADDITION - end
+							// OCULIS EDIT ADDITION - end
 							--defcon
 							var/rtn = Recreate_MC()
 							if(rtn > 0)
 								defcon = 4
 								master_iteration = 0
-								// IRIS EDIT ADDITION - start
+								// OCULIS EDIT ADDITION - start
 								msg = "MC restarted successfully"
 								to_chat(GLOB.admins, span_adminnotice(msg))
 								SSplexora.mc_alert(msg, defcon)
-								// IRIS EDIT ADDITION - end
+								// OCULIS EDIT ADDITION - end
 							else if(rtn < 0)
 								log_game("FailSafe: Could not restart MC, runtime encountered. Entering defcon 0")
-								// IRIS EDIT ADDITION - start
+								// OCULIS EDIT ADDITION - start
 								msg = "ERROR: DEFCON [defcon_pretty()]. Could not restart MC, runtime encountered. I will silently keep retrying."
 								to_chat(GLOB.admins, span_boldannounce(msg))
 								SSplexora.mc_alert(msg, defcon)
-								// IRIS EDIT ADDITION - end
+								// OCULIS EDIT ADDITION - end
 							//if the return number was 0, it just means the mc was restarted too recently, and it just needs some time before we try again
 							//no need to handle that specially when defcon 0 can handle it
 
@@ -145,11 +145,11 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 							if(rtn > 0)
 								defcon = 4
 								master_iteration = 0
-								// IRIS EDIT ADDITION - start
+								// OCULIS EDIT ADDITION - start
 								var/msg = "MC restarted successfully"
 								to_chat(GLOB.admins, span_adminnotice(msg))
 								SSplexora.mc_alert(msg, defcon)
-								// IRIS EDIT ADDITION - end
+								// OCULIS EDIT ADDITION - end
 				else
 					defcon = min(defcon + 1,5)
 					master_iteration = Master.iteration
