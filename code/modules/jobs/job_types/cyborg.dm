@@ -18,7 +18,7 @@
 	departments_list = list(
 		/datum/job_department/silicon,
 		)
-	random_spawns_possible = TRUE
+	random_spawns_possible = FALSE
 	job_flags = JOB_NEW_PLAYER_JOINABLE | JOB_EQUIP_RANK | JOB_CANNOT_OPEN_SLOTS
 
 

@@ -15,7 +15,6 @@
 	quirk_holder.equip_to_slot_if_possible(card, ITEM_SLOT_ID)
 	card.register_name(quirk_holder.real_name)
 
-	/*
 	if(prob(20))
 		stowaway.adjust_drunk_effect(50) //What did I DO last night?
 	var/obj/structure/closet/selected_closet = get_unlocked_closed_locker() //Find your new home
@@ -24,7 +23,6 @@
 		stowaway.Sleeping(5 SECONDS)
 
 	give_item_to_holder(/obj/item/storage/toolbox/mechanical, list(LOCATION_HANDS = ITEM_SLOT_HANDS)) // gives them tools to break free if need be
-	*/
 
 
 /datum/quirk/item_quirk/stowaway/post_add()
