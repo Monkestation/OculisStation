@@ -1,4 +1,3 @@
-
 /datum/config_entry/flag/plexora_enabled
 
 /datum/config_entry/string/plexora_url
@@ -17,4 +16,3 @@
 // If enabled, allows mentors and admins to bypass verification.
 /datum/config_entry/flag/plexora_verification_whitelist_staff
 	protection = CONFIG_ENTRY_LOCKED
-
