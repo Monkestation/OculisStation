@@ -1,7 +1,6 @@
 /// A file to help with making it possible to load the Interlink *modularly* instead of leaving it stuck in Z-2 where station should be and spawning all manner of bad behaviour.
 #define INIT_ANNOUNCE(X) to_chat(world, span_boldannounce("[X]")); log_world(X)
 
-/*
 /datum/controller/subsystem/mapping/loadWorld()
 	. = ..()
 	var/list/FailedZsRat = list()
@@ -13,5 +12,5 @@
 				msg += ", [FailedZsRat[I]]"
 		msg += ". Yell at your server host!"
 		INIT_ANNOUNCE(msg)
-*/
+
 #undef INIT_ANNOUNCE
