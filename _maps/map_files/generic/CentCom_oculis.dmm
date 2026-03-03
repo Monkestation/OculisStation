@@ -1625,7 +1625,6 @@
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "aww" = (
-/obj/structure/railing,
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/effect/turf_decal/siding/dark_blue,
 /obj/structure/table/reinforced,
@@ -2380,20 +2379,6 @@
 /obj/structure/flora/bush/sparsegrass,
 /turf/open/misc/beach/sand,
 /area/centcom/holding/cafepark)
-"aDg" = (
-/obj/structure/railing{
-	dir = 10
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 10
-	},
-/obj/effect/turf_decal/siding/dark_blue{
-	dir = 10
-	},
-/turf/open/floor/iron/dark/textured_corner{
-	dir = 4
-	},
-/area/centcom/castor/briefing_room_one)
 "aDj" = (
 /obj/structure/table/wood,
 /obj/item/storage/fancy/donut_box{
@@ -5212,12 +5197,6 @@
 /obj/machinery/door/airlock/public/glass,
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/hallway_one)
-"cca" = (
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/wideplating_new/dark,
-/obj/effect/turf_decal/siding/dark_blue,
-/turf/open/floor/iron/dark/textured_half,
-/area/centcom/castor/briefing_room_two)
 "ccG" = (
 /obj/structure/dresser,
 /obj/item/toy/figure/dsquad{
@@ -5359,11 +5338,12 @@
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
 "clj" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark,
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/dark_blue,
-/turf/open/floor/iron/dark/textured_half,
-/area/centcom/castor/briefing_room_two)
+/obj/structure/bed/pod,
+/obj/structure/bed/pod{
+	pixel_y = 11
+	},
+/turf/open/floor/iron/smooth,
+/area/centcom/castor/control)
 "cln" = (
 /obj/effect/turf_decal/box,
 /obj/structure/closet/secure_closet/ert_com,
@@ -5805,8 +5785,6 @@
 	},
 /area/centcom/castor/security_office_one)
 "cTO" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark,
-/obj/effect/turf_decal/siding/dark_blue,
 /turf/open/floor/iron/dark/textured_half,
 /area/centcom/castor/briefing_room_one)
 "cTX" = (
@@ -5933,7 +5911,7 @@
 /area/centcom/holding/cafe)
 "dce" = (
 /obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = -49
+	teleport_y_offset = 49
 	},
 /turf/open/floor/wood/large,
 /area/centcom/castor/hallway_four)
@@ -6059,8 +6037,6 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/armory)
 "diL" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark/corner,
-/obj/effect/turf_decal/siding/dark_blue/corner,
 /turf/open/floor/iron/dark/textured_corner,
 /area/centcom/castor/briefing_room_one)
 "diU" = (
@@ -6237,8 +6213,11 @@
 /area/centcom/castor/briefing_room_one)
 "dxP" = (
 /obj/structure/cable,
-/turf/open/floor/iron/large,
-/area/centcom/interlink)
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/centcom/castor/briefing_room_two)
 "dyT" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 4
@@ -6312,11 +6291,20 @@
 /turf/open/floor/wood/parquet,
 /area/centcom/castor/sectorial_engineering_administrator)
 "dEz" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark,
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/dark_blue,
-/turf/open/floor/iron/dark/textured_half,
-/area/centcom/castor/briefing_room_one)
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/centcom/castor/briefing_room_two)
 "dFF" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
@@ -7137,13 +7125,13 @@
 	},
 /area/centcom/castor/control)
 "eKK" = (
+/obj/machinery/light/directional/east,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 6
+	dir = 4
 	},
 /obj/effect/turf_decal/siding/dark_blue{
-	dir = 6
+	dir = 4
 	},
-/obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
@@ -7231,13 +7219,19 @@
 /turf/open/floor/holofloor/hyperspace,
 /area/centcom/central_command_areas/supplypod/supplypod_temp_holding)
 "eSk" = (
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 1
+	dir = 4
 	},
 /obj/effect/turf_decal/siding/dark_blue{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/briefing_room_one)
 "eSn" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
@@ -7435,10 +7429,8 @@
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
 "ffF" = (
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/wideplating_new/dark,
-/obj/effect/turf_decal/siding/dark_blue,
 /obj/structure/table/reinforced,
+/obj/item/megaphone/microphone,
 /turf/open/floor/iron/dark/textured_half,
 /area/centcom/castor/briefing_room_one)
 "fhw" = (
@@ -7614,16 +7606,17 @@
 /turf/open/space/basic,
 /area/space)
 "fve" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 6
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/structure/railing{
-	dir = 6
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
 	},
 /obj/effect/turf_decal/siding/dark_blue{
-	dir = 6
+	dir = 8
 	},
-/turf/open/floor/iron/dark/textured_corner{
+/turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
 /area/centcom/castor/briefing_room_two)
@@ -7730,7 +7723,12 @@
 /area/centcom/castor/hallway_two)
 "fBl" = (
 /obj/machinery/camera/directional/east,
-/obj/structure/fake_stairs,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/briefing_room_one)
 "fBZ" = (
@@ -8534,6 +8532,7 @@
 	dir = 9
 	},
 /obj/structure/cable,
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/wood/parquet,
 /area/centcom/central_command_areas/hallway)
 "gus" = (
@@ -8914,15 +8913,14 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "gVO" = (
-/obj/machinery/door/airlock/hop,
-/obj/effect/mapping_helpers/airlock/access/all/admin/general,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/public/glass,
 /turf/open/floor/iron/dark/smooth_large,
-/area/centcom/central_command_areas/hallway)
+/area/centcom/castor/briefing_room_one)
 "gWT" = (
 /obj/structure/table/wood,
 /obj/item/toy/cards/deck/cas/black,
@@ -9102,8 +9100,20 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/hallway_one)
 "hfH" = (
-/turf/open/floor/iron/large,
-/area/centcom/central_command_areas/hallway)
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/centcom/castor/briefing_room_one)
 "hfJ" = (
 /obj/structure/fans/tiny/invisible,
 /obj/structure/bonfire/prelit,
@@ -9222,9 +9232,9 @@
 /turf/open/floor/iron/large,
 /area/centcom/castor/hallway_two)
 "how" = (
-/obj/structure/fake_stairs,
-/turf/open/floor/iron/dark/smooth_large,
-/area/centcom/castor/briefing_room_one)
+/obj/machinery/door/airlock/maintenance,
+/turf/open/floor/plating,
+/area/centcom/castor/control)
 "hoV" = (
 /obj/structure/closet/crate/freezer{
 	name = "Cooler"
@@ -9271,9 +9281,16 @@
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafepark)
 "hpq" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 1
+	},
 /obj/machinery/light/directional/north,
-/turf/open/floor/iron/large,
-/area/centcom/central_command_areas/hallway)
+/obj/structure/sign/poster/official/nanotrasen_logo/directional/north,
+/turf/open/floor/iron/dark/textured_half,
+/area/centcom/castor/briefing_room_one)
 "hpr" = (
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark/smooth_large,
@@ -9424,8 +9441,16 @@
 /turf/open/floor/iron/white/pattern_3,
 /area/centcom/castor/sectorial_medical_administrator)
 "hwM" = (
-/turf/open/floor/iron/large,
-/area/centcom/interlink)
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 5
+	},
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 8
+	},
+/area/centcom/castor/briefing_room_two)
 "hwW" = (
 /obj/machinery/door/airlock/command/glass,
 /obj/effect/mapping_helpers/airlock/access/all/admin/general,
@@ -10291,8 +10316,8 @@
 "iEd" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/effect/turf_decal/siding/dark_blue,
-/obj/structure/railing,
 /obj/structure/table/reinforced,
+/obj/item/megaphone/microphone,
 /turf/open/floor/iron/dark/textured_half,
 /area/centcom/castor/briefing_room_two)
 "iEh" = (
@@ -11103,9 +11128,6 @@
 /turf/open/floor/iron/white,
 /area/centcom/castor/control)
 "jPA" = (
-/obj/structure/railing{
-	dir = 10
-	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 10
 	},
@@ -11597,12 +11619,6 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/castor/sectorial_engineering_administrator)
-"kGR" = (
-/obj/machinery/door/airlock/hop,
-/obj/effect/mapping_helpers/airlock/access/all/admin/general,
-/obj/machinery/door/firedoor,
-/turf/open/floor/iron/dark/smooth_large,
-/area/centcom/castor/briefing_room_two)
 "kGT" = (
 /obj/structure/fans/tiny/invisible,
 /obj/machinery/door/airlock/sandstone{
@@ -11726,9 +11742,6 @@
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafepark)
 "kLn" = (
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/wideplating_new/dark,
-/obj/effect/turf_decal/siding/dark_blue,
 /obj/structure/table/reinforced,
 /obj/machinery/projector{
 	dir = 1
@@ -11964,12 +11977,11 @@
 	},
 /area/centcom/holding/cafepark)
 "lac" = (
-/obj/machinery/door/airlock/hop,
-/obj/effect/mapping_helpers/airlock/access/all/admin/general,
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/public/glass,
 /turf/open/floor/iron/dark/smooth_large,
-/area/centcom/interlink)
+/area/centcom/castor/briefing_room_two)
 "lat" = (
 /obj/structure/hedge/opaque,
 /obj/structure/railing{
@@ -12541,9 +12553,16 @@
 /turf/open/floor/wood,
 /area/centcom/castor/sectorial_engineering_administrator)
 "lFC" = (
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 1
+	},
 /obj/machinery/light/directional/north,
-/turf/open/floor/iron/large,
-/area/centcom/interlink)
+/obj/structure/sign/poster/official/nanotrasen_logo/directional/north,
+/turf/open/floor/iron/dark/textured_half,
+/area/centcom/castor/briefing_room_two)
 "lHD" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /obj/structure/closet/crate/freezer/blood,
@@ -13179,12 +13198,6 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/hallway_one)
 "mxB" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/dark_blue/corner{
-	dir = 8
-	},
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
@@ -13398,12 +13411,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/evacuation/ship)
 "mGR" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 10
-	},
-/obj/effect/turf_decal/siding/dark_blue{
-	dir = 10
-	},
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
@@ -13434,7 +13441,7 @@
 	},
 /obj/machinery/light/directional/west,
 /obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = -49
+	teleport_y_offset = 49
 	},
 /turf/open/floor/wood/large,
 /area/centcom/castor/hallway_four)
@@ -14279,15 +14286,6 @@
 /turf/open/floor/iron/dark,
 /area/centcom/castor/evacuation)
 "nQF" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 6
-	},
-/obj/structure/railing{
-	dir = 6
-	},
-/obj/effect/turf_decal/siding/dark_blue{
-	dir = 6
-	},
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
@@ -14609,8 +14607,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/iron/large,
-/area/centcom/central_command_areas/hallway)
+/turf/open/floor/iron/dark/smooth_large,
+/area/centcom/castor/briefing_room_one)
 "orh" = (
 /obj/effect/turf_decal/tile/purple/anticorner/contrasted{
 	dir = 4
@@ -14648,8 +14646,12 @@
 /area/centcom/castor/hallway_two)
 "oso" = (
 /obj/machinery/light/directional/west,
-/obj/structure/table/reinforced,
-/obj/item/megaphone/microphone,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 8
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/briefing_room_one)
 "osE" = (
@@ -14947,9 +14949,15 @@
 /turf/open/floor/iron/dark,
 /area/centcom/holding/cafe)
 "oEq" = (
-/obj/machinery/firealarm/directional/east,
-/turf/closed/indestructible/steel,
-/area/centcom/central_command_areas/hallway)
+/obj/structure/bed/pod{
+	dir = 4
+	},
+/obj/structure/bed/pod{
+	pixel_y = 11;
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/centcom/castor/control)
 "oFo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -15924,12 +15932,15 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/central_command_areas/evacuation/ship)
 "pIZ" = (
-/obj/effect/turf_decal/tile/dark_blue/opposingcorners{
-	dir = 1
+/obj/machinery/camera/directional/west,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
 	},
-/obj/effect/turf_decal/tile/yellow/opposingcorners,
-/turf/closed/indestructible/steel,
-/area/centcom/interlink)
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/centcom/castor/briefing_room_one)
 "pJo" = (
 /obj/structure/sign/directions/arrival/directional/west,
 /obj/structure/sign/directions/evac/directional/west{
@@ -16262,11 +16273,6 @@
 "qaU" = (
 /turf/closed/indestructible/steel,
 /area/centcom/castor/arrivals)
-"qbk" = (
-/obj/structure/fake_stairs,
-/obj/machinery/camera/directional/west,
-/turf/open/floor/iron/dark/smooth_large,
-/area/centcom/castor/briefing_room_one)
 "qcf" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/effect/mapping_helpers/airlock/access/all/admin/general,
@@ -16599,27 +16605,16 @@
 /turf/open/floor/circuit/green,
 /area/centcom/holding/cafe)
 "qxW" = (
-/obj/structure/closet/mini_fridge,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/item/reagent_containers/cup/glass/bottle/beer,
-/obj/structure/table/reinforced,
-/turf/open/floor/iron/dark/smooth_large,
-/area/centcom/castor/briefing_room_two)
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark_blue/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/centcom/castor/briefing_room_one)
 "qze" = (
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 5
@@ -16816,7 +16811,6 @@
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
 "qJV" = (
-/obj/structure/table/reinforced,
 /obj/machinery/light/directional/east,
 /obj/item/megaphone/microphone,
 /turf/open/floor/iron/dark/smooth_large,
@@ -17833,10 +17827,10 @@
 /obj/machinery/airalarm/directional/west,
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 9
+	dir = 8
 	},
 /obj/effect/turf_decal/siding/dark_blue{
-	dir = 9
+	dir = 8
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/briefing_room_one)
@@ -18027,18 +18021,6 @@
 	icon_state = "white"
 	},
 /area/centcom/holding/cafepark)
-"sgs" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 5
-	},
-/obj/effect/turf_decal/siding/dark_blue{
-	dir = 5
-	},
-/obj/machinery/icecream_vat,
-/turf/open/floor/iron/dark/textured_corner{
-	dir = 8
-	},
-/area/centcom/castor/briefing_room_two)
 "sgU" = (
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
@@ -18629,6 +18611,10 @@
 /area/centcom/castor/hallway_one)
 "sKj" = (
 /obj/machinery/airalarm/directional/west,
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/machinery/recharger{
+	pixel_x = 6
+	},
 /turf/open/floor/engine,
 /area/centcom/castor/sectorial_security_administrator)
 "sKK" = (
@@ -19045,17 +19031,9 @@
 /turf/open/floor/circuit/green,
 /area/centcom/castor/control)
 "trJ" = (
-/obj/structure/chair/plastic{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/dark_blue{
-	dir = 1
-	},
-/turf/open/floor/iron/dark/smooth_large,
-/area/centcom/castor/briefing_room_one)
+/obj/machinery/cryo_cell,
+/turf/open/floor/iron/white/smooth_edge,
+/area/centcom/castor/control)
 "tsx" = (
 /obj/effect/turf_decal/sand,
 /obj/effect/turf_decal/weather/dirt{
@@ -19065,11 +19043,14 @@
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafepark)
 "tsC" = (
-/obj/machinery/door/airlock/hop,
-/obj/effect/mapping_helpers/airlock/access/all/admin/general,
-/obj/machinery/door/firedoor,
-/turf/open/floor/iron/dark/smooth_large,
-/area/centcom/castor/briefing_room_one)
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 1
+	},
+/turf/closed/indestructible/steel,
+/area/centcom/castor/briefing_room_two)
 "tsM" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/bot,
@@ -19835,8 +19816,8 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/turf/open/floor/iron/large,
-/area/centcom/central_command_areas/hallway)
+/turf/open/floor/iron/dark/smooth_large,
+/area/centcom/castor/briefing_room_one)
 "ulg" = (
 /obj/machinery/door/window/left/directional/west,
 /obj/effect/turf_decal/siding/wood{
@@ -20060,11 +20041,28 @@
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/evacuation/ship)
 "uCF" = (
-/obj/structure/railing,
+/obj/structure/closet/mini_fridge,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/item/reagent_containers/cup/glass/bottle/beer,
+/obj/structure/table/reinforced,
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/effect/turf_decal/siding/dark_blue,
-/obj/structure/table/reinforced,
-/turf/open/floor/iron/dark/textured_half,
+/turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/briefing_room_two)
 "uDr" = (
 /obj/machinery/airalarm/directional/east,
@@ -20784,6 +20782,7 @@
 /area/centcom/holding/cafe)
 "vkL" = (
 /obj/machinery/light/directional/south,
+/obj/machinery/porta_turret/black_mesa/heavy,
 /turf/open/floor/engine,
 /area/centcom/castor/sectorial_security_administrator)
 "vmf" = (
@@ -21680,7 +21679,6 @@
 /area/centcom/holding/cafe)
 "wwD" = (
 /obj/machinery/camera/directional/east,
-/obj/structure/fake_stairs,
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/briefing_room_two)
 "wwE" = (
@@ -21853,6 +21851,9 @@
 "wHJ" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/effect/turf_decal/siding/wood,
+/obj/machinery/recharger{
+	pixel_x = 6
+	},
 /turf/open/floor/carpet/royalblack,
 /area/centcom/castor/sectorial_security_administrator)
 "wHK" = (
@@ -21973,18 +21974,13 @@
 	},
 /area/centcom/holding/cafepark)
 "wKp" = (
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 1
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/effect/turf_decal/siding/dark_blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/dark_blue{
-	dir = 1
-	},
-/obj/machinery/light/directional/north,
-/obj/structure/sign/poster/official/nanotrasen_logo/directional/north,
-/turf/open/floor/iron/dark/textured_half,
+/obj/machinery/door/airlock/hop,
+/obj/effect/mapping_helpers/airlock/access/all/admin/general,
+/turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/briefing_room_two)
 "wKT" = (
 /obj/structure/bed/pod{
@@ -22067,10 +22063,10 @@
 /area/centcom/central_command_areas/evacuation/ship)
 "wSW" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 5
+	dir = 4
 	},
 /obj/effect/turf_decal/siding/dark_blue{
-	dir = 5
+	dir = 4
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/briefing_room_one)
@@ -22473,10 +22469,9 @@
 /turf/open/floor/carpet/black,
 /area/centcom/holding/cafe)
 "xtM" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 8
-	},
-/turf/open/floor/carpet/grimey,
+/obj/structure/window/reinforced/fulltile,
+/obj/structure/flora/grass/jungle,
+/turf/open/floor/grass,
 /area/centcom/interlink)
 "xuk" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
@@ -22719,10 +22714,13 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/hallway_one)
 "xJh" = (
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/wideplating_new/dark,
-/obj/effect/turf_decal/siding/dark_blue,
-/turf/open/floor/iron/dark/textured_half,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 9
+	},
+/turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/briefing_room_one)
 "xKI" = (
 /obj/machinery/door/airlock/external/glass,
@@ -23013,7 +23011,7 @@
 	},
 /obj/machinery/light/directional/east,
 /obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = -49
+	teleport_y_offset = 49
 	},
 /turf/open/floor/wood/large,
 /area/centcom/castor/hallway_four)
@@ -34751,7 +34749,7 @@ fXc
 nCf
 nCf
 nCf
-oEq
+wsx
 utx
 wsx
 wsx
@@ -35555,14 +35553,14 @@ dDZ
 sVG
 sVG
 sVG
-wsx
+gEy
 ukt
-wsx
 gEy
 gEy
-sHs
+gEy
+xJh
 oso
-gEy
+pIZ
 rSa
 meV
 wZv
@@ -35812,15 +35810,15 @@ pjD
 bqO
 ojd
 sVG
-hfH
-oqB
-hfH
-gEy
 rzG
+hfH
 qYV
+qYV
+qYV
+qxW
 mGR
-qbk
-eSk
+aTO
+aTO
 aTO
 aTO
 heF
@@ -36069,15 +36067,15 @@ vgO
 tiY
 mua
 sVG
-hfH
+eaB
 oqB
-hfH
-gEy
-hdE
+aTO
+aTO
+aTO
 aTO
 cTO
-how
-eSk
+aTO
+aTO
 aTO
 aTO
 tvm
@@ -36328,13 +36326,13 @@ cVs
 sVG
 hpq
 oqB
-hfH
-gEy
-eaB
+aTO
+aTO
+aTO
 aTO
 mxB
-aDg
-trJ
+mGR
+iih
 iih
 iih
 rMF
@@ -36583,15 +36581,15 @@ sVG
 vec
 sVG
 sVG
-hfH
-oqB
-hfH
-gEy
 eaB
+oqB
 aTO
 aTO
-xJh
-trJ
+aTO
+aTO
+aTO
+cTO
+iih
 iih
 iih
 dxo
@@ -36621,9 +36619,9 @@ aZe
 lCh
 nZJ
 tTr
-pIZ
+jXJ
 kEB
-pIZ
+jXJ
 aaa
 aaa
 aaa
@@ -36840,15 +36838,15 @@ box
 vOd
 dmC
 sVG
-hfH
-oqB
-hfH
-gEy
 eaB
+oqB
+aTO
+aTO
+aTO
 aTO
 aTO
 ffF
-trJ
+iih
 iih
 iih
 uKY
@@ -37097,15 +37095,15 @@ rwX
 ntL
 wAM
 sVG
-hfH
-oqB
-hfH
-gEy
 eaB
+oqB
+aTO
+aTO
+aTO
 aTO
 aTO
 kLn
-trJ
+iih
 iih
 iih
 hSA
@@ -37354,15 +37352,15 @@ miN
 usR
 rQQ
 sVG
-hfH
-oqB
-hfH
-gEy
 eaB
+oqB
 aTO
 aTO
-ffF
-trJ
+aTO
+aTO
+aTO
+sHs
+iih
 iih
 kXD
 ueR
@@ -37611,15 +37609,15 @@ usR
 usR
 rUj
 sVG
-hfH
-oqB
-hfH
-gEy
 eaB
+oqB
 aTO
 aTO
-dEz
-trJ
+aTO
+aTO
+aTO
+cTO
+iih
 iih
 hSA
 qqH
@@ -37868,15 +37866,15 @@ usR
 usR
 kyL
 sVG
-hpq
-oqB
-hfH
-gEy
 hdE
+oqB
+aTO
+aTO
+aTO
 aTO
 diL
 nQF
-trJ
+iih
 iih
 hSA
 qqH
@@ -38125,15 +38123,15 @@ usR
 usR
 fMn
 sVG
-hfH
-oqB
-hfH
-tsC
 eaB
+oqB
+aTO
+aTO
+aTO
 aTO
 cTO
-how
-eSk
+aTO
+aTO
 mKs
 lLZ
 qqH
@@ -38382,11 +38380,11 @@ usR
 svm
 kGw
 sVG
-hfH
-oqB
-hfH
-gEy
 dqk
+eSk
+gjm
+gjm
+gjm
 gjm
 eKK
 fBl
@@ -38639,9 +38637,9 @@ sVG
 sVG
 sVG
 sVG
-wsx
+gEy
 gVO
-wsx
+gEy
 gEy
 gEy
 gEy
@@ -40181,9 +40179,9 @@ upi
 upi
 upi
 upi
-jXJ
+bdY
 lac
-jXJ
+bdY
 bdY
 bdY
 bdY
@@ -40438,11 +40436,11 @@ qEV
 qEV
 qEV
 upi
-hwM
-dxP
-hwM
-bdY
 aOl
+fve
+qCw
+qCw
+qCw
 qCw
 cIy
 dNs
@@ -40695,11 +40693,11 @@ qEV
 qEV
 qEV
 upi
-hwM
-dxP
-hwM
-kGR
 bpV
+dxP
+qDl
+qDl
+qDl
 qDl
 vpb
 qfm
@@ -40954,9 +40952,9 @@ qEV
 upi
 lFC
 dxP
-hwM
-bdY
-wKp
+qDl
+qDl
+qDl
 qDl
 qtM
 jPA
@@ -41209,14 +41207,14 @@ qEV
 qEV
 qEV
 upi
-hwM
-dxP
-hwM
-bdY
 bpV
+dxP
 qDl
 qDl
-cca
+qDl
+qDl
+qDl
+vpb
 abs
 vLN
 tKx
@@ -41466,11 +41464,11 @@ qEV
 qEV
 qEV
 upi
-hwM
-dxP
-hwM
-bdY
 bpV
+dxP
+qDl
+qDl
+qDl
 qDl
 qDl
 iEd
@@ -41723,11 +41721,11 @@ qEV
 qEV
 qEV
 upi
-hwM
-dxP
-hwM
-bdY
 bpV
+dxP
+qDl
+qDl
+qDl
 qDl
 qDl
 aww
@@ -41942,7 +41940,7 @@ lJk
 lJk
 lJk
 lJk
-cpi
+trJ
 qAL
 eqt
 bRd
@@ -41980,11 +41978,11 @@ qEV
 qEV
 qEV
 upi
-hwM
-dxP
-hwM
-bdY
 bpV
+dxP
+qDl
+qDl
+qDl
 qDl
 qDl
 uCF
@@ -42237,14 +42235,14 @@ upi
 upi
 upi
 upi
-hwM
-dxP
-hwM
-bdY
 bpV
+dxP
 qDl
 qDl
-clj
+qDl
+qDl
+qDl
+vpb
 abs
 vLN
 vLN
@@ -42494,14 +42492,14 @@ hwl
 hwl
 hwl
 upi
-lFC
-dxP
-hwM
-bdY
 xLv
+dxP
+qDl
+qDl
+qDl
 qDl
 gwk
-fve
+hWX
 abs
 vLN
 vLN
@@ -42751,14 +42749,14 @@ hwl
 hwl
 hwl
 upi
-hwM
-dxP
-hwM
-bdY
 bpV
+dxP
+qDl
+qDl
+qDl
 qDl
 vpb
-qfm
+qDl
 cWF
 qDl
 qDl
@@ -43009,10 +43007,10 @@ hwl
 hwl
 upi
 hwM
-dxP
-hwM
-bdY
-sgs
+dEz
+gOX
+gOX
+gOX
 gOX
 hWX
 wwD
@@ -43224,7 +43222,7 @@ aaa
 aaa
 aaa
 qAL
-xlw
+oEq
 xlw
 xlw
 xlw
@@ -43265,14 +43263,14 @@ upi
 upi
 upi
 upi
-jXJ
-lac
-jXJ
+tsC
+wKp
 bdY
 bdY
-qxW
+bdY
+qDl
 qJV
-bdY
+wwD
 bVH
 laK
 rjf
@@ -43738,7 +43736,7 @@ aaa
 aaa
 aaa
 qAL
-xlw
+clj
 xlw
 xlw
 xlw
@@ -44002,7 +44000,7 @@ qAL
 qAL
 eqt
 bRd
-sFt
+ciY
 qAL
 jXJ
 jXJ
@@ -44036,7 +44034,7 @@ jXJ
 jXJ
 jXJ
 jXJ
-qEu
+jXJ
 fVJ
 fVJ
 fVJ
@@ -44252,23 +44250,23 @@ aaa
 aaa
 aaa
 qAL
-xlw
+oEq
 xlw
 xlw
 xlw
 qAL
 eqt
 bRd
-ciY
-qAL
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+sFt
+how
+rLK
+rLK
+rLK
+rLK
+rLK
+rLK
+rLK
+jXJ
 aaa
 aaa
 aaa
@@ -44295,7 +44293,7 @@ aaa
 aaa
 jXJ
 jXJ
-qEu
+jXJ
 qEu
 jXJ
 ubO
@@ -44766,7 +44764,7 @@ aaa
 aaa
 aaa
 qAL
-xlw
+clj
 xlw
 xlw
 xlw
