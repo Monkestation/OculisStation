@@ -29,7 +29,7 @@ Support for the Plexora discord bot, used for things such as server status, admi
   - `/datum/admin_help_tickets/proc/ClientLogout()`: Plexora notification for when user in a ticket disconnects
   - `/datum/admin_help/New()`: Notifying Plexora when a new ticket is created
   - `/datum/admin_help/proc/Reopen()`: Notifying Plexora when a ticket is reopened
-  - `/datum/admin_help/proc/Action()`: Notifying Plexora of various ticker actions/state updates
+  - `/datum/admin_help/proc/Action()`: Notifying Plexora of various ticket actions/state updates
 - `code/modules/admin/verbs/adminpm.dm`
   - `/client/proc/sends_adminpm_message()`: Plexora integration, and fixing some encode issues
 - `code/modules/admin/verbs/adminsay.dm`
