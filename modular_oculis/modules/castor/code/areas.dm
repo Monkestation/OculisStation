@@ -1,6 +1,8 @@
 // This is just to define the category
 /area/centcom/castor
 	name = "Castor Station"
+	icon = 'modular_oculis/modules/castor/icons/areas.dmi'
+	icon_state = "castor"
 
 /area/centcom/castor/control
 	name = "Castor Central Briefing Room"
