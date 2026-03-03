@@ -9,6 +9,11 @@
 	purchase_path = /obj/item/reagent_containers/hypospray/medipen/survival/luxury
 	cost_per_order = 750
 
+// OCULIS EDIT ADDITION - slime luxpens. non-modular so that it appears right next to luxury pens in the order UI.
+/datum/orderable_item/consumables/luxury_pen/slime
+	purchase_path = /obj/item/reagent_containers/hypospray/medipen/survival/luxury/slime
+// OCULIS EDIT END
+
 /datum/orderable_item/consumables/medkit
 	purchase_path = /obj/item/storage/medkit/brute
 	cost_per_order = 400
