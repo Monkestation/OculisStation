@@ -45,8 +45,8 @@
 	maxHealth = 4000 //for contrast, bubblegum and the colossus both have 2500 health
 	movement_type = GROUND
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
-	loot = list(/obj/structure/closet/crate/necropolis/gladiator)
-	crusher_loot = list(/obj/structure/closet/crate/necropolis/gladiator/crusher)
+	loot = list(/obj/structure/closet/crate/necropolis/gladiator, /obj/structure/dead_gladiator)
+	crusher_loot = list(/obj/structure/closet/crate/necropolis/gladiator/crusher, /obj/structure/dead_gladiator)
 	/// Boss phase, from 1 to 3
 	var/phase = MARKED_ONE_FIRST_PHASE
 	/// People we have introduced ourselves to - WEAKREF list
