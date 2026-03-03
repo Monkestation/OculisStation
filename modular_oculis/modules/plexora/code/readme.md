@@ -63,10 +63,7 @@ Support for the Plexora discord bot, used for things such as server status, admi
 
 ### Included files that are not contained in this module:
 
-- `icons/ui_icons/tgui/dverify_image1.png`
-- `icons/ui_icons/tgui/dverify_image2.png`
-- `icons/ui_icons/tgui/dverify_image3.png`
-- `icons/ui_icons/tgui/dverify_image4.png`
+- N/A
 
 ### Credits:
 
