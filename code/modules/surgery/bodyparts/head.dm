@@ -220,6 +220,13 @@
 				worn_face_offset.apply_offset(emissive_right)
 				worn_face_offset.apply_offset(emissive_left)
 
+			// OCULIS EDIT ADDITION START - fix issue with heights
+			if(ishuman(update_on))
+				var/mob/living/carbon/human/human_update_on = update_on
+				human_update_on.apply_height_offsets(emissive_right, TRUE)
+				human_update_on.apply_height_offsets(emissive_left, TRUE)
+			// OCULIS EDIT ADDITION END
+
 			eye_left.overlays += emissive_left
 			eye_right.overlays += emissive_right
 		// NOVA EDIT ADDITION END
