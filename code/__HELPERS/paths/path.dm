@@ -316,12 +316,12 @@
 	/// Require a movable
 	var/datum/weakref/requester_ref = null
 
-	// OCULIS EDIT ADDITION START - multi-z pathfinding
+	// OCULIS EDIT ADDITION START - ASTAR - (multi-z pathfinding)
 	/// Whether to do extra checks for multi-Z pathing or not.
 	var/multiz_checks = FALSE
 	// OCULIS EDIT ADDITION END
 
-/datum/can_pass_info/New(atom/movable/construct_from, list/access, no_id = FALSE, call_depth = 0, multiz_checks = FALSE) // OCULIS EDIT ADDITION - multi-z pathfinding
+/datum/can_pass_info/New(atom/movable/construct_from, list/access, no_id = FALSE, call_depth = 0, multiz_checks = FALSE) // OCULIS EDIT ADDITION - ASTAR - (multi-z pathfinding)
 	// No infiniloops
 	if(call_depth > 10)
 		return
@@ -358,7 +358,7 @@
 	if(construct_from.pulling)
 		src.pulling_info = new(construct_from.pulling, access, no_id, call_depth + 1)
 
-	src.multiz_checks = multiz_checks // OCULIS EDIT ADDITION - multi-z pathfinding
+	src.multiz_checks = multiz_checks // OCULIS EDIT ADDITION - ASTAR - (multi-z pathfinding)
 
 /// List of vars on /datum/can_pass_info to use when checking two instances for equality
 GLOBAL_LIST_INIT(can_pass_info_vars, GLOBAL_PROC_REF(can_pass_check_vars))
