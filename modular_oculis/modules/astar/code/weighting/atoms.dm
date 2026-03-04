@@ -19,10 +19,10 @@
 			new_turf.astar_weight += astar_weight
 
 /obj/structure/plasticflaps
-	astar_weight = 15
+	astar_weight = ASTAR_WEIGHT_OBJ_DISCOURAGED
 
 /obj/structure/chair
-	astar_weight = 2
+	astar_weight = ASTAR_WEIGHT_OBJ_MEH
 
 /obj/structure/chair/sofa
-	astar_weight = 5
+	astar_weight = ASTAR_WEIGHT_OBJ_MEH * 2.5
