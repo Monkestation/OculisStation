@@ -71,7 +71,7 @@
 	subdepartment_color = COLOR_SECURITY_RED
 	assignment = "Sectorial Security Administrator"
 	pointer_color = COLOR_SECURITY_RED
-	honorifics = list("<font color='#8f0316'>S.S.A.</font>")
+	honorifics = list("<font color='#db001d'>S.S.A.</font>")
 
 /obj/item/card/id/advanced/castor/sectorial_security_administrator
 	name = "\improper ID card"
