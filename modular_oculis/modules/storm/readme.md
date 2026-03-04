@@ -1,12 +1,12 @@
-https://github.com/Monkestation/OculisStation/pull/
+https://github.com/Monkestation/OculisStation/pull/46
 
 ## \<Eidolon Storm>
 
-Module ID: OCULIS_STORM
+Module ID: EIDOLON_STORM
 
 ### Description:
 
-This module is responsible for Oculis' storm, anchor, as well as how both work mechanically.
+This module is responsible for Eidolon's storm, anchor, as well as how both work mechanically.
 
 ### TG Proc/File Changes:
 

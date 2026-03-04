@@ -1,5 +1,3 @@
-GLOBAL_LIST_EMPTY(redspace_anchors)
-
 #define POWER_IDLE 0
 #define POWER_UP 1
 #define POWER_DOWN 2
@@ -13,9 +11,10 @@ GLOBAL_LIST_EMPTY(redspace_anchors)
 	name = "redspace anchor"
 	desc = "The most important machine on the station. It keeps the storm outside of the station from encroaching closer."
 	icon = 'modular_oculis/modules/storm/icons/redspace_anchor.dmi'
-	icon_state = "anchor"
+	icon_state = "anchor_off"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
-	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 5
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 1000 // Lotta fucking power to keep the storm at bay.
+	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 100 // Slightly less power to keep it idle.
 
 	// 3x2 offset by one row
 	pixel_x = -32
@@ -44,8 +43,12 @@ GLOBAL_LIST_EMPTY(redspace_anchors)
 	/// Audio for when the redspace anchor is on
 	var/datum/looping_sound/redspace_anchor/soundloop
 
+	/// How much the redspace anchor has excess violetspace energy, which can cause it to fail once it reaches 100.
+	VAR_PROTECTED/violetspace_energy = 0
+
 /obj/machinery/redspace_anchor/Initialize(mapload)
 	. = ..()
+	SSeidolon_storm.register_anchor(src)
 	soundloop = new(src, start_immediately = FALSE)
 
 /obj/machinery/redspace_anchor/safe_throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE)
@@ -73,15 +76,18 @@ GLOBAL_LIST_EMPTY(redspace_anchors)
 
 /obj/machinery/redspace_anchor/proc/set_broken()
 	atom_break()
+	update_appearance()
 
 /obj/machinery/redspace_anchor/proc/set_fix()
 	set_machine_stat(machine_stat & ~BROKEN)
+	update_appearance()
 
-/obj/machinery/redspace_anchor/update_overlays()
+/obj/machinery/redspace_anchor/update_icon_state()
 	. = ..()
-	cut_overlay("anchor_on_overlay")
 	if(on)
-		add_overlay("anchor_on_overlay")
+		icon_state = "anchor_on"
+	else
+		icon_state = "anchor_off"
 
 // Interactions
 /obj/machinery/redspace_anchor/examine(mob/user)
@@ -112,16 +118,16 @@ GLOBAL_LIST_EMPTY(redspace_anchors)
 				return
 		if(ANCHOR_NEEDS_WELDING)
 			if(weapon.tool_behaviour == TOOL_WELDER)
-				if(weapon.use_tool(src, user, 0, volume=50))
+				if(weapon.use_tool(src, user, 0, volume = 50))
 					to_chat(user, span_notice("You mend the damaged framework."))
 					broken_state++
 					update_appearance()
 				return
 		if(ANCHOR_NEEDS_PLASTEEL)
 			if(istype(weapon, /obj/item/stack/sheet/plasteel))
-				var/obj/item/stack/sheet/plasteel/PS = weapon
-				if(PS.get_amount() >= 10)
-					PS.use(10)
+				var/obj/item/stack/sheet/plasteel/plasteel_sheets = weapon
+				if(plasteel_sheets.get_amount() >= 10)
+					plasteel_sheets.use(10)
 					to_chat(user, span_notice("You add the plating to the framework."))
 					playsound(src.loc, 'sound/machines/click.ogg', 75, TRUE)
 					broken_state++
@@ -186,7 +192,7 @@ GLOBAL_LIST_EMPTY(redspace_anchors)
 /obj/machinery/redspace_anchor/proc/enable()
 	charging_state = POWER_IDLE
 	on = TRUE
-	update_use_power(ACTIVE_POWER_USE)
+	update_use_power(IDLE_POWER_USE)
 
 	//soundloop.start()
 	update_appearance()
@@ -195,7 +201,6 @@ GLOBAL_LIST_EMPTY(redspace_anchors)
 		investigate_log("was brought online and is now producing gravity for this level.", INVESTIGATE_ENGINE)
 		message_admins("The redspace anchor was brought online [ADMIN_VERBOSEJMP(src)]")
 	shake_everyone()
-
 
 /obj/machinery/redspace_anchor/proc/disable()
 	charging_state = POWER_IDLE
@@ -223,8 +228,10 @@ GLOBAL_LIST_EMPTY(redspace_anchors)
 	else
 		if(charging_state == POWER_UP)
 			charge_count += 2
+			update_use_power(ACTIVE_POWER_USE)
 		else if(charging_state == POWER_DOWN)
 			charge_count -= 2
+			update_use_power(IDLE_POWER_USE)
 
 		if(charge_count % 4 == 0 && prob(75)) // Let them know it is charging/discharging.
 			if(charging_state == POWER_UP)
@@ -270,3 +277,6 @@ GLOBAL_LIST_EMPTY(redspace_anchors)
 		priority_announce("Redspace Anchor activated. Storm dissipation in progress.", "Redspace Anchor")
 	else
 		priority_announce("Warning: Redspace Anchor has been disabled. Storm encroaching on station perimeter.", "Redspace Anchor")
+
+/obj/machinery/redspace_anchor/proc/tick(intensity)
+	violetspace_energy += (5 * intensity)
