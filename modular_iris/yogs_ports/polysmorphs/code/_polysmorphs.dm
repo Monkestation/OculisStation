@@ -57,8 +57,6 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/digitigrade/polysmorph,
 	)
 
-
-
 	mutantbrain = /obj/item/organ/brain/polysmorph
 	mutanteyes = /obj/item/organ/eyes/polysmorph
 	mutanttongue = /obj/item/organ/tongue/polysmorph
@@ -75,9 +73,9 @@
 
 /datum/species/polysmorph/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("Polysmorph Tail", FALSE),
-		"xenodorsal" = list("None", TRUE),
-		"xenohead" = list("None", TRUE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Polysmorph Tail", is_randomizable = FALSE),
+		FEATURE_XENODORSAL = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = TRUE),
+		FEATURE_XENOHEAD = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = TRUE),
 	)
 
 /datum/species/polysmorph/on_species_gain(mob/living/carbon/human/polysmorph, datum/species/old_species, pref_load, regenerate_icons = TRUE)
@@ -94,9 +92,9 @@
 
 /datum/species/polysmorph/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.dna.features["mcolor"] = "#444466"
-	human_for_preview.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Polysmorph Tail", MUTANT_INDEX_COLOR_LIST = list("#444466", "#FFFFFF", "#FFFFFF"))
-	human_for_preview.dna.mutant_bodyparts["xenodorsal"] = list(MUTANT_INDEX_NAME = "Polysmorph Double", MUTANT_INDEX_COLOR_LIST = list("#444466", "#FFFFFF", "#FFFFFF"))
-	human_for_preview.dna.mutant_bodyparts["xenohead"] = list(MUTANT_INDEX_NAME = "Polysmorph Queen", MUTANT_INDEX_COLOR_LIST = list("#444466", "#FFFFFF", "#FFFFFF"))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_TAIL] = human_for_preview.dna.species.build_mutant_part("Polysmorph Tail", list("#444466", "#FFFFFF", "#FFFFFF"))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_XENODORSAL] = human_for_preview.dna.species.build_mutant_part("Polysmorph Double", list("#444466", "#FFFFFF", "#FFFFFF"))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_XENOHEAD] = human_for_preview.dna.species.build_mutant_part("Polysmorph Queen", list("#444466", "#FFFFFF", "#FFFFFF"))
 	regenerate_organs(human_for_preview)
 	human_for_preview.update_body(is_creating = TRUE)
 

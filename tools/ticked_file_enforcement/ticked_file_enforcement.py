@@ -65,6 +65,12 @@ with open(file_reference, 'r') as file:
             continue
         elif line == "// IRIS EDIT END":
             continue
+        # OCULIS EDIT START
+        elif line == "// OCULIS EDIT START":
+            continue
+        elif line == "// OCULIS EDIT END":
+            continue
+        # OCULIS EDIT END
 
 
         lines.append(line)
@@ -162,10 +168,33 @@ def compare_lines(a, b):
     print(f"Two lines were exactly the same ({a} vs. {b})")
     sys.exit(1)
 
-sorted_lines = sorted(lines, key = functools.cmp_to_key(compare_lines))
+sorted_lines = sorted(lines, key=functools.cmp_to_key(compare_lines))
+
+# OCULIS EDIT ADDITION START - print all out of order lines instead of one.
+out_of_order_lines = []
 for (index, line) in enumerate(lines):
     if sorted_lines[index] != line:
-        post_error(f"The include at line {index + offset} is out of order ({line}, expected {sorted_lines[index]})")
+        out_of_order_lines.append(
+            f"The include at line {index + offset} is out of order "
+            f"({line}, expected {sorted_lines[index]})"
+        )
+
+if out_of_order_lines:
+    for error in out_of_order_lines:
+        post_error(error)
+    print(red("Please use tools/dme-sorter.com to sort the includes in the correct order!"))
+    sys.exit(1)
+# OCULIS EDIT ADDITION END
+
+
+""" # OCULIS EDIT REMOVAL START - INCLUDE_ORDER_MULTI_ERROR - Old early-exit behavior
+for (index, line) in enumerate(lines):
+    if sorted_lines[index] != line:
+        post_error(
+            f"The include at line {index + offset} is out of order "
+            f"({line}, expected {sorted_lines[index]})"
+        )
         sys.exit(1)
+""" # OCULIS EDIT REMOVAL END
 
 print(green(f"Ticked File Enforcement: [{file_reference}] All includes (for {len(scannable_files)} scanned files) are in order!"))
