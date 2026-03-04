@@ -20,12 +20,19 @@
 		return FALSE
 	return TRUE
 
+/obj/item/card/id/advanced/castor/equipped(mob/user, slot)
+	. = ..()
+	if((slot & ITEM_SLOT_ID) && !registered_name)
+		registered_name = user.real_name
+		update_icon()
+		update_label()
+
 /datum/id_trim/admin/castor
 	department_state = "departmenthead"
 	sechud_icon_state = SECHUD_CENTCOM
 	threat_modifier = -INFINITY
 	big_pointer = TRUE
-	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_LAST_FULL | HONORIFIC_POSITION_NONE
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/job/castor
 	title = "Castor Station Administration"
@@ -44,3 +51,94 @@
 	name = "\improper ID card"
 	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_commander
+
+/datum/id_trim/admin/castor/sectorial_personnel_administrator
+	trim_state = "trim_headofpersonnel"
+	department_color = COLOR_COMMAND_BLUE
+	subdepartment_color = COLOR_SERVICE_LIME
+	assignment = "Sectorial Personnel Administrator"
+	pointer_color = COLOR_SERVICE_LIME
+	honorifics = list("<font color='#04a804'>S.P.A.</font>")
+
+/obj/item/card/id/advanced/castor/sectorial_personnel_administrator
+	name = "\improper ID card"
+	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
+	trim = /datum/id_trim/admin/castor/sectorial_personnel_administrator
+
+/datum/id_trim/admin/castor/sectorial_security_administrator
+	trim_state = "trim_securityofficer"
+	department_color = COLOR_COMMAND_BLUE
+	subdepartment_color = COLOR_SECURITY_RED
+	assignment = "Sectorial Security Administrator"
+	pointer_color = COLOR_SECURITY_RED
+	honorifics = list("<font color='#8f0316'>S.S.A.</font>")
+
+/obj/item/card/id/advanced/castor/sectorial_security_administrator
+	name = "\improper ID card"
+	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
+	trim = /datum/id_trim/admin/castor/sectorial_security_administrator
+
+/datum/id_trim/admin/castor/sectorial_research_administrator
+	trim_state = "trim_scientist"
+	department_color = COLOR_COMMAND_BLUE
+	subdepartment_color = COLOR_SCIENCE_PINK
+	assignment = "Sectorial Research Administrator"
+	pointer_color = COLOR_SCIENCE_PINK
+	honorifics = list("<font color='#8d04a8'>S.R.A.</font>")
+
+/obj/item/card/id/advanced/castor/sectorial_research_administrator
+	name = "\improper ID card"
+	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
+	trim = /datum/id_trim/admin/castor/sectorial_research_administrator
+
+/datum/id_trim/admin/castor/sectorial_medical_administrator
+	trim_state = "trim_medicaldoctor"
+	department_color = COLOR_COMMAND_BLUE
+	subdepartment_color = COLOR_MEDICAL_BLUE
+	assignment = "Sectorial Medical Administrator"
+	pointer_color = COLOR_MEDICAL_BLUE
+	honorifics = list("<font color='#06cfa4'>S.M.A.</font>")
+
+/obj/item/card/id/advanced/castor/sectorial_medical_administrator
+	name = "\improper ID card"
+	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
+	trim = /datum/id_trim/admin/castor/sectorial_medical_administrator
+
+/datum/id_trim/admin/castor/sectorial_logistics_administrator
+	trim_state = "trim_cargotechnician"
+	department_color = COLOR_COMMAND_BLUE
+	subdepartment_color = COLOR_CARGO_BROWN
+	assignment = "Sectorial Logistics Administrator"
+	pointer_color = COLOR_CARGO_BROWN
+	honorifics = list("<font color='#9e5a02'>S.L.A.</font>")
+
+/obj/item/card/id/advanced/castor/sectorial_logistics_administrator
+	name = "\improper ID card"
+	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
+	trim = /datum/id_trim/admin/castor/sectorial_logistics_administrator
+
+/datum/id_trim/admin/castor/sectorial_engineering_administrator
+	trim_state = "trim_stationengineer"
+	department_color = COLOR_COMMAND_BLUE
+	subdepartment_color = COLOR_ENGINEERING_ORANGE
+	assignment = "Sectorial Engineering Administrator"
+	pointer_color = COLOR_ENGINEERING_ORANGE
+	honorifics = list("<font color='#ff8800'>S.E.A.</font>")
+
+/obj/item/card/id/advanced/castor/sectorial_engineering_administrator
+	name = "\improper ID card"
+	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
+	trim = /datum/id_trim/admin/castor/sectorial_engineering_administrator
+
+/datum/id_trim/admin/castor/sectorial_internal_affairs_administrator
+	trim_state = "trim_lawyer"
+	department_color = COLOR_COMMAND_BLUE
+	subdepartment_color = COLOR_CENTCOM_BLUE
+	assignment = "Sectorial Internal Affairs Administrator"
+	pointer_color = COLOR_CENTCOM_BLUE
+	honorifics = list("<font color='#0038f1'>S.I.A.A.</font>")
+
+/obj/item/card/id/advanced/castor/sectorial_internal_affairs_administrator
+	name = "\improper ID card"
+	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
+	trim = /datum/id_trim/admin/castor/sectorial_internal_affairs_administrator
