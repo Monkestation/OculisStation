@@ -3,7 +3,7 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 	stat_tag = "ES"
 	flags = SS_NO_INIT | SS_KEEP_TIMING
 	runlevels = RUNLEVEL_GAME
-	wait = 5 MINUTES
+	wait = 1 MINUTES
 
 	COOLDOWN_DECLARE(eidolon_storm_cooldown)
 	/// Currently selected storem intensity. See defines for values.

@@ -15,17 +15,17 @@
 /datum/storm_ruleset/calm
 	intensity = STORM_INTENSITY_CALM
 	min_pop = 0
-	storm_cooldown = 20 MINUTES
+	storm_cooldown = 10 MINUTES
 
 /datum/storm_ruleset/drizzle
 	intensity = STORM_INTENSITY_DRIZZLE
 	min_pop = 10
-	storm_cooldown = 15 MINUTES
+	storm_cooldown = 10 MINUTES
 
 /datum/storm_ruleset/storm
 	intensity = STORM_INTENSITY_STORM
 	min_pop = 15
-	storm_cooldown = 10 MINUTES
+	storm_cooldown = 5 MINUTES
 
 /datum/storm_ruleset/monsoon
 	intensity = STORM_INTENSITY_MONSOON
