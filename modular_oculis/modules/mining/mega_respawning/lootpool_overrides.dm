@@ -1,11 +1,6 @@
-/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/Initialize(mapload)
-	loot += /obj/item/book/granter/crafting_recipe/dusting/summoning_flute/blood_drunk_miner
+/mob/living/basic/boss/blood_drunk_miner/Initialize(mapload)
+	regular_loot += /obj/item/book/granter/crafting_recipe/dusting/summoning_flute/blood_drunk_miner
 	. = ..()
-//	Awaiting basic-mob blood-drunk
-//	!! IF THIS IS UNCOMMENTED, UNCOMMENT "THE THING" MEGAFAUNA BELOW ASWELL !!
-//mob/living/basic/boss/blood_drunk_miner
-//	regular_loot += /obj/item/book/granter/crafting_recipe/dusting/summoning_flute/blood_drunk_miner
-//	. = ..()
 
 /mob/living/simple_animal/hostile/megafauna/hierophant/Initialize(mapload)
 	loot += /obj/item/book/granter/crafting_recipe/dusting/summoning_flute/hierophant
@@ -32,9 +27,9 @@
 	loot += /obj/item/book/granter/crafting_recipe/dusting/summoning_flute/clockwork_defender
 	. = ..()
 
-//mob/living/basic/boss/thing
-//	regular_loot += /obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_thing
-//	. = ..()
+/mob/living/basic/boss/thing/Initialize(mapload)
+	regular_loot += /obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_thing
+	. = ..()
 
 /mob/living/simple_animal/hostile/megafauna/wendigo/Initialize(mapload)
 	guaranteed_butcher_results += /obj/item/book/granter/crafting_recipe/dusting/summoning_flute/wendigo
