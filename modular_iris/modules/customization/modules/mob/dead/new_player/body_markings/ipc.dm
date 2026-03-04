@@ -1,6 +1,7 @@
 // Humanoid IPC heads. Ported from Baystation12/Paradise
 
 /datum/sprite_accessory/synth_head/iris
+	name = null
 	icon = BODYPART_ICON_IPC_IRIS
 	factual = FALSE
 
