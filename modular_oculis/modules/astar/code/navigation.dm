@@ -52,15 +52,20 @@
 		var/dir_1 = 0
 		var/dir_2 = 0
 		if(i == 1)
-			dir_2 = REVERSE_DIR(angle2dir(get_angle(path[i+1], current_turf)))
+			dir_2 = angle2dir(get_angle(path[i+1], current_turf))
+			dir_2 = REVERSE_DIR(dir_2) // if we combined this with the above, we'd do angle2dir/get_angle twice, which is not ideal
 		else if(i == length(path))
-			dir_2 = REVERSE_DIR(angle2dir(get_angle(path[i-1], current_turf)))
+			dir_2 = angle2dir(get_angle(path[i-1], current_turf))
+			dir_2 = REVERSE_DIR(dir_2)
 		else
-			dir_1 = REVERSE_DIR(angle2dir(get_angle(path[i+1], current_turf)))
-			dir_2 = REVERSE_DIR(angle2dir(get_angle(path[i-1], current_turf)))
+			dir_1 = angle2dir(get_angle(path[i+1], current_turf))
+			dir_2 = angle2dir(get_angle(path[i-1], current_turf))
+			dir_1 = REVERSE_DIR(dir_1)
+			dir_2 = REVERSE_DIR(dir_2)
 			if(dir_1 > dir_2)
 				dir_1 = dir_2
-				dir_2 = REVERSE_DIR(angle2dir(get_angle(path[i+1], current_turf)))
+				dir_2 = angle2dir(get_angle(path[i+1], current_turf))
+				dir_2 = REVERSE_DIR(dir_2)
 		path_image.icon_state = "[dir_1]-[dir_2]"
 		client.images += path_image
 		client.navigation_images += path_image
