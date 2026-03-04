@@ -2,23 +2,23 @@ Any time you make a change to the schema files, remember to increment the databa
 
 Make sure to also update `DB_MAJOR_VERSION` and `DB_MINOR_VERSION`, which can be found in `code/__DEFINES/subsystem.dm`.
 
-The latest database version is 5.39 (5.33 for /tg/); The query to update the schema revision table is:
+The latest database version is 5.40 (5.34 for /tg/); The query to update the schema revision table is:
 
 ```sql
-INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 39);
+INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 40);
 ```
 
 or
 
 ```sql
-INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 39);
+INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 40);
 ```
 
 In any query remember to add a prefix to the table names if you use one.
 
 ---
 
-Version 5.39 13 January 2025, by Flleeppyy
+Version 5.40 13 January 2025, by Flleeppyy
 Add `byond_build` and `byond_version` to the `connection_log` table.
 
 ```sql
@@ -27,7 +27,7 @@ ALTER TABLE `connection_log` ADD COLUMN `byond_version` varchar(8) DEFAULT NULL,
 
 ---
 
-Version 5.38 12 January 2026, by Flleeppyy
+Version 5.39 12 January 2026, by Flleeppyy
 Remove `stickyban` and its related tables.
 Also fixed some `CREATE TABLE` statements to remove `IF NOT EXISTS` since that was literally useless after `DROP TABLE IF EXISTS`
 
@@ -36,6 +36,20 @@ DROP TABLE IF EXISTS `stickyban`;
 DROP TABLE IF EXISTS `stickyban_matched_ckey`;
 DROP TABLE IF EXISTS `stickyban_matched_ip`;
 DROP TABLE IF EXISTS `stickyban_matched_cid`;
+```
+
+---
+
+Version 5.38, 16 January 2026, by Ghommie
+Added `pda_themes_progress` as the second 'progress' subtype of 'datum/award/scores'
+
+```sql
+CREATE TABLE `pda_themes_progress` (
+  `ckey` VARCHAR(32) NOT NULL,
+  `progress_entry` VARCHAR(32) NOT NULL,
+  `datetime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ckey`,`progress_entry`)
+) ENGINE=InnoDB;
 ```
 
 ---

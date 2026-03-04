@@ -127,15 +127,17 @@
 /datum/asset/simple/lobby
 	assets = list(
 		"FixedsysExcelsior3.01Regular.ttf" = 'html/browser/FixedsysExcelsior3.01Regular.ttf',
+		// OCULIS EDIT ADDITION START
 		"layer1.png" = 'html/images/parallax/layer1.png',
 		"layer2.png" = 'html/images/parallax/layer2.png',
 		"layer3.png" = 'html/images/parallax/layer3.png',
 		"layer1TG.png" = 'html/images/parallax/layer1TG.png',
 		"layer2TG.png" = 'html/images/parallax/layer2TG.png',
 		"layer3TG.png" = 'html/images/parallax/layer3TG.png',
+		// OCULIS EDIT ADDITION END
 	)
 	// This window is yet to respect webroot transport, so, this is here for now.
-	legacy = TRUE
+	legacy = TRUE // OCULIS ADDITION
 
 /**
  * Removes the titlescreen entirely from a mob.

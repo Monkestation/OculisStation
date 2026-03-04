@@ -53,9 +53,6 @@
 	return TRUE
 
 /datum/preference/text/headshot/proc/apply_headshot(value)
-	if(usr.client?.get_exp_living(pure_numeric = TRUE) < 300) //adds check for hours - Iris EDIT
-		to_chat(usr.client, span_warning("You need to play more before you can upload a headshot!"))
-		return FALSE
 	if(isnull(stored_links[usr?.ckey]))
 		stored_links[usr?.ckey] = list()
 	stored_links[usr?.ckey][type] = value

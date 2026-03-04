@@ -11,7 +11,7 @@
  *
  * make sure you add an update to the schema_version stable in the db changelog
  */
-#define DB_MAJOR_VERSION 6
+#define DB_MAJOR_VERSION 5
 
 /**
  * DB minor schema version
@@ -20,7 +20,7 @@
  *
  * make sure you add an update to the schema_version stable in the db changelog
  */
-#define DB_MINOR_VERSION 39 // NOVA EDIT CHANGE - ORIGINAL: #define DB_MINOR_VERSION 33
+#define DB_MINOR_VERSION 40 // NOVA EDIT CHANGE - ORIGINAL: #define DB_MINOR_VERSION 34
 
 
 //! ## Timing subsystem
@@ -155,6 +155,7 @@
 #define FIRE_PRIORITY_ACID 40
 #define FIRE_PRIORITY_BURNING 40
 #define FIRE_PRIORITY_DEFAULT 50
+#define FIRE_PRIORITY_PLEXORA 60 // OCULIS ADDITION
 #define FIRE_PRIORITY_PARALLAX 65
 #define FIRE_PRIORITY_INSTRUMENTS 80
 #define FIRE_PRIORITY_FLUIDS 80

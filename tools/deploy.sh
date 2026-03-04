@@ -42,6 +42,15 @@ find modular_iris/ -name \*.dmi -exec cp --parents {} $1 \;
 find modular_iris/modules/GAGS/json_configs -name \*.json -exec cp --parents {} $1 \;
 # IRIS EDIT ADDITION END
 
+# OCULIS EDIT ADDITION START
+mkdir -p \
+		$1/modular_oculis \
+		$1/modular_oculis/modules/GAGS/json_configs
+
+find modular_oculis/ -name \*.dmi -exec cp --parents {} $1 \;
+find modular_oculis/modules/GAGS/json_configs -name \*.json -exec cp --parents {} $1 \;
+# OCULIS EDIT ADDITION END
+
 cp tgstation.dmb tgstation.rsc $1/
 cp -r _maps/* $1/_maps/
 cp -r code/datums/greyscale/json_configs/* $1/code/datums/greyscale/json_configs/

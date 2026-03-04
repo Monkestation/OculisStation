@@ -323,7 +323,7 @@ try
 	if (!await WaitForJob(byondInstallJob.InstallJob!, 120))
 		return 6;
 
-	if (!await WaitForJob(repoCloneJob.ActiveJob!, 600))
+	if (!await WaitForJob(repoCloneJob.ActiveJob!, 1200)) // OCULIS EDIT: increase timeout (600 -> 1200)
 		return 7;
 
 	if (pullRequest.HasValue)

@@ -223,7 +223,8 @@ export function PageMain(props) {
               Restore Backup Routing Data
             </Button>
           )}
-          {/* NOVA EDIT ADDITION START */}
+          {/* OCULIS EDIT REMOVAL START */}
+          {/* NOVA EDIT ADDITION START */ /*}
           {!!canMessageAssociates && (
             <Button
               icon="bullhorn"
@@ -255,6 +256,7 @@ export function PageMain(props) {
             </Button>
           )}
           {/* NOVA EDIT ADDITION END */}
+          {/* OCULIS EDIT REMOVAL END */}
         </Flex>
       </Section>
 
