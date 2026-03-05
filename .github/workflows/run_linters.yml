@@ -67,6 +67,7 @@ jobs:
           bash tools/ci/check_grep.sh
           bash modular_nova/tools/nova_check_grep.sh # NOVA EDIT ADDITION - checking modular_nova code
           bash modular_oculis/tools/oculis_check_grep.sh # OCULIS EDIT ADD
+          bash modular_iris/tools/iris_check_grep.sh # IRIS EDIT ADDITION - checking modular_iris code
       - name: Ticked File Enforcement
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: |
