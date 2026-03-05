@@ -279,4 +279,9 @@
 		priority_announce("Warning: Redspace Anchor has been disabled. Storm encroaching on station perimeter.", "Redspace Anchor")
 
 /obj/machinery/redspace_anchor/proc/tick(intensity)
-	violetspace_energy += (5 * intensity)
+	violetspace_energy += (rand(1,5) * intensity)
+	if(violetspace_energy >= 100)
+		violetspace_energy = 0
+		trigger_energy_overload()
+
+/obj/machinery/redspace_anchor/proc/trigger_energy_overload()
