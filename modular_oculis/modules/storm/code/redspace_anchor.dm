@@ -43,13 +43,15 @@
 	/// Audio for when the redspace anchor is on
 	var/datum/looping_sound/redspace_anchor/soundloop
 
-	/// How much the redspace anchor has excess violetspace energy, which can cause it to fail once it reaches 100.
+	/// How much excess violetspace energy the redspace anchor has, which can cause it to fail once it reaches 100.
 	VAR_PROTECTED/violetspace_energy = 0
 
 /obj/machinery/redspace_anchor/Initialize(mapload)
 	. = ..()
 	SSeidolon_storm.register_anchor(src)
 	soundloop = new(src, start_immediately = FALSE)
+	if(on)
+		add_overlay("activated")
 
 /obj/machinery/redspace_anchor/safe_throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE)
 	return FALSE
