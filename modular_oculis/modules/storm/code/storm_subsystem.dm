@@ -48,4 +48,4 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 	if(!COOLDOWN_FINISHED(src, eidolon_storm_cooldown))
 		return
 	COOLDOWN_START(src, eidolon_storm_cooldown, (chosen_storm_ruleset.storm_cooldown))
-	station_anchor.tick(chosen_storm_ruleset.intensity)
+	station_anchor?.tick(chosen_storm_ruleset.intensity)
