@@ -34,6 +34,7 @@
 	taste_description = "a legendary burning sensation"
 	quality = DRINK_FANTASTIC
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	var/obj/effect/light_holder
 
 /datum/glass_style/drinking_glass/drink_of_legends
 	required_drink_type = /datum/reagent/consumable/ethanol/drink_of_legends
@@ -41,6 +42,33 @@
 	desc = "A drink truly made for and by legends."
 	icon = 'modular_oculis/modules/drinks/icons/drinks.dmi'
 	icon_state =  "drink_of_legends"
+
+/datum/reagent/consumable/ethanol/drink_of_legends/on_mob_metabolize(mob/living/drinker)
+	. = ..()
+	to_chat(drinker, span_notice("You feel as if you have become a legend!"))
+	light_holder = drinker.mob_light()
+	light_holder.set_light(3, 1, "#00ff85") // rgb: 0, 100, 52
+	var/need_mob_update
+	var/heal_points = 20
+	var/heal_amt = min(volume, heal_points)
+	need_mob_update = drinker.adjust_brute_loss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += drinker.adjust_fire_loss(-heal_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += drinker.adjust_stamina_loss(max(-heal_amt * 5, -20), updating_stamina = FALSE, required_biotype = affected_biotype)
+
+/datum/reagent/consumable/ethanol/drink_of_legends/on_mob_life(mob/living/drinker, seconds_per_tick, times_fired)
+	. = ..()
+	if(drinker.health > 0)
+		var/need_mob_update
+		need_mob_update = drinker.adjust_brute_loss(-1 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
+		need_mob_update += drinker.adjust_fire_loss(-1 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
+		need_mob_update += drinker.adjust_stamina_loss(-5 * REM * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
+		if(need_mob_update)
+			return UPDATE_MOB_HEALTH
+
+/datum/reagent/consumable/ethanol/drink_of_legends/on_mob_end_metabolize(mob/living/drinker)
+	. = ..()
+	to_chat(drinker, span_notice("You feel yourself blend back into the crowd..."))
+	QDEL_NULL(light_holder)
 
 // Philosopher's Stone
 
@@ -85,3 +113,25 @@
 	desc = "A mug of endless greed."
 	icon = 'modular_oculis/modules/drinks/icons/drinks.dmi'
 	icon_state =  "drink_of_avarice"
+
+// Fury
+
+/datum/chemical_reaction/drink/drink_of_fury
+	results = list(/datum/reagent/consumable/ethanol/drink_of_fury = 5)
+	required_reagents = list(/datum/reagent/consumable/capsaicin = 2, /datum/reagent/blood = 2, /datum/reagent/consumable/ethanol/wine = 1)
+
+/datum/reagent/consumable/ethanol/drink_of_fury
+	name = "Fury"
+	description = "A cup of endless wrath."
+	color = "#ed0033" // rgb: 93, 0, 20
+	boozepwr = 60
+	taste_description = "an indescrible rage"
+	quality = DRINK_FANTASTIC
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/glass_style/drinking_glass/drink_of_fury
+	required_drink_type = /datum/reagent/consumable/ethanol/drink_of_fury
+	name = "Fury"
+	desc = "A cup of endless wrath."
+	icon = 'modular_oculis/modules/drinks/icons/drinks.dmi'
+	icon_state =  "drink_of_fury"
