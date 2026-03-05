@@ -214,7 +214,7 @@
 	color = "#42ff00" // rgb: 26, 100, 0
 	boozepwr = 90
 	taste_description = "something overwhelmingly disgusting"
-	quality = DRINK_FANTASTIC
+	quality = DRINK_REVOLTING
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/glass_style/drinking_glass/drink_of_voracity
@@ -228,6 +228,10 @@
 	. = ..()
 	to_chat(drinker, span_notice("WHY DID YOU DRINK THAT!!!"))
 	drinker.vomit(MOB_VOMIT_KNOCKDOWN, lost_nutrition = 10)
+
+/datum/reagent/consumable/ethanol/drink_of_voracity/on_mob_life(mob/living/carbon/drinker)
+	. = ..()
+	drinker.vomit(MOB_VOMIT_FORCE, lost_nutrition = 10)
 
 // Desire
 
@@ -250,3 +254,63 @@
 	desc = "A cup of endless envy."
 	icon = 'modular_oculis/modules/drinks/icons/drinks.dmi'
 	icon_state =  "drink_of_desire"
+
+// Commandment
+
+/datum/chemical_reaction/drink/drink_of_commandment
+	results = list(/datum/reagent/consumable/ethanol/drink_of_commandment = 5)
+	required_reagents = list(/datum/reagent/consumable/ethanol/quadruple_sec = 1, /datum/reagent/consumable/ethanol/dark_and_stormy = 1, /datum/reagent/consumable/ethanol/tizirian_sour = 2)
+
+/datum/reagent/consumable/ethanol/drink_of_commandment
+	name = "Commandment"
+	description = "A cup of endless authority."
+	color = "#404040" // rgb: 25, 25, 25
+	boozepwr = 40
+	taste_description = "too pure for me"
+	quality = DRINK_FANTASTIC
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/glass_style/drinking_glass/drink_of_commandment
+	required_drink_type = /datum/reagent/consumable/ethanol/drink_of_commandment
+	name = "Commandment"
+	desc = "A cup of endless authority."
+	icon = 'modular_oculis/modules/drinks/icons/drinks.dmi'
+	icon_state =  "drink_of_commandment"
+
+/datum/reagent/consumable/ethanol/drink_of_commandment/on_mob_metabolize(mob/living/drinker)
+	. = ..()
+	to_chat(drinker, span_notice("This drink was not meant for me"))
+	var/need_mob_update
+	var/damn_points = 10
+	var/damn_amt = min(volume, damn_points)
+	need_mob_update += drinker.adjust_fire_loss(damn_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+
+/datum/reagent/consumable/ethanol/drink_of_commandment/on_mob_life(mob/living/drinker, seconds_per_tick, times_fired)
+	. = ..()
+	if(drinker.health > 0)
+		var/need_mob_update
+		need_mob_update += drinker.adjust_fire_loss(1 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
+		if(need_mob_update)
+			return UPDATE_MOB_HEALTH
+
+// Virtue
+
+/datum/chemical_reaction/drink/drink_of_virtue
+	results = list(/datum/reagent/consumable/ethanol/drink_of_virtue = 5)
+	required_reagents = list(/datum/reagent/consumable/ethanol/singulo = 1, /datum/reagent/consumable/ethanol/kings_ransom = 1)
+
+/datum/reagent/consumable/ethanol/drink_of_virtue
+	name = "Virtue"
+	description = "A cup of endless divinity."
+	color = "#4db8ff" // rgb: 30, 72, 100
+	boozepwr = 70
+	taste_description = "you have ascended"
+	quality = DRINK_FANTASTIC
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/glass_style/drinking_glass/drink_of_virtue
+	required_drink_type = /datum/reagent/consumable/ethanol/drink_of_virtue
+	name = "Virtue"
+	desc = "A cup of endless divinity."
+	icon = 'modular_oculis/modules/drinks/icons/drinks.dmi'
+	icon_state =  "drink_of_virtue"
