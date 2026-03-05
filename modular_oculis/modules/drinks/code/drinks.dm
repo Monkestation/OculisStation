@@ -135,3 +135,118 @@
 	desc = "A cup of endless wrath."
 	icon = 'modular_oculis/modules/drinks/icons/drinks.dmi'
 	icon_state =  "drink_of_fury"
+
+// Ardor
+
+/datum/chemical_reaction/drink/drink_of_ardor
+	results = list(/datum/reagent/consumable/ethanol/drink_of_ardor = 5)
+	required_reagents = list(/datum/reagent/consumable/berryjuice = 1, /datum/reagent/consumable/ethanol/plumwine = 2, /datum/reagent/consumable/ethanol/sugar_rush = 1, /datum/reagent/consumable/ethanol/admiralty = 1, )
+
+/datum/reagent/consumable/ethanol/drink_of_ardor
+	name = "Ardor"
+	description = "A glass of endless passion."
+	color = "#cf6bed" // rgb: 81, 42, 93
+	boozepwr = 60
+	taste_description = "a warm rush of enthusiasm"
+	quality = DRINK_FANTASTIC
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/glass_style/drinking_glass/drink_of_ardor
+	required_drink_type = /datum/reagent/consumable/ethanol/drink_of_ardor
+	name = "Ardor"
+	desc = "A glass of endless passion."
+	icon = 'modular_oculis/modules/drinks/icons/drinks.dmi'
+	icon_state =  "drink_of_ardor"
+
+// Languor
+
+/datum/chemical_reaction/drink/drink_of_languor
+	results = list(/datum/reagent/consumable/ethanol/drink_of_languor = 5)
+	required_reagents = list(/datum/reagent/consumable/ethanol/antifreeze = 2, /datum/reagent/consumable/ethanol/dreadnog = 3)
+
+/datum/reagent/consumable/ethanol/drink_of_languor
+	name = "Languor"
+	description = "A cup of endless sloth."
+	color = "#2b3b80" // rgb: 17, 23, 50
+	boozepwr = 60
+	taste_description = "a boring mellowness"
+	quality = DRINK_FANTASTIC
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/glass_style/drinking_glass/drink_of_languor
+	required_drink_type = /datum/reagent/consumable/ethanol/drink_of_languor
+	name = "Languor"
+	desc = "A cup of endless sloth."
+	icon = 'modular_oculis/modules/drinks/icons/drinks.dmi'
+	icon_state =  "drink_of_languor"
+
+// Vainglory
+
+/datum/chemical_reaction/drink/drink_of_vainglory
+	results = list(/datum/reagent/consumable/ethanol/drink_of_vainglory = 5)
+	required_reagents = list(/datum/reagent/consumable/ethanol/singulo = 1, /datum/reagent/consumable/ethanol/kings_ransom = 1)
+
+/datum/reagent/consumable/ethanol/drink_of_vainglory
+	name = "Vainglory"
+	description = "A cup of endless pride."
+	color = "#6e00b3" // rgb: 43, 23, 70
+	boozepwr = 60
+	taste_description = "the best thing you have ever consumed"
+	quality = DRINK_FANTASTIC
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/glass_style/drinking_glass/drink_of_vainglory
+	required_drink_type = /datum/reagent/consumable/ethanol/drink_of_vainglory
+	name = "Vainglory"
+	desc = "A cup of endless pride."
+	icon = 'modular_oculis/modules/drinks/icons/drinks.dmi'
+	icon_state =  "drink_of_vainglory"
+
+// Voracity - NOT DONE - NOT DONE - NOT DONE - NOT DONE - ADD VOMIT IF YOU CAN AND REPLACE MOONSHINE
+
+/datum/chemical_reaction/drink/drink_of_voracity
+	results = list(/datum/reagent/consumable/ethanol/drink_of_voracity = 10)
+	required_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/ethanol/moonshine = 1, /datum/reagent/consumable/ethanol/acid_spit = 2, /datum/reagent/consumable/cucumberjuice = 3, /datum/reagent/consumable/soymilk = 1, /datum/reagent/consumable/ethanol/suffering_bastard = 1)
+
+/datum/reagent/consumable/ethanol/drink_of_voracity
+	name = "Voracity"
+	description = "A cup of endless gluttony."
+	color = "#42ff00" // rgb: 26, 100, 0
+	boozepwr = 90
+	taste_description = "something overwhelmingly disgusting"
+	quality = DRINK_FANTASTIC
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/glass_style/drinking_glass/drink_of_voracity
+	required_drink_type = /datum/reagent/consumable/ethanol/drink_of_voracity
+	name = "Voracity"
+	desc = "A cup of endless gluttony."
+	icon = 'modular_oculis/modules/drinks/icons/drinks.dmi'
+	icon_state =  "drink_of_voracity"
+
+/datum/reagent/consumable/ethanol/drink_of_voracity/on_mob_metabolize(mob/living/carbon/drinker)
+	. = ..()
+	to_chat(drinker, span_notice("WHY DID YOU DRINK THAT!!!"))
+	drinker.vomit(MOB_VOMIT_KNOCKDOWN, lost_nutrition = 10)
+
+// Desire
+
+/datum/chemical_reaction/drink/drink_of_desire
+	results = list(/datum/reagent/consumable/ethanol/drink_of_desire = 10)
+	required_reagents = list(/datum/reagent/water = 8, /datum/reagent/consumable/ethanol/screwdrivercocktail = 1, /datum/reagent/consumable/ethanol/sidecar = 1)
+
+/datum/reagent/consumable/ethanol/drink_of_desire
+	name = "Desire"
+	description = "A cup of endless envy."
+	color = "#ff7800" // rgb: 100, 47, 0
+	boozepwr = 20
+	taste_description = "something is missing"
+	quality = DRINK_FANTASTIC
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/glass_style/drinking_glass/drink_of_desire
+	required_drink_type = /datum/reagent/consumable/ethanol/drink_of_desire
+	name = "Desire"
+	desc = "A cup of endless envy."
+	icon = 'modular_oculis/modules/drinks/icons/drinks.dmi'
+	icon_state =  "drink_of_desire"
