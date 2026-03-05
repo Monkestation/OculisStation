@@ -178,6 +178,11 @@
 			investigate_log("was toggled [breaker ? "<font color='green'>ON</font>" : "<font color='red'>OFF</font>"] by [key_name(usr)].", INVESTIGATE_ENGINE)
 			set_power()
 			. = TRUE
+		if("discharge_violetspace")
+			if(violetspace_energy)
+				investigate_log("has discharged violetspace energy by [key_name(usr)].", INVESTIGATE_ENGINE)
+				trigger_safe_discharge()
+				. = TRUE
 
 // Power and Icon States
 /obj/machinery/redspace_anchor/power_change()
@@ -301,9 +306,17 @@
 		priority_announce("Warning: Redspace Anchor has been disabled. Storm encroaching on station perimeter.", "Redspace Anchor")
 
 /obj/machinery/redspace_anchor/proc/tick(intensity)
+	if(charging_state != POWER_IDLE)
+		return
 	violetspace_energy += (rand(1,5) * intensity)
 	if(violetspace_energy >= 100)
 		violetspace_energy = 0
-		trigger_energy_overload()
+		breaker = FALSE
+		set_power()
+		trigger_unsafe_discharge()
 
-/obj/machinery/redspace_anchor/proc/trigger_energy_overload()
+/obj/machinery/redspace_anchor/proc/trigger_unsafe_discharge()
+	priority_announce("Redspace Anchor failure! Unsafe shutdown in progress!", "Redspace Anchor")
+
+/obj/machinery/redspace_anchor/proc/trigger_safe_discharge()
+	priority_announce("Redspace Anchor safe discharge in progres.", "Redspace Anchor")
