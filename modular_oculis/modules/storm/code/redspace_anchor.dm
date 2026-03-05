@@ -9,7 +9,6 @@
 
 /obj/machinery/redspace_anchor
 	name = "redspace anchor"
-	desc = "The most important machine on the station. It keeps the storm outside of the station from encroaching closer."
 	icon = 'modular_oculis/modules/storm/icons/redspace_anchor.dmi'
 	icon_state = "anchor_off"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -52,6 +51,12 @@
 	soundloop = new(src, start_immediately = FALSE)
 	if(on)
 		add_overlay("activated")
+
+/obj/machinery/redspace_anchor/examine(mob/user)
+	if(HAS_TRAIT(user, TRAIT_MINDSHIELD))
+		desc = "The most important machine on the station. You feel more... Stable, near it."
+	desc = "The most important machine on the station. <span class=\"danger\">Looking directly at it gives you a headache.</span>"
+	return ..()
 
 /obj/machinery/redspace_anchor/safe_throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE)
 	return FALSE
@@ -220,7 +225,28 @@
 // Charge/Discharge and turn on/off when you reach 0/100 percent.
 /obj/machinery/redspace_anchor/process()
 	if(machine_stat & BROKEN)
+		cut_overlays()
 		return
+
+	var/overlay_state = null
+	switch(charge_count)
+		if(0 to 20)
+			overlay_state = null
+		if(21 to 40)
+			overlay_state = "startup"
+		if(41 to 60)
+			overlay_state = "idle"
+		if(61 to 80)
+			overlay_state = "activating"
+		if(81 to 100)
+			overlay_state = "activated"
+
+	if(overlay_state != current_overlay)
+		cut_overlays()
+		if(overlay_state)
+			add_overlay(overlay_state)
+		current_overlay = overlay_state
+
 	if(charging_state == POWER_IDLE)
 		return
 	if((charging_state == POWER_UP) && charge_count >= 100)
@@ -250,24 +276,6 @@
 				if((charge_count <= 50) && (charging_state == POWER_DOWN) && prob(5))
 					to_chat(mobs, span_bolddanger("You feel a foreign presence encroaching around you."))
 
-		var/overlay_state = null
-		switch(charge_count)
-			if(0 to 20)
-				overlay_state = null
-			if(21 to 40)
-				overlay_state = "startup"
-			if(41 to 60)
-				overlay_state = "idle"
-			if(61 to 80)
-				overlay_state = "activating"
-			if(81 to 100)
-				overlay_state = "activated"
-
-		if(overlay_state != current_overlay)
-			cut_overlays()
-			if(overlay_state)
-				add_overlay(overlay_state)
-			current_overlay = overlay_state
 
 /// Shake everyone on the z level to let them know that the anchor was enagaged/disengaged.
 /obj/machinery/redspace_anchor/proc/shake_everyone()
