@@ -55,7 +55,9 @@
 /obj/machinery/redspace_anchor/examine(mob/user)
 	if(HAS_TRAIT(user, TRAIT_MINDSHIELD))
 		desc = "The most important machine on the station. You feel more... Stable, near it."
-	desc = "The most important machine on the station. <span class=\"danger\">Looking directly at it gives you a headache.</span>"
+		return ..()
+	desc = "The most important machine on the station. \n \
+			<span class=\"danger\">Looking directly at it gives you a headache.</span>"
 	return ..()
 
 /obj/machinery/redspace_anchor/safe_throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE)
@@ -162,6 +164,7 @@
 	data["charging_state"] = charging_state
 	data["on"] = on
 	data["operational"] = (machine_stat & BROKEN) ? FALSE : TRUE
+	data["violetspace_energy"] = violetspace_energy
 	return data
 
 /obj/machinery/redspace_anchor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
