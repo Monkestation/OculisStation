@@ -6,4 +6,4 @@
 			return
 	else //otherwise just toggle it
 		GLOB.looc_allowed = !GLOB.looc_allowed
-	to_chat(world, "<span class='oocplain'><B>LOOC has been globally [GLOB.looc_allowed ? "enabled" : "disabled"].</B></span>")
+	to_chat(world, span_oocplain("<B>LOOC has been globally [GLOB.looc_allowed ? "enabled" : "disabled"].</B>"))
