@@ -235,7 +235,6 @@
 			charge_count -= 2
 			update_use_power(IDLE_POWER_USE)
 
-				playsound(get_turf(src), 'sound/effects/magic/cosmic_expansion.ogg', 100, TRUE)
 		for(var/mob/mobs as anything in GLOB.mob_list)
 			var/turf/mob_turf = get_turf(mobs)
 			if(!istype(mob_turf))
