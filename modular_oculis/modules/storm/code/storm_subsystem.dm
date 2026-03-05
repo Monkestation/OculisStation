@@ -25,11 +25,12 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 			player_candidates += player
 	var/roundstart_population = length(player_candidates)
 
+	var/list/possible_rulesets = list()
 	for(var/datum/storm_ruleset/intensity_datum as anything in subtypesof(/datum/storm_ruleset))
 		if(roundstart_population < intensity_datum.min_pop)
 			continue
-		chosen_storm_ruleset = intensity_datum
-
+		possible_rulesets += intensity_datum
+	chosen_storm_ruleset = pick(possible_rulesets)
 
 	log_dynamic("Selected intensity: [chosen_storm_ruleset.intensity]")
 	log_dynamic("- Roundstart population: [roundstart_population]")

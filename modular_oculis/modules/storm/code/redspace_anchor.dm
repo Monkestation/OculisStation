@@ -235,11 +235,21 @@
 			charge_count -= 2
 			update_use_power(IDLE_POWER_USE)
 
-		if(charge_count % 4 == 0 && prob(75)) // Let them know it is charging/discharging.
-			if(charging_state == POWER_UP)
 				playsound(get_turf(src), 'sound/effects/magic/cosmic_expansion.ogg', 100, TRUE)
-			else
-				playsound(get_turf(src), 'sound/effects/magic/swap.ogg', 100, TRUE)
+		for(var/mob/mobs as anything in GLOB.mob_list)
+			var/turf/mob_turf = get_turf(mobs)
+			if(!istype(mob_turf))
+				continue
+			if(!is_valid_z_level(src, mob_turf))
+				continue
+			if(mobs.client)
+				if(charge_count % 4 == 0 && prob(75)) // Let them know it is charging/discharging.
+					if(charging_state == POWER_UP)
+						mobs.playsound_local(mob_turf, 'sound/effects/magic/cosmic_expansion.ogg', 100, TRUE)
+					else
+						mobs.playsound_local(mob_turf, 'sound/effects/magic/swap.ogg', 100, TRUE)
+				if((charge_count <= 50) && (charging_state == POWER_DOWN) && prob(5))
+					to_chat(mobs, span_bolddanger("You feel a foreign presence encroaching around you."))
 
 		var/overlay_state = null
 		switch(charge_count)
