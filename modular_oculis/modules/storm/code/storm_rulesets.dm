@@ -10,7 +10,7 @@
 	/// Minimum population required for this ruleset to be selected at roundstart.
 	var/min_pop = 0
 	/// How much time it takes between each storm cooldown.
-	var/storm_cooldown = INFINITY
+	var/storm_cooldown = 10 MINUTES
 
 /datum/storm_ruleset/calm
 	intensity = STORM_INTENSITY_CALM
