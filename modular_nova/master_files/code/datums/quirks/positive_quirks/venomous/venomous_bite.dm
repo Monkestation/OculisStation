@@ -42,7 +42,10 @@
 	if (!.)
 		return
 
-	owner.visible_message("[owner] bares [owner.p_their()] fangs...", span_warning("You bare your fangs..."))
+	// OCULIS EDIT ADDITION START - extra flavor messages
+	owner.visible_message(span_warning("[owner] bares [owner.p_their()] fangs..."), span_warning("You bare your fangs..."))
+	owner.balloon_alert_to_viewers("bares [owner.p_their()] fangs")
+	// OCULIS EDIT ADDITION END
 
 /datum/action/cooldown/mob_cooldown/venomous_bite/Activate(atom/target_atom)
 	if (!isliving(target_atom))

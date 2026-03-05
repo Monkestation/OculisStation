@@ -1392,6 +1392,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	affected_biotype = MOB_ORGANIC | MOB_MINERAL | MOB_PLANT // no healing ghosts
 	affected_respiration_type = ALL
+	var/healing = 1.5 // OCULIS ADDITION
 
 /datum/reagent/medicine/regen_jelly/expose_mob(mob/living/exposed_mob, reac_volume)
 	. = ..()
@@ -1405,10 +1406,12 @@
 /datum/reagent/medicine/regen_jelly/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	var/need_mob_update
-	need_mob_update = affected_mob.adjust_brute_loss(-1.5 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
-	need_mob_update += affected_mob.adjust_fire_loss(-1.5 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
-	need_mob_update += affected_mob.adjust_oxy_loss(-1.5 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
-	need_mob_update += affected_mob.adjust_tox_loss(-1.5 * REM * seconds_per_tick, updating_health = FALSE, forced = TRUE, required_biotype = affected_biotype) //heals TOXINLOVERs
+	// OCULIS EDIT START -- Changes the healing value to be adjustable like omnizine
+	need_mob_update = affected_mob.adjust_brute_loss(-healing * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += affected_mob.adjust_fire_loss(-healing * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += affected_mob.adjust_oxy_loss(-healing * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+	need_mob_update += affected_mob.adjust_tox_loss(-healing * REM * seconds_per_tick, updating_health = FALSE, forced = TRUE, required_biotype = affected_biotype) //heals TOXINLOVERs
+	// OCULIS EDIT END
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
 
