@@ -1,3 +1,4 @@
+// THIS IS A OCULIS UI FILE
 import {
     Box,
     Button,
@@ -7,8 +8,8 @@ import {
     Section,
 } from 'tgui-core/components';
 
-import { useBackend } from '../../backend';
-import { Window } from '../../layouts';
+import { useBackend } from '../backend';
+import { Window } from '../layouts';
 
 export const RedspaceAnchor = (props) => {
 const { data } = useBackend();

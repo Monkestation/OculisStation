@@ -45,7 +45,7 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 	)
 
 /datum/controller/subsystem/processing/eidolon_storm/fire(resumed = FALSE)
-	if(TIMER_COOLDOWN_RUNNING(src, eidolon_storm_cooldown))
+	if(!COOLDOWN_FINISHED(src, eidolon_storm_cooldown))
 		return
-	TIMER_COOLDOWN_START(src, eidolon_storm_cooldown, (chosen_storm_ruleset.storm_cooldown))
+	COOLDOWN_START(src, eidolon_storm_cooldown, (chosen_storm_ruleset.storm_cooldown))
 	station_anchor.tick(chosen_storm_ruleset.intensity)
