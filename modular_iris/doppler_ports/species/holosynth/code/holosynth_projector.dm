@@ -25,6 +25,7 @@
 /obj/item/holosynth_pen/Initialize(mapload, mob/living/carbon/human/linked_mob)
 	. = ..()
 	AddElement(/datum/element/tool_renaming)
+	AddComponent(/datum/component/gps/item, "HOLOPROJECTOR", state = GLOB.deep_inventory_state, overlay_state = FALSE)
 
 	if(linked_mob)
 		linked_mob_ref = WEAKREF(linked_mob)
@@ -104,7 +105,6 @@
 
 /obj/item/holosynth_pen/proc/user_death()
 	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
-	var/turf/saved_loc = saved_loc_ref?.resolve()
 	saved_loc_ref = WEAKREF(get_turf(linked_mob))
 	new /obj/effect/temp_visual/guardian/phase/out (get_turf(linked_mob))
 	linked_mob.unequip_everything()
@@ -115,9 +115,10 @@
 
 	if(linked_mob)
 		linked_mob.apply_status_effect(/datum/status_effect/holosynth_dissolving)
+		animate(linked_mob, alpha = 0, time = 5 SECONDS, flags = ANIMATION_PARALLEL)
 		linked_mob.visible_message(
 			span_danger("[linked_mob]'s whole body begins to fade away!"),
-			span_userdanger("You feel your projector being destroyed! Your form starts to fade!")
+			span_userdanger("You feel your projector being destroyed! You start to fade away!")
 		)
 	. = ..()
 
@@ -194,21 +195,23 @@
 /// the DEATH effect
 /atom/movable/screen/alert/status_effect/holosynth_death_alert
 	name = "Projector Destroyed"
-	desc = "YOU DON'T EXIST, YOUR BODY IS FADING AWAY!!"
+	desc = "YOU AREN'T REAL, YOUR BODY IS FADING AWAY!!"
 	icon_state = "convulsing"
 
 /datum/status_effect/holosynth_dissolving
 	id = "holo_dissolve"
 	remove_on_fullheal = FALSE
-	duration = 10 SECONDS
+	duration = 5 SECONDS
 	show_duration = TRUE
 	alert_type = /atom/movable/screen/alert/status_effect/holosynth_death_alert
 
-/datum/status_effect/holosynth_dissolving/on_apply()
-	animate(src, alpha = 0, time = 10 SECONDS, flags = ANIMATION_PARALLEL)
+/datum/status_effect/holosynth_dissolving/on_creation(mob/living/new_owner, ...)
+	. = ..()
+
+	return TRUE
 
 /datum/status_effect/holosynth_dissolving/tick()
-	do_sparks(rand(2,6), FALSE, owner)
+	apply_wibbly_filters(linked_mob, 0.1 SECONDS)
 
 /datum/status_effect/holosynth_dissolving/on_remove()
 	owner.gib(DROP_BRAIN & DROP_ITEMS) //bright side, your brain's in there. Someone'll use it I'm sure.
