@@ -24,7 +24,7 @@
 
 /datum/chemical_reaction/drink/drink_of_legends
 	results = list(/datum/reagent/consumable/ethanol/drink_of_legends = 5)
-	required_reagents = list(/datum/reagent/consumable/ethanol/quintuple_sec = 1, /datum/reagent/consumable/ethanol/pod_tesla = 1, /datum/reagent/consumable/ethanol/narsour = 1, /datum/reagent/consumable/ethanol/threemileisland = 1, /datum/reagent/consumable/ethanol/phil_stone = 1)
+	required_reagents = list(/datum/reagent/consumable/ethanol/drink_of_virtue = 1, /datum/reagent/consumable/ethanol/pod_tesla = 1, /datum/reagent/consumable/ethanol/narsour = 1, /datum/reagent/consumable/ethanol/threemileisland = 1, /datum/reagent/consumable/ethanol/phil_stone = 1)
 
 /datum/reagent/consumable/ethanol/drink_of_legends
 	name = "Drink of Legends"
@@ -184,7 +184,7 @@
 
 /datum/chemical_reaction/drink/drink_of_vainglory
 	results = list(/datum/reagent/consumable/ethanol/drink_of_vainglory = 5)
-	required_reagents = list(/datum/reagent/consumable/ethanol/singulo = 1, /datum/reagent/consumable/ethanol/kings_ransom = 1)
+	required_reagents = list(/datum/reagent/consumable/ethanol/singulo = 2, /datum/reagent/consumable/ethanol/kings_ransom = 2, /datum/reagent/consumable/bluecherryshake = 1)
 
 /datum/reagent/consumable/ethanol/drink_of_vainglory
 	name = "Vainglory"
@@ -281,23 +281,21 @@
 	. = ..()
 	to_chat(drinker, span_notice("This drink was not meant for me"))
 	var/need_mob_update
-	var/damn_points = 10
-	var/damn_amt = min(volume, damn_points)
-	need_mob_update += drinker.adjust_fire_loss(damn_amt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	need_mob_update += drinker.adjust_fire_loss(1, updating_health = FALSE, required_bodytype = affected_bodytype)
 
 /datum/reagent/consumable/ethanol/drink_of_commandment/on_mob_life(mob/living/drinker, seconds_per_tick, times_fired)
 	. = ..()
 	if(drinker.health > 0)
 		var/need_mob_update
-		need_mob_update += drinker.adjust_fire_loss(1 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
+		need_mob_update += drinker.adjust_fire_loss(1, updating_health = FALSE, required_bodytype = affected_bodytype)
 		if(need_mob_update)
 			return UPDATE_MOB_HEALTH
 
 // Virtue
 
 /datum/chemical_reaction/drink/drink_of_virtue
-	results = list(/datum/reagent/consumable/ethanol/drink_of_virtue = 5)
-	required_reagents = list(/datum/reagent/consumable/ethanol/singulo = 1, /datum/reagent/consumable/ethanol/kings_ransom = 1)
+	results = list(/datum/reagent/consumable/ethanol/drink_of_virtue = 10)
+	required_reagents = list(/datum/reagent/consumable/ethanol/drink_of_commandment = 3, /datum/reagent/consumable/ethanol/drink_of_desire = 1, /datum/reagent/consumable/ethanol/drink_of_voracity = 1, /datum/reagent/consumable/ethanol/drink_of_vainglory = 1, /datum/reagent/consumable/ethanol/drink_of_languor = 1, /datum/reagent/consumable/ethanol/drink_of_ardor = 1, /datum/reagent/consumable/ethanol/drink_of_fury = 1, /datum/reagent/consumable/ethanol/drink_of_avarice = 1)
 
 /datum/reagent/consumable/ethanol/drink_of_virtue
 	name = "Virtue"
