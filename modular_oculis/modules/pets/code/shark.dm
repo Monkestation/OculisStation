@@ -9,5 +9,3 @@
 	. = ..()
 	AddElement(/datum/element/ai_retaliate)
 	AddElement(/datum/element/pet_bonus, "bloops happily!")
-	name = initial(name)
-	real_name = initial(name)
