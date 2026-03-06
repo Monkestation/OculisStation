@@ -3,6 +3,7 @@
 	savefile_key = "language"
 	savefile_identifier = PREFERENCE_CHARACTER
 	should_generate_icons = TRUE
+	should_update_preview = FALSE // OCULIS EDIT ADDITION
 
 /datum/preference/choiced/language/create_default_value()
 	return "Random"
