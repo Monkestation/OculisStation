@@ -2,8 +2,6 @@
 	icon = 'modular_nova/master_files/icons/mob/clothing/underwear.dmi'
 	///Whether the underwear uses a special sprite for digitigrade style (i.e. briefs, not panties). Adds a "_d" suffix to the icon state
 	var/has_digitigrade = FALSE
-	///Whether this underwear includes a top (Because gender = FEMALE doesn't actually apply here.). Hides breasts, nothing more.
-	var/hides_breasts = FALSE
 
 /*
 	Adding has_digitigrade to TG stuff
@@ -150,38 +148,32 @@
 	use_static = TRUE
 
 //Full-Body Underwear, i.e. swimsuits (Including re-enabling 3 from TG)
-//These likely require hides_breasts = TRUE
 /datum/sprite_accessory/underwear/swimsuit_onepiece //TG
 	name = "One-Piece Swimsuit"
 	icon_state = "swim_onepiece"
 	gender = FEMALE
-	hides_breasts = TRUE
 
 /datum/sprite_accessory/underwear/swimsuit_strapless_onepiece //TG
 	name = "Strapless One-Piece Swimsuit"
 	icon_state = "swim_strapless_onepiece"
 	gender = FEMALE
-	hides_breasts = TRUE
 
 /datum/sprite_accessory/underwear/swimsuit_stripe //TG
 	name = "Strapless Striped Swimsuit"
 	icon_state = "swim_stripe"
 	gender = FEMALE
-	hides_breasts = TRUE
 
 /datum/sprite_accessory/underwear/swimsuit_red
 	name = "One-Piece Swimsuit - Red"
 	icon_state = "swimming_red"
 	gender = FEMALE
 	use_static = TRUE
-	hides_breasts = TRUE
 
 /datum/sprite_accessory/underwear/swimsuit
 	name = "One-Piece Swimsuit - Black"
 	icon_state = "swimming_black"
 	gender = FEMALE
 	use_static = TRUE
-	hides_breasts = TRUE
 
 //Fishnets
 /datum/sprite_accessory/underwear/fishnet_lower
