@@ -207,7 +207,8 @@
 
 
 /datum/status_effect/holosynth_dissolving/tick()
-	apply_wibbly_filters(owner, 0.1 SECONDS)
+	apply_wibbly_filters(owner)
+	remove_wibbly_filters(structure, 0.1 SECONDS)
 
 /datum/status_effect/holosynth_dissolving/on_remove()
 	owner.gib(DROP_BRAIN & DROP_ITEMS) //bright side, your brain's in there. Someone'll use it I'm sure.
