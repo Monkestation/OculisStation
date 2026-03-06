@@ -139,6 +139,19 @@
 	icon = 'modular_oculis/modules/drinks/icons/drinks.dmi'
 	icon_state =  "drink_of_fury"
 
+/datum/reagent/consumable/ethanol/drink_of_fury/on_mob_metabolize(mob/living/drinker)
+	. = ..()
+	drinker.overlay_fullscreen("fury_screen_overlay", /atom/movable/screen/fullscreen/color_vision/red)
+
+/datum/reagent/consumable/ethanol/drink_of_voracity/on_mob_life(mob/living/carbon/drinker)
+	. = ..()
+	if(prob(25))
+		drinker.emote("scream")
+
+/datum/reagent/consumable/ethanol/drink_of_fury/on_mob_end_metabolize(mob/living/drinker)
+	. = ..()
+	drinker.clear_fullscreen("fury_screen_overlay")
+
 // Ardor
 
 /datum/chemical_reaction/drink/drink_of_ardor
@@ -234,7 +247,11 @@
 
 /datum/reagent/consumable/ethanol/drink_of_voracity/on_mob_life(mob/living/carbon/drinker)
 	. = ..()
-	drinker.vomit(MOB_VOMIT_FORCE, lost_nutrition = 10)
+	if(drinker.nutrition > 10)
+		drinker.vomit(MOB_VOMIT_FORCE, lost_nutrition = 10)
+	else
+		drinker.vomit(MOB_VOMIT_BLOOD)
+		drinker.adjust_blood_volume(-10)
 
 // Desire
 
@@ -269,7 +286,7 @@
 	description = "A cup of endless authority."
 	color = "#404040" // rgb: 25, 25, 25
 	boozepwr = 40
-	taste_description = "too pure for me"
+	taste_description = "that it is too pure for you"
 	quality = DRINK_FANTASTIC
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -305,7 +322,7 @@
 	description = "A cup of endless divinity."
 	color = "#4db8ff" // rgb: 30, 72, 100
 	boozepwr = 70
-	taste_description = "you have ascended"
+	taste_description = "something heavenly"
 	quality = DRINK_FANTASTIC
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
