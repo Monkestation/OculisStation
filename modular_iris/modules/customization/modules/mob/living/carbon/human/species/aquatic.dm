@@ -24,7 +24,6 @@
 		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	mutant_bodyparts = list()
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	examine_limb_id = SPECIES_AQUATIC
@@ -41,12 +40,12 @@
 
 /datum/species/aquamorph/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("Shark", TRUE),
-		"snout" = list("Shark", TRUE),
-		"horns" = list("None", FALSE),
-		"ears" = list("Hammerhead", TRUE),
-		"legs" = list("Normal Legs", FALSE),
-		"wings" = list("None", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Shark", is_randomizable = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Shark", is_randomizable = TRUE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("Hammerhead", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT("Normal Legs", is_randomizable = FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT("None", is_randomizable = FALSE),
 	)
 
 /datum/species/aquamorph/randomize_features(mob/living/carbon/human/human_mob)
@@ -197,8 +196,8 @@
 	var/secondary_color = "#ededed"
 	aquamorph.dna.features["mcolor"] = main_color
 	aquamorph.dna.features["mcolor2"] = secondary_color
-	aquamorph.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Shark", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color))
-	aquamorph.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Shark", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color))
-	aquamorph.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Hammerhead", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color))
+	aquamorph.dna.mutant_bodyparts[FEATURE_SNOUT] = aquamorph.dna.species.build_mutant_part("Shark", list(main_color, secondary_color))
+	aquamorph.dna.mutant_bodyparts[FEATURE_TAIL] = aquamorph.dna.species.build_mutant_part("Shark", list(main_color, secondary_color))
+	aquamorph.dna.mutant_bodyparts[FEATURE_EARS] = aquamorph.dna.species.build_mutant_part("Hammerhead", list(main_color, secondary_color))
 	regenerate_organs(aquamorph, src, visual_only = TRUE)
 	aquamorph.update_body(is_creating = TRUE)

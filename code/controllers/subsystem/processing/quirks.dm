@@ -21,7 +21,6 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	//list(/datum/quirk/quadruple_amputee, /datum/quirk/frail), // NOVA EDIT REMOVAL- Since we have synth wounds now, frail has a large downside for prosthetics and such
 	list(/datum/quirk/social_anxiety, /datum/quirk/mute),
 	list(/datum/quirk/mute, /datum/quirk/softspoken),
-	list(/datum/quirk/poor_aim, /datum/quirk/bighands),
 	list(/datum/quirk/bilingual, /datum/quirk/foreigner, /datum/quirk/csl),
 	list(/datum/quirk/spacer_born, /datum/quirk/settler),
 	list(/datum/quirk/photophobia, /datum/quirk/nyctophobia),
@@ -31,7 +30,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	//NOVA EDIT ADDITION BEGIN
 	list(/datum/quirk/equipping/nerve_staple, /datum/quirk/nonviolent),
 	list(/datum/quirk/equipping/nerve_staple, /datum/quirk/item_quirk/nearsighted),
-	list(/datum/quirk/no_guns, /datum/quirk/bighands, /datum/quirk/poor_aim),
+	list(/datum/quirk/no_guns, /datum/quirk/poor_aim),
 	list(/datum/quirk/no_guns, /datum/quirk/nonviolent),
 	list(/datum/quirk/spacer_born, /datum/quirk/oversized),
 	list(/datum/quirk/feline_aspect, /datum/quirk/canine_aspect, /datum/quirk/avian_aspect),
@@ -45,6 +44,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/visitor, /datum/quirk/item_quirk/underworld_connections),
 	list(/datum/quirk/adapted_lungs, /datum/quirk/item_quirk/breather/water_breather, /datum/quirk/item_quirk/breather/nitrogen_breather, /datum/quirk/item_quirk/breather/plasma_breather),
 	list(/datum/quirk/psionic_dampener, /datum/quirk/telepathic),
+	list(/datum/quirk/hydrophobia, /datum/quirk/item_quirk/breather/water_breather),
 	//NOVA EDIT ADDITION END
 	//IRIS EDIT ADDITION BEGIN
 	//ORBSTATION PORT: if you're illiterate, farsighted would just be free points
@@ -59,7 +59,10 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/complexdna, /datum/quirk/telepathic),
 	list(/datum/quirk/complexdna, /datum/quirk/genetic_mutation),
 	list(/datum/quirk/item_quirk/stowaway, /datum/quirk/visitor),
-	list(/datum/quirk/badback, /datum/quirk/equipping/entombed)
+	list(/datum/quirk/badback, /datum/quirk/equipping/entombed),
+	//UNDERSIZED_QUIRK
+	list(/datum/quirk/undersized, /datum/quirk/frail),
+	list(/datum/quirk/undersized, /datum/quirk/oversized),
 	//IRIS EDIT ADDITION END
 ))
 

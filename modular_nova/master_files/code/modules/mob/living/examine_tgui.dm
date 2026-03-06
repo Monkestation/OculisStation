@@ -9,14 +9,14 @@
 
 /datum/examine_panel/Destroy(force)
 	holder = null
-	qdel(examine_panel_screen)
+	QDEL_NULL(examine_panel_screen) // OCULIS EDIT CHANGE - ORIGINAL: qdel(examine_panel_screen)
 	return ..()
 
 /datum/examine_panel/ui_state(mob/user)
 	return GLOB.always_state
 
 /datum/examine_panel/ui_close(mob/user)
-	user.client?.clear_map(examine_panel_screen.assigned_map)
+	examine_panel_screen.hide_from(user) // OCULIS EDIT CHANGE - ORIGINAL: user.client?.clear_map(examine_panel_screen.assigned_map)
 
 /atom/movable/screen/map_view/examine_panel_screen
 	name = "examine panel screen"
@@ -82,7 +82,8 @@
 // IRIS EDIT: Ghosts can see flavor text regardless of if it's obscured
 	if(ishuman(holder))
 		var/mob/living/carbon/human/holder_human = holder
-		obscured = ((holder_human.wear_mask?.flags_inv & HIDEFACE) || (holder_human.head?.flags_inv & HIDEFACE)) && !isobserver(user)
+		var/can_bypass_obscure = holder == user || (user?.client?.holder && isobserver(user)) // A variable for bypassing data hide due to a mask, for the player themselves (against themselves) or for the administration as an observer.
+		obscured = !can_bypass_obscure && ((holder_human.wear_mask && (holder_human.wear_mask.flags_inv & HIDEFACE)) || (holder_human.head && (holder_human.head.flags_inv & HIDEFACE)))
 		custom_species = obscured ? "Obscured" : holder_human.dna.species.lore_protected ? holder_human.dna.species.name : holder_human.dna.features["custom_species"]
 		flavor_text = obscured ? "Obscured" : holder_human.dna.features[EXAMINE_DNA_FLAVOR_TEXT]
 		custom_species_lore = obscured ? "Obscured" : holder_human.dna.species.lore_protected ? holder_human.dna.species.get_species_lore().Join("\n") : holder_human.dna.features["custom_species_lore"]
