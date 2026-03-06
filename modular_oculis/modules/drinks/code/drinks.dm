@@ -34,7 +34,10 @@
 	taste_description = "a legendary burning sensation"
 	quality = DRINK_FANTASTIC
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-	var/obj/effect/light_holder
+	var/glow_power = 3
+	var/glow_range = 3
+	var/glow_color = "#00ff85" // rgb: 0, 100, 52
+	var/obj/effect/dummy/lighting_obj/moblight/glow
 
 /datum/glass_style/drinking_glass/drink_of_legends
 	required_drink_type = /datum/reagent/consumable/ethanol/drink_of_legends
@@ -46,8 +49,8 @@
 /datum/reagent/consumable/ethanol/drink_of_legends/on_mob_metabolize(mob/living/drinker)
 	. = ..()
 	to_chat(drinker, span_notice("You feel as if you have become a legend!"))
-	light_holder = drinker.mob_light()
-	light_holder.set_light(3, 1, "#00ff85") // rgb: 0, 100, 52
+	glow = drinker.mob_light()
+	glow.set_light_range_power_color(glow_range, glow_power, glow_color)
 	var/need_mob_update
 	var/heal_points = 20
 	var/heal_amt = min(volume, heal_points)
@@ -68,7 +71,7 @@
 /datum/reagent/consumable/ethanol/drink_of_legends/on_mob_end_metabolize(mob/living/drinker)
 	. = ..()
 	to_chat(drinker, span_notice("You feel yourself blend back into the crowd..."))
-	QDEL_NULL(light_holder)
+	QDEL_NULL(glow)
 
 // Philosopher's Stone
 
