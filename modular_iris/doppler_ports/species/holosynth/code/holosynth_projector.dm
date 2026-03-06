@@ -25,7 +25,7 @@
 /obj/item/holosynth_pen/Initialize(mapload, mob/living/carbon/human/linked_mob)
 	. = ..()
 	AddElement(/datum/element/tool_renaming)
-	AddComponent(/datum/component/gps/item, "HOLOPROJECTOR", state = GLOB.deep_inventory_state, overlay_state = FALSE)
+	AddComponent(/datum/component/gps/item, "HOLOSIGNAL", state = GLOB.deep_inventory_state, overlay_state = FALSE)
 
 	if(linked_mob)
 		linked_mob_ref = WEAKREF(linked_mob)
@@ -195,7 +195,7 @@
 /// the DEATH effect
 /atom/movable/screen/alert/status_effect/holosynth_death_alert
 	name = "Projector Destroyed"
-	desc = "YOU AREN'T REAL, YOUR BODY IS FADING AWAY!!"
+	desc = "YOUR BODY IS FADING AWAY!!"
 	icon_state = "convulsing"
 
 /datum/status_effect/holosynth_dissolving
@@ -205,13 +205,9 @@
 	show_duration = TRUE
 	alert_type = /atom/movable/screen/alert/status_effect/holosynth_death_alert
 
-/datum/status_effect/holosynth_dissolving/on_creation(mob/living/new_owner, ...)
-	. = ..()
-
-	return TRUE
 
 /datum/status_effect/holosynth_dissolving/tick()
-	apply_wibbly_filters(linked_mob, 0.1 SECONDS)
+	apply_wibbly_filters(owner, 0.1 SECONDS)
 
 /datum/status_effect/holosynth_dissolving/on_remove()
 	owner.gib(DROP_BRAIN & DROP_ITEMS) //bright side, your brain's in there. Someone'll use it I'm sure.
