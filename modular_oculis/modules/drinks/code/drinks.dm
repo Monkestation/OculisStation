@@ -222,7 +222,7 @@
 
 /datum/chemical_reaction/drink/drink_of_voracity
 	results = list(/datum/reagent/consumable/ethanol/drink_of_voracity = 10)
-	required_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/ethanol/moonshine = 1, /datum/reagent/consumable/ethanol/acid_spit = 2, /datum/reagent/consumable/cucumberjuice = 3, /datum/reagent/consumable/soymilk = 1, /datum/reagent/consumable/ethanol/suffering_bastard = 1)
+	required_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/ethanol/moonshine = 1, /datum/reagent/consumable/ethanol/acid_spit = 2, /datum/reagent/consumable/cucumberjuice = 3, /datum/reagent/consumable/soymilk = 1, /datum/chemical_reaction/drink/suffering_bastard = 1)
 
 /datum/reagent/consumable/ethanol/drink_of_voracity
 	name = "Voracity"
