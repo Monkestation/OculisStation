@@ -3,11 +3,11 @@
 	id = "drink_of_legends"
 	duration = INFINITY
 	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = null
 	var/glow_power = 3
 	var/glow_range = 3
 	var/glow_color = "#00ff85" // rgb: 0, 100, 52
 	var/obj/effect/dummy/lighting_obj/moblight/glow
-	alert_type = null
 
 /datum/status_effect/drink_of_legends/on_apply()
 	glow = owner.mob_light()
