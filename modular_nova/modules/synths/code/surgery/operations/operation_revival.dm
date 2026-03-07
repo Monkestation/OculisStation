@@ -133,4 +133,4 @@
 	name = "reboot neural network(head)"
 	desc = "A mechanical surgical procedure that restarts an android's neural network for androids with their processors in their heads."
 	target_zone = BODY_ZONE_HEAD
-//oculis edit end
+// OCULIS EDIT ADDITION END
