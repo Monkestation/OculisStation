@@ -6,7 +6,7 @@
 	medical_record_text = "Patient's processor is located in the head."
 	value = 0
 	mob_trait = TRAIT_TRADITIONAL_THINKER
-	icon = FA_ICON_BRAIN
+	icon = FA_ICON_ELEVATOR
 	quirk_flags = QUIRK_HUMAN_ONLY
 	// So we don't have silicons being stunlocked forever.
 
