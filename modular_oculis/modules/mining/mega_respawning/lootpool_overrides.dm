@@ -22,7 +22,7 @@
 	..()
 	new /obj/item/book/granter/crafting_recipe/dusting/summoning_flute/bubblegum(src)
 
-// Icebox fauna below
+// Icebox megafauna below
 /mob/living/simple_animal/hostile/megafauna/clockwork_defender/Initialize(mapload)
 	loot += /obj/item/book/granter/crafting_recipe/dusting/summoning_flute/clockwork_defender
 	. = ..()
