@@ -1,4 +1,3 @@
-
 // For /datum/reagent/consumable/ethanol/drink_of_legends
 /datum/status_effect/drink_of_legends
 	id = "drink_of_legends"
