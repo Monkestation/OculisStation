@@ -4,7 +4,7 @@
 		return
 	var/time_remaining = SSticker.GetTimeLeft()
 	if(time_remaining > 0)
-		. += "Time To Start: [round(time_remaining/10)]s"
+		. += "Time To Start: [DisplayTimeText(round(time_remaining))]" // OCULIS EDIT - Original: . += "Time To Start: [round(time_remaining/10)]s"
 	else if(time_remaining == -10)
 		. += "Time To Start: DELAYED"
 	else
