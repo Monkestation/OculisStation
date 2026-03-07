@@ -23,7 +23,7 @@ GLOBAL_LIST_INIT(pronouns_valid, list(
 
 // at least ONE is required
 GLOBAL_LIST_INIT(pronouns_required, list(
-	"he", "her", "she", "they", "them", "it", "its", "any", "all",
+	"he", "her", "she", "they", "them", "fae", "faer", "it", "its", "any", "all",
 ))
 
 /datum/preference/text/ooc_pronouns
