@@ -5,6 +5,7 @@ import {
   Button,
   Dimmer,
   Divider,
+  Dropdown,
   Icon,
   Input,
   NoticeBox,
@@ -207,6 +208,7 @@ const ContactsScreen = (props: any) => {
               Bringing you spy-proof communications since 2467.
             </Box>
             <Divider hidden />
+            {/* OCULIS EDIT REMOVAL - pda_ringtones
             <Box>
               <Button
                 icon="bell"
@@ -244,7 +246,90 @@ const ContactsScreen = (props: any) => {
                 />
               )}
             </Box>
+            */}
+            {/* OCULIS EDIT ADDITION START - pda_ringtones */}
+            {/* First row of buttons */}
+            <Stack fill mt={0.5}>
+              <Stack.Item grow>
+                <Button
+                  fluid
+                  icon="bell"
+                  disabled={!alert_able}
+                  content={
+                    alert_able && !alert_silenced ? 'Ringer: On' : 'Ringer: Off'
+                  }
+                  onClick={() => act('PDA_toggleAlerts')}
+                />
+              </Stack.Item>
+              <Stack.Item grow>
+                <Button
+                  fluid
+                  icon="address-card"
+                  onClick={() => act('PDA_toggleSendingAndReceiving')}
+                >
+                  {sending_and_receiving
+                    ? 'Send / Receive: On'
+                    : 'Send / Receive: Off'}
+                </Button>
+              </Stack.Item>
+            </Stack>
+            {/* Second row - ringtone controls */}
+            <Stack fill>
+              <Stack.Item grow>
+                <Button fluid icon="bell" onClick={() => act('PDA_ringSet')}>
+                  Set Ringtone
+                </Button>
+              </Stack.Item>
+              <Stack.Item grow>
+                <Stack>
+                  <Stack.Item grow>
+                    <Dropdown
+                      width="100%"
+                      selected={data.ringtone_sound}
+                      options={data.available_sounds || []}
+                      onSelected={(value) =>
+                        act('PDA_soundSet', { sound: value })
+                      }
+                      maxHeight="1.7em"
+                    />
+                  </Stack.Item>
+                  <Stack.Item>
+                    <Button
+                      onClick={() =>
+                        act('PDA_soundSet', { sound: data.ringtone_sound })
+                      }
+                      icon="volume-up"
+                    />
+                  </Stack.Item>
+                </Stack>
+              </Stack.Item>
+            </Stack>
+            {/* Third row */}
+            <Stack fill mt={0.5}>
+              <Stack.Item grow>
+                <Button
+                  fluid
+                  icon="sort"
+                  onClick={() => act('PDA_changeSortStyle')}
+                >
+                  Sort by: {sort_by_job ? 'Job' : 'Name'}
+                </Button>
+              </Stack.Item>
+              {!!virus_attach && (
+                <Stack.Item grow>
+                  <Button
+                    fluid
+                    icon="bug"
+                    color="bad"
+                    onClick={() => act('PDA_toggleVirus')}
+                  >
+                    Attach Virus: ${sending_virus ? 'Yes' : 'No'}
+                  </Button>
+                </Stack.Item>
+              )}
+            </Stack>
           </Stack>
+          {/* OCULIS EDIT ADDITION END*/}
           <Divider hidden />
           <Stack justify="space-between">
             <Box m={0.5}>

@@ -331,6 +331,7 @@
 			update_pictures_for_all()
 			return TRUE
 
+
 /datum/computer_file/program/messenger/ui_static_data(mob/user)
 	var/list/static_data = list()
 

@@ -14,7 +14,8 @@
 #define CHANNEL_WEATHER 1012
 //THIS SHOULD ALWAYS BE THE LOWEST ONE!
 //KEEP IT UPDATED
-#define CHANNEL_HIGHEST_AVAILABLE 1011
+// OCULIS COMMENT - modularization euuhg: find the last occuring CHANNEL_... here and set that as the number and subtract 1 from it
+#define CHANNEL_HIGHEST_AVAILABLE 1003
 
 #define MAX_INSTRUMENT_CHANNELS (128 * 6)
 
@@ -22,6 +23,8 @@
 #define CHANNEL_JUKEBOX_START 1006
 #define CHANNEL_HEV 1005
 //NOVA EDIT CHANGE END
+#define CHANNEL_RINGTONES 1004 //OCULIS EDIT ADDITION
+
 /// This is the lowest volume that can be used by playsound otherwise it gets ignored
 /// Most sounds around 10 volume can barely be heard. Almost all sounds at 5 volume or below are inaudible
 /// This is to prevent sound being spammed at really low volumes due to distance calculations

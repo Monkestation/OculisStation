@@ -317,8 +317,13 @@
 		humanspawned.equip_in_one_of_slots(silly_little_scarf, backup_slots, qdel_on_fail = FALSE)
 
 	var/obj/item/clothing/neck/link_scryer/loaded/new_scryer = new(spawned)
-	new_scryer.label = spawned.name
+	new_scryer.label = player_client?.prefs?.read_preference(/datum/preference/text/default_scryer_label) || spawned.real_name // OCULIS EDIT CHANGE - scryer_ringtones - ORIGINAL: new_scryer.label = spawned.name
 	new_scryer.update_name()
+	// OCULIS EDIT ADDITION START - scryer_ringtones
+	var/ringtone = player_client.prefs.read_preference(/datum/preference/choiced/call_ringtone)
+	if(ringtone)
+		new_scryer.set_ringtone(ringtone)
+	// OCULIS EDIT ADDITION END
 
 	spawned.equip_to_slot_or_del(new_scryer, ITEM_SLOT_NECK, initial = FALSE)
 

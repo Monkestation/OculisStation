@@ -252,6 +252,12 @@
 	if(new_ringtone && (new_ringtone != MESSENGER_RINGTONE_DEFAULT))
 		update_ringtone(new_ringtone)
 
+	// OCULIS EDIT ADDITION START - pda_ringtones
+	var/new_sound = owner_client.prefs.read_preference(/datum/preference/choiced/pda_ringtone_sound)
+	if(new_sound)
+		update_ringtone_sound(new_sound)
+	// OCULIS EDIT ADDITION END
+
 	var/datum/computer_file/program/themeify/theme_app = locate() in stored_files
 	if(theme_app)
 		var/list/unlocked_themes = owner_client.get_award_status(/datum/award/score/progress/pda_themes)

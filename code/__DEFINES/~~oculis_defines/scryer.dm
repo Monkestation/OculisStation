@@ -1,0 +1,19 @@
+#define CALL_RINGTONE_I_SOUNDFILE 1
+#define CALL_RINGTONE_I_LENGTH 2
+
+#define CALL_RINGTONE_SOUND_DEFAULT CALL_RINGTONE_FLIP_FLAP
+
+#define CALL_RINGTONE_ALLSTAR "All Star"
+#define CALL_RINGTONE_BIGSHOT "Big Shot"
+#define CALL_RINGTONE_BADAPPLE "Bad Apple"
+#define CALL_RINGTONE_BONETROUSLE "Bonetrousle"
+#define CALL_RINGTONE_CATS "🐈"
+#define CALL_RINGTONE_COFFEE_SHOP "Coffee Shop in Yume"
+#define CALL_RINGTONE_FLIP_FLAP "Flip Flap"
+#define CALL_RINGTONE_GRASS_SPACE "Grass Space Chase"
+#define CALL_RINGTONE_HALL_OF_MOUNTAIN_KING "Hall of the Mountain King"
+#define CALL_RINGTONE_LANCER "Lancer."
+#define CALL_RINGTONE_SPIDER_DANCE "Spider Dance"
+#define CALL_RINGTONE_STYAOS "Six Trillion Years and Overnight Story"
+#define CALL_RINGTONE_THIRD_SANCTUARY "Third Sanctuary"
+#define CALL_RINGTONE_YUMENO "YU.ME.NO"
