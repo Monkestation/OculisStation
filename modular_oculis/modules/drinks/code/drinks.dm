@@ -2,7 +2,11 @@
 
 /datum/chemical_reaction/drink/neptunes_tear
 	results = list(/datum/reagent/consumable/ethanol/neptunes_tear = 5)
-	required_reagents = list(/datum/reagent/bluespace = 1, /datum/reagent/consumable/ethanol/pod_tesla = 2, /datum/reagent/consumable/ethanol/blue_blazer = 2)
+	required_reagents = list(
+		/datum/reagent/bluespace = 1,
+		/datum/reagent/consumable/ethanol/pod_tesla = 2,
+		/datum/reagent/consumable/ethanol/blue_blazer = 2
+	)
 
 /datum/reagent/consumable/ethanol/neptunes_tear
 	name = "Neptune's Tear"
@@ -24,8 +28,15 @@
 
 /datum/chemical_reaction/drink/drink_of_legends
 	results = list(/datum/reagent/consumable/ethanol/drink_of_legends = 5)
-	required_reagents = list(/datum/reagent/consumable/ethanol/drink_of_virtue = 1, /datum/reagent/consumable/ethanol/pod_tesla = 1, /datum/reagent/consumable/ethanol/narsour = 1, /datum/reagent/consumable/ethanol/threemileisland = 1, /datum/reagent/consumable/ethanol/phil_stone = 1)
+	required_reagents = list(
+		/datum/reagent/consumable/ethanol/drink_of_virtue = 1,
+		/datum/reagent/consumable/ethanol/pod_tesla = 1,
+		/datum/reagent/consumable/ethanol/narsour = 1,
+		/datum/reagent/consumable/ethanol/threemileisland = 1,
+		/datum/reagent/consumable/ethanol/phil_stone = 1
+	)
 
+// See /datum/status_effect/drink_of_legends
 /datum/reagent/consumable/ethanol/drink_of_legends
 	name = "Drink of Legends"
 	description = "A drink truly made for and by legends."
@@ -34,10 +45,6 @@
 	taste_description = "a legendary burning sensation"
 	quality = DRINK_FANTASTIC
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-	var/glow_power = 3
-	var/glow_range = 3
-	var/glow_color = "#00ff85" // rgb: 0, 100, 52
-	var/obj/effect/dummy/lighting_obj/moblight/glow
 
 /datum/glass_style/drinking_glass/drink_of_legends
 	required_drink_type = /datum/reagent/consumable/ethanol/drink_of_legends
@@ -49,8 +56,7 @@
 /datum/reagent/consumable/ethanol/drink_of_legends/on_mob_metabolize(mob/living/drinker)
 	. = ..()
 	to_chat(drinker, span_notice("You feel as if you have become a legend!"))
-	glow = drinker.mob_light()
-	glow.set_light_range_power_color(glow_range, glow_power, glow_color)
+	drinker.apply_status_effect(/datum/status_effect/drink_of_legends)
 	var/need_mob_update
 	var/heal_points = 20
 	var/heal_amt = min(volume, heal_points)
@@ -71,7 +77,7 @@
 /datum/reagent/consumable/ethanol/drink_of_legends/on_mob_end_metabolize(mob/living/drinker)
 	. = ..()
 	to_chat(drinker, span_notice("You feel yourself blend back into the crowd..."))
-	QDEL_NULL(glow)
+	drinker.remove_status_effect(/datum/status_effect/drink_of_legends)
 
 // Philosopher's Stone
 
@@ -99,7 +105,12 @@
 
 /datum/chemical_reaction/drink/drink_of_avarice
 	results = list(/datum/reagent/consumable/ethanol/drink_of_avarice = 5)
-	required_reagents = list(/datum/reagent/consumable/ethanol/beer = 1, /datum/reagent/consumable/pineapplejuice = 1, /datum/reagent/gold = 2, /datum/reagent/consumable/ethanol/wine_voltaic = 1)
+	required_reagents = list(
+		/datum/reagent/consumable/ethanol/beer = 1,
+		/datum/reagent/consumable/pineapplejuice = 1,
+		/datum/reagent/gold = 2,
+		/datum/reagent/consumable/ethanol/wine_voltaic = 1
+	)
 
 /datum/reagent/consumable/ethanol/drink_of_avarice
 	name = "Avarice"
@@ -156,7 +167,12 @@
 
 /datum/chemical_reaction/drink/drink_of_ardor
 	results = list(/datum/reagent/consumable/ethanol/drink_of_ardor = 5)
-	required_reagents = list(/datum/reagent/consumable/berryjuice = 1, /datum/reagent/consumable/ethanol/plumwine = 2, /datum/reagent/consumable/ethanol/sugar_rush = 1, /datum/reagent/consumable/ethanol/admiralty = 1, )
+	required_reagents = list(
+		/datum/reagent/consumable/berryjuice = 1,
+		/datum/reagent/consumable/ethanol/plumwine = 2,
+		/datum/reagent/consumable/ethanol/sugar_rush = 1,
+		/datum/reagent/consumable/ethanol/admiralty = 1,
+	)
 
 /datum/reagent/consumable/ethanol/drink_of_ardor
 	name = "Ardor"
@@ -222,7 +238,14 @@
 
 /datum/chemical_reaction/drink/drink_of_voracity
 	results = list(/datum/reagent/consumable/ethanol/drink_of_voracity = 10)
-	required_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/ethanol/moonshine = 1, /datum/reagent/consumable/ethanol/acid_spit = 2, /datum/reagent/consumable/cucumberjuice = 3, /datum/reagent/consumable/soymilk = 1, /datum/chemical_reaction/drink/suffering_bastard = 1)
+	required_reagents = list(
+		/datum/reagent/consumable/nutriment = 2,
+		/datum/reagent/consumable/ethanol/moonshine = 1,
+		/datum/reagent/consumable/ethanol/acid_spit = 2,
+		/datum/reagent/consumable/cucumberjuice = 3,
+		/datum/reagent/consumable/soymilk = 1,
+		/datum/reagent/consumable/ethanol/suffering_bastard = 1
+	)
 
 /datum/reagent/consumable/ethanol/drink_of_voracity
 	name = "Voracity"
@@ -315,7 +338,16 @@
 
 /datum/chemical_reaction/drink/drink_of_virtue
 	results = list(/datum/reagent/consumable/ethanol/drink_of_virtue = 10)
-	required_reagents = list(/datum/reagent/consumable/ethanol/drink_of_commandment = 3, /datum/reagent/consumable/ethanol/drink_of_desire = 1, /datum/reagent/consumable/ethanol/drink_of_voracity = 1, /datum/reagent/consumable/ethanol/drink_of_vainglory = 1, /datum/reagent/consumable/ethanol/drink_of_languor = 1, /datum/reagent/consumable/ethanol/drink_of_ardor = 1, /datum/reagent/consumable/ethanol/drink_of_fury = 1, /datum/reagent/consumable/ethanol/drink_of_avarice = 1)
+	required_reagents = list(
+		/datum/reagent/consumable/ethanol/drink_of_commandment = 3,
+		/datum/reagent/consumable/ethanol/drink_of_desire = 1,
+		/datum/reagent/consumable/ethanol/drink_of_voracity = 1,
+		/datum/reagent/consumable/ethanol/drink_of_vainglory = 1,
+		/datum/reagent/consumable/ethanol/drink_of_languor = 1,
+		/datum/reagent/consumable/ethanol/drink_of_ardor = 1,
+		/datum/reagent/consumable/ethanol/drink_of_fury = 1,
+		/datum/reagent/consumable/ethanol/drink_of_avarice = 1
+	)
 
 /datum/reagent/consumable/ethanol/drink_of_virtue
 	name = "Virtue"
