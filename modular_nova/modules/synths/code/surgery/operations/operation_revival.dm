@@ -127,3 +127,10 @@
 
 /datum/surgery_operation/basic/revive_synth/mob_check(mob/living/patient)
 	return !..()
+
+//Oculis edit start
+/datum/surgery_operation/basic/revive_synth/headbrain
+	name = "reboot neural network(head)"
+	desc = "A mechanical surgical procedure that restarts an android's neural network for androids with their processors in their heads."
+	target_zone = BODY_ZONE_HEAD
+//oculis edit end
