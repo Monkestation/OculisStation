@@ -4726,13 +4726,6 @@
 	dir = 1
 	},
 /area/centcom/holding/cafe)
-"bwA" = (
-/obj/machinery/computer/operating,
-/obj/machinery/light/directional/north,
-/turf/open/floor/iron/white/smooth_edge{
-	dir = 1
-	},
-/area/centcom/castor/control)
 "bwF" = (
 /obj/machinery/holopad,
 /obj/effect/turf_decal/box,
@@ -5099,11 +5092,12 @@
 	},
 /area/centcom/holding/cafepark)
 "bTy" = (
-/obj/structure/closet/crate/freezer/blood,
-/obj/machinery/light/directional/north,
-/turf/open/floor/iron/white/smooth_edge{
-	dir = 1
-	},
+/obj/structure/table/glass,
+/obj/effect/turf_decal/tile/blue/full,
+/obj/item/clothing/gloves/latex,
+/obj/item/clothing/suit/apron/surgical,
+/obj/item/reagent_containers/spray/cleaner,
+/turf/open/floor/iron/freezer,
 /area/centcom/castor/control)
 "bTK" = (
 /obj/structure/fireplace{
@@ -5453,12 +5447,6 @@
 /obj/structure/alien/weeds/node,
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
-"clj" = (
-/obj/vehicle/ridden/wheelchair{
-	dir = 1
-	},
-/turf/open/floor/iron/white/smooth_edge,
-/area/centcom/castor/control)
 "cln" = (
 /obj/effect/turf_decal/box,
 /obj/structure/closet/secure_closet/ert_com,
@@ -9990,21 +9978,7 @@
 /turf/open/floor/wood,
 /area/centcom/holding/cafepark)
 "hRj" = (
-/obj/structure/closet/secure_closet/medical3,
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/item/defibrillator/loaded,
-/obj/item/clothing/gloves/latex/nitrile,
-/obj/item/clothing/gloves/latex/nitrile,
-/obj/item/storage/belt/medical{
-	pixel_y = 3
-	},
-/obj/item/storage/belt/medical{
-	pixel_y = 3
-	},
-/obj/item/clothing/glasses/hud/health,
-/obj/item/clothing/glasses/hud/health,
-/obj/effect/turf_decal/bot,
-/turf/open/floor/iron/white/smooth_edge{
+/turf/open/floor/iron/white/textured_edge{
 	dir = 1
 	},
 /area/centcom/castor/control)
@@ -11210,11 +11184,8 @@
 	},
 /area/centcom/holding/cafepark)
 "juY" = (
-/obj/structure/sink/directional/east,
-/obj/structure/mirror/directional/west,
-/turf/open/floor/iron/white/smooth_edge{
-	dir = 8
-	},
+/obj/effect/turf_decal/tile/blue/full,
+/turf/open/floor/iron/freezer,
 /area/centcom/castor/control)
 "juZ" = (
 /turf/open/floor/engine,
@@ -11445,9 +11416,16 @@
 /turf/open/floor/iron/smooth_large,
 /area/centcom/central_command_areas/evacuation/ship)
 "jLL" = (
-/obj/structure/table/optable,
-/obj/effect/turf_decal/box/red,
-/turf/open/floor/iron/white/smooth_corner,
+/obj/structure/table/glass,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue/full,
+/obj/structure/window/spawner/directional/west,
+/obj/item/stack/sticky_tape/surgical,
+/obj/item/stack/medical/bone_gel,
+/obj/machinery/light/cold/directional/north,
+/turf/open/floor/iron/freezer,
 /area/centcom/castor/control)
 "jMi" = (
 /obj/structure/table/wood,
@@ -11499,8 +11477,11 @@
 /turf/open/floor/fakebasalt,
 /area/centcom/holding/cafepark)
 "jOt" = (
-/obj/machinery/iv_drip,
-/turf/open/floor/iron/white,
+/obj/structure/closet/secure_closet/medical1,
+/obj/item/blood_filter,
+/obj/effect/turf_decal/tile/blue/full,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/freezer,
 /area/centcom/castor/control)
 "jPA" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
@@ -11844,13 +11825,6 @@
 /obj/item/toy/crayon/spraycan,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
-"kqr" = (
-/obj/structure/table/glass,
-/obj/effect/spawner/surgery_tray/full,
-/turf/open/floor/iron/white/smooth_corner{
-	dir = 4
-	},
-/area/centcom/castor/control)
 "kso" = (
 /obj/machinery/light/directional/south,
 /obj/effect/spawner/liquids_spawner,
@@ -12661,10 +12635,13 @@
 /turf/open/floor/iron/large,
 /area/centcom/central_command_areas/ferry)
 "llS" = (
-/obj/machinery/iv_drip,
-/turf/open/floor/iron/white/smooth_edge{
-	dir = 1
+/obj/structure/table/glass,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
 	},
+/obj/effect/turf_decal/tile/blue/full,
+/obj/effect/spawner/surgery_tray/full,
+/turf/open/floor/iron/freezer,
 /area/centcom/castor/control)
 "lmu" = (
 /obj/structure/chair/sofa/bench/left,
@@ -13032,7 +13009,7 @@
 /turf/open/misc/beach/sand,
 /area/centcom/castor/hallway_one)
 "lJk" = (
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/white/textured,
 /area/centcom/castor/control)
 "lJs" = (
 /turf/open/floor/iron/dark/brick_corner,
@@ -14019,10 +13996,6 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plating,
 /area/centcom/castor/arrivals)
-"mOg" = (
-/obj/machinery/light/directional/south,
-/turf/open/floor/iron/white/smooth_edge,
-/area/centcom/castor/control)
 "mOW" = (
 /obj/machinery/newscaster/directional/north,
 /turf/open/floor/iron/dark,
@@ -16896,12 +16869,7 @@
 /turf/open/floor/plating,
 /area/centcom/castor/hallway_one)
 "qci" = (
-/obj/structure/table/glass,
-/obj/effect/spawner/surgery_tray/full,
-/obj/machinery/light/directional/west,
-/turf/open/floor/iron/white/smooth_edge{
-	dir = 8
-	},
+/turf/open/floor/iron/white/smooth_corner,
 /area/centcom/castor/control)
 "qdG" = (
 /obj/structure/railing{
@@ -17432,12 +17400,9 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/arrivals)
 "qJf" = (
-/obj/structure/curtain,
-/obj/structure/table/glass,
-/turf/open/floor/iron/white/smooth_edge{
-	dir = 4
-	},
-/area/centcom/castor/control)
+/obj/effect/turf_decal/tile/blue/full,
+/turf/open/space/basic,
+/area/space)
 "qJm" = (
 /obj/structure/alien/weeds,
 /turf/open/misc/dirt/planet,
@@ -17859,13 +17824,6 @@
 	},
 /turf/open/floor/carpet/grimey,
 /area/centcom/interlink)
-"rgQ" = (
-/obj/structure/table/optable,
-/obj/effect/turf_decal/box/red,
-/turf/open/floor/iron/white/smooth_edge{
-	dir = 8
-	},
-/area/centcom/castor/control)
 "rhc" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
@@ -18357,10 +18315,16 @@
 /turf/open/floor/iron/dark,
 /area/centcom/castor/evacuation)
 "rJA" = (
-/obj/machinery/vending/medical,
-/turf/open/floor/iron/white/smooth_corner{
-	dir = 8
+/obj/structure/table/glass,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
 	},
+/obj/effect/turf_decal/tile/blue/full,
+/obj/effect/spawner/surgery_tray/full,
+/obj/structure/sign/nanotrasen{
+	pixel_x = 32
+	},
+/turf/open/floor/iron/freezer,
 /area/centcom/castor/control)
 "rJC" = (
 /obj/structure/table/wood,
@@ -18728,16 +18692,19 @@
 	},
 /turf/open/floor/carpet/black,
 /area/centcom/holding/cafe)
-"sdh" = (
-/obj/machinery/medical_kiosk,
-/turf/open/floor/iron/white,
-/area/centcom/castor/control)
 "sdO" = (
-/obj/machinery/stasis,
-/obj/effect/turf_decal/box/blue,
-/turf/open/floor/iron/white/smooth_edge{
-	dir = 4
+/obj/structure/table/optable,
+/obj/machinery/button/door/directional/east{
+	id = "surgery";
+	name = "Privacy Shutters Control";
+	pixel_y = -7
 	},
+/obj/effect/turf_decal/tile/blue/full,
+/obj/machinery/defibrillator_mount/directional/east{
+	pixel_y = 4
+	},
+/obj/effect/turf_decal/box/red,
+/turf/open/floor/iron/freezer,
 /area/centcom/castor/control)
 "sen" = (
 /obj/structure/railing,
@@ -18790,10 +18757,12 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supplypod/loading/one)
 "siA" = (
-/obj/structure/closet/crate/freezer/blood,
-/turf/open/floor/iron/white/smooth_edge{
-	dir = 1
-	},
+/obj/effect/turf_decal/tile/blue/full,
+/obj/structure/window/spawner/directional/west,
+/obj/structure/closet/secure_closet/medical1,
+/obj/item/blood_filter,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/freezer,
 /area/centcom/castor/control)
 "sjv" = (
 /obj/structure/table/wood/poker,
@@ -20214,13 +20183,6 @@
 	},
 /turf/open/floor/iron/edge,
 /area/centcom/castor/hallway_two)
-"tPg" = (
-/obj/machinery/stasis,
-/obj/effect/turf_decal/box/blue,
-/turf/open/floor/iron/white/smooth_corner{
-	dir = 1
-	},
-/area/centcom/castor/control)
 "tQu" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
@@ -22949,8 +22911,7 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "wRc" = (
-/obj/structure/curtain,
-/turf/open/floor/iron/white,
+/turf/open/space/basic,
 /area/centcom/castor/control)
 "wRO" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible/layer2,
@@ -24016,10 +23977,6 @@
 	},
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
-"yjN" = (
-/obj/machinery/computer/operating,
-/turf/open/floor/iron/white,
-/area/centcom/castor/control)
 
 (1,1,1) = {"
 aaa
@@ -42098,9 +42055,9 @@ qAL
 jLL
 juY
 qci
-rgQ
-juY
-kqr
+wRc
+wRc
+wRc
 qAL
 bnk
 rFZ
@@ -42352,11 +42309,11 @@ aaa
 aaa
 aaa
 qAL
-bwA
-lJk
-sdh
-yjN
-lJk
+bTy
+juY
+wRc
+wRc
+wRc
 cpi
 pGA
 eqt
@@ -42610,10 +42567,10 @@ aaa
 aaa
 qAL
 llS
-lJk
-lJk
 jOt
-lJk
+wRc
+wRc
+wRc
 cpi
 lcP
 eqt
@@ -42868,10 +42825,10 @@ aaa
 qAL
 hRj
 lJk
-lJk
-lJk
-lJk
-clj
+wRc
+wRc
+wRc
+wRc
 qAL
 eqt
 bRd
@@ -43123,12 +43080,12 @@ aaa
 aaa
 aaa
 qAL
+jLL
 siA
-lJk
-lJk
-lJk
-lJk
-cpi
+wRc
+wRc
+wRc
+wRc
 qAL
 eqt
 bRd
@@ -43381,11 +43338,11 @@ aaa
 aaa
 qAL
 bTy
-lJk
+juY
 wRc
-lJk
 wRc
-mOg
+wRc
+wRc
 qAL
 eqt
 bRd
@@ -43635,14 +43592,14 @@ fyT
 rFq
 aaa
 aaa
-aaa
+qJf
 qAL
 rJA
 sdO
-qJf
-sdO
-qJf
-tPg
+wRc
+wRc
+wRc
+wRc
 qAL
 eqt
 bRd

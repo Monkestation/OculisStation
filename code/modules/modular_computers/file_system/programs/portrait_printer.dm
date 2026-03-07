@@ -14,7 +14,7 @@
 	filedesc = "Marlowe Treeby's Art Galaxy"
 	downloader_category = PROGRAM_CATEGORY_EQUIPMENT
 	program_open_overlay = "dummy"
-	extended_desc = "This program connects to a Cabriole Sector community art site for viewing and printing art, the latter only available on stationary consoles."
+	extended_desc = "This program connects to an Eidolon Sector community art site for viewing and printing art, the latter only available on stationary consoles." // OCULIS EDIT
 	program_flags = PROGRAM_ON_NTNET_STORE | PROGRAM_REQUIRES_NTNET
 	size = 9
 	tgui_id = "NtosPortraitPrinter"
