@@ -7,7 +7,7 @@
 	greyscale_colors = "#2d2d33"
 	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/collar"
-	post_init_icon_state = "thin_choker"
+	post_init_icon_state = "thin_choker_real"
 	greyscale_config = /datum/greyscale_config/thin_collar
 	greyscale_config_worn = /datum/greyscale_config/thin_collar/worn
 	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
