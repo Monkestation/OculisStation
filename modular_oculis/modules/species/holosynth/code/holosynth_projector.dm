@@ -5,8 +5,8 @@
 	name = "holosynth projector-magnet combo"
 	desc = "A complex mechanism that both projects the form of a hologram and manipulates its aerogel canvas. \
 	Miraculously, it also doubles as a pen."
-	icon = 'modular_iris/doppler_ports/species/holosynth/icons/holosynth_pen.dmi'
-	worn_icon = 'modular_iris/doppler_ports/species/holosynth/icons/holosynth_pen.dmi'
+	icon = 'modular_oculis/modules/species/holosynth/icons/holosynth_pen.dmi'
+	worn_icon = 'modular_oculis/modules/species/holosynth/icons/holosynth_pen.dmi'
 	icon_state = "Holopen"
 	worn_icon_state = "w_holopen"
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_EARS
