@@ -170,9 +170,5 @@
 /// Skillchip trait that lets the player expertly brush or cut hair faster
 #define TRAIT_HAIR_EXPERT "hair_expert"
 
-//Oculis traits
-
-/// The trait that determines if someone has the traditional thinker quirk.
-#define TRAIT_TRADITIONAL_THINKER "trait_traditional_thinker"
 
 // END TRAIT DEFINES
