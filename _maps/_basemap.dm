@@ -6,7 +6,7 @@
 #endif
 
 #ifndef ABSOLUTE_MINIMUM
-#include "map_files\generic\CentCom.dmm"
+#include "map_files\generic\CentCom_oculis.dmm" // OCULIS EDIT CHANGE, ORIGINAL: #include "map_files\generic\CentCom.dmm"
 #else
 #include "map_files\generic\CentCom_minimal.dmm"
 #endif
