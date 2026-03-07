@@ -90,6 +90,7 @@
 
 	return to_add
 
+/* //OCULIS REMOVAL START
 /datum/species/monkey/kobold/create_pref_unique_perks()
 	var/list/to_add = list()
 
@@ -102,6 +103,7 @@
 				Stay out of the kitchen!",
 		),
 	)
+*/ //OCULIS REMOVAL END
 
 /datum/species/monkey/kobold/create_pref_language_perk()
 	var/list/to_add = list()
