@@ -38,11 +38,9 @@
 		/obj/item/food/cookie,
 	))
 
-/datum/storage/collar/key/New(atom/parent, max_slots, max_specific_storage, max_total_storage, list/holdables)
-	holdables = list(
-		/obj/item/food/cookie,
-	)
-	return ..()
+/obj/item/clothing/neck/collar/Initialize(mapload)
+	. = ..()
+	create_storage(storage_type = /datum/storage/collar)
 
 /obj/item/clothing/neck/collar/click_alt_secondary(mob/user) //Adds a toggle to wear above or below suit slot items, for hiding it under a big coat or something :3
 	alternate_worn_layer = (alternate_worn_layer == initial(alternate_worn_layer) ? LOW_NECK_LAYER : initial(alternate_worn_layer))
