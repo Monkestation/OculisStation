@@ -1,3 +1,4 @@
+#define INVESTIGATE_SIGNBOARD "signboard"
 #define SIGNBOARD_WIDTH (ICON_SIZE_X * 3.5)
 #define SIGNBOARD_HEIGHT (ICON_SIZE_Y * 2.5)
 
