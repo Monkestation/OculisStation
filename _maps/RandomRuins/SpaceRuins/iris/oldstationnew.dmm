@@ -5,9 +5,7 @@
 /area/ruin/space/ancientstation/delta/rndhall)
 "ab" = (
 /obj/machinery/door/airlock/public/glass{
-	name = "Cryogenics Room";
-	pixel_x = 0;
-	pixel_y = 0
+	name = "Cryogenics Room"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -163,12 +161,6 @@
 /area/ruin/space/ancientstation/delta/biolab)
 "bf" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 6
-	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/ancientstation/charlie/engie)
 "bg" = (
@@ -778,12 +770,10 @@
 	},
 /obj/structure/table,
 /obj/item/tank/internals/emergency_oxygen{
-	pixel_x = 3;
-	pixel_y = 0
+	pixel_x = 3
 	},
 /obj/item/tank/internals/emergency_oxygen{
-	pixel_x = -3;
-	pixel_y = 0
+	pixel_x = -3
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
@@ -1658,7 +1648,6 @@
 "jY" = (
 /obj/structure/table,
 /obj/item/flatpack/flatpacker{
-	pixel_x = 0;
 	pixel_y = 6
 	},
 /turf/open/floor/iron/dark/smooth_large,
@@ -1687,7 +1676,6 @@
 "kg" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/mechanical/old{
-	pixel_x = 0;
 	pixel_y = 5
 	},
 /turf/open/floor/iron/dark/smooth_large,
@@ -2549,7 +2537,6 @@
 	},
 /obj/structure/sign/directions/science/directional/east,
 /obj/structure/sign/directions/upload/directional/east{
-	pixel_x = 32;
 	pixel_y = 6
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3114,7 +3101,6 @@
 /area/ruin/space/ancientstation/beta/atmos)
 "sH" = (
 /obj/machinery/light/floor{
-	pixel_x = 0;
 	pixel_y = 16
 	},
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3177,8 +3163,7 @@
 "sX" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/glass/fifty{
-	pixel_x = 6;
-	pixel_y = 0
+	pixel_x = 6
 	},
 /obj/machinery/light/small/directional/north,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
@@ -3187,8 +3172,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/sheet/iron/fifty{
-	pixel_x = -6;
-	pixel_y = 0
+	pixel_x = -6
 	},
 /turf/open/floor/iron,
 /area/ruin/space/ancientstation/beta/engstorage)
@@ -3343,11 +3327,8 @@
 /area/ruin/space/ancientstation/delta/biolab)
 "tL" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 6
+/obj/machinery/atmospherics/components/unary/airlock_pump{
+	dir = 8
 	},
 /turf/open/floor/catwalk_floor,
 /area/ruin/space/ancientstation/charlie/engie)
@@ -3494,9 +3475,6 @@
 /area/ruin/space/ancientstation/charlie/hydro)
 "uH" = (
 /obj/machinery/light/small/red/directional/north,
-/obj/machinery/atmospherics/components/unary/airlock_pump{
-	dir = 4
-	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/ancientstation/charlie/engie)
 "uJ" = (
@@ -3529,11 +3507,9 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/rack/gunrack,
 /obj/item/gun/ballistic/shotgun/doublebarrel{
-	pixel_x = 0;
 	pixel_y = 5
 	},
 /obj/item/gun/ballistic/rifle/boltaction{
-	pixel_x = -8;
 	pixel_y = -6
 	},
 /turf/open/floor/iron/dark,
@@ -3685,8 +3661,7 @@
 	pixel_y = 7
 	},
 /obj/item/ammo_box/speedloader/strilka310{
-	pixel_x = -2;
-	pixel_y = 0
+	pixel_x = -2
 	},
 /turf/open/floor/iron,
 /area/ruin/space/ancientstation/charlie/sec)
@@ -3779,7 +3754,6 @@
 /obj/structure/sign/departments/cargo/directional/west,
 /obj/structure/sign/directions/command/directional/north,
 /obj/structure/sign/directions/dorms/directional/north{
-	pixel_x = 0;
 	pixel_y = 38
 	},
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5528,13 +5502,9 @@
 "Gd" = (
 /obj/item/kirbyplants/random/dead,
 /obj/structure/sign/directions/cryo/directional/north{
-	pixel_x = 0;
 	pixel_y = 38
 	},
-/obj/structure/sign/directions/security/directional/north{
-	pixel_x = 0;
-	pixel_y = 32
-	},
+/obj/structure/sign/directions/security/directional/north,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
@@ -6357,9 +6327,6 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /obj/structure/cable,
-/obj/machinery/door/poddoor{
-	id = "ancient"
-	},
 /obj/machinery/door/airlock/external/glass/ruin,
 /turf/open/floor/catwalk_floor,
 /area/ruin/space/ancientstation/charlie/engie)
@@ -6657,7 +6624,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/toilet{
-	pixel_x = 0;
 	pixel_y = 14
 	},
 /turf/open/floor/iron/white/pattern_3,
@@ -6981,8 +6947,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = -14;
-	pixel_y = 0
+	pixel_x = -14
 	},
 /obj/structure/mirror/broken/directional/west,
 /turf/open/floor/iron/white/pattern_3,
@@ -7479,7 +7444,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/book/manual/wiki/infections{
-	pixel_x = 0;
 	pixel_y = 35
 	},
 /obj/item/paper/fluff/ruins/oldstation/biolab_note_molly{
@@ -7719,13 +7683,9 @@
 /area/ruin/space/ancientstation/charlie/hall)
 "Sl" = (
 /obj/structure/sign/directions/cryo/directional/north{
-	pixel_x = 0;
 	pixel_y = 38
 	},
-/obj/structure/sign/directions/security/directional/north{
-	pixel_x = 0;
-	pixel_y = 32
-	},
+/obj/structure/sign/directions/security/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
@@ -8112,7 +8072,6 @@
 /obj/structure/table,
 /obj/item/storage/belt/utility,
 /obj/item/storage/belt/utility{
-	pixel_x = 0;
 	pixel_y = 7
 	},
 /turf/open/floor/iron/dark/smooth_large,
@@ -8182,7 +8141,6 @@
 "Ve" = (
 /obj/structure/sign/directions/command/directional/north,
 /obj/structure/sign/directions/dorms/directional/north{
-	pixel_x = 0;
 	pixel_y = 38
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -8443,17 +8401,12 @@
 /area/ruin/space/ancientstation/beta/enghall)
 "WU" = (
 /obj/structure/sign/directions/evac/directional/west{
-	pixel_x = -32;
 	pixel_y = -6
 	},
 /obj/structure/sign/directions/medical/directional/west{
-	pixel_x = -32;
 	pixel_y = 6
 	},
-/obj/structure/sign/directions/supply/directional/west{
-	pixel_x = -32;
-	pixel_y = 0
-	},
+/obj/structure/sign/directions/supply/directional/west,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
@@ -15307,7 +15260,7 @@ Df
 Df
 Qb
 Qb
-kT
+wH
 KA
 Qb
 Qb
