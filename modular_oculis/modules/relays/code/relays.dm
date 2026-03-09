@@ -42,6 +42,10 @@ GLOBAL_VAR(relay_config)
 	)
 	src << link(address)
 
+/datum/controller/configuration/LoadMisc()
+	. = ..()
+	LoadRelays()
+
 /datum/controller/configuration/proc/LoadRelays()
 	var/config_path = "[directory]/relays.toml"
 	if(!fexists(file(config_path)))
