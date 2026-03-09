@@ -405,9 +405,9 @@
 	)
 
 	to_chat_immediate(client, span_boldannounce("You have been kicked from the server by [key_name_admin(mockadmin)]. Reason: [reason]"))
-	qdel(client)
 	log_admin("Discord: [key_name(mockadmin)] has kicked [key_name(client)] from the server! Reason: [reason]")
 	message_admins("Discord: [key_name_admin(mockadmin)] has kicked [key_name_admin(client)] from the server! Reason: [reason]")
+	qdel(client)
 	if (clear_prefs_cache)
 		GLOB.preferences_datums -= ckey
 
