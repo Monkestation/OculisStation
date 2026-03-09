@@ -72,7 +72,7 @@ SUBSYSTEM_DEF(ticker)
 	/// ID of round reboot timer, if it exists
 	var/reboot_timer = null
 	var/real_round_start_time = 0 // NOVA EDIT ADDITION
-	var/discord_alerted = FALSE // NOVA EDIT ADDITION - DISCORD PING SPAM PREVENTION
+	// var/discord_alerted = FALSE // NOVA EDIT ADDITION - DISCORD PING SPAM PREVENTION //OCULIS EDIT REMOVAL
 
 
 /datum/controller/subsystem/ticker/Initialize()
@@ -150,6 +150,7 @@ SUBSYSTEM_DEF(ticker)
 			for(var/client/C in GLOB.clients)
 				window_flash(C, ignorepref = TRUE) //let them know lobby has opened up.
 			to_chat(world, span_notice("<b>Welcome to [station_name()]!</b>"))
+			/* // OCULIS EDIT REMOVAL START
 			// NOVA EDIT ADDITION START
 			if(!discord_alerted)
 				discord_alerted = TRUE // DISCORD SPAM PREVENTION
@@ -157,6 +158,7 @@ SUBSYSTEM_DEF(ticker)
 					send2chat(new /datum/tgs_message_content("<@&[CONFIG_GET(string/game_alert_role_id)]> Round **[GLOB.round_id]** starting on [SSmapping.current_map.map_name], [CONFIG_GET(string/servername)]! \
 						\nIf you wish to be pinged for game related stuff, go to <#[CONFIG_GET(string/role_assign_channel_id)]> and assign yourself the roles."), channel_tag) // Role ping and round ID in game-alert
 			// NOVA EDIT ADDITION END
+			*/ // OCULIS EDIT REMOVAL END
 			/* // NOVA EDIT REMOVAL START
 			for(var/channel_tag in CONFIG_GET(str_list/channel_announce_new_game))
 				send2chat(new /datum/tgs_message_content("New round starting on [SSmapping.current_map.map_name]!"), channel_tag)
