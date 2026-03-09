@@ -1,0 +1,5 @@
+ADMIN_VERB(toggle_looc, R_ADMIN, "Toggle LOOC", "Toggle local OOC on or off.", ADMIN_CATEGORY_SERVER)
+	toggle_looc()
+	log_admin("[key_name(user)] toggled LOOC.")
+	message_admins("[key_name_admin(user)] toggled LOOC.")
+	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle LOOC", "[GLOB.looc_allowed ? "Enabled" : "Disabled"]"))
