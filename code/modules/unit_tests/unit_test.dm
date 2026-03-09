@@ -388,6 +388,10 @@ GLOBAL_VAR_INIT(focused_tests, focused_tests())
 	returnable_list += list(/obj/item/organ/neck_accessory, /obj/item/organ/head_accessory)
 	//NOVA EDIT ADDITION END
 
+	// OCULIS EDIT ADDITION START
+	returnable_list += /obj/effect/abstract/signboard_holder // shouldn't exist outside of signboards
+	// OCULIS EDIT ADDITION END
+
 	return returnable_list
 
 /proc/RunUnitTests()

@@ -1,3 +1,4 @@
+/* OCULIS EDIT REMOVAL START - nova removed one part of the test, and we removed the other, so this whole test is useless now lol.
 ///Gives a Human lizard-incompatible shoes, then changes their species over to see if they drop the now incompatible shoes, testing if Digitigrade feet works.
 ///Gives a Monkey a collar, then changes their species to Human to see if item's restrictions works on species change.
 /datum/unit_test/species_change_clothing
@@ -29,6 +30,7 @@
 	var/obj/item/human_collar = morphing_human.get_item_by_slot(ITEM_SLOT_NECK)
 
 	TEST_ASSERT_NOTEQUAL(equipped_collar, human_collar, "Human still has a Monkey collar after changing species.")
+*/ // OCULIS EDIT REMOVAL END
 
 ///Gives a Human items in both hands, then swaps them to be another species. Held items should remain.
 /datum/unit_test/species_change_held_items
