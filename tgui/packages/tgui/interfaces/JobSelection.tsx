@@ -195,9 +195,6 @@ export function JobSelection(props) {
       {/* NOVA EDIT CHANGE above - Expand UI for available jobs - ORIGINAL: height={shuttle_status ? 690 : 666 */}
 
       <Window.Content>
-        {/* OCULIS EDIT ADDITION START - lobby_notices */}
-        <LobbyNotices notices={data.notices} />
-        {/* OCULIS EDIT ADDITION END */}
         <Section
           buttons={
             <Button
@@ -211,6 +208,9 @@ export function JobSelection(props) {
           scrollable
           title={
             <>
+              {/* OCULIS EDIT ADDITION START - lobby_notices */}
+              <LobbyNotices notices={data.notices} />
+              {/* OCULIS EDIT ADDITION END */}
               {shuttle_status && <NoticeBox info>{shuttle_status}</NoticeBox>}
               {
                 /* NOVA EDIT ADDITION START - Alert level on jobs menu */
