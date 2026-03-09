@@ -5,8 +5,8 @@
 	name = "holosynth projector-magnet combo"
 	desc = "A complex mechanism that both projects the form of a hologram and manipulates its aerogel canvas. \
 	Miraculously, it also doubles as a pen."
-	icon = 'modular_iris/doppler_ports/species/holosynth/icons/holosynth_pen.dmi'
-	worn_icon = 'modular_iris/doppler_ports/species/holosynth/icons/holosynth_pen.dmi'
+	icon = 'modular_oculis/modules/species/holosynth/icons/holosynth_pen.dmi'
+	worn_icon = 'modular_oculis/modules/species/holosynth/icons/holosynth_pen.dmi'
 	icon_state = "Holopen"
 	worn_icon_state = "w_holopen"
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_EARS
@@ -25,6 +25,7 @@
 /obj/item/holosynth_pen/Initialize(mapload, mob/living/carbon/human/linked_mob)
 	. = ..()
 	AddElement(/datum/element/tool_renaming)
+	AddComponent(/datum/component/gps/item, "HOLOSIGNAL", state = GLOB.deep_inventory_state, overlay_state = FALSE)
 
 	if(linked_mob)
 		linked_mob_ref = WEAKREF(linked_mob)
@@ -33,6 +34,7 @@
 		create_transform_component()
 		RegisterSignal(src, COMSIG_TRANSFORMING_PRE_TRANSFORM, PROC_REF(transform_check))
 		RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
+		RegisterSignal(linked_mob, COMSIG_LIVING_DEATH, PROC_REF(user_death)) // makes them deactivate when they die
 
 		linked_mob.AddComponent(\
 			/datum/component/leash,\
@@ -44,6 +46,7 @@
 
 	else
 		linked_mob_ref = null
+
 
 	AddComponent( \
 		/datum/component/aura_healing, \
@@ -92,6 +95,7 @@
 	else	//Otherwise, put the hologram back
 		if(get_dist(linked_mob, src) <= HOLOSYNTH_RANGE)
 			linked_mob.forceMove(saved_loc)
+			linked_mob.heal_and_revive()
 			new /obj/effect/temp_visual/guardian/phase (get_turf(linked_mob))
 		else
 			balloon_alert(user, "too far!")
@@ -99,14 +103,22 @@
 
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
+/obj/item/holosynth_pen/proc/user_death()
+	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
+	saved_loc_ref = WEAKREF(get_turf(linked_mob))
+	new /obj/effect/temp_visual/guardian/phase/out (get_turf(linked_mob))
+	linked_mob.unequip_everything()
+	linked_mob.forceMove(src)
+
 /obj/item/holosynth_pen/Destroy()
 	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
 
 	if(linked_mob)
 		linked_mob.apply_status_effect(/datum/status_effect/holosynth_dissolving)
+		animate(linked_mob, alpha = 0, time = 5 SECONDS, flags = ANIMATION_PARALLEL)
 		linked_mob.visible_message(
-			span_danger("[linked_mob]'s whole body begins to flicker, shudder and fall apart!"),
-			span_userdanger("You feel your projector being destroyed! Your form loses cohesion!")
+			span_danger("[linked_mob]'s whole body begins to fade away!"),
+			span_userdanger("You feel your projector being destroyed! You start to fade away!")
 		)
 	. = ..()
 
@@ -183,20 +195,22 @@
 /// the DEATH effect
 /atom/movable/screen/alert/status_effect/holosynth_death_alert
 	name = "Projector Destroyed"
-	desc = "YOUR FORM COLLAPSES AT THE SEAMS, you are MELTING AWAY!!"
+	desc = "YOUR BODY IS FADING AWAY!!"
 	icon_state = "convulsing"
 
 /datum/status_effect/holosynth_dissolving
 	id = "holo_dissolve"
 	remove_on_fullheal = FALSE
-	duration = 30 SECONDS
+	duration = 5 SECONDS
 	show_duration = TRUE
 	alert_type = /atom/movable/screen/alert/status_effect/holosynth_death_alert
 
+
 /datum/status_effect/holosynth_dissolving/tick()
-	do_sparks(rand(2,6), FALSE, owner)
+	apply_wibbly_filters(owner)
+	remove_wibbly_filters(owner, 0.1 SECONDS)
 
 /datum/status_effect/holosynth_dissolving/on_remove()
-	owner.gib(DROP_ALL_REMAINS & ~DROP_BODYPARTS) //bright side, your brain's in there. Someone'll use it I'm sure.
+	owner.gib(DROP_BRAIN & DROP_ITEMS) //bright side, your brain's in there. Someone'll use it I'm sure.
 
 #undef HOLOSYNTH_RANGE
