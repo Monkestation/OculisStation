@@ -934,7 +934,7 @@
 
 			new_body_size = new_body_size * 0.01
 			alterer.dna.features["body_size"] = new_body_size
-			alterer.dna.update_body_size()
+			alterer.dna.update_body_size(animate_time = 0.5 SECONDS) // OCULIS EDIT CHANGE - ORIGINAL: alterer.dna.update_body_size()
 
 		if("Mutant Parts")
 			alter_parts(alterer)
