@@ -1,4 +1,4 @@
-/obj/item/clothing/suits/jacket/iris
+/obj/item/clothing/suit/jacket/iris
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	worn_icon = 'modular_iris/icons/mob/clothing/suits/jacket.dmi'
 	abstract_type = /obj/item/clothing/suit/jacket
@@ -15,11 +15,6 @@
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	species_exception = list(/datum/species/golem)
-
-/obj/item/clothing/suit/jacket/Initialize(mapload)
-	. = ..()
-	allowed += GLOB.personal_carry_allowed
-
 
 /obj/item/clothing/suit/iris/jeogori
 	name = "Hanbok Jeogori"

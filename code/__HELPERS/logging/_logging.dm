@@ -98,7 +98,7 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 /atom/proc/log_message(message, message_type, color = null, log_globally = TRUE, list/data)
 	if(!log_globally)
 		return
-
+	/* // OCULIS EDIT REMOVAL START
 	//NOVA EDIT ADDITION BEGIN
 	#ifndef SPACEMAN_DMM
 	if(CONFIG_GET(flag/sql_game_log) && CONFIG_GET(flag/sql_enabled))
@@ -117,6 +117,8 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 			return
 	#endif
 	//NOVA EDIT ADDITION END
+	*/ // OCULIS EDIT REMOVAL END
+
 	var/log_text = "[key_name_and_tag(src)] [message] [loc_name(src)]"
 	switch(message_type)
 		/// ship both attack logs and victim logs to the end of round attack.log just to ensure we don't lose information

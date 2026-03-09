@@ -15,6 +15,7 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 /datum/config_entry/string/icecats_policy_link
 	config_entry_value = "(It appears we have forgotten to set this link)" // "in config.txt" but the players don't need to see that
 
+/* // OCULIS EDIT REMOVAL START
 /// Whether or not we log game logs to the SQL database. Requires the SQL database to function, as well as our Nova-only table, `game_log`.
 /datum/config_entry/flag/sql_game_log
 	protection = CONFIG_ENTRY_LOCKED
@@ -30,6 +31,7 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 /datum/config_entry/number/sql_game_log_min_bundle_size
 	default = 100
 	min_val = 1
+*/ // OCULIS EDIT REMOVAL END
 
 /datum/config_entry/flag/events_use_random
 

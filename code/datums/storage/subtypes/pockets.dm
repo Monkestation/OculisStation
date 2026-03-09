@@ -129,6 +129,10 @@
 			/obj/item/ammo_box/magazine/m9mm_aps,
 			/obj/item/ammo_box/magazine/toy/pistol,
 			// NOVA EDIT ADDITION END
+			// OCULIS EDIT ADDITION START
+			/obj/item/t_scanner/adv_mining_scanner,
+			/obj/item/t_scanner/adv_mining_scanner/lesser,
+			// OCULIS EDIT ADDITION END
 		),
 		cant_hold_list = list(
 			/obj/item/screwdriver/power,
