@@ -1,4 +1,3 @@
-/* OCULIS EDIT REMOVAL - moved to SLIMEPEOPLE module: modular_oculis/modules/slimepeople/code/slime_bodyparts.dm
 // Roundstartslimes!
 
 #define SLIME_LIMB_BLOOD_LOSS 60
@@ -10,7 +9,7 @@
 	is_dimorphic = TRUE
 	icon_greyscale = BODYPART_ICON_ROUNDSTARTSLIME
 	biological_state = (BIO_FLESH|BIO_BLOODED)
-	teeth_count = 32 // IRIS EDIT: GIves slime teeth
+	teeth_count = 32
 	burn_modifier = 0.8
 
 /obj/item/bodypart/chest/jelly/slime/roundstart
@@ -119,4 +118,3 @@
 	return ..()
 
 #undef SLIME_LIMB_BLOOD_LOSS
-*/ // OCULIS EDIT REMOVAL END
