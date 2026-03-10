@@ -308,9 +308,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
 	var/turf/death_turf = get_turf(victim)
 	var/mob/living/basic/mining/legion/legionbody = astype(victim.loc)
-	/* if(legionbody)
-		ADD_TRAIT(src, TRAIT_NO_ORGAN_DECAY, REF(legionbody))
- */
+	if(legionbody)
+		organ_flags |= ORGAN_FROZEN
 	for(var/datum/quirk/quirk in victim.quirks) // Store certain quirks safe to transfer between bodies.
 		if(!is_type_in_typecache(quirk, saved_quirks) || is_type_in_typecache(quirk, skip_quirks))
 			continue
