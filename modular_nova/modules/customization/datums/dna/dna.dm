@@ -7,20 +7,43 @@
 	var/current_body_size = BODY_SIZE_NORMAL
 
 /// Updates the mob's body size to prefs features
-/datum/dna/proc/update_body_size(force_reapply = FALSE)
+/datum/dna/proc/update_body_size(force_reapply = FALSE, animate_time = 0) // OCULIS EDIT ADDITION: add animate_time arg
 	if(force_reapply)
 		current_body_size = BODY_SIZE_NORMAL
 	if(!holder || species.body_size_restricted || current_body_size == features["body_size"])
 		return
 	var/change_multiplier = features["body_size"] / current_body_size
+	/* OCULIS EDIT - ORIGINAL:
 	//We update the translation to make sure our character doesn't go out of the southern bounds of the tile
-	var/translate = ((change_multiplier-1) * 32)/2
-	holder.transform = holder.transform.Scale(change_multiplier)
+	var/translate = ((change_multiplier-1) * ICON_SIZE_ALL)/2
+	var/matrix/new_transform = matrix(holder.transform)
+	new_transform.Scale(change_multiplier)
 	// Splits the updated translation into X and Y based on the user's rotation.
-	var/translate_x = translate * ( holder.transform.b / features["body_size"] )
-	var/translate_y = translate * ( holder.transform.e / features["body_size"] )
-	holder.transform = holder.transform.Translate(translate_x, translate_y)
-	holder.maptext_height = 32 * features["body_size"] // Adjust runechat height
+	var/translate_x = translate * ( new_transform.b / features["body_size"] )
+	var/translate_y = translate * ( new_transform.e / features["body_size"] )
+	new_transform.Translate(translate_x, translate_y)
+	var/new_maptext_height = features["body_size"] * ICON_SIZE_Y
+	if(animate_time > 0)
+		animate(holder, transform = new_transform, maptext_height = new_maptext_height, time = animate_time)
+	else
+		holder.transform = new_transform
+		holder.maptext_height = new_maptext_height // Adjust runechat height
+	*/ // ORIGINAL END - OCULIS EDIT START:
+	//We update the translation to make sure our character doesn't go out of the southern bounds of the tile
+	var/translate = ((change_multiplier-1) * ICON_SIZE_ALL)/2
+	var/matrix/new_transform = matrix(holder.transform)
+	new_transform.Scale(change_multiplier)
+	// Splits the updated translation into X and Y based on the user's rotation.
+	var/translate_x = translate * ( new_transform.b / features["body_size"] )
+	var/translate_y = translate * ( new_transform.e / features["body_size"] )
+	new_transform.Translate(translate_x, translate_y)
+	var/new_maptext_height = features["body_size"] * ICON_SIZE_Y
+	if(animate_time > 0)
+		animate(holder, transform = new_transform, maptext_height = new_maptext_height, time = animate_time)
+	else
+		holder.transform = new_transform
+		holder.maptext_height = new_maptext_height // Adjust runechat height
+	// OCULIS EDIT END
 	current_body_size = features["body_size"]
 
 /mob/living/carbon/proc/apply_customizable_dna_features_to_species()

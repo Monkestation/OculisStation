@@ -1376,6 +1376,10 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 */ // IRIS EDIT REMOVAL END
 
 	// IRIS EDIT ADDITION START - Height-based displacement masks.
+	var/static/list/screamed_icons
+	if(isnull(screamed_icons))
+		screamed_icons = list()
+
 	var/list/dims = get_icon_dimensions(appearance.icon)
 	var/icon_width = dims["width"]
 	var/icon_height = dims["height"]
@@ -1387,7 +1391,9 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 		else if(icon_height == 64 && icon_width <= 64)
 			mask_icon = 'modular_iris/icons/effects/cut_64x64.dmi'
 		else if(icon_height != 32 || icon_width > 32)
-			stack_trace("Bad dimensions (w[icon_width],h[icon_height]) for icon '[appearance.icon]'")
+			if(!(appearance.icon in screamed_icons)) // only throw one runtime per icon
+				stack_trace("Bad dimensions (w[icon_width],h[icon_height]) for icon '[appearance.icon]'")
+				screamed_icons += appearance.icon
 
 	// Move the filter up if the image has been moved down, and vice versa
 	var/adjust_y = -appearance.pixel_y - parent_adjust_y

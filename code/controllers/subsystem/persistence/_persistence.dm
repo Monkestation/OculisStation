@@ -98,7 +98,6 @@ SUBSYSTEM_DEF(persistence)
 		save_tram_counter()
 	save_panic_bunker() //NOVA EDIT ADDITION - PANICBUNKER
 
-
 ///Loads up Poly's speech buffer.
 /datum/controller/subsystem/persistence/proc/load_poly()
 	for(var/mob/living/basic/parrot/poly/bird in GLOB.alive_mob_list)

@@ -3,12 +3,14 @@
 
 /datum/config_entry/flag/russian_text_formation
 
+/* // OCULIS EDIT REMOVAL START
 // DISCORD GAME ALERT CONFIGS
 // Role id to ping
 /datum/config_entry/string/game_alert_role_id
 
 // Reaction roles channel
 /datum/config_entry/string/role_assign_channel_id
+*/ // OCULIS EDIT REMOVAL END
 
 // To turn off SSDecay based on a config. You're welcome.
 /datum/config_entry/flag/ssdecay_disabled
