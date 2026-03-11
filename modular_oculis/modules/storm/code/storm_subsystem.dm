@@ -31,6 +31,7 @@ PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 			continue
 		possible_rulesets += intensity_datum
 	chosen_storm_ruleset = pick(possible_rulesets)
+	chosen_storm_ruleset = new chosen_storm_ruleset()
 
 	log_dynamic("Selected intensity: [chosen_storm_ruleset.intensity]")
 	log_dynamic("- Roundstart population: [roundstart_population]")

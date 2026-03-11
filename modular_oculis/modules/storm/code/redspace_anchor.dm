@@ -11,6 +11,8 @@
 	name = "redspace anchor"
 	icon = 'modular_oculis/modules/storm/icons/redspace_anchor.dmi'
 	icon_state = "anchor_off"
+	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN_SILICON
+	interaction_flags_click = ALLOW_SILICON_REACH
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 1000 // Lotta fucking power to keep the storm at bay.
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 100 // Slightly less power to keep it idle.
@@ -29,6 +31,10 @@
 	var/on = TRUE
 	/// If the main breaker is on/off, to enable/disable the anchor.
 	var/breaker = TRUE
+	/// If the power cable is cut or not.
+	var/shorted = FALSE
+	/// If a silicon can interact with it.
+	var/aidisabled = FALSE
 	/// If the generator is idle, charging, or down.
 	var/charging_state = POWER_IDLE
 	/// How much charge the redspace anchor has, goes down when breaker is shut, and shuts down at 0.
@@ -48,6 +54,7 @@
 /obj/machinery/redspace_anchor/Initialize(mapload)
 	. = ..()
 	SSeidolon_storm.register_anchor(src)
+	set_wires(new /datum/wires/redspace_anchor(src))
 	soundloop = new(src, start_immediately = FALSE)
 	if(on)
 		add_overlay("activated")
@@ -112,9 +119,20 @@
 		if(ANCHOR_NEEDS_WRENCH)
 			. += span_notice("The new plating just needs to be <b>bolted</b> into place now.")
 
-// Fixing the redspace anchor.
+/obj/machinery/redspace_anchor/screwdriver_act(mob/living/user, obj/item/tool)
+	if(machine_stat & BROKEN)
+		return
+	tool.play_tool_sound(src)
+	toggle_panel_open()
+	to_chat(user, span_notice("The wires have been [panel_open ? "exposed" : "unexposed"]."))
+	update_appearance()
+	return TRUE
+
 /obj/machinery/redspace_anchor/attackby(obj/item/weapon, mob/user, list/modifiers, list/attack_modifiers)
 	if(!(machine_stat & BROKEN))
+		if(panel_open && is_wire_tool(weapon))
+			wires.interact(user)
+			return TRUE
 		return ..()
 	switch(broken_state)
 		if(ANCHOR_NEEDS_SCREWDRIVER)
@@ -123,14 +141,14 @@
 				weapon.play_tool_sound(src)
 				broken_state++
 				update_appearance()
-				return
+				return TRUE
 		if(ANCHOR_NEEDS_WELDING)
 			if(weapon.tool_behaviour == TOOL_WELDER)
 				if(weapon.use_tool(src, user, 0, volume = 50))
 					to_chat(user, span_notice("You mend the damaged framework."))
 					broken_state++
 					update_appearance()
-				return
+				return TRUE
 		if(ANCHOR_NEEDS_PLASTEEL)
 			if(istype(weapon, /obj/item/stack/sheet/plasteel))
 				var/obj/item/stack/sheet/plasteel/plasteel_sheets = weapon
@@ -142,13 +160,20 @@
 					update_appearance()
 				else
 					to_chat(user, span_warning("You need 10 sheets of plasteel!"))
-				return
+				return TRUE
 		if(ANCHOR_NEEDS_WRENCH)
 			if(weapon.tool_behaviour == TOOL_WRENCH)
 				to_chat(user, span_notice("You secure the plating to the framework."))
 				weapon.play_tool_sound(src)
 				set_fix()
-				return
+				return TRUE
+
+/obj/machinery/redspace_anchor/ui_status(mob/user, datum/ui_state/state)
+	if(HAS_SILICON_ACCESS(user) && aidisabled)
+		to_chat(user, span_info("AI control has been disabled."))
+	else if(!shorted)
+		return ..()
+	return UI_CLOSE
 
 /obj/machinery/redspace_anchor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -183,7 +208,20 @@
 				trigger_safe_discharge()
 				. = TRUE
 
-// Power and Icon States
+// Wire interactions
+/obj/machinery/redspace_anchor/proc/reset(wire)
+	switch(wire)
+		if(WIRE_POWER)
+			if(!wires.is_cut(WIRE_POWER))
+				shorted = FALSE
+		if(WIRE_AI)
+			if(!wires.is_cut(WIRE_AI))
+				aidisabled = FALSE
+		if(WIRE_ALARM)
+			update_appearance()
+		if(WIRE_DISCHARGE)
+			update_appearance()
+
 /obj/machinery/redspace_anchor/power_change()
 	. = ..()
 	if(SSticker.current_state == GAME_STATE_PLAYING)
@@ -193,7 +231,7 @@
 // Set the charging state based on power/breaker.
 /obj/machinery/redspace_anchor/proc/set_power()
 	var/new_state = FALSE
-	if(machine_stat & (NOPOWER|BROKEN) || !breaker)
+	if(machine_stat & (NOPOWER|BROKEN) || !breaker || shorted)
 		new_state = FALSE
 	else if(breaker)
 		new_state = TRUE
@@ -283,7 +321,6 @@
 				if((charge_count <= 50) && (charging_state == POWER_DOWN) && prob(5))
 					to_chat(mobs, span_bolddanger("You feel a foreign presence encroaching around you."))
 
-
 /// Shake everyone on the z level to let them know that the anchor was enagaged/disengaged.
 /obj/machinery/redspace_anchor/proc/shake_everyone()
 	var/turf/T = get_turf(src)
@@ -309,13 +346,24 @@
 		return
 	violetspace_energy += (rand(1,5) * intensity)
 	if(violetspace_energy >= 100)
-		violetspace_energy = 0
-		breaker = FALSE
-		set_power()
 		trigger_unsafe_discharge()
 
 /obj/machinery/redspace_anchor/proc/trigger_unsafe_discharge()
-	priority_announce("Redspace Anchor failure! Unsafe shutdown in progress!", "Redspace Anchor")
+	violetspace_energy = 0
+	breaker = FALSE
+	set_power()
+	priority_announce(
+		text = "Redspace Anchor failure! Unsafe shutdown in progress!",
+		title = "Redspace Anchor",
+		sound = SSstation.announcer.get_rand_alert_sound(),
+		has_important_message = TRUE,
+	)
 
 /obj/machinery/redspace_anchor/proc/trigger_safe_discharge()
-	priority_announce("Redspace Anchor safe discharge in progres.", "Redspace Anchor")
+	violetspace_energy = 0
+	priority_announce(
+		text = "Redspace Anchor safe discharge in progress.",
+		title = "Redspace Anchor",
+		sound = SSstation.announcer.get_rand_alert_sound(),
+		has_important_message = TRUE,
+	)

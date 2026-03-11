@@ -10,7 +10,7 @@ This module is responsible for Eidolon's storm, anchor, as well as how both work
 
 ### TG Proc/File Changes:
 
-- N/A
+- `code/__DEFINES/wires.dm`
 
 ### Modular Overrides:
 
