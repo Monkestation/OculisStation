@@ -582,7 +582,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	if(!nugget)
 		new_body.set_nutrition(NUTRITION_LEVEL_FED)
 		reequip_items(new_body)
-	new_body.blood_volume = nugget ? (BLOOD_VOLUME_SAFE + 60) : BLOOD_VOLUME_NORMAL
+	new_body.set_blood_volume(nugget ? (BLOOD_VOLUME_SAFE + 60) : BLOOD_VOLUME_NORMAL)
 	REMOVE_TRAIT(new_body, TRAIT_NO_TRANSFORM, REF(src))
 	if(!isnull(stored_quirks))
 		for(var/datum/quirk/quirk in stored_quirks)
