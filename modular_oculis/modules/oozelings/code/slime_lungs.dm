@@ -7,7 +7,7 @@
 
 /obj/item/organ/lungs/slime/proc/melt_lungs(mob/living/carbon/breather, datum/gas_mixture/breath, h2o_pp, old_h2o_pp)
 	if(h2o_pp > 1)
-		var/ratio = clamp((h2o_pp - 1) / 7, 0, 1)
+		var/ratio = CLAMP01((h2o_pp - 1) / 7)
 		var/lung_damage  = 5  * ratio
 		var/blood_damage = 15 * ratio
 		apply_organ_damage(lung_damage)
