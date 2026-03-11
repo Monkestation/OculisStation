@@ -20,7 +20,7 @@
 		CRASH("Non-human somehow had [name] action")
 
 	if(user.has_status_effect(/datum/status_effect/slime_hydrophobia))
-		slime_hydrophobia_deactivate(user)
+		user.remove_status_effect(/datum/status_effect/slime_hydrophobia)
 	else
 		user.apply_status_effect(/datum/status_effect/slime_hydrophobia)
 
