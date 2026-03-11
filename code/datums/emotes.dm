@@ -24,6 +24,10 @@
 	var/message_alien = ""
 	/// Message displayed if the user is an alien larva.
 	var/message_larva = ""
+	// OCULIS EDIT ADDITION START - hologram specific emotes
+	/// Message displayed if the user is a hologram.
+	var/message_hologram = ""
+	// OCULIS EDIT ADDITION END
 	/// Message displayed if the user is a robot.
 	var/message_robot = ""
 	/// Message displayed if the user is an AI.
@@ -400,6 +404,10 @@
 		. = message_AI
 	else if(ismonkey(user) && message_monkey)
 		. = message_monkey
+	// OCULIS EDIT ADDITION START - hologram specific emotes
+	else if (HAS_TRAIT(user, TRAIT_HOLOSYNTH))
+		. = message_hologram
+	// OCULIS EDIT ADDITION END
 	else if((iscyborg(user) || (living_user.mob_biotypes & MOB_ROBOTIC)) && message_robot)
 		. = message_robot
 	else if(isanimal_or_basicmob(user) && message_animal_or_basic)
