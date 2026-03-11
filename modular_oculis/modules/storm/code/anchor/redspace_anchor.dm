@@ -2,11 +2,6 @@
 #define POWER_UP 1
 #define POWER_DOWN 2
 
-#define ANCHOR_NEEDS_SCREWDRIVER 0
-#define ANCHOR_NEEDS_WELDING 1
-#define ANCHOR_NEEDS_PLASTEEL 2
-#define ANCHOR_NEEDS_WRENCH 3
-
 /obj/machinery/redspace_anchor
 	name = "redspace anchor"
 	icon = 'modular_oculis/modules/storm/icons/redspace_anchor.dmi'
@@ -14,8 +9,14 @@
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN_SILICON
 	interaction_flags_click = ALLOW_SILICON_REACH
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
-	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 1000 // Lotta fucking power to keep the storm at bay.
-	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 100 // Slightly less power to keep it idle.
+
+	/*
+	* Yes, I know this doesn't use BASE_MACHINE_IDLE_CONSUMPTION at all,
+	* and this is purelly done so that the code is readable without pulling out a calculator
+	* to make sure these values are right.
+	*/
+	active_power_usage = (4 MEGA WATTS) // Lotta fucking power to keep the storm at bay.
+	idle_power_usage = (100 KILO WATTS) // Slightly less power to keep it idle.
 
 	// 3x3 offset by one row
 	pixel_x = -32
@@ -46,8 +47,6 @@
 
 	/// The overlay currently used.
 	var/current_overlay = null
-	/// When broken, what stage it is at.
-	var/broken_state = ANCHOR_NEEDS_SCREWDRIVER
 
 	/// Audio for when the redspace anchor is on
 	var/datum/looping_sound/redspace_anchor/soundloop
@@ -108,21 +107,6 @@
 	else
 		icon_state = "anchor_off"
 
-// Interactions
-/obj/machinery/redspace_anchor/examine(mob/user)
-	. = ..()
-	if(!(machine_stat & BROKEN))
-		return
-	switch(broken_state)
-		if(ANCHOR_NEEDS_SCREWDRIVER)
-			. += span_notice("The entire frame is barely holding together, the <b>screws</b> need to be refastened.")
-		if(ANCHOR_NEEDS_WELDING)
-			. += span_notice("There's lots of broken seals on the framework, it could use some <b>welding</b>.")
-		if(ANCHOR_NEEDS_PLASTEEL)
-			. += span_notice("Some of this damaged plating needs full replacement. <b>10 plasteel</> should be enough.")
-		if(ANCHOR_NEEDS_WRENCH)
-			. += span_notice("The new plating just needs to be <b>bolted</b> into place now.")
-
 /obj/machinery/redspace_anchor/screwdriver_act(mob/living/user, obj/item/tool)
 	if(machine_stat & BROKEN)
 		return
@@ -131,89 +115,6 @@
 	to_chat(user, span_notice("The wires have been [panel_open ? "exposed" : "unexposed"]."))
 	update_appearance()
 	return TRUE
-
-/obj/machinery/redspace_anchor/attackby(obj/item/weapon, mob/user, list/modifiers, list/attack_modifiers)
-	if(!(machine_stat & BROKEN))
-		if(panel_open && is_wire_tool(weapon))
-			wires.interact(user)
-			return TRUE
-		return ..()
-	switch(broken_state)
-		if(ANCHOR_NEEDS_SCREWDRIVER)
-			if(weapon.tool_behaviour == TOOL_SCREWDRIVER)
-				to_chat(user, span_notice("You secure the screws of the framework."))
-				weapon.play_tool_sound(src)
-				broken_state++
-				update_appearance()
-				return TRUE
-		if(ANCHOR_NEEDS_WELDING)
-			if(weapon.tool_behaviour == TOOL_WELDER)
-				if(weapon.use_tool(src, user, 0, volume = 50))
-					to_chat(user, span_notice("You mend the damaged framework."))
-					broken_state++
-					update_appearance()
-				return TRUE
-		if(ANCHOR_NEEDS_PLASTEEL)
-			if(istype(weapon, /obj/item/stack/sheet/plasteel))
-				var/obj/item/stack/sheet/plasteel/plasteel_sheets = weapon
-				if(plasteel_sheets.get_amount() >= 10)
-					plasteel_sheets.use(10)
-					to_chat(user, span_notice("You add the plating to the framework."))
-					playsound(src.loc, 'sound/machines/click.ogg', 75, TRUE)
-					broken_state++
-					update_appearance()
-				else
-					to_chat(user, span_warning("You need 10 sheets of plasteel!"))
-				return TRUE
-		if(ANCHOR_NEEDS_WRENCH)
-			if(weapon.tool_behaviour == TOOL_WRENCH)
-				to_chat(user, span_notice("You secure the plating to the framework."))
-				weapon.play_tool_sound(src)
-				set_fix()
-				return TRUE
-
-/obj/machinery/redspace_anchor/ui_status(mob/user, datum/ui_state/state)
-	if(HAS_SILICON_ACCESS(user) && ai_disabled)
-		to_chat(user, span_info("AI control has been disabled."))
-	else if(!shorted)
-		return ..()
-	return UI_CLOSE
-
-/obj/machinery/redspace_anchor/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "RedspaceAnchor", name)
-		ui.open()
-
-/obj/machinery/redspace_anchor/ui_data(mob/user)
-	var/list/data = list()
-	data["breaker"] = breaker
-	data["charge_count"] = charge_count
-	data["charging_state"] = charging_state
-	data["on"] = on
-	data["operational"] = (machine_stat & BROKEN) ? FALSE : TRUE
-	data["violetspace_energy"] = violetspace_energy
-	return data
-
-/obj/machinery/redspace_anchor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	. = ..()
-	if(.)
-		return
-
-	switch(action)
-		if("gentoggle")
-			breaker = !breaker
-			investigate_log("was toggled [breaker ? "<font color='green'>ON</font>" : "<font color='red'>OFF</font>"] by [key_name(usr)].", INVESTIGATE_ENGINE)
-			if(violetspace_energy)
-				trigger_unsafe_discharge()
-				investigate_log("was overloaded by remaining violetspace energy.", INVESTIGATE_ENGINE)
-			set_power()
-			. = TRUE
-		if("discharge_violetspace")
-			if(violetspace_energy && can_discharge)
-				investigate_log("has discharged violetspace energy by [key_name(usr)].", INVESTIGATE_ENGINE)
-				trigger_safe_discharge()
-				. = TRUE
 
 // Wire interactions
 /obj/machinery/redspace_anchor/proc/reset(wire)
@@ -376,3 +277,7 @@
 		sound = SSstation.announcer.get_rand_alert_sound(),
 		has_important_message = TRUE,
 	)
+
+#undef POWER_IDLE
+#undef POWER_UP
+#undef POWER_DOWN
