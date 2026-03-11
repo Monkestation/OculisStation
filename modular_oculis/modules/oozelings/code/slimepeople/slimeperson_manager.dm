@@ -4,7 +4,7 @@ GLOBAL_ALIST_EMPTY(slimeperson_managers)
 /datum/slimeperson_manager
 	/// The mind that owns all the bodies.
 	var/datum/mind/owner
-	/// List of bodies in the
+	/// List of bodies in the slimeperson's "network".
 	var/list/bodies = list()
 
 /datum/slimeperson_manager/New(datum/mind/owner)
