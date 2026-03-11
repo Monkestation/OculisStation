@@ -4,7 +4,7 @@ SUBSYSTEM_DEF(memory_stats)
 	name = "Memory Statistics"
 	wait = 1 MINUTES
 	flags = SS_BACKGROUND
-	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
+	runlevels = ALL
 	var/list/stats
 
 /datum/controller/subsystem/memory_stats/OnConfigLoad()
@@ -22,8 +22,8 @@ SUBSYSTEM_DEF(memory_stats)
 	var/memory_summary = get_memory_stats()
 	if(memory_summary)
 		var/timestamp = time2text(world.timeofday, "YYYY-MM-DD_hh-mm-ss")
-		rustg_file_write(json_encode(stats), "[GLOB.log_directory]/profiler/memstat-[timestamp].txt")
-		rustg_file_write(memory_summary, "[GLOB.log_directory]/profiler/memstat-[timestamp].json")
+		rustg_file_write(json_encode(stats), "[GLOB.log_directory]/profiler/memstat-[timestamp].json")
+		rustg_file_write(memory_summary, "[GLOB.log_directory]/profiler/memstat-[timestamp].txt")
 
 /datum/controller/subsystem/memory_stats/proc/get_memory_stats()
 	var/result = trimtext(call_ext(MEMORYSTATS_DLL_PATH, "memory_stats")())
