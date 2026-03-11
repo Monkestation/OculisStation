@@ -147,7 +147,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	if(DOING_INTERACTION_WITH_TARGET(user, src))
 		return
 	user.visible_message(
-		span_warning("[user] begins jamming their hand into [src]! Slime goes everywhere!"),
+		span_warning("[user] begins jamming [user.p_their()] hand into [src]! Slime goes everywhere!"),
 		gps_active ? span_notice("You jam your hand into [src], feeling for the densest point! Slime covers your arm.") : span_notice("You jam your hand into [src], feeling for any dense objects. Slime covers your arm."),
 		span_notice("You hear an obscene squelching sound.")
 	)
@@ -191,7 +191,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	brainmob?.log_message("is being stripped of [english_list(items_to_drop)] by [key_name(user)].", LOG_VICTIM, color="orange", log_globally=FALSE)
 
 	user.visible_message(
-		span_warning("[user] begins jamming their hand into [src]! Slime goes everywhere!"),
+		span_warning("[user] begins jamming [user.p_their()] hand into [src]! Slime goes everywhere!"),
 		span_notice("You jam your hand into [src], feeling for the densest point, your prize!"),
 		span_notice("You hear an obscene squelching sound.")
 	)
