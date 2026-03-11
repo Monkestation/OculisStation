@@ -9,7 +9,7 @@
 		WIRE_ALARM,
 		WIRE_DISCHARGE,
 	)
-	add_duds(10) // It's a complicated machine. It's gonna have lots of wires.
+	add_duds(13) // It's a complicated machine. It's gonna have lots of wires.
 	..()
 
 /datum/wires/redspace_anchor/interactable(mob/user)
@@ -21,7 +21,8 @@
 	var/obj/machinery/redspace_anchor/A = holder
 	var/list/status = list()
 	status += "The short indicator is [A.shorted ? "lit" : "off"]."
-	status += "The AI connection light is [!A.aidisabled ? "on" : "off"]."
+	status += "The AI connection light is [!A.ai_disabled ? "on" : "off"]."
+	status += "The alarm light is [!A.alarm_disabled ? "on" : "off"]."
 	return status
 
 /datum/wires/redspace_anchor/on_pulse(wire)
@@ -33,13 +34,17 @@
 				anchor.update_appearance()
 			addtimer(CALLBACK(anchor, TYPE_PROC_REF(/obj/machinery/redspace_anchor, reset), wire), 2 MINUTES)
 		if(WIRE_AI) // Disable AI control for a while.
-			if(!anchor.aidisabled)
-				anchor.aidisabled = TRUE
+			if(!anchor.ai_disabled)
+				anchor.ai_disabled = TRUE
 			addtimer(CALLBACK(anchor, TYPE_PROC_REF(/obj/machinery/redspace_anchor, reset), wire), 10 SECONDS)
 		if(WIRE_ALARM)
+			if(!anchor.alarm_disabled)
+				anchor.alarm_disabled = TRUE
+			addtimer(CALLBACK(anchor, TYPE_PROC_REF(/obj/machinery/redspace_anchor, reset), wire), 10 SECONDS)
 			anchor.update_appearance()
 		if(WIRE_DISCHARGE)
-			anchor.trigger_safe_discharge()
+			if(anchor.can_discharge)
+				anchor.trigger_safe_discharge()
 
 /datum/wires/redspace_anchor/on_cut(wire, mend, source)
 	var/obj/machinery/redspace_anchor/anchor = holder
@@ -48,11 +53,11 @@
 			anchor.shorted = !mend
 			anchor.update_appearance()
 		if(WIRE_AI)
-			anchor.aidisabled = mend // Enable/disable AI control.
+			anchor.ai_disabled = mend // Enable/disable AI control.
 		if(WIRE_ALARM)
-			anchor.update_appearance()
+			anchor.alarm_disabled = mend
 		if(WIRE_DISCHARGE)
-			anchor.trigger_safe_discharge()
+			anchor.can_discharge = mend
 
 /datum/wires/redspace_anchor/can_reveal_wires(mob/user)
 	if(HAS_TRAIT(user, TRAIT_KNOW_ENGI_WIRES))

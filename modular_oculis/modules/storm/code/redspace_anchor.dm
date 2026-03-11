@@ -34,7 +34,11 @@
 	/// If the power cable is cut or not.
 	var/shorted = FALSE
 	/// If a silicon can interact with it.
-	var/aidisabled = FALSE
+	var/ai_disabled = FALSE
+	/// If the anchor will produce an alarm when changing states.
+	var/alarm_disabled = FALSE
+	/// If the anchor can safely discharge its redspace energy.
+	var/can_discharge = TRUE
 	/// If the generator is idle, charging, or down.
 	var/charging_state = POWER_IDLE
 	/// How much charge the redspace anchor has, goes down when breaker is shut, and shuts down at 0.
@@ -63,7 +67,7 @@
 	if(HAS_TRAIT(user, TRAIT_MINDSHIELD))
 		desc = "The most important machine on the station. You feel more... Stable, near it."
 		return ..()
-	desc = "The most important machine on the station. \n [span_danger("Looking directly at it gives you a headache.")]"
+	desc = "The most important machine on the station. \n[span_danger("Looking directly at it gives you a headache.")]"
 	return ..()
 
 /obj/machinery/redspace_anchor/safe_throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE)
@@ -169,7 +173,7 @@
 				return TRUE
 
 /obj/machinery/redspace_anchor/ui_status(mob/user, datum/ui_state/state)
-	if(HAS_SILICON_ACCESS(user) && aidisabled)
+	if(HAS_SILICON_ACCESS(user) && ai_disabled)
 		to_chat(user, span_info("AI control has been disabled."))
 	else if(!shorted)
 		return ..()
@@ -203,7 +207,7 @@
 			set_power()
 			. = TRUE
 		if("discharge_violetspace")
-			if(violetspace_energy)
+			if(violetspace_energy && can_discharge)
 				investigate_log("has discharged violetspace energy by [key_name(usr)].", INVESTIGATE_ENGINE)
 				trigger_safe_discharge()
 				. = TRUE
@@ -216,8 +220,10 @@
 				shorted = FALSE
 		if(WIRE_AI)
 			if(!wires.is_cut(WIRE_AI))
-				aidisabled = FALSE
+				ai_disabled = FALSE
 		if(WIRE_ALARM)
+			if(!wires.is_cut(WIRE_ALARM))
+				alarm_disabled = FALSE
 			update_appearance()
 		if(WIRE_DISCHARGE)
 			update_appearance()
@@ -250,7 +256,7 @@
 	update_appearance()
 
 	if(SSticker.current_state == GAME_STATE_PLAYING)
-		investigate_log("was brought online and is now producing gravity for this level.", INVESTIGATE_ENGINE)
+		investigate_log("was brought online.", INVESTIGATE_ENGINE)
 		message_admins("The redspace anchor was brought online [ADMIN_VERBOSEJMP(src)]")
 	shake_everyone()
 
@@ -342,7 +348,7 @@
 		priority_announce("Warning: Redspace Anchor has been disabled. Storm encroaching on station perimeter.", "Redspace Anchor")
 
 /obj/machinery/redspace_anchor/proc/tick(intensity)
-	if(charging_state != POWER_IDLE)
+	if((charging_state != POWER_IDLE) || !on)
 		return
 	violetspace_energy += (rand(1,5) * intensity)
 	if(violetspace_energy >= 100)
