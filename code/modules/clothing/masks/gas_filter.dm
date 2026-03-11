@@ -48,7 +48,8 @@
 		/datum/gas/proto_nitrate,
 		/datum/gas/halon,
 		/datum/gas/tritium,
-		/datum/gas/zauker
+		/datum/gas/zauker,
+		/datum/gas/water_vapor, // OCULIS EDIT ADDITION
 		)
 
 /obj/item/gas_filter/examine(mob/user)
