@@ -1,3 +1,15 @@
+/// Path for the byond-memorystats dll
+#define MEMORYSTATS_DLL_PATH (world.system_type == MS_WINDOWS ? "memorystats.dll" : "./libmemorystats.so")
+
+/datum/config_entry/flag/auto_memory_stats
+
+#ifndef OPENDREAM
+/datum/config_entry/flag/auto_memory_stats/ValidateAndSet(str_val)
+	. = ..()
+	if(.)
+		SSmemory_stats.can_fire = config_entry_value
+#endif
+
 #ifndef OPENDREAM
 // byond-memorystats does not work on OpenDream, as it relies on functions exported from byondcore.dll / libbyond.so
 SUBSYSTEM_DEF(memory_stats)
@@ -75,3 +87,7 @@ ADMIN_VERB(server_memory_stats, R_DEBUG, "Server Memory Stats", "Print various s
 	var/result = span_danger("Memory statistics not supported on OpenDream, sorry!")
 #endif
 	to_chat(user, fieldset_block("Memory Statistics", result, "boxed_message [box_color]_box"), avoid_highlighting = TRUE, type = MESSAGE_TYPE_DEBUG, confidential = TRUE)
+
+
+#undef MEMORYSTATS_DLL_PATH
+
