@@ -72,7 +72,7 @@ GLOBAL_ALIST_EMPTY(slimeperson_managers)
 			"htmlcolor" = body.dna.features[FEATURE_MUTANT_COLOR],
 			"area" = get_area_name(body, TRUE),
 			"status" = stat,
-			"exoticblood" = body.blood_volume,
+			"exoticblood" = body.get_blood_volume(),
 			"name" = body.real_name || body.name,
 			"ref" = REF(body),
 			"occupied" = occupied,
