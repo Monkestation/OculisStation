@@ -4,7 +4,7 @@
 	build_path = /obj/machinery/computer/redspace_anchor_computer
 
 /obj/machinery/computer/redspace_anchor_computer
-	name = "redspace anchor control"
+	name = "redspace anchor control computer"
 	desc = "Used to control the redspace anchor."
 	circuit = /obj/item/circuitboard/computer/redspace_anchor_control
 
