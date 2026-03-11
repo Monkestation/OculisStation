@@ -305,7 +305,11 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 
 	GLOB.dead_slime_cores |= src
 	core_ejected = TRUE
-	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
+	victim.visible_message(
+		span_warning("[victim]'s body completely dissolves, collapsing outwards!"),
+		span_notice("Your body completely dissolves, collapsing outwards!"),
+		span_notice("You hear liquid splattering."),
+	)
 	var/turf/death_turf = get_turf(victim)
 	var/mob/living/basic/mining/legion/legionbody = astype(victim.loc)
 	if(legionbody)
