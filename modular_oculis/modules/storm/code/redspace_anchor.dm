@@ -53,7 +53,7 @@
 	var/datum/looping_sound/redspace_anchor/soundloop
 
 	/// How much excess violetspace energy the redspace anchor has, which can cause it to fail once it reaches 100.
-	VAR_PROTECTED/violetspace_energy = 0
+	var/violetspace_energy = 0
 
 /obj/machinery/redspace_anchor/Initialize(mapload)
 	. = ..()
@@ -204,6 +204,9 @@
 		if("gentoggle")
 			breaker = !breaker
 			investigate_log("was toggled [breaker ? "<font color='green'>ON</font>" : "<font color='red'>OFF</font>"] by [key_name(usr)].", INVESTIGATE_ENGINE)
+			if(violetspace_energy)
+				trigger_unsafe_discharge()
+				investigate_log("was overloaded by remaining violetspace energy.", INVESTIGATE_ENGINE)
 			set_power()
 			. = TRUE
 		if("discharge_violetspace")
@@ -218,13 +221,13 @@
 		if(WIRE_POWER)
 			if(!wires.is_cut(WIRE_POWER))
 				shorted = FALSE
+			set_power()
 		if(WIRE_AI)
 			if(!wires.is_cut(WIRE_AI))
 				ai_disabled = FALSE
 		if(WIRE_ALARM)
 			if(!wires.is_cut(WIRE_ALARM))
 				alarm_disabled = FALSE
-			update_appearance()
 		if(WIRE_DISCHARGE)
 			update_appearance()
 
@@ -319,7 +322,7 @@
 			if(!is_valid_z_level(src, mob_turf))
 				continue
 			if(mobs.client)
-				if(charge_count % 4 == 0 && prob(75)) // Let them know it is charging/discharging.
+				if((charge_count % 4 == 0 && prob(75)) && !alarm_disabled) // Let them know it is charging/discharging.
 					if(charging_state == POWER_UP)
 						mobs.playsound_local(mob_turf, 'sound/effects/magic/cosmic_expansion.ogg', 100, TRUE)
 					else

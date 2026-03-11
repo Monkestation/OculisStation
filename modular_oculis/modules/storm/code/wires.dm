@@ -43,7 +43,7 @@
 			addtimer(CALLBACK(anchor, TYPE_PROC_REF(/obj/machinery/redspace_anchor, reset), wire), 10 SECONDS)
 			anchor.update_appearance()
 		if(WIRE_DISCHARGE)
-			if(anchor.can_discharge)
+			if(anchor.can_discharge && anchor.violetspace_energy)
 				anchor.trigger_safe_discharge()
 
 /datum/wires/redspace_anchor/on_cut(wire, mend, source)
