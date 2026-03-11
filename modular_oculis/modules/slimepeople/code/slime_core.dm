@@ -391,7 +391,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			user.balloon_alert(user, "core's soul has departed...")
 			return FALSE
 
-		if (item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) < 100)
+		if(item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) < 100)
 			user.balloon_alert(user, "too little plasma!")
 			return FALSE
 
@@ -415,7 +415,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			user.balloon_alert(user, "core's soul has departed...")
 			return FALSE
 
-		if (item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) < 100) // minor exploit but might as well patch it
+		if(item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) < 100) // minor exploit but might as well patch it
 			user.balloon_alert(user, "too little plasma!")
 			return FALSE
 
