@@ -9,6 +9,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	icon_state = "slime_core"
 	resistance_flags = FIRE_PROOF
 
+	brain_size = 2
+
 	var/obj/effect/death_melt_type = /obj/effect/temp_visual/wizard/out
 	var/core_color = COLOR_WHITE
 
@@ -79,14 +81,11 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	))
 
 	var/rebuilt = TRUE
-	var/coredeath = TRUE
-
 	var/datum/action/cooldown/membrane_murmur/membrane_mur
 
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
-	membrane_mur = new /datum/action/cooldown/membrane_murmur()
-	transform.Scale(2, 2)
+	membrane_mur = new
 	colorize()
 
 /obj/item/organ/brain/slime/Destroy(force)
@@ -168,7 +167,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			span_notice("You hear a wet crunching sound."),
 		)
 		gps_active = FALSE
-		qdel(GetComponent(/datum/component/gps))//Actually remove the gps signal
+		qdel(GetComponent(/datum/component/gps)) // Actually remove the gps signal
 	else
 		user.visible_message(
 			span_warning("[user] crunches something deep in [src]! It gradually stops glowing."),
@@ -300,7 +299,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 /// Makes it so that when a slime dies, their core ejects and their body is qdel'd.
 
 /obj/item/organ/brain/slime/proc/core_ejection(mob/living/carbon/human/victim, new_stat, turf/loc_override)
-	if(core_ejected || !coredeath)
+	if(core_ejected)
 		return
 
 	GLOB.dead_slime_cores |= src
@@ -647,3 +646,6 @@ ADMIN_VERB(cmd_admin_heal_slime, R_ADMIN, "Heal Slime Core", "Use this to heal S
 	message_admins(msg)
 	admin_ticket_log(new_body, log_msg)
 	BLACKBOX_LOG_ADMIN_VERB("Heal Slime Core")
+
+/obj/item/organ/brain/slime/oversized
+	brain_size = 2.5 // slime cores already have their sprite scaled up, so we gotta scale up a bit MORE

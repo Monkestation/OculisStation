@@ -1,4 +1,3 @@
-/* OCULIS EDIT REMOVAL - moved to SLIMEPEOPLE module: modular_oculis/modules/slimepeople/code/slime_bodyparts.dm
 // Roundstartslimes!
 
 #define SLIME_LIMB_BLOOD_LOSS 60
@@ -119,4 +118,3 @@
 	return ..()
 
 #undef SLIME_LIMB_BLOOD_LOSS
-*/ // OCULIS EDIT REMOVAL END
