@@ -22,6 +22,8 @@
 	parent_as_human.cut_overlay(glow)
 
 
+
+
 /datum/component/holosynth_effects/proc/make_hologram_glowless()
 	// allow players to customize holo colour via preferences; fall back to stored DNA value or the original blueish holo color
 	var/col_pref = parent_as_human.client?.prefs?.read_preference(/datum/preference/color/mutant/holosynth_color)
