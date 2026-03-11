@@ -1,3 +1,4 @@
+/* //OCULIS REMOVAL - modern tg lizards
 /obj/item/bodypart/head/lizard
 	icon_greyscale = BODYPART_ICON_LIZARD
 	head_flags = HEAD_DEFAULT_FEATURES
@@ -24,3 +25,4 @@
 
 /obj/item/bodypart/leg/right/digitigrade/lizard
 	icon_greyscale = BODYPART_ICON_LIZARD
+*/
