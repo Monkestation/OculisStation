@@ -17,13 +17,13 @@
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 1000 // Lotta fucking power to keep the storm at bay.
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 100 // Slightly less power to keep it idle.
 
-	// 3x2 offset by one row
+	// 3x3 offset by one row
 	pixel_x = -32
 	pixel_y = -32
-	bound_height = 64
+	bound_height = 96
 	bound_width = 96
 	bound_x = -32
-	bound_y = 0
+	bound_y = -32
 	density = TRUE
 	move_resist = INFINITY
 
