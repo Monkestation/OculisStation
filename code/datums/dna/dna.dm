@@ -105,15 +105,15 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		// new_dna.holder.set_species(species.type, icon_update = 0) // NOVA EDIT REMOVAL
 			// NOVA EDIT ADDITION START
 			as_carbon.set_species(species.type, icon_update = TRUE, pref_load = FALSE, override_features = features.Copy(), override_mutantparts = LAZYCOPY(mutant_bodyparts), override_markings = body_markings.Copy())
-			as_carbon.dna.species.copy_properties_from(species) // OCULIS EDIT ADDITION
 		else
 			new_dna.holder.set_species(species.type, icon_update = 0)
-			new_dna.species.copy_properties_from(species) // OCULIS EDIT ADDITION
 			// NOVA EDIT ADDITION END
+		new_dna.species.copy_properties_from(species) // OCULIS EDIT ADDITION
 	else
 		new_dna.blood_type = blood_type
 		if(transfer_flags & COPY_DNA_SPECIES)
 			new_dna.species = new species.type
+			new_dna.species.copy_properties_from(species) // OCULIS EDIT ADDITION
 	if(transfer_flags & COPY_DNA_MUTATIONS && holder?.can_mutate())
 		// Mutations aren't gc managed, but they still aren't templates
 		// Let's do a proper copy
