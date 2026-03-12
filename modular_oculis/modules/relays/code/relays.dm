@@ -40,7 +40,7 @@ GLOBAL_VAR(relay_config)
 		html = boxed_message(span_info(span_big("Connecting you to [quickname]\nIf nothing happens, try manually connecting to the relay ([address]), or the RELAY may be down!"))),
 		type = MESSAGE_TYPE_INFO,
 	)
-	src << link(address)
+	DIRECT_OUTPUT(src, link(address))
 
 /datum/controller/configuration/LoadMisc()
 	. = ..()
