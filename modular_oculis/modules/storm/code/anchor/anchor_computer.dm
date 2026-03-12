@@ -6,8 +6,7 @@
 /obj/machinery/computer/redspace_anchor_computer
 	name = "redspace anchor control computer"
 	desc = "Used to control the redspace anchor."
-	icon = 'icons/obj/machines/computer.dmi'
-	icon_state = "comm"
+	icon_screen = "comm"
 	circuit = /obj/item/circuitboard/computer/redspace_anchor_control
 	var/obj/machinery/redspace_anchor/connected_anchor = null
 
@@ -16,13 +15,14 @@
 	for(var/obj/machinery/redspace_anchor/anchor as anything in SSmachines.get_machines_by_type(/obj/machinery/redspace_anchor))
 		if(anchor.z == z)
 			connected_anchor = anchor
+	update_appearance()
 
-/obj/machinery/computer/redspace_anchor_computer/update_icon(updates)
-	. = ..()
-	if(connected_anchor.breaker)
-		icon_state = "comm"
+/obj/machinery/computer/redspace_anchor_computer/update_overlays()
+	if(connected_anchor?.breaker)
+		icon_screen = "comm"
 	else
-		icon_state = "syndishuttle"
+		icon_screen = "syndishuttle"
+	. = ..()
 
 /obj/machinery/computer/redspace_anchor_computer/ui_status(mob/user, datum/ui_state/state)
 	if(HAS_SILICON_ACCESS(user) && connected_anchor.ai_disabled)
