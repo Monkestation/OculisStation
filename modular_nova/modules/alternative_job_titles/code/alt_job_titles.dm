@@ -261,6 +261,7 @@
 	alt_titles = list(
 		"Detective",
 		"Detective Cadet",
+		"Junior Detective",
 		"Forensic Specialist",
 		"Forensic Scientist",
 		"Forensic Technician",
