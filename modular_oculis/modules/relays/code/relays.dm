@@ -8,7 +8,7 @@ GLOBAL_VAR(relay_config)
 		to_chat(src, span_notice("You are on localhost, this verb is useless to you."))
 		return
 
-	if(!GLOB.relay_config || !length(GLOB.relay_config))
+	if(!length(GLOB.relay_config))
 		to_chat(src, span_notice("Relay configuration is missing or empty."))
 		return
 
