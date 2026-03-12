@@ -30,8 +30,7 @@ GLOBAL_VAR(relay_config)
 		to_chat(src, span_notice("Invalid relay selection."))
 		return
 
-	var/address = relay["address"]
-	address = replacetext(address, "{port}", "[world.port]")
+	var/address = replacetext(relay["address"], "{port}", "[world.port]")
 
 	var/quickname = relay["quickname"]
 
