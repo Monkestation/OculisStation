@@ -56,4 +56,4 @@
 	owner.balloon_alert_to_viewers("hydrophobic coating dispelled")
 
 /datum/status_effect/slime_hydrophobia/get_examine_text()
-	return span_notice("[owner.p_They()] [owner.p_are()] oozing out an oily coating onto [owner.p_their()] outer membrane, water rolling right off.")
+	return span_purple("[owner.p_They()] [owner.p_are()] oozing out an oily coating onto [owner.p_their()] outer membrane, water rolling right off.")

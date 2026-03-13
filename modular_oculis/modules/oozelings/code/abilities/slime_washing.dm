@@ -69,4 +69,4 @@
 	return TRUE
 
 /datum/status_effect/slime_washing/get_examine_text()
-	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of [owner.p_their()] body and vanishing.")
+	return span_purple("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of [owner.p_their()] body and vanishing.")
