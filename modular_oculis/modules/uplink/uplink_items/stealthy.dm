@@ -15,7 +15,7 @@
 	desc = "A compact baton used by multiple factions across the frontier. \
 	While not as powerful as the Contractor Baton, it is still a very useful tool for subduing someone. \
 	It also does not stop victims from speaking clearly, nor does it shock robots. \
-	Unlike the silver or gold tipped telescopic batons found on head of personnel, this one does not penetrate armor very well."
+	Unlike the silver or gold tipped telescopic batons found on heads of staff, this one does not penetrate armor very well."
 	item = /obj/item/melee/baton/telescopic
 	cost = 5
 	surplus = 50
