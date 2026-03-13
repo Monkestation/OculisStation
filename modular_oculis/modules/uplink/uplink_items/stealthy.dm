@@ -1,14 +1,7 @@
 /datum/uplink_item/stealthy_weapons/contrabaton
-	name = "Contractor Baton"
-	desc = "A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets. \
-	These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun. \
-	Has the added benefit of affecting the vocal cords of your victim, causing them to slur as if inebriated."
-	item = /obj/item/melee/baton/telescopic/contractor_baton
 	cost = 10
 	surplus = 25
-	limited_stock = 1
 	population_minimum = TRAITOR_POPULATION_LOWPOP
-	purchasable_from = UPLINK_TRAITORS | UPLINK_SPY
 
 /datum/uplink_item/stealthy_weapons/telebaton
 	name = "Telescopic Baton"
