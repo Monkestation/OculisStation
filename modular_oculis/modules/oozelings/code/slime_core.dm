@@ -11,6 +11,10 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 
 	brain_size = 2
 
+	throw_range = 9 //Oh! That's a baseball!
+	throw_speed = 0.5
+	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
+
 	var/obj/effect/death_melt_type = /obj/effect/temp_visual/wizard/out
 	var/core_color = COLOR_WHITE
 
