@@ -16,6 +16,7 @@ import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
 import { sendAct as act } from '../events/act';
 import { Window } from '../layouts';
+import { LobbyNotices } from './common/oculis/LobbyNotices';
 
 const icons = {
   add: { icon: 'check-circle', color: 'green' },
@@ -112,7 +113,7 @@ export class Changelog extends Component {
   render() {
     const { data, selectedDate, selectedIndex } = this.state;
     const {
-      data: { dates },
+      data: { dates, notices },
     } = useBackend();
     const { dateChoices } = this;
 
@@ -359,6 +360,7 @@ export class Changelog extends Component {
     return (
       <Window title="Changelog" width={675} height={650}>
         <Window.Content scrollable>
+          <LobbyNotices notices={notices} />
           {header}
           {changes}
           {typeof data === 'string' && <p>{data}</p>}

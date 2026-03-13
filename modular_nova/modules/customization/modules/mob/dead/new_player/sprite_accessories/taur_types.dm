@@ -15,7 +15,7 @@
 	return taur.taur_mode
 
 /datum/sprite_accessory/taur
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/taur.dmi'
+	icon = 'modular_oculis/master_files/icons/mob/sprite_accessory/taur.dmi' // OCULIS EDIT, ORIGINAL: icon = 'modular_nova/master_files/icons/mob/sprite_accessory/taur.dmi'
 	key = FEATURE_TAUR
 	color_src = USE_MATRIXED_COLORS
 	dimension_x = 64
