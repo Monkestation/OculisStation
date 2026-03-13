@@ -230,7 +230,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	. = ..()
 	UnregisterSignal(organ_owner, COMSIG_LIVING_DEATH)
 
-/* /obj/item/organ/brain/slime/item_interaction(mob/living/user, obj/item/stake/stake, list/modifiers)
+#ifdef IS_VAMPIRE // for compatibility with vampire tm
+/obj/item/organ/brain/slime/item_interaction(mob/living/user, obj/item/stake/stake, list/modifiers)
 	if(!istype(stake))
 		return NONE
 	if(DOING_INTERACTION_WITH_TARGET(user, src))
@@ -266,7 +267,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			span_hear("You hear a loud crunching sound."),
 		)
 		set_organ_damage(maxHealth) // you're stabbing it with a stake.
-	return ITEM_INTERACT_SUCCESS */
+	return ITEM_INTERACT_SUCCESS
+#endif
 
 /obj/item/organ/brain/slime/proc/on_slime_death(mob/living/carbon/victim)
 	SIGNAL_HANDLER
