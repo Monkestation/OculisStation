@@ -21,6 +21,9 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	var/core_ejected = FALSE
 	var/gps_active = TRUE
 
+	/// Is someone currently pouring plasma on us?
+	var/being_repaired = FALSE
+
 	var/datum/dna/stored_dna
 	/// The mind of the oozeling that became this core.
 	/// This MUST be named `mind`, in order to allow IS_[antag] macros to work on cores.
@@ -317,8 +320,6 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	)
 	var/turf/death_turf = get_turf(victim)
 	var/mob/living/basic/mining/legion/legionbody = astype(victim.loc)
-	if(legionbody)
-		organ_flags |= ORGAN_FROZEN
 	for(var/datum/quirk/quirk in victim.quirks) // Store certain quirks safe to transfer between bodies.
 		if(!is_type_in_typecache(quirk, saved_quirks) || is_type_in_typecache(quirk, skip_quirks))
 			continue
@@ -411,9 +412,12 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			brainmob.notify_revival("Someone is pouring plasma on your core!", source = src)
 			brainmob.grab_ghost()
 
+		being_repaired = TRUE
 		if(!do_after(user, 30 SECONDS, src))
+			being_repaired = FALSE
 			to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
 			return FALSE
+		being_repaired = FALSE
 
 		if(mind?.dnr || has_dnr_quirk)
 			to_chat(user, span_warning("The soul of [src] has departed..."))
@@ -434,6 +438,11 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		rebuild_body(user)
 		return TRUE
 	return ..()
+
+// Don't decay if someone's pouring plasma on us, or if we're inside a legion.
+/obj/item/organ/brain/slime/on_death(seconds_per_tick)
+	if(!istype(loc, /mob/living/basic/mining/legion) && !being_repaired)
+		return ..()
 
 ///////
 /// PROCESS ITEMS FOR CORE EJECTION
