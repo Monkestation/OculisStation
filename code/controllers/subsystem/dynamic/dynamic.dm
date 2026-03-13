@@ -138,6 +138,7 @@ SUBSYSTEM_DEF(dynamic)
 		if(player.ready == PLAYER_NOT_READY)
 			num_real_players += 0.5
 	num_real_players = round(num_real_players, 1)
+	log_dynamic("num_real_players: [num_real_players], while antag_candidates len is [length(antag_candidates)]")
 	// OCULIS EDIT ADDITION END
 	// now select a tier (if admins didn't)
 	// this also calculates the number of rulesets to spawn
@@ -257,6 +258,7 @@ SUBSYSTEM_DEF(dynamic)
 	for(var/mob/dead/new_player/player as anything in GLOB.new_player_list)
 		if(player.ready == PLAYER_NOT_READY)
 			population_size += 0.5
+	log_dynamic("population_size: [population_size], while antag_candidates len is [length(antag_candidates)]")
 	// OCULIS EDIT ADDITION END
 
 	var/list/datum/dynamic_ruleset/roundstart/rulesets = list()
