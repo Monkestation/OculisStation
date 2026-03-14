@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	icon_state = "slime_core"
 	resistance_flags = FIRE_PROOF
 
-	brain_size = 2
+	// brain_size = 2
 
 	throw_range = 9 //Oh! That's a baseball!
 	throw_speed = 0.5
@@ -275,10 +275,11 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 
 /obj/item/organ/brain/slime/proc/on_slime_death(mob/living/carbon/victim)
 	SIGNAL_HANDLER
+	var/turf/victim_loc = victim.drop_location()
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 	mind = victim.mind || victim.last_mind
 	copy_mind_and_dna(victim)
-	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // explode them after the current proc chain ends, to avoid weirdness
+	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim, victim_loc), 0) // explode them after the current proc chain ends, to avoid weirdness
 
 /obj/item/organ/brain/slime/proc/copy_mind_and_dna(mob/living/carbon/human/slime)
 	if(QDELETED(mind))
@@ -307,7 +308,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 /// CORE EJECTION PROC
 /// Makes it so that when a slime dies, their core ejects and their body is qdel'd.
 
-/obj/item/organ/brain/slime/proc/core_ejection(mob/living/carbon/human/victim, new_stat, turf/loc_override)
+/obj/item/organ/brain/slime/proc/core_ejection(mob/living/carbon/human/victim, turf/loc_override)
 	if(core_ejected)
 		return
 
@@ -318,7 +319,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		span_notice("Your body completely dissolves, collapsing outwards!"),
 		span_notice("You hear liquid splattering."),
 	)
-	var/turf/death_turf = get_turf(victim)
+	var/turf/death_turf = loc_override || get_turf(victim)
 	var/mob/living/basic/mining/legion/legionbody = astype(victim.loc)
 	for(var/datum/quirk/quirk in victim.quirks) // Store certain quirks safe to transfer between bodies.
 		if(!is_type_in_typecache(quirk, saved_quirks) || is_type_in_typecache(quirk, skip_quirks))
@@ -354,7 +355,6 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		rebuilt = FALSE
 		victim.transfer_observers_to(src)
 
-	Remove(victim)
 	qdel(victim)
 
 	SEND_SIGNAL(mind, COMSIG_SLIME_CORE_EJECTED, src)
@@ -492,7 +492,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			case.update_appearance()
 			process_and_store_item(case, victim)
 
-	for(var/obj/item/organ/organ in victim.organs) // Process and store organ implants and related organs
+	for(var/obj/item/organ/organ as anything in victim.organs) // Process and store organ implants and related organs
 		if(is_type_in_typecache(organ, allowed_organ_types))
 			organ.Remove(victim)
 			process_and_store_item(organ, victim)
@@ -663,4 +663,4 @@ ADMIN_VERB(cmd_admin_heal_slime, R_ADMIN, "Heal Slime Core", "Use this to heal S
 	BLACKBOX_LOG_ADMIN_VERB("Heal Slime Core")
 
 /obj/item/organ/brain/slime/oversized
-	brain_size = 2.5 // slime cores already have their sprite scaled up, so we gotta scale up a bit MORE
+	brain_size = 2
