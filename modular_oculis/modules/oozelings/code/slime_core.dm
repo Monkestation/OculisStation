@@ -7,9 +7,6 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	zone = BODY_ZONE_CHEST
 	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "slime_core"
-	resistance_flags = FIRE_PROOF
-
-	// brain_size = 2
 
 	throw_range = 9 //Oh! That's a baseball!
 	throw_speed = 0.5
