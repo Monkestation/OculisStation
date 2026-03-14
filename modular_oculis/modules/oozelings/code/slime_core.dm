@@ -242,7 +242,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	if(HAS_TRAIT(src, TRAIT_BEINGSTAKED))
 		balloon_alert(user, "already being staked!")
 		return ITEM_INTERACT_BLOCKING
-	playsound(user, 'sound/magic/Demon_consume.ogg', vol = 50, vary = TRUE)
+	playsound(user, 'sound/effects/magic/demon_consume.ogg', vol = 50, vary = TRUE)
 	user.balloon_alert_to_viewers("staking core...")
 	ADD_TRAIT(src, TRAIT_BEINGSTAKED, REF(user))
 	if(!do_after(user, stake.staketime, src) || QDELETED(src) || QDELETED(stake))
@@ -252,7 +252,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	user.balloon_alert_to_viewers("staked core!")
 	var/datum/antagonist/vampire/vampire_datum = IS_VAMPIRE(src)
 	if(vampire_datum)
-		playsound(get_turf(src), 'sound/vampires/burning_death.ogg', vol = 40, vary = TRUE)
+		playsound(get_turf(src), 'modular_oculis/modules/vampires/sound/burning_death.ogg', vol = 40, vary = TRUE)
 		user.visible_message(
 			span_danger("[user] drives \the [stake] into [src], causing it to rapidly dissolve. A hollow cry wails from the rapidly melting core."),
 			span_danger("You drive \the [stake] into [src], causing it to rapidly dissolve. A hollow cry wails from the rapidly melting core."),
