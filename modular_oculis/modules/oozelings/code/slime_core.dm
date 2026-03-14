@@ -597,7 +597,6 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	if(!nugget)
 		new_body.set_nutrition(NUTRITION_LEVEL_FED)
 		reequip_items(new_body)
-	new_body.set_blood_volume(nugget ? (BLOOD_VOLUME_SAFE + 60) : BLOOD_VOLUME_NORMAL)
 	REMOVE_TRAIT(new_body, TRAIT_NO_TRANSFORM, REF(src))
 	if(!isnull(stored_quirks))
 		for(var/datum/quirk/quirk in stored_quirks)
@@ -611,6 +610,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			if(istype(bodypart, /obj/item/bodypart/chest))
 				continue
 			bodypart.drop_limb() // Drop limb should delete the limb for oozelings unless someone changes it.
+		new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
 		new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
 		to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
 		//Make oozelings revive similar to other species.
