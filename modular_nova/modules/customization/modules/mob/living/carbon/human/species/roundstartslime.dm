@@ -616,6 +616,20 @@
 			SPECIES_PERK_NAME = "Shapeshifter",
 			SPECIES_PERK_DESC = "Slimes can alter their size and general shape.",
 		),
+		// OCULIS EDIT ADDITION START
+		list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "burn",
+			SPECIES_PERK_NAME = "Incombustible",
+			SPECIES_PERK_DESC = "Slimes cannot be set aflame.",
+		),
+		list(
+			SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
+			SPECIES_PERK_ICON = "wind",
+			SPECIES_PERK_NAME = "Anaerobic Lineage",
+			SPECIES_PERK_DESC = "Slimes don't require much oxygen to live."
+		),
+		// OCULIS EDIT ADDITION END
 	)
 
 	return to_add
