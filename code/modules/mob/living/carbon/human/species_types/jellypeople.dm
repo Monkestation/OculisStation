@@ -162,6 +162,11 @@
 	if(!length(limbs_to_heal))
 		to_chat(H, span_notice("You feel intact enough as it is."))
 		return
+	// OCULIS EDIT ADDITION START
+	if(HAS_TRAIT(H, TRAIT_SLIME_HYDROPHOBIA))
+		to_chat(H, span_warning("Your membrane is too viscous to regenerate your limbs!"))
+		return
+	// OCULIS EDIT ADDITION END
 	to_chat(H, span_notice("You focus intently on your missing [length(limbs_to_heal) >= 2 ? "limbs" : "limb"]..."))
 	if(H.get_blood_volume() >= blood_per_limb * length(limbs_to_heal) + BLOOD_VOLUME_OKAY)
 		H.regenerate_limbs()
