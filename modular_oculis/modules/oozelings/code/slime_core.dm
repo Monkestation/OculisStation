@@ -377,9 +377,10 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			items_per_slot[equipped] = slot
 
 /obj/item/organ/brain/slime/proc/do_steam_effects(turf/loc)
-	var/datum/effect_system/steam_spread/steam = new()
+	return // uncomment after upstream merge
+	/* var/datum/effect_system/steam_spread/steam = new()
 	steam.set_up(10, FALSE, loc)
-	steam.start()
+	steam.start() */
 
 ///////
 /// CHECK FOR REPAIR SECTION
