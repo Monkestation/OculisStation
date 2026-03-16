@@ -775,21 +775,9 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "engi-maint-passthrough"
 	},
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance/departmental,
-/obj/effect/mapping_helpers/airlock/access/any/service/janitor,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/all/service/janitor,
 /obj/effect/mapping_helpers/airlock/unres/delayed,
-=======
-/obj/effect/mapping_helpers/airlock/unres,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/service/janitor,
->>>>>>> Stashed changes
-=======
-/obj/effect/mapping_helpers/airlock/unres,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/service/janitor,
->>>>>>> Stashed changes
 /turf/open/floor/iron/dark,
 /area/station/maintenance/starboard/aft)
 "aiI" = (
@@ -3566,20 +3554,8 @@
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
 	},
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/unres/delayed,
-/turf/open/floor/iron/dark,
-/area/station/maintenance/department/crew_quarters/bar)
-=======
 /turf/open/floor/iron/showroomfloor,
 /area/station/commons/storage/art)
->>>>>>> Stashed changes
-=======
-/turf/open/floor/iron/showroomfloor,
-/area/station/commons/storage/art)
->>>>>>> Stashed changes
 "bdH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3841,6 +3817,7 @@
 	dir = 9
 	},
 /obj/effect/turf_decal/bot,
+/obj/machinery/defibrillator_mount/directional/north,
 /obj/machinery/vitals_reader/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/medical/treatment_center)
@@ -4708,10 +4685,10 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Emergency Storage"
 	},
-/obj/effect/mapping_helpers/airlock/unres{
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/department/security/lesser)
 "bwN" = (
@@ -5032,23 +5009,9 @@
 /obj/machinery/door/airlock/security{
 	name = "Detective's Office"
 	},
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/unres/delayed{
-	dir = 1
-	},
-=======
 /obj/machinery/door/firedoor,
 /obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
->>>>>>> Stashed changes
-=======
-/obj/machinery/door/firedoor,
-/obj/effect/landmark/navigate_destination,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
->>>>>>> Stashed changes
 /turf/open/floor/iron/dark,
 /area/station/security/detectives_office)
 "bBE" = (
@@ -5440,11 +5403,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted,
 /obj/machinery/airalarm/directional/south,
-/obj/machinery/firealarm/directional/south{
-	pixel_x = -15
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
+	},
+/obj/machinery/firealarm/directional/south{
+	pixel_x = -15
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/cryo)
@@ -5578,11 +5541,11 @@
 	name = "Abandoned Cafeteria"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/unres{
+/obj/effect/spawner/random/structure/barricade,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 4
 	},
-/obj/effect/spawner/random/structure/barricade,
-/turf/open/floor/plating,
+/turf/open/floor/iron/dark,
 /area/station/maintenance/abandon_cafeteria)
 "bLf" = (
 /obj/machinery/autolathe,
@@ -7169,14 +7132,6 @@
 	pixel_x = 8;
 	pixel_y = 6
 	},
-/obj/item/disk/computer/engineering{
-	pixel_x = 10;
-	pixel_y = -8
-	},
-/obj/item/disk/computer/engineering{
-	pixel_x = 10;
-	pixel_y = -8
-	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/ce)
 "chI" = (
@@ -8614,22 +8569,10 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "engi-maint-passthrough"
 	},
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance/departmental,
-/obj/effect/mapping_helpers/airlock/access/any/service/janitor,
-/obj/effect/mapping_helpers/airlock/unres/delayed,
-=======
-=======
->>>>>>> Stashed changes
-/obj/effect/mapping_helpers/airlock/unres,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /obj/effect/mapping_helpers/airlock/access/all/service/janitor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/starboard/aft)
 "cFU" = (
@@ -9236,7 +9179,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/access/any/medical/maintenance,
+    /obj/effect/mapping_helpers/airlock/access/any/medical/maintenance,
 /obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 4
 	},
@@ -10486,8 +10429,6 @@
 	pixel_x = -3;
 	pixel_y = -3
 	},
-/obj/item/disk/computer/medical,
-/obj/item/disk/computer/medical,
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/iron/showroomfloor,
 /area/station/command/heads_quarters/cmo)
@@ -13385,7 +13326,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/siding/purple,
 /obj/machinery/dna_infuser,
-/obj/item/tgui_book/manual/infuser,
 /obj/effect/turf_decal/tile/purple/anticorner/contrasted{
 	dir = 8
 	},
@@ -13625,16 +13565,7 @@
 "ehc" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/unres{
-	dir = 8
-	},
->>>>>>> Stashed changes
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance/departmental,
 /obj/effect/mapping_helpers/airlock/access/any/service/janitor,
 /obj/machinery/door/airlock/maintenance_hatch,
@@ -13811,17 +13742,6 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "eiY" = (
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/obj/machinery/door/airlock/maintenance,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/any/security/maintenance,
-/obj/effect/mapping_helpers/airlock/unres/delayed,
-/turf/open/floor/iron/dark,
-/area/station/maintenance/department/security/upper)
-=======
-=======
->>>>>>> Stashed changes
 /obj/structure/detectiveboard/directional/east{
 	pixel_x = 0;
 	pixel_y = 34
@@ -13831,10 +13751,6 @@
 	},
 /turf/open/floor/wood,
 /area/station/security/detectives_office)
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 "ejc" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
@@ -19866,9 +19782,6 @@
 /obj/structure/noticeboard/directional/west,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
-"fVh" = (
-/turf/closed/wall/r_wall/rust,
-/area/station/service/chapel)
 "fVj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -21796,9 +21709,6 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/unres{
-	dir = 4
-	},
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /obj/structure/transit_tube/horizontal,
 /turf/open/floor/iron/dark,
@@ -21864,7 +21774,9 @@
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 1
 	},
-/obj/machinery/light_switch/directional/west,
+/obj/machinery/light_switch/directional/west{
+	pixel_x = -25
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/medical/treatment_center)
 "gAp" = (
@@ -23631,22 +23543,7 @@
 	},
 /area/station/hallway/primary/central)
 "hfi" = (
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/obj/effect/decal/cleanable/blood/tracks{
-	dir = 8
-	},
-/obj/machinery/door/airlock/service/glass{
-	name = "Abandoned Cafeteria"
-	},
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/unres/delayed{
-=======
 /obj/structure/chair/comfy/brown{
->>>>>>> Stashed changes
-=======
-/obj/structure/chair/comfy/brown{
->>>>>>> Stashed changes
 	dir = 4
 	},
 /obj/effect/landmark/start/hangover,
@@ -25307,49 +25204,18 @@
 /turf/open/floor/iron/dark,
 /area/station/maintenance/port/fore)
 "hCY" = (
-/obj/item/disk/computer{
-	pixel_x = -5;
-	pixel_y = 8
-	},
-/obj/item/disk/computer{
-	pixel_x = 7;
-	pixel_y = 2
-	},
-/obj/item/disk/computer{
-	pixel_x = -8;
-	pixel_y = -3
-	},
 /obj/structure/table,
-/obj/item/disk/computer/ordnance{
-	pixel_x = 2;
-	pixel_y = 1
-	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance/office)
 "hDe" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/unres/delayed{
-	dir = 4
-	},
-/turf/open/floor/iron/dark,
-=======
-=======
->>>>>>> Stashed changes
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light_switch/directional/west,
 /obj/effect/decal/cleanable/blood/old,
 /obj/item/kirbyplants/random/dead,
 /turf/open/floor/wood,
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 /area/station/maintenance/abandon_cafeteria)
 "hDo" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer{
@@ -27435,17 +27301,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
 /obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 1
 	},
-<<<<<<< Updated upstream
-=======
-/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 /turf/open/floor/iron/dark/textured_large,
 /area/station/maintenance/starboard)
 "ifd" = (
@@ -28034,10 +27893,10 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "brig-maint-passthrough"
 	},
-/obj/effect/mapping_helpers/airlock/unres,
 /obj/effect/mapping_helpers/airlock/access/any/security/maintenance,
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/security/execution/transfer)
 "iov" = (
@@ -30967,17 +30826,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
+/obj/machinery/door/airlock/maintenance,
 /obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 1
 	},
-<<<<<<< Updated upstream
-=======
-/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
-/obj/machinery/door/airlock/maintenance,
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 /turf/open/floor/iron/dark,
 /area/station/maintenance/starboard/fore)
 "jcF" = (
@@ -32638,8 +32490,8 @@
 /turf/open/floor/plating,
 /area/station/engineering/atmos/storage/gas)
 "jFq" = (
-/obj/machinery/door/airlock/bronze,
 /obj/structure/barricade/wooden/crude,
+/obj/machinery/door/airlock/bronze,
 /turf/open/floor/bronze,
 /area/station/service/chapel)
 "jFQ" = (
@@ -33376,7 +33228,7 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/port/greater)
 "jQR" = (
-/obj/structure/barricade/wooden/crude,
+/obj/structure/barricade/wooden,
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/station/service/theater/abandoned)
@@ -36319,11 +36171,11 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "cargo-maint-passthrough"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
-/obj/machinery/door/airlock/maintenance_hatch,
-/obj/effect/mapping_helpers/airlock/unres/delayed{
+/obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/starboard)
 "kOb" = (
@@ -36829,28 +36681,11 @@
 	name = "Disposal Access"
 	},
 /obj/structure/disposalpipe/segment,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance/departmental,
-/obj/effect/mapping_helpers/airlock/access/any/service/janitor,
 /obj/effect/mapping_helpers/broken_floor,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/all/service/janitor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/unres/delayed,
-=======
-/obj/effect/mapping_helpers/airlock/unres,
-/obj/effect/mapping_helpers/broken_floor,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/service/janitor,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
->>>>>>> Stashed changes
-=======
-/obj/effect/mapping_helpers/airlock/unres,
-/obj/effect/mapping_helpers/broken_floor,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/service/janitor,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
->>>>>>> Stashed changes
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "kWA" = (
@@ -36880,13 +36715,6 @@
 /turf/open/floor/iron/dark/textured_corner,
 /area/station/service/chapel/dock)
 "kWW" = (
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/obj/structure/barricade/wooden/crude,
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -37022,30 +36850,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+/obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/mapping_helpers/airlock/access/any/service/janitor,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 4
 	},
-=======
-/obj/effect/mapping_helpers/airlock/unres{
-	dir = 4
-	},
-/obj/machinery/door/airlock/maintenance_hatch,
-/obj/effect/mapping_helpers/airlock/access/any/service/janitor,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
->>>>>>> Stashed changes
-=======
-/obj/effect/mapping_helpers/airlock/unres{
-	dir = 4
-	},
-/obj/machinery/door/airlock/maintenance_hatch,
-/obj/effect/mapping_helpers/airlock/access/any/service/janitor,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
->>>>>>> Stashed changes
 /turf/open/floor/iron/dark,
 /area/station/maintenance/starboard/aft)
 "kYY" = (
@@ -37778,7 +37588,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/maintenance,
 /obj/effect/mapping_helpers/airlock/access/any/medical/maintenance,
-/obj/effect/mapping_helpers/airlock/unres/delayed{
+/obj/effect/mapping_helpers/airlock/unres{
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
@@ -38270,9 +38080,6 @@
 "ltQ" = (
 /obj/structure/table,
 /obj/item/clipboard,
-/obj/item/disk/computer/ordnance,
-/obj/item/disk/computer/ordnance,
-/obj/item/disk/computer/ordnance,
 /obj/item/circuitboard/aicore{
 	pixel_y = 5
 	},
@@ -40444,7 +40251,7 @@
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 1
 	},
-/obj/machinery/defibrillator_mount/directional/north,
+/obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/iron/showroomfloor,
 /area/station/medical/treatment_center)
 "mbP" = (
@@ -42933,18 +42740,6 @@
 /turf/open/floor/iron/dark,
 /area/station/security/detectives_office)
 "mPf" = (
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/obj/machinery/door/airlock/maintenance,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/any/security/maintenance,
-/obj/effect/mapping_helpers/airlock/unres/delayed,
-/turf/open/floor/iron/dark/textured_large,
-/area/station/maintenance/port/aft)
-=======
-=======
->>>>>>> Stashed changes
 /obj/machinery/light/small/directional/west,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -42952,10 +42747,6 @@
 /obj/effect/spawner/random/structure/crate,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/department/security/greater)
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 "mPo" = (
 /obj/structure/table,
 /obj/item/stack/sheet/iron/fifty,
@@ -46181,11 +45972,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/unres{
-	dir = 1
-	},
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 1
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/maintenance/starboard)
 "nPN" = (
@@ -48244,9 +48035,15 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
 "oAd" = (
-/obj/structure/extinguisher_cabinet/directional/west,
-/turf/closed/wall,
-/area/station/medical/cryo)
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/port/lesser)
 "oAg" = (
 /obj/structure/cable,
 /obj/structure/lattice/catwalk,
@@ -49480,11 +49277,11 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/unres{
-	dir = 1
-	},
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics/garden/abandoned)
 "oUs" = (
@@ -53500,11 +53297,11 @@
 /area/station/security/prison)
 "qcN" = (
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/unres,
 /obj/effect/mapping_helpers/airlock/access/any/security/maintenance,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/maintenance/department/security/greater)
 "qdd" = (
@@ -53844,17 +53641,10 @@
 	dir = 1
 	},
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
 /obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 1
 	},
-<<<<<<< Updated upstream
-=======
-/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/starboard)
 "qhT" = (
@@ -54175,25 +53965,12 @@
 /area/station/security/processing)
 "qnK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+/obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 4
 	},
-=======
-=======
->>>>>>> Stashed changes
-/obj/machinery/door/airlock/maintenance_hatch,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/unres{
-	dir = 4
-	},
-/obj/structure/cable,
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 /turf/open/floor/iron/dark,
 /area/station/maintenance/department/crew_quarters/bar)
 "qnL" = (
@@ -56708,7 +56485,6 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/digital_clock/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/medical/surgery/aft)
 "raY" = (
@@ -57797,18 +57573,11 @@
 	cycle_id = "cargo-maint-passthrough"
 	},
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
-/obj/effect/mapping_helpers/airlock/unres/delayed{
+/obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
 	},
-<<<<<<< Updated upstream
-=======
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/access/all/supply/general,
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 /turf/open/floor/iron/dark,
 /area/station/maintenance/starboard)
 "rrO" = (
@@ -62468,7 +62237,7 @@
 "sLl" = (
 /obj/structure/girder,
 /obj/structure/grille,
-/obj/structure/barricade/wooden/crude,
+/obj/structure/barricade/wooden,
 /turf/open/floor/plating,
 /area/station/maintenance/aft)
 "sLo" = (
@@ -64428,11 +64197,11 @@
 	name = "Abandoned Cafeteria"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/unres{
+/obj/effect/spawner/random/structure/barricade,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 4
 	},
-/obj/effect/spawner/random/structure/barricade,
-/turf/open/floor/plating,
+/turf/open/floor/iron/dark,
 /area/station/maintenance/abandon_cafeteria)
 "tpv" = (
 /obj/structure/disposalpipe/segment{
@@ -65602,21 +65371,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/obj/effect/mapping_helpers/airlock/access/any/security/maintenance,
-/obj/effect/mapping_helpers/airlock/unres/delayed,
-=======
-=======
->>>>>>> Stashed changes
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/unres,
 /obj/effect/mapping_helpers/airlock/access/any/security/maintenance,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/department/security/greater)
 "tKS" = (
@@ -66372,22 +66130,6 @@
 "tXg" = (
 /turf/closed/wall/r_wall,
 /area/station/maintenance/department/bridge)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-"tXq" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
-/obj/effect/mapping_helpers/airlock/unres/delayed{
-	dir = 1
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/station/maintenance/starboard)
-=======
-=======
->>>>>>> Stashed changes
 "tXp" = (
 /obj/machinery/suit_storage_unit/hos,
 /obj/effect/turf_decal/delivery,
@@ -66396,10 +66138,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/hos)
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 "tXr" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
@@ -66674,7 +66412,7 @@
 /area/station/maintenance/disposal/incinerator)
 "ubC" = (
 /obj/structure/grille,
-/obj/structure/barricade/wooden/crude,
+/obj/structure/barricade/wooden,
 /obj/machinery/door/airlock/maintenance,
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/effect/mapping_helpers/airlock/access/any/security/maintenance,
@@ -75873,6 +75611,8 @@
 /turf/open/floor/iron/dark/herringbone,
 /area/station/security/execution/transfer)
 "wKN" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/iron/stairs/old{
 	dir = 1
 	},
@@ -79138,6 +78878,7 @@
 	},
 /obj/structure/table,
 /obj/item/surgery_tray/full,
+/obj/machinery/digital_clock/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/medical/surgery/aft)
 "xLk" = (
@@ -91764,8 +91505,8 @@ tiv
 siL
 oiO
 oiO
-fVh
-aaa
+aeu
+aeu
 aaa
 aaa
 aaa
@@ -92021,7 +91762,7 @@ jFq
 xqw
 iGx
 oiO
-fVh
+aeu
 aaa
 aaa
 aaa
@@ -92278,7 +92019,7 @@ tiv
 rfg
 vtv
 bJV
-fVh
+aaa
 aaa
 aaa
 aaa
@@ -92535,8 +92276,8 @@ tiv
 jhc
 oiO
 oiO
-fVh
-aaa
+aeu
+aeu
 aaa
 aaa
 aaa
@@ -96974,7 +96715,7 @@ bJv
 bJv
 bJv
 pqD
-tKt
+oAd
 heU
 pqD
 aeu
@@ -98484,7 +98225,7 @@ clr
 hjC
 lTb
 vRs
-oAd
+clr
 mbL
 xyl
 cNz
@@ -123926,16 +123667,7 @@ rZV
 txo
 cod
 kcS
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-tXq
-wgU
-=======
 nPD
->>>>>>> Stashed changes
-=======
-nPD
->>>>>>> Stashed changes
 wgU
 pcV
 wUm
