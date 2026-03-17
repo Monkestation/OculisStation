@@ -48,11 +48,11 @@
 	//IRIS EDIT CHANGE BEGIN - MEGAFAUNA_RESPAWNS
 	loot = list(
 		/obj/structure/closet/crate/necropolis/gladiator, /obj/structure/dead_gladiator,
-		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_marked_one
+		// /obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_marked_one // OCULIS EDIT REMOVAL - Fix double loot spawns
 	)
 	crusher_loot = list(
 		/obj/structure/closet/crate/necropolis/gladiator/crusher, /obj/structure/dead_gladiator,
-		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_marked_one
+		// /obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_marked_one // OCULIS EDIT REMOVAL - Fix double loot spawns
 	)
 	//IRIS EDIT CHANGE END
 	/// Boss phase, from 1 to 3
