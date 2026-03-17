@@ -14,14 +14,13 @@
 /obj/item/summoning_flute/attack_self(mob/user, modifiers)
 	. = ..()
 	if(do_after(user, 3 SECONDS, src))
-		var/list/ice_megas = list(
-			/mob/living/simple_animal/hostile/megafauna/dragon,
-			/mob/living/simple_animal/hostile/megafauna/wendigo,
-			/mob/living/simple_animal/hostile/megafauna/clockwork_defender,
-			/mob/living/simple_animal/hostile/megafauna/demonic_frost_miner,
-			/mob/living/basic/boss/thing
-		)
-		if(!is_mining_level(user.z) || ((summoned_mega in ice_megas) && !(user.z == 2)))
+		var/baseturf = SSmapping.level_trait(user.z, ZTRAIT_BASETURF)
+		if(isnull(baseturf))
+			to_chat(user, span_warning("In this environment, the flute produces no sound."))
+			return
+		if(istext(baseturf))
+			baseturf = text2path(baseturf)
+		if(baseturf != /turf/open/lava/smooth/lava_land_surface && baseturf != /turf/open/lava/plasma/ice_moon)
 			to_chat(user, span_warning("In this environment, the flute produces no sound."))
 			return
 		to_chat(user, span_userdanger("A terrifying rumbling portends the arrival of the summoned one..."))

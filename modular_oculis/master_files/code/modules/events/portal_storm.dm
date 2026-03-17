@@ -1,6 +1,7 @@
 /datum/round_event_control/portal_storm_monkey
 	name = "Random Chimp Event"
 	typepath = /datum/round_event/portal_storm/portal_storm_monkey
+	min_players = 15
 	weight = 15
 	max_occurrences = 2
 	earliest_start = 20 MINUTES
@@ -25,6 +26,7 @@
 /datum/round_event_control/portal_storm_kobold //weaker monke storm
 	name = "Kobold Invasion"
 	typepath = /datum/round_event/portal_storm/portal_storm_kobold
+	min_players = 10
 	weight = 30 //no boss type enemies
 	max_occurrences = 3
 	earliest_start = 20 MINUTES
