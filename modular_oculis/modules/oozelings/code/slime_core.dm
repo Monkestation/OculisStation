@@ -159,7 +159,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	if(!do_after(user, 30 SECONDS, src))
 		user.visible_message(
 			span_warning("[user]'s hand slips out of [src] before [user.p_they()] can cause any harm!"),
-			gps_active ? span_notice("Your hand slips out of the goopy core before you can find it's densest point.") : span_notice("Your hand slips out of the goopy core before you can find any dense points."),
+			gps_active ? span_notice("Your hand slips out of the goopy core before you can find its densest point.") : span_notice("Your hand slips out of the goopy core before you can find any dense points."),
 			span_notice("You hear a resounding plop.")
 		)
 		return
