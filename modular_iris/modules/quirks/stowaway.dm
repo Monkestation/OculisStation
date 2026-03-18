@@ -42,6 +42,7 @@
 		if(possible_target_record.name == perpname && (stowaway_rank == "N/A" || possible_target_record.trim == stowaway_rank))
 			qdel(possible_target_record)
 
+
 /obj/item/card/id/fake_card //not a proper ID but still shares a lot of functions
 	name = "\"ID Card\""
 	desc = "Definitely a legitimate ID card and not a piece of notebook paper with a magnetic strip drawn on it. You'd have to stuff this in a card reader by hand for it to work."
