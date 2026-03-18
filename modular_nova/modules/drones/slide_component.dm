@@ -24,10 +24,12 @@
 /datum/element/sliding_under/proc/check_conditions(datum/source, mob/user)
 	SIGNAL_HANDLER
 
+	//OCULIS EDIT START
 	if(!isatom(source))
 		return
 
 	var/atom/source_atom = source
+	//OCULIS EDIT END
 
 	//the parent needs to be dense in order to slide through
 	if(!source_atom.density)
@@ -55,7 +57,7 @@
 /datum/element/sliding_under/proc/ExamineMessage(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
-	if(!is_type_in_typecache(user, allowed_mobs))
+	if(!is_type_in_typecache(user, allowed_mobs)) // OCULIS EDIT: allowed_mobs is a typecache why were they using is_type_in_list? original: if(!is_type_in_list(user, allowed_mobs))
 		return
 
 	examine_list += span_warning("Ctrl + Click [source] to slide under!\n")
