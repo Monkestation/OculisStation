@@ -72,7 +72,7 @@
 		if(protection_flags & HANDS)
 			. -= WATER_PROTECTION_HAND
 
-	return clamp(FLOOR(., 0.1), 0, 1)
+	return CLAMP01(FLOOR(., 0.1))
 
 
 #undef WATER_PROTECTION_HEAD
