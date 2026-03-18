@@ -1,4 +1,6 @@
 /datum/species/jelly
+	smoker_lungs = /obj/item/organ/lungs/slime/slime_smoker
+
 	// Ability to allow them to clean themselves and their stuff.
 	var/datum/action/cooldown/slime_washing/slime_washing
 	/// Ability to allow them to resist the effects of water.

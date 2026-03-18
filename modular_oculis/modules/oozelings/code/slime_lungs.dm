@@ -19,3 +19,9 @@
 			breather.emote("wheeze")
 			breather.adjust_oxy_loss(rand(4, 8))
 			to_chat(owner, span_userdanger("Your lungs feel like they are liquefying!"))
+
+/obj/item/organ/lungs/slime/slime_smoker
+	name = "smoker slime vacuole"
+	desc = "A large organelle designed to store oxygen and other important gasses, now discolored from heavy smoking."
+	maxHealth = /obj/item/organ/lungs/smoker_lungs::maxHealth
+	healing_factor = /obj/item/organ/lungs/smoker_lungs::healing_factor
