@@ -35,7 +35,7 @@
 /atom/movable/screen/mapvote_hud/update_overlays()
 	cut_overlays()
 	. = ..()
-	var/valid_maptext_dimensions = 32 * length(latest_vote_length)
+	var/valid_maptext_dimensions = ICON_SIZE_Y * length(latest_vote_length)
 	maptext_height = valid_maptext_dimensions
 	maptext_y = -valid_maptext_dimensions
 	var/obj/effect/abstract/overlay_holder = new()
@@ -43,7 +43,7 @@
 	overlay_holder.layer = layer
 	overlay_holder.plane = plane
 	for(var/index in 1 to latest_vote_length)
-		overlay_holder.pixel_y = index * -32
+		overlay_holder.pixel_y = index * -ICON_SIZE_Y
 		overlay_holder.icon_state = "[user_preference]_middle"
 		if(index == latest_vote_length)
 			overlay_holder.icon_state = "[user_preference]_bottom"
@@ -67,14 +67,14 @@
 	for(var/index in 1 to latest_vote_length)
 		var/choice = choices[index]
 		var/atom/movable/screen/mapvote_button/button = new(src, hud, choice)
-		button.pixel_y = index * -32
+		button.pixel_y = index * -ICON_SIZE_Y
 		RegisterSignal(button, COMSIG_VOTE_CHOICE_SELECTED, PROC_REF(handle_vote_click))
 		buttons += button
 		button.icon_state = "[user_preference]_button"
 		vis_contents += button
 
 	var/atom/movable/screen/mapvote_button/exit/button = new(src, hud)
-	button.pixel_y = (latest_vote_length + 1) * -32
+	button.pixel_y = (latest_vote_length + 1) * -ICON_SIZE_Y
 	RegisterSignal(button, COMSIG_VOTE_CHOICE_SELECTED, PROC_REF(handle_vote_click))
 	buttons += button
 	button.icon_state = "[user_preference]_exit"
@@ -120,6 +120,7 @@
 	maptext_height = 38
 	maptext_width = 86
 	maptext_x = 6
+	mouse_over_pointer = MOUSE_HAND_POINTER
 	var/choice
 
 /atom/movable/screen/mapvote_button/Initialize(mapload, datum/hud/hud_owner, wanted_choice = null)
@@ -137,3 +138,4 @@
 	name = "voting button"
 	icon = 'modular_iris/modules/mapvote_hud/icons/voting_thingy.dmi'
 	icon_state = "Glass_exit"
+	mouse_over_pointer = MOUSE_HAND_POINTER

@@ -1,0 +1,35 @@
+# Relay configuration file for use with the in-game verb "Internet Routing Relays"
+# Code can be found in code/modules/relays/relays.dm
+# Format should match the below:
+#
+# [[relay]]
+# id = "example_relay"
+# name = "Connect to Example Relay (Location/Comment)"
+# quickname = "Example Relay"
+# address = "byond://useast.oculis.space:{port}"
+#
+# {port} is important in `address` as it uses the world.port at runtime
+
+[[relay]]
+id = "us_east"
+name = "Connect to US-East (Ashburn)"
+quickname = "US-East (Ashburn)"
+address = "byond://useast.oculis.space:{port}"
+
+[[relay]]
+id = "warsaw"
+name = "Connect to Warsaw (Poland)"
+quickname = "Warsaw (Poland)"
+address = "byond://warsaw.oculis.space:{port}"
+
+[[relay]]
+id = "Gravelines"
+name = "Connect to Gravelines (France)"
+quickname = "Gravelines (France)"
+address = "byond://gravelines.oculis.space:{port}"
+
+[[relay]]
+id = "direct"
+name = "No Relay (Direct Connect)"
+quickname = "Monke Direct"
+address = "byond://play.oculis.space:{port}"
