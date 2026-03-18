@@ -290,6 +290,7 @@
 		// Skip wizards, nuke ops, cyborgs; Centcom does not send them mail
 		if(!(human.mind.assigned_role.job_flags & JOB_CREW_MEMBER))
 			continue
+
 		// OCULIS EDIT ADDITION START
 		if(is_hidden_from_manifest_and_arrival(human, human.client))
 			continue
