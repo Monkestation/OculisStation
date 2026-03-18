@@ -115,6 +115,10 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 	if(person.has_quirk(/datum/quirk/visitor) || ("Visitor ID" in person_client?.prefs.all_quirks))
 		return inject_guest(person, person_client)
 	// NOVA EDIT ADDITION END
+	// OCULIS EDIT ADDITION START - Stowaway quirk -> no manifest
+	if(is_hidden_from_manifest_and_arrival(person, person_client))
+		return
+	// OCULIS EDIT ADDITION END
 
 	// Attempt to get assignment from ID, otherwise default to mind.
 	var/obj/item/card/id/id_card = person.get_idcard(hand_first = FALSE)

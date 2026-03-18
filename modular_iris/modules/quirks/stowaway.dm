@@ -2,6 +2,7 @@
 	name = "Stowaway"
 	desc = "You wake up inside a random locker with only a crude fake for an ID card. You are not on the crew manifest or on any Nanotrasen records. You also start with a toolbox in case you get stuck. You are an unauthorized personnel, so you are at risk of being arrested if found out."
 	value = -6
+	mob_trait = TRAIT_STOWAWAY_HIDDEN // OCULIS EDIT
 	quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_HIDE_FROM_SCAN | QUIRK_EXCLUDES_GHOSTROLES
 	icon = FA_ICON_SUITCASE_ROLLING
 	medical_record_text = "Patient has a knack for turning up where they aren't supposed to."
@@ -33,11 +34,13 @@
 	var/mob/living/carbon/human/stowaway = quirk_holder
 	var/perpname = stowaway.name
 	var/stowaway_rank = quirk_holder.mind?.assigned_role.title
+	// OCULIS EDIT ADDITION START
+	if(stowaway_rank)
+		SSjob.FreeRole(stowaway_rank) //open their job slot back up
+	// OCULIS EDIT ADDITION END
 	for(var/datum/record/crew/possible_target_record as anything in GLOB.manifest.general)
 		if(possible_target_record.name == perpname && (stowaway_rank == "N/A" || possible_target_record.trim == stowaway_rank))
-			SSjob.FreeRole(quirk_holder.mind.assigned_role.title)  //open their job slot back up
 			qdel(possible_target_record)
-
 
 /obj/item/card/id/fake_card //not a proper ID but still shares a lot of functions
 	name = "\"ID Card\""
