@@ -426,8 +426,8 @@
 		need_mob_update += slime.adjust_oxy_loss(-1 * seconds_per_tick, updating_health = FALSE)
 		if(need_mob_update)
 			slime.updatehealth()
-		if(slime.health < slime.maxHealth)
-			new /obj/effect/temp_visual/heal(get_turf(slime), COLOR_EFFECT_HEAL_RED)
+		/* if(slime.health < slime.maxHealth) */ // OCULIS EDIT REMOVAL - this should be under need_mob_update anyways
+			new /obj/effect/temp_visual/heal(get_turf(slime), slime.dna.features[FEATURE_MUTANT_COLOR] || COLOR_EFFECT_HEAL_RED) // OCULIS EDIT CHANGE - use mutcolor for this - ORIGINAL: new /obj/effect/temp_visual/heal(get_turf(slime), COLOR_EFFECT_HEAL_RED)
 
 /* OCULIS EDIT REMOVAL START - moved to SLIMEPEOPLE module: modular_oculis/modules/slimepeople/code/slime_bodyparts.dm: modular_oculis/modules/slimepeople/code/slime_bodyparts.dm
 /**
