@@ -13,6 +13,12 @@
 	/// Water exposure cool down. Hopefully makes extinguiser exposure more consistent.
 	COOLDOWN_DECLARE(water_exposure_cooldown)
 
+	/// List of organ types we should move to the chest.
+	/// Currently only tongues, but anything can be added to this list if issues are discovered.
+	var/static/list/organs_to_move = list(
+		/obj/item/organ/tongue,
+	)
+
 /datum/species/jelly/Destroy(force)
 	QDEL_NULL(slime_washing)
 	QDEL_NULL(slime_hydrophobia)
@@ -30,16 +36,26 @@
 	slime_hydrophobia.Grant(new_jellyperson)
 
 	RegisterSignal(new_jellyperson, COMSIG_ATOM_EXPOSE_REAGENTS, PROC_REF(on_reagent_expose))
+	RegisterSignal(new_jellyperson, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_organ_gain))
+	RegisterSignal(new_jellyperson, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_organ_loss))
+
+	for(var/obj/item/organ/organ as anything in new_jellyperson.organs)
+		if(is_type_in_list(organ, organs_to_move))
+			organ.zone = BODY_ZONE_CHEST
 
 /datum/species/jelly/on_species_loss(mob/living/carbon/former_jellyperson, datum/species/new_species, pref_load)
 	. = ..()
-	UnregisterSignal(former_jellyperson, COMSIG_ATOM_EXPOSE_REAGENTS)
+	UnregisterSignal(former_jellyperson, list(COMSIG_ATOM_EXPOSE_REAGENTS, COMSIG_CARBON_GAIN_ORGAN, COMSIG_CARBON_LOSE_ORGAN))
 	if(slime_washing)
 		slime_washing.Remove(former_jellyperson)
 		QDEL_NULL(slime_washing)
 	if(slime_hydrophobia)
 		slime_hydrophobia.Remove(former_jellyperson)
 		QDEL_NULL(slime_hydrophobia)
+
+	for(var/obj/item/organ/organ as anything in former_jellyperson.organs)
+		if(is_type_in_list(organ, organs_to_move))
+			organ.zone = initial(organ.zone)
 
 #define WATER_PROTECTION_HEAD 0.3
 #define WATER_PROTECTION_CHEST 0.2
@@ -124,3 +140,14 @@
 	if(!water_exposure(slime, check_clothes))
 		return COMPONENT_NO_EXPOSE_REAGENTS
 	return NONE
+
+// This ensures that tongues always get moved to their chest.
+/datum/species/jelly/proc/on_organ_gain(mob/living/carbon/slime, obj/item/organ/organ)
+	SIGNAL_HANDLER
+	if(is_type_in_list(organ, organs_to_move))
+		organ.zone = BODY_ZONE_CHEST
+
+/datum/species/jelly/proc/on_organ_loss(mob/living/carbon/slime, obj/item/organ/organ)
+	SIGNAL_HANDLER
+	if(is_type_in_list(organ, organs_to_move))
+		organ.zone = initial(organ.zone)
