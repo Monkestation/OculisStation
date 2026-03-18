@@ -10905,6 +10905,9 @@
 /obj/effect/spawner/random/structure/chair_maintenance{
 	dir = 8
 	},
+/obj/item/toy/plush/abductor/agent{
+	pixel_y = 2
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/starboard)
 "doU" = (
@@ -20430,7 +20433,6 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/turf_decal/trimline/hot_pink/filled/line{
 	dir = 5
 	},
@@ -24287,7 +24289,6 @@
 "hoz" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small/directional/west,
-/obj/item/food/pie/cream,
 /obj/item/bikehorn{
 	pixel_x = -6;
 	pixel_y = 8
@@ -24476,9 +24477,9 @@
 	pixel_y = 16;
 	pixel_x = 6
 	},
-/obj/item/pizzabox/margherita{
-	pixel_y = 2;
-	pixel_x = 2
+/obj/item/pizzabox/random{
+	pixel_x = 1;
+	pixel_y = 5
 	},
 /turf/open/floor/carpet/grimey,
 /area/station/cargo/exploration_office)
@@ -25344,6 +25345,11 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
+"hFp" = (
+/obj/machinery/holopad,
+/obj/effect/turf_decal/box,
+/turf/open/floor/iron/dark/herringbone,
+/area/station/security/prison)
 "hFs" = (
 /obj/effect/landmark/start/medical_doctor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -27107,6 +27113,10 @@
 "icL" = (
 /obj/effect/spawner/random/structure/chair_maintenance{
 	dir = 4
+	},
+/obj/item/toy/plush/rouny{
+	dir = 4;
+	pixel_y = 9
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/starboard)
@@ -32113,6 +32123,12 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
+"jzs" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/herringbone,
+/area/station/security/prison)
 "jzu" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 4
@@ -32391,6 +32407,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/freezer/cream_pie,
+/obj/item/food/pie/cream,
 /turf/open/floor/iron,
 /area/station/service/theater)
 "jEw" = (
@@ -37614,16 +37631,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
-"loE" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/holopad,
-/obj/effect/turf_decal/box,
-/obj/structure/chair/stool/bar/directional/south,
-/obj/effect/turf_decal/trimline/hot_pink/filled/line,
-/turf/open/floor/iron/dark/herringbone,
-/area/station/security/prison)
 "loO" = (
 /obj/machinery/airlock_sensor/incinerator_ordmix{
 	pixel_x = -24
@@ -41383,6 +41390,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
+/obj/item/toy/plush/snakeplushie,
 /turf/open/floor/carpet,
 /area/station/commons/fitness/recreation)
 "mvn" = (
@@ -59845,6 +59853,18 @@
 "sbq" = (
 /turf/open/floor/carpet/green,
 /area/station/security/detectives_office)
+"sbs" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/item/toy/plush/nukeplushie{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/item/storage/toolbox/guncase/nova/opfor/foamforce_lmg{
+	pixel_y = -6
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/port/lesser)
 "sby" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/siding/white{
@@ -90941,11 +90961,11 @@ tEP
 aaa
 mWy
 uGt
-fEP
+jzs
 fEP
 iPM
-fEP
-loE
+hFp
+aJa
 met
 jSg
 iJm
@@ -98132,7 +98152,7 @@ kzl
 hIk
 wDz
 hoU
-jqI
+sbs
 rnc
 rnc
 qkY
