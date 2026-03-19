@@ -59,11 +59,35 @@
 	var/trimmed_input = trim("[input]")
 	if(!length(trimmed_input))
 		return ""
+	return sanitize(trimmed_input)
 
-	var/sanitized = reject_bad_name(trimmed_input, allow_numbers = TRUE, strict = TRUE, cap_after_symbols = FALSE)
-	if(!sanitized)
-		return ""
-	return sanitize(sanitized)
+/datum/preference/text/stowaway/is_valid(value)
+	if(!istext(value))
+		return FALSE
+
+	var/trimmed_value = trim(value)
+	if(!length(trimmed_value))
+		return TRUE
+
+	return !isnull(reject_bad_name(trimmed_value, allow_numbers = TRUE, strict = TRUE, cap_after_symbols = FALSE))
+
+/datum/preference_middleware/stowaway_alias/pre_set_preference(mob/user, preference, value)
+	if(preference != /datum/preference/text/stowaway/alias::savefile_key)
+		return FALSE
+
+	var/trimmed_value = trim("[value]")
+	if(!length(trimmed_value))
+		return FALSE
+
+	if(!isnull(reject_bad_name(trimmed_value, allow_numbers = TRUE, strict = TRUE, cap_after_symbols = FALSE)))
+		return FALSE
+
+	if(is_ic_filtered(trimmed_value) || is_soft_ic_filtered(trimmed_value))
+		tgui_alert(user, "You cannot set a name that contains a word prohibited in IC chat!")
+	else
+		tgui_alert(user, "Invalid name.")
+
+	return TRUE
 
 /datum/preference/text/stowaway/apply_to_human(mob/living/carbon/human/target, value)
 	return
