@@ -5,10 +5,10 @@
 	var/client/target_client = person_client || person.client
 	var/list/all_quirks = target_client?.prefs.all_quirks
 
-	return HAS_TRAIT(person, TRAIT_STOWAWAY_HIDDEN) || person.has_quirk(/datum/quirk/item_quirk/stowaway) || (all_quirks && ("Stowaway" in all_quirks))
+	return person.has_quirk(/datum/quirk/item_quirk/stowaway) || (all_quirks && ("Stowaway" in all_quirks))
 
-
-/proc/force_stowaway_unassigned_role(mob/living/carbon/human/person, client/person_client) // set role to unassigned for stowaways, should handle records/manifest/mail properly
+/// for stowaways, swap assigned role to unassigned, should handle records/manifest/mail properly due to not having JOB_STATION_FLAGS
+/proc/force_stowaway_unassigned_role(mob/living/carbon/human/person, client/person_client)
 	if(!person?.mind)
 		return FALSE
 	if(!is_stowaway(person, person_client))
