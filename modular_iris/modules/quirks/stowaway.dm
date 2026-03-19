@@ -28,19 +28,9 @@
 
 /datum/quirk/item_quirk/stowaway/post_add()
 	to_chat(quirk_holder, span_boldnotice("You've awoken to find yourself inside [GLOB.station_name] without real identification!"))
-	addtimer(CALLBACK(src, .proc/datacore_deletion), 5 SECONDS)
-
-/datum/quirk/item_quirk/stowaway/proc/datacore_deletion()
-	var/mob/living/carbon/human/stowaway = quirk_holder
-	var/perpname = stowaway.name
-	var/stowaway_rank = quirk_holder.mind?.assigned_role.title
-	// OCULIS EDIT ADDITION START
-	if(stowaway_rank)
-		SSjob.FreeRole(stowaway_rank) //open their job slot back up
-	// OCULIS EDIT ADDITION END
-	for(var/datum/record/crew/possible_target_record as anything in GLOB.manifest.general)
-		if(possible_target_record.name == perpname && (stowaway_rank == "N/A" || possible_target_record.trim == stowaway_rank))
-			qdel(possible_target_record)
+	// OCULIS EDIT START - iris modular files will never get updated again do i need to do this? eh, probably good for consistency
+	force_stowaway_unassigned_role(quirk_holder, quirk_holder.client)
+	// OCULIS EDIT END
 
 
 /obj/item/card/id/fake_card //not a proper ID but still shares a lot of functions
