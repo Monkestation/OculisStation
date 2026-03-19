@@ -6,28 +6,78 @@
 	icon = FA_ICON_SUITCASE_ROLLING
 	medical_record_text = "Patient has a knack for turning up where they aren't supposed to."
 
-/datum/quirk/item_quirk/stowaway/add_unique()
+/datum/quirk/item_quirk/stowaway/add_unique(client/client_source)
 	var/mob/living/carbon/human/stowaway = quirk_holder
 	var/obj/item/card/id/trashed = stowaway.get_item_by_slot(ITEM_SLOT_ID) //No ID
 	qdel(trashed)
 
 	var/obj/item/card/id/fake_card/card = new(quirk_holder.drop_location()) //a fake ID with two uses for maint doors
 	quirk_holder.equip_to_slot_if_possible(card, ITEM_SLOT_ID)
-	card.register_name(quirk_holder.real_name)
+	var/stowaway_alias = client_source?.prefs.read_preference(/datum/preference/text/stowaway/alias)
+	var/effective_alias = stowaway_alias || quirk_holder.real_name
+	card.register_name(effective_alias)
+	stowaway.update_visible_name()
 
 	if(prob(20))
 		stowaway.adjust_drunk_effect(50) //What did I DO last night?
+
 	var/obj/structure/closet/selected_closet = get_unlocked_closed_locker() //Find your new home
 	if(selected_closet)
 		stowaway.forceMove(selected_closet) //Move in
-		stowaway.Sleeping(5 SECONDS)
+		stowaway.Immobilize(5 SECONDS, ignore_canstun = TRUE)
 
-	give_item_to_holder(/obj/item/storage/toolbox/mechanical, list(LOCATION_HANDS = ITEM_SLOT_HANDS)) // gives them tools to break free if need be
+	give_item_to_holder(/obj/item/storage/toolbox/mechanical, list(LOCATION_HANDS)) // gives them tools to break free if need be
 
 
 /datum/quirk/item_quirk/stowaway/post_add()
 	to_chat(quirk_holder, span_boldnotice("You've awoken to find yourself inside [GLOB.station_name] without real identification!"))
 	force_stowaway_unassigned_role(quirk_holder, quirk_holder.client)
+
+
+/datum/quirk_constant_data/stowaway
+	associated_typepath = /datum/quirk/item_quirk/stowaway
+	customization_options = list(/datum/preference/text/stowaway/alias)
+
+
+/datum/preference/text/stowaway
+	abstract_type = /datum/preference/text/stowaway
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_identifier = PREFERENCE_CHARACTER
+	can_randomize = FALSE
+	maximum_value_length = 32
+
+/datum/preference/text/stowaway/create_default_value()
+	return ""
+
+/datum/preference/text/stowaway/is_accessible(datum/preferences/preferences)
+	if(!..())
+		return FALSE
+
+	return /datum/quirk/item_quirk/stowaway::name in preferences.all_quirks
+
+/datum/preference/text/stowaway/serialize(input)
+	var/trimmed_input = trim("[input]")
+	if(!length(trimmed_input))
+		return ""
+
+	var/sanitized = reject_bad_name(trimmed_input, allow_numbers = TRUE, strict = TRUE, cap_after_symbols = FALSE)
+	if(!sanitized)
+		return ""
+	return sanitize(sanitized)
+
+/datum/preference/text/stowaway/apply_to_human(mob/living/carbon/human/target, value)
+	return
+
+/datum/preference/text/stowaway/alias
+	savefile_key = "stowaway_alias"
+
+/datum/preference/text/stowaway/alias/compile_ui_data(mob/user, value)
+	if(length(trim("[value]")))
+		return ..()
+	return user?.client?.prefs?.read_preference(/datum/preference/name/real_name) || ""
+
+/datum/preference/text/stowaway/alias/apply_to_human(mob/living/carbon/human/target, value)
+	return
 
 
 /obj/item/card/id/fake_card //not a proper ID but still shares a lot of functions
@@ -41,13 +91,22 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	registered_account = null
 	accepts_accounts = FALSE
-	registered_name = "Nohbdy"
+	registered_name = null
 	access = list(ACCESS_MAINT_TUNNELS)
 	var/uses = 4
 
 /obj/item/card/id/fake_card/proc/register_name(new_name)
 	registered_name = new_name
 	name = "[new_name]'s \"ID Card\""
+	if(ishuman(loc))
+		var/mob/living/carbon/human/human_holder = loc
+		human_holder.update_visible_name()
+	else if(istype(loc, /obj/item/modular_computer/pda))
+		var/obj/item/modular_computer/pda/holder_pda = loc
+		if(ishuman(holder_pda.loc))
+			var/mob/living/carbon/human/pda_wearer = holder_pda.loc
+			if(pda_wearer.wear_id == holder_pda)
+				pda_wearer.update_visible_name()
 
 /obj/item/card/id/fake_card/proc/used()
 	uses -= 1
