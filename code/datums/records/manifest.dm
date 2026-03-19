@@ -109,6 +109,10 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 /// Injects a record into the manifest.
 /datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy, client/person_client) // NOVA EDIT CHANGE - RP Records - ORIGINAL: /datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy)
 	set waitfor = FALSE
+	// OCULIS EDIT START - stowaway check
+	if(is_stowaway(person, person_client))
+		return
+	// OCULIS EDIT END
 	if(!(person.mind?.assigned_role.job_flags & JOB_CREW_MANIFEST))
 		return
 	// NOVA EDIT ADDITION START - Visitor ID -> no manifest

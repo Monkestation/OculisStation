@@ -7,18 +7,21 @@
 
 	return person.has_quirk(/datum/quirk/item_quirk/stowaway) || (all_quirks && ("Stowaway" in all_quirks))
 
-/// for stowaways, swap assigned role to unassigned, should handle records/manifest/mail properly due to not having JOB_STATION_FLAGS
 /proc/force_stowaway_unassigned_role(mob/living/carbon/human/person, client/person_client)
-	if(!person?.mind)
-		return FALSE
-	if(!is_stowaway(person, person_client))
-		return FALSE
-	if(is_unassigned_job(person.mind.assigned_role))
-		return FALSE
+	if(!person?.mind || is_unassigned_job(person.mind.assigned_role))
+		return
 
 	var/datum/job/previous_role = person.mind.assigned_role
 	if(previous_role?.title)
 		SSjob.FreeRole(previous_role.title)
 
 	person.mind.set_assigned_role(SSjob.get_job_type(/datum/job/unassigned))
-	return TRUE
+
+/proc/process_stowaway_latejoin(mob/living/carbon/human/person, datum/job/current_job, client/person_client)
+	if(!person?.mind || !is_stowaway(person, person_client))
+		return
+
+	if((current_job?.job_flags & JOB_ASSIGN_QUIRKS) && CONFIG_GET(flag/roundstart_traits))
+		SSquirks.AssignQuirks(person, person_client)
+
+	force_stowaway_unassigned_role(person, person_client)

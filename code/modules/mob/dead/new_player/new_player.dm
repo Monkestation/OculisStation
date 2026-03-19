@@ -251,10 +251,7 @@
 		humanc = character //Let's retypecast the var to be human,
 
 	if(humanc) //These procs all expect humans
-		// OCULIS EDIT START - for stowaway
-		if((job.job_flags & JOB_ASSIGN_QUIRKS) && CONFIG_GET(flag/roundstart_traits))
-			force_stowaway_unassigned_role(humanc, humanc.client)
-		// OCULIS EDIT END
+		process_stowaway_latejoin(humanc, job, humanc.client) // OCULIS EDIT - stowaway latejoin flow
 		var/chosen_rank = humanc.client?.prefs.alt_job_titles?[rank] || rank // NOVA EDIT ADDITION - ALTERNATIVE_JOB_TITLES
 		if(SSshuttle.arrivals)
 			SSshuttle.arrivals.QueueAnnounce(humanc, chosen_rank) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: SSshuttle.arrivals.QueueAnnounce(humanc, rank)
