@@ -124,15 +124,18 @@ ADMIN_VERB(play_web_sound, R_SOUND, "Play Internet Sound", "Play a given interne
 
 	var/web_sound_input = tgui_input_text(user, "Enter content URL (supported sites only, leave blank to stop playing)", "Play Internet Sound", null)
 
-	if(length(web_sound_input))
-		web_sound_input = trim(web_sound_input)
-		if(findtext(web_sound_input, ":") && !is_http_protocol(web_sound_input))
-			to_chat(user, span_boldwarning("Non-http(s) URIs are not allowed."), confidential = TRUE)
-			to_chat(user, span_warning("For youtube-dl shortcuts like ytsearch: please use the appropriate full URL from the website."), confidential = TRUE)
-			return
-		web_sound(user.mob, web_sound_input)
-	else
+	if(!length(web_sound_input))
 		web_sound(user.mob, null)
+		return
+	web_sound_input = trim(web_sound_input)
+	if(findtext(web_sound_input, ":") && !is_http_protocol(web_sound_input))
+		to_chat(user, span_boldwarning("Non-http(s) URIs are not allowed."), confidential = TRUE)
+		to_chat(user, span_warning("For youtube-dl shortcuts like ytsearch: please use the appropriate full URL from the website."), confidential = TRUE)
+		return
+	if(findtext(web_sound_input, "spotify.com") || findtext(web_sound_input, "music.apple.com") || findtext(web_sound_input, "deezer.com") || findtext(web_sound_input, "tidal.com"))
+		to_chat(user, span_warning("This URL is unsupported. Try a YouTube, Bandcamp, or Soundcloud URL."), confidential = TRUE)
+		return
+	web_sound(user.mob, web_sound_input)
 
 ADMIN_VERB_CUSTOM_EXIST_CHECK(play_web_sound)
 	return !!CONFIG_GET(string/floxy_url)
