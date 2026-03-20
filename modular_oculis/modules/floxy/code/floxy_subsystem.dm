@@ -94,6 +94,7 @@ SUBSYSTEM_DEF(floxy)
 		CRASH("No URL passed to SSfloxy.queue")
 	if(!is_http_protocol(url))
 		CRASH("Invalid URL passed to SSfloxy.queue")
+	url = fix_youtube_url(url)
 	renew_if_needed()
 	var/list/params = list("url" = url)
 	if(profile)
@@ -144,6 +145,7 @@ SUBSYSTEM_DEF(floxy)
 		CRASH("No URL passed to SSfloxy.fetch_media_metadata")
 	if(!is_http_protocol(url))
 		CRASH("Invalid URL passed to SSfloxy.fetch_media_metadata")
+	url = fix_youtube_url(url)
 	if(cached_metadata[url])
 		return cached_metadata[url]
 	renew_if_needed()
@@ -247,3 +249,7 @@ SUBSYSTEM_DEF(floxy)
 		for(var/i = 1 to (4 - padding_needed))
 			payload_base64 += "="
 	return json_decode(rustg_decode_base64(payload_base64))
+
+/// Floxy currently fails to properly handle youtu.be shortlinks, so this changes them to a "full" youtube link
+/datum/controller/subsystem/floxy/proc/fix_youtube_url(url)
+	return replacetext("[url]", "youtu.be/", "youtube.com/watch?v=")
