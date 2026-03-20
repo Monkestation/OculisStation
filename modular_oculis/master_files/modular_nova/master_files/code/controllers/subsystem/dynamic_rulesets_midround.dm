@@ -7,7 +7,7 @@
 	message_admins("[name]: Attempting to poll [length(candidates)] people individually, trying to select [max_candidates]")
 	log_dynamic("[name]: Attempting to poll [length(candidates)] people individually, trying to select [max_candidates]")
 	var/list/yes_candidates = list()
-	var/sanity = 5
+	var/sanity = max(5, length(candidates))
 	while((length(yes_candidates) < max_candidates) && length(candidates) && sanity > 0)
 		sanity--
 		var/mob/living/candidate = pick_n_take(candidates)
