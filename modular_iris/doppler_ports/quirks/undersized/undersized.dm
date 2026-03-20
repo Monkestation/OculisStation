@@ -115,8 +115,7 @@
 
 		organ_to_restore.replace_into(quirk_holder)
 
-	var/datum/component/squashable/component = human_holder.GetComponent(/datum/component/squashable)
-	qdel(component)
+	qdel(human_holder.GetComponent(/datum/component/squashable_carbons))
 
 /datum/quirk/undersized/proc/on_gain_limb(datum/source, obj/item/bodypart/gained, special)
 	SIGNAL_HANDLER
