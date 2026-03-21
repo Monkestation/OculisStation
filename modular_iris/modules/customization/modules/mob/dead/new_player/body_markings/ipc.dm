@@ -3,7 +3,9 @@
 /datum/sprite_accessory/synth_head/iris
 	name = null
 	icon = BODYPART_ICON_IPC_IRIS
+/*	// OCULIS EDIT REMOVAL START - fixes rendering for iris synth heads as this was made redundant
 	factual = FALSE
+*/	// OCULIS EDIT REMOVAL END
 
 // Morpheus
 /datum/sprite_accessory/synth_head/iris/mcgreyscalehmn
