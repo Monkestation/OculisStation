@@ -282,8 +282,7 @@
 * Procs the ethereal jaunt liquid effect when the slime dissolves on death.
 */
 /obj/item/organ/brain/slime/proc/do_steam_effects(turf/loc)
-	var/datum/effect_system/steam_spread/steam = new()
-	steam.set_up(10, FALSE, loc)
+	var/datum/effect_system/basic/steam_spread/steam = new(loc, 10, FALSE)
 	steam.start()
 
 /**
@@ -627,7 +626,7 @@
 	var/oversized_user = FALSE
 	///What text is shown to others when the person uses the ability?
 	var/shapeshift_text = "gains a look of concentration while standing perfectly still. Their body seems to shift and starts getting more goo-like."
-	///List containing all of the avalible parts
+	///List containing all of the available parts
 	var/static/list/available_choices
 	/// Icon for "Body Colors" alteration button.
 	var/bodycolours_icon
