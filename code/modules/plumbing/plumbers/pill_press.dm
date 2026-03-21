@@ -41,7 +41,7 @@
 			CAT_PATCHES = GLOB.reagent_containers[CAT_PATCHES],
 			"Bottles" = list(/obj/item/reagent_containers/cup/bottle),
 			CAT_HYPOS = GLOB.reagent_containers[CAT_HYPOS], // NOVA EDIT ADDITION - Hypovials
-
+			CAT_PEN_INJECTORS = GLOB.reagent_containers[CAT_PEN_INJECTORS], // NOVA EDIT ADDITION - pen_medipens
 		)
 
 		packaging_types = list()
@@ -207,6 +207,9 @@
 				packaging_category = CAT_PATCHES
 			else if(ispath(packaging_type, /obj/item/reagent_containers/applicator/pill))
 				packaging_category = CAT_PILLS
+			else if(ispath(packaging_type, /obj/item/reagent_containers/hypospray/medipen/deforest/printable))
+				packaging_category = CAT_PEN_INJECTORS
+			// NOVA EDIT ADDITION END
 			//IRIS EDIT START
 			else if (ispath(packaging_type, /obj/item/reagent_containers/cup/vial))
 				packaging_category = CAT_HYPOS
