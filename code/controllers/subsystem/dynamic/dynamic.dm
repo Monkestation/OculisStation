@@ -133,6 +133,13 @@ SUBSYSTEM_DEF(dynamic)
 			They will be unable to qualify for any roundstart antagonist role. These are their job preferences - [job_data.Join(" | ")]")
 
 	var/num_real_players = length(antag_candidates)
+	// OCULIS EDIT ADDITION START - allow unreadied players to count for half
+	for(var/mob/dead/new_player/player as anything in GLOB.new_player_list)
+		if(player.ready == PLAYER_NOT_READY)
+			num_real_players += 0.5
+	num_real_players = round(num_real_players, 1)
+	log_dynamic("num_real_players: [num_real_players], while antag_candidates len is [length(antag_candidates)]")
+	// OCULIS EDIT ADDITION END
 	// now select a tier (if admins didn't)
 	// this also calculates the number of rulesets to spawn
 	if(!current_tier)
@@ -246,10 +253,18 @@ SUBSYSTEM_DEF(dynamic)
 /datum/controller/subsystem/dynamic/proc/get_roundstart_rulesets(list/antag_candidates)
 	PRIVATE_PROC(TRUE)
 
+	// OCULIS EDIT ADDITION START - allow unreadied players to count for half
+	var/population_size = length(antag_candidates)
+	for(var/mob/dead/new_player/player as anything in GLOB.new_player_list)
+		if(player.ready == PLAYER_NOT_READY)
+			population_size += 0.5
+	log_dynamic("population_size: [population_size], while antag_candidates len is [length(antag_candidates)]")
+	// OCULIS EDIT ADDITION END
+
 	var/list/datum/dynamic_ruleset/roundstart/rulesets = list()
 	for(var/ruleset_type in subtypesof(/datum/dynamic_ruleset/roundstart))
 		var/datum/dynamic_ruleset/roundstart/ruleset = new ruleset_type(dynamic_config)
-		rulesets[ruleset] = ruleset.get_weight(length(antag_candidates), current_tier.tier)
+		rulesets[ruleset] = ruleset.get_weight(round(population_size, 1), current_tier.tier) // OCULIS EDIT CHANGE - ORIGINAL: rulesets[ruleset] = ruleset.get_weight(length(antag_candidates), current_tier.tier)
 
 	return rulesets
 
