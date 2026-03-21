@@ -118,6 +118,9 @@
 
 	if(CONFIG_GET(flag/usewhitelist))
 		load_whitelist()
+	// NOVA EDIT ADDITION START
+	setup_gas_prices()
+	// NOVA EDIT ADDITION END
 
 	loaded = TRUE
 
