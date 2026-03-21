@@ -173,6 +173,7 @@
 			break
 	if(last_legion)
 		loot = list(/obj/item/storm_staff)
+		loot += /obj/item/book/granter/crafting_recipe/dusting/summoning_flute/legion // OCULIS EDIT ADDITION -- respawnable megafaunas
 		var/list/achievements = list(/datum/award/achievement/boss/boss_killer, /datum/award/score/boss_score, /datum/award/score/legion_score, /datum/award/achievement/boss/legion_kill)
 		AddElement(/datum/element/kill_achievement, string_list(achievements), crusher_achievement_type, /datum/memory/megafauna_slayer)
 	else if(prob(20)) //20% chance for sick lootz.

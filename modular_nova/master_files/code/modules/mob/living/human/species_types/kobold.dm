@@ -36,7 +36,7 @@
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/kobold,
 	)
 	exotic_bloodtype = BLOOD_TYPE_LIZARD
-	payday_modifier = 0.01 //IRIS EDIT - the kobolds don't deserve it
+	payday_modifier = 1.0 //OCULIS EDIT - changed from 1.5 (i think)
 
 /datum/species/monkey/kobold/get_default_mutant_bodyparts()
 	return list(
@@ -90,6 +90,7 @@
 
 	return to_add
 
+/* //OCULIS REMOVAL START
 /datum/species/monkey/kobold/create_pref_unique_perks()
 	var/list/to_add = list()
 
@@ -102,6 +103,7 @@
 				Stay out of the kitchen!",
 		),
 	)
+*/ //OCULIS REMOVAL END
 
 /datum/species/monkey/kobold/create_pref_language_perk()
 	var/list/to_add = list()
@@ -139,6 +141,5 @@
 	inherent_traits = list(
 		TRAIT_NO_AUGMENTS,
 		TRAIT_NO_BLOOD_OVERLAY,
-		TRAIT_VENTCRAWLER_NUDE,
 		TRAIT_MUTANT_COLORS,
 	)

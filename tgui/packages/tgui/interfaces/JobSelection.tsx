@@ -14,6 +14,10 @@ import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 import { JOB2ICON } from './common/JobToIcon';
+import {
+  LobbyNotices,
+  type LobbyNoticesType,
+} from './common/oculis/LobbyNotices';
 
 type Job = {
   unavailable_reason: string | null;
@@ -39,6 +43,7 @@ type Data = {
   priority: BooleanLike;
   round_duration: string;
   alert_level: { name: string; color: string }; // NOVA EDIT ADDITION - Alert level on jobs menu
+  notices: LobbyNoticesType; // OCULIS EDIT ADDITION - lobby_notices
 };
 
 type JobEntryProps = {
@@ -188,6 +193,7 @@ export function JobSelection(props) {
   return (
     <Window width={1012} height={shuttle_status ? 916 : 900 /* Hahahahahaha */}>
       {/* NOVA EDIT CHANGE above - Expand UI for available jobs - ORIGINAL: height={shuttle_status ? 690 : 666 */}
+
       <Window.Content>
         <Section
           buttons={
@@ -202,6 +208,9 @@ export function JobSelection(props) {
           scrollable
           title={
             <>
+              {/* OCULIS EDIT ADDITION START - lobby_notices */}
+              <LobbyNotices notices={data.notices} />
+              {/* OCULIS EDIT ADDITION END */}
               {shuttle_status && <NoticeBox info>{shuttle_status}</NoticeBox>}
               {
                 /* NOVA EDIT ADDITION START - Alert level on jobs menu */
