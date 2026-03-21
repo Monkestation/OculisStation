@@ -112,3 +112,160 @@
 /datum/loadout_item/toys/plush/funniyellowrock
 	name = "Squishy Yellow Rock"
 	item_path = /obj/item/toy/plush/nova/funniyellowrock
+
+/datum/loadout_item/toys/plush/expie
+	name = "Experiment Plushie"
+	item_path = /obj/item/toy/plush/nova/expie
+
+/*
+*	DONATOR
+*/
+
+/datum/loadout_item/toys/plush/fermis
+	name = "Medcat Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/fermis
+
+/datum/loadout_item/toys/plush/chen
+	name = "Securicat Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/fermis/chen
+
+/datum/loadout_item/toys/plush/duffmoff
+	name = "Suspicious Moth Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/duffmoth
+
+/datum/loadout_item/toys/plush/musicalduffy
+	name = "Suspicious Musical moth"
+	item_path = /obj/item/instrument/musicalduffy
+
+/datum/loadout_item/toys/plush/leaplush
+	name = "Suspicious Deer Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/leaplush
+
+/datum/loadout_item/toys/plush/sarmie
+	name = "Cosplayer Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/sarmieplush
+
+/datum/loadout_item/toys/plush/pintaplush
+	name = "Smaller Deer Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/pintaplush
+
+/datum/loadout_item/toys/plush/szaplush
+	name = "Suspicious Spider Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/szaplush
+
+/datum/loadout_item/toys/plush/riffplush
+	name = "Valid Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/riffplush
+
+/datum/loadout_item/toys/plush/seaduplush
+	name = "Sneed Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/seaduplush
+
+/datum/loadout_item/toys/plush/mechanic_fox
+	name = "Mechanist Fox Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/mechanic_fox
+
+/datum/loadout_item/toys/plush/tribal_salamander
+	name = "Tribal Salamander Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/tribal_salamander
+
+/datum/loadout_item/toys/plush/commanding_teshari
+	name = "Commanding Teshari Plushy"
+	item_path = /obj/item/toy/plush/nova/donator/commanding_teshari
+
+/datum/loadout_item/toys/plush/snow_owl
+	name = "Snowy Owl Plush"
+	item_path = /obj/item/toy/plush/nova/donator/snow_owl
+
+/datum/loadout_item/toys/plush/breakdancing_bird
+	name = "Breakdancing Bird Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/breakdancing_bird
+
+/datum/loadout_item/toys/plush/skreking_vox
+	name = "Skreking Vox Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/skreking_vox
+
+/datum/loadout_item/toys/plush/engi_snek
+	name = "Engineering Snek Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/engi_snek
+
+/datum/loadout_item/toys/plush/glitch_synth
+	name = "Glitching Synthetic Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/glitch_synth
+
+/datum/loadout_item/toys/plush/boom_bird
+	name = "Boom Bird Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/boom_bird
+
+/datum/loadout_item/toys/plush/blue_cat
+	name = "Blue Cat Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/blue_cat
+
+/datum/loadout_item/toys/plush/igneous_synth
+	name = "Igneous Synth Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/igneous_synth
+
+/datum/loadout_item/toys/plush/edgy_bird
+	name = "Edgy Bird Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/edgy_bird
+
+/datum/loadout_item/toys/plush/xixi
+	name = "Familiar Harpy Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/xixi
+
+/datum/loadout_item/toys/plush/rubi_plush
+	name = "Huggable Bee Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/rubi
+
+/datum/loadout_item/toys/plush/derg_plushie
+	name = "Wingless Dragon Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/derg_plushie
+
+/datum/loadout_item/toys/plush/tracy
+	name = "Creature Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/tracy
+
+/datum/loadout_item/toys/plush/courier_synth
+	name = "Courier Synth Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/courier_synth
+
+/datum/loadout_item/toys/plush/plush_janiborg
+	name = "Friendly Janiborg Plush"
+	item_path = /obj/item/toy/plush/nova/donator/plush_janiborg
+
+/datum/loadout_item/toys/plush/securifox
+	name = "Securifox Plushie"
+	item_path = /obj/item/toy/plush/nova/securifox
+
+/datum/loadout_item/toys/plush/towa
+	name = "Tiny Overwatch"
+	item_path = /obj/item/toy/plush/nova/towa
+
+/datum/loadout_item/toys/plush/fushi
+	name = "Fluffy Dragon"
+	item_path = /obj/item/toy/plush/nova/fushi
+
+/datum/loadout_item/toys/plush/plush_hemlock
+	name = "Silly Snuppy Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/plush_hemlock
+
+/*
+*	STAFF
+*/
+/* // OCULIS EDIT REMOVAL START
+/datum/loadout_item/toys/plush/plush_melon
+	name = "Melon Plushie"
+	item_path = /obj/item/toy/plush/nova/melon
+
+/datum/loadout_item/toys/plush/plush_parsec
+	name = "Engie Dog"
+	item_path = /obj/item/toy/plush/nova/parsec
+
+/datum/loadout_item/toys/plush/plush_nik
+	name = "Scary Cat Plushie"
+	item_path = /obj/item/toy/plush/nova/akinshi
+
+/datum/loadout_item/toys/plush/plush_skaag
+	name = "Skaag Plushie"
+	item_path = /obj/item/toy/plush/nova/skaag
+*/ // OCULIS EDIT REMOVAL END
