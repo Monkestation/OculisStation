@@ -210,14 +210,6 @@
 	new /obj/item/clothing/neck/warrior_cape(src)
 
 /obj/structure/closet/crate/necropolis/gladiator/crusher/PopulateContents()
-	/* // OCULIS REMOVAL START
-	if(prob(5))
-		new /obj/item/claymore/dragonslayer/very_fucking_loud(src)
-	else
-		new /obj/item/claymore/dragonslayer(src)
-	new /obj/item/clothing/suit/hooded/berserker/gatsu(src)
-	new /obj/item/clothing/neck/warrior_cape(src)
-	*/ // OCULIS REMOVAL END
 	..()
 	new /obj/item/crusher_trophy/gladiator(src)
 
