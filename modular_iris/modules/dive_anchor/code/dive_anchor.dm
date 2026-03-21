@@ -128,7 +128,7 @@ GLOBAL_LIST_EMPTY(anchors)
 		visible_message(span_warning("A red light blinks on [src]."))
 		return
 
-	var/datum/effect_system/spark_spread/quantum/quantum_sparks = new
+	var/datum/effect_system/basic/spark_spread/quantum/quantum_sparks
 
 	var/list/teleportables = list()
 	for(var/turf/target_turf in circle_range_turfs(radius = 1))
@@ -136,7 +136,7 @@ GLOBAL_LIST_EMPTY(anchors)
 
 	for(var/atom/movable/teleportable in teleportables)
 		//pre-tp sparks
-		quantum_sparks.set_up(rand(4, 8), FALSE, teleportable)
+		quantum_sparks = new(teleportable, rand(4, 8), FALSE)
 		quantum_sparks.attach(teleportable)
 		quantum_sparks.start()
 		//do the tp

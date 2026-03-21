@@ -167,7 +167,10 @@ SUBSYSTEM_DEF(ticker)
 			SStitle.change_title_screen() // NOVA EDIT ADDITION - Title screen
 			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS) // NOVA EDIT ADDITION - Title screen
 			SEND_SIGNAL(src, COMSIG_TICKER_ENTER_PREGAME)
-
+			// OCULIS EDIT START - lobby notices
+			if (length(config.lobby_notices))
+				config.ShowLobbyNotices(world)
+			// OCULIS END
 			fire()
 		if(GAME_STATE_PREGAME)
 				//lobby stats for statpanels
@@ -348,7 +351,7 @@ SUBSYSTEM_DEF(ticker)
 		var/arguments = list()
 		if(GLOB.revdata.originmastercommit)
 			to_set += "commit_hash = :commit_hash"
-			arguments["commit_hash"] = GLOB.revdata.originmastercommit
+			arguments["commit_hash"] = GLOB.revdata.GetDatabaseCommitSha()
 		if(to_set.len)
 			arguments["round_id"] = GLOB.round_id
 			var/datum/db_query/query_round_game_mode = SSdbcore.NewQuery(
