@@ -15,10 +15,10 @@ import {
 import { exhaustiveCheck } from 'tgui-core/exhaustive'; // NOVA EDIT ADDITION
 import { classes } from 'tgui-core/react';
 import { createSearch } from 'tgui-core/string';
-import { SideDropdown } from '../../../iris_components/SideDropdown'; // IRIS EDIT ADDITION from https://github.com/Bubberstation/Bubberstation/pull/3157
 import { CharacterPreview } from '../../common/CharacterPreview';
 import { PageButton } from '../components/PageButton'; // NOVA EDIT ADDITION
 import { RandomizationButton } from '../components/RandomizationButton';
+import { SideDropdown } from '../components/SideDropdown'; // NOVA EDIT ADDITION
 import { features } from '../preferences/features';
 import {
   type FeatureChoicedServerData,
@@ -45,8 +45,7 @@ const CLOTHING_SELECTION_WIDTH = 5.4;
 const CLOTHING_SELECTION_MULTIPLIER = 5.2;
 
 type CharacterControlsProps = {
-  handleRotate: () => void;
-  handleRotateReverse: () => void; // IRIS EDIT ADDITION: Counter-Clockwise rotational support
+  handleRotate: (backwards: boolean) => void; // NOVA EDIT CHANGE - Original: handleRotate: () => void;
   handleOpenSpecies: () => void;
   handleFood: () => void; // NOVA EDIT ADDITION
   gender: Gender;
@@ -57,27 +56,41 @@ type CharacterControlsProps = {
 function CharacterControls(props: CharacterControlsProps) {
   return (
     <Stack>
+      { /* // OCULIS EDIT REMOVAL START
       <Stack.Item>
         <Button
-          onClick={props.handleRotate}
-          fontSize="22px"
-          // IRIS EDIT ADDITION START: Retooled Rotate + Added Counter-Clockwise rotational icon
-          icon="redo"
-          tooltip="Rotate Clockwise"
-          tooltipPosition="top"
-        />
-      </Stack.Item>
-
-      <Stack.Item>
-        <Button
-          onClick={props.handleRotateReverse}
+          onClick={() => props.handleRotate(true)} // NOVA EDIT CHANGE - Original: onClick={props.handleRotate}
           fontSize="22px"
           icon="undo"
-          tooltip="Rotate Counter-Clockwise"
-          // IRIS EDIT ADDITION END
+          tooltip="Rotate"
           tooltipPosition="top"
         />
       </Stack.Item>
+      // OCULIS EDIT REMOVAL END */}
+
+      {/* NOVA EDIT ADDITION START */}
+      <Stack.Item>
+        <Button
+          onClick={() => props.handleRotate(false)}
+          fontSize="22px"
+          icon="redo"
+          tooltip="Rotate"
+          tooltipPosition="top"
+        />
+      </Stack.Item>
+      {/* NOVA EDIT ADDITION END */}
+
+      {/* OCULIS EDIT ADDITION START */}
+      <Stack.Item>
+        <Button
+          onClick={() => props.handleRotate(true)}
+          fontSize="22px"
+          icon="undo"
+          tooltip="Rotate"
+          tooltipPosition="top"
+        />
+      </Stack.Item>
+      {/* OCULIS EDIT ADDITION END */}
 
       <Stack.Item>
         <Button
@@ -591,13 +604,8 @@ export function MainPage(props: MainPageProps) {
               <CharacterControls
                 gender={data.character_preferences.misc.gender}
                 handleOpenSpecies={props.openSpecies}
-                handleRotate={() => {
-                  // IRIS EDIT ADDITION START: retooled rotation to support counter/clockwise movement
-                  act('rotate', { backwards: false });
-                }}
-                handleRotateReverse={() => {
-                  act('rotate', { backwards: true });
-                  // IRIS EDIT ADDITION END
+                handleRotate={(value) => { // NOVA EDIT CHANGE - Original: handleRotate={() => {
+                  act('rotate', { backwards: value }); // NOVA EDIT CHANGE - Original: act('rotate');
                 }}
                 setGender={createSetPreference(act, 'gender')}
                 showGender={
@@ -613,15 +621,14 @@ export function MainPage(props: MainPageProps) {
 
             <Stack.Item grow>
               <CharacterPreview
-                height="100%" // NOVA EDIT - ORIGINAL: height="100%" // IRIS EDIT: returned to 100% from Nova's 80%
+                height="100%"
                 id={data.character_preview_view}
               />
             </Stack.Item>
 
             {/* NOVA EDIT ADDITION START */}
             <Stack.Item position="relative">
-              Preview Clothing Type
-              <SideDropdown // IRIS EDIT: Dropdown -> SideDropdown to support https://github.com/Bubberstation/Bubberstation/pull/3015
+              <SideDropdown
                 width="100%"
                 selected={data.preview_selection}
                 options={data.preview_options}
@@ -633,9 +640,9 @@ export function MainPage(props: MainPageProps) {
               />
             </Stack.Item>
             {/* NOVA EDIT ADDITION END */}
-            {/* IRIS EDIT ADDITION START: Background Selection from https://github.com/Bubberstation/Bubberstation/pull/3015*/}
+
+            {/* NOVA EDIT ADDITION START: Background Selection */}
             <Stack.Item position="relative">
-              Preview Background
               <SideDropdown
                 width="100%"
                 selected={data.character_preferences.misc.background_state}
@@ -647,8 +654,7 @@ export function MainPage(props: MainPageProps) {
                 }
               />
             </Stack.Item>
-            {/* IRIS EDIT ADDITION END: Background Selection */}
-
+            {/* NOVA EDIT ADDITION END: Background Selection */}
             <Stack.Item position="relative">
               <NameInput
                 name={data.character_preferences.names[data.name_to_use]}
@@ -704,8 +710,7 @@ export function MainPage(props: MainPageProps) {
         {/* ORIGINAL: <Stack.Item grow basis={0}> */}
         <Stack.Item grow basis={0} ml="4px">
           <Stack vertical fill>
-            {
-              /* NOVA EDIT REMOVAL START
+            { /* // NOVA EDIT REMOVAL START
              <PreferenceList
               randomizations={getRandomization(
                 contextualPreferences,
@@ -725,9 +730,7 @@ export function MainPage(props: MainPageProps) {
               preferences={nonContextualPreferences}
               maxHeight="auto"
             />
-            */
-              // NOVA EDIT REMOVAL END
-            }
+            // NOVA EDIT REMOVAL END */ }
             {/* NOVA EDIT ADDITION BEGIN: Swappable pref menus */}
             <Stack>
               <Stack.Item grow={2}>

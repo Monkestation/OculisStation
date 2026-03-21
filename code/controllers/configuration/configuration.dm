@@ -110,6 +110,7 @@
 	LoadMOTD()
 	LoadPolicy()
 	LoadChatFilter()
+	LoadMisc() // OCULIS EDIT ADDITION
 	if(CONFIG_GET(flag/load_jobs_from_txt))
 		validate_job_config()
 		if(SSjob.initialized) // in case we're reloading from disk after initialization, wanna make sure the changes update in the ongoing shift
@@ -117,12 +118,21 @@
 
 	if(CONFIG_GET(flag/usewhitelist))
 		load_whitelist()
+	// NOVA EDIT ADDITION START
+	setup_gas_prices()
+	// NOVA EDIT ADDITION END
 
 	loaded = TRUE
 
 	if (Master)
 		Master.OnConfigLoad()
 	process_config_errors()
+
+// OCULIS EDIT ADDITION START
+// Function for modules to override if they need to add addiitonal config stuff.
+/datum/controller/configuration/proc/LoadMisc()
+	return
+// OCULIS EDIT ADDITION END
 
 /datum/controller/configuration/proc/full_wipe()
 	if(IsAdminAdvancedProcCall())
