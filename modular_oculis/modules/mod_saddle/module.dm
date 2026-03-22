@@ -19,7 +19,7 @@
 
 	return FALSE
 
-/obj/item/mod/module/saddle/on_activation(activator)
+/obj/item/mod/module/saddle/on_activation(mob/living/carbon/human/activator)
 	. = ..()
 	if (active && determine_elligible(activator))
 		mod.AddComponent(/datum/component/carbon_saddle, RIDING_TAUR)
@@ -29,7 +29,7 @@
 	else
 		to_chat(activator, "[src]: Unable to deploy saddle, requisite anatomy not detected.")
 
-/obj/item/mod/module/saddle/on_deactivation(activator, display_message = TRUE, deleting = FALSE)
+/obj/item/mod/module/saddle/on_deactivation(mob/living/carbon/human/activator, display_message = TRUE, deleting = FALSE)
 	. = ..()
 	var/datum/component/carbon_saddle/saddle = mod.GetExactComponent(/datum/component/carbon_saddle)
 	var/datum/component/taur_clothing_offset/offset = mod.GetExactComponent(/datum/component/taur_clothing_offset)
