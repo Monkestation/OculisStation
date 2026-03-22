@@ -7,7 +7,6 @@
 	icon = 'modular_oculis/modules/storm/icons/redspace_anchor.dmi'
 	icon_state = "anchor_off"
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN_SILICON
-	interaction_flags_click = ALLOW_SILICON_REACH
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 	/*
@@ -15,7 +14,7 @@
 	* and this is purelly done so that the code is readable without pulling out a calculator
 	* to make sure these values are right.
 	*/
-	active_power_usage = (4 MEGA WATTS) // Lotta fucking power to keep the storm at bay.
+	active_power_usage = (6 MEGA WATTS) // Lotta fucking power to keep the storm at bay.
 	idle_power_usage = (100 KILO WATTS) // Slightly less power to keep it idle.
 
 	// 3x3 offset by one row
