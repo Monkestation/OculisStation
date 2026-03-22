@@ -31,14 +31,7 @@
 
 /obj/item/mod/module/saddle/on_deactivation(mob/living/carbon/human/activator, display_message = TRUE, deleting = FALSE)
 	. = ..()
-	var/datum/component/carbon_saddle/saddle = mod.GetExactComponent(/datum/component/carbon_saddle)
-	var/datum/component/taur_clothing_offset/offset = mod.GetExactComponent(/datum/component/taur_clothing_offset)
-	saddle.mob_unequipped_parent(activator)
-	activator.unbuckle_all_mobs()
-	if (saddle)
-		saddle.Destroy()
-	if (offset)
-		offset.Destroy()
+	do_deactivate()
 
 /obj/item/mod/module/saddle/on_equip()
 	. = ..()
@@ -53,14 +46,17 @@
 
 /obj/item/mod/module/saddle/on_unequip()
 	. = ..()
+	do_deactivate()
+
+/obj/item/mod/module/saddle/proc/do_deactivate()
 	var/datum/component/carbon_saddle/saddle = mod.GetExactComponent(/datum/component/carbon_saddle)
 	var/datum/component/taur_clothing_offset/offset = mod.GetExactComponent(/datum/component/taur_clothing_offset)
 	saddle.mob_unequipped_parent(mod.wearer)
 	mod.wearer.unbuckle_all_mobs()
-	if (saddle)
-		saddle.Destroy()
-	if (offset)
-		offset.Destroy()
+	if(saddle)
+		qdel(saddle)
+	if(offset)
+		qdel(offset)
 
 /datum/component/carbon_saddle/UnregisterFromParent()
 	. = ..()
