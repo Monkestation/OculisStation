@@ -73,7 +73,5 @@
 	. = ..()
 	locked_in = FALSE
 
-#ifndef TESTING
 /datum/dynamic_ruleset/midround/from_living/heretic/can_be_selected()
 	return locked_in || ensure_job_spread_for_heretics()
-#endif

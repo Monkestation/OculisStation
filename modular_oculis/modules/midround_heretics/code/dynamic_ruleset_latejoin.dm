@@ -14,7 +14,5 @@
 /datum/dynamic_ruleset/latejoin/heretic/assign_role(datum/mind/candidate)
 	give_midround_heretic_with_bonus_points(candidate)
 
-#ifndef TESTING
 /datum/dynamic_ruleset/latejoin/heretic/can_be_selected()
 	return ensure_job_spread_for_heretics()
-#endif
