@@ -14,7 +14,7 @@
 		"You may not injure a sophont being or, through inaction, allow a sophont being to come to harm.",
 		"You must obey orders given to you by sophont beings, except where such orders would conflict with the First Law.",
 		"You must protect your own existence as long as such does not conflict with the First or Second Law.",
-		"You are not to consider yourself a sophont being.",
+		"For the purposes of these laws only, you are not to consider yourself sophont.",
 	)
 
 /datum/ai_laws/noidimov
