@@ -28,9 +28,18 @@
 	armour_penetration = 15
 	item_flags = NEEDS_PERMIT //Beepers gets angry if you get caught with this.
 	hitsound = 'modular_nova/master_files/sound/weapons/bloodyslice.ogg'
+	// OCULIS EDIT ADDITION START
+	wound_bonus = -10 // This thing already is sharp and double-attacks, calm down.
+	/// Will this armblade double attack if you have two?
+	var/can_double_attack = TRUE
+	// OCULIS EDIT ADDITION END
 
 /obj/item/melee/implantarmblade/attack(mob/living/M, mob/living/user)
 	. = ..()
+	// OCULIS EDIT ADDITION START
+	if(!can_double_attack)
+		return
+	// OCULIS EDIT ADDITION END
 	if(user.get_active_held_item() != src)
 		return
 
@@ -52,10 +61,14 @@
 
 /obj/item/melee/implantarmblade/early
 	name = "early armblade implant"
-	desc = "A long, sharp, mantis-like blade implanted into someones arm. This is an early, outdated model with a ceramic blade, it isn't as effective as steel versions, but easier to smuggle past metal detectors."
+	desc = "A long, sharp, mantis-like blade implanted into someones arm. This is an early, outdated model with a ceramic blade, it isn't as effective as steel versions, and lacks the synaptic linking that allows for automatic double attacks, but easier to smuggle past metal detectors." // OCULIS EDIT CHANGE - ORIGINAL: desc = "A long, sharp, mantis-like blade implanted into someones arm. This is an early, outdated model with a ceramic blade, it isn't as effective as steel versions, but easier to smuggle past metal detectors."
 	force = 12 // More then the claws(but doesn't double as wire cutters), less then the razorwire and 10 less then real armblades, about equal to a survival knife, 24 with two
 	armour_penetration = 5
 	icon_state = "mantis_blade_early"
+	// OCULIS EDIT ADDITION START
+	wound_bonus = -15
+	can_double_attack = FALSE
+	// OCULIS EDIT ADDITION END
 
 /obj/item/melee/implantarmblade/energy
 	name = "energy arm blade"
@@ -64,6 +77,7 @@
 	force = 20 // Two can attack at the same time, so read this as 40 force total.
 	armour_penetration = 25 //Energy isn't as good at going through armor as it is through flesh alone.
 	hitsound = 'sound/items/weapons/blade1.ogg'
+	wound_bonus = /obj/item/melee::wound_bonus // OCULIS EDIT ADDITION (default wound bonus instead of the reduced one)
 
 /obj/item/organ/cyberimp/arm/toolkit/armblade
 	name = "arm blade implant"
