@@ -567,14 +567,18 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 				continue
 			bodypart.drop_limb() // Drop limb should delete the limb for oozelings unless someone changes it.
 		new_body.set_blood_volume(BLOOD_VOLUME_OKAY)
-		new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
-		to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
+		new_body.visible_message(
+			span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."),
+			span_purple("Your torso fully forms out of your core, yet to form the rest.")
+		)
 		//Make oozelings revive similar to other species.
 		new_body.set_jitter_if_lower(200 SECONDS)
 		INVOKE_ASYNC(new_body, TYPE_PROC_REF(/mob, emote), "scream")
 	else
-		new_body.visible_message(span_warning("[new_body]'s body fully forms from [new_body.p_their()] core!"))
-		to_chat(owner, span_purple("Your body fully forms from your core!"))
+		new_body.visible_message(
+			span_warning("[new_body]'s body fully forms from [new_body.p_their()] core!"),
+			span_purple("Your body fully forms from your core!")
+		)
 
 	if(!QDELETED(brainmob))
 		membrane_mur.Remove(brainmob)
