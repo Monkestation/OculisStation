@@ -20,7 +20,7 @@
 #define BODYPART_ICON_AQUATIC 'modular_nova/modules/bodyparts/icons/aquatic_parts_greyscale.dmi'
 #define BODYPART_ICON_GHOUL 'modular_nova/modules/bodyparts/icons/ghoul_bodyparts.dmi'
 #define BODYPART_ICON_INSECT 'modular_nova/modules/bodyparts/icons/insect_parts_greyscale.dmi'
-#define BODYPART_ICON_LIZARD 'modular_nova/modules/bodyparts/icons/lizard_parts_greyscale.dmi'
+//#define BODYPART_ICON_LIZARD 'modular_nova/modules/bodyparts/icons/lizard_parts_greyscale.dmi' // OCULIS EDIT REMOVAL
 #define BODYPART_ICON_MOTH 'modular_nova/modules/bodyparts/icons/moth_parts_greyscale.dmi'
 //#define BODYPART_ICON_ROUNDSTARTSLIME 'modular_nova/modules/bodyparts/icons/slime_parts_greyscale.dmi' // IRIS EDIT REMOVAL
 #define BODYPART_ICON_SKRELL 'modular_nova/modules/bodyparts/icons/skrell_parts_greyscale.dmi'
