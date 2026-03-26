@@ -103,6 +103,7 @@
 	RegisterSignal(src, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(on_move))
 	RegisterSignal(src, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 	name = generate_random_mob_name()
+	real_name = name // OCULIS EDIT ADDITION
 
 	GLOB.revenant_relay_mobs |= src
 
