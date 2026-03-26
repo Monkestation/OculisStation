@@ -12,31 +12,6 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
-"aq" = (
-/obj/effect/turf_decal/trimline/dark_green/filled/mid_joiner{
-	dir = 4
-	},
-/obj/structure/table/reinforced/rglass,
-/obj/machinery/light/small/directional/west,
-/obj/effect/turf_decal/tile/dark_green/half{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/dark_green/warning{
-	dir = 1
-	},
-/obj/item/healthanalyzer/advanced{
-	pixel_y = 11;
-	pixel_x = 5
-	},
-/obj/item/stack/medical/bone_gel{
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/obj/item/stack/sticky_tape/surgical{
-	pixel_x = 6
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/med)
 "aA" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
@@ -417,6 +392,26 @@
 /obj/machinery/light/cold/directional/south,
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
+"dJ" = (
+/obj/machinery/camera/autoname/directional/east{
+	network = list("intd13")
+	},
+/obj/structure/table/reinforced/rglass,
+/obj/item/blood_filter{
+	pixel_y = 9
+	},
+/obj/item/stack/medical/bone_gel{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/item/stack/medical/wrap/sticky_tape/surgical{
+	pixel_x = 6
+	},
+/obj/effect/turf_decal/trimline/dark_green/filled/line{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/small,
+/area/ruin/interdyne_planetary_base/med)
 "dK" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle{
 	polarizer_id = "interdynevirowindows"
@@ -600,6 +595,9 @@
 /obj/item/storage/box/cups,
 /turf/open/floor/iron/white/small,
 /area/ruin/interdyne_planetary_base/med)
+"fC" = (
+/turf/open/floor/wood/parquet,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "fH" = (
 /obj/structure/table/reinforced/rglass,
 /obj/item/storage/box/disks{
@@ -859,6 +857,15 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med/viro)
+"hU" = (
+/obj/structure/rack/gunrack,
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/computer/bountypad,
+/obj/item/circuitboard/machine/bountypad,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/main/vault)
 "hV" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 8
@@ -3142,9 +3149,6 @@
 	dir = 8
 	},
 /area/ruin/interdyne_planetary_base/cargo)
-"AJ" = (
-/turf/open/floor/wood/parquet,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "AK" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/siding/thinplating{
@@ -3594,26 +3598,6 @@
 "DZ" = (
 /turf/closed/wall/mineral/titanium/shielded,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
-"Ec" = (
-/obj/machinery/camera/autoname/directional/east{
-	network = list("intd13")
-	},
-/obj/structure/table/reinforced/rglass,
-/obj/item/blood_filter{
-	pixel_y = 9
-	},
-/obj/item/stack/medical/bone_gel{
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/obj/item/stack/sticky_tape/surgical{
-	pixel_x = 6
-	},
-/obj/effect/turf_decal/trimline/dark_green/filled/line{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/small,
-/area/ruin/interdyne_planetary_base/med)
 "Ed" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
@@ -4709,6 +4693,31 @@
 	name = "Surgery Shutter"
 	},
 /obj/machinery/door/firedoor,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/med)
+"Nm" = (
+/obj/effect/turf_decal/trimline/dark_green/filled/mid_joiner{
+	dir = 4
+	},
+/obj/structure/table/reinforced/rglass,
+/obj/machinery/light/small/directional/west,
+/obj/effect/turf_decal/tile/dark_green/half{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark_green/warning{
+	dir = 1
+	},
+/obj/item/healthanalyzer/advanced{
+	pixel_y = 11;
+	pixel_x = 5
+	},
+/obj/item/stack/medical/bone_gel{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/item/stack/medical/wrap/sticky_tape/surgical{
+	pixel_x = 6
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "No" = (
@@ -5937,15 +5946,6 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/cargo)
-"Wf" = (
-/obj/structure/rack/gunrack,
-/obj/item/circuitboard/machine/powerator/interdyne,
-/obj/item/circuitboard/machine/powerator/interdyne,
-/obj/item/circuitboard/machine/powerator/interdyne,
-/obj/item/circuitboard/computer/bountypad,
-/obj/item/circuitboard/machine/bountypad,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/interdyne_planetary_base/main/vault)
 "Wk" = (
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/eng)
@@ -7110,7 +7110,7 @@ fm
 Pn
 Pn
 wM
-aq
+Nm
 eL
 Pn
 Ku
@@ -7519,7 +7519,7 @@ fm
 fm
 Pn
 Yr
-Ec
+dJ
 WR
 bz
 Ap
@@ -7808,7 +7808,7 @@ Iu
 eo
 ta
 LY
-Wf
+hU
 Qd
 pR
 pn
@@ -8197,7 +8197,7 @@ GT
 FX
 bn
 vY
-AJ
+fC
 zR
 id
 OJ

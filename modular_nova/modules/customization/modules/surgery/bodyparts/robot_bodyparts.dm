@@ -23,4 +23,56 @@
 	burn_modifier = 1
 
 /obj/item/bodypart/head/robot
-	head_flags = (HEAD_HAIR|HEAD_FACIAL_HAIR|HEAD_EYESPRITES|HEAD_EYECOLOR) //IRIS EDIT: adds eyecolor flag
+	head_flags = (HEAD_HAIR|HEAD_FACIAL_HAIR|HEAD_EYESPRITES|HEAD_EYECOLOR) // OCULIS EDIT: adds HEAD_EYECOLOR flag
+
+// Assorted duplicates created to support greyscaling robotic limbs in the Augments+ tab
+
+/obj/item/bodypart/arm/left/robot/weak/greyscale
+	icon_static = null
+	should_draw_greyscale = TRUE
+	icon_greyscale = 'icons/mob/augmentation/augments.dmi'
+
+/obj/item/bodypart/arm/right/robot/weak/greyscale
+	icon_static = null
+	should_draw_greyscale = TRUE
+	icon_greyscale = 'icons/mob/augmentation/augments.dmi'
+
+/obj/item/bodypart/leg/left/robot/weak/greyscale
+	icon_static = null
+	should_draw_greyscale = TRUE
+	icon_greyscale = 'icons/mob/augmentation/augments.dmi'
+
+/obj/item/bodypart/leg/right/robot/weak/greyscale
+	icon_static = null
+	should_draw_greyscale = TRUE
+	icon_greyscale = 'icons/mob/augmentation/augments.dmi'
+
+/obj/item/bodypart/head/robot/weak/greyscale
+	icon_static = null
+	should_draw_greyscale = TRUE
+	icon_greyscale = 'icons/mob/augmentation/augments.dmi'
+
+/obj/item/bodypart/chest/robot/weak/greyscale
+	icon_static = null
+	should_draw_greyscale = TRUE
+	icon_greyscale = 'icons/mob/augmentation/augments.dmi'
+
+/obj/item/bodypart/arm/left/robot/surplus/greyscale
+	icon_static = null
+	should_draw_greyscale = TRUE
+	icon_greyscale = 'icons/mob/augmentation/surplus_augments.dmi'
+
+/obj/item/bodypart/arm/right/robot/surplus/greyscale
+	icon_static = null
+	should_draw_greyscale = TRUE
+	icon_greyscale = 'icons/mob/augmentation/surplus_augments.dmi'
+
+/obj/item/bodypart/leg/left/robot/surplus/greyscale
+	icon_static = null
+	should_draw_greyscale = TRUE
+	icon_greyscale = 'icons/mob/augmentation/surplus_augments.dmi'
+
+/obj/item/bodypart/leg/right/robot/surplus/greyscale
+	icon_static = null
+	should_draw_greyscale = TRUE
+	icon_greyscale = 'icons/mob/augmentation/surplus_augments.dmi'
