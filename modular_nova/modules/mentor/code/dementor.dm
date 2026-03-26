@@ -1,6 +1,6 @@
 /client/proc/cmd_mentor_dementor()
 	set category = "Mentor"
-	set name = "dementor"
+	set name = "Dementor" // OCULIST EDIT, ORIGINAL: set name = "dementor"
 	if(!is_mentor())
 		return
 	remove_mentor_verbs()
@@ -13,7 +13,7 @@
 
 /client/proc/cmd_mentor_rementor()
 	set category = "Mentor"
-	set name = "rementor"
+	set name = "Rementor" // OCULIST EDIT, ORIGINAL: set name = "rementor"
 	if(!is_mentor())
 		return
 	add_mentor_verbs()

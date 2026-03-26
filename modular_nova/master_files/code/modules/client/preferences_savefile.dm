@@ -287,14 +287,6 @@
 		if(current_wings == "Moth (Featherful)")
 			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/wings], "Moth (Feathery)")
 
-	if(current_version < VERSION_DONK_MIGRATION)
-		var/current_donk = save_data["feature_penis"]
-		if(current_donk != "None")
-			write_preference(GLOB.preference_entries[/datum/preference/choiced/genital/penis], current_donk + " (Alt)")
-		var/current_pocket = save_data["feature_testicles"]
-		if(current_pocket == "Pair")
-			write_preference(GLOB.preference_entries[/datum/preference/choiced/genital/testicles], "Pair (Alt)")
-
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)
 		to_chat(parent, boxed_message(span_redtext("CRITICAL FAILURE IN PREFERENCE MIGRATION, REPORT THIS IMMEDIATELY.")))
