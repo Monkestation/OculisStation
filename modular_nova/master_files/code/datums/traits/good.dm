@@ -162,7 +162,7 @@
 	name = "Sensitive Hearing"
 	desc = "You can hear even the quietest of sounds, but you're more vulnerable to hearing damage as a result. NOTE: This is a direct downgrade for Teshari!"
 	icon = FA_ICON_HEADPHONES_SIMPLE
-	value = 10 // IRIS EDIT - 6->10
+	value = 6
 	hidden_quirk = TRUE // disabled until reworked.
 	mob_trait = TRAIT_SENSITIVE_HEARING
 	gain_text = span_notice("You could hear a pin drop from 10 feet away.")
