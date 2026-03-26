@@ -63,7 +63,7 @@ ADMIN_VERB(play_direct_mob_sound, R_SOUND, "Play Direct Mob Sound", "Play a soun
 GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 
 ///Takes an input from either proc/play_web_sound or the request manager and runs it through yt-dlp and prompts the user before playing it to the server.
-/proc/web_sound(mob/user, input, credit)
+/proc/web_sound_legacy(mob/user, input, credit) // OCULIS EDIT CHANGE - FLOXY - ORIGINAL: /proc/web_sound(mob/user, input, credit)
 	if(!check_rights(R_SOUND))
 		return
 	var/ytdl = CONFIG_GET(string/invoke_youtubedl)
@@ -148,7 +148,12 @@ GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 		if(credit)
 			to_chat_message += span_notice("<br>[credit]")
 
-		to_chat(world, fieldset_block("Now Playing: [span_bold(music_extra_data["title"])] by [span_bold(music_extra_data["artist"])]", jointext(to_chat_message, ""), "boxed_message"))
+		var/list/recipients = list()
+		for(var/client/client as anything in GLOB.clients)
+			if(client.prefs.read_preference(/datum/preference/numeric/volume/sound_midi) > 0)
+				recipients += client
+		recipients |= user.client
+		to_chat(recipients, fieldset_block("Now Playing: [span_bold(music_extra_data["title"])] by [span_bold(music_extra_data["artist"])]", jointext(to_chat_message, ""), "boxed_message"))
 
 		SSblackbox.record_feedback("nested tally", "played_url", 1, list("[user.ckey]", "[input]"))
 		log_admin("[key_name(user)] played web sound: [input]")
@@ -180,12 +185,12 @@ GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 
 	CLIENT_COOLDOWN_START(GLOB, web_sound_cooldown, duration)
 
-	BLACKBOX_LOG_ADMIN_VERB("Play Internet Sound")
+	BLACKBOX_LOG_ADMIN_VERB("Play Internet Sound (Legacy)") // OCULIS EDIT CHANGE - FLOXY - ORIGINAL: BLACKBOX_LOG_ADMIN_VERB("Play Internet Sound")
 
-ADMIN_VERB_CUSTOM_EXIST_CHECK(play_web_sound)
+ADMIN_VERB_CUSTOM_EXIST_CHECK(play_web_sound_legacy) // OCULIS EDIT CHANGE - FLOXY - ORIGINAL: ADMIN_VERB_CUSTOM_EXIST_CHECK(play_web_sound)
 	return !!CONFIG_GET(string/invoke_youtubedl)
 
-ADMIN_VERB(play_web_sound, R_SOUND, "Play Internet Sound", "Play a given internet sound to all players.", ADMIN_CATEGORY_FUN)
+ADMIN_VERB(play_web_sound_legacy, R_SOUND, "Play Internet Sound (Legacy)", "Play a given internet sound to all players.", ADMIN_CATEGORY_FUN) // OCULIS EDIT CHANGE - FLOXY - ORIGINAL: ADMIN_VERB(play_web_sound, R_SOUND, "Play Internet Sound", "Play a given internet sound to all players.", ADMIN_CATEGORY_FUN)
 	if(!CLIENT_COOLDOWN_FINISHED(GLOB, web_sound_cooldown))
 		if(tgui_alert(user, "Someone else is already playing an Internet sound! It has [DisplayTimeText(CLIENT_COOLDOWN_TIMELEFT(GLOB, web_sound_cooldown), 1)] remaining. \
 		Would you like to override?", "Musicalis Interruptus", list("No","Yes")) != "Yes")
@@ -199,9 +204,9 @@ ADMIN_VERB(play_web_sound, R_SOUND, "Play Internet Sound", "Play a given interne
 			to_chat(user, span_boldwarning("Non-http(s) URIs are not allowed."), confidential = TRUE)
 			to_chat(user, span_warning("For youtube-dl shortcuts like ytsearch: please use the appropriate full URL from the website."), confidential = TRUE)
 			return
-		web_sound(user.mob, web_sound_input)
+		web_sound_legacy(user.mob, web_sound_input) // OCULIS EDIT CHANGE - FLOXY - ORIGINAL: web_sound(user.mob, web_sound_input)
 	else
-		web_sound(user.mob, null)
+		web_sound_legacy(user.mob, null) // OCULIS EDIT CHANGE - FLOXY - ORIGINAL: web_sound(user.mob, null)
 
 ADMIN_VERB(set_round_end_sound, R_SOUND, "Set Round End Sound", "Set the sound that plays on round end.", ADMIN_CATEGORY_FUN, sound as sound)
 	var/volume = tgui_input_number(user, "What volume would you like this sound to play at?", max_value = 100)

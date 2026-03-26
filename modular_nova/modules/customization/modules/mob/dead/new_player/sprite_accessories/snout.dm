@@ -1,6 +1,6 @@
 /datum/sprite_accessory/snouts
 	key = FEATURE_SNOUT
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/lizard_snouts.dmi'
+	//icon = 'modular_nova/master_files/icons/mob/sprite_accessory/lizard_snouts.dmi' //OCULIS REMOVAL - modern tg lizards
 	flags_for_organ = SPRITE_ACCESSORY_USE_MUZZLED_SPRITE
 	organ_type = /obj/item/organ/snout
 	recommended_species = list(
@@ -528,6 +528,10 @@
 	icon_state = "leporid"
 	color_src = USE_MATRIXED_COLORS
 	flags_for_organ = NONE
+
+/datum/sprite_accessory/snouts/mammal/snaggletooth
+	name = "Snaggletooth"
+	icon_state = "snaggletooth"
 
 /datum/sprite_accessory/snouts/mammal/acrador
 	name = "Acrador (Short)"

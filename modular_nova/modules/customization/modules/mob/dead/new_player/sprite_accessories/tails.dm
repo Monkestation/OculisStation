@@ -40,7 +40,7 @@
 	natural_spawn = FALSE
 
 /datum/sprite_accessory/tails/lizard
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
+	//icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi' //OCULIS REMOVAL - modern tg lizards
 	recommended_species = list(
 		SPECIES_LIZARD = 1,
 		SPECIES_LIZARD_ASH = 1,
@@ -491,6 +491,11 @@
 /datum/sprite_accessory/tails/mammal/wagging/tailmaw/wag
 	name = "Tailmaw (Wag)"
 	icon_state = "tailmawwag"
+
+/datum/sprite_accessory/tails/mammal/wagging/tailmaw/stripedhead
+	name = "Tailmaw (Striped, Coloured Head)"
+	icon_state = "tailmawwag_stripedhead"
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/tails/mammal/wagging/tentacle
 	name = "Tentacle"

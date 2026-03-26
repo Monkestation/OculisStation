@@ -437,12 +437,7 @@
 		if(tgui_alert(usr, "Send [key_name(M)] to Prison?", "Message", list("Yes", "No")) != "Yes")
 			return
 
-		// NOVA EDIT ADDITION START - Immersion-friendly Admin Prison
-		var/datum/effect_system/spark_spread/quantum/sparks = new
-		sparks.set_up(10, 1, M)
-		sparks.attach(M.loc)
-		sparks.start()
-		// NOVA EDIT ADDITION END
+		do_sparks(10, TRUE, M, spark_type = /datum/effect_system/basic/spark_spread/quantum) // NOVA EDIT ADDITION - Immersion-friendly Admin Prison
 		M.forceMove(pick(GLOB.prisonwarp))
 		to_chat(M, span_adminnotice("You have been sent to Prison!"), confidential = TRUE)
 
@@ -1460,7 +1455,12 @@
 		if(!link_url)
 			return
 
-		web_sound(usr, link_url, credit)
+		// OCULIS EDIT ADDITION START - FLOXY
+		if(href_list["legacy"] || !CONFIG_GET(string/floxy_url))
+			web_sound_legacy(usr, link_url, credit)
+		else
+			web_sound(usr, link_url, credit)
+		// OCULIS EDIT ADDITION END
 
 	else if(href_list["debug_z_levels"])
 		return SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/debug_z_levels)

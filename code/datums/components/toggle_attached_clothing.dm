@@ -213,3 +213,4 @@
 		return
 	var/mob/living/carbon/human/wearer = deployable.loc
 	wearer.transferItemToLoc(deployable, parent, force = TRUE, silent = TRUE)
+	wearer.update_body_parts() // OCULIS EDIT ADDITION - fix issue with ears and such not properly rendering when toggling a hood down

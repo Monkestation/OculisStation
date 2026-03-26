@@ -98,8 +98,7 @@
 		unlucky_mob.Stun(1.5 SECONDS)
 		unlucky_mob.Knockdown(10 SECONDS)
 		unlucky_mob.adjust_fire_loss(15)
-		var/datum/effect_system/lightning_spread/s = new /datum/effect_system/lightning_spread
-		s.set_up(5, 1, unlucky_mob.loc)
+		var/datum/effect_system/basic/lightning_spread/s = new /datum/effect_system/basic/lightning_spread(unlucky_mob.loc, 5, TRUE)
 		s.start()
 		unlucky_mob.visible_message(span_danger("[unlucky_mob.name] is shocked by [src]!"), \
 		span_userdanger("You feel a powerful shock course through your body!"), \
