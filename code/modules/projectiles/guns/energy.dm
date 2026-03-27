@@ -49,6 +49,8 @@
 	var/self_charge_amount = STANDARD_ENERGY_GUN_SELF_CHARGE_RATE
 	/// sound played when fire mode select is done
 	var/fire_mode_switch_sound = SFX_FIRE_MODE_SWITCH
+	/// OCULIS EDIT stored missing charge for powerpacks
+	var/missing_charge = 0
 
 	// EMP related vars
 
@@ -374,3 +376,20 @@
 	cell.charge = cell.maxcharge
 	recharge_newshot(no_cyborg_drain = TRUE)
 	update_appearance()
+
+
+//OCULIS ADDITION BEGIN
+/obj/item/gun/energy/attackby(obj/item/stock_parts/power_store/cell/powerpack/I, mob/living/user)
+	if(!istype(I))
+		user.visible_message(span_danger("[user] Isn't using a powerpack"))
+		return ..()
+	missing_charge = cell.maxcharge - cell.charge
+	user.visible_message(span_danger("[user] is missing [missing_charge] from their gun"))
+	if(missing_charge > I.charge)
+		cell.charge += I.charge
+		user.visible_message(span_danger("[user] is draining the entire powerpack into their gun"))
+		I.charge = 0
+		return
+	cell.charge += max(0, I.charge - missing_charge)
+	user.visible_message(span_danger("[user] Is draining part of their powerpack into their gun"))
+	I.charge = max(0, I.charge - missing_charge)
