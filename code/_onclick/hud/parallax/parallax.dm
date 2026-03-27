@@ -1,3 +1,4 @@
+#define PARALLAX_ICON_SIZE 672 //IRIS EDIT
 /// Decides if parallax should be rendered or not, and sets things up accordingly
 /datum/hud/proc/check_parallax()
 	var/client/displaying_client = mymob.client
@@ -74,13 +75,13 @@
 	var/matrix/new_transform
 	switch(animation_dir)
 		if(NORTH)
-			new_transform = matrix(1, 0, 0, 0, 1, PARALLAX_ICON_SIZE) //IRIS EDIT
+			new_transform = matrix(1, 0, 0, 0, 1, PARALLAX_ICON_SIZE) // OCULIS EDIT
 		if(SOUTH)
-			new_transform = matrix(1, 0, 0, 0, 1,-PARALLAX_ICON_SIZE) //IRIS EDIT
+			new_transform = matrix(1, 0, 0, 0, 1,-PARALLAX_ICON_SIZE) // OCULIS EDIT
 		if(EAST)
-			new_transform = matrix(1, 0, PARALLAX_ICON_SIZE, 0, 1, 0) //IRIS EDIT
+			new_transform = matrix(1, 0, PARALLAX_ICON_SIZE, 0, 1, 0) // OCULIS EDIT
 		if(WEST)
-			new_transform = matrix(1, 0,-PARALLAX_ICON_SIZE, 0, 1, 0) //IRIS EDIT
+			new_transform = matrix(1, 0,-PARALLAX_ICON_SIZE, 0, 1, 0) // OCULIS EDIT
 
 	var/longest_timer = 0
 	for(var/key in displaying_client.parallax_animate_timers)
@@ -166,7 +167,7 @@
 
 			// This is how we tile parralax sprites
 			// It doesn't use change because we really don't want to animate this
-		//IRIS EDIT START
+			// OCULIS EDIT START
 			if(old_x - change_x > (PARALLAX_ICON_SIZE / 2))
 				parallax_layer.offset_x -= PARALLAX_ICON_SIZE
 				parallax_layer.pixel_w = parallax_layer.offset_x
@@ -179,7 +180,7 @@
 			else if(old_y - change_y < -(PARALLAX_ICON_SIZE / 2))
 				parallax_layer.offset_y += PARALLAX_ICON_SIZE
 				parallax_layer.pixel_z = parallax_layer.offset_y
-		//IRIS EDIT END
+			// OCULIS EDIT END
 
 		parallax_layer.offset_x -= change_x
 		parallax_layer.offset_y -= change_y
@@ -262,17 +263,19 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 		if(1)
 			return new /atom/movable/screen/parallax_layer/layer_1(null, null, owner)
 		if(2)
-			return new /atom/movable/screen/parallax_layer/layer_2(null, null, owner)
+			return new /atom/movable/screen/parallax_layer/stars(null, null, owner) // OCULIS EDIT, ORIGINAL: return new /atom/movable/screen/parallax_layer/layer_2(null, null, owner)
 		if(3)
 			return new /atom/movable/screen/parallax_layer/planet(null, null, owner)
 		if(4)
 			if(SSparallax.random_layer)
 				return new SSparallax.random_layer.type(null, null, owner, FALSE, SSparallax.random_layer)
+			/* // OCULIS EDIT REMOVAL START
 			else
 				return new /atom/movable/screen/parallax_layer/layer_3(null, null, owner)
 		if(5)
 			if(SSparallax.random_layer)
 				return new /atom/movable/screen/parallax_layer/layer_3(null, null, owner)
+			*/ //OCULIS EDIT REMOVAL END
 
 /atom/movable/screen/parallax_home/proc/regenerate_layers()
 	clear_layers()
@@ -461,4 +464,4 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 /atom/movable/screen/parallax_layer/planet/update_o()
 	return //Shit won't move
 
-#undef PARALLAX_ICON_SIZE //IRIS EDIT
+#undef PARALLAX_ICON_SIZE // OCULIS EDIT
