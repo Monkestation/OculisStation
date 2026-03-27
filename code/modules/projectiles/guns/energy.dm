@@ -386,10 +386,18 @@
 	missing_charge = cell.maxcharge - cell.charge
 	user.visible_message(span_danger("[user] is missing [missing_charge] from their gun"))
 	if(missing_charge > I.charge)
+		user.visible_message(span_danger("[cell.charge] is cell.charge"))
 		cell.charge += I.charge
 		user.visible_message(span_danger("[user] is draining the entire powerpack into their gun"))
+		user.visible_message(span_danger("[cell.charge] is post charge charge"))
 		I.charge = 0
+		recharge_newshot(no_cyborg_drain = TRUE)
+		update_appearance()
+		I.update_appearance()
 		return
 	cell.charge += max(0, I.charge - missing_charge)
 	user.visible_message(span_danger("[user] Is draining part of their powerpack into their gun"))
 	I.charge = max(0, I.charge - missing_charge)
+	recharge_newshot(no_cyborg_drain = TRUE)
+	update_appearance()
+	I.update_appearance()
