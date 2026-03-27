@@ -29,7 +29,7 @@
 	var/charge_message = get_charge_message()
 	if(charge_message)
 		. += charge_message
-
+/* OCULIS EDIT REMOVAL START - no. who thought this was a good idea?
 // Disablers
 /obj/item/gun/energy/disabler
 	selfcharge = TRUE
@@ -109,7 +109,7 @@
 /obj/item/gun/energy/meteorgun
 	selfcharge = TRUE
 	charge_delay = 15
-
+*/ //OCULIS EDIT REMOVAL END end
 // Crank guns + thermal pistols + instakill rifles + emplacements that shouldn't get self-charge or delay changes
 /obj/item/gun/energy/disabler/smoothbore
 	selfcharge = FALSE
