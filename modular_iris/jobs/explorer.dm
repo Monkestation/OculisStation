@@ -140,7 +140,11 @@
 // Lasers
 /obj/item/gun/energy/laser/carbine/explorer
 	pin = /obj/item/firing_pin/explorer
-	icon_state = "explorer-burst"
+	//OCULIS EDIT BEGIN
+	icon_state = "explorer_burst"
+	name = "\improper Modifed laser carbine"
+	desc = "This is a modified laser repeater with a built in kinetic energy amplifier allowing it to be charged by hand. Capable of firing a sustained volley of directed energy projectiles, though each individual projectile lacks the punch of the Type 5."
+
 
 /obj/item/gun/energy/laser/carbine/explorer/Initialize(mapload)
 	. = ..()
@@ -154,10 +158,14 @@
 		charge_move = IGNORE_USER_LOC_CHANGE, \
 	)
 
+	//OCULIS EDIT END
 
 /obj/item/gun/energy/laser/explorer
 	pin = /obj/item/firing_pin/explorer
+	//OCULIS EDIT BEGIN
 	icon_state = "explorer"
+	name = "\improper Modified laser gun"
+	desc = "This is a customized laser gun with a built in kinetic energy amplifier allowing it to be charged by hand. The workhorse of Nanotrasen's exploration forces."
 
 /obj/item/gun/energy/laser/explorer/Initialize(mapload)
 	. = ..()
@@ -170,6 +178,8 @@
 		charge_sound_cooldown_time = 1.8 SECONDS, \
 		charge_move = IGNORE_USER_LOC_CHANGE, \
 	)
+
+	//OCULIS EDIT END
 
 // Pistols
 /obj/item/gun/ballistic/automatic/pistol/sol/explorer
