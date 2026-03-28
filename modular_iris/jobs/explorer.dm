@@ -140,9 +140,36 @@
 // Lasers
 /obj/item/gun/energy/laser/carbine/explorer
 	pin = /obj/item/firing_pin/explorer
+	icon_state = "explorer-burst"
+
+/obj/item/gun/energy/laser/carbine/explorer/Initialize(mapload)
+	. = ..()
+	AddComponent( \
+		/datum/component/crank_recharge, \
+		charging_cell = get_cell(), \
+		charge_amount = STANDARD_CELL_CHARGE * 0.1, \
+		cooldown_time = 2 SECONDS, \
+		charge_sound = 'sound/items/weapons/laser_crank.ogg', \
+		charge_sound_cooldown_time = 1.8 SECONDS, \
+		charge_move = IGNORE_USER_LOC_CHANGE, \
+	)
+
 
 /obj/item/gun/energy/laser/explorer
 	pin = /obj/item/firing_pin/explorer
+	icon_state = "explorer"
+
+/obj/item/gun/energy/laser/explorer/Initialize(mapload)
+	. = ..()
+	AddComponent( \
+		/datum/component/crank_recharge, \
+		charging_cell = get_cell(), \
+		charge_amount = STANDARD_CELL_CHARGE * 0.2, \
+		cooldown_time = 2 SECONDS, \
+		charge_sound = 'sound/items/weapons/laser_crank.ogg', \
+		charge_sound_cooldown_time = 1.8 SECONDS, \
+		charge_move = IGNORE_USER_LOC_CHANGE, \
+	)
 
 // Pistols
 /obj/item/gun/ballistic/automatic/pistol/sol/explorer
@@ -171,8 +198,8 @@
 	var/static/list/selectable_gun_types = list(
 		"Double Barrel Shotgun" = /obj/item/gun/ballistic/shotgun/doublebarrel/explorer,
 		"Harpoon Gun" = /obj/item/gun/ballistic/rifle/boltaction/harpoon/explorer,
-		"Laser Carbine" = /obj/item/gun/energy/laser/explorer,
-		"Laser Auto-Carbine" = /obj/item/gun/energy/laser/carbine/explorer,
+		"Modified Laser Carbine" = /obj/item/gun/energy/laser/explorer,
+		"Modifed Laser Auto-Carbine" = /obj/item/gun/energy/laser/carbine/explorer,
 		"Guêpe Pistol" = /obj/item/gun/ballistic/automatic/pistol/sol/explorer,
 		"Zashch Heavy Pistol" = /obj/item/gun/ballistic/automatic/pistol/zashch/explorer,
 		"Gwiazda Plasma Sharpshooter" = /obj/item/gun/ballistic/automatic/pistol/plasma_marksman/explorer,

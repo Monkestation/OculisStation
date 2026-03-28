@@ -381,22 +381,10 @@
 //OCULIS ADDITION BEGIN
 /obj/item/gun/energy/attackby(obj/item/stock_parts/power_store/cell/powerpack/I, mob/living/user)
 	if(!istype(I))
-		user.visible_message(span_danger("[user] Isn't using a powerpack"))
 		return ..()
 	missing_charge = cell.maxcharge - cell.charge
-	user.visible_message(span_danger("[user] is missing [missing_charge] from their gun"))
-	if(missing_charge > I.charge)
-		user.visible_message(span_danger("[cell.charge] is cell.charge"))
-		cell.charge += I.charge
-		user.visible_message(span_danger("[user] is draining the entire powerpack into their gun"))
-		user.visible_message(span_danger("[cell.charge] is post charge charge"))
-		I.charge = 0
-		recharge_newshot(no_cyborg_drain = TRUE)
-		update_appearance()
-		I.update_appearance()
-		return
-	cell.charge += clamp(missing_charge, 0, I.charge)
-	user.visible_message(span_danger("[user] Is draining part of their powerpack into their gun"))
+	cell.charge += min(missing_charge, I.charge)
+	user.visible_message(span_danger("[user] Is draining their powerpack into their gun"))
 	I.charge = max(0, I.charge - missing_charge)
 	recharge_newshot(no_cyborg_drain = TRUE)
 	update_appearance()
