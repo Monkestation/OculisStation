@@ -395,7 +395,7 @@
 		update_appearance()
 		I.update_appearance()
 		return
-	cell.charge += max(0, I.charge - missing_charge)
+	cell.charge += clamp(missing_charge, 0, I.charge)
 	user.visible_message(span_danger("[user] Is draining part of their powerpack into their gun"))
 	I.charge = max(0, I.charge - missing_charge)
 	recharge_newshot(no_cyborg_drain = TRUE)
