@@ -23,7 +23,7 @@ SUBSYSTEM_DEF(plexora)
 	init_stage = INITSTAGE_EARLY
 
 #ifdef UNIT_TESTS
-	flags = SS_NO_INIT | SS_NO_FIRE
+	ss_flags = SS_NO_INIT | SS_NO_FIRE
 #endif
 
 	/// This gets set to TRUE or FALSE during is_plexora_alive, it's just initially null to so logging works properly without spamming
