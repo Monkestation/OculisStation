@@ -107,6 +107,11 @@
 	/// Counts how many humanoid deaths we've seen
 	var/deaths_witnessed = 0
 
+	// OCULIS EDIT ADDITION START
+	/// If this mind has set DNR or not.
+	var/dnr = FALSE
+	// OCULIS EDIT ADDITION END
+
 /datum/mind/New(_key)
 	key = _key
 	init_known_skills()

@@ -27,7 +27,7 @@
 /obj/item/keycard/nt_commsbuoy
 	name = "Nanotrasen comms buoy keycard"
 	desc = "A keycard with the NT logo prominently displayed. The last user broke off the end; the card can still swipe, but this won't insert \
-	into any chip readers now. On the back, mostly obscured by dried blood, the text \"SPINWARD\" is printed, followed by an illegible ID string."
+	into any chip readers now. On the back, mostly obscured by dried blood, the text \"Eidolon\" is printed, followed by an illegible ID string." // OCULIS EDIT
 	color = "#4c80b1"
 	puzzle_id = "nt_commsbuoy"
 
@@ -103,10 +103,11 @@
 	"}
 
 /obj/item/paper/fluff/ruins/nt_commsbuoy/inspection
-	name = "Spinward-NT-EBCB Inspection Report"
-	desc = "A few notes from the pre-activation inspection. Probably shouldn't still be here post-activation. Wait, how did this end up all the way into Cabriole sector?" //IRIS EDIT
+	name = "Eidolon-NT-EBCB Inspection Report" // OCULIS EDIT
+	desc = "A few notes from the pre-activation inspection. Probably shouldn't still be here post-activation. Wait, how did this end up all the way into Eidolon's sector?" // OCULIS EDIT
+	// OCULIS EDIT START
 	default_raw_text = {"
-	<center><h3>"SS13-Relay" Spinward NT-EBCB Pre-Activation Inspection</h3></center>
+	<center><h3>"SS13-Relay" Eidolon NT-EBCB Pre-Activation Inspection</h3></center>
 	<hr>
 	Alright, just a few notes for consideration before we launch this new model. Would really appreciate review and action on the listed items. <br>
 	- Open space on the exterior chassis. Nanotrasen insignia and paint? <u>Could sell advertising space?</u> <br>
@@ -125,7 +126,7 @@
 	trip.
 	<hr>
 	<center><h5><i>PROPERTY OF NANOTRASEN. DO NOT DISTRIBUTE.</i></h5></center>
-	"}
+	"} // OCULIS EDIT END
 
 /obj/machinery/computer/terminal/nt_commsbuoy
 	name = "satellite dish operations terminal"
@@ -199,7 +200,7 @@
 /obj/machinery/computer/terminal/nt_commsbuoy/relay
 	name = "long-range interstellar relay operations terminal"
 	upperinfo = "LONG-RANGE INTERSTELLAR RELAY OPERATIONS READOUT"
-	content = list(
+	content = list( // OCULIS EDIT START
 		"<b>19/07/2563</b> - Outbound Direct - <br>\
 		<i>From: totally_not_a_burner@kosmokomm.net</i> <br>\
 		<i>To: john_doe_a_deer_a_female_deer@kosmokomm.net</i> <br>\
@@ -209,19 +210,19 @@
 		<center><b><i>PACKET FLAGGED AS SUSPICIOUS.</b> LOGGING FOR REVIEW.</i></center><hr>",
 
 		"<b>13/08/2563</b> - Outbound Direct - <br>\
-		<i>From: NT_S13TC_OFFICIAL@NTFIDspinward.nt</i> <br>\
-		<i>To: wilson_peters@NTFIDspinward.nt</i> <br>\
+		<i>From: NT_S13TC_OFFICIAL@NTFIDEidolon.nt</i> <br>\
+		<i>To: wilson_peters@NTFIDEidolon.nt</i> <br>\
 		<br>\
 		Hello, <br>\
 		Your ticket has been marked as Resolved with the following comment: <br>\
-		\"This is Spinward Sector 13 NT Traffic Control, reaching out to inform you that your ticket has been resolved. The relay should now \
+		\"This is Eidolon Sector 13 NT Traffic Control, reaching out to inform you that your ticket has been resolved. The relay should now \
 		be operating as expected. Please re-attempt sending that message again. If any other issue arises, open a new ticket.\" <br>\
 		Thank you for your patience and continued support. <br>\
-		<center><h5>The Spinward Project - brought to you by Nanotrasen Futures and Innovation Division, in partnership with Nanotrasen \
+		<center><h5>The Eidolon Project - brought to you by Nanotrasen Futures and Innovation Division, in partnership with Nanotrasen \
 		Heavy Industry.</h5></center><hr>",
 
 		"<b>14/08/2563</b> - Inbound to Forward - <br>\
-		<i>From: wilson_peters@NTFIDspinward.nt</i> <br>\
+		<i>From: wilson_peters@NTFIDEidolon.nt</i> <br>\
 		<i>Relay Target: PORT_ELLIS</i> <br>\
 		<br>\
 		Hey. I miss you. Hope we can holo-call again soon. <br>\
@@ -247,7 +248,7 @@
 		<br>\
 		I know you told me to stop messaging you, especially about this - but I thought you deserved to know, of all people. You were right. You were \
 		always right. Please... respond. Even just to tell me if *I* did something right. <br>\
-		<center><h5>The Spinward Project - brought to you by Nanotrasen Futures and Innovation Division, in partnership with Nanotrasen Heavy Industry.</h5></center><hr>",
+		<center><h5>The Eidolon Project - brought to you by Nanotrasen Futures and Innovation Division, in partnership with Nanotrasen Heavy Industry.</h5></center><hr>",
 
 		"<b>15/08/2563</b> - Outbound Direct - <br>\
 		<i>From: totally_not_a_burner@kosmokomm.net</i> <br>\
@@ -264,4 +265,4 @@
 		FILE ORIGIN TRACED TO NT STATION. LOCKDOWN INITIATED. <br>\
 		SECURITY ADVISORY RAISED TO: RED STAR. <br>\
 		NT-DAP DISPATCHED. TARGET: wilson_peters.</h5><hr>",
-	)
+	) // OCULIS EDIT END
