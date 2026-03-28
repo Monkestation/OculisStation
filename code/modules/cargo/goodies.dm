@@ -333,7 +333,7 @@
 
 /datum/supply_pack/goody/naturalbait
 	name = "Freshness Jars full of Natural Bait Single-Pack"
-	desc = "Homemade in the Cabriole Sector." //IRIS EDIT
+	desc = "Homemade in the Eidolon Sector." // OCULIS EDIT
 	cost = PAYCHECK_CREW * 4 //rock on
 	contains = list(/obj/item/storage/pill_bottle/naturalbait)
 
