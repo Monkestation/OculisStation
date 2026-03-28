@@ -208,8 +208,8 @@
 	var/static/list/selectable_gun_types = list(
 		"Double Barrel Shotgun" = /obj/item/gun/ballistic/shotgun/doublebarrel/explorer,
 		"Harpoon Gun" = /obj/item/gun/ballistic/rifle/boltaction/harpoon/explorer,
-		"Modified Laser Carbine" = /obj/item/gun/energy/laser/explorer,
-		"Modifed Laser Auto-Carbine" = /obj/item/gun/energy/laser/carbine/explorer,
+		"Modified Laser Carbine" = /obj/item/gun/energy/laser/explorer,	//OCULIS EDIT
+		"Modifed Laser Auto-Carbine" = /obj/item/gun/energy/laser/carbine/explorer,	//OCULIS EDIT
 		"Guêpe Pistol" = /obj/item/gun/ballistic/automatic/pistol/sol/explorer,
 		"Zashch Heavy Pistol" = /obj/item/gun/ballistic/automatic/pistol/zashch/explorer,
 		"Gwiazda Plasma Sharpshooter" = /obj/item/gun/ballistic/automatic/pistol/plasma_marksman/explorer,
