@@ -82,7 +82,7 @@
 	mask_type = /obj/item/clothing/mask/gas/atmos/captain
 	storage_type = /obj/item/tank/jetpack/captain
 	mod_type = /obj/item/mod/control/pre_equipped/magnate
-	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/swat/captain
+	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/swat/captain	//OCULIS EDIT
 
 /obj/machinery/suit_storage_unit/centcom
 	mask_type = /obj/item/clothing/mask/gas/atmos/centcom
@@ -92,30 +92,30 @@
 /obj/machinery/suit_storage_unit/engine
 	mask_type = /obj/item/clothing/mask/breath
 	mod_type = /obj/item/mod/control/pre_equipped/engineering
-	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/engine
+	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/engine	//OCULIS EDIT
 
 /obj/machinery/suit_storage_unit/atmos
 	mask_type = /obj/item/clothing/mask/gas/atmos
 	storage_type = /obj/item/watertank/atmos
 	mod_type = /obj/item/mod/control/pre_equipped/atmospheric
-	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/atmos
+	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/atmos	//OCULIS EDIT
 
 /obj/machinery/suit_storage_unit/ce
 	mask_type = /obj/item/clothing/mask/breath
 	storage_type = /obj/item/clothing/shoes/magboots/advance
 	mod_type = /obj/item/mod/control/pre_equipped/advanced
-	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/engine/elite
+	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/engine/elite	//OCULIS EDIT
 
 /obj/machinery/suit_storage_unit/security
 	mask_type = /obj/item/clothing/mask/gas/sechailer
 	mod_type = /obj/item/mod/control/pre_equipped/security
-	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/sec
+	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/sec	//OCULIS EDIT
 
 /obj/machinery/suit_storage_unit/hos
 	mask_type = /obj/item/clothing/mask/gas/sechailer
 	storage_type = /obj/item/tank/internals/oxygen
 	mod_type = /obj/item/mod/control/pre_equipped/safeguard
-	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/sec/hos
+	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/sec/hos	//OCULIS EDIT
 
 /obj/machinery/suit_storage_unit/mining
 	suit_type = /obj/item/clothing/suit/hooded/explorer
@@ -125,31 +125,31 @@
 	suit_type = null
 	mask_type = /obj/item/clothing/mask/breath
 	mod_type = /obj/item/mod/control/pre_equipped/mining
-	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/mining
+	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/mining	//OCULIS EDIT
 
 /obj/machinery/suit_storage_unit/medical
 	mask_type = /obj/item/clothing/mask/breath/medical
 	storage_type = /obj/item/tank/internals/oxygen
 	mod_type = /obj/item/mod/control/pre_equipped/medical
-	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/medical
+	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/medical	//OCULIS EDIT
 
 /obj/machinery/suit_storage_unit/cmo
 	mask_type = /obj/item/clothing/mask/breath/medical
 	storage_type = /obj/item/tank/internals/oxygen
 	mod_type = /obj/item/mod/control/pre_equipped/rescue
-	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/medical
+	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/medical	//OCULIS EDIT
 
 /obj/machinery/suit_storage_unit/rd
 	mask_type = /obj/item/clothing/mask/breath
 	storage_type = /obj/item/tank/internals/oxygen
 	mod_type = /obj/item/mod/control/pre_equipped/research
-	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/toxins
+	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/toxins	//OCULIS EDIT
 
 /obj/machinery/suit_storage_unit/syndicate
 	mask_type = /obj/item/clothing/mask/gas/syndicate
 	storage_type = /obj/item/tank/jetpack/harness
 	mod_type = /obj/item/mod/control/pre_equipped/nuclear
-	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/syndi
+	suit_type = /obj/item/clothing/head/helmet/space/hardsuit/syndi	//OCULIS EDIT
 
 /obj/machinery/suit_storage_unit/syndicate/lavaland
 	mod_type = /obj/item/mod/control/pre_equipped/nuclear/no_jetpack
