@@ -44,7 +44,7 @@
 		var/datum/atom_hud/DHUD = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
 		DHUD.hide_from(user)
 
-/obj/item/clothing/head/helmet/space/hardsuit/security/hos
+/obj/item/clothing/head/helmet/space/hardsuit/sec/hos
 	name = "head of security's hardsuit helmet"
 	desc = "A special bulky helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
 	icon_state = "hardsuit0-hos"
@@ -52,12 +52,12 @@
 	armor_type = /datum/armor/hardsuit/sec/hos
 
 
-/obj/item/clothing/suit/space/hardsuit/security/hos
+/obj/item/clothing/suit/space/hardsuit/sec/hos
 	icon_state = "hardsuit-hos"
 	name = "head of security's hardsuit"
 	desc = "A special bulky suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
 	armor_type = /datum/armor/hardsuit/sec/hos
-	hardsuit_helmet = /obj/item/clothing/head/helmet/space/hardsuit/security/hos
+	hardsuit_helmet = /obj/item/clothing/head/helmet/space/hardsuit/sec/hos
 //	/obj/item/tank/jetpack/attached_jetpack = /obj/item/tank/jetpack/suit
 	cell = /obj/item/stock_parts/power_store/cell/super
 
