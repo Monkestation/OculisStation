@@ -5,7 +5,7 @@
 /obj/item/clothing/suit/space/hardsuit
 	name = "hardsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has radiation shielding."
-	icon = 'modular_oculis/icons/obj/clothing/hardsuits/suit.dmi'
+	icon = 'modular_oculis/icons/obj/clothing/hardsuit/suit.dmi'
 	worn_icon = 'modular_oculis/icons/mob/clothing/hardsuit/hardsuit_body.dmi'
 	icon_state = "hardsuit-engineering"
 	max_integrity = 300
@@ -58,7 +58,7 @@
 
 /// Plays a sound when the helmet is toggled
 /obj/item/clothing/suit/space/hardsuit/proc/on_helmet_toggle()
-	playsound(loc, 'sound/mecha/mechmove03.ogg', 50, TRUE)
+	playsound(loc, 'sound/vehicles/mecha/mechmove03.ogg', 50, TRUE)
 
 /obj/item/clothing/suit/space/hardsuit/Destroy()
 	return ..()

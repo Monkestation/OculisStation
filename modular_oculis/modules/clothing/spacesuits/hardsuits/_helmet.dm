@@ -1,14 +1,14 @@
 /obj/item/clothing/head/helmet/space/hardsuit
 	name = "hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment. Has radiation shielding."
-	icon = 'monkestation/icons/obj/clothing/hardsuits/helmet.dmi'
-	worn_icon = 'monkestation/icons/mob/clothing/hardsuit/hardsuit_helm.dmi'
+	icon = 'modular_oculis/icons/obj/clothing/hardsuit/helmet.dmi'
+	worn_icon = 'modular_oculis/icons/mob/clothing/hardsuit/hardsuit_helm.dmi'
 	icon_state = "hardsuit0-engineering"
 	max_integrity = 300
 	armor_type = /datum/armor/hardsuit
 	flags_inv = HIDEMASK|HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEEYES
 	light_system = OVERLAY_LIGHT_DIRECTIONAL
-	light_outer_range = 4
+	light_range = 4
 	light_power = 1
 	light_on = FALSE
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT

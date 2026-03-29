@@ -21,7 +21,7 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT //this needed to be added a long fucking time ago
-	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/swat
+	hardsuit_helmet = /obj/item/clothing/head/helmet/space/hardsuit/swat
 
 // SWAT and Captain get EMP Protection
 /obj/item/clothing/suit/space/hardsuit/swat/Initialize(mapload)
@@ -40,6 +40,6 @@
 	desc = "A MK.II SWAT suit with streamlined joints and armor made out of superior materials, insulated against intense heat with the complementary gas mask. The most advanced tactical armor available. Usually reserved for heavy hitter corporate security, this one has a regal finish in Nanotrasen company colors. Better not let the assistants get a hold of it."
 	icon_state = "caparmor"
 	inhand_icon_state = "capspacesuit"
-	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/swat/captain
-	cell = /obj/item/stock_parts/cell/super
+	hardsuit_helmet = /obj/item/clothing/head/helmet/space/hardsuit/swat/captain
+	cell = /obj/item/stock_parts/power_store/cell/super
 

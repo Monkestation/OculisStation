@@ -15,7 +15,6 @@
 		/obj/item/ammo_casing,
 		/obj/item/gun/ballistic,
 		/obj/item/gun/energy,
-		/obj/item/gun/microfusion,
 		/obj/item/knife/combat,
 		/obj/item/melee/baton,
 		/obj/item/reagent_containers/spray/pepper,
@@ -23,7 +22,7 @@
 		/obj/item/storage/belt/holster/detective,
 		/obj/item/storage/belt/holster/nukie,
 		/obj/item/storage/belt/holster/energy,
-		/obj/item/clothing/mask/breath/sec_bandana,
+		/obj/item/clothing/mask/breath/,
 	)
 
 /obj/item/clothing/head/helmet/space/hardsuit/sec
@@ -33,11 +32,19 @@
 	armor_type = /datum/armor/hardsuit/sec
 	hardsuit_type = "sec"
 
-/obj/item/clothing/head/helmet/space/hardsuit/sec/New(loc, ...)
-	. = ..()
-	hud_glasses = new /obj/item/clothing/glasses/hud/security(src)
+/obj/item/clothing/head/helmet/space/hardsuit/sec/equipped(mob/living/carbon/human/user, slot)
+	..()
+	if (slot == ITEM_SLOT_HEAD)
+		var/datum/atom_hud/DHUD = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
+		DHUD.show_to(user)
 
-	/obj/item/clothing/head/helmet/space/hardsuit/security/hos
+/obj/item/clothing/head/helmet/space/hardsuit/sec/dropped(mob/living/carbon/human/user)
+	..()
+	if (user.head == src)
+		var/datum/atom_hud/DHUD = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
+		DHUD.hide_from(user)
+
+/obj/item/clothing/head/helmet/space/hardsuit/security/hos
 	name = "head of security's hardsuit helmet"
 	desc = "A special bulky helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
 	icon_state = "hardsuit0-hos"
@@ -50,7 +57,7 @@
 	name = "head of security's hardsuit"
 	desc = "A special bulky suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
 	armor = list(MELEE = 45, BULLET = 25, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 100, FIRE = 95, ACID = 95, WOUND = 25)
-	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/security/hos
+	hardsuit_helmet = /obj/item/clothing/head/helmet/space/hardsuit/security/hos
 	jetpack = /obj/item/tank/jetpack/suit
-	cell = /obj/item/stock_parts/cell/super
+	cell = /obj/item/stock_parts/power_store/cell/super
 

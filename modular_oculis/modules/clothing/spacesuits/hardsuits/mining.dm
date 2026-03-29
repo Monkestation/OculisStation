@@ -20,7 +20,7 @@
 	icon_state = "hardsuit0-mining"
 	armor_type = /datum/armor/hardsuit/mining/explorer
 	hardsuit_type = "mining"
-	light_outer_range = 7
+	light_range = 7
 
 /obj/item/clothing/head/helmet/space/hardsuit/mining/Initialize(mapload)
 	. = ..()

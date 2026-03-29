@@ -9,13 +9,12 @@
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | HEADINTERNALS
 	clothing_traits = list(
 		TRAIT_SNOWSTORM_IMMUNE,
-		TRAIT_ABATES_SHOCK,
 		TRAIT_ANALGESIA,
-		TRAIT_NO_SHOCK_BUILDUP,
+		TRAIT_SHOCKIMMUNE,
 	)
 	actions_types = null
 	var/static/list/huds_shown = list(
-		DATA_HUD_DIAGNOSTIC_BASIC,
+		DATA_HUD_DIAGNOSTIC,
 		DATA_HUD_SECURITY_BASIC,
 		DATA_HUD_MEDICAL_ADVANCED,
 	)
@@ -48,12 +47,12 @@
 	desc = "A hyper resilient suit created from several layers of exotic materials and alloys. An etching in the neck pressure seal reads \"Property of Gorlex Marauders.\""
 	icon_state = "hardsuit-juggernaut"
 	resistance_flags = ACID_PROOF | FIRE_PROOF
-	clothing_flags = BLOCKS_SHOVE_KNOCKDOWN | STOPSPRESSUREDAMAGE | THICKMATERIAL //you are a walking wall you can't shove a wall down!
+	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL //you are a walking wall you can't shove a wall down!
 	clothing_traits = list(
 		TRAIT_SNOWSTORM_IMMUNE,
-		TRAIT_ABATES_SHOCK,
 		TRAIT_ANALGESIA,
 		TRAIT_NO_SHOCK_BUILDUP,
+		TRAIT_BRAWLING_KNOCKDOWN_BLOCKED,
 	)
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT //Same as an emergency firesuit. Not ideal for extended exposure.
 	allowed = list(
@@ -76,7 +75,6 @@
 	hardsuit_helmet = /obj/item/clothing/head/helmet/space/hardsuit/juggernaut
 	cell = /obj/item/stock_parts/power_store/cell/super
 	light_system = OVERLAY_LIGHT_DIRECTIONAL
-	light_outer_range = 5
 	light_power = 1
 	light_on = FALSE
 	light_color = LIGHT_COLOR_GREEN
