@@ -342,8 +342,8 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	var/overlay_view = working_view
 	if (!overlay_view)
 		overlay_view = world.view
-	var/pixel_grid_size = ICON_SIZE_ALL * 15
-	var/parallax_scaler = ICON_SIZE_ALL / pixel_grid_size
+	//var/pixel_grid_size = ICON_SIZE_ALL * 15 // OCULIS REMOVAL, var is unused, at least at the moment, turn it on if it ever is
+	var/parallax_scaler = ICON_SIZE_ALL / PARALLAX_ICON_SIZE
 
 	// Turn the view size into a grid of correctly scaled overlays
 	var/list/viewscales = getviewsize(overlay_view)
@@ -355,8 +355,8 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 			if(x == 0 && y == 0)
 				continue
 			var/mutable_appearance/texture_overlay = tileable_appearance()
-			texture_overlay.pixel_w += pixel_grid_size * x
-			texture_overlay.pixel_z += pixel_grid_size * y
+			texture_overlay.pixel_w += PARALLAX_ICON_SIZE * x // OCULIS EDIT
+			texture_overlay.pixel_z += PARALLAX_ICON_SIZE * y // OCULIS EDIT
 			. += texture_overlay
 
 /atom/movable/screen/parallax_layer/proc/tileable_appearance()
