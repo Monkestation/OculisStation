@@ -289,7 +289,10 @@
 		to_chat(toggler, span_danger("You feel [src]'s thermal regulator switch [thermal_on ? "on" : "off"] by itself!"))
 
 /obj/item/clothing/suit/space/ui_action_click(mob/user, actiontype)
+	if(!istype(actiontype, /datum/action/item_action/toggle_spacesuit))
+		return ..()
 	toggle_spacesuit(user)
+
 
 // let emags override the temperature settings
 /obj/item/clothing/suit/space/emag_act(mob/user, obj/item/card/emag/emag_card)

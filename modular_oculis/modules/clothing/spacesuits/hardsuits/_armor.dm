@@ -85,3 +85,47 @@
 	bio = 100
 	fire = 75
 	acid = 75
+
+/datum/armor/hardsuit/sec/hos
+	melee = 45
+	bullet = 25
+	laser = 30
+	energy = 40
+	bomb = 25
+	bio = 100
+	fire = 95
+	acid = 95
+	wound = 25
+
+/datum/armor/hardsuit/swat
+	melee = 40
+	bullet = 50
+	laser = 50
+	energy = 60
+	bomb = 50
+	bio = 100
+	fire = 100
+	acid = 100
+	wound = 15
+
+/datum/armor/hardsuit/syndi
+	melee = 40
+	bullet = 50
+	laser = 30
+	energy = 40
+	bomb = 35
+	bio = 100
+	fire = 100
+	acid = 100
+	wound = 30
+
+/datum/armor/hardsuit/syndi/elite
+	melee = 60
+	bullet = 60
+	laser = 50
+	energy = 60
+	bomb = 55
+	bio = 100
+	fire = 100
+	acid = 100
+	wound = 25

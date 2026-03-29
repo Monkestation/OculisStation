@@ -30,6 +30,8 @@
 	var/obj/item/jetpack_module/jetpack_upgrade = null
 	/// Jetpack that is installed in our hardsuit
 	var/obj/item/tank/jetpack/attached_jetpack = null
+	/// alt description for combat mode syndicate suits
+	var/alt_desc = "ERROR"
 
 /obj/item/clothing/suit/space/hardsuit/Initialize(mapload)
 	. = ..()
@@ -43,6 +45,8 @@
 		on_deployed = CALLBACK(src, PROC_REF(on_helmet_toggle)),\
 		on_removed = CALLBACK(src, PROC_REF(on_helmet_toggle)),\
 	)
+
+
 
 /obj/item/clothing/suit/space/hardsuit/examine(mob/user)
 	. = ..()
@@ -234,5 +238,5 @@
 /obj/item/jetpack_module
 	name = "Jetpack fittings"
 	desc = "Has some hooks which allows you to attach any jetpack to any hardsuit."
-	icon = 'icons/obj/atmospherics/tank.dmi'
+	icon = 'modular_oculis/icons/obj/atmospherics/tank.dmi'
 	icon_state = "jetpack_module"

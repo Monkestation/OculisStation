@@ -1,19 +1,34 @@
 
+	//Syndicate hardsuit
+/obj/item/clothing/head/helmet/space/hardsuit/syndi
+	name = "blood-red hardsuit helmet"
+	desc = "A dual-mode advanced helmet designed for work in special operations. It is in EVA mode. Property of Gorlex Marauders."
+	var/alt_desc = "A dual-mode advanced helmet designed for work in special operations. It is in combat mode. Property of Gorlex Marauders."
+	icon_state = "hardsuit1-syndi"
+	inhand_icon_state = "syndie_helm"
+	hardsuit_type = "syndi"
+	armor_type = /datum/armor/hardsuit/syndi
+	on = TRUE
+	var/obj/item/clothing/suit/space/hardsuit/syndi/linkedsuit = null
+	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
+	visor_flags_inv = HIDEMASK|HIDEEYES|HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
+	visor_flags = STOPSPRESSUREDAMAGE
+
 
 /obj/item/clothing/suit/space/hardsuit/syndi
 	name = "blood-red hardsuit"
 	desc = "A dual-mode advanced hardsuit designed for work in special operations. It is in EVA mode. Property of Gorlex Marauders."
-	var/alt_desc = "A dual-mode advanced hardsuit designed for work in special operations. It is in combat mode. Property of Gorlex Marauders."
-	var/linkedsuit = ""
+	alt_desc = "A dual-mode advanced hardsuit designed for work in special operations. It is in combat mode. Property of Gorlex Marauders."
 	icon_state = "hardsuit1-syndi"
 	inhand_icon_state = "syndie_hardsuit"
 	hardsuit_type = "syndi"
 	w_class = WEIGHT_CLASS_NORMAL
-	armor = list(MELEE = 40, BULLET = 50, LASER = 30, ENERGY = 40, BOMB = 35, BIO = 100, FIRE = 50, ACID = 90, WOUND = 25)
+	armor_type = /datum/armor/hardsuit/syndi
 	allowed = list(/obj/item/gun, /obj/item/ammo_box,/obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	hardsuit_helmet = /obj/item/clothing/head/helmet/space/hardsuit/syndi
-	jetpack = /obj/item/tank/jetpack/suit
+///	/obj/item/tank/jetpack/attached_jetpack = /obj/item/tank/jetpack/suit
 	cell = /obj/item/stock_parts/power_store/cell/hyper
+
 
 //Elite Syndie suit
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite
@@ -22,7 +37,7 @@
 	alt_desc = "An elite version of the syndicate helmet, with improved armour and fireproofing. It is in combat mode. Property of Gorlex Marauders."
 	icon_state = "hardsuit1-syndielite"
 	hardsuit_type = "syndielite"
-	armor = list(MELEE = 60, BULLET = 60, LASER = 50, ENERGY = 60, BOMB = 55, BIO = 100, FIRE = 100, ACID = 100, WOUND = 25)
+	armor_type = /datum/armor/hardsuit/syndi/elite
 	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -34,7 +49,7 @@
 	icon_state = "hardsuit1-syndielite"
 	hardsuit_type = "syndielite"
 	hardsuit_helmet = /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite
-	armor = list(MELEE = 60, BULLET = 60, LASER = 50, ENERGY = 60, BOMB = 55, BIO = 100, FIRE = 100, ACID = 100, WOUND = 25)
+	armor_type = /datum/armor/hardsuit/syndi/elite
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -69,14 +84,15 @@
 		flags_inv &= ~visor_flags_inv
 		cold_protection &= ~HEAD
 	update_appearance()
-	playsound(src.loc, 'sound/mecha/mechmove03.ogg', 50, TRUE)
+	playsound(src.loc, 'sound/vehicles/mecha/mechmove03.ogg', 50, TRUE)
 	toggle_hardsuit_mode(user)
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
-		C.head_update(src, forced = 1)
+		C.update_appearance()
 	icon_state = "hardsuit[on]-[hardsuit_type]"
-	user.update_inv_head()
-	update_action_buttons()
+	user.update_worn_head()
+	update_item_action_buttons()
+
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/proc/toggle_hardsuit_mode(mob/user) //Helmet Toggles Suit Mode
 	if(linkedsuit)
@@ -95,6 +111,6 @@
 
 		linkedsuit.icon_state = "hardsuit[on]-[hardsuit_type]"
 		linkedsuit.update_appearance()
-		user.update_inv_wear_suit()
-		user.update_inv_w_uniform()
+		user.update_worn_oversuit()
+		user.update_worn_undersuit()
 		user.update_equipment_speed_mods()

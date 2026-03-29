@@ -51,7 +51,7 @@
 	clothing_traits = list(
 		TRAIT_SNOWSTORM_IMMUNE,
 		TRAIT_ANALGESIA,
-		TRAIT_NO_SHOCK_BUILDUP,
+		TRAIT_SHOCKIMMUNE,
 		TRAIT_BRAWLING_KNOCKDOWN_BLOCKED,
 	)
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT //Same as an emergency firesuit. Not ideal for extended exposure.
