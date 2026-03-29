@@ -129,3 +129,9 @@
 	fire = 100
 	acid = 100
 	wound = 25
+
+/datum/armor/hardsuit/engineering/elite
+	melee = 40
+	energy = 15
+	bomb = 50
+	acid = 90

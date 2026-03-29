@@ -75,3 +75,22 @@
 	var/datum/component/geiger_sound/GS = GetComponent(/datum/component/geiger_sound)
 	if(GS)
 		qdel(GS)
+
+
+/obj/item/clothing/head/helmet/space/hardsuit/engine/elite
+	name = "advanced hardsuit helmet"
+	desc = "An advanced helmet designed for work in a hazardous, low pressure environment. Shines with a high polish."
+	icon_state = "hardsuit0-white"
+	hardsuit_type = "white"
+	armor_type = /datum/armor/hardsuit/engineering/elite
+	heat_protection = HEAD
+	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
+
+/obj/item/clothing/suit/space/hardsuit/engine/elite
+	icon_state = "hardsuit-white"
+	name = "advanced hardsuit"
+	desc = "An advanced suit that protects against hazardous, low pressure environments. Shines with a high polish."
+	armor_type = /datum/armor/hardsuit/engineering/elite
+	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
+	hardsuit_helmet = /obj/item/clothing/head/helmet/space/hardsuit/engine/elite
