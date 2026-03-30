@@ -2,7 +2,7 @@
 	name = "shielded hardsuit"
 	desc = "A hardsuit with built in energy shielding. Will rapidly recharge when not under fire."
 	icon_state = "hardsuit-hos"
-	hardsuit_helmet = /obj/item/clothing/head/helmet/space/hardsuit/security/hos
+	hardsuit_helmet = /obj/item/clothing/head/helmet/space/hardsuit/sec/hos
 	allowed = null
 	armor_type = /datum/armor/hardsuit/sec
 	resistance_flags = FIRE_PROOF | ACID_PROOF
