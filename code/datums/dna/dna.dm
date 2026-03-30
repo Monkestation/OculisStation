@@ -108,10 +108,12 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		else
 			new_dna.holder.set_species(species.type, icon_update = 0)
 			// NOVA EDIT ADDITION END
+		new_dna.species.copy_properties_from(species) // OCULIS EDIT ADDITION
 	else
 		new_dna.blood_type = blood_type
 		if(transfer_flags & COPY_DNA_SPECIES)
 			new_dna.species = new species.type
+			new_dna.species.copy_properties_from(species) // OCULIS EDIT ADDITION
 	if(transfer_flags & COPY_DNA_MUTATIONS && holder?.can_mutate())
 		// Mutations aren't gc managed, but they still aren't templates
 		// Let's do a proper copy

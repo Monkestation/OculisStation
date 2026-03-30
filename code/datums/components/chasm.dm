@@ -267,7 +267,7 @@ GLOBAL_LIST_EMPTY(chasm_fallen_mobs)
 
 /obj/effect/abstract/chasm_storage/Entered(atom/movable/arrived)
 	. = ..()
-	if(isliving(arrived))
+	if(isliving(arrived) || is_slime_core(arrived)) // OCULUS EDIT CHANGE - ORIGINAL: if(isliving(arrived))
 		//Mobs that have fallen in reserved area should be deleted to avoid fishing stuff from the deathmatch or VR.
 		if(is_reserved_level(loc.z) && !istype(get_area(loc), /area/shuttle))
 			qdel(arrived)
@@ -277,7 +277,7 @@ GLOBAL_LIST_EMPTY(chasm_fallen_mobs)
 
 /obj/effect/abstract/chasm_storage/Exited(atom/movable/gone)
 	. = ..()
-	if(isliving(gone))
+	if(isliving(gone) || is_slime_core(gone)) // OCULUS EDIT CHANGE - ORIGINAL: if(isliving(gone))
 		UnregisterSignal(gone, COMSIG_LIVING_REVIVE)
 		LAZYREMOVE(GLOB.chasm_fallen_mobs[get_chasm_category(loc)], gone)
 
@@ -286,8 +286,15 @@ GLOBAL_LIST_EMPTY(chasm_fallen_mobs)
 	var/old_cat = get_chasm_category(old_turf)
 	var/new_cat = get_chasm_category(new_turf)
 	var/list/mobs = list()
+	/* // OCULIS EDIT REMOVAL START - ORIGINAL:
 	for(var/mob/fallen in src)
 		mobs += fallen
+	*/ // OCULIS EDIT REMOVAL END
+	// OCULIS EDIT ADDITION START
+	for(var/fallen in src)
+		if(ismob(fallen) || is_slime_core(fallen))
+			mobs += fallen
+	// OCULIS EDIT ADDITION END
 	LAZYREMOVE(GLOB.chasm_fallen_mobs[old_cat], mobs)
 	LAZYADD(GLOB.chasm_fallen_mobs[new_cat], mobs)
 
