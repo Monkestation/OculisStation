@@ -3455,6 +3455,13 @@
 /obj/structure/reagent_dispensers/wall/peppertank/directional/south,
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/effect/turf_decal/trimline/red/line,
+/obj/structure/rack,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/item/gun/energy/ionrifle{
+	pixel_y = 4
+	},
+/obj/item/gun/energy/temperature/security,
+/obj/item/clothing/suit/hooded/ablative,
 /turf/open/floor/iron/dark/textured_edge,
 /area/station/security/armory)
 "bcs" = (
@@ -6684,7 +6691,6 @@
 	},
 /obj/machinery/light/directional/north,
 /obj/machinery/light_switch/directional/north,
-/obj/structure/rack,
 /turf/open/floor/iron/dark/textured_edge{
 	dir = 8
 	},
@@ -7054,11 +7060,7 @@
 /area/station/command/heads_quarters/blueshield)
 "cgX" = (
 /obj/structure/rack,
-/obj/item/wirecutters{
-	pixel_y = 5
-	},
 /obj/effect/turf_decal/bot,
-/obj/item/crowbar/hammer,
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/security/interrogation)
@@ -21295,13 +21297,10 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 1
 	},
-/obj/machinery/modular_computer/preset/cargochat/security{
-	dir = 1
-	},
 /obj/machinery/light/directional/west{
 	dir = 2
 	},
-/obj/effect/turf_decal/trimline/brown/filled/end{
+/obj/machinery/computer/security{
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
@@ -21945,6 +21944,7 @@
 /obj/item/wrench,
 /obj/item/clothing/gloves/color/black,
 /obj/effect/mapping_helpers/burnt_floor,
+/obj/item/crowbar/hammer,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/department/security/lesser)
 "gDM" = (
@@ -24267,6 +24267,9 @@
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/effect/turf_decal/trimline/red/line,
+/obj/structure/rack,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/effect/spawner/random/armory/dragnet,
 /turf/open/floor/iron/dark/textured_edge,
 /area/station/security/armory)
 "hnU" = (
@@ -26955,8 +26958,10 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 1
 	},
-/obj/structure/reagent_dispensers/water_cooler,
 /obj/machinery/computer/security/telescreen/entertainment/directional/south,
+/obj/machinery/computer/records/security{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/security/office)
 "iaU" = (
@@ -27229,13 +27234,9 @@
 /obj/effect/turf_decal/trimline/red/line{
 	dir = 4
 	},
-/obj/structure/rack,
-/obj/item/clothing/suit/hooded/ablative,
-/obj/item/gun/energy/temperature/security,
-/obj/item/gun/energy/ionrifle{
-	pixel_y = 4
-	},
 /obj/machinery/light/directional/east,
+/obj/structure/rack,
+/obj/structure/secure_safe/directional/east,
 /turf/open/floor/iron/dark/textured_edge{
 	dir = 4
 	},
@@ -29204,6 +29205,11 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 4
+	},
+/obj/item/card/id/advanced{
+	name = "John Doe's ID Card (Assistant)";
+	registered_name = "John Doe";
+	registered_age = 21
 	},
 /turf/open/floor/iron/dark,
 /area/station/maintenance/abandon_wrestle)
@@ -34598,8 +34604,8 @@
 /obj/effect/turf_decal/trimline/red/line{
 	dir = 4
 	},
-/obj/machinery/dish_drive/bullet,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/dish_drive/bullet,
 /turf/open/floor/iron/dark/textured_edge{
 	dir = 4
 	},
@@ -46720,6 +46726,16 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/station/security/prison)
+"oeO" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 1
+	},
+/obj/structure/chair/office,
+/turf/open/floor/iron,
+/area/station/security/office)
 "oeS" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/monitored/nitrogen_input{
 	dir = 4
@@ -50280,6 +50296,12 @@
 	},
 /obj/item/radio/intercom/directional/south,
 /obj/effect/turf_decal/stripes/corner,
+/obj/machinery/modular_computer/preset/cargochat/security{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/brown/filled/end{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/security/office)
 "pjP" = (
@@ -50862,6 +50884,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/armory_kiboko,
 /turf/open/floor/iron/dark/textured_edge{
 	dir = 4
 	},
@@ -54382,6 +54405,7 @@
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
 	dir = 1
 	},
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/iron/dark,
 /area/station/security/office)
 "qvx" = (
@@ -77335,6 +77359,10 @@
 /obj/effect/landmark/blobstart,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/port/greater)
+"xno" = (
+/obj/structure/disposalpipe/junction,
+/turf/open/space/basic,
+/area/space)
 "xnC" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -99466,7 +99494,7 @@ sZF
 fHr
 aaa
 aaa
-aaa
+xno
 aaa
 aaa
 aaa
@@ -99721,7 +99749,7 @@ ygw
 hNC
 ckn
 aaa
-aaa
+xno
 aaa
 aaa
 aaa
@@ -99978,7 +100006,7 @@ jjc
 aaa
 acm
 aaa
-aaa
+xno
 aaa
 aaa
 aaa
@@ -102277,7 +102305,7 @@ gHM
 jig
 aEO
 cIk
-pMR
+oeO
 gtI
 aka
 fCT
