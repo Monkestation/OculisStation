@@ -19,7 +19,6 @@
 	name = "blood-red hardsuit"
 	desc = "An advanced hardsuit with built in energy shielding."
 	icon_state = "hardsuit1-syndi"
-	inhand_icon_state = "syndie_hardsuit"
 	hardsuit_type = "syndi"
 	armor_type = /datum/armor/hardsuit/syndi
 	allowed = list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
@@ -36,6 +35,5 @@
 	name = "blood-red hardsuit helmet"
 	desc = "An advanced hardsuit helmet with built in energy shielding."
 	icon_state = "hardsuit1-syndi"
-	inhand_icon_state = "syndie_helm"
 	hardsuit_type = "syndi"
 	armor_type = /datum/armor/hardsuit/syndi

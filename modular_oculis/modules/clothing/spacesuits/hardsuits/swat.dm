@@ -1,7 +1,6 @@
 /obj/item/clothing/head/helmet/space/hardsuit/swat
 	name = "\improper MK.II SWAT Helmet"
 	icon_state = "swat2helm"
-	inhand_icon_state = "swat2helm"
 	desc = "A tactical SWAT helmet MK.II."
 	armor_type = /datum/armor/hardsuit/swat
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -16,7 +15,6 @@
 	name = "\improper MK.II SWAT Suit"
 	desc = "A MK.II SWAT suit with streamlined joints and armor made out of superior materials, insulated against intense heat if worn with the complementary gas mask. The most advanced tactical armor available."
 	icon_state = "swat2"
-	inhand_icon_state = "swat2"
 	armor_type = /datum/armor/hardsuit/swat
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -39,7 +37,6 @@
 	name = "captain's SWAT suit"
 	desc = "A MK.II SWAT suit with streamlined joints and armor made out of superior materials, insulated against intense heat with the complementary gas mask. The most advanced tactical armor available. Usually reserved for heavy hitter corporate security, this one has a regal finish in Nanotrasen company colors. Better not let the assistants get a hold of it."
 	icon_state = "caparmor"
-	inhand_icon_state = "capspacesuit"
 	hardsuit_helmet = /obj/item/clothing/head/helmet/space/hardsuit/swat/captain
 	cell = /obj/item/stock_parts/power_store/cell/super
 

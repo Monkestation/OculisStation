@@ -5,7 +5,6 @@
 	desc = "A dual-mode advanced helmet designed for work in special operations. It is in EVA mode. Property of Gorlex Marauders."
 	var/alt_desc = "A dual-mode advanced helmet designed for work in special operations. It is in combat mode. Property of Gorlex Marauders."
 	icon_state = "hardsuit1-syndi"
-	inhand_icon_state = "syndie_helm"
 	hardsuit_type = "syndi"
 	armor_type = /datum/armor/hardsuit/syndi
 	on = TRUE
@@ -20,7 +19,6 @@
 	desc = "A dual-mode advanced hardsuit designed for work in special operations. It is in EVA mode. Property of Gorlex Marauders."
 	alt_desc = "A dual-mode advanced hardsuit designed for work in special operations. It is in combat mode. Property of Gorlex Marauders."
 	icon_state = "hardsuit1-syndi"
-	inhand_icon_state = "syndie_hardsuit"
 	hardsuit_type = "syndi"
 	w_class = WEIGHT_CLASS_NORMAL
 	armor_type = /datum/armor/hardsuit/syndi
