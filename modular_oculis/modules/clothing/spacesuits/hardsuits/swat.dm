@@ -30,7 +30,6 @@
 /obj/item/clothing/head/helmet/space/hardsuit/swat/captain
 	name = "captain's SWAT helmet"
 	icon_state = "capspace"
-	inhand_icon_state = "capspacehelmet"
 	desc = "A tactical MK.II SWAT helmet boasting better protection and a reasonable fashion sense."
 
 /obj/item/clothing/suit/space/hardsuit/swat/captain
