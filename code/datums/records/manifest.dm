@@ -109,10 +109,15 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 /// Injects a record into the manifest.
 /datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy, client/person_client) // NOVA EDIT CHANGE - RP Records - ORIGINAL: /datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy)
 	set waitfor = FALSE
-	if(!(person.mind?.assigned_role.job_flags & JOB_CREW_MANIFEST))
+
+	// OCULIS EDIT START - unassigned job so we need the check to not early return
+	var/is_hidden_stowaway = is_stowaway(person, person_client)
+
+	if(!is_hidden_stowaway && !(person.mind?.assigned_role.job_flags & JOB_CREW_MANIFEST))
 		return
+	// OCULIS EDIT END
 	// NOVA EDIT ADDITION START - Visitor ID -> no manifest
-	if(person.has_quirk(/datum/quirk/visitor) || ("Visitor ID" in person_client?.prefs.all_quirks))
+	if(!is_hidden_stowaway && (person.has_quirk(/datum/quirk/visitor) || ("Visitor ID" in person_client?.prefs.all_quirks))) // OCULIS EDIT - ORIGINAL: if(person.has_quirk(/datum/quirk/visitor) || ("Visitor ID" in person_client?.prefs.all_quirks))
 		return inject_guest(person, person_client)
 	// NOVA EDIT ADDITION END
 
@@ -151,6 +156,11 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		locked_dna = record_dna,
 		mind_ref = person.mind,
 	)
+
+	// OCULIS EDIT START - they're in /datum/record/locked now, we can return
+	if(is_hidden_stowaway)
+		return
+	// OCULIS EDIT END
 
 	new /datum/record/crew(
 		age = person.age,

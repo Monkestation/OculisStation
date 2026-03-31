@@ -40,3 +40,219 @@
   - rscadd: Update to Windowed Dress (4 ALTS with grayscale)
   muratendmo:
   - rscadd: Heliostatic Coalition police surplus has been added to the SecDrobe.
+2026-03-23:
+  00-Steven, Ephemeralis, carpotoxin:
+  - rscadd: Every PDA now starts with the NTNRC chat client, including borgs and AIs!
+  - rscadd: 'The NTNRC chat client has a new common #general channel, which every
+      crewmember gets added to upon joining the station.'
+  - rscadd: A new NTNRC username preference has been added to the names menu. Your
+      NTNRC username is automatically set to this value.
+  - qol: Opening the NTNRC chat client will auto-open the common channel, if you haven't
+      left it.
+  - qol: NTNRC messages from your active chat channel now show up in the chat window
+      if your PDA is active and on your person.
+  - rscadd: The IRC keybind has been added (defaults to Shift-;), which lets you send
+      a message to your active NTNRC channel quickly so long as your PDA is in your
+      hands, on your belt, or in your ID slot. This also works for silicons without
+      those restrictions.
+  - rscadd: The station AI gets their own NTNRC chat-room to moderate.
+  Absolucy:
+  - balance: Unreadied players now count as half a player for roundstart dynamic calculations.
+  - rscadd: You can now wear pet collars.
+  - rscadd: Added pet collars as a loadout option.
+  - qol: Changing your body size with Alter Form will now quickly transition your
+      size smaller or larger, instead of just abruptly instantly resizing you.
+  - bugfix: Midround traitor (syndicate sleeper agent) prompting should actually work
+      now.
+  - bugfix: Eye emissive sprites are now properly aligned on characters with different
+      heights.
+  - rscadd: Added luxury slime medipens to the mining order console. They're similar
+      to luxury medipens, but are safe for slimeperson crew (albeit ONLY for them).
+      They're purple instead of blue, to avoid confusion.
+  - bugfix: Syndicate comms now actually works.
+  - rscadd: Adds "chasm filler capsules", which can be bought by miners, and thrown
+      into a chasm to fill it with thick dirt. The dirt has some slowdown when walked
+      over, tho.
+  - bugfix: Fixed removing the Undersized quirk not removing your squashability.
+  - balance: Mining scanners now fit in boots.
+  - rscadd: Activating Venomous Bite now has a balloon alert
+  - balance: Soft-spoken no longer affects radio messages.
+  - qol: Hovering over the vote HUD buttons will now update your mouse cursor to indicate
+      they're clickable.
+  - bugfix: The lavaland raptor ranch cabin now has working power again, and is protected
+      from ash storms.
+  - balance: Feast of Owls is a roundstart knowledge once more.
+  - bugfix: Fixed an issue where your ears wouldn't properly render after you put
+      a hood down, until you changed some other piece of clothing.
+  Absolucy, Bieyes:
+  - image: Made the sprites for the new luxury slime medipen look better.
+  Absolucy, ancient-engineer:
+  - rscadd: Added signboards, player craftable signs that display text above them
+      in the world that everyone can see!
+  - rscadd: Wooden signboards can be crafted with 5 wooden planks, but need a pen
+      to edit/clear.
+  - rscadd: Holographic signboards can be crafted with 5 iron, 5 cables, and 1 micro-laser,
+      and can change color, alongside allowing you to lock it to your ID, so that
+      only you can edit or clear it. An emag will permanently break the lock, tho!
+  - image: Signboard sprites by ancient-engineer.
+  - admin: Admins can see logs about signboard edits/changes via the "Signboards"
+      investigate log category.
+  Absolucy, dwasint:
+  - rscadd: Added A* pathfinding, currently used by the Navigate verb/button.
+  - rscadd: Navigation now works properly across multiple Z-levels, creating a full
+      path up/down stairs, instead of requiring you to re-use the navigator manually
+      when changing Z-levels.
+  Aozame04:
+  - image: added new taur.dmi
+  - code_imp: changed modular_nova to modular_oculis in taur_types so it uses the
+      new modular sprite.
+  BNGP0:
+  - rscadd: Added soulless quirk
+  - rscadd: Added no mirror reflection quirk
+  - balance: made underworld connections and magical skills quirks hidden from the
+      medical records.
+  - code_imp: added a variable that hides quirks from medical records
+  - bugfix: Negative knockback no longer resets to positive on every use
+  Cidcidd:
+  - rscadd: Five more drinks
+  Deadindamind:
+  - bugfix: custom margherita slices no longer default to an error icon
+  Gboster-0:
+  - bugfix: the sisyphus achievement works as intended on TG now
+  - bugfix: megafauna no longer drop their loot twice when killed (This was a bug)
+  KnigTheThrasher:
+  - map: fixed a certain room on serenity reverting back to it's original purpose
+      (this time permanently)
+  - map: kilo is up to date, again
+  - balance: removed ventcrawling from kobolds
+  - bugfix: kobolds get paid, equally this time
+  - rscadd: added wearable collars
+  - map: Lavaland and gulag have a (mostly) sustainable power source (again)
+  - bugfix: monkey portal storm and kobold invasion are now pop locked properly
+  - rscadd: You can now buy m1911 and its ammo types in cargo
+  - rscadd: Lizards now use modern tg sprites
+  MrTCo1:
+  - rscadd: Added three new hairstyles
+  - rscadd: Purple sky
+  Pockets-byte:
+  - rscadd: Added traditional thinking quirk
+  - rscadd: holosynths deactivate when killed. no more holographic dead bodies.
+  - rscadd: holosynths fade away into nothingness if their projector is destroyed.
+  Skies-Of-Blue:
+  - rscadd: Chemist, coroner, genetics, janitor, and virologist wintercoats are now
+      available in the loadout.
+  - rscadd: Coroner's jumpskirt and jumpsuit are now available in the loadout.
+  - bugfix: Iris added synth heads once again render properly
+  - bugfix: corrected typo in ESP quirk's desc
+  Sweettoothart:
+  - bugfix: Made bug abdomen sprites added by me fit digigrade too
+  XeonMations:
+  - rscdel: Removed to call SolGov's 911 line.
+  - qol: You can now add a headshot for your characters without needing any living
+      hours.
+  flleeppyy:
+  - admin: '"Play Internet Sound" now has a "Custom Title" option'
+  - server: added memorystats subsystem
+  - config: added 15 morbillion catgirls roundstart
+  - rscadd: plexora kick topic
+  - rscadd: OOC pronouns, you can change these in your preferences!
+  - bugfix: Moved map vote hud option to UI
+  - rscadd: Plexora
+  - rscadd: Mentors can now ping other mentors/staff
+  - rscadd: Added the ability to add lobby notices. These will show in the changelog,
+      latejoin menu, and in chat when you first join.
+  - bugfix: Relays verb is now useful + is configurable from server config
+  - server: Relays are configurable via config, see lobby_notices module
+  - bugfix: Fixed potential issue with setting opt in info on minds from users with
+      non-alphanumeric characters in their username.
+  - rscadd: New title screen, with updated banner/logo and parallax
+  - rscadd: Updated game icon
+  - bugfix: color changes now show in tgui-panel
+  - rscadd: toggle looc verb
+  - rscadd: any/all to pronouns
+  - rscadd: added some more image hosts for headshots, and allowed webps and gifs
+  - qol: use DisplayTimeText for "Time to Start"
+  - bugfix: collect data on shutdown if havent already
+  - rscdel: removes SQL game logging (seriously, what?)
+  - rscdel: game alert system that will never be used
+  prodirus:
+  - bugfix: Drones can now slide under doors again.
+2026-03-24:
+  Gboster-0:
+  - bugfix: fixed the game trying to make you sell chemical reactions for a public
+      bounty.
+  craftxbox:
+  - bugfix: sophontsimov no longer explicitly tells ais not to be sophont
+2026-03-25:
+  Absolucy:
+  - balance: Riding raptors on lavaland now gives them a slight speed boost, compared
+      to off of lavaland.
+  - balance: Raptors now have a 50% block chance if they're stuck on a goliath tentacle,
+      just because the poor things don't know how to move out of the way.
+  Absolucy, Flleeppyy:
+  - bugfix: Request/Play-Internet-Sound should be far more reliable now, even with
+      youtube links.
+2026-03-26:
+  Absolucy:
+  - rscadd: Added latejoin and midround heretics. However, they can only roll if there's
+      at least 1 head of staff, and 2 security members.
+  - rscadd: Revenants can now pick their own name!
+  - balance: Anyone with an Antag Opt-In status of Kill or Round Remove can be chosen
+      as a heretic sacrifice target, rather than just security and command.
+  Absolucy, Sorenon:
+  - qol: Added LOOC typing bubbles.
+2026-03-27:
+  Shroopy:
+  - rscadd: Added prisoner IDs to Serenity Station.
+2026-03-28:
+  Absolucy:
+  - rscadd: Added a character pref to opt-out of being chosen for the "Employee Birthday"
+      station trait.
+  prodirus:
+  - bugfix: Stowaway quirk now works as intended, with them not showing up on records/manifest
+      or getting their arrival announced over radio.
+  - rscadd: Stowaways can now change the name on their fake ID in quirk settings.
+  - admin: removed Parallax modification admin tool.
+2026-03-29:
+  Absolucy, Siro:
+  - bugfix: Reviving slimepeople cores should now be far more reliable.
+  - rscadd: Slimepeople cores now store their items in them when they die.
+  - rscadd: You can either use the core in-hand to take all the items out and disable
+      the GPS signal, or double-examine it to see what individual items a core contains,
+      and fetch them from the core.
+  - rscadd: Added an ability for dead slimepeople, "Membrane Murmur", allowing them
+      to vocalize a short-range cry for help from their core every so often.
+  - qol: Slimepeople that are special revived not in a nugget state will reequip their
+      items automatically.
+  - balance: Water vapor now affects slimepeople. Starting at 1kPa partial pressure
+      it will do lung and blood damage. Max damage occurs at 8kPa. Hydrophobia does
+      not protect against this.
+  - qol: Slime Washing now eats grime off the floor when moving, not just every second.
+  - qol: Slime Washing now works if the user is lying down, even if they have shoes
+      on.
+  - qol: Slimepeople now have their core signal on by default.
+  - bugfix: Fixed the GPS name of slimepeople core being "Unknown's Core" sometimes.
+  - balance: Slimepeople can no longer catch on fire... since, well, you can't really
+      fire extinguish them, can you?
+  - balance: Slimepeople now need less oxygen to breathe. They still need SOME, and
+      they still need pressure, but like, they need slightly less.
+  - qol: Trying to pour plasma on a DNR slime core will just tell you that their soul
+      has departed.
+  - balance: Basic mask filters can prevent breathing in of water vapor.
+  - bugfix: Rescue hooks can now fish up slime cores.
+  - balance: Water exposure, i.e fire extinguishers, is now bad for slimepeople. This
+      can be mitigated with thick clothing (such as modsuits), or the Hydrophobia
+      ability (at the cost of notable slowdown)
+  - admin: Added a "Heal Slime Core" verb for admins.
+  - balance: Slimepeople can no longer regenerate limbs if they have Hydrophobia active
+      - turn off Hydrophobia to regenerate your limbs!
+2026-03-31:
+  KnigTheThrasher:
+  - qol: tweaked tgui colours for accessibility purposes
+  - balance: disabled sensitive hearing quirk (again)
+  Skies-Of-Blue:
+  - rscadd: The Witch Robe, Plague Doctor Suit, and all "Religious" clothing available
+      in loadout no longer forcefully cover your mutant parts. Remember you can use
+      the Show/Hide-Mutant-Parts verb to elect into the original behavior!
+  - balance: The loadout available Plague Doctor Suit no longer provides biosuit levels
+      of protection.

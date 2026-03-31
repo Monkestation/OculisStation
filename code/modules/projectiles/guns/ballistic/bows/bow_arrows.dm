@@ -124,10 +124,12 @@
 // completely dogshit quality and they break when they hit something.
 /obj/item/ammo_casing/arrow/plastic
 	name = "plastic arrow"
-	desc = "The earliest mining teams within the Cabriole Sector were the somewhat stout ancestors of the modern settlers. These teams \
+	// OCULIS EDIT START
+	desc = "The earliest mining teams within the Eidolon Sector were the somewhat stout ancestors of the modern settlers. These teams \
 		found themselves often unable to access the quality materials they were digging up for equipment maintenance, all being sent off-site. \
-		Left with few options, and in need of a way to protect themselves in the hostile work environments of the Cabriole, they turned \
-		to the one material they had in abundance." //IRIS EDIT
+		Left with few options, and in need of a way to protect themselves in the hostile work environments of Eidolon, they turned \
+		to the one material they had in abundance."
+	// OCULIS EDIT END
 	icon_state = "plastic_arrow"
 	base_icon_state = "plastic_arrow"
 	projectile_type = /obj/projectile/bullet/arrow/plastic

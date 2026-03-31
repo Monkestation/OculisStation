@@ -18,13 +18,16 @@
 		TRAIT_MUTANT_COLORS,
 		TRAIT_TOXINLOVER,
 		TRAIT_EASYDISMEMBER,
+		TRAIT_NOFIRE, // OCULIS EDIT ADDITION - SLIMEPEOPLE
 	)
 	/// Ability to allow them to shapeshift their body around.
 	var/datum/action/innate/alter_form/alter_form
+	/* OCULIS EDIT REMOVAL START - SLIMEPEOPLE
 	/// Ability to allow them to clean themselves and their stuff.
 	var/datum/action/cooldown/spell/slime_washing/slime_washing
 	/// Ability to allow them to resist the effects of water.
 	var/datum/action/cooldown/spell/slime_hydrophobia/slime_hydrophobia
+	*/ // OCULIS EDIT REMOVAL END
 	/// Ability to allow them to turn their core's GPS on or off.
 	var/datum/action/innate/core_signal/core_signal
 
@@ -33,10 +36,12 @@
 	if(ishuman(new_jellyperson))
 		alter_form = new
 		alter_form.Grant(new_jellyperson)
+		/* OCULIS EDIT REMOVAL START - SLIMEPEOPLE
 		slime_washing = new
 		slime_washing.Grant(new_jellyperson)
 		slime_hydrophobia = new
 		slime_hydrophobia.Grant(new_jellyperson)
+		*/ // OCULIS EDIT REMOVAL END
 		core_signal = new
 		core_signal.Grant(new_jellyperson)
 
@@ -44,10 +49,12 @@
 	. = ..()
 	if(alter_form)
 		alter_form.Remove(former_jellyperson)
+	/* OCULIS EDIT REMOVAL START - SLIMEPEOPLE
 	if(slime_washing)
 		slime_washing.Remove(former_jellyperson)
 	if(slime_hydrophobia)
 		slime_hydrophobia.Remove(former_jellyperson)
+	*/ // OCULIS EDIT REMOVAL END
 	if(core_signal)
 		core_signal.Remove(former_jellyperson)
 
@@ -166,6 +173,7 @@
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
+/* // OCULIS EDIT REMOVAL START - SLIMEPEOPLE - moved to modular_oculis/modules/slimepeople/code/slime_core.dm
 /obj/item/organ/brain/slime
 	name = "core"
 	desc = "The central core of a slimeperson, technically their 'extract.' Where the cytoplasm, membrane, and organelles come from; perhaps this is also a mitochondria?"
@@ -353,6 +361,8 @@
 	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
 	return TRUE
 
+*/ // OCULIS EDIT REMOVAL END
+
 // HEALING SECTION
 // Handles passive healing and water damage for slimes and water-breathing variants.
 /datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick)
@@ -415,9 +425,10 @@
 		need_mob_update += slime.adjust_oxy_loss(-1 * seconds_per_tick, updating_health = FALSE)
 		if(need_mob_update)
 			slime.updatehealth()
-		if(slime.health < slime.maxHealth)
-			new /obj/effect/temp_visual/heal(get_turf(slime), COLOR_EFFECT_HEAL_RED)
+			/* if(slime.health < slime.maxHealth) */ // OCULIS EDIT REMOVAL - this should be under need_mob_update anyways
+			new /obj/effect/temp_visual/heal(get_turf(slime), slime.dna.features[FEATURE_MUTANT_COLOR] || COLOR_EFFECT_HEAL_RED) // OCULIS EDIT CHANGE - use mutcolor for this - ORIGINAL: new /obj/effect/temp_visual/heal(get_turf(slime), COLOR_EFFECT_HEAL_RED)
 
+/* OCULIS EDIT REMOVAL START - moved to SLIMEPEOPLE module: modular_oculis/modules/slimepeople/code/slime_bodyparts.dm: modular_oculis/modules/slimepeople/code/slime_bodyparts.dm
 /**
 * SLIME CLEANING ABILITY -
 * When toggled, slimes clean themselves and their equipment.
@@ -474,7 +485,9 @@
 
 /datum/status_effect/slime_washing/get_examine_text()
 	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of [owner.p_their()] body and vanishing.")
+*/ // OCULIS EDIT REMOVAL END
 
+/* OCULIS EDIT REMOVAL START - moved to SLIMEPEOPLE module: modular_oculis/modules/slimepeople/code/abilities/hydrophobia.dm
 /*
 * HYDROPHOBIA SPELL
 * Makes it so that slimes are waterproof, but slower, and they don't regenerate.
@@ -528,6 +541,7 @@
 
 /datum/status_effect/slime_hydrophobia/get_examine_text()
 	return span_notice("[owner.p_They()] is oozing out an oily coating onto [owner.p_their()] outer membrane, water rolling right off.")
+*/ // OCULIS EDIT REMOVAL END
 
 /datum/species/jelly/get_species_description()
 	return placeholder_description
@@ -601,6 +615,20 @@
 			SPECIES_PERK_NAME = "Shapeshifter",
 			SPECIES_PERK_DESC = "Slimes can alter their size and general shape.",
 		),
+		// OCULIS EDIT ADDITION START
+		list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "burn",
+			SPECIES_PERK_NAME = "Incombustible",
+			SPECIES_PERK_DESC = "Slimes cannot be set aflame.",
+		),
+		list(
+			SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
+			SPECIES_PERK_ICON = "wind",
+			SPECIES_PERK_NAME = "Anaerobic Lineage",
+			SPECIES_PERK_DESC = "Slimes don't require much oxygen to live."
+		),
+		// OCULIS EDIT ADDITION END
 	)
 
 	return to_add
