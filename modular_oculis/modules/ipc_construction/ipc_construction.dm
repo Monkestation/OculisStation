@@ -1,13 +1,15 @@
-/obj/item/synth_chest
+/mob/living/carbon/human/species/synth/empty
 	name = "synth assembly"
 	desc = "Prints out a fully prepared synthetic chest, ready for further construction."
-	icon = 'modular_nova/modules/bodyparts/icons/ipc_parts.dmi'
-	icon_state = "bshipc_chest"
 
-/obj/item/synth_chest/Initialize(mapload)
+/mob/living/carbon/human/species/synth/empty/Initialize(mapload)
+	var/mob/living/carbon/human/species/synth/synth_body = src
 	. = ..()
-	var/mob/living/carbon/human/species/synth/synth_body = new /mob/living/carbon/human/species/synth(get_turf(src))
-	/// Remove those bodyparts
+	/// death proc skips giving people a death moodlet so we use it before everything else
+	ADD_TRAIT(synth_body, TRAIT_EMOTEMUTE, type)
+	death()
+	REMOVE_TRAIT(synth_body, TRAIT_EMOTEMUTE, type)
+
 	for(var/synth_body_parts in synth_body.bodyparts)
 		var/obj/item/bodypart/bodypart = synth_body_parts
 		if(bodypart.body_part != CHEST)
@@ -15,14 +17,6 @@
 	/// Remove those organs
 	for (var/synth_organ in synth_body.organs)
 		qdel(synth_organ)
-
-	/// Update current body to be limbless
-	synth_body.update_icon()
-	ADD_TRAIT(synth_body, TRAIT_EMOTEMUTE, type)
-	synth_body.death()
-	REMOVE_TRAIT(synth_body, TRAIT_EMOTEMUTE, type)
-	/// Remove placeholder synth_chest
-	qdel(src)
 
 /datum/design/synth_construction
 	name = "Android Construction"
@@ -34,7 +28,7 @@
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/item/synth_chest
+	build_path = /mob/living/carbon/human/species/synth/empty
 	category = list(
 		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
 	)
