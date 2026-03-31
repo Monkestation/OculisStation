@@ -46,6 +46,11 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	if(old_stomach?.is_oversized) // don't override augments that are already oversized. Need to do this because augments get applied first, so quirks will overwrite them. TODO: Maybe the augments middleware should be renamed so it gets applied last.
 		return
 
+	// OCULIS EDIT ADDITION START
+	if(istype(old_stomach, /obj/item/organ/stomach/ethereal))	//If your oversized ethereal has a biobattery, keep it.
+		return
+	// OCULIS EDIT ADDITION END
+
 	var/obj/item/organ/stomach/oversized/new_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE GUTS! RIP AND TEAR YOUR HUGE GUTS!
 	oversized_quirk.old_organs += list(old_stomach)
 
