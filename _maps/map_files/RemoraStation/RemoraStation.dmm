@@ -53,13 +53,6 @@
 /obj/machinery/medical_kiosk,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
-"aaD" = (
-/obj/structure/table,
-/obj/item/stack/medical/wrap/gauze,
-/obj/item/stack/medical/mesh,
-/obj/item/stack/medical/suture,
-/turf/open/floor/iron/white/side,
-/area/station/medical/medbay/lobby)
 "aaE" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -1283,16 +1276,6 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/brown,
-/turf/open/floor/iron,
-/area/mine/eva)
-"anX" = (
-/obj/item/mod/module/thermal_regulator{
-	pixel_y = 9
-	},
-/obj/item/mod/module/thermal_regulator{
-	pixel_y = -5
-	},
-/obj/structure/rack/wooden,
 /turf/open/floor/iron,
 /area/mine/eva)
 "anY" = (
@@ -4235,6 +4218,23 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/pharmacy)
+"cfB" = (
+/obj/item/clothing/gloves/color/yellow,
+/obj/item/clothing/gloves/color/yellow,
+/obj/item/clothing/gloves/color/yellow,
+/obj/item/clothing/gloves/color/yellow,
+/obj/item/clothing/gloves/color/yellow,
+/obj/item/clothing/gloves/color/yellow,
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/machinery/firealarm/directional/south,
+/obj/item/mod/module/plasma_stabilizer,
+/obj/item/mod/module/thermal_regulator,
+/obj/item/mod/module/saddle,
+/turf/open/floor/iron,
+/area/station/engineering/main)
 "cfX" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
@@ -5456,14 +5456,6 @@
 	dir = 8
 	},
 /area/station/engineering/main)
-"dwK" = (
-/obj/structure/table,
-/obj/item/storage/box/handcuffs{
-	pixel_x = 1;
-	pixel_y = 3
-	},
-/turf/open/floor/iron,
-/area/station/security/office)
 "dwZ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6472,6 +6464,23 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron,
 /area/station/command/eva)
+"enk" = (
+/obj/structure/table,
+/obj/item/storage/box/rxglasses,
+/obj/item/gun/syringe,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/light/directional/east,
+/obj/structure/extinguisher_cabinet/directional/east,
+/obj/item/mod/module/plasma_stabilizer,
+/obj/item/mod/module/thermal_regulator,
+/obj/item/mod/module/saddle,
+/turf/open/floor/iron/cafeteria,
+/area/station/medical/storage)
 "enF" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "brigwindows";
@@ -8968,6 +8977,13 @@
 /obj/structure/filingcabinet/medical,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/cmo)
+"gzS" = (
+/obj/structure/table,
+/obj/item/stack/medical/wrap/gauze,
+/obj/item/stack/medical/mesh,
+/obj/item/stack/medical/suture,
+/turf/open/floor/iron/white/side,
+/area/station/medical/medbay/lobby)
 "gBa" = (
 /obj/effect/turf_decal/siding/purple{
 	dir = 10
@@ -9865,6 +9881,17 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
+"hxV" = (
+/obj/item/mod/module/thermal_regulator{
+	pixel_y = 9
+	},
+/obj/item/mod/module/thermal_regulator{
+	pixel_y = -5
+	},
+/obj/item/mod/module/saddle,
+/obj/structure/rack/wooden,
+/turf/open/floor/iron,
+/area/mine/eva)
 "hya" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/holofloor/wood,
@@ -17070,28 +17097,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/service/hydroponics,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
-"nSG" = (
-/obj/item/storage/medkit/toxin{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/book/manual/wiki/ordnance,
-/obj/item/clothing/mask/gas,
-/obj/structure/table/reinforced,
-/obj/item/computer_disk{
-	pixel_x = 7;
-	pixel_y = -7
-	},
-/obj/item/computer_disk{
-	pixel_x = 7;
-	pixel_y = 2
-	},
-/obj/item/computer_disk/ordnance{
-	pixel_x = 7;
-	pixel_y = 9
-	},
-/turf/open/floor/iron/white,
-/area/station/science/ordnance/testlab)
 "nSU" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -19576,6 +19581,28 @@
 /obj/effect/turf_decal/tile/dark_red/half,
 /turf/open/floor/iron/edge,
 /area/station/security/brig)
+"qel" = (
+/obj/item/storage/medkit/toxin{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/book/manual/wiki/ordnance,
+/obj/item/clothing/mask/gas,
+/obj/structure/table/reinforced,
+/obj/item/disk/computer{
+	pixel_x = 7;
+	pixel_y = -7
+	},
+/obj/item/disk/computer{
+	pixel_x = 7;
+	pixel_y = 2
+	},
+/obj/item/disk/computer/ordnance{
+	pixel_x = 7;
+	pixel_y = 9
+	},
+/turf/open/floor/iron/white,
+/area/station/science/ordnance/testlab)
 "qes" = (
 /turf/open/floor/iron/dark/side{
 	dir = 8
@@ -21451,6 +21478,17 @@
 	},
 /turf/open/floor/iron,
 /area/station/command/teleporter)
+"rOX" = (
+/obj/structure/table,
+/obj/item/storage/box/handcuffs{
+	pixel_x = 1;
+	pixel_y = 3
+	},
+/obj/item/mod/module/plasma_stabilizer,
+/obj/item/mod/module/thermal_regulator,
+/obj/item/mod/module/saddle,
+/turf/open/floor/iron,
+/area/station/security/office)
 "rPc" = (
 /turf/open/floor/plating,
 /area/station/science/ordnance/office)
@@ -21901,20 +21939,6 @@
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron,
 /area/station/security/office)
-"sln" = (
-/obj/item/clothing/gloves/color/yellow,
-/obj/item/clothing/gloves/color/yellow,
-/obj/item/clothing/gloves/color/yellow,
-/obj/item/clothing/gloves/color/yellow,
-/obj/item/clothing/gloves/color/yellow,
-/obj/item/clothing/gloves/color/yellow,
-/obj/structure/table/reinforced,
-/obj/effect/turf_decal/stripes/line{
-	dir = 5
-	},
-/obj/machinery/firealarm/directional/south,
-/turf/open/floor/iron/dark,
-/area/station/engineering/main)
 "smb" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/brown/fourcorners,
@@ -26884,20 +26908,6 @@
 	dir = 1
 	},
 /area/station/hallway/primary/central)
-"wEw" = (
-/obj/structure/table,
-/obj/item/storage/box/rxglasses,
-/obj/item/gun/syringe,
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/machinery/light/directional/east,
-/obj/structure/extinguisher_cabinet/directional/east,
-/turf/open/floor/iron/cafeteria,
-/area/station/medical/storage)
 "wEY" = (
 /turf/closed/wall,
 /area/station/science/xenobiology)
@@ -56724,7 +56734,7 @@ faD
 faD
 aqV
 ljI
-nSG
+qel
 uRY
 dxX
 iMv
@@ -58475,7 +58485,7 @@ fGa
 tJj
 blx
 pII
-dwK
+rOX
 rie
 kpR
 vud
@@ -61841,7 +61851,7 @@ bXU
 gFT
 ciG
 pZC
-aaD
+gzS
 aaC
 aCF
 pMK
@@ -64434,7 +64444,7 @@ sJX
 hKL
 adf
 grw
-wEw
+enk
 mni
 gtG
 bbK
@@ -69821,7 +69831,7 @@ dsg
 nSU
 ojh
 wTk
-sln
+cfB
 tLH
 dQY
 mCB
@@ -78383,7 +78393,7 @@ qRI
 gDl
 aAE
 suk
-anX
+hxV
 shB
 aoR
 apd
