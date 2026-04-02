@@ -275,7 +275,7 @@
 	success_sound = 'sound/items/taperecorder/taperecorder_close.ogg'
 	required_organ_flag = ORGAN_ROBOTIC & ORGAN_SYNTHETIC_FROM_SPECIES
 	blocked_organ_flag = NONE
-	heal_to_percent = 0
+	heal_to_percent = 0.25
 	failure_damage_percent = 0.2
 	repeatable = TRUE
 	time = 12 SECONDS //long and complicated
