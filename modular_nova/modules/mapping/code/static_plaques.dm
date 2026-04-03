@@ -6,32 +6,32 @@
 // Interdyne
 /obj/structure/plaque/static_plaque/golden/commission/interdyne_planetary_base // default. should go unused
 	icon_state = "commission_syndie"
-	desc = "IP Cabriole Sector Station\nModular Surfaceside Facility\nCommissioned 01/01/2550\n'Discovering Tomorrow'" // just so it doesn't look totally goofy if it breaks
+	desc = "IP Eidolon Sector Station\nModular Surfaceside Facility\nCommissioned 01/01/2550\n'Discovering Tomorrow'" // just so it doesn't look totally goofy if it breaks // OCULIS EDIT
 
 // Lavaland
 /obj/structure/plaque/static_plaque/golden/commission/interdyne_planetary_base/lavaland
-	desc = "IP Cabriole Sector Base 3c76928\nModular Surfaceside Facility\nCommissioned 11/19/2556\n'Tomorrow, from the Crucible of Today'"
+	desc = "IP Eidolon Sector Base 3c76928\nModular Surfaceside Facility\nCommissioned 11/19/2556\n'Tomorrow, from the Crucible of Today'" // OCULIS EDIT
 	// named after Skyrat commit 3c76928, which created lavaland_surface_syndicate_base1.dmm
 
 // Ice moon
 /obj/structure/plaque/static_plaque/golden/commission/interdyne_planetary_base/icemoon
-	desc = "IP Cabriole Sector Base 88172386\nModular Surfaceside Facility\nCommissioned 01/11/2561\n'Thawing out Progress'"
+	desc = "IP Eidolon Sector Base 88172386\nModular Surfaceside Facility\nCommissioned 01/11/2561\n'Thawing out Progress'" // OCULIS EDIT
 	// named after Skyrat commit 88172386, which put lavaland_surface_syndicate_base1.dmm on icebox
 
 //Removed Stations
 
 // Outpost Station: added March 28, 2021 (#4142), Removed April 6th, 2021 (#4695). Technically around for as long as Unitystation has been, but shh.
 /obj/structure/plaque/static_plaque/golden/commission/outpost
-	desc = "Cabriole Sector Station SS-14\n'Outpost' Class Outpost\nCommissioned 28/03/2561\nDecommissioned 06/04/2561\n'The Shopping Mall Of Stations'"
+	desc = "Eidolon Sector Station SS-14\n'Outpost' Class Outpost\nCommissioned 28/03/2561\nDecommissioned 06/04/2561\n'The Shopping Mall Of Stations'" // OCULIS EDIT
 
 
 // Ship Station: added Feburary 12, 2021 (#2680), Removed May 2nd, 2021 (#4695). (Orignally a /tg/station PR: #53185)
 /obj/structure/plaque/static_plaque/golden/commission/shipstation
-	desc = "Cabriole Sector Station SS-15\n'Ship' Class Outpost\nCommissioned 12/02/2561\nDecommissioned 02/05/2561\n'Helped The Local Economy'"
+	desc = "Eidolon Sector Station SS-15\n'Ship' Class Outpost\nCommissioned 12/02/2561\nDecommissioned 02/05/2561\n'Helped The Local Economy'" // OCULIS EDIT
 
 // NSS Journey: added April 19, 2021 (#4884), Removed May 18th, 2022 (#13694). Was modified boxstation.
 /obj/structure/plaque/static_plaque/golden/commission/nssjourney
-	desc = "Cabriole Sector Station SS-13\n'Box' Class Outpost (Revision 2.3: 'Journey')\nCommissioned 19/04/2561\n'Unbroken Champion'"
+	desc = "Eidolon Sector Station SS-13\n'Box' Class Outpost (Revision 2.3: 'Journey')\nCommissioned 19/04/2561\n'Unbroken Champion'" // OCULIS EDIT
 
 /// diorama plaques
 /obj/structure/sign/plaques/kiddie/diorama

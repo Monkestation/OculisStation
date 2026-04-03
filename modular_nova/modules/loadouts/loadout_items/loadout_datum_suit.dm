@@ -583,32 +583,32 @@
 //Religious Clothing (Workwear for Chaplain. Better sorted here than in Costumes)
 /datum/loadout_item/suit/chap_eastmonk
 	name = "Religious - Eastern Monk's Robe"
-	item_path = /obj/item/clothing/suit/chaplainsuit/monkrobeeast
+	item_path = /obj/item/clothing/suit/chaplainsuit/monkrobeeast/no_hide // OCULIS EDIT - ORIGINAL: item_path = /obj/item/clothing/suit/chaplainsuit/monkrobeeast
 	group = "Workwear"
 
 /datum/loadout_item/suit/chap_holiday
 	name = "Religious - Holiday Priest Robe"
-	item_path = /obj/item/clothing/suit/chaplainsuit/holidaypriest
+	item_path = /obj/item/clothing/suit/chaplainsuit/holidaypriest/no_hide // OCULIS EDIT - ORIGINAL: item_path = /obj/item/clothing/suit/chaplainsuit/holidaypriest
 	group = "Workwear"
 
 /datum/loadout_item/suit/chap_brownmonk
 	name = "Religious - Monk's Habit"
-	item_path = /obj/item/clothing/suit/hooded/chaplainsuit/monkhabit
+	item_path = /obj/item/clothing/suit/hooded/chaplainsuit/monkhabit/no_hide // OCULIS EDIT - ORIGINAL: item_path = /obj/item/clothing/suit/hooded/chaplainsuit/monkhabit
 	group = "Workwear"
 
 /datum/loadout_item/suit/chap_nun
 	name = "Religious - Nun's Robe"
-	item_path = /obj/item/clothing/suit/chaplainsuit/nun
+	item_path = /obj/item/clothing/suit/chaplainsuit/nun/no_hide // OCULIS EDIT - ORIGINAL: item_path = /obj/item/clothing/suit/chaplainsuit/nun
 	group = "Workwear"
 
 /datum/loadout_item/suit/chap_shrinehand
 	name = "Religious - Shrinehand's Robe"
-	item_path = /obj/item/clothing/suit/chaplainsuit/shrinehand
+	item_path = /obj/item/clothing/suit/chaplainsuit/shrinehand/no_hide // OCULIS EDIT - ORIGINAL: item_path = /obj/item/clothing/suit/chaplainsuit/shrinehand
 	group = "Workwear"
 
 /datum/loadout_item/suit/chap_blackmonk
 	name = "Religious - Tunic"
-	item_path = /obj/item/clothing/suit/chaplainsuit/habit
+	item_path = /obj/item/clothing/suit/chaplainsuit/habit/no_hide // OCULIS EDIT - ORIGINAL: item_path = /obj/item/clothing/suit/chaplainsuit/habit
 	group = "Workwear"
 
 /*
@@ -642,7 +642,7 @@
 
 /datum/loadout_item/suit/plague_doctor
 	name = "Plague Doctor Robes"
-	item_path = /obj/item/clothing/suit/bio_suit/plaguedoctorsuit
+	item_path = /obj/item/clothing/suit/bio_suit/plaguedoctorsuit/fake // OCULIS EDIT - ORIGINAL: item_path = /obj/item/clothing/suit/bio_suit/plaguedoctorsuit
 	group = "Costumes"
 
 /datum/loadout_item/suit/pg

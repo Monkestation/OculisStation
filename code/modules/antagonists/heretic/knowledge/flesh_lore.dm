@@ -158,6 +158,18 @@
 		selected_atoms += body
 		return TRUE
 
+	// OCULIS EDIT ADDITION START
+	var/obj/item/organ/brain/slime/slime_core = locate() in atoms
+	if(slime_core)
+		var/mob/living/carbon/human/new_slime_body = slime_core.rebuild_body(nugget = FALSE)
+		if(!QDELETED(new_slime_body))
+			// ELSE THE CORE GETS DELETED AND WEIRD SHIT HAPPENS
+			atoms -= slime_core
+			atoms += new_slime_body
+			selected_atoms += new_slime_body
+			return TRUE
+	// OCULIS EDIT ADDITION END
+
 	loc.balloon_alert(user, "ritual failed, no valid body!")
 	return FALSE
 

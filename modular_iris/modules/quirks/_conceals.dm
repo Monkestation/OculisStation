@@ -1,6 +1,3 @@
-/datum/quirk/item_quirk/stowaway
-	hidden = TRUE
-
 /datum/quirk/masquerade_food
 	hidden = TRUE
 
