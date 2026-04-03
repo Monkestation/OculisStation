@@ -333,7 +333,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 				confidential = TRUE)
 			for(var/client/staff as anything in GLOB.admins)
 				if(staff?.prefs.read_preference(/datum/preference/toggle/comms_notification))
-					SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
+					SEND_SOUND(staff, sound('modular_oculis/modules/fax_sound/sound/fax.ogg')) // OCULIS EDIT, ORIGINAL:  SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
 
 			if(GLOB.fax_autoprinting)
 				for(var/obj/machinery/fax/admin/FAX as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin))
