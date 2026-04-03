@@ -18,9 +18,9 @@
 			to_chat(usr, span_notice("Orbiting allowed for [src]."))
 			log_admin("[key_name(usr)] has allowed [src] to be orbited.")
 			message_admins(span_notice("[key_name(usr)] has allowed [src] to be orbited."))
-
 		else
 			ADD_TRAIT(src, TRAIT_ORBITING_FORBIDDEN, VV_MOB_TOGGLE_ORBITING)
+			QDEL_NULL(orbiters)
 			to_chat(usr, span_notice("Orbiting forbidden for [src]."))
 			log_admin("[key_name(usr)] has forbidden [src] to be orbited.")
 			message_admins(span_notice("[key_name(usr)] has forbidden [src] from being orbited."))
