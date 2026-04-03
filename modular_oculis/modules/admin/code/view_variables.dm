@@ -1,10 +1,10 @@
 #define VV_MOB_TOGGLE_ORBITING "toggle_orbiting"
 
-/mob/vv_get_dropdown()
+/atom/vv_get_dropdown()
 	. = ..()
 	VV_DROPDOWN_OPTION(VV_MOB_TOGGLE_ORBITING, "Toggle Orbiting")
 
-/mob/vv_do_topic(list/href_list)
+/atom/vv_do_topic(list/href_list)
 	. = ..()
 
 	if(!.)
