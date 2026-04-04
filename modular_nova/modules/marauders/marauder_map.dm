@@ -86,7 +86,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 
 //area
 /area/shuttle/traitor
+	//oculis edit 4/3/2026
 	requires_power = FALSE
+	//end oculis edit
 	name = "\proper Razorfeather 8E short-range cruiser"
 	flags_1 = NONE
 

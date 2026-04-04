@@ -40,7 +40,7 @@
 		addressed_to = name
 	else
 		addressed_to = "[first_name(name)]"
-
+//oculis edit 4/3/2026
 	add_raw_text("[addressed_to],")
 	add_raw_text("The last cargo technician has packed up delivery, the gear is restocked and the shuttle refueled. It seems you are still asleep, so instead I'll just leave this note. \n\n\
 		I know the place is a mess, but it has everything you need for a mission in a sector like The Orion Spur. \n\
@@ -49,3 +49,4 @@
 		Oh, and give Clover another headpat for me.")
 	add_raw_text("<font face=\"[SIGNATURE_FONT]\">[pick(GLOB.first_names)]</font>, \n\
 		Rotation operative [rand(2,12)]")
+//end oculis edit
