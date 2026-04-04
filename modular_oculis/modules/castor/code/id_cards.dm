@@ -11,7 +11,7 @@
 	registered_account = new(player_account = FALSE)
 	registered_account.account_id = ADMIN_ACCOUNT_ID // this is so bank_card_talk() can work.
 	registered_account.account_job = SSjob.get_job_type(/datum/job/castor)
-	registered_account.account_balance += 999999 // MONEY! We add more money to the account every time we spawn because it's a debug item and infinite money whoopie
+	registered_account.account_balance += 20000
 
 /obj/item/card/id/advanced/castor/alt_click_can_use_id(mob/living/user)
 	. = ..()
