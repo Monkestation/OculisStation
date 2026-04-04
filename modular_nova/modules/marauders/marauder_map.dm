@@ -86,7 +86,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 
 //area
 /area/shuttle/traitor
-	requires_power = TRUE
+	requires_power = FALSE
 	name = "\proper Razorfeather 8E short-range cruiser"
 	flags_1 = NONE
 
