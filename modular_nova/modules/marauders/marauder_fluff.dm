@@ -49,4 +49,4 @@
 		Oh, and give Clover another headpat for me.")
 	add_raw_text("<font face=\"[SIGNATURE_FONT]\">[pick(GLOB.first_names)]</font>, \n\
 		Rotation operative [rand(2,12)]")
-//end oculis edit
+//end oculis  edit
