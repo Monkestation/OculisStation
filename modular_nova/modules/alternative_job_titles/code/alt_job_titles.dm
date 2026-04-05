@@ -262,6 +262,7 @@
 	alt_titles = list(
 		"Detective",
 		"Detective Cadet",
+		"Junior Detective", // OCULIS EDIT ADDITION
 		"Forensic Specialist",
 		"Forensic Scientist",
 		"Forensic Technician",
