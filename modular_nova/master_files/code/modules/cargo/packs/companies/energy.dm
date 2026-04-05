@@ -112,9 +112,9 @@
 /datum/supply_pack/companies/energy/hc_surplus/stun_gun //Not a gun but it's only fair to place similar items close to each other
 	contains = list(/obj/item/melee/baton/security/stun_gun/loaded)
 	cost = CARGO_CRATE_VALUE * 1.5 //Similarly live action roleplay'iy stun baton lite
-	// access = FALSE // OCULIS EDIT
-	// access_view = FALSE // OCULIS EDIT
-	// express_lock = FALSE // OCULIS EDIT
+	access = FALSE
+	access_view = FALSE
+	express_lock = FALSE
 	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/energy/hc_surplus/zaibas

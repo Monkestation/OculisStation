@@ -219,3 +219,6 @@
 /datum/supply_pack/companies/ballistics/blacksteel/longbow
 	contains = list(/obj/item/gun/ballistic/bow/longbow)
 	cost = CARGO_CRATE_VALUE * 1.5
+	access = FALSE
+	access_view = FALSE
+	express_lock = FALSE
