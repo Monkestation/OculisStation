@@ -1,4 +1,3 @@
-/* OCULIS EDIT START - Gun cargo total death mark 1
 /datum/supply_pack/companies/energy
 	group = "★ Energy Weapons"
 	access = ACCESS_WEAPONS
@@ -12,8 +11,6 @@
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_weapons
 	cost = CARGO_CRATE_VALUE * 1.25
-	access = FALSE
-	access_view = FALSE
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
 
@@ -27,8 +24,8 @@
 /datum/supply_pack/companies/energy/microstar/basic_energy_weapons/disabler_smg
 	contains = list(/obj/item/gun/energy/disabler/smg)
 	cost = CARGO_CRATE_VALUE * 1.75
-	access = ACCESS_WEAPONS
-	access_view = ACCESS_WEAPONS
+	access = ACCESS_ARMORY	//OCULIS EDIT
+	access_view = ACCESS_ARMORY	//OCULIS EDIT
 	express_lock = TRUE
 	order_flags = ORDER_GOODY
 
@@ -43,34 +40,34 @@
 	cost = CARGO_CRATE_VALUE * 3
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons
+	access = ACCESS_ARMORY	//OCULIS EDIT
+	access_view = ACCESS_ARMORY	//OCULIS EDIT
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/laser
 	contains = list(/obj/item/gun/energy/laser)
 	cost = CARGO_CRATE_VALUE * 1.25
-	access = FALSE
-	access_view = FALSE
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/laser/soul
 	contains = list(/obj/item/gun/energy/laser/soul)
 
+
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/laser_carbine
 	contains = list(/obj/item/gun/energy/laser/carbine)
 	cost = CARGO_CRATE_VALUE * 1.75
-
+/* OCULIS EDIT START
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/laser_assault
 	contains = list(/obj/item/gun/energy/laser/assault)
 	cost = CARGO_CRATE_VALUE * 4
-
+*/ //OCULIS EDIT END
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/egun
 	contains = list(/obj/item/gun/energy/e_gun)
 	cost = CARGO_CRATE_VALUE * 2
-	access = FALSE
-	access_view = FALSE
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
 
+/* OCULIS EDIT START
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/mod_laser_small
 	contains = list(/obj/item/gun/energy/modular_laser_rifle/carbine)
 	cost = CARGO_CRATE_VALUE * 2.5
@@ -83,11 +80,17 @@
 	contains = list(/obj/item/gun/energy/modular_laser_rifle)
 	cost = CARGO_CRATE_VALUE * 4
 
+*/ // OCULIS EDIT END
+
 /datum/supply_pack/companies/energy/microstar/experimental_energy
 	cost = CARGO_CRATE_VALUE * 3
 
+
 /datum/supply_pack/companies/energy/microstar/experimental_energy/ion_carbine
 	contains = list(/obj/item/gun/energy/ionrifle/carbine)
+	access = ACCESS_ARMORY	//OCULIS EDIT
+	access_view = ACCESS_ARMORY	//OCULIS EDIT
+	//antiarmor weapon for the crew? why the **** not!
 
 // HC Weapons
 /datum/supply_pack/companies/energy/hc_surplus
@@ -97,16 +100,12 @@
 
 /datum/supply_pack/companies/energy/hc_surplus/plasma_marksman
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/plasma_marksman)
-	access = FALSE
-	access_view = FALSE
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/energy/hc_surplus/crank_taser
 	contains = list(/obj/item/gun/energy/taser/crank)
 	cost = CARGO_CRATE_VALUE * 2
-	access = FALSE
-	access_view = FALSE
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
 
@@ -121,8 +120,11 @@
 /datum/supply_pack/companies/energy/hc_surplus/zaibas
 	contains = list(/obj/item/gun/ballistic/automatic/pulse_rifle)
 	cost = CARGO_CRATE_VALUE * 6
+	access = ACCESS_ARMORY	//OCULIS EDIT
+	access_view = ACCESS_ARMORY	//OCULIS EDIT
 
 /datum/supply_pack/companies/energy/hc_surplus/zaibas_a
 	contains = list(/obj/item/gun/ballistic/rifle/pulse_sniper)
 	cost = CARGO_CRATE_VALUE * 7
-*/ // OCULIS EDIT END
+	access = ACCESS_ARMORY	//OCULIS EDIT
+	access_view = ACCESS_ARMORY	//OCULIS EDIT

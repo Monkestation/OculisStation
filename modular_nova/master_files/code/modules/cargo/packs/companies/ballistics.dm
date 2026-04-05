@@ -6,7 +6,7 @@
 	order_flags = ORDER_GOODY
 	discountable = SUPPLY_PACK_STD_DISCOUNTABLE
 
-/* //OCULIS EDIT START - guncargo-b-gone
+ //OCULIS EDIT START - guncargo-b-gone
 // NT Weapons
 
 /datum/supply_pack/companies/ballistics/nt
@@ -17,8 +17,6 @@
 	desc = "The HoS took your gun and your badge? No problem! Just pay the absurd taxation fee and you too can be reunited with the lethal power of a .38!"
 	cost = CARGO_CRATE_VALUE * 2.5
 	auto_name = FALSE
-	access = FALSE
-	access_view = FALSE
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
 	contains = list(/obj/item/gun/ballistic/revolver/c38/detective)
@@ -28,15 +26,15 @@
 	desc = "Lost your beloved bunny to a demonic invasion? Clown broke in and stole your beloved gun? No worries! Get a new gun as long as you can pay the absurd fees."
 	cost = CARGO_CRATE_VALUE * 2
 	auto_name = FALSE
-	access = FALSE
-	access_view = FALSE
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
 	contains = list(/obj/item/gun/ballistic/shotgun/doublebarrel)
 
+/* OCULIS EDIT START autoshotgun... why?
 /datum/supply_pack/companies/ballistics/nt/shotgun_automatic
 	cost = CARGO_CRATE_VALUE * 5
 	contains = list(/obj/item/gun/ballistic/shotgun/automatic/combat)
+*/ //OCULIS EDIT END
 
 /datum/supply_pack/companies/ballistics/nt/c38_super_kit
 	name = "NT/E \"Laevateinn\" Revolver Conversion Kit"
@@ -47,30 +45,25 @@
 		/obj/item/crafting_conversion_kit/c38_speedloader_plus,
 	)
 	auto_name = FALSE
-	access = FALSE
-	access_view = FALSE
+
+
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
-*/
+
 // Sol Fed Weapons
 /datum/supply_pack/companies/ballistics/sol_fed
-	cost = CARGO_CRATE_VALUE * 2.8
-/*
+
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm
-	cost = CARGO_CRATE_VALUE * 2
-	access = FALSE
-	access_view = FALSE
+	cost = CARGO_CRATE_VALUE * 2.8
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm/eland
 	contains = list(/obj/item/gun/ballistic/revolver/sol)
-*/
+
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm/wespe
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/sol)
-	access = ACCESS_WEAPONS
-	access_view = ACCESS_WEAPONS
-/*
+
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm/type207
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/type207)
 
@@ -84,6 +77,8 @@
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm
 	cost = CARGO_CRATE_VALUE * 3
+	access = ACCESS_ARMORY	//OCULIS EDIT
+	access_view = ACCESS_ARMORY	//OCULIS EDIT
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/renoster_super_kit
 	name = "Archon Systems \"KOLBEN/NACHTREIHER\" M64 Shotgun Conversion Kit"
@@ -91,8 +86,6 @@
 	cost = CARGO_CRATE_VALUE * 3 // 600 cr at time of writing, 1200 cr total
 	contains = list(/obj/item/crafting_conversion_kit/riot_sol_super)
 	auto_name = FALSE
-	access = FALSE
-	access_view = FALSE
 	express_lock = FALSE
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/doublebarrel_super_kit
@@ -101,8 +94,6 @@
 	cost = CARGO_CRATE_VALUE * 3 // 600 cr at time of writing, 1000 cr total
 	contains = list(/obj/item/crafting_conversion_kit/doublebarrel_super)
 	auto_name = FALSE
-	access = FALSE
-	access_view = FALSE
 	express_lock = FALSE
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/renoster
@@ -140,10 +131,11 @@
 	cost = CARGO_CRATE_VALUE * 11.5
 */ //Commented out due to a severe lack of balance regarding it.
 
+/*	OCULIS EDIT START
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/kiboko
 	contains = list(/obj/item/gun/ballistic/automatic/sol_grenade_launcher)
 	cost = CARGO_CRATE_VALUE * 23
-
+*/ //OCULIS EDIT END crew should not be ordering a grenade launcher
 
 // HC Surplus
 
@@ -151,37 +143,43 @@
 	cost = CARGO_CRATE_VALUE * 3
 
 
-
+/* OCULIS EDIT START
 /datum/supply_pack/companies/ballistics/hc_surplus/shotgun_revolver
 	contains = list(/obj/item/gun/ballistic/revolver/shotgun_revolver)
-	access = FALSE
-	access_view = FALSE
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
+*/ //OCULIS EDIT END HAND HELD PULSE PISTOL!
 
 /datum/supply_pack/companies/ballistics/hc_surplus/zashch
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/zashch)
-	access = FALSE
-	access_view = FALSE
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/ballistics/hc_surplus/miecz
 	contains = list(/obj/item/gun/ballistic/automatic/miecz)
 	cost = CARGO_CRATE_VALUE * 5
+	access = ACCESS_ARMORY	//OCULIS EDIT
+	access_view = ACCESS_ARMORY	//OCULIS EDIT
 
 /datum/supply_pack/companies/ballistics/hc_surplus/napad
 	contains = list(/obj/item/gun/ballistic/automatic/napad)
 	cost = CARGO_CRATE_VALUE * 6
+	access = ACCESS_ARMORY	//OCULIS EDIT
+	access_view = ACCESS_ARMORY	//OCULIS EDIT
 
 /datum/supply_pack/companies/ballistics/hc_surplus/sakhno_rifle
 	contains = list(/obj/item/gun/ballistic/rifle/boltaction)
 	cost = CARGO_CRATE_VALUE * 6
+	access = ACCESS_ARMORY	//OCULIS EDIT
+	access_view = ACCESS_ARMORY	//OCULIS EDIT
 
 /datum/supply_pack/companies/ballistics/hc_surplus/lanca
 	contains = list(/obj/item/gun/ballistic/automatic/lanca)
 	cost = CARGO_CRATE_VALUE * 7
+	access = ACCESS_ARMORY	//OCULIS EDIT
+	access_view = ACCESS_ARMORY	//OCULIS EDIT
 
+/* OCULIS EDIT START
 /datum/supply_pack/companies/ballistics/hc_surplus/anti_materiel_rifle
 	contains = list(/obj/item/gun/ballistic/automatic/wylom)
 	cost = CARGO_CRATE_VALUE * 8
@@ -190,8 +188,8 @@
 // Donk
 
 /datum/supply_pack/companies/ballistics/donk
-	access = FALSE
-	access_view = FALSE
+
+
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
@@ -227,3 +225,5 @@
 /datum/supply_pack/companies/ballistics/blacksteel/longbow
 	contains = list(/obj/item/gun/ballistic/bow/longbow)
 	cost = CARGO_CRATE_VALUE * 1.5
+	access = FALSE	//OCULIS EDIT
+	access_view = FALSE	//OCULIS EDIT
