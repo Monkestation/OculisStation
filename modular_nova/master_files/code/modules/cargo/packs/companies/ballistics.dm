@@ -54,7 +54,7 @@
 */
 // Sol Fed Weapons
 /datum/supply_pack/companies/ballistics/sol_fed
-	cost = CARGO_CRATE_VALUE * 2
+	cost = CARGO_CRATE_VALUE * 2.8
 /*
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm
 	cost = CARGO_CRATE_VALUE * 2
