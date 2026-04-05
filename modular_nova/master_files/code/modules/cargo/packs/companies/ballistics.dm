@@ -6,6 +6,7 @@
 	order_flags = ORDER_GOODY
 	discountable = SUPPLY_PACK_STD_DISCOUNTABLE
 
+/* //OCULIS EDIT START - guncargo-b-gone
 // NT Weapons
 
 /datum/supply_pack/companies/ballistics/nt
@@ -140,10 +141,13 @@
 	contains = list(/obj/item/gun/ballistic/automatic/sol_grenade_launcher)
 	cost = CARGO_CRATE_VALUE * 23
 
+*/
 // HC Surplus
 
 /datum/supply_pack/companies/ballistics/hc_surplus
 	cost = CARGO_CRATE_VALUE * 3
+
+/*
 
 /datum/supply_pack/companies/ballistics/hc_surplus/shotgun_revolver
 	contains = list(/obj/item/gun/ballistic/revolver/shotgun_revolver)
@@ -179,6 +183,7 @@
 	contains = list(/obj/item/gun/ballistic/automatic/wylom)
 	cost = CARGO_CRATE_VALUE * 8
 
+*/ //OCULIS EDIT END
 // Donk
 
 /datum/supply_pack/companies/ballistics/donk

@@ -1,3 +1,4 @@
+/* OCULIS EDIT START - Gun cargo total death mark 1
 /datum/supply_pack/companies/energy
 	group = "★ Energy Weapons"
 	access = ACCESS_WEAPONS
@@ -124,3 +125,4 @@
 /datum/supply_pack/companies/energy/hc_surplus/zaibas_a
 	contains = list(/obj/item/gun/ballistic/rifle/pulse_sniper)
 	cost = CARGO_CRATE_VALUE * 7
+*/ // OCULIS EDIT END
