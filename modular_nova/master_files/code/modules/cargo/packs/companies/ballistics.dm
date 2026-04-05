@@ -51,10 +51,11 @@
 	access_view = FALSE
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
-
+*/
 // Sol Fed Weapons
 /datum/supply_pack/companies/ballistics/sol_fed
-
+	cost = CARGO_CRATE_VALUE * 2
+/*
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm
 	cost = CARGO_CRATE_VALUE * 2
 	access = FALSE
@@ -64,10 +65,12 @@
 
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm/eland
 	contains = list(/obj/item/gun/ballistic/revolver/sol)
-
+*/
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm/wespe
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/sol)
-
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
+/*
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm/type207
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/type207)
 
@@ -141,13 +144,13 @@
 	contains = list(/obj/item/gun/ballistic/automatic/sol_grenade_launcher)
 	cost = CARGO_CRATE_VALUE * 23
 
-*/
+
 // HC Surplus
 
 /datum/supply_pack/companies/ballistics/hc_surplus
 	cost = CARGO_CRATE_VALUE * 3
 
-/*
+
 
 /datum/supply_pack/companies/ballistics/hc_surplus/shotgun_revolver
 	contains = list(/obj/item/gun/ballistic/revolver/shotgun_revolver)
