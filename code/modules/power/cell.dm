@@ -270,10 +270,3 @@
 	. = ..()
 	CRASH("[src.type] got examined by [user]")
 
-
-//OCULIS EDIT BEGIN
-/obj/item/stock_parts/power_store/cell/powerpack
-	name = "laser powerpack"
-	desc = "this is a rare peripheral for lasguns consisting of some rapidcharge drivers and a standard issue laser powercell. simply press it against an energy weapon's contacts to instantly charge it"
-	icon = 'icons/obj/weapons/guns/ammo.dmi'
-	icon_state = "oldrifle"
