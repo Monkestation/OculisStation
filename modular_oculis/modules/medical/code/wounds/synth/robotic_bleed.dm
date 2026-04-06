@@ -28,7 +28,6 @@
 
 /datum/wound/slash/robotic/flesh
 	name = "Slashing (Cut) Outer Shell Wound"
-	threshold_penalty = 5
 	processes = TRUE
 	treatable_tools = list(TOOL_CAUTERY,TOOL_MULTITOOL)
 	base_treat_time = 3 SECONDS
@@ -335,7 +334,6 @@
 	initial_flow = 1.75
 	minimum_flow = 0.5
 	clot_rate = 0
-	series_threshold_penalty = 10
 	status_effect_type = /datum/status_effect/wound/slash/flesh/moderate
 	scar_keyword = "slashmoderate"
 
@@ -367,7 +365,6 @@
 	initial_flow = 2.75
 	minimum_flow = 2
 	clot_rate = 0
-	series_threshold_penalty = 25
 	demotes_to = /datum/wound/slash/robotic/flesh/moderate
 	status_effect_type = /datum/status_effect/wound/slash/flesh/severe
 	scar_keyword = "slashsevere"
@@ -402,7 +399,7 @@
 	initial_flow = 3.75
 	minimum_flow = 3.5
 	clot_rate =  0 // critical cuts actively get worse instead of better - for organics. not synths
-	threshold_penalty = 15
+	threshold_penalty = 10
 	demotes_to = /datum/wound/slash/robotic/flesh/severe
 	status_effect_type = /datum/status_effect/wound/slash/flesh/critical
 	scar_keyword = "slashcritical"
