@@ -286,7 +286,12 @@
 	tipper = WEAKREF(user)
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 50)
 	if(prob(10))
-		speak("PSYCH ALERT: Crewmember [user.name] recorded displaying antisocial tendencies torturing bots in [get_area(src)]. Please schedule psych evaluation.", radio_channel)
+		//OCULIS EDIT START - modular_oculis/modules/quirks/noannounce.dm
+		var/target = user.name
+		if(HAS_TRAIT(user, TRAIT_NO_ANNOUNCE))
+			target = gen_garbage_name()
+		speak("PSYCH ALERT: Crewmember [target] recorded displaying antisocial tendencies torturing bots in [get_area(src)]. Please schedule psych evaluation.", radio_channel)
+		//OCULIS EDIT END - ORIGINAL: speak("PSYCH ALERT: Crewmember [user.name] recorded displaying antisocial tendencies torturing bots in [get_area(src)]. Please schedule psych evaluation.", radio_channel)
 
 /mob/living/basic/bot/medbot/explode()
 	var/atom/our_loc = drop_location()

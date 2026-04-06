@@ -374,7 +374,12 @@
 	log_combat(src, current_target, "stunned")
 	if(security_mode_flags & SECBOT_DECLARE_ARRESTS)
 		var/area/location = get_area(src)
-		speak("[security_mode_flags & SECBOT_HANDCUFF_TARGET ? "Arresting" : "Detaining"] level [threat] scumbag [RUNECHAT_BOLD("[current_target]")] in [location].", radio_channel)
+		var/target_name = RUNECHAT_BOLD("[current_target]")
+		//OCULIS EDIT START - modular_oculis/modules/quirks/noannounce.dm
+		if(HAS_TRAIT(current_target, TRAIT_NO_ANNOUNCE))
+			target_name = RUNECHAT_BOLD(gen_garbage_name())
+		speak("[security_mode_flags & SECBOT_HANDCUFF_TARGET ? "Arresting" : "Detaining"] level [threat] scumbag [target_name] in [location].", radio_channel)
+		//OCULIS EDIT END - ORIGINAL: speak("[security_mode_flags & SECBOT_HANDCUFF_TARGET ? "Arresting" : "Detaining"] level [threat] scumbag [RUNECHAT_BOLD("[current_target]")] in [location].", radio_channel)
 	current_target.visible_message(span_danger("[src] stuns [current_target]!"),\
 							span_userdanger("[src] stuns you!"))
 

@@ -209,7 +209,12 @@
 	var/datum/action/cooldown/bot_announcement/announcement = controller.blackboard[BB_ANNOUNCE_ABILITY]
 	if(QDELETED(announcement))
 		return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
-	var/text_to_announce = "Medical emergency! [living_target] is in critical condition at [get_area(living_target)]!"
+	//OCULIS EDIT START - modular_oculis/modules/quirks/noannounce.dm
+	var/target_name = living_target.name
+	if(HAS_TRAIT(living_target, TRAIT_NO_ANNOUNCE))
+		target_name = gen_garbage_name()
+	var/text_to_announce = "Medical emergency! [target_name] is in critical condition at [get_area(living_target)]!"
+	//OCULIS EDIT END - ORIGINAL: var/text_to_announce = "Medical emergency! [living_target] is in critical condition at [get_area(living_target)]!"
 	announcement.announce(text_to_announce, controller.blackboard[BB_RADIO_CHANNEL])
 	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_SUCCEEDED
 
