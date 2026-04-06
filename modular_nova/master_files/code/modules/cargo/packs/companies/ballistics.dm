@@ -6,7 +6,7 @@
 	order_flags = ORDER_GOODY
 	discountable = SUPPLY_PACK_STD_DISCOUNTABLE
 
- //OCULIS EDIT START - guncargo-b-gone
+//OCULIS EDIT START - guncargo-b-gone
 // NT Weapons
 
 /datum/supply_pack/companies/ballistics/nt
