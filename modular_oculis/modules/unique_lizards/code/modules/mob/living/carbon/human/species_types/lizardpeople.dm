@@ -1,3 +1,4 @@
+/*
 /datum/species/lizard/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons, replace_missing)
 	. = ..()
 
@@ -6,8 +7,8 @@
 
 /datum/species/lizard/on_species_loss(mob/living/carbon/human/human, datum/species/new_species, pref_load)
 
-	RegisterSignal(human, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_gained_organ))
-	RegisterSignal(human, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_removed_organ))
+	UnregisterSignal(human, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_gained_organ))
+	UnregisterSignal(human, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_removed_organ))
 	human.remove_client_colour(/datum/client_colour/monochrome/lizard)
 	return ..()
 
@@ -16,7 +17,7 @@
 
 	if(!istype(forked))
 		return
-	receiver.remove_client_colour(/datum/client_colour/monochrome/lizard)
+	receiver.remove_client_colour(/datum/client_colour/monochrome/lizard, REF(src))
 
 /datum/species/lizard/proc/on_removed_organ(mob/living/unreceiver, obj/item/organ/tongue/lizard/forked)
 	SIGNAL_HANDLER
@@ -27,3 +28,6 @@
 		if(!istype(forked))
 			return
 		unreceiver.add_client_colour(/datum/client_colour/monochrome/lizard)
+
+/datum/client_colour/monochrome/lizard
+*/
