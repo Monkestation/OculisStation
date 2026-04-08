@@ -31,3 +31,23 @@
 
 /datum/client_colour/monochrome/lizard
 */
+
+/datum/species/lizard
+
+	mutantstomach = /obj/item/organ/stomach/lizard
+	mutantliver = /obj/item/organ/liver/lizard
+	mutant_organs = list(
+		/obj/item/organ/heart/second_heart
+	)
+
+/datum/species/lizard/on_species_gain(mob/living/carbon/human/lizard, datum/species/old_species, pref_load, regenerate_icons, replace_missing)
+	. = ..()
+	lizard.physiology.tox_mod = 1.25 //note that this only affects damage, not chems that apply tox
+	lizard.physiology.blood_regen_mod = 0.5
+	lizard.add_surgery_speed_mod(type, 1.15)
+
+/datum/species/lizard/on_species_loss(mob/living/carbon/human/former_lizard, datum/species/new_species, pref_load)
+	. = ..()
+	former_lizard.physiology.tox_mod = 1
+	former_lizard.physiology.blood_regen_mod = 1
+	former_lizard.remove_surgery_speed_mod(type)
