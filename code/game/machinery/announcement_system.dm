@@ -236,6 +236,13 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 
 /// Announces the provided message with the provided variables and config entry type. Only aas_config_entry_type and variables_map are mandatory. Other args are optional.
 /proc/aas_config_announce(aas_config_entry_type, list/variables_map, source, list/channels, announcement_line, command_span)
+	// OCULIS EDIT START - modular_oculis/modules/quirks/noannounce.dm
+	if (variables_map["PERSON"])
+		for(var/mob/person in GLOB.player_list)
+			if(person.client && person.real_name == variables_map["PERSON"])
+				if(HAS_TRAIT(person, TRAIT_NO_ANNOUNCE))
+					return
+	// OCULIS EDIT END
 	var/obj/machinery/announcement_system/announcer = get_announcement_system(aas_config_entry_type, source, channels)
 	if (!announcer)
 		return
