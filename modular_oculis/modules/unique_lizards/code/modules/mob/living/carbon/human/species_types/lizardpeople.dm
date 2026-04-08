@@ -1,3 +1,4 @@
+//this is disabled because remove_client_colour proc appears to not work, like at all
 /*
 /datum/species/lizard/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons, replace_missing)
 	. = ..()

@@ -333,7 +333,6 @@
 	if(selected_area in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_EYES))
 		washing_face = TRUE
 //OCULIS ADDITION END
-
 	if(on_fire)
 		to_chat(helper, span_warning("You can't put [p_them()] out with just your bare hands!"))
 		return
