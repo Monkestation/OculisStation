@@ -7,6 +7,14 @@
 	medical_record_text = "Patient has a name unpronounceable to machines."
 	mob_trait = TRAIT_NO_ANNOUNCE
 
+/proc/aas_config_announce(aas_config_entry_type, list/variables_map, source, list/channels, announcement_line, command_span)
+	if (variables_map["PERSON"])
+		for(var/mob/person in GLOB.player_list)
+			if(person.client && person.real_name == variables_map["PERSON"])
+				if(HAS_TRAIT(person, TRAIT_NO_ANNOUNCE))
+					return
+	. = ..()
+
 /proc/gen_garbage_name(min_length = 5, max_length = 16)
 	var/charmap = list("w","µ","¬","î","V","°","0","K","ö","Â","F","å","÷","ú","*","¼","i","ÿ","f","Ý","~","ü","x","Û","4","B","œ","p","º","Q","ô","u","æ","Õ","¡","Ô","U","C","Å","ï","S","á","M","Ó","ƒ","û","T","É","Ê","Î","ý","¯","Ÿ","a","é","õ","ž","\\","-","&","5","«","¶","¾","ß","ì","6","¢","Ë","l","ã","ç","Ä","£","+","¤","y","à","d","Ù","m","z","I","t","j","®","½","ð","Š","Y","Ü","#","±","b","©","í","L","Ú","Æ","Ð","š","¿")
 
