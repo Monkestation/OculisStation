@@ -64,7 +64,7 @@
 	// If our heretic's on station, generate some new influences
 	//NOVA EDIT START
 	var/area/heretic_area = get_area(heretic.current)
-	if(ishuman(heretic.current) && (!(is_centcom_level(heretic.current.z)) || istype(heretic_area, /area/centcom/interlink)) || istype(heretic_area, /area/shuttle/arrival))
+	if(ishuman(heretic.current) && (!(is_centcom_level(heretic.current.z)) || istype(heretic_area, /area/centcom/interlink)) || istype(heretic_area, /area/shuttle/arrival) || istype(heretic_area, /area/centcom/castor/arrivals)) // OCULIS EDIT ADDITION: add check for castor
 	//NOVA EDIT END
 		generate_new_influences()
 
