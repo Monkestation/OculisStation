@@ -4716,6 +4716,8 @@
 /area/station/engineering/hallway)
 "byb" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/department/cargo)
 "byh" = (
@@ -13203,9 +13205,8 @@
 /area/station/hallway/primary/port)
 "ecl" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/emcloset,
-/obj/effect/spawner/random/maintenance,
 /obj/machinery/light/small/directional/south,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/department/cargo)
 "ecr" = (
@@ -17376,7 +17377,9 @@
 	dir = 8
 	},
 /obj/structure/bed/dogbed/mcgriff,
-/mob/living/basic/pet/dog/pug/mcgriff,
+/mob/living/basic/pet/dog/pug/mcgriff{
+	gender = "male"
+	},
 /turf/open/floor/iron/dark,
 /area/station/security/warden)
 "fmA" = (
@@ -17871,12 +17874,9 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
-/obj/item/kirbyplants{
-	icon_state = "plant-05"
-	},
-/obj/machinery/firealarm/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "fuB" = (
@@ -20232,6 +20232,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "gev" = (
@@ -29155,7 +29156,8 @@
 /obj/item/card/id/advanced{
 	name = "John Doe's ID Card (Assistant)";
 	registered_name = "John Doe";
-	registered_age = 21
+	registered_age = 21;
+	gender = "Man"
 	},
 /turf/open/floor/iron/dark,
 /area/station/maintenance/abandon_wrestle)
@@ -31481,11 +31483,10 @@
 /turf/open/misc/asteroid/airless,
 /area/space/nearstation)
 "jnt" = (
-/obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/broken_floor,
-/obj/effect/spawner/random/trash/mopbucket,
-/obj/item/mop,
+/obj/structure/closet/emcloset,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/department/cargo)
 "jnB" = (
@@ -43973,7 +43974,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/burnt_floor,
-/obj/effect/spawner/random/trash/caution_sign,
+/obj/effect/spawner/random/trash/crushed_can,
 /turf/open/floor/plating,
 /area/station/maintenance/department/cargo)
 "nlp" = (
@@ -51149,6 +51150,10 @@
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
+	},
+/obj/machinery/firealarm/directional/east,
+/obj/item/kirbyplants{
+	icon_state = "plant-05"
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
@@ -62430,7 +62435,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/extinguisher_cabinet/directional/east,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "sNe" = (
@@ -64714,10 +64720,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/corrections_officer)
-"txv" = (
-/obj/structure/sign/poster/random/directional/south,
-/turf/closed/wall,
-/area/station/cargo/warehouse)
 "txD" = (
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 8
@@ -77930,6 +77932,10 @@
 "xvq" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
+/mob/living/basic/snake/banded/harmless{
+	gender = "neuter";
+	name = "Noodle"
+	},
 /turf/open/floor/wood,
 /area/station/maintenance/abandon_cafeteria)
 "xvr" = (
@@ -120635,7 +120641,7 @@ cQb
 pOq
 pDk
 ljy
-txv
+dME
 npN
 npN
 uxI
