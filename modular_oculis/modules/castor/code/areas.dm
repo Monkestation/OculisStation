@@ -44,9 +44,17 @@
 	name = "Sectorial Internal Affairs Administrator's Office"
 	icon_state = "castor_ia_office"
 
+/area/centcom/castor/intern_office
+	name = "Intern's Office"
+	icon_state = "castor"
+
 /area/centcom/castor/briefing_room_one
 	name = "Castor Briefing Room 1"
 	icon_state = "castor_briefing_one"
+
+/area/centcom/castor/psychologist
+	name = "Castor Psychologist's Office"
+	icon_state = "castor"
 
 /area/centcom/castor/briefing_room_two
 	name = "Castor Briefing Room 2"
