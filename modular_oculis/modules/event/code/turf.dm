@@ -31,7 +31,7 @@
 	name = "purple floor"
 	icon = 'modular_oculis/modules/event/icons/floor.dmi'
 	icon_state = "violet_floor"
-	floor_tile = /obj/item/stack/tile/mineral/abductor
+	floor_tile = /obj/item/stack/tile/mineral/violetspace_crystal
 	icons = list("violet_floor", "violet_strong", "violet_cathedral")
 	baseturfs = /turf/open/space
 	custom_materials = list(/datum/material/bluespace = SMALL_MATERIAL_AMOUNT*5)
@@ -43,3 +43,15 @@
 
 /turf/open/floor/mineral/violetspace_crystal/burn_tile()
 	return //unburnable
+
+/turf/open/floor/mineral/violetspace_crystal/strong
+	icon_state = "violet_strong"
+
+/turf/open/floor/mineral/violetspace_crystal/cathedral
+	icon_state = "violet_cathedral"
+
+/turf/open/floor/mineral/violetspace_crystal/random
+
+/turf/open/floor/mineral/violetspace_crystal/random/Initialize(mapload)
+	. = ..()
+	icon_state = pick(list("violet_floor", "violet_strong", "violet_cathedral"))

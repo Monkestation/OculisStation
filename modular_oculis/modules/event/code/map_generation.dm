@@ -11,7 +11,7 @@
 
 /datum/map_generator_module/bottom_layer/violetspace_crystal
 	spawnableTurfs = list(
-		/turf/open/floor/mineral/violetspace_crystal = 100,
+		/turf/open/floor/mineral/violetspace_crystal/random = 100,
 		/turf/closed/wall/mineral/violetspace_crystal = 20,
 		)
 
