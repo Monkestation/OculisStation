@@ -15,6 +15,10 @@
 	custom_materials = list(/datum/material/bluespace = SHEET_MATERIAL_AMOUNT*2)
 	rust_resistance = RUST_RESISTANCE_ORGANIC
 
+/turf/closed/wall/mineral/violetspace_crystal/break_wall()
+	new sheet_type(src, sheet_amount)
+	new /turf/open/floor/mineral/violetspace_crystal/random(get_turf(src))
+
 /obj/item/stack/tile/mineral/violetspace_crystal
 	name = "purple floor tile"
 	singular_name = "purple floor tile"
