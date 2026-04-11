@@ -49,3 +49,5 @@
 	name = "hatred"
 	desc = "Short-lived attack form of the rising hatred. One isn't much of a threat, but..."
 	faction = list(FACTION_VIOLET)
+	melee_damage_lower = 6
+	melee_damage_upper = 6
