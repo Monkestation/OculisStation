@@ -33,6 +33,10 @@
 	var/window_open
 	/// What text was present in the say box the last time save_text was called
 	var/saved_text = ""
+	/// What channel was in use in the say box the last time save_text was called
+	var/saved_channel
+	/// Speech suffuxes used for force_say after "-". Defaults to hurt_phrases
+	var/list/alter_phrases
 	// OCULIS EDIT ADDITION START
 	/// Stores whichever channel the window was opened with
 	/// Ideally this would instead be the window's selected channel but that will require a more involved change

@@ -117,7 +117,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		return
 	// OCULIS EDIT END
 	// NOVA EDIT ADDITION START - Visitor ID -> no manifest
-	if(!is_hidden_stowaway && (person.has_quirk(/datum/quirk/visitor) || ("Visitor ID" in person_client?.prefs.all_quirks))) // OCULIS EDIT - ORIGINAL: if(person.has_quirk(/datum/quirk/visitor) || ("Visitor ID" in person_client?.prefs.all_quirks))
+	if((!is_hidden_stowaway && person.has_quirk(/datum/quirk/visitor) || ("Visitor ID" in person_client?.prefs.all_quirks)) && is_assistant_job(person.mind?.assigned_role)) // OCULIS EDIT, ORIGINAL: if((person.has_quirk(/datum/quirk/visitor) || ("Visitor ID" in person_client?.prefs.all_quirks)) && is_assistant_job(person.mind?.assigned_role))
 		return inject_guest(person, person_client)
 	// NOVA EDIT ADDITION END
 
