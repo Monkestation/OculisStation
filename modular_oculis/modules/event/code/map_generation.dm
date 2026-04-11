@@ -2,7 +2,6 @@
 	modules = list(
 		/datum/map_generator_module/bottom_layer/violetspace_crystal,
 		/datum/map_generator_module/border/violetspace_walls,
-		/datum/map_generator_module/splatter_layer/random_objects,
 		/datum/map_generator_module/splatter_layer/random_enemies,
 		/datum/map_generator_module/bottom_layer/repressurize,
 		)
@@ -19,11 +18,6 @@
 	spawnableTurfs = list(
 		/turf/closed/wall/mineral/violetspace_crystal = 100,
 	)
-
-/datum/map_generator_module/splatter_layer/random_objects
-	spawnableAtoms = list(
-		/obj/structure/flora/bush/large/style_random = 75,
-		)
 
 /datum/map_generator_module/splatter_layer/random_enemies
 	spawnableAtoms = list(
