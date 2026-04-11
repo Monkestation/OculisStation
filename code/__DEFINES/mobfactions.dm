@@ -103,6 +103,8 @@
 /// Generates a mob faction for the passed owner, used by stabilized pink extracts
 #define FACTION_PINK_EXTRACT(owner) "pink_[owner]"
 
+#define FACTION_VIOLET "violet"
+
 /**
  * SET_FACTION_AND_ALLIES_FROM(destination, source)
  * Sets the atom's faction and allies to match that of the provided type's.

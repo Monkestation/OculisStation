@@ -12,3 +12,4 @@
 	speed = 0.2
 	regenerate_colour = COLOR_VIOLET
 	light_range = 7
+	faction = list(FACTION_VIOLET)

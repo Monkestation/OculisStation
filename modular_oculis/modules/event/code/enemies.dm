@@ -1,5 +1,3 @@
-#define FACTION_VIOLET "violet"
-
 /mob/living/basic/mining/watcher/cosmic_entity
 	name = "entrenched outcrop"
 	desc = "A surprisingly dense looking crystalline outcrop. It seems rooted into the floor."
