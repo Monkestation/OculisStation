@@ -8,7 +8,6 @@
 		)
 	buildmode_name = "Pattern: Oculis"
 
-
 /datum/map_generator_module/bottom_layer/violetspace_crystal
 	spawnableTurfs = list(
 		/turf/open/floor/mineral/violetspace_crystal/random = 100,
@@ -23,12 +22,12 @@
 
 /datum/map_generator_module/splatter_layer/random_objects
 	spawnableAtoms = list(
-		/obj/structure/flora/bush/large/style_random = 80,
+		/obj/structure/flora/bush/large/style_random = 75,
 		)
 
 /datum/map_generator_module/splatter_layer/random_enemies
 	spawnableAtoms = list(
 		/mob/living/simple_animal/hostile/ooze/gelatinous/cosmic_entity = 90,
-		/mob/living/basic/mining/watcher/cosmic_entity = 70,
-		/mob/living/basic/mining/hivelord/cosmic_entity = 70,
+		/mob/living/basic/mining/watcher/cosmic_entity = 85,
+		/mob/living/basic/mining/hivelord/cosmic_entity = 85,
 	)
