@@ -196,8 +196,8 @@
 	var/secondary_color = "#ededed"
 	aquamorph.dna.features["mcolor"] = main_color
 	aquamorph.dna.features["mcolor2"] = secondary_color
-	aquamorph.dna.mutant_bodyparts[FEATURE_SNOUT] = aquamorph.dna.species.build_mutant_part("Shark", list(main_color, secondary_color))
-	aquamorph.dna.mutant_bodyparts[FEATURE_TAIL] = aquamorph.dna.species.build_mutant_part("Shark", list(main_color, secondary_color))
-	aquamorph.dna.mutant_bodyparts[FEATURE_EARS] = aquamorph.dna.species.build_mutant_part("Hammerhead", list(main_color, secondary_color))
+	aquamorph.dna.mutant_bodyparts[FEATURE_SNOUT] = build_mutant_part("Shark", list(main_color, secondary_color))
+	aquamorph.dna.mutant_bodyparts[FEATURE_TAIL] = build_mutant_part("Shark", list(main_color, secondary_color))
+	aquamorph.dna.mutant_bodyparts[FEATURE_EARS] = build_mutant_part("Hammerhead", list(main_color, secondary_color))
 	regenerate_organs(aquamorph, src, visual_only = TRUE)
 	aquamorph.update_body(is_creating = TRUE)

@@ -64,7 +64,7 @@
 	// If our heretic's on station, generate some new influences
 	//NOVA EDIT START
 	var/area/heretic_area = get_area(heretic.current)
-	if(ishuman(heretic.current) && (!(is_centcom_level(heretic.current.z)) || istype(heretic_area, /area/centcom/interlink)) || istype(heretic_area, /area/shuttle/arrival))
+	if(ishuman(heretic.current) && (!(is_centcom_level(heretic.current.z)) || istype(heretic_area, /area/centcom/interlink)) || istype(heretic_area, /area/shuttle/arrival) || istype(heretic_area, /area/centcom/castor/arrivals)) // OCULIS EDIT ADDITION: add check for castor
 	//NOVA EDIT END
 		generate_new_influences()
 
@@ -144,7 +144,7 @@
 
 	// A very elaborate way to suicide
 	visible_message(span_userdanger("Psychic tendrils lash out from [src], psychically grabbing onto [user]'s psychically sensitive mind and tearing [user.p_their()] head off!"))
-	var/obj/item/bodypart/head/head = locate() in human_user.bodyparts
+	var/obj/item/bodypart/head/head = human_user.get_bodypart(BODY_ZONE_HEAD)
 	if(head?.dismember())
 		head.forceMove(src) // stored for later fishage
 	else

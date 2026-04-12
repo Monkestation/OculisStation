@@ -40,7 +40,7 @@
 		"Atmospheric Technician",
 		"Atmospheric Trainee",
 		"Emergency Fire Technician",
-		"Hypertorus Fusion Reactor Operator",
+		"Fusion Reactor Operator",
 		"Gas Synthesis Technician",
 		"Nuclear Reactor Operator",
 		"Firefighter",
@@ -261,8 +261,7 @@
 /datum/job/detective
 	alt_titles = list(
 		"Detective",
-		"Detective Cadet",
-		"Junior Detective", // OCULIS EDIT ADDITION
+		"Junior Detective",
 		"Forensic Specialist",
 		"Forensic Scientist",
 		"Forensic Technician",
@@ -281,8 +280,7 @@
 		"Medical Student",
 		"Clinician",
 		"Physician Assistant",
-		"Internal Medicine Physician",
-		"Emergency Medicine Physician",
+		"Emergency Physician",
 		"Registered Nurse",
 	)
 
@@ -352,9 +350,10 @@
 		"Legal Clerk",
 		"Prosecutor",
 		"Attorney At Law",
-		"Corporate General Counsel Attorney",
+		"General Counsel",
 		"Corporate Attorney",
 		"Public Defender",
+		"Crew Advocate",
 	)
 
 /datum/job/mime
@@ -366,11 +365,13 @@
 
 /datum/job/nanotrasen_consultant
 	alt_titles = list(
-		"Nanotrasen Corporate Consultant",
-		"Nanotrasen Corporate Advisor",
-		"Nanotrasen Corporate Regulation Advisor",
-		"Nanotrasen Corporate Representative",
-		"Nanotrasen Corporate Diplomat",
+		"Nanotrasen Representative",
+		"Nanotrasen Consultant",
+		"Nanotrasen Regulatory Advisor",
+		"Nanotrasen Diplomat",
+		"Corporate Adjutant",
+		"Corporate Representative",
+		"Corporate Advocate",
 	)
 
 /datum/job/orderly
@@ -485,7 +486,7 @@
 	alt_titles = list(
 		"Station Engineer",
 		"Electrician",
-		"Emergency Damage Control Technician",
+		"Damage Control Technician",
 		"Engine Technician",
 		"EVA Technician",
 		"Mechanic",
