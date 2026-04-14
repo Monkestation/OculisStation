@@ -30,7 +30,7 @@
 
 /obj/structure/xen_pylon
 	name = "shield plant"
-	desc = "It seems to be some kind of force field generator."
+	desc = "It seems to be some kind of a force field generator." //OCULIS EDIT
 	icon = 'modular_iris/modules/black_mesa/icons/plants.dmi'
 	icon_state = "crystal_pylon"
 	max_integrity = 70
