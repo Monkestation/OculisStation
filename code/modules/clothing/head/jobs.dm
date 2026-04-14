@@ -134,6 +134,7 @@
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
 	greyscale_colors = "#0070B7#FFCE5B"
 	hair_mask = /datum/hair_mask/standard_hat_middle
+	armor_type = /datum/armor/hats_caphat
 
 //Head of Personnel
 /obj/item/clothing/head/hats/hopcap
@@ -850,7 +851,7 @@
 //Independant Militia
 /obj/item/clothing/head/beret/militia
 	name = "\improper Militia General's Beret"
-	desc = "A rallying cry for the inhabitants of the Cabriole Sector, the heroes that wear this keep the horrors of the galaxy at bay. Call them, and they'll be there in a minute!"
+	desc = "A rallying cry for the inhabitants of the Eidolon Sector, the heroes that wear this keep the horrors of the galaxy at bay. Call them, and they'll be there in a minute!" // OCULIS EDIT
 	icon_state = "/obj/item/clothing/head/beret/militia"
 	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge

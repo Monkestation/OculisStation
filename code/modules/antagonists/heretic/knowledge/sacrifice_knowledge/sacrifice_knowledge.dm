@@ -132,7 +132,7 @@
 		if(possible_target.current.stat == DEAD)
 			continue
 		// NOVA EDIT ADDITION BEGIN - Antag opt-in (Only security and command can be targetted)
-		if (!CONFIG_GET(flag/disable_antag_opt_in_preferences) && !possible_target.assigned_role?.heretic_sac_target)
+		if(!CONFIG_GET(flag/disable_antag_opt_in_preferences) && possible_target.get_effective_opt_in_level() < OPT_IN_YES_KILL) // OCULIS EDIT CHANGE - use the actual antag opt-in settings dammit - original: if (!CONFIG_GET(flag/disable_antag_opt_in_preferences) && !possible_target.assigned_role?.heretic_sac_target)
 			continue
 		// NOVA EDIT ADDITION END
 
@@ -166,12 +166,12 @@
 
 	// NOVA CHANGE START - ORIGINAL -- Antag Opt In (Only sec and command may be targetted if config is set as 0)
 	// Third target, someone in their department.
-	if(CONFIG_GET(flag/disable_antag_opt_in_preferences))
-		for(var/datum/mind/department_mind as anything in shuffle(valid_targets))
-			if(department_mind.assigned_role?.departments_bitflags & user.mind.assigned_role?.departments_bitflags)
-				final_targets += department_mind
-				valid_targets -= department_mind
-				break
+	/* if(CONFIG_GET(flag/disable_antag_opt_in_preferences)) */ // OCULIS EDIT REMOVAL - use the actual antag opt-in settings dammit
+	for(var/datum/mind/department_mind as anything in shuffle(valid_targets))
+		if(department_mind.assigned_role?.departments_bitflags & user.mind.assigned_role?.departments_bitflags)
+			final_targets += department_mind
+			valid_targets -= department_mind
+			break
 	// NOVA EDIT CHANGE END
 
 	// Now grab completely random targets until we'll full
