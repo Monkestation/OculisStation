@@ -91,3 +91,8 @@
 /area/centcom/castor/customs
 	name = "Castor Customs Office"
 	icon_state = "castor_customs"
+
+/area/centcom/castor/forest
+	name = "Castor Forest"
+	icon_state = "castor"
+
