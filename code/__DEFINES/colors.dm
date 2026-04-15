@@ -519,3 +519,6 @@ GLOBAL_LIST_INIT(heretic_path_to_color, list(
 #define LUMA_R 0.213
 #define LUMA_G 0.715
 #define LUMA_B 0.072
+
+//OCULIS COLORS
+#define COLOR_OCULIS_LOGO "#af031a"
