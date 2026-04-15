@@ -370,6 +370,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	layer = 1
 	///This NEEDS to be a static, otherwise space turns into a bigass rave
 	var/static/skybox_starlight = pick(COLOR_LIGHT_PINK, COLOR_VIOLET, COLOR_MOSTLY_PURE_PINK, COLOR_AMETHYST, COLOR_OCULIS_LOGO) //OCULIS EDIT
+
 /atom/movable/screen/parallax_layer/layer_1/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
 	src.add_atom_colour(skybox_starlight, ADMIN_COLOUR_PRIORITY)
