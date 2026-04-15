@@ -31,7 +31,7 @@
 	//IRIS EDIT END
 
 	/// The colors we can be
-	var/possible_colors = list(COLOR_STRONG_VIOLET, COLOR_VIOLET) //OCULIS EDIT
+	var/possible_colors = list(COLOR_STRONG_VIOLET, COLOR_VIOLET, COLOR_LIGHT_PINK, COLOR_MOSTLY_PURE_PINK, COLOR_AMETHYST, COLOR_OCULIS_LOGO, COLOR_PURPLE) //OCULIS EDIT
 	/// The color we are
 	var/parallax_color
 
