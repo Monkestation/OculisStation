@@ -1,6 +1,6 @@
 /datum/sprite_accessory/snouts
 	key = FEATURE_SNOUT
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/lizard_snouts.dmi'
+	//icon = 'modular_nova/master_files/icons/mob/sprite_accessory/lizard_snouts.dmi' //OCULIS REMOVAL - modern tg lizards
 	flags_for_organ = SPRITE_ACCESSORY_USE_MUZZLED_SPRITE
 	organ_type = /obj/item/organ/snout
 	recommended_species = list(
@@ -30,6 +30,8 @@
 	return draw_color
 
 /datum/bodypart_overlay/mutant/snout/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
+	if(!..())
+		return FALSE
 	var/mob/living/carbon/human/human = bodypart_owner.owner
 	if(!istype(human))
 		return TRUE

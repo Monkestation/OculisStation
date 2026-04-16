@@ -52,6 +52,10 @@
 	// NOVA EDIT ADDITION START - AESTHETICS
 	if(icon_state in modular_states)
 		icon = 'modular_nova/modules/aesthetics/plants/icons/plants.dmi'
+	// OCULIS ADDITION START
+	else if(icon_state == "iris")
+		icon = 'modular_oculis/master_files/icons/obj/plants.dmi'
+	// OCULIS ADDITION END
 	else
 		icon = 'icons/obj/fluff/flora/plants.dmi'
 	// NOVA EDIT ADDITION END
@@ -90,6 +94,7 @@
 		plant_states += "plant-[number]"
 	plant_states += "applebush"
 	plant_states += modular_states // NOVA EDIT ADDITION - AESTHETICS - SEE modular_nova\modules\aesthetics\plants\plants.dm
+	plant_states += "iris" // OCULIS ADDITION
 
 	return plant_states
 

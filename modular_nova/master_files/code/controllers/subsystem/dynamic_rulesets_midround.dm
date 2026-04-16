@@ -24,6 +24,7 @@
 			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_deny.ogg', 50, FALSE)
 
 
+/* // OCULIS EDIT REMOVAL BEGIN - this is bugged as shit, moving it to [modular_oculis/master_files/modular_nova/master_files/code/controllers/subsystem/dynamic_rulesets_midround.dm]
 /datum/dynamic_ruleset/midround/from_living/traitor
 	var/static/list/sleeper_current_polling = list()
 	var/static/list/rejected_traitor = list()
@@ -72,3 +73,4 @@
 			sleeper_current_polling -= candidate
 
 	return yes_candidate
+*/ // OCULIS EDIT REMOVAL END

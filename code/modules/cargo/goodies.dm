@@ -333,7 +333,7 @@
 
 /datum/supply_pack/goody/naturalbait
 	name = "Freshness Jars full of Natural Bait Single-Pack"
-	desc = "Homemade in the Cabriole Sector." //IRIS EDIT
+	desc = "Homemade in the Eidolon Sector." // OCULIS EDIT
 	cost = PAYCHECK_CREW * 4 //rock on
 	contains = list(/obj/item/storage/pill_bottle/naturalbait)
 
@@ -434,3 +434,13 @@
 	desc = "If you in your carelessness lost the key to your golfcart you can purchase one. Unfortunately not covered by warranty."
 	cost = PAYCHECK_CREW * 5
 	contains = list(/obj/item/key/golfcart)
+
+
+/datum/supply_pack/goody/handheld_crew_monitor
+	name = "Handheld Crew Monitor"
+	desc = "A crate containing a handheld crew monitor"
+	cost = /obj/item/sensor_device::custom_premium_price * 1.25 // 1.25X base vending machine value
+	contains = list(
+		/obj/item/sensor_device,
+	)
+	crate_name = "handheld crew monitor crate"

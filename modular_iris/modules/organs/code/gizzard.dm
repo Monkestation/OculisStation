@@ -28,6 +28,7 @@
 /datum/bodypart_overlay/mutant/wings/functional/gizzard
 
 /datum/bodypart_overlay/mutant/wings/functional/gizzard/can_draw_on_bodypart(mob/living/carbon/human/human)
+	. = ..()
 	return FALSE
 
 /datum/action/innate/flight/gizzard

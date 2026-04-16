@@ -145,6 +145,7 @@
 		return // We're already handling this
 
 	if(SEND_SIGNAL(dropped_thing, COMSIG_MOVABLE_CHASM_DROPPED, parent) & COMPONENT_NO_CHASM_DROP)
+		LAZYREMOVE(falling_atoms, falling_ref)
 		return
 
 	// Free (if possible) and drop all buckled mobs separately, so drivers can escape their doomed vehicle if they're not glued to it
@@ -184,6 +185,7 @@
 		if (get_turf(falling_mob) != get_turf(parent))
 			REMOVE_TRAIT(falling_mob, TRAIT_NO_TRANSFORM, REF(src))
 			falling_mob.Paralyze(17 SECONDS, ignore_canstun = TRUE) // Wow nice job
+			LAZYREMOVE(falling_atoms, falling_ref)
 			return
 
 	dropped_thing.visible_message(span_boldwarning("[dropped_thing] falls into [parent]!"), span_userdanger("[oblivion_message]"))
@@ -213,6 +215,7 @@
 		storage = (locate() in parent) || new(parent)
 
 	if(storage.contains(dropped_thing))
+		LAZYREMOVE(falling_atoms, falling_ref)
 		return
 
 	dropped_thing.alpha = oldalpha
@@ -267,7 +270,7 @@ GLOBAL_LIST_EMPTY(chasm_fallen_mobs)
 
 /obj/effect/abstract/chasm_storage/Entered(atom/movable/arrived)
 	. = ..()
-	if(isliving(arrived))
+	if(isliving(arrived) || is_slime_core(arrived)) // OCULUS EDIT CHANGE - ORIGINAL: if(isliving(arrived))
 		//Mobs that have fallen in reserved area should be deleted to avoid fishing stuff from the deathmatch or VR.
 		if(is_reserved_level(loc.z) && !istype(get_area(loc), /area/shuttle))
 			qdel(arrived)
@@ -277,7 +280,7 @@ GLOBAL_LIST_EMPTY(chasm_fallen_mobs)
 
 /obj/effect/abstract/chasm_storage/Exited(atom/movable/gone)
 	. = ..()
-	if(isliving(gone))
+	if(isliving(gone) || is_slime_core(gone)) // OCULUS EDIT CHANGE - ORIGINAL: if(isliving(gone))
 		UnregisterSignal(gone, COMSIG_LIVING_REVIVE)
 		LAZYREMOVE(GLOB.chasm_fallen_mobs[get_chasm_category(loc)], gone)
 
@@ -286,8 +289,15 @@ GLOBAL_LIST_EMPTY(chasm_fallen_mobs)
 	var/old_cat = get_chasm_category(old_turf)
 	var/new_cat = get_chasm_category(new_turf)
 	var/list/mobs = list()
+	/* // OCULIS EDIT REMOVAL START - ORIGINAL:
 	for(var/mob/fallen in src)
 		mobs += fallen
+	*/ // OCULIS EDIT REMOVAL END
+	// OCULIS EDIT ADDITION START
+	for(var/fallen in src)
+		if(ismob(fallen) || is_slime_core(fallen))
+			mobs += fallen
+	// OCULIS EDIT ADDITION END
 	LAZYREMOVE(GLOB.chasm_fallen_mobs[old_cat], mobs)
 	LAZYADD(GLOB.chasm_fallen_mobs[new_cat], mobs)
 

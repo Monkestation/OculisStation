@@ -69,6 +69,12 @@
 
 /mob/living/basic/mining/legion/death(gibbed)
 	if (isnull(stored_mob))
+		// OCULIS EDIT ADDITION START - SLIMEPEOPLE
+		var/obj/item/organ/brain/slime/slime = locate() in contents
+		if(slime) // If oozeling brain in contents eject instead of corpse.
+			slime.forceMove(get_turf(slime))
+			return ..()
+		// OCULIS EDIT ADDITION END
 		new corpse_type(loc)
 	return ..()
 
