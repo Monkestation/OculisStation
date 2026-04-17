@@ -298,77 +298,77 @@
 /datum/loadout_item/under/jumpsuit/security_dress
 	name = "Security Battle Dress"
 	item_path = /obj/item/clothing/under/rank/security/nova/dress
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/security_dress_blue
 	name = "Security Battle Dress (Blue)"
 	item_path = /obj/item/clothing/under/rank/security/nova/dress/blue
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/security_formal
 	name = "Security Formal Uniform"
 	item_path = /obj/item/clothing/under/rank/security/nova/formal
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/security_plain_skirt
 	name = "Security Jumpskirt (Blue, Plain)"
 	item_path = /obj/item/clothing/under/rank/security/nova/skirt/plain
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/security_jumpskirt_blue
 	name = "Security Jumpskirt (Blue, Turtleneck)"
 	item_path = /obj/item/clothing/under/rank/security/nova/skirt
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/security_jumpsuit_black
 	name = "Security Jumpsuit"
 	item_path = /obj/item/clothing/under/rank/security/nova/officer
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/security_miniskirt
 	name = "Security Miniskirt"
 	item_path = /obj/item/clothing/under/rank/security/nova/skirt/mini
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/security_miniskirt_blue
 	name = "Security Miniskirt (Blue)"
 	item_path = /obj/item/clothing/under/rank/security/nova/skirt/mini/blue
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/security_shorts
 	name = "Security Shorts"
 	item_path = /obj/item/clothing/under/rank/security/nova/trousers/shorts
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/security_trousers
 	name = "Security Trousers"
 	item_path = /obj/item/clothing/under/rank/security/nova/trousers
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/security_turtleneck
 	name = "Security Turtleneck"
 	item_path = /obj/item/clothing/under/rank/security/nova/turtleneck
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/security_turtleneck_blue
 	name = "Security Turtleneck (Blue)"
 	item_path = /obj/item/clothing/under/rank/security/nova/turtleneck/blue
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/utility_sec
 	name = "Security Utility Uniform"
 	item_path = /obj/item/clothing/under/rank/security/nova/utility
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"

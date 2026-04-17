@@ -684,55 +684,55 @@
 /datum/loadout_item/head/officerberet
 	name = "Security Beret"
 	item_path = /obj/item/clothing/head/beret/sec/nova
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/navyblueofficerberet
 	name = "Security Beret (Navy Blue)"
 	item_path = /obj/item/clothing/head/beret/sec/navyofficer
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/officercap
 	name = "Security Cap"
 	item_path = /obj/item/clothing/head/security_cap
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/officergarrisoncap
 	name = "Security Cap - Garrison"
 	item_path = /obj/item/clothing/head/security_garrison
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/officerpatrolcap
 	name = "Security Cap - Patrol"
 	item_path = /obj/item/clothing/head/hats/warden/police/patrol
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/cowboyhat_sec
 	name = "Security Cattleman Hat"
 	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/sec
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/cowboyhat_secwide
 	name = "Security Cattleman Hat - Wide-Brimmed"
 	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/wide/sec
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/ushanka/sec
 	name = "Security Ushanka"
 	item_path = /obj/item/clothing/head/costume/ushanka/sec
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/cybergoggles //Cyberpunk-P.I. Outfit
 	name = "Detective's Type-34P Forensics Headwear"
 	item_path = /obj/item/clothing/head/fedora/det_hat/cybergoggles
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/head/detfedora

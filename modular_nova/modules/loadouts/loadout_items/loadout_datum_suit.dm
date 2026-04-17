@@ -819,43 +819,43 @@
 /datum/loadout_item/suit/british_jacket
 	name = "Security British Coat"
 	item_path = /obj/item/clothing/suit/british_officer
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/suit/navybluejacketofficer
 	name = "Security Formal Jacket (Navy Blue)"
 	item_path = /obj/item/clothing/suit/jacket/officer/blue
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/suit/brit
 	name = "Security High Vis Armored Vest"
 	item_path = /obj/item/clothing/suit/armor/vest/brit
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/suit/vested_jacket
 	name = "Vested Security Jacket"
 	item_path = /obj/item/clothing/suit/armor/vest/vested_jacket
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/suit/security_wintercoat
 	name = "Security Winter Jacket"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/security
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/suit/security_wintercoat_blue
 	name = "Security Winter Coat (Blue)"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/security/blue
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /datum/loadout_item/suit/security_jacket
 	name = "Security Work Jacket"
 	item_path = /obj/item/clothing/suit/toggle/jacket/nova/sec
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 //Detective

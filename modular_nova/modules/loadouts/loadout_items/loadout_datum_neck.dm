@@ -425,7 +425,7 @@
 /datum/loadout_item/neck/security_gauntlet
 	name = "Security Gauntlet"
 	item_path = /obj/item/clothing/neck/security_cape/armplate
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
 /*
