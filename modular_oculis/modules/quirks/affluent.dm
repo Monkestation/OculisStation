@@ -18,3 +18,4 @@
 /datum/quirk/affluent/proc/on_payday(datum/bank_account/source)
 	SIGNAL_HANDLER
 	source.account_balance += payday_bonus
+	soruce.bank_card_talk("Bonus processed, account now holds [source.account_balance] [MONEY_SYMBOL].")
