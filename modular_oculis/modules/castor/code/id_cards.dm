@@ -49,7 +49,6 @@
 
 /obj/item/card/id/advanced/castor/sectorial_commander
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_commander
 
 /datum/id_trim/admin/castor/sectorial_personnel_administrator
@@ -62,7 +61,6 @@
 
 /obj/item/card/id/advanced/castor/sectorial_personnel_administrator
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_personnel_administrator
 
 /datum/id_trim/admin/castor/sectorial_security_administrator
@@ -75,7 +73,6 @@
 
 /obj/item/card/id/advanced/castor/sectorial_security_administrator
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_security_administrator
 
 /datum/id_trim/admin/castor/sectorial_research_administrator
@@ -88,7 +85,6 @@
 
 /obj/item/card/id/advanced/castor/sectorial_research_administrator
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_research_administrator
 
 /datum/id_trim/admin/castor/sectorial_medical_administrator
@@ -101,7 +97,6 @@
 
 /obj/item/card/id/advanced/castor/sectorial_medical_administrator
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_medical_administrator
 
 /datum/id_trim/admin/castor/sectorial_logistics_administrator
@@ -114,7 +109,6 @@
 
 /obj/item/card/id/advanced/castor/sectorial_logistics_administrator
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_logistics_administrator
 
 /datum/id_trim/admin/castor/sectorial_engineering_administrator
@@ -127,7 +121,6 @@
 
 /obj/item/card/id/advanced/castor/sectorial_engineering_administrator
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_engineering_administrator
 
 /datum/id_trim/admin/castor/sectorial_internal_affairs_administrator
@@ -140,5 +133,4 @@
 
 /obj/item/card/id/advanced/castor/sectorial_internal_affairs_administrator
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_internal_affairs_administrator
