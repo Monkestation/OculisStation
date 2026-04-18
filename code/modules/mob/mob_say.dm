@@ -170,15 +170,12 @@
 	var/displayed_key = key
 	if(client?.holder?.fakekey)
 		displayed_key = null
-	deadchat_broadcast(rendered, source, follow_target = src, speaker_key = displayed_key, original_message = message) //NOVA EDIT - Original: deadchat_broadcast(rendered, source, follow_target = src, speaker_key = displayed_key)
-
-	//IRIS ADDITION START
-	for(var/mob/M in GLOB.player_list)
-		if(!isdead(M))
+	deadchat_broadcast(rendered, source, follow_target = src, speaker_key = displayed_key, original_message = message) // NOVA EDIT CHANGE - ORIGINAL: deadchat_broadcast(rendered, source, follow_target = src, speaker_key = displayed_key)
+	for(var/mob/mobs_hearing as anything in GLOB.player_list)
+		if(SSticker.current_state != GAME_STATE_FINISHED && (mobs_hearing.see_invisible < invisibility || !isdead(mobs_hearing)))
 			continue
-		if (M.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
-			M.create_chat_message(src, /datum/language/common, message)
-	//IRIS ADDITION END
+		if(runechat_prefs_check(mobs_hearing))
+			mobs_hearing.create_chat_message(src, /datum/language/common, message)
 
 ///Check if this message is an emote
 /mob/proc/check_emote(message, forced)

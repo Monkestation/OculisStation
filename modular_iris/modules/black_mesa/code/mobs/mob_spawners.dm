@@ -40,6 +40,7 @@
 
 /obj/effect/random_mob_placer
 	name = "mob placer"
+	desc = "Spawns a black mesa mob of some kind when there is a player controlled mob in proximity, do not report this if you are observing." //OCULIS ADDITION
 	icon = 'modular_iris/modules/black_mesa/icons/mapping_helpers.dmi'
 	icon_state = "mobspawner"
 	var/list/possible_mobs = list(/mob/living/basic/blackmesa/xen/headcrab)
