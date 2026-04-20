@@ -31,6 +31,8 @@
 		"abel" = list(
 			MOD_ICON_OVERRIDE = 'modular_oculis/modules/abel/icons/mod_clothing.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_oculis/modules/abel/icons/mod_clothing_worn.dmi',
+			MOD_DIGITIGRADE_ICON_OVERRIDE = 'modular_oculis/modules/abel/icons/mod_clothing_worn_mutant.dmi',
+			MOD_SNOUT_ICON_OVERRIDE = 'modular_oculis/modules/abel/icons/mod_clothing_worn_mutant.dmi',
 			/obj/item/clothing/head/mod = list(
 				UNSEALED_LAYER = null,
 				UNSEALED_CLOTHING = SNUG_FIT|THICKMATERIAL,
