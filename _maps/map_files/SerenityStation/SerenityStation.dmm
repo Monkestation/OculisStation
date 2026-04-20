@@ -649,6 +649,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/service)
 "aiF" = (
@@ -1610,6 +1611,7 @@
 /obj/structure/sign/plaques/kiddie/perfect_man{
 	pixel_y = 32
 	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "ayQ" = (
@@ -2970,6 +2972,10 @@
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
+"aQX" = (
+/obj/machinery/camera/autoname/directional/south,
+/turf/closed/wall,
+/area/station/hallway/primary/port)
 "aRe" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -3837,6 +3843,13 @@
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron,
 /area/station/engineering/storage/tech)
+"ben" = (
+/obj/machinery/camera/directional/east{
+	c_tag = "Atmospherics - Turbine";
+	name = "atmospherics camera"
+	},
+/turf/open/genturf,
+/area/forestplanet/outdoors/unexplored)
 "bep" = (
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible,
 /obj/machinery/atmospherics/components/binary/pump{
@@ -4215,9 +4228,6 @@
 "bkk" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/computer/order_console/cook,
-/obj/machinery/camera/directional/north{
-	c_tag = "Service - Service Hallway"
-	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/service)
 "bkn" = (
@@ -12152,6 +12162,7 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 10
 	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "dwF" = (
@@ -17353,6 +17364,11 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
+"eZd" = (
+/obj/structure/flora/bush/jungle/b,
+/obj/machinery/camera/autoname/directional/north,
+/turf/open/misc/asteroid/forest,
+/area/forestplanet/outdoors/nospawn)
 "eZg" = (
 /obj/structure/cable/multilayer/connected,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -19883,7 +19899,7 @@
 /area/station/engineering/supermatter/room)
 "fKd" = (
 /obj/machinery/camera/directional/north{
-	c_tag = "Atmospherics - CO2 Cell";
+	c_tag = "Atmospherics - Turbine";
 	name = "atmospherics camera"
 	},
 /turf/open/floor/engine/co2,
@@ -28930,12 +28946,14 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/hop)
 "ilA" = (
-/obj/machinery/light/directional/south,
 /obj/structure/noticeboard/directional/south,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/camera/directional/south{
+	c_tag = "Service - Service Hallway"
+	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/service)
 "ilE" = (
@@ -36895,6 +36913,9 @@
 /area/station/service/lawoffice)
 "kyX" = (
 /obj/machinery/status_display/ai/directional/north,
+/obj/machinery/camera/directional/north{
+	c_tag = "Atmospherics - HFR Observation"
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
 "kyZ" = (
@@ -37480,6 +37501,9 @@
 /obj/structure/table/wood/fancy,
 /obj/item/folder,
 /obj/effect/spawner/random/maintenance,
+/obj/machinery/camera/directional/north{
+	c_tag = "Service - Cafeteria"
+	},
 /turf/open/floor/carpet,
 /area/station/service/library/abandoned)
 "kHd" = (
@@ -38633,6 +38657,10 @@
 /obj/machinery/light_switch/directional/north,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/camera/directional/north{
+	c_tag = "Atmospherics - Turbine";
+	name = "atmospherics camera"
 	},
 /turf/open/floor/iron,
 /area/station/maintenance/disposal/incinerator)
@@ -45185,6 +45213,15 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
+"mVU" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/machinery/camera/directional/east{
+	c_tag = "Atmospherics - Turbine";
+	name = "atmospherics camera"
+	},
+/turf/open/floor/iron,
+/area/station/maintenance/disposal/incinerator)
 "mWe" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
@@ -52299,6 +52336,10 @@
 "pfW" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/obj/machinery/camera/directional/west{
+	c_tag = "Atmospherics - Burn Chamber";
+	name = "atmospherics camera"
+	},
 /turf/open/floor/engine,
 /area/station/maintenance/disposal/incinerator)
 "pga" = (
@@ -52621,7 +52662,7 @@
 	pixel_y = 5
 	},
 /obj/machinery/camera/directional/north{
-	c_tag = "Service - Kitchen"
+	c_tag = "Service - Cafeteria"
 	},
 /obj/machinery/requests_console/directional/north{
 	department = "Kitchen";
@@ -54302,6 +54343,10 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/science/ordnance)
+"pLH" = (
+/obj/machinery/light/directional/north,
+/turf/open/misc/asteroid/forest,
+/area/forestplanet/outdoors/nospawn)
 "pLL" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -56792,12 +56837,10 @@
 /turf/open/floor/engine/vacuum,
 /area/station/science/ordnance/freezerchamber)
 "qzF" = (
-/obj/machinery/camera/directional/east{
-	c_tag = "Atmospherics - HFR Observation";
-	name = "atmospherics camera"
-	},
-/turf/open/floor/iron/dark,
-/area/station/engineering/atmos)
+/obj/structure/flora/bush/jungle/b/style_3,
+/obj/machinery/camera/autoname/directional/north,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation)
 "qzL" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
@@ -62978,6 +63021,9 @@
 	},
 /obj/machinery/status_display/ai/directional/north,
 /obj/effect/landmark/start/assistant,
+/obj/machinery/camera/directional/north{
+	c_tag = "Service - Cafeteria"
+	},
 /turf/open/floor/iron/cafeteria,
 /area/station/service/cafeteria)
 "spy" = (
@@ -63749,6 +63795,7 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
 	},
+/obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
 "sBI" = (
@@ -64311,7 +64358,6 @@
 /obj/item/gps/mining{
 	pixel_x = -6
 	},
-/obj/machinery/camera/autoname/directional/south,
 /obj/structure/sign/poster/official/random/directional/south,
 /turf/open/floor/wood/large,
 /area/station/hallway/secondary/entry)
@@ -70154,10 +70200,6 @@
 /area/station/command/heads_quarters/rd)
 "uqN" = (
 /obj/structure/cable,
-/obj/machinery/camera/directional/east{
-	c_tag = "Atmospherics - Turbine";
-	name = "atmospherics camera"
-	},
 /obj/machinery/computer/security/telescreen/turbine/directional/east,
 /turf/open/floor/iron,
 /area/station/maintenance/disposal/incinerator)
@@ -71991,6 +72033,10 @@
 /obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
+"uQV" = (
+/obj/machinery/camera/autoname/directional/north,
+/turf/closed/wall,
+/area/station/maintenance/central/lesser)
 "uQW" = (
 /obj/structure/transit_tube{
 	dir = 4
@@ -73816,6 +73862,10 @@
 /obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/plating,
 /area/station/maintenance/central/greater)
+"vsY" = (
+/obj/machinery/camera/autoname/directional/west,
+/turf/open/genturf,
+/area/forestplanet/outdoors/unexplored)
 "vsZ" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/item/kirbyplants/random,
@@ -82140,6 +82190,7 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 4
 	},
+/obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "xTl" = (
@@ -172216,7 +172267,7 @@ byt
 byt
 vHm
 amp
-nQB
+aQX
 xYl
 tRQ
 aDF
@@ -179908,7 +179959,7 @@ oMx
 wOd
 iJb
 gqa
-dDQ
+uQV
 gNC
 dKo
 dKo
@@ -180235,7 +180286,7 @@ xQp
 vFt
 qha
 tgF
-gxm
+qzF
 rkg
 wHC
 wHC
@@ -189478,7 +189529,7 @@ jIX
 wlJ
 bjE
 kxB
-dgS
+eZd
 adP
 kxB
 rIg
@@ -194624,7 +194675,7 @@ dUW
 shW
 gRi
 udV
-qzF
+udV
 kFC
 rai
 vUp
@@ -195146,7 +195197,7 @@ lZk
 pFr
 toF
 sLs
-lMG
+sLs
 sLs
 sLs
 sLs
@@ -196429,7 +196480,7 @@ uqN
 gEB
 gEB
 ssS
-ssS
+mVU
 srV
 qhB
 sLs
@@ -197715,7 +197766,7 @@ cLl
 cLl
 cLl
 cLl
-cLl
+ben
 cLl
 cLl
 cLl
@@ -198476,7 +198527,7 @@ oUX
 oUX
 kxB
 dFf
-kxB
+pLH
 kxB
 kxB
 cLl
@@ -198742,7 +198793,7 @@ cLl
 cLl
 cLl
 cLl
-cLl
+vsY
 cLl
 cLl
 cLl
