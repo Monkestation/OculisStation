@@ -295,6 +295,7 @@
 		"Engineering Guard",
 		"OSHA Enforcer",
 		"Engineering Guard In-Training",
+		"Equipment Inspector",
 	)
 
 /datum/job/explorer // IRIS EDIT - EXPLORER JOB
