@@ -9131,6 +9131,7 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/directional/south,
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "aOv" = (
@@ -19167,6 +19168,7 @@
 /obj/machinery/airlock_sensor/incinerator_ordmix{
 	pixel_x = 25
 	},
+/obj/machinery/camera/autoname/directional/east,
 /turf/open/floor/engine,
 /area/station/science/ordnance/burnchamber)
 "bLq" = (
@@ -35060,6 +35062,7 @@
 /area/station/science/robotics/lab)
 "iZJ" = (
 /obj/machinery/firealarm/directional/west,
+/obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/hfr_room)
 "iZW" = (
@@ -36961,17 +36964,15 @@
 /turf/open/floor/iron/white,
 /area/station/science/ordnance)
 "kqc" = (
-/obj/machinery/light/directional/west,
-/obj/machinery/camera/autoname/directional/west,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/yellow/half/contrasted{
+/obj/structure/extinguisher_cabinet/directional/west,
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 8
 	},
-/turf/open/floor/iron/dark,
-/area/station/maintenance/disposal/incinerator)
+/obj/machinery/camera/autoname/directional/west,
+/turf/open/floor/iron/dark/side{
+	dir = 8
+	},
+/area/station/hallway/primary/aft)
 "kqH" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -38058,6 +38059,7 @@
 	dir = 4
 	},
 /obj/structure/secure_safe/caps_spare,
+/obj/structure/table/reinforced/rglass,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "ldU" = (
@@ -41614,7 +41616,6 @@
 /area/station/maintenance/department/engine)
 "nGA" = (
 /obj/machinery/photocopier/prebuilt,
-/obj/machinery/camera/autoname/directional/west,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 10
 	},
@@ -42345,6 +42346,17 @@
 /obj/machinery/holopad,
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
+"omK" = (
+/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/yellow/half/contrasted{
+	dir = 1
+	},
+/obj/machinery/camera/autoname/directional/north,
+/turf/open/floor/iron,
+/area/station/engineering/atmos)
 "omR" = (
 /obj/machinery/light/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -47155,6 +47167,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 4
 	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/white/small,
 /area/station/medical/treatment_center)
 "rvO" = (
@@ -50665,6 +50678,7 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 1
 	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "tOt" = (
@@ -51103,6 +51117,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/yellow/fourcorners,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/disposal/incinerator)
 "udJ" = (
@@ -56540,6 +56555,7 @@
 /area/station/maintenance/department/medical)
 "xyK" = (
 /obj/structure/closet/crate/freezer/blood,
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
 "xyV" = (
@@ -56973,6 +56989,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow/fourcorners,
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/disposal/incinerator)
 "xQM" = (
@@ -57251,6 +57268,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/yellow/fourcorners,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/disposal/incinerator)
 "ybX" = (
@@ -89802,7 +89820,7 @@ hop
 oJj
 oJj
 jCv
-bGd
+kqc
 bRV
 ery
 bEN
@@ -95202,7 +95220,7 @@ bCP
 bHw
 bCP
 fBp
-iJc
+omK
 bWO
 bWO
 wCz
@@ -97020,7 +97038,7 @@ bJP
 bYw
 tfh
 aAu
-kqc
+aAu
 faU
 fsO
 hnV
