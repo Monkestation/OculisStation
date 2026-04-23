@@ -136,11 +136,13 @@ GLOBAL_DATUM(the_one_and_only_punpun, /mob/living/carbon/human/species/monkey/pu
 		if(ancestor_chain > 1)
 			name_to_use += " \Roman[ancestor_chain]"
 
+	/* // OCULIS EDIT REMOVAL START
 	else if(prob(10))
 		name_to_use = pick(list("Professor Bobo", "Deempisi's Revenge", "Furious George", "King Louie", "Dr. Zaius", "Jimmy Rustles", "Dinner", "Lanky"))
 		if(name_to_use == "Furious George")
 			qdel(ai_controller)
 			ai_controller = new /datum/ai_controller/monkey/angry(src) //hes always mad
+	*/ //OCULIS EDIT REMOVAL END
 #endif
 
 	fully_replace_character_name(real_name, name_to_use)
