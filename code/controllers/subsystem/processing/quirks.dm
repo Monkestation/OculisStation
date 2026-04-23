@@ -65,6 +65,9 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/undersized, /datum/quirk/frail),
 	list(/datum/quirk/undersized, /datum/quirk/oversized),
 	//IRIS EDIT ADDITION END
+	//OCULIS EDIT ADDITION START
+	list(/datum/quirk/affluent, /datum/quirk/indebted),
+	//OCULIS EDIT ADDITION END
 ))
 
 GLOBAL_LIST_INIT(quirk_string_blacklist, generate_quirk_string_blacklist())
