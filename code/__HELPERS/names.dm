@@ -76,7 +76,7 @@ GLOBAL_VAR(command_name)
 	if (GLOB.command_name)
 		return GLOB.command_name
 
-	var/name = "Central Command"
+	var/name = "Sectorial Command" // OCULIS EDIT - Central Command > Sectorial Command
 
 	GLOB.command_name = name
 	return name

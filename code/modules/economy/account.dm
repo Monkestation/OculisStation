@@ -222,6 +222,9 @@
 		bank_card_talk("ERROR: [event] aborted, departmental funds insufficient.")
 		return FALSE
 	bank_card_talk("[event] processed, account now holds [account_balance] [MONEY_SYMBOL].")
+	//OCULIS EDIT ADDITION START - AFFLUENT_QUIRK
+	SEND_SIGNAL(src, COMSIG_PAYDAY_RECEIVED)
+	//OCULIS EDIT ADDITION END
 	return TRUE
 
 /**

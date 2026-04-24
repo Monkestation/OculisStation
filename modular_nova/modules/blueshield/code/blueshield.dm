@@ -5,7 +5,7 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Central Command and the Nanotrasen Consultant"
+	supervisors = "Sectorial Administration and the Nanotrasen Consultant" // OCULIS EDIT - Central Command > Sectorial Administration
 	minimal_player_age = 7
 	exp_requirements = 2400
 	exp_required_type = EXP_TYPE_CREW

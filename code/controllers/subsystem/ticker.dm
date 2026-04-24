@@ -488,7 +488,7 @@ SUBSYSTEM_DEF(ticker)
 				[reopened_job_report_positions]</i>
 			"}
 
-			print_command_report(suicide_command_report, "Central Command Personnel Update")
+			print_command_report(suicide_command_report, "Sectorial Command Personnel Update") // OCULIS EDIT - Central Command > Sectorial Command
 
 //These callbacks will fire after roundstart key transfer
 /datum/controller/subsystem/ticker/proc/OnRoundstart(datum/callback/cb)

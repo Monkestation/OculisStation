@@ -1,4 +1,4 @@
-GLOBAL_VAR_INIT(nt_fax_department, pick("Central Command")) // IRIS EDIT Original: "NT HR Department", "NT Legal Department", "NT Complaint Department", "NT Customer Relations", "Nanotrasen Tech Support", "NT Internal Affairs Dept"
+GLOBAL_VAR_INIT(nt_fax_department, pick("Sectorial Command")) // IRIS EDIT Original: "NT HR Department", "NT Legal Department", "NT Complaint Department", "NT Customer Relations", "Nanotrasen Tech Support", "NT Internal Affairs Dept" // OCULIS EDIT - Central Command > Sectorial Command
 GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 
 /obj/machinery/fax
@@ -80,7 +80,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 	return ..()
 
 /obj/machinery/fax/admin
-	name = "CentCom Fax Machine"
+	name = "Sectorial Command Fax Machine"
 
 /obj/machinery/fax/admin/Initialize(mapload)
 	if (!fax_name)
