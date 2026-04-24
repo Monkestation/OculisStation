@@ -25,15 +25,15 @@
 /datum/pod_style/advanced
 	name = "bluespace supply pod"
 	ui_name = "Advanced"
-	desc = "A Nanotrasen Bluespace supply pod. Teleports back to CentCom after delivery."
+	desc = "A Nanotrasen Bluespace supply pod. Teleports back to Castor Station after delivery." // OCULIS EDIT - CentCom > Castor Station
 	decal_icon = "bluespace"
 	glow_color = "blue"
 	id = "bluespace"
 
 /datum/pod_style/centcom
-	name = "\improper CentCom supply pod"
+	name = "\improper Sectorial Command supply pod" // OCULIS EDIT - \improper CentCom > Sectorial Command
 	ui_name = "Nanotrasen"
-	desc = "A Nanotrasen supply pod. This one has been marked with Central Command's designations. Teleports back to CentCom after delivery."
+	desc = "A Nanotrasen supply pod. This one has been marked with Sectorial Command's designations. Teleports back to Castor Station after delivery." // OCULIS EDIT - CentCom > Castor Station
 	decal_icon = "centcom"
 	glow_color = "blue"
 	id = "centcom"

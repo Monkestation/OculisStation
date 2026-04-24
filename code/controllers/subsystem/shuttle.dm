@@ -335,7 +335,7 @@ SUBSYSTEM_DEF(shuttle)
 
 	switch(emergency.mode)
 		if(SHUTTLE_RECALL)
-			return "The emergency shuttle may not be called while returning to CentCom."
+			return "The emergency shuttle may not be called while returning to Castor Station." // OCULIS EDIT - CentCom > Castor Station
 		if(SHUTTLE_CALL)
 			return "The emergency shuttle is already on its way."
 		if(SHUTTLE_DOCKED)
@@ -345,7 +345,7 @@ SUBSYSTEM_DEF(shuttle)
 		if(SHUTTLE_ESCAPE)
 			return "The emergency shuttle is moving away to a safe distance."
 		if(SHUTTLE_STRANDED)
-			return "The emergency shuttle has been disabled by CentCom."
+			return "The emergency shuttle has been disabled by Sectorial Command." // OCULIS EDIT - CentCom > Sectorial Command
 
 	return TRUE
 

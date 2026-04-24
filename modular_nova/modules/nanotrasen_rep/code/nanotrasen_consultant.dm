@@ -4,7 +4,7 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = JOB_CENTCOM
+	supervisors = "Sectorial Administration" // OCULIS EDIT - JOB_CENTCOM > "Sectorial Administration"
 	minimal_player_age = 14
 	exp_requirements = 600
 	exp_required_type = EXP_TYPE_CREW
