@@ -111,16 +111,6 @@ GLOBAL_LIST_INIT(scarred_eye_choice, list(
 	"Double",
 ))
 
-///Eyepatches For Scarred Eye
-GLOBAL_LIST_INIT(eyepatch, list(
-	"Regular Eyepatch" = /obj/item/clothing/glasses/eyepatch,
-	"White Eyepatch" = /obj/item/clothing/glasses/eyepatch/white/,
-	"Medical Eyepatch" = /obj/item/clothing/glasses/eyepatch/medical,
-	"Wrap" = /obj/item/clothing/glasses/eyepatch/wrap,
-	"Blindfold" = /obj/item/clothing/glasses/blindfold,
-	"Blindfold - Alt" = /obj/item/clothing/glasses/blindfold/white,
-))
-
 ///chipped Quirk
 GLOBAL_LIST_INIT(quirk_chipped_choice, list(
 	"Basketsoft 3000" = /obj/item/skillchip/basketweaving,

@@ -6,12 +6,12 @@ export const scarred_eye: FeatureChoiced = {
   component: FeatureDropdownInput,
 };
 {
-// OCULIS EDIT ADDITION START
+  // OCULIS EDIT ADDITION START
 }
 export const eyepatch: FeatureChoiced = {
   name: 'Eye Covering',
   component: FeatureDropdownInput,
-}
+};
 {
-// OCULIS EDIT ADDITION END
+  // OCULIS EDIT ADDITION END
 }
