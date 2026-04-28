@@ -1919,6 +1919,39 @@ TREK
 	name = "Designer Gloves (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 
+/datum/greyscale_config/recolorable_gloves
+	name = "Gloves"
+	icon_file = 'modular_nova/modules/GAGS/icons/gloves.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves.json'
+
+/datum/greyscale_config/recolorable_gloves/worn
+	name = "Gloves (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_worn.json'
+
+/datum/greyscale_config/recolorable_gloves/fingerless
+	name = "Fingerless Gloves"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_fingerless.json'
+
+/datum/greyscale_config/recolorable_gloves/fingerless/worn
+	name = "Fingerless Gloves (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_fingerless_worn.json'
+
+/datum/greyscale_config/recolorable_gloves/long
+	name = "Long Gloves"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_long.json'
+
+/datum/greyscale_config/recolorable_gloves/long/worn
+	name = "Long Gloves (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_long_worn.json'
+
+/datum/greyscale_config/recolorable_gloves/fingerless_long
+	name = "Long Fingerless Gloves"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_fingerless_long.json'
+
+/datum/greyscale_config/recolorable_gloves/fingerless_long/worn
+	name = "Long Fingerless Gloves (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_fingerless_long_worn.json'
+
 // WRAPS
 
 /datum/greyscale_config/clothwraps
@@ -2743,7 +2776,6 @@ This is all our modular PDAs, ITS LARGE!
 	name = "Antique Seecloak (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 
-
 /datum/greyscale_config/antique_xylixcloak
 	name = "Antique Seecloak"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
@@ -2753,3 +2785,32 @@ This is all our modular PDAs, ITS LARGE!
 	name = "Antique Seecloak (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 
+/datum/greyscale_config/tailcoat
+	name = "Tailcoat"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/tailcoat.json'
+
+/datum/greyscale_config/tailcoat_worn
+	name = "Worn Tailcoat"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/tailcoat_worn.json'
+
+/datum/greyscale_config/tailcoat_bar
+	name = "Bartender's Tailcoat"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/tailcoat_bar.json'
+
+/datum/greyscale_config/tailcoat_bar_worn
+	name = "Worn Bartender's Tailcoat"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/tailcoat_bar_worn.json'
+
+/datum/greyscale_config/bowtie_collar
+	name = "Bowtie Collar"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/bowtie_collar.json'
+
+/datum/greyscale_config/bowtie_collar_worn
+	name = "Worn Bowtie Collar"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/bowtie_collar_worn.json'

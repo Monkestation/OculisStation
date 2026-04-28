@@ -6,7 +6,7 @@
 		/obj/item/food/onion_slice = 2
 	)
 	result = /obj/item/food/burger/saturnburger
-	category = CAT_BURGER
+	dish_category = DISH_BURGER
 
 /datum/crafting_recipe/food/mcpicklepounder
 	name = "McPickle Pounder"
@@ -18,7 +18,7 @@
 	)
 
 	result = /obj/item/food/burger/mcpicklepounder
-	category = CAT_BURGER
+	dish_category = DISH_BURGER
 
 /datum/crafting_recipe/food/tomatonator
 	name = "Tomatonator"
@@ -30,7 +30,7 @@
 	)
 
 	result = /obj/item/food/burger/tomatonator
-	category = CAT_BURGER
+	dish_category = DISH_BURGER
 
 /datum/crafting_recipe/food/lilypadburger
 	name = "Lilypad burger"
@@ -39,4 +39,4 @@
 		/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/lilypadburger
-	category = CAT_BURGER
+	dish_category = DISH_BURGER

@@ -114,11 +114,6 @@
 	. = ..()
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/fast_web)
 
-///Used in the caves away mission.
-/mob/living/basic/spider/giant/hunter/away_caves
-	minimum_survivable_temperature = 0
-	gold_core_spawnable = NO_SPAWN
-
 /**
  * ### Scout Spider
  * A subtype of the giant spider which is faster, has thermal vision, but less health and damage.
@@ -174,11 +169,6 @@
 	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer
 	menu_description = "A weak spider able to heal other spiders, lay faster webs and shed an effigy." // IRIS EDIT
 	innate_actions = list(/datum/action/cooldown/mob_cooldown/web_effigy) // IRIS ADDITION
-
-///Used in the caves away mission.
-/mob/living/basic/spider/giant/nurse/away_caves
-	minimum_survivable_temperature = 0
-	gold_core_spawnable = NO_SPAWN
 
 /mob/living/basic/spider/giant/nurse/Initialize(mapload)
 	. = ..()

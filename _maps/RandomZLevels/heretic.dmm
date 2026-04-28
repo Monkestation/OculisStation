@@ -55,15 +55,6 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/caves/heretic_laboratory_clean)
-"ao" = (
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
-	pixel_y = 9;
-	pixel_x = 15;
-	anchored = 1;
-	name = "Sam Site Missle rack"
-	},
-/turf/open/floor/iron/large,
-/area/awaymission/beach/heretic)
 "aq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -294,6 +285,11 @@
 /obj/effect/blessing/invisible,
 /turf/open/floor/iron/dark,
 /area/awaymission/caves/heretic_laboratory)
+"bx" = (
+/obj/machinery/deployable_turret/naval_cannon,
+/obj/effect/turf_decal/trimline/yellow/filled,
+/turf/open/floor/iron/large,
+/area/awaymission/beach/heretic)
 "by" = (
 /obj/structure/fence,
 /turf/open/misc/grass/jungle/station,
@@ -429,6 +425,14 @@
 	dir = 1
 	},
 /turf/open/floor/iron,
+/area/awaymission/caves/heretic_laboratory)
+"cy" = (
+/obj/structure/table,
+/obj/item/healthanalyzer,
+/obj/item/healthanalyzer,
+/obj/item/stack/medical/wrap/gauze,
+/obj/item/stack/medical/wrap/gauze,
+/turf/open/floor/iron/dark,
 /area/awaymission/caves/heretic_laboratory)
 "cz" = (
 /obj/structure/holosign/barrier/atmos/sturdy,
@@ -600,6 +604,16 @@
 /obj/effect/blessing/invisible,
 /turf/open/floor/iron/dark,
 /area/awaymission/caves/heretic_laboratory_clean)
+"dx" = (
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
+	pixel_y = 8;
+	pixel_x = -15;
+	anchored = 1;
+	name = "SAM site missile rack"
+	},
+/obj/effect/turf_decal/trimline/red/arrow_ccw,
+/turf/open/floor/iron/large,
+/area/awaymission/beach/heretic)
 "dy" = (
 /obj/structure/table,
 /obj/machinery/light/floor,
@@ -1020,6 +1034,21 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/carpet/green,
 /area/awaymission/beach/heretic)
+"fK" = (
+/obj/structure/table,
+/obj/item/stack/medical/wrap/sticky_tape{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/obj/item/stack/medical/wrap/sticky_tape{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/effect/turf_decal/tile/yellow/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/awaymission/caves/heretic_laboratory)
 "fL" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/carpet/green,
@@ -1360,6 +1389,18 @@
 	dir = 4
 	},
 /area/awaymission/beach/heretic)
+"ho" = (
+/obj/structure/table/glass,
+/obj/item/stack/medical/wrap/gauze,
+/obj/item/stack/medical/mesh,
+/obj/effect/turf_decal/siding{
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 6
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/awaymission/caves/heretic_laboratory)
 "hp" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/small,
@@ -1463,6 +1504,16 @@
 /obj/structure/table,
 /turf/open/floor/wood/parquet,
 /area/awaymission/caves/heretic_laboratory)
+"hR" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/obj/machinery/deployable_turret/hmg,
+/turf/open/floor/iron/large,
+/area/awaymission/beach/heretic)
 "hS" = (
 /obj/effect/decal/cleanable/blood/tracks/xeno{
 	dir = 6
@@ -1574,10 +1625,6 @@
 "iu" = (
 /obj/machinery/light/floor,
 /turf/closed/wall/mineral/titanium,
-/area/awaymission/beach/heretic)
-"iw" = (
-/obj/effect/turf_decal/trimline/red/filled/end,
-/turf/open/floor/iron/large,
 /area/awaymission/beach/heretic)
 "ix" = (
 /obj/structure/window/spawner/directional/west,
@@ -1970,6 +2017,12 @@
 /area/awaymission/beach/heretic)
 "kr" = (
 /turf/open/floor/stone,
+/area/awaymission/beach/heretic)
+"ku" = (
+/obj/effect/turf_decal/trimline/red/filled/end{
+	dir = 1
+	},
+/turf/open/floor/iron/large,
 /area/awaymission/beach/heretic)
 "kw" = (
 /obj/machinery/light/very_dim/directional/west,
@@ -2628,19 +2681,6 @@
 /obj/structure/holosign/barrier/atmos/tram,
 /turf/open/floor/engine,
 /area/awaymission/caves/heretic_laboratory)
-"og" = (
-/obj/structure/table/glass,
-/obj/item/stack/medical/wrap/gauze,
-/obj/item/stack/medical/mesh,
-/obj/item/stack/medical/suture,
-/obj/effect/turf_decal/siding{
-	dir = 9
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 9
-	},
-/turf/open/floor/iron/white/smooth_large,
-/area/awaymission/caves/heretic_laboratory)
 "oi" = (
 /obj/machinery/door/airlock/highsecurity{
 	max_integrity = 10000;
@@ -2740,21 +2780,6 @@
 	name = "Bar"
 	},
 /turf/open/floor/iron/small,
-/area/awaymission/caves/heretic_laboratory)
-"oK" = (
-/obj/structure/table,
-/obj/item/stack/medical/wrap/sticky_tape{
-	pixel_x = 6;
-	pixel_y = 5
-	},
-/obj/item/stack/medical/wrap/sticky_tape{
-	pixel_x = -6;
-	pixel_y = 5
-	},
-/obj/effect/turf_decal/tile/yellow/half/contrasted{
-	dir = 1
-	},
-/turf/open/floor/iron,
 /area/awaymission/caves/heretic_laboratory)
 "oL" = (
 /obj/effect/turf_decal/tile/dark_green/half{
@@ -3268,6 +3293,14 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white/textured_large,
+/area/awaymission/beach/heretic)
+"rd" = (
+/obj/structure/fluff/sat_dish{
+	dir = 8;
+	pixel_x = 8;
+	pixel_y = -1
+	},
+/turf/open/floor/iron/large,
 /area/awaymission/beach/heretic)
 "rf" = (
 /obj/machinery/light/directional/west,
@@ -3919,6 +3952,19 @@
 /obj/machinery/power/port_gen/pacman/pre_loaded,
 /turf/open/misc/dirt/jungle,
 /area/awaymission/beach/heretic)
+"uM" = (
+/obj/structure/table/glass,
+/obj/item/storage/medkit/regular,
+/obj/item/stack/medical/wrap/gauze,
+/obj/item/stack/medical/suture,
+/obj/effect/turf_decal/siding{
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 10
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/awaymission/caves/heretic_laboratory)
 "uN" = (
 /obj/machinery/light/floor,
 /obj/item/slimepotion/lovepotion,
@@ -4098,15 +4144,6 @@
 /obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
 /area/awaymission/caves/heretic_laboratory)
-"vI" = (
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
-	pixel_y = 8;
-	pixel_x = -15;
-	anchored = 1;
-	name = "Sam Site Missle rack"
-	},
-/turf/open/floor/iron/large,
-/area/awaymission/beach/heretic)
 "vK" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/asphalt,
@@ -4243,6 +4280,17 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
+/area/awaymission/beach/heretic)
+"wv" = (
+/obj/item/clothing/mask/gas/welding/up,
+/obj/effect/decal/cleanable/blood/tracks/xeno,
+/obj/item/organ/tail/xeno,
+/obj/item/stack/sheet/animalhide/xeno,
+/obj/item/stack/sheet/animalhide/xeno,
+/obj/effect/decal/cleanable/blood/gibs/xeno/larva/body,
+/obj/effect/decal/remains/xeno,
+/obj/effect/light_emitter,
+/turf/open/misc/grass/jungle/station,
 /area/awaymission/beach/heretic)
 "wy" = (
 /obj/machinery/light/directional/west,
@@ -4941,18 +4989,6 @@
 	},
 /turf/open/floor/wood,
 /area/awaymission/caves/heretic_laboratory_clean)
-"zP" = (
-/obj/structure/table/glass,
-/obj/item/stack/medical/wrap/gauze,
-/obj/item/stack/medical/mesh,
-/obj/effect/turf_decal/siding{
-	dir = 6
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 6
-	},
-/turf/open/floor/iron/white/smooth_large,
-/area/awaymission/caves/heretic_laboratory)
 "zQ" = (
 /turf/closed/indestructible/reinforced,
 /area/awaymission/beach/heretic)
@@ -5465,6 +5501,10 @@
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/awaymission/caves/heretic_laboratory)
+"CL" = (
+/obj/effect/turf_decal/trimline/yellow/filled/arrow_ccw,
+/turf/open/floor/iron/large,
+/area/awaymission/beach/heretic)
 "CP" = (
 /obj/item/radio/intercom/mi13/directional/east,
 /turf/open/floor/iron/small,
@@ -5532,6 +5572,22 @@
 /obj/machinery/door/airlock/hatch,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory)
+"Dh" = (
+/obj/structure/rack,
+/obj/item/ammo_casing/mm40{
+	pixel_x = 6;
+	pixel_y = 0
+	},
+/obj/item/ammo_casing/mm40{
+	pixel_x = 2;
+	pixel_y = 0
+	},
+/obj/item/ammo_casing/mm40{
+	pixel_x = -2;
+	pixel_y = 0
+	},
+/turf/open/floor/iron/large,
+/area/awaymission/beach/heretic)
 "Di" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/effect/blessing/invisible,
@@ -5593,6 +5649,19 @@
 	dir = 5
 	},
 /area/awaymission/beach/heretic)
+"Dz" = (
+/obj/structure/table/glass,
+/obj/item/stack/medical/wrap/gauze,
+/obj/item/stack/medical/mesh,
+/obj/item/stack/medical/suture,
+/obj/effect/turf_decal/siding{
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 9
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/awaymission/caves/heretic_laboratory)
 "DB" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -5809,16 +5878,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/awaymission/caves/heretic_laboratory)
-"EP" = (
-/obj/machinery/deployable_turret/hmg,
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes{
-	dir = 1
-	},
-/turf/open/floor/iron/large,
-/area/awaymission/beach/heretic)
 "EQ" = (
 /obj/machinery/cryo_cell{
 	dir = 8
@@ -5837,6 +5896,10 @@
 	},
 /obj/effect/turf_decal/weather/sand,
 /turf/open/floor/plating,
+/area/awaymission/beach/heretic)
+"EU" = (
+/obj/effect/turf_decal/trimline/yellow/filled/end,
+/turf/open/floor/iron/large,
 /area/awaymission/beach/heretic)
 "EX" = (
 /obj/structure/table,
@@ -6262,16 +6325,6 @@
 /obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory)
-"GR" = (
-/obj/effect/turf_decal/trimline/red/arrow_cw,
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
-	pixel_y = 9;
-	pixel_x = 15;
-	anchored = 1;
-	name = "Sam Site Missle rack"
-	},
-/turf/open/floor/iron/large,
-/area/awaymission/beach/heretic)
 "GT" = (
 /obj/machinery/light/floor,
 /obj/structure/closet/crate/freezer,
@@ -7086,6 +7139,23 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/awaymission/caves/heretic_laboratory)
+"KM" = (
+/obj/effect/turf_decal/trimline/yellow/filled,
+/obj/structure/rack,
+/obj/item/ammo_casing/mm40{
+	pixel_x = 6;
+	pixel_y = 0
+	},
+/obj/item/ammo_casing/mm40{
+	pixel_x = 2;
+	pixel_y = 0
+	},
+/obj/item/ammo_casing/mm40{
+	pixel_x = -2;
+	pixel_y = 0
+	},
+/turf/open/floor/iron/large,
+/area/awaymission/beach/heretic)
 "KO" = (
 /obj/machinery/computer/communications{
 	dir = 1
@@ -7284,6 +7354,16 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/heretic_laboratory_clean)
+"Mi" = (
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
+	pixel_y = 9;
+	pixel_x = 15;
+	anchored = 1;
+	name = "SAM site missile rack"
+	},
+/obj/effect/turf_decal/trimline/red/arrow_cw,
+/turf/open/floor/iron/large,
+/area/awaymission/beach/heretic)
 "Mj" = (
 /obj/effect/turf_decal/trimline/red/line,
 /turf/closed/wall/mineral/iron,
@@ -7398,6 +7478,17 @@
 /obj/effect/blessing/invisible,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
+"MN" = (
+/obj/structure/fluff{
+	icon = 'icons/mob/simple/hivebot.dmi';
+	icon_state = "def_radar-off";
+	name = "radio dish component";
+	desc = "Remarkable Nanotrasen technology. This does... something to make the radio dish work.";
+	pixel_y = 0;
+	pixel_x = 0
+	},
+/turf/open/floor/iron/large,
+/area/awaymission/beach/heretic)
 "MP" = (
 /obj/structure/fluff/tram_rail,
 /obj/structure/thermoplastic/light,
@@ -7747,17 +7838,6 @@
 /obj/item/radio/intercom/mi13/directional/east,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory)
-"OM" = (
-/obj/item/clothing/mask/gas/welding/up,
-/obj/effect/decal/cleanable/blood/tracks/xeno,
-/obj/item/organ/tail/xeno,
-/obj/item/stack/sheet/animalhide/xeno,
-/obj/item/stack/sheet/xenochitin,
-/obj/effect/decal/cleanable/blood/gibs/xeno/larva/body,
-/obj/effect/decal/remains/xeno,
-/obj/effect/light_emitter,
-/turf/open/misc/grass/jungle/station,
-/area/awaymission/beach/heretic)
 "OP" = (
 /obj/machinery/light/directional/north,
 /obj/structure/chair/comfy/shuttle,
@@ -8044,6 +8124,13 @@
 /obj/structure/curtain/cloth/fancy/mechanical/start_closed,
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
+"Qq" = (
+/obj/structure/ladder{
+	name = "busted ladder hatch";
+	desc = "A sturdy metal ladder that used to lead to the bottom part of the ship. It's completely broken and the hatch is welded shut."
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/heretic_laboratory_clean)
 "Qr" = (
 /obj/effect/spawner/random/trash/bacteria,
 /turf/open/floor/plating,
@@ -8451,32 +8538,11 @@
 "Sv" = (
 /turf/closed/mineral/ash_rock,
 /area/awaymission/caves/heretic_laboratory_clean)
-"Sw" = (
-/obj/structure/table,
-/obj/item/healthanalyzer,
-/obj/item/healthanalyzer,
-/obj/item/stack/medical/wrap/gauze,
-/obj/item/stack/medical/wrap/gauze,
-/turf/open/floor/iron/dark,
-/area/awaymission/caves/heretic_laboratory)
 "Sx" = (
 /obj/machinery/door/window/right/directional/south,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron,
-/area/awaymission/caves/heretic_laboratory)
-"SA" = (
-/obj/structure/table/glass,
-/obj/item/storage/medkit/regular,
-/obj/item/stack/medical/wrap/gauze,
-/obj/item/stack/medical/suture,
-/obj/effect/turf_decal/siding{
-	dir = 10
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 10
-	},
-/turf/open/floor/iron/white/smooth_large,
 /area/awaymission/caves/heretic_laboratory)
 "SB" = (
 /obj/machinery/door/airlock/hatch,
@@ -8766,6 +8832,14 @@
 /obj/structure/closet/crate,
 /turf/open/floor/plating,
 /area/awaymission/caves/heretic_laboratory_clean)
+"Ul" = (
+/obj/structure/fluff/sat_dish{
+	dir = 4;
+	pixel_x = -8;
+	pixel_y = -1
+	},
+/turf/open/floor/iron/large,
+/area/awaymission/beach/heretic)
 "Um" = (
 /obj/structure/fluff/tram_rail{
 	dir = 1
@@ -8861,6 +8935,10 @@
 /obj/effect/blessing/invisible,
 /turf/open/floor/iron/dark,
 /area/awaymission/caves/heretic_laboratory)
+"UI" = (
+/obj/effect/turf_decal/trimline/yellow/filled,
+/turf/open/floor/iron/large,
+/area/awaymission/beach/heretic)
 "UK" = (
 /obj/machinery/atmospherics/components/trinary/filter/atmos/n2{
 	dir = 1
@@ -9196,16 +9274,6 @@
 	},
 /turf/open/floor/engine,
 /area/awaymission/caves/heretic_laboratory)
-"Wz" = (
-/obj/effect/turf_decal/trimline/red/arrow_ccw,
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
-	pixel_y = 8;
-	pixel_x = -15;
-	anchored = 1;
-	name = "Sam Site Missle rack"
-	},
-/turf/open/floor/iron/large,
-/area/awaymission/beach/heretic)
 "WA" = (
 /obj/machinery/door/airlock/hatch,
 /obj/effect/mapping_helpers/airlock/access/all/service,
@@ -9716,6 +9784,11 @@
 	dir = 6
 	},
 /area/awaymission/beach/heretic)
+"Zh" = (
+/obj/machinery/deployable_turret/naval_cannon,
+/obj/effect/turf_decal/trimline/yellow/filled/arrow_cw,
+/turf/open/floor/iron/large,
+/area/awaymission/beach/heretic)
 "Zi" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance,
@@ -9753,6 +9826,10 @@
 	},
 /turf/open/floor/engine,
 /area/awaymission/caves/heretic_laboratory)
+"Zu" = (
+/obj/effect/turf_decal/trimline/yellow/line,
+/turf/open/floor/iron/large,
+/area/awaymission/beach/heretic)
 "Zv" = (
 /obj/machinery/shower/directional/north,
 /obj/structure/curtain,
@@ -9822,10 +9899,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /turf/open/floor/iron/dark,
 /area/awaymission/caves/heretic_laboratory)
-"ZP" = (
-/obj/effect/turf_decal/trimline/red/filled,
-/turf/open/floor/iron/large,
-/area/awaymission/beach/heretic)
 "ZQ" = (
 /obj/machinery/light/directional/east,
 /obj/structure/table,
@@ -15160,7 +15233,7 @@ IV
 KB
 Sv
 KB
-oK
+fK
 mo
 mo
 KB
@@ -15460,8 +15533,8 @@ xQ
 BZ
 nv
 Xu
-og
-SA
+Dz
+uM
 Xu
 yx
 KB
@@ -15975,7 +16048,7 @@ BZ
 nv
 Xu
 wH
-zP
+ho
 Xu
 FX
 KB
@@ -40905,7 +40978,7 @@ Sv
 Sv
 Sv
 KB
-Sw
+cy
 xQ
 xQ
 xQ
@@ -50505,11 +50578,11 @@ nI
 nI
 nI
 nI
-SY
+hR
 hY
-hY
-hY
-hY
+ku
+xH
+xH
 xl
 xl
 xl
@@ -50526,12 +50599,12 @@ xl
 xl
 xl
 BY
-xH
-xH
-ZP
-iw
-hY
-hY
+KM
+UI
+UI
+UI
+bx
+EU
 oo
 oo
 kI
@@ -50764,8 +50837,8 @@ nI
 nI
 pB
 hY
-hY
-hY
+Mi
+rd
 hY
 xl
 Kx
@@ -50783,11 +50856,11 @@ IP
 kw
 ZM
 BY
+Dh
 hY
 hY
-ao
-GR
 hY
+CL
 hY
 hY
 hY
@@ -51020,16 +51093,16 @@ nI
 nI
 nI
 nI
-EP
-hY
-hY
+SY
+Gh
+Mj
 hY
 xl
 nL
 vu
 gi
 vu
-vu
+Qq
 pr
 xl
 md
@@ -51040,16 +51113,16 @@ IP
 Yy
 KO
 BY
-hY
-hY
-Gh
-Mj
+Dh
 hY
 hY
 hY
+Zu
 hY
 hY
 hY
+hY
+MN
 nR
 nI
 nI
@@ -51278,8 +51351,8 @@ nI
 nI
 Hi
 hY
-hY
-hY
+dx
+Ul
 hY
 xl
 Ew
@@ -51297,11 +51370,11 @@ IP
 FF
 Kk
 BY
+Dh
 hY
 hY
-vI
-Wz
 hY
+Zh
 hY
 hY
 hY
@@ -51533,11 +51606,11 @@ nI
 nI
 nI
 nI
-SY
+hR
 hY
-hY
-hY
-hY
+ku
+xH
+xH
 xl
 xl
 xl
@@ -51554,12 +51627,12 @@ xl
 xl
 xl
 BY
-xH
-xH
-ZP
-iw
-hY
-hY
+KM
+UI
+UI
+UI
+UI
+EU
 VQ
 VQ
 CC
@@ -53996,7 +54069,7 @@ nT
 QB
 Xa
 qn
-OM
+wv
 nb
 ay
 ay
