@@ -27,3 +27,4 @@
 	greyscale_config_worn = /datum/greyscale_config/maid_costume/worn
 	greyscale_colors = "#7b9ab5#edf9ff"
 	flags_1 = IS_PLAYER_COLORABLE_1
+

@@ -227,6 +227,8 @@
 	button_icon_state = "sound_VOICE_AND_TEXT"
 
 /datum/action/item_action/hev_toggle_notifs/Trigger(trigger_flags)
+	. = ..()
+
 	var/obj/item/clothing/suit/space/hev_suit/my_suit = target
 	var/new_setting = tgui_input_list(my_suit.current_user, "Please select your notification settings.", "HEV Notification Settings", HEV_NOTIFICATIONS)
 
@@ -244,6 +246,7 @@
 	build_all_button_icons()
 
 /datum/action/item_action/hev_toggle/Trigger(trigger_flags)
+	. = ..()
 	var/obj/item/clothing/suit/space/hev_suit/my_suit = target
 	if(my_suit.activated)
 		my_suit.deactivate()

@@ -26,13 +26,19 @@
 		flick("fuel_generator_deploy", src)
 
 // formerly NO_DECONSTRUCTION
-/obj/machinery/power/port_gen/pacman/solid_fuel/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+/obj/machinery/power/port_gen/pacman/solid_fuel/default_deconstruction_screwdriver(mob/user, obj/item/screwdriver)
 	return NONE
 
-/obj/machinery/power/port_gen/pacman/solid_fuel/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+/obj/machinery/power/port_gen/pacman/solid_fuel/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
 	return NONE
 
-/obj/machinery/power/port_gen/pacman/solid_fuel/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+/obj/machinery/power/port_gen/pacman/solid_fuel/default_pry_open(mob/living/user,
+	obj/item/crowbar,
+	close_after_pry = FALSE,
+	open_density = FALSE,
+	closed_density = TRUE,
+	deconstruct_on_fail = FALSE,
+)
 	return NONE
 
 // We don't need to worry about the board, this machine doesn't have one!

@@ -120,12 +120,10 @@
 	fire = 30
 	acid = 45
 
-/* //disabling this until someone fixes config on it
 /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue
 	desc = "An outdated jacket in blue. Probably against uniform regulations."
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue"
 	greyscale_colors = "#3f6e9e#eae3ce#17161f#3f6e9e"
-*/
 
 /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/bridge_officer
 	name = "bridge officer's jacket"
@@ -224,7 +222,7 @@
 	greyscale_colors = "#2d3a46"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	
+
 /obj/item/clothing/suit/nova/sweater/bow
 	name = "big sweater with bow"
 	desc = "A big'ol sweater with an equally big ribbon bow! Makes for an improvised blanket with how huge this thing is."

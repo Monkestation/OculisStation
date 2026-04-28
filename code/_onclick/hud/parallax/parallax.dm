@@ -204,7 +204,6 @@
 		hud_used.set_parallax_movedir(areaobj.parallax_movedir, TRUE)
 
 // Root object for parallax, all parallax layers are drawn onto this and it manages them
-INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 /atom/movable/screen/parallax_home
 	icon = null
 	blend_mode = BLEND_ADD
@@ -296,7 +295,6 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 	QDEL_LIST(parallax_layers_cached)
 
 // We need parallax to always pass its args down into initialize, so we immediate init it
-INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 /atom/movable/screen/parallax_layer
 	icon = 'modular_iris/master_files/icons/effects/skybox.dmi' //IRIS EDIT
 	var/speed = 1
@@ -369,7 +367,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	speed = 0.5
 	layer = 1
 	///This NEEDS to be a static, otherwise space turns into a bigass rave
-	var/static/skybox_starlight = COLOR_VIOLET //OCULIS EDIT
+	var/static/skybox_starlight = pick(COLOR_LIGHT_PINK, COLOR_VIOLET, COLOR_MOSTLY_PURE_PINK, COLOR_AMETHYST, COLOR_OCULIS_LOGO) //OCULIS EDIT
 
 /atom/movable/screen/parallax_layer/layer_1/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()

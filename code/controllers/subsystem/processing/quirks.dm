@@ -27,7 +27,8 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/settler, /datum/quirk/freerunning),
 	list(/datum/quirk/numb, /datum/quirk/selfaware),
 	list(/datum/quirk/empath, /datum/quirk/evil),
-	//NOVA EDIT ADDITION BEGIN
+	list(/datum/quirk/keen_nose, /datum/quirk/item_quirk/anosmia),
+	// NOVA EDIT ADDITION BEGIN
 	list(/datum/quirk/equipping/nerve_staple, /datum/quirk/nonviolent),
 	list(/datum/quirk/equipping/nerve_staple, /datum/quirk/item_quirk/nearsighted),
 	list(/datum/quirk/no_guns, /datum/quirk/poor_aim),
@@ -46,7 +47,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/psionic_dampener, /datum/quirk/telepathic),
 	list(/datum/quirk/hydrophobia, /datum/quirk/item_quirk/breather/water_breather),
 	list(/datum/quirk/unblinking, /datum/quirk/item_quirk/fluoride_stare),
-	//NOVA EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 	//IRIS EDIT ADDITION BEGIN
 	//ORBSTATION PORT: if you're illiterate, farsighted would just be free points
 	list(/datum/quirk/item_quirk/farsighted, /datum/quirk/illiterate),

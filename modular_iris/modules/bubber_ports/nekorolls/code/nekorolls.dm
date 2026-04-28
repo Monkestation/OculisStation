@@ -40,7 +40,7 @@
 		/datum/reagent/consumable/sugar = 1
 	)
 	result = /obj/item/food/nekoroll
-	category = CAT_SEAFOOD
+	dish_category = DISH_RICE
 
 /datum/crafting_recipe/food/bignekoroll
 	name = "Nekobara roll"
@@ -50,4 +50,4 @@
 		/datum/reagent/consumable/sugar = 2
 	)
 	result = /obj/item/food/bignekoroll
-	category = CAT_SEAFOOD
+	dish_category = DISH_RICE

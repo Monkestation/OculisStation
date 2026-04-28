@@ -2,7 +2,7 @@
 	// IRIS EDIT: Adds a bride officer slot
 	total_positions = 2
 	spawn_positions = 1
-	job_flags = STATION_JOB_FLAGS
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 	outfit = /datum/outfit/job/bridge_assistant
 	plasmaman_outfit = /datum/outfit/job/bridge_assistant/plasmaman

@@ -224,6 +224,7 @@
 	restricted_roles = list(JOB_HEAD_OF_PERSONNEL, JOB_NT_REP)
 	group = "Job-Locked"
 
+
 //MED
 /datum/loadout_item/under/jumpsuit/impcmo
 	name = "Chief Medical Officer's Naval Uniform"
