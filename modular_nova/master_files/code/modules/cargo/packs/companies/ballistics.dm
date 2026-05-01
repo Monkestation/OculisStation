@@ -57,9 +57,9 @@
 	cost = CARGO_CRATE_VALUE * 4
 	contains = list(/obj/item/storage/toolbox/guncase/nova/ntspecial/pistol/c96)
 	auto_name = FALSE
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
 	order_flags = ORDER_COMPANY
 
 // Sol Fed Weapons

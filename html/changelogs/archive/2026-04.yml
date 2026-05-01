@@ -139,8 +139,6 @@
       them to reduce the slowdown items (ie, armors) cause by 80%, same as the settler
       perk!
 2026-04-10:
-  flleeppyy:
-  - rscadd: Plexora OOM shutdown type.
   Hardly:
   - qol: Roundstart doctors no longer have the possibility of spawning stuck in abandoned
       medical storage in blueshift
@@ -181,6 +179,8 @@
   cebutris:
   - rscadd: In a win for puppies dogs everywhere, tennis balls are now available at
       Good Clean Fun vendors
+  flleeppyy:
+  - rscadd: Plexora OOM shutdown type.
   sergeirocks100:
   - map: Meta, Delta, Ice Box, Pubby, Tram, Nebula, Wawa, and Catwalk now all have
       service guard lockers that can be found in their respective bar backrooms.
@@ -207,11 +207,6 @@
   XeonMations:
   - bugfix: Fixed emote cooldown being 2 seconds. Lowered to 0.8, same as TG.
 2026-04-15:
-  OrbisAnima:
-  - bugfix: Fixed an exploit with hunter slugs which caused them to do 5 times more
-      damage than they should be doing
-  vinylspiders:
-  - config: adds a server config for nova star restrictions
   KnigTheThrasher:
   - map: black mesa away mission
   - map: fixed apc's in pubby
@@ -226,10 +221,17 @@
   - rscadd: lizards take more damage from toxin and have slower surgery times due
       to their scales
   - rscadd: Added the ability for lizards to lick things off their own face
+  OrbisAnima:
+  - bugfix: Fixed an exploit with hunter slugs which caused them to do 5 times more
+      damage than they should be doing
+  vinylspiders:
+  - config: adds a server config for nova star restrictions
 2026-04-16:
   Hardly:
   - bugfix: Fixes custom tongue not working on characters that have joined at the
       start of the round
+  KnigTheThrasher:
+  - bugfix: fixed corgis having missing old age icon
   Melbert:
   - rscadd: Some undergarmants will now use a generic replacement on lizard body shapes
       that fit more appropriately
@@ -244,8 +246,6 @@
   - bugfix: fixes an issue that would cause taur legs to stack overlays on each rerender
       and eventually hit the overlay cap
   - bugfix: fixes the 'soft' hemi option sprite size progression being backwards
-  KnigTheThrasher:
-  - bugfix: fixed corgis having missing old age icon
 2026-04-19:
   00-Steven:
   - admin: Holoparasite boobytraps now log when they're set and when they explode.
@@ -599,6 +599,8 @@
   - balance: The staff of chaos can now do more things.
   - balance: Magicarp now additionally come in Babbling, Frigid, Quantum, and Weightless
       varieties. Collect them all!
+  KnigTheThrasher:
+  - bugfix: fixed missing lizard tail wagging sprites
   Melbert:
   - bugfix: Heretic "research knowledge" objective no longer undershoots the target
       value by ~8-10
@@ -623,6 +625,8 @@
   - bugfix: welding goggles now only cover your eyes when covering your eyes
   Yobrocharlie:
   - rscadd: The heretic gateway now has a 40mm cannon in it.
+  ggermanicus:
+  - rscadd: Adds department guards and detectives to security item loadout whitelist.
   lelandkemble:
   - bugfix: Janiborgs will no longer track blood while autowashing
   necromanceranne:
@@ -637,10 +641,6 @@
   - bugfix: fixes windows airbags smoke
   - bugfix: changing your gender choice in character prefs no longer modifies your
       physique preference
-  KnigTheThrasher:
-  - bugfix: fixed missing lizard tail wagging sprites
-  ggermanicus:
-  - rscadd: Adds department guards and detectives to security item loadout whitelist.
 2026-04-21:
   Happyowl93:
   - bugfix: chameleon items work again
@@ -741,3 +741,32 @@
       scrubber overflows.
   xn-zn8h:
   - rscadd: Meka cyborg models are back in stock!
+2026-04-29:
+  Diltyrr:
+  - bugfix: Stone griddles do not have a chance to spawn invisible anymore.
+  KittyNoodle:
+  - rscadd: New ethereal eye sprites.
+  - rscadd: New ethereal body sprites.
+  - rscadd: Two new ethereal colors. (Which are actually just old colors made to work
+      with the new sprites).
+  - rscadd: Ethereal horns/antenna.
+  - rscadd: Examining ethereals can tell you if they are under or overcharged.
+  - qol: Upgraded cyborg chargers no longer overcharge ethereals.
+  - balance: Ethereals no longer suffer heart attacks from overcharge
+  - balance: Ethereals now naturally regenerate blood like everyone else. This is
+      based on their charge level.
+  - bugfix: Ethereals now properly turn grey when killed
+  KnigTheThrasher:
+  - code_imp: more parallax variants
+  Shroopy:
+  - bugfix: Fixed the uncommon blood crate not having blood for all uncommon blood
+      types in it. Its price has been increased proportionately.
+  Spacemanspark:
+  - rscdel: Furious George will no longer furiously try to George your skull in when
+      the round starts.
+2026-04-30:
+  Aozame04:
+  - map: Maintenance, security, cargo, library, xenobiology and couple of other areas
+      updated on Kilostation.
+  Shroopy:
+  - bugfix: Fixed the NT M-96 not being permit-locked.
