@@ -243,6 +243,30 @@
 		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
 		return special_icon
 
+// OCULIS EDIT ADDITION START
+
+//Ethereal Horns Hardlight//
+/datum/sprite_accessory/ethereal_horns
+	use_custom_mod_icon = TRUE
+
+/datum/sprite_accessory/ethereal_horns/get_custom_mod_icon(mob/living/carbon/human/wearer, mutable_appearance/appearance_to_use = null)
+	if(wearer?.head && istype(wearer.head, /obj/item/clothing/head/mod))
+		var/obj/item/mod/control/modsuit_control = wearer.back
+		if(!istype(modsuit_control))
+			return
+		var/datum/mod_theme/mod_theme = modsuit_control.theme
+
+		if(!modsuit_control.active || !mod_theme.hardlight)
+			return
+
+		var/icon/special_icon = appearance_to_use ? icon(appearance_to_use.icon, appearance_to_use.icon_state) : icon(icon, icon_state)
+		var/icon/MOD_texture = icon(HARDLIGHT_DMI, "[mod_theme.hardlight_theme]")
+		special_icon.Blend("#fff", ICON_ADD)
+		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
+		return special_icon
+
+// OCULIS EDIT ADDITION END
+
 // Skrell hair hardlight
 /datum/sprite_accessory/skrell_hair
 	use_custom_mod_icon = TRUE

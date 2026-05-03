@@ -62,7 +62,19 @@
 	PRIVATE_PROC(TRUE)
 
 	//charge the cell, account for heat loss from work done
+	/*	OCULIS EDIT REMOVAL START
 	var/charge_given = charge_cell(recharge_speed * seconds_per_tick, target, grid_only = TRUE)
+		OCULIS EDIT REMOVAL END */
+	// OCULIS EDIT ADDITION START
+	var/charge_given
+	if(istype(target, /obj/item/stock_parts/power_store/cell/ethereal) && repairs) //SNOWFLAKE CODE SNOWFLAKE CODE
+		if(target.charge() > ETHEREAL_CHARGE_FULL)  // Prevents reduction of charge of overcharged ethereals
+			charge_given = 0
+		else
+			charge_given = charge_cell(min(recharge_speed * seconds_per_tick, ETHEREAL_CHARGE_FULL - target.charge()), target, grid_only = TRUE) //Gets the standard charge amount, or the difference between the current charge and the full charge of the ethereal, and goes with whichever is smaller. This tops off the ethereal.
+	else
+		charge_given = charge_cell(recharge_speed * seconds_per_tick, target, grid_only = TRUE)
+	// OCULIS EDIT ADDITION END
 	if(charge_given)
 		use_energy((charge_given + active_power_usage) * 0.01)
 
@@ -88,6 +100,7 @@
 			. += span_notice("The ore silo link indicator is lit, and cyborg restocking can be toggled by <b>Right-Clicking</b> [src].")
 		if(repairs)
 			. += span_notice("[src] has been upgraded to support automatic repairs.")
+			. += span_notice("[src] has been upgraded to not overcharge ethereal bio-cells.")// OCULIS EDIT ADDITION
 
 /obj/machinery/recharge_station/on_set_is_operational(old_value)
 	if(old_value) //Turned off
