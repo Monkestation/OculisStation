@@ -88,8 +88,10 @@
 	if(attacking_item.get_sharpness())
 
 		user.balloon_alert(user, "made [plank_count] [plank_name]")
+		// OCULIS EDIT START - prevent logs going inside machinery when someone's buckled to it.
 		var/turf/floor = get_turf(user)
 		new plank_type(floor, plank_count)
+		// OCULIS EDIT END
 		qdel(src)
 		return
 
