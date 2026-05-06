@@ -5,9 +5,19 @@
 	purchase_path = /obj/item/reagent_containers/hypospray/medipen/survival
 	cost_per_order = 250
 
+// OCULIS EDIT ADDITION - synth pens. non-modular for placement in UI
+/datum/orderable_item/consumables/survival_pen/synth
+	purchase_path = /obj/item/reagent_containers/hypospray/medipen/synthcare
+// OCULIS EDIT END
+
 /datum/orderable_item/consumables/luxury_pen
 	purchase_path = /obj/item/reagent_containers/hypospray/medipen/survival/luxury
 	cost_per_order = 750
+
+// OCULIS EDIT ADDITION - synth luxpens. non-modular for placement in UI
+/datum/orderable_item/consumables/luxury_pen/synth
+	purchase_path = /obj/item/reagent_containers/hypospray/medipen/synthcare/luxury
+// OCULIS EDIT END
 
 // OCULIS EDIT ADDITION - slime luxpens. non-modular so that it appears right next to luxury pens in the order UI.
 /datum/orderable_item/consumables/luxury_pen/slime
