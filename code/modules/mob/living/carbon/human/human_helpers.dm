@@ -345,7 +345,7 @@
 	if (HAS_TRAIT(src, TRAIT_HEAVYSET))
 		fitness_modifier *= 2
 	if (HAS_TRAIT(src, TRAIT_OVERSIZED))
-		fitness_modifier *= 4
+		fitness_modifier *= 2.5
 	// OCULIS EDIT ADDITION END
 
 	var/athletics_level = mind?.get_skill_level(/datum/skill/athletics) || 1
