@@ -1022,7 +1022,7 @@
 		return
 
 	// OCULIS EDIT ADDITION START
-	if(((HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED)) && !istype(potential_spine)) || ((HAS_TRAIT(target, TRAIT_HEAVYSET) && !HAS_TRAIT(src, TRAIT_HEAVYSET)) && !istype(atlas_spine)))
+	if(((HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED)) && !istype(potential_spine)) || ((HAS_TRAIT(target, TRAIT_HEAVYSET) && !HAS_TRAIT(src, TRAIT_HEAVYSET)) && !istype(potential_spine)))
 		if((fitness_level < SKILL_LEVEL_EXPERT) && !istype(potential_spine))
 			target.visible_message(span_warning("[target] is too heavy for [src] to carry!"))
 			var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
