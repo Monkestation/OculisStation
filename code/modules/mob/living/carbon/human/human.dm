@@ -1005,8 +1005,7 @@
 	// NOVA EDIT ADDITION END
 	*/ // OCULIS EDIT REMOVAL END
 	// OCULIS EDIT ADDITION START
-	var/obj/item/organ/cyberimp/chest/spine/atlas/atlas_spine = get_organ_slot(ORGAN_SLOT_SPINE) // Only those with a gravity core spine implant can do the holy heavy lifting while being smoll and light
-	if(((HAS_TRAIT(target, TRAIT_OVERSIZED) && HAS_TRAIT(src, TRAIT_OVERSIZED)) || istype(atlas_spine)) || ((HAS_TRAIT(target, TRAIT_HEAVYSET) && HAS_TRAIT(src, TRAIT_HEAVYSET))))
+	if(((HAS_TRAIT(target, TRAIT_OVERSIZED) && HAS_TRAIT(src, TRAIT_OVERSIZED)) || istype(potential_spine)) || ((HAS_TRAIT(target, TRAIT_HEAVYSET) && HAS_TRAIT(src, TRAIT_HEAVYSET))))
 		carrydelay = 5 SECONDS
 		skills_space = " strenuously"
 	// OCULIS EDIT ADDITION END
@@ -1023,8 +1022,8 @@
 		return
 
 	// OCULIS EDIT ADDITION START
-	if(((HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED)) && !istype(atlas_spine)) || ((HAS_TRAIT(target, TRAIT_HEAVYSET) && !HAS_TRAIT(src, TRAIT_HEAVYSET)) && !istype(atlas_spine)))
-		if((fitness_level < SKILL_LEVEL_EXPERT) && !istype(atlas_spine))
+	if(((HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED)) && !istype(potential_spine)) || ((HAS_TRAIT(target, TRAIT_HEAVYSET) && !HAS_TRAIT(src, TRAIT_HEAVYSET)) && !istype(atlas_spine)))
+		if((fitness_level < SKILL_LEVEL_EXPERT) && !istype(potential_spine))
 			target.visible_message(span_warning("[target] is too heavy for [src] to carry!"))
 			var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 			var/obj/item/bodypart/affecting = get_bodypart(ran_zone(dam_zone))
