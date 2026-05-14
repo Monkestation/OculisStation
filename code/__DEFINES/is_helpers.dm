@@ -158,6 +158,7 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 #define isAI(A) (istype(A, /mob/living/silicon/ai))
 #define iscyborg(A) (istype(A, /mob/living/silicon/robot))
 #define ispAI(A) (istype(A, /mob/living/silicon/pai))
+#define isoldpAI(A) (istype(A, /mob/living/silicon/pai_oculis)) // Oculis edit
 
 ///This is used to see if you have Silicon access. This includes things like Admins, Drones, Bots, and Human wands.
 #define HAS_SILICON_ACCESS(possible_silicon) (HAS_TRAIT(possible_silicon, TRAIT_SILICON_ACCESS) || isAdminGhostAI(possible_silicon))

@@ -1,5 +1,5 @@
 /obj/vehicle/sealed/mecha/mob_try_enter(mob/M)
-	if(!ishuman(M)) // no silicons or drones in mechas.
+	if(!ishuman(M) && !isoldpAI(M)) // no silicons or drones in mechas. // OCULIS EDIT START: Oculis pAIs can enter mechas
 		return
 	if(HAS_TRAIT(M, TRAIT_PRIMITIVE)) //no lavalizards either.
 		to_chat(M, span_warning("The knowledge to use this device eludes you!"))
@@ -45,7 +45,7 @@
 /obj/vehicle/sealed/mecha/proc/moved_inside(mob/living/newoccupant)
 	if(!(newoccupant?.client))
 		return FALSE
-	if(ishuman(newoccupant) && !Adjacent(newoccupant))
+	if((ishuman(newoccupant) || isoldpAI(newoccupant) && !Adjacent(newoccupant))) // OCULIS EDIT END: Oculis pAIs can enter mechas
 		return FALSE
 	mecha_flags &= ~PANEL_OPEN //Close panel if open
 	newoccupant.forceMove(src)
