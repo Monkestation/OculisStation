@@ -16,7 +16,7 @@
 		to_chat(usr, span_alert("You can't do that right now!"))
 		return
 
-	forceMove(card.loc)
+	forceMove(card.drop_location())
 	card.forceMove(src)
 	is_in_card = FALSE
 	visible_message(span_notice("[src] folds outwards, expanding into a mobile form."))
@@ -24,16 +24,20 @@
 /mob/living/silicon/pai_oculis/verb/fold_up()
 	set category = "pAI Commands"
 	set name = "Collapse Chassis"
-	fold(forced = FALSE)
+	fold_in(forced = FALSE)
 
-/mob/living/silicon/pai_oculis/proc/fold(forced)
+/mob/living/silicon/pai_oculis/proc/fold_in(forced)
 	if(loc == card && is_in_card)
 		to_chat(usr, span_alert("You're already in card form!"))
+		return
+	if(istype(loc, /obj/vehicle/sealed/mecha))
+		to_chat(usr, span_alert("You're connected to an exosuit, exit first!"))
 		return
 	stop_pulling()
 	resting = FALSE
 	anchored = FALSE
-	card.forceMove(loc)
+	card.forceMove(drop_location())
+	forceMove(drop_location())
 	forceMove(card)
 	is_in_card = TRUE
 

@@ -153,11 +153,11 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 	switch(severity)
 		if(1)
 			src.take_bodypart_damage(burn = 50)
-			fold(forced = TRUE)
+			fold_in(forced = TRUE)
 			return
 		if(2)
 			src.take_bodypart_damage(burn = 30)
-			fold(forced = TRUE)
+			fold_in(forced = TRUE)
 			return
 
 // We have no laws, so we don't need to check for them or create new ones.
@@ -179,23 +179,6 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 	if(light_on)
 		toggle_integrated_light()
 	if(!is_in_card)
-		fold(TRUE)
+		fold_in(TRUE)
 		can_unfold = FALSE
 	ghostize()
-
-// With an upgrade from robotics, pAIs will be allowed to pilot mechs. These next two proc calls allow that.
-/mob/living/silicon/pai_oculis/can_perform_action(atom/target, action_bitflags)
-	if((action_bitflags & NEED_HANDS) && isoldpAI(target))
-		return TRUE
-	return ..()
-
-/obj/vehicle/sealed/mecha/mouse_drop_receive(atom/dropping, mob/living/M, params)
-	if(isoldpAI(M) && M == dropping)
-		var/mob/living/silicon/pai_oculis/pai = M
-		if(!pai.can_pilot_mechs)
-			to_chat(M, span_warning("The exosuit refuses to interface with you!"))
-			return
-		mob_try_enter(M)
-		return
-	return ..()
-
