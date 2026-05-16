@@ -8,8 +8,8 @@
 	add_screen_object(/atom/movable/screen/navigate, HUD_MOB_NAVIGATE_MENU, ui_style, ui_pai_navigate_menu)
 	add_screen_object(/atom/movable/screen/memories, HUD_MOB_MEMORIES, HUD_GROUP_STATIC, ui_style, ui_pai_memories_menu)
 	add_screen_object(/atom/movable/screen/pai/software, HUD_PAI_SOFTWARE)
-	add_screen_object(/atom/movable/screen/pai/shell, HUD_PAI_SHELL)
-	add_screen_object(/atom/movable/screen/pai/chassis, HUD_PAI_CHASSIS)
+	add_screen_object(/atom/movable/screen/pai/shell, HUD_PAI_SHELL) // TODO: Make custom screen objects that use the word 'chassis' rather than 'holo-'
+	add_screen_object(/atom/movable/screen/pai/chassis, HUD_PAI_CHASSIS) // See comment for shell screen object above
 	add_screen_object(/atom/movable/screen/pai/rest, HUD_MOB_REST)
 	add_screen_object(/atom/movable/screen/pai/light, HUD_CYBORG_LAMP)
 	add_screen_object(/atom/movable/screen/pai/newscaster, HUD_PAI_NEWSCASTER)

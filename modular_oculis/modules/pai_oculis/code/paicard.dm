@@ -101,3 +101,7 @@
 		else
 			to_chat(user, span_alert("[pai]'s systems are already active."))
 			return
+
+/obj/item/pai_card_oculis/Destroy()
+	QDEL_NULL(pai)
+	return ..()

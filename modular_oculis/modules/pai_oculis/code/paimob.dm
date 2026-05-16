@@ -6,6 +6,21 @@
 tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist. Heavily inspired by baycode pAIs
 */
 
+/* TODO:
+1. Implement pAI upgrades (exosuit piloting, 'laser' eyes, multitool systems, EMP resistance etc)
+2. Implement interfaces (gives a simple, limited overview for those clicking on the card; allowing them to see pAI integrity, a list of upgrades [3 max], clear access and shutdown buttons)
+3. Implement disabler functionality (force pAI into card mode after a few shots)
+4. Add sound effects to various functions (unfolding/folding mostly)
+5. Add description stuff
+6. Implement job functionality for roundstart/latejoining
+7. Add spawn locations when joining at roundstart. On each map. God help me.
+8. Give pAIs the ability to interface with consoles (They have to be able to at least move from castor to the station, of course)
+9. Maybe implement a 2-3 brute damage basic attack? Having some way to do very, very basic self defense seems like a good idea for these, even if they're generally better off running or folding into card mode.
+10. Probably should condense the fold out/fold in command verbs to a single verb that gets called when the switch chassis mode button already available gets pressed. Need to add in a cooldown for switching
+between the card and mob when the pAI is forced into card mode (EMPs, disablers, etc).
+11. Add a software interface for the pAI itself (The ability to download programs, self clear access, manage programs, PDA functionality, etc)
+*/
+
 /datum/language_holder/pai_oculis
 	understood_languages = list(/datum/language/common = list(LANGUAGE_ATOM),
 								/datum/language/machine = list(LANGUAGE_ATOM))
@@ -182,3 +197,8 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 		fold_in(TRUE)
 		can_unfold = FALSE
 	ghostize()
+
+// Our chassis is bound to the card. If we go bye bye, so does it, and vice versa.
+/mob/living/silicon/pai_oculis/Destroy()
+	QDEL_NULL(card)
+	return ..()
