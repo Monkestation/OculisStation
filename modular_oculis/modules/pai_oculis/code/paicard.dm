@@ -103,5 +103,5 @@
 			return
 
 /obj/item/pai_card_oculis/Destroy()
-	QDEL_NULL(pai)
+	pai = null
 	return ..()
