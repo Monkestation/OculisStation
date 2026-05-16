@@ -200,5 +200,5 @@ between the card and mob when the pAI is forced into card mode (EMPs, disablers,
 
 // Our chassis is bound to the card. If we go bye bye, so does it, and vice versa.
 /mob/living/silicon/pai_oculis/Destroy()
-	QDEL_NULL(card)
+	card = null
 	return ..()
