@@ -1,8 +1,4 @@
-// pAI fold/unfold commands
-/mob/living/silicon/pai_oculis/verb/fold_out()
-	set category = "pAI Commands"
-	set name = "Unfold Chassis"
-	unfold()
+// pAI fold/unfold procs
 
 /mob/living/silicon/pai_oculis/proc/unfold()
 	if(loc != card && !is_in_card)
@@ -21,11 +17,6 @@
 	is_in_card = FALSE
 	visible_message(span_notice("[src] folds outwards, expanding into a mobile form."))
 
-/mob/living/silicon/pai_oculis/verb/fold_up()
-	set category = "pAI Commands"
-	set name = "Collapse Chassis"
-	fold_in(forced = FALSE)
-
 /mob/living/silicon/pai_oculis/proc/fold_in(forced)
 	if(loc == card && is_in_card)
 		to_chat(usr, span_alert("You're already in card form!"))
@@ -33,6 +24,11 @@
 	if(istype(loc, /obj/vehicle/sealed/mecha))
 		to_chat(usr, span_alert("You're connected to an exosuit, exit first!"))
 		return
+	if(forced)
+		visible_message(span_alert("[src]'s chassis abruptly folds inward, compacting into a rectangulard card!"))
+	else
+		visible_message(span_notice("[src] neatly folds inwards, compacting down to a rectangular card."))
+
 	stop_pulling()
 	resting = FALSE
 	anchored = FALSE
@@ -40,11 +36,6 @@
 	forceMove(drop_location())
 	forceMove(card)
 	is_in_card = TRUE
-
-	if(forced)
-		visible_message(span_alert("[src]'s chassis abruptly folds inward, compacting into a rectangulard card!"))
-	else
-		visible_message(span_notice("[src] neatly folds inwards, compacting down to a rectangular card."))
 
 // pAI chassis selection command
 /mob/living/silicon/pai_oculis/proc/choose_chassis()

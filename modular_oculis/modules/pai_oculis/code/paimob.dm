@@ -16,7 +16,7 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 7. Add spawn locations when joining at roundstart. On each map. God help me.
 8. Give pAIs the ability to interface with consoles (They have to be able to at least move from castor to the station, of course)
 9. Maybe implement a 2-3 brute damage basic attack? Having some way to do very, very basic self defense seems like a good idea for these, even if they're generally better off running or folding into card mode.
-10. Probably should condense the fold out/fold in command verbs to a single verb that gets called when the switch chassis mode button already available gets pressed. Need to add in a cooldown for switching
+10. Need to add in a (very short) cooldown for switching between card form and chassis form, as well as an extended cooldown when hit with an EMP.
 between the card and mob when the pAI is forced into card mode (EMPs, disablers, etc).
 11. Add a software interface for the pAI itself (The ability to download programs, self clear access, manage programs, PDA functionality, etc)
 */
