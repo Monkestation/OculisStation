@@ -75,7 +75,7 @@
 // avian traits
 #define TRAIT_AVIAN "avian_aspect"
 
-// feathered
+// feathered, oculis addition
 #define TRAIT_FEATHERED "featherquirk"
 
 // chameleon mutation
