@@ -12,6 +12,7 @@
 		to_chat(usr, span_alert("You can't do that right now!"))
 		return
 
+	playsound(src, 'sound/items/tools/ratchet.ogg', 50, TRUE)
 	forceMove(card.drop_location())
 	card.forceMove(src)
 	is_in_card = FALSE
@@ -25,10 +26,11 @@
 		to_chat(usr, span_alert("You're connected to an exosuit, exit first!"))
 		return
 	if(forced)
-		visible_message(span_alert("[src]'s chassis abruptly folds inward, compacting into a rectangulard card!"))
+		visible_message(span_alert("[src]'s chassis abruptly folds inward, compacting into a rectangular card!"))
 	else
 		visible_message(span_notice("[src] neatly folds inwards, compacting down to a rectangular card."))
 
+	playsound(src, 'sound/items/tools/ratchet.ogg', 50, TRUE)
 	stop_pulling()
 	resting = FALSE
 	anchored = FALSE
@@ -48,7 +50,13 @@
 	var/choice = show_radial_menu(src, anchor, skins, custom_check = CALLBACK(src, PROC_REF(check_menu), anchor), radius = 40, require_near = TRUE)
 	if(!choice)
 		return FALSE
+
+	//We aren't a holochassis that can switch at will, but a mechanical, robotic body. It takes a few seconds to transform into another shape.
+	if(!do_after(src, 3 SECONDS, src))
+		to_chat(src, span_alert("You need to stay still for this!"))
+		return
 	set_chassis(choice)
+	playsound(src, 'sound/items/tools/rped.ogg', 50, TRUE)
 	balloon_alert(src, "Now using the [choice] chassis form.")
 	update_resting()
 	return TRUE

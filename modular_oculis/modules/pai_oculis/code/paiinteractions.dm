@@ -20,3 +20,15 @@
 		insertpai(user, attacking_item)
 		return
 	return ..()
+
+/mob/living/silicon/pai_oculis/can_interact_with(atom/target)
+	if(target == modularInterface)
+		return TRUE
+	return ..()
+
+// Temporarily using attack_pai(), will replace later with a custom proc
+/mob/living/silicon/pai_oculis/resolve_unarmed_attack(atom/attack_target, list/modifiers)
+	attack_target.attack_pai(src, modifiers)
+
+/mob/living/silicon/pai_oculis/resolve_right_click_attack(atom/target, list/modifiers)
+	return target.attack_pai_secondary(src, modifiers)

@@ -16,8 +16,7 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 7. Add spawn locations when joining at roundstart. On each map. God help me.
 8. Give pAIs the ability to interface with consoles (They have to be able to at least move from castor to the station, of course)
 9. Maybe implement a 2-3 brute damage basic attack? Having some way to do very, very basic self defense seems like a good idea for these, even if they're generally better off running or folding into card mode.
-10. Need to add in a (very short) cooldown for switching between card form and chassis form, as well as an extended cooldown when hit with an EMP.
-between the card and mob when the pAI is forced into card mode (EMPs, disablers, etc).
+10. Need to add in a (very short) cooldown for switching between card form and chassis form, as well as an extended cooldown when hit with EMPs/disablers
 11. Add a software interface for the pAI itself (The ability to download programs, self clear access, manage programs, PDA functionality, etc)
 */
 
@@ -167,11 +166,11 @@ between the card and mob when the pAI is forced into card mode (EMPs, disablers,
 		return
 	switch(severity)
 		if(1)
-			src.take_bodypart_damage(burn = 50)
+			take_bodypart_damage(burn = 50)
 			fold_in(forced = TRUE)
 			return
 		if(2)
-			src.take_bodypart_damage(burn = 30)
+			take_bodypart_damage(burn = 30)
 			fold_in(forced = TRUE)
 			return
 
@@ -187,6 +186,9 @@ between the card and mob when the pAI is forced into card mode (EMPs, disablers,
 /mob/living/silicon/pai_oculis/death(gibbed)
 	if(stat == DEAD)
 		return
+	to_chat(usr, span_alert("WARNING! SYSTEM SHUTDOWN IMMINENT! WARNING! SYSTEM SHUTDOWN IMMINENT! WARNING! SYSTEM SH-"))
+	visible_message(span_alert("[src]'s systems encounter a fatal error and shut down!"))
+	playsound(src, 'sound/mobs/non-humanoids/cyborg/borg_deathsound.ogg', 50, FALSE)
 	set_stat(DEAD)
 	update_sight()
 	clear_fullscreens()
@@ -198,7 +200,6 @@ between the card and mob when the pAI is forced into card mode (EMPs, disablers,
 		can_unfold = FALSE
 	ghostize()
 
-// Our chassis is bound to the card. If we go bye bye, so does it, and vice versa.
 /mob/living/silicon/pai_oculis/Destroy()
 	card = null
 	return ..()
