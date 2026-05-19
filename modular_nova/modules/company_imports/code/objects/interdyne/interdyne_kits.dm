@@ -62,7 +62,7 @@
 	new_icon_state = "interdyne_premium_surgical"
 
 /obj/item/storage/medkit/tactical/premium/interdyne
-	name = "\improper Interdyne Premium Doctor's Kit"
+	name = "\improper Interdyne Trauma Kit"
 	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools."
 	icon_state = "interdyne_premium_surgical"
 	icon = 'modular_nova/master_files/icons/obj/storage/medkit.dmi'
@@ -87,11 +87,11 @@
 		/obj/item/retractor/advanced = 1,
 		/obj/item/cautery/advanced = 1,
 		/obj/item/defibrillator/compact/combat/loaded/interdyne = 1,
-		/obj/item/circular_saw/field_medic/lowforce = 1,
-		/obj/item/bonesetter = 1,
-		/obj/item/stack/medical/wrap/sticky_tape/surgical = 1,
+		/obj/item/blood_filter/advanced = 1,
+		/obj/item/stack/medical/wrap/sticky_tape/surgical = 2,
 		/obj/item/reagent_containers/medigel/sterilizine = 1,
-		/obj/item/stack/medical/bone_gel = 1,
+		/obj/item/stack/medical/bone_gel = 2,
+		/obj/item/emergency_bed = 1,
 	)
 	generate_items_inside(items_inside, src)
 
@@ -193,28 +193,6 @@
 	var/list/items_inside = list()
 	generate_items_inside(items_inside,src)
 
-/obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy
-	name = "\improper Interdyne Critical Burn-Brute Kit"
-	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools. Meant for treating critical bruises"
-	icon_state = "interdyne_brute"
-
-/obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy/PopulateContents()
-	var/list/items_inside = list(
-		/obj/item/stack/medical/suture/medicated = 2,
-		/obj/item/stack/medical/mesh/advanced = 2,
-		/obj/item/healthanalyzer/advanced = 1,
-		/obj/item/stack/medical/wrap/gauze = 2,
-		/obj/item/storage/box/bandages/interdyne = 1,
-		/obj/item/storage/box/bandages/interdyne/burn = 1,
-		/obj/item/reagent_containers/hypospray/medipen/morphine = 2,
-		/obj/item/reagent_containers/hypospray/medipen = 2,
-		/obj/item/storage/hypospraykit/interdyne = 1,
-		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 2,
-		/obj/item/reagent_containers/cup/beaker/dyne_burnmix= 2,
-		/obj/item/reagent_containers/spray/hercuri = 1,
-	)
-	generate_items_inside(items_inside,src)
-
 /obj/item/storage/medkit/tactical/premium/interdyne/medium/surgical
 	name = "\improper Interdyne Field Surgical Kit"
 	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools. Meant for fielld surgeries."
@@ -225,14 +203,14 @@
 		/obj/item/scalpel/advanced = 1,
 		/obj/item/retractor/advanced = 1,
 		/obj/item/cautery/advanced = 1,
-		/obj/item/bonesetter = 1,
+		/obj/item/blood_filter/advanced = 1,
 		/obj/item/surgical_drapes = 1,
 		/obj/item/reagent_containers/hypospray/medipen/morphine = 2,
 		/obj/item/stack/medical/wrap/sticky_tape/surgical = 3,
 		/obj/item/stack/medical/bone_gel = 3,
 		/obj/item/storage/pill_bottle/painkiller = 2,
 		/obj/item/reagent_containers/medigel/sterilizine = 2,
-		/obj/item/stack/medical/wrap/gauze/sterilized = 3,
+		/obj/item/emergency_bed = 1,
 	)
 	generate_items_inside(items_inside,src)
 

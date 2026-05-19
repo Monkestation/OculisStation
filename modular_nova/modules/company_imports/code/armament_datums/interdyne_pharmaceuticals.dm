@@ -65,20 +65,8 @@
 	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/empty = 3,)
 	cost = CARGO_CRATE_VALUE * 1.5
 
-/datum/supply_pack/companies/medical/interdyne/doctorkit
-	name = "Interdyne Doctor Kit"
-	desc = "A surgical kit designed for surgical aid, made by doctors for doctors!"
-	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne )
-	cost = CARGO_CRATE_VALUE * 5
-
-/datum/supply_pack/companies/medical/interdyne/doctorkit_bulk
-	name = "Multi Pack of Interdyne Doctor Kits"
-	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
-	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne = 3 )
-	cost = CARGO_CRATE_VALUE * 13.5
-
 /datum/supply_pack/companies/medical/interdyne/large_traumakit
-	name = "Interdyne Large Trauma Kits"
+	name = "Interdyne Large Trauma Kit"
 	desc = "A trauma kit designed for immediate medical aid, made by doctors for doctors!"
 	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne )
 	cost = CARGO_CRATE_VALUE * 5
@@ -111,18 +99,6 @@
 	name = "Multi Pack of Interdyne Surgical Kit"
 	desc = "Multiple surgical kits, made by doctors, for doctors."
 	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium/surgical = 3)
-	cost = CARGO_CRATE_VALUE * 9
-
-/datum/supply_pack/companies/medical/interdyne/medium_kit_oxytoxloss
-	name = "Interdyne OxyTox Trauma Kit"
-	desc = "A kit filled with oxygen and toxins related ailments, made by doctors, for doctors."
-	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy)
-	cost = CARGO_CRATE_VALUE * 3.5
-
-/datum/supply_pack/companies/medical/interdyne/medium_kit_oxytoxloss_bulk
-	name = "Multi Pack of Interdyne OxyTox Trauma Kit"
-	desc = "Multiple trauma kits filled with oxygen and toxins related ailments, made by doctors, for doctors."
-	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy = 3)
 	cost = CARGO_CRATE_VALUE * 9
 
 /datum/supply_pack/companies/medical/interdyne/firstaidkit
@@ -187,7 +163,7 @@
 
 /datum/supply_pack/companies/medical/interdyne/biohazard_box
 	name = "Interdyne Biohazard Response Box"
-	desc = "Multiple surgical trauma kits, made by doctors, for doctors."
+	desc = "Oh god what the fuck did you do to have to order this"
 	contains = list(
 		/obj/item/clothing/suit/bio_suit/interdyne = 3,
 		/obj/item/clothing/head/bio_hood/interdyne = 3,
