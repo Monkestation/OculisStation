@@ -10,7 +10,6 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 1. Implement pAI upgrades (exosuit piloting, 'laser' eyes, multitool systems, EMP resistance etc)
 2. Implement interfaces (gives a simple, limited overview for those clicking on the card; allowing them to see pAI integrity, a list of upgrades [3 max], clear access and shutdown buttons)
 3. Implement disabler functionality (force pAI into card mode after a few shots)
-4. Add sound effects to various functions (unfolding/folding mostly)
 5. Add description stuff
 6. Implement job functionality for roundstart/latejoining
 7. Add spawn locations when joining at roundstart. On each map. God help me.
@@ -139,7 +138,7 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 	if(get_turf(src) != get_turf(anchor))
 		return FALSE
 	if(!isturf(loc) && loc != card)
-		balloon_alert(src, "can't do that here")
+		balloon_alert(src, "Can't do that here!")
 		return FALSE
 	return TRUE
 
@@ -161,7 +160,7 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 
 /mob/living/silicon/pai_oculis/emp_act(severity)
 	. = ..()
-	to_chat(src, span_danger("Warning: Electromagnetic pulse detected!"))
+	to_chat(src, span_danger("WWARNING: ELECTROMAGNETIC PULSE DETECTED!"))
 	if(. & EMP_PROTECT_SELF || QDELETED(src))
 		return
 	switch(severity)
@@ -186,8 +185,12 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 /mob/living/silicon/pai_oculis/death(gibbed)
 	if(stat == DEAD)
 		return
-	to_chat(usr, span_alert("WARNING! SYSTEM SHUTDOWN IMMINENT! WARNING! SYSTEM SHUTDOWN IMMINENT! WARNING! SYSTEM SH-"))
-	visible_message(span_alert("[src]'s systems encounter a fatal error and shut down!"))
+	to_chat(usr, span_danger("WARNING! SYSTEM SHUTDOWN IMMINENT! WARNING! SYSTEM SHUTDOWN IMMINENT! WARNING! SYSTEM SH-"))
+	if(is_in_card)
+		card.visible_message(span_alert("[src]'s systems encounter a fatal error and shut down!"))
+	else
+		visible_message(span_alert("[src]'s systems encounter a fatal error and shut down!"))
+		fold_in(TRUE)
 	playsound(src, 'sound/mobs/non-humanoids/cyborg/borg_deathsound.ogg', 50, FALSE)
 	set_stat(DEAD)
 	update_sight()
@@ -195,9 +198,7 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 	update_health_hud()
 	if(light_on)
 		toggle_integrated_light()
-	if(!is_in_card)
-		fold_in(TRUE)
-		can_unfold = FALSE
+	can_unfold = FALSE
 	ghostize()
 
 /mob/living/silicon/pai_oculis/Destroy()

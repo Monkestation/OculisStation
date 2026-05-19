@@ -85,11 +85,51 @@
 		return FALSE
 	return TRUE
 
+// Welding tool to handle brute repairs
+/obj/item/pai_card_oculis/welder_act(mob/living/user, obj/item/tool)
+	if(user.combat_mode && user != src)
+		return NONE
+
+	if(is_open(user))
+		if(!pai.get_brute_loss())
+			balloon_alert(user, "No damages to fix!")
+			return ITEM_INTERACT_BLOCKING
+
+		if(!tool.tool_start_check(user, amount=1, heat_required = HIGH_TEMPERATURE_REQUIRED))
+			return ITEM_INTERACT_BLOCKING
+		user.visible_message(span_notice("[user] begins to repair [pai]'s internal physical structure..."))
+		if(!tool.use_tool(src, user, delay = 3 SECONDS, amount = 1, volume = 50))
+			return ITEM_INTERACT_BLOCKING
+
+		pai.adjust_brute_loss(-30)
+		user.visible_message(span_notice("[user] repairs some of [pai]'s internal physical structure."))
+		user.changeNext_move(CLICK_CD_MELEE)
+		return ITEM_INTERACT_SUCCESS
+
+// This is used for repairing burns with cable coil
+/obj/item/pai_card_oculis/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/stack/cable_coil))
+		if(!is_open(user))
+			return ITEM_INTERACT_BLOCKING
+		var/obj/item/stack/cable_coil/coil = tool
+		if(!pai.get_fire_loss())
+			balloon_alert(user, "No wire damage present!")
+			return ITEM_INTERACT_BLOCKING
+		if(!coil.use(1))
+			balloon_alert(user, "Not enough cable!")
+			return ITEM_INTERACT_BLOCKING
+		user.visible_message(span_notice("[user] begins to repair some of [pai]'s internal wiring..."))
+		pai.adjust_fire_loss(-30)
+		playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
+		user.visible_message(span_notice("[user] repairs some of [pai]'s internal wiring."))
+		user.changeNext_move(CLICK_CD_MELEE)
+		return ITEM_INTERACT_SUCCESS
+
 // Multitool to reboot if the pAI is dead
 /obj/item/pai_card_oculis/multitool_act(mob/living/user, obj/item/multitool/tool)
 	if(is_open(user))
 		if(pai.stat == DEAD)
-			if(pai.health == pai.maxHealth)
+			if(!pai.get_brute_loss() && !pai.get_fire_loss())
 				user.visible_message(span_notice("[user] starts to reboot [pai]..."))
 				playsound(tool, 'sound/items/taperecorder/tape_flip.ogg', 50, TRUE)
 				if(!do_after(user, 8 SECONDS, src))
