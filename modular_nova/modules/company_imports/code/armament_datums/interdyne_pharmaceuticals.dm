@@ -163,7 +163,7 @@
 
 /datum/supply_pack/companies/medical/interdyne/biohazard_box
 	name = "Interdyne Biohazard Response Box"
-	desc = "Oh god what the fuck did you do to have to order this"
+	desc = "Oh god what the fuck did you do to have to order this."
 	contains = list(
 		/obj/item/clothing/suit/bio_suit/interdyne = 3,
 		/obj/item/clothing/head/bio_hood/interdyne = 3,
