@@ -27,7 +27,7 @@
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
 	inhand_icon_state = "dynepaddles0"
-	base_icon_state = "dynepaddles0"
+	base_icon_state = "ippaddles0"
 
 /datum/atom_skin/interdyne_premiumkit
 	abstract_type = /datum/atom_skin/interdyne_premiumkit
