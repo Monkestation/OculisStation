@@ -84,6 +84,8 @@
 	suffix = "blackmarket.dmm"
 	name = "Space-Ruin Shady Market"
 	description = "Whaddya buyin'?"
+	always_place = TRUE
+	cost = 0 //as any always place ruin should be, lets other ruins populate with this one not hogging anything
 
 /datum/map_template/ruin/space/nova/shuttle8532
 	id = "shuttle8532"
