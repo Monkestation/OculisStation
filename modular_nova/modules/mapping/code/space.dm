@@ -84,8 +84,8 @@
 	suffix = "blackmarket.dmm"
 	name = "Space-Ruin Shady Market"
 	description = "Whaddya buyin'?"
-	always_place = TRUE
-	cost = 0 //as any always place ruin should be, lets other ruins populate with this one not hogging anything
+	always_place = TRUE // OCULIS EDIT CHANGE - ORIGINAL: always_place = FALSE
+	cost = 0 // OCULIS EDIT CHANGE - ORIGINAL: cost = 1
 
 /datum/map_template/ruin/space/nova/shuttle8532
 	id = "shuttle8532"
