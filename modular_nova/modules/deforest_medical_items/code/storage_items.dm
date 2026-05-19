@@ -393,6 +393,7 @@
 		/obj/item/handheld_soulcatcher,
 		/obj/item/wrench/medical,
 		/obj/item/emergency_bed,
+		/obj/item/defibrillator/compact,
 		/obj/item/storage/box/bandages,
 		/obj/item/bodybag,
 	))
