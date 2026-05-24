@@ -7,3 +7,4 @@
 	icon = FA_ICON_MAIL_REPLY
 	mob_trait = TRAIT_NO_MAIL
 	hidden = TRUE
+	medical_record_text = "You shouldn't be seeing this."
