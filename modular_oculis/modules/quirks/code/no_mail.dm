@@ -1,6 +1,6 @@
 /datum/quirk/no_mail
 	name = "Unsubscribed"
-	desc = "You don't receive any mail!"
+	desc = "You don't receive any mail."
 	value = 0
 	gain_text = span_notice("You feel less popular.")
 	lose_text = span_notice("You feel more popular.")
