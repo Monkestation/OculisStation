@@ -166,8 +166,8 @@
 	/// Layer upon which we add the inner ears overlay
 	var/inner_layer = EXTERNAL_FRONT
 
-/datum/bodypart_overlay/mutant/cat_ears/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
-	return !(bodypart_owner.owner?.obscured_slots & HIDEHAIR)
+/datum/bodypart_overlay/mutant/cat_ears/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner, is_husked = FALSE)
+	return ..() && !(bodypart_owner.owner?.obscured_slots & HIDEHAIR)
 
 /datum/bodypart_overlay/mutant/cat_ears/get_image(image_layer, obj/item/bodypart/limb)
 	var/mutable_appearance/base_ears = ..()
@@ -254,10 +254,10 @@
 	return all_images
 
 /datum/bodypart_overlay/mutant/cat_ears/cybernetic/green
-	inner_color = "#0079EA"
+	inner_color = "#00D844"
 
 /datum/bodypart_overlay/mutant/cat_ears/cybernetic/blue
-	inner_color = "#00D844"
+	inner_color = "#0079EA"
 
 /obj/item/organ/ears/ghost
 	name = "ghost ears"

@@ -66,6 +66,10 @@
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/south)
+"ap" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet/red,
+/area/mine/lobby/raptor)
 "aq" = (
 /obj/machinery/camera/autoname/directional/east{
 	network = list("mine")
@@ -87,25 +91,14 @@
 	},
 /turf/open/floor/carpet/neon/simple/red/nodots,
 /area/mine/cafeteria)
-"az" = (
-/obj/machinery/door/airlock/external/glass{
-	name = "Mining External Airlock"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/turf/open/floor/plating/lavaland_atmos,
-/area/mine/lobby/raptor)
+"ay" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/iron/dark/textured_large,
+/area/mine/eva)
 "aD" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
-"aF" = (
-/obj/structure/railing{
-	dir = 9
-	},
-/turf/open/misc/hay/lavaland,
 /area/lavaland/surface/outdoors)
 "aM" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
@@ -139,6 +132,13 @@
 	},
 /turf/open/floor/iron/checker,
 /area/mine/laborcamp)
+"aR" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/large,
+/area/mine/lobby/raptor)
 "aV" = (
 /obj/structure/marker_beacon/teal,
 /obj/effect/turf_decal/sand/plating/volcanic,
@@ -151,12 +151,14 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
-"aY" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/siding/wood{
+"aZ" = (
+/obj/machinery/door/airlock/external/glass{
+	name = "Mining External Airlock"
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
-/turf/open/floor/wood/large,
+/turf/open/floor/plating/lavaland_atmos,
 /area/mine/lobby/raptor)
 "bb" = (
 /obj/structure/closet/crate/internals,
@@ -175,18 +177,6 @@
 	dir = 4
 	},
 /area/mine/laborcamp/production)
-"bc" = (
-/obj/effect/turf_decal/siding/wood/end{
-	dir = 8
-	},
-/turf/open/floor/wood/large,
-/area/mine/lobby/raptor)
-"be" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/carpet/red,
-/area/mine/lobby/raptor)
 "bf" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth_large,
@@ -200,13 +190,11 @@
 /turf/open/floor/carpet/royalblue,
 /area/mine/living_quarters)
 "bk" = (
-/obj/structure/lattice/catwalk/mining,
-/obj/structure/cable,
-/obj/structure/railing{
-	dir = 1
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 4
 	},
-/turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/surface/outdoors)
+/turf/open/floor/wood/large,
+/area/mine/lobby/raptor)
 "bt" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -224,10 +212,6 @@
 	},
 /turf/open/floor/iron/edge,
 /area/mine/lounge)
-"bx" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
 "by" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/siding/wideplating_new{
@@ -242,6 +226,11 @@
 	},
 /turf/open/floor/plating,
 /area/mine/maintenance/production)
+"bG" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/red,
+/area/mine/lobby/raptor)
 "bH" = (
 /obj/structure/table,
 /obj/item/book/manual/chef_recipes{
@@ -253,7 +242,6 @@
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp)
 "bK" = (
-/obj/item/kirbyplants/random,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -263,6 +251,7 @@
 	dir = 4
 	},
 /obj/structure/sign/poster/official/corporate_perks_vacation/directional/west,
+/obj/item/kirbyplants/random,
 /turf/open/floor/iron/edge{
 	dir = 4
 	},
@@ -300,6 +289,11 @@
 /obj/machinery/mining_weather_monitor/directional/north,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/mine/production)
+"ca" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lantern/on,
+/turf/open/misc/hay/lavaland,
+/area/lavaland/surface/outdoors)
 "cb" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -311,6 +305,10 @@
 "cc" = (
 /turf/open/floor/iron/dark/textured_large,
 /area/mine/production)
+"cd" = (
+/obj/structure/ore_container/food_trough/raptor_trough,
+/turf/open/misc/hay/lavaland,
+/area/lavaland/surface/outdoors)
 "ce" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -324,15 +322,6 @@
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance/departmental,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/north)
-"cf" = (
-/obj/structure/railing,
-/obj/structure/lattice/catwalk/mining,
-/obj/structure/cable,
-/obj/structure/railing{
-	dir = 1
-	},
-/turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "ch" = (
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
@@ -402,6 +391,12 @@
 /obj/structure/marker_beacon/purple,
 /turf/open/floor/plating/lavaland_atmos,
 /area/lavaland/surface/outdoors)
+"cv" = (
+/obj/structure/railing{
+	dir = 9
+	},
+/turf/open/misc/hay/lavaland,
+/area/lavaland/surface/outdoors)
 "cw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -409,18 +404,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mine/maintenance/production)
-"cx" = (
-/obj/machinery/suit_storage_unit/mining,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 8
-	},
-/area/mine/eva)
 "cy" = (
 /obj/structure/bed/medical/emergency,
 /obj/effect/turf_decal/trimline/blue/filled/line,
@@ -452,6 +435,13 @@
 /obj/item/camera,
 /turf/open/floor/iron/edge,
 /area/mine/lounge)
+"cI" = (
+/obj/structure/chair/sofa/middle{
+	dir = 1;
+	color = "#AA4A44"
+	},
+/turf/open/floor/carpet/red,
+/area/mine/lobby/raptor)
 "cJ" = (
 /obj/machinery/door/airlock/mining/glass{
 	name = "Processing Area"
@@ -475,6 +465,14 @@
 	dir = 1
 	},
 /area/mine/lounge)
+"cL" = (
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/structure/table,
+/obj/item/paper/fluff/stations/lavaland/orm_notice,
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 1
+	},
+/area/mine/production)
 "cM" = (
 /obj/structure/closet/emcloset,
 /obj/effect/turf_decal/trimline/yellow/filled/arrow_cw{
@@ -505,16 +503,10 @@
 	dir = 1
 	},
 /area/mine/laborcamp/quarters)
-"cR" = (
-/obj/structure/cable,
-/obj/machinery/airalarm/directional/east,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 8
-	},
-/area/mine/production)
+"cS" = (
+/obj/effect/spawner/random/lavaland_mob/raptor,
+/turf/open/misc/hay/lavaland,
+/area/lavaland/surface/outdoors)
 "cU" = (
 /obj/structure/lattice/catwalk/mining,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -569,6 +561,13 @@
 	},
 /turf/open/floor/iron/white,
 /area/mine/cafeteria)
+"dd" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "de" = (
 /obj/structure/railing{
 	dir = 6
@@ -589,10 +588,6 @@
 /obj/structure/cable,
 /obj/structure/lattice/catwalk/mining,
 /turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/surface/outdoors)
-"dl" = (
-/obj/structure/ore_container/food_trough/raptor_trough,
-/turf/open/misc/hay/lavaland,
 /area/lavaland/surface/outdoors)
 "dq" = (
 /obj/structure/stone_tile{
@@ -656,18 +651,6 @@
 /obj/structure/lattice/catwalk/mining,
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"dF" = (
-/obj/structure/chair/sofa/middle{
-	dir = 1;
-	color = "#AA4A44"
-	},
-/turf/open/floor/carpet/red,
-/area/mine/lobby/raptor)
-"dI" = (
-/obj/structure/table/wood,
-/obj/item/flashlight/lantern/on,
-/turf/open/misc/hay/lavaland,
-/area/lavaland/surface/outdoors)
 "dJ" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -679,6 +662,10 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/eva)
+"dN" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/mine/maintenance/labor)
 "dP" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -708,6 +695,12 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"dY" = (
+/obj/machinery/camera/autoname/directional/north{
+	network = list("mine")
+	},
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "ee" = (
 /obj/machinery/shower/directional/south,
 /obj/machinery/door/window/right/directional/south,
@@ -715,13 +708,6 @@
 /obj/item/soap/homemade,
 /turf/open/floor/iron/freezer,
 /area/mine/laborcamp)
-"ei" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/chair/wood,
-/obj/structure/cable,
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
 "ej" = (
 /obj/structure/railing{
 	dir = 4
@@ -751,6 +737,13 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"eu" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "ey" = (
 /obj/structure/lattice/catwalk/mining,
@@ -821,9 +814,6 @@
 	dir = 8
 	},
 /area/mine/cafeteria)
-"eL" = (
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
 "eN" = (
 /obj/structure/chair/wood{
 	dir = 1
@@ -1006,14 +996,6 @@
 "fQ" = (
 /turf/open/genturf,
 /area/lavaland/surface/outdoors/unexplored/danger)
-"fS" = (
-/obj/structure/cable,
-/obj/effect/turf_decal/trimline/red/filled/line,
-/mob/living/simple_animal/bot/secbot/beepsky/ofitser,
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 1
-	},
-/area/mine/laborcamp/security)
 "fU" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/plating,
@@ -1034,6 +1016,12 @@
 /obj/effect/spawner/random/structure/steam_vent,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/north)
+"fZ" = (
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 8
+	},
+/turf/open/floor/wood/large,
+/area/mine/lobby/raptor)
 "gd" = (
 /obj/structure/marker_beacon/yellow,
 /obj/effect/turf_decal/sand/plating/volcanic,
@@ -1219,10 +1207,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
-"gL" = (
-/obj/effect/spawner/random/lavaland_mob/raptor,
-/turf/open/misc/hay/lavaland,
-/area/lavaland/surface/outdoors)
 "gM" = (
 /obj/structure/stone_tile/block{
 	dir = 4
@@ -1301,31 +1285,6 @@
 /mob/living/simple_animal/hostile/megafauna/legion,
 /turf/open/indestructible/boss,
 /area/lavaland/surface/outdoors)
-"hh" = (
-/obj/item/food/grown/grass/fairy{
-	name = "weird hay";
-	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?";
-	pixel_y = -1;
-	pixel_x = 5
-	},
-/obj/item/food/grown/grass/fairy{
-	name = "weird hay";
-	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?";
-	pixel_y = 9;
-	pixel_x = 8
-	},
-/obj/item/food/grown/grass/fairy{
-	name = "weird hay";
-	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?";
-	pixel_y = 9;
-	pixel_x = 2
-	},
-/obj/item/food/grown/grass/fairy{
-	name = "weird hay";
-	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?"
-	},
-/turf/open/misc/hay/lavaland,
-/area/lavaland/surface/outdoors)
 "hi" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -1345,9 +1304,6 @@
 /obj/structure/sign/poster/official/cleanliness/directional/north,
 /turf/open/floor/iron/freezer,
 /area/mine/living_quarters)
-"hl" = (
-/turf/closed/wall/mineral/iron,
-/area/lavaland/surface/outdoors)
 "hn" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 9
@@ -1399,6 +1355,10 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"hA" = (
+/obj/structure/flora/bush/jungle/b/style_random,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "hB" = (
@@ -1566,6 +1526,11 @@
 /obj/item/clothing/glasses/meson,
 /turf/open/floor/iron/dark,
 /area/mine/storage/public)
+"in" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/cable,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "io" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1585,6 +1550,12 @@
 "iu" = (
 /turf/closed/wall,
 /area/mine/living_quarters)
+"iv" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "iw" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -1627,6 +1598,9 @@
 	dir = 1
 	},
 /area/mine/storage/public)
+"iF" = (
+/turf/closed/wall/mineral/iron,
+/area/mine/lobby/raptor)
 "iH" = (
 /obj/structure/table,
 /obj/item/kitchen/fork{
@@ -1793,12 +1767,6 @@
 	dir = 1
 	},
 /area/mine/laborcamp)
-"jC" = (
-/obj/effect/turf_decal/siding/wood/end{
-	dir = 4
-	},
-/turf/open/floor/wood/large,
-/area/mine/lobby/raptor)
 "jD" = (
 /obj/structure/closet/crate,
 /obj/effect/decal/cleanable/dirt,
@@ -1903,12 +1871,6 @@
 	},
 /turf/open/floor/iron/checker,
 /area/mine/cafeteria)
-"kf" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
 "kg" = (
 /turf/closed/wall/r_wall,
 /area/mine/laborcamp)
@@ -1950,12 +1912,19 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/north)
-"ky" = (
-/obj/structure/rack,
-/obj/item/stack/sheet/mineral/wood/fifty,
-/obj/item/lighter,
-/turf/open/floor/wood/parquet,
+"kw" = (
+/obj/structure/bed,
+/obj/effect/spawner/random/bedsheet,
+/turf/open/floor/carpet/red,
 /area/mine/lobby/raptor)
+"kx" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/railing/corner,
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "kB" = (
 /obj/structure/stone_tile/surrounding_tile,
 /obj/structure/stone_tile/surrounding_tile{
@@ -2042,10 +2011,18 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "kK" = (
-/obj/structure/table,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
+/obj/machinery/camera/autoname/directional/north{
+	network = list("mine")
+	},
+/obj/machinery/light/small/directional/north,
+/obj/structure/sign/directions/evac/directional/east{
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/obj/structure/table,
 /obj/item/camera_film{
 	pixel_x = 5;
 	pixel_y = 5
@@ -2066,6 +2043,10 @@
 	},
 /turf/open/floor/iron/checker,
 /area/mine/cafeteria)
+"kP" = (
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/plating/lavaland_atmos,
+/area/mine/lobby/raptor)
 "kR" = (
 /obj/structure/chair{
 	dir = 4
@@ -2086,6 +2067,14 @@
 "kY" = (
 /turf/closed/wall,
 /area/mine/cafeteria)
+"la" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/cable,
+/obj/structure/railing{
+	dir = 6
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "lb" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 6
@@ -2139,14 +2128,6 @@
 	dir = 1
 	},
 /area/mine/eva)
-"lm" = (
-/obj/effect/mapping_helpers/airlock/access/all/engineering/general,
-/obj/machinery/door/airlock/maintenance{
-	name = "Mining Station Maintenance"
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/mine/maintenance/service)
 "lo" = (
 /obj/structure/disposalpipe/segment{
 	dir = 9
@@ -2328,6 +2309,12 @@
 	},
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"lR" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "lS" = (
 /obj/structure/stone_tile/block/cracked{
 	dir = 4
@@ -2399,6 +2386,12 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"me" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "mf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/disposalpipe/segment,
@@ -2774,6 +2767,13 @@
 	dir = 8
 	},
 /area/mine/production)
+"nw" = (
+/obj/machinery/door/airlock/external/glass{
+	name = "Raptor Ranch External Airlock"
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/turf/open/floor/plating/lavaland_atmos,
+/area/mine/lobby/raptor)
 "nx" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 10
@@ -2955,6 +2955,17 @@
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /turf/open/floor/iron/dark/textured_large,
 /area/mine/production)
+"ox" = (
+/obj/machinery/door/airlock/external{
+	name = "Mining External Airlock"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance/departmental,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/mine/maintenance/service)
 "oy" = (
 /obj/structure/lattice/catwalk/mining,
 /obj/structure/railing{
@@ -2973,6 +2984,13 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"oE" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/railing{
+	dir = 6
+	},
+/turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "oI" = (
 /obj/structure/bed,
@@ -2995,22 +3013,17 @@
 	dir = 4
 	},
 /area/mine/mechbay)
-"oK" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/carpet/red,
-/area/mine/lobby/raptor)
 "oN" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/trimline/green/filled/line,
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp)
-"oO" = (
+"oP" = (
 /obj/structure/railing{
-	dir = 5
+	dir = 9
 	},
-/obj/item/reagent_containers/cup/bucket/wooden,
-/turf/open/misc/hay/lavaland,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "oS" = (
 /obj/machinery/door/airlock/external/glass{
@@ -3070,10 +3083,10 @@
 /obj/effect/spawner/random/trash/hobo_squat,
 /turf/open/floor/plating,
 /area/mine/maintenance/public/south)
-"pk" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/carpet/red,
-/area/mine/lobby/raptor)
+"ph" = (
+/obj/structure/flora/bush/jungle/c/style_random,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "pm" = (
 /obj/structure/stone_tile/block/cracked{
 	dir = 8
@@ -3102,23 +3115,6 @@
 /obj/effect/spawner/random/trash/mess,
 /turf/open/floor/iron/white,
 /area/mine/laborcamp/production)
-"ps" = (
-/obj/structure/cable,
-/obj/machinery/power/smes/super/full,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/mine/maintenance/service)
-"pt" = (
-/obj/structure/lattice/catwalk/mining,
-/obj/structure/cable,
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "pu" = (
 /obj/item/chair/stool{
 	pixel_x = -2;
@@ -3266,6 +3262,15 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"qa" = (
+/obj/machinery/door/airlock/external{
+	name = "Mining External Airlock"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance/departmental,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/mine/maintenance/service)
 "qb" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/ore_box,
@@ -3339,17 +3344,6 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"qv" = (
-/obj/machinery/door/airlock/external{
-	name = "Mining External Airlock"
-	},
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance/departmental,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/mine/maintenance/service)
 "qw" = (
 /obj/structure/bed,
 /obj/effect/decal/cleanable/dirt,
@@ -3381,6 +3375,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp/security)
+"qB" = (
+/obj/structure/cable,
+/obj/machinery/power/smes/super/full,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/mine/maintenance/service)
 "qH" = (
 /obj/machinery/door/airlock{
 	id_tag = "miningbathroomprivate";
@@ -3439,16 +3439,6 @@
 	dir = 1
 	},
 /turf/open/floor/plating/lavaland_atmos,
-/area/lavaland/surface/outdoors)
-"re" = (
-/obj/structure/lattice/catwalk/mining,
-/obj/machinery/power/colony_wind_turbine,
-/obj/structure/cable,
-/turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/surface/outdoors)
-"rj" = (
-/obj/effect/spawner/random/lavaland_mob/raptor/baby,
-/turf/open/misc/hay/lavaland,
 /area/lavaland/surface/outdoors)
 "rm" = (
 /obj/structure/sign/warning/gas_mask/directional/west,
@@ -3517,6 +3507,13 @@
 	},
 /turf/open/floor/plating,
 /area/mine/production)
+"rI" = (
+/obj/item/kirbyplants/random,
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 4
+	},
+/turf/open/floor/wood/large,
+/area/mine/lobby/raptor)
 "rO" = (
 /obj/structure/stone_tile/block{
 	dir = 1
@@ -3619,15 +3616,6 @@
 	dir = 8
 	},
 /area/mine/medical)
-"sr" = (
-/obj/structure/lattice/catwalk/mining,
-/obj/structure/cable,
-/obj/structure/railing,
-/obj/structure/railing{
-	dir = 1
-	},
-/turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "st" = (
 /obj/structure/chair/stool/directional/north,
 /obj/effect/decal/cleanable/dirt,
@@ -3667,10 +3655,24 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/smooth_edge,
 /area/mine/laborcamp/production)
+"sB" = (
+/obj/structure/railing,
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/cable,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "sH" = (
 /obj/structure/fluff/drake_statue,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"sM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/mine/maintenance/service)
 "sO" = (
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
@@ -3726,6 +3728,17 @@
 	},
 /turf/open/floor/iron/dark,
 /area/mine/mechbay)
+"sY" = (
+/obj/structure/table/wood,
+/obj/item/soap/deluxe{
+	pixel_y = 11
+	},
+/obj/item/soap/deluxe{
+	pixel_y = 6
+	},
+/obj/item/soap/deluxe,
+/turf/open/misc/hay/lavaland,
+/area/lavaland/surface/outdoors)
 "tc" = (
 /obj/structure/bed{
 	dir = 4
@@ -3736,6 +3749,21 @@
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/carpet,
 /area/mine/living_quarters)
+"td" = (
+/obj/machinery/door/airlock/external/glass{
+	name = "Mining External Airlock"
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/blue/filled/mid_joiner{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "lavaland_living_north"
+	},
+/turf/open/floor/iron/textured_large,
+/area/mine/lounge)
 "te" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3762,7 +3790,6 @@
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "ti" = (
-/obj/structure/table,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
@@ -3774,6 +3801,20 @@
 	dir = 1
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"tk" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/railing,
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"tl" = (
+/turf/open/water/lavaland_atmos/basalt,
 /area/lavaland/surface/outdoors)
 "tr" = (
 /obj/structure/closet/secure_closet/brig,
@@ -3787,6 +3828,13 @@
 	},
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
+"tv" = (
+/obj/structure/chair/wood{
+	dir = 1
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "tx" = (
 /obj/structure/chair/wood/wings{
 	dir = 4
@@ -3821,9 +3869,6 @@
 /obj/item/radio/intercom/directional/east,
 /turf/open/floor/iron/white/smooth_corner,
 /area/mine/medical)
-"tC" = (
-/turf/closed/wall/mineral/iron,
-/area/mine/lobby/raptor)
 "tE" = (
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp)
@@ -3836,11 +3881,6 @@
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/mine/laborcamp/security/maintenance)
-"tH" = (
-/obj/structure/table/wood,
-/obj/item/knife,
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
 "tJ" = (
 /obj/structure/stone_tile/block/cracked{
 	dir = 8
@@ -3874,10 +3914,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/carpet/neon/simple/red/nodots,
 /area/mine/cafeteria)
-"tY" = (
-/obj/structure/fireplace,
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
 "tZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/vending/sustenance/labor_camp,
@@ -3885,6 +3921,14 @@
 	dir = 8
 	},
 /area/mine/laborcamp)
+"ug" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/red/filled/line,
+/mob/living/basic/bot/secbot/beepsky/ofitser,
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 1
+	},
+/area/mine/laborcamp/security)
 "ui" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -4023,6 +4067,10 @@
 	},
 /turf/open/floor/iron/dark/smooth_edge,
 /area/mine/laborcamp/security)
+"uX" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "vb" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4090,11 +4138,8 @@
 	},
 /area/mine/lounge)
 "vj" = (
-/obj/machinery/door/airlock/external/glass{
-	name = "Raptor Ranch External Airlock"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/turf/open/floor/plating/lavaland_atmos,
+/obj/structure/bookcase/random/reference,
+/turf/open/floor/wood,
 /area/mine/lobby/raptor)
 "vk" = (
 /obj/effect/spawner/random/trash/garbage{
@@ -4116,6 +4161,13 @@
 /obj/machinery/mining_weather_monitor/directional/north,
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp/security)
+"vo" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood/large,
+/area/mine/lobby/raptor)
 "vp" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/disposalpipe/segment,
@@ -4180,14 +4232,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /turf/open/floor/plating,
 /area/mine/mechbay)
-"vH" = (
-/obj/structure/lattice/catwalk/mining,
-/obj/structure/cable,
-/obj/structure/railing{
-	dir = 6
-	},
-/turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "vI" = (
 /obj/item/bedsheet/blue/double{
 	dir = 4
@@ -4265,14 +4309,6 @@
 /obj/effect/turf_decal/siding/wideplating_new,
 /turf/open/floor/iron/checker,
 /area/mine/laborcamp)
-"wa" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/turf/open/floor/wood/large,
-/area/mine/lobby/raptor)
 "wb" = (
 /obj/structure/chair{
 	dir = 8
@@ -4306,6 +4342,13 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/mine/production)
+"wn" = (
+/obj/structure/chair/sofa/corner{
+	dir = 8;
+	color = "#AA4A44"
+	},
+/turf/open/floor/carpet/red,
+/area/mine/lobby/raptor)
 "wp" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
@@ -4400,17 +4443,19 @@
 /obj/machinery/airalarm/directional/east,
 /turf/open/floor/carpet/neon/simple/red/nodots,
 /area/mine/cafeteria)
+"wL" = (
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/obj/structure/table/wood,
+/turf/open/floor/carpet/red,
+/area/mine/lobby/raptor)
 "wM" = (
 /obj/item/seeds/banana,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"wO" = (
-/obj/structure/chair/wood{
-	dir = 1
-	},
-/obj/machinery/light/directional/south,
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
 "wT" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/loading_area{
@@ -4452,6 +4497,41 @@
 /obj/item/pen,
 /turf/open/floor/carpet,
 /area/mine/living_quarters)
+"xk" = (
+/obj/structure/rack,
+/obj/item/food/grown/grass/fairy{
+	name = "weird hay";
+	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?"
+	},
+/obj/item/food/grown/grass/fairy{
+	name = "weird hay";
+	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?";
+	pixel_y = 9
+	},
+/obj/item/food/grown/grass/fairy{
+	name = "weird hay";
+	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?";
+	pixel_y = 9;
+	pixel_x = 2
+	},
+/obj/item/food/grown/grass/fairy{
+	name = "weird hay";
+	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?";
+	pixel_y = 6
+	},
+/obj/item/food/grown/grass/fairy{
+	name = "weird hay";
+	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?";
+	pixel_y = 6;
+	pixel_x = 9
+	},
+/obj/item/crowbar/large,
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/large,
+/area/mine/lobby/raptor)
 "xn" = (
 /obj/effect/spawner/random/vending/colavend,
 /obj/effect/turf_decal/tile/blue/fourcorners,
@@ -4479,12 +4559,6 @@
 	pixel_y = 24
 	},
 /obj/effect/turf_decal/sand/plating/volcanic,
-/turf/open/floor/plating/lavaland_atmos,
-/area/lavaland/surface/outdoors)
-"xv" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
 /turf/open/floor/plating/lavaland_atmos,
 /area/lavaland/surface/outdoors)
 "xw" = (
@@ -4530,15 +4604,6 @@
 /obj/effect/turf_decal/sand/plating/volcanic,
 /turf/open/floor/plating/lavaland_atmos,
 /area/mine/maintenance/service/disposals)
-"xH" = (
-/obj/machinery/door/airlock/external{
-	name = "Mining External Airlock"
-	},
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance/departmental,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/mine/maintenance/service)
 "xI" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4654,12 +4719,11 @@
 /turf/closed/wall,
 /area/mine/hydroponics)
 "yk" = (
-/obj/structure/chair/sofa/corner{
-	dir = 8;
-	color = "#AA4A44"
-	},
-/turf/open/floor/carpet/red,
-/area/mine/lobby/raptor)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/plating/lavaland_atmos,
+/area/lavaland/surface/outdoors)
 "yl" = (
 /obj/machinery/door/airlock/glass{
 	name = "Arrival Lounge"
@@ -4704,6 +4768,14 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/quarters)
+"yD" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/cable,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "yG" = (
 /obj/machinery/door/airlock/external/glass{
 	name = "Labor Camp External Airlock"
@@ -4721,10 +4793,6 @@
 	},
 /turf/open/floor/iron,
 /area/mine/living_quarters)
-"yL" = (
-/obj/structure/lattice/catwalk,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "yN" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -4763,15 +4831,14 @@
 /obj/structure/lattice/catwalk/mining,
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"yW" = (
+/obj/structure/flora/bush/jungle,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "yX" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/mine/hydroponics)
-"yZ" = (
-/obj/structure/lattice/catwalk/mining,
-/obj/structure/cable,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "zc" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Mining Station Maintenance"
@@ -4782,14 +4849,6 @@
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /turf/open/floor/plating,
 /area/mine/maintenance/public/south)
-"zd" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/mine/maintenance/service)
-"ze" = (
-/turf/open/misc/ashplanet/rocky,
-/area/lavaland/surface/outdoors)
 "zf" = (
 /obj/machinery/door/airlock{
 	name = "Restroom"
@@ -4817,6 +4876,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mine/laborcamp/security/maintenance)
+"zj" = (
+/obj/machinery/suit_storage_unit/mining,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 8
+	},
+/area/mine/eva)
 "zk" = (
 /obj/structure/marker_beacon/yellow,
 /obj/effect/turf_decal/sand/plating/volcanic,
@@ -4853,6 +4924,27 @@
 /obj/structure/lattice/catwalk/mining,
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"zt" = (
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/structure/table,
+/obj/item/storage/medkit/regular,
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 1
+	},
+/area/mine/production)
+"zv" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/cable,
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "zw" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4863,6 +4955,10 @@
 	dir = 1
 	},
 /area/mine/laborcamp)
+"zz" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "zA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4871,14 +4967,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/north)
-"zC" = (
-/obj/structure/easel,
-/obj/item/canvas/fortyfive_twentyseven,
-/obj/item/canvas/thirtysix_twentyfour,
-/obj/item/canvas/twentythree_nineteen,
-/obj/item/paint_palette,
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
 "zD" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 1
@@ -4888,9 +4976,11 @@
 /turf/open/floor/iron/dark,
 /area/mine/production)
 "zF" = (
-/obj/item/kirbyplants/random,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
+	},
+/obj/machinery/computer/shuttle/mining/common{
+	dir = 8
 	},
 /turf/open/floor/iron,
 /area/mine/lounge)
@@ -4951,10 +5041,13 @@
 /obj/structure/cable,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"zX" = (
-/obj/structure/bookcase/random/reference,
-/turf/open/floor/wood,
-/area/mine/lobby/raptor)
+"Ac" = (
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 6
+	},
+/obj/item/radio/intercom/directional/east,
+/turf/open/floor/iron/dark,
+/area/mine/production)
 "Ae" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4970,12 +5063,17 @@
 	},
 /turf/open/floor/plating,
 /area/mine/laborcamp/production)
-"Ah" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("mine")
+"Ag" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/cable,
+/obj/structure/railing{
+	dir = 4
 	},
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "Ai" = (
 /obj/structure/stone_tile/cracked{
 	dir = 1
@@ -5011,12 +5109,12 @@
 /obj/effect/mapping_helpers/airlock/access/any/supply/mining_station,
 /turf/open/floor/iron/dark/textured_large,
 /area/mine/production)
-"Av" = (
-/obj/structure/railing{
-	dir = 9
-	},
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
+"Au" = (
+/obj/structure/rack,
+/obj/item/stack/sheet/mineral/wood/fifty,
+/obj/item/lighter,
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "Ax" = (
 /obj/item/pickaxe,
 /obj/effect/mob_spawn/corpse/human/miner,
@@ -5080,9 +5178,6 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"AS" = (
-/turf/open/floor/carpet/red,
-/area/mine/lobby/raptor)
 "AV" = (
 /obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /obj/item/reagent_containers/cup/glass/bottle/beer,
@@ -5094,6 +5189,10 @@
 "AX" = (
 /turf/open/floor/plating,
 /area/mine/laborcamp/security/maintenance)
+"AY" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/textured_large,
+/area/mine/lounge)
 "Bb" = (
 /obj/machinery/camera/autoname/directional/east{
 	network = list("mine")
@@ -5137,6 +5236,13 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"BE" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "BH" = (
 /obj/structure/window/spawner/directional/south,
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -5158,6 +5264,10 @@
 /obj/effect/turf_decal/sand/plating/volcanic,
 /turf/open/floor/plating/lavaland_atmos,
 /area/lavaland/surface/outdoors)
+"BQ" = (
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "BR" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/disposalpipe/segment,
@@ -5215,12 +5325,6 @@
 /obj/effect/turf_decal/trimline/brown/filled/corner,
 /turf/open/floor/iron/dark/smooth_corner,
 /area/mine/production)
-"Ci" = (
-/obj/machinery/power/weather_tower,
-/obj/structure/lattice/catwalk,
-/obj/structure/cable,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "Cm" = (
 /obj/machinery/door/airlock/glass{
 	name = "Canteen"
@@ -5234,13 +5338,6 @@
 /obj/effect/spawner/random/lavaland_mob/raptor/young,
 /turf/open/misc/hay/lavaland,
 /area/lavaland/surface/outdoors)
-"Cx" = (
-/obj/item/kirbyplants/random,
-/obj/effect/turf_decal/siding/wood/end{
-	dir = 4
-	},
-/turf/open/floor/wood/large,
-/area/mine/lobby/raptor)
 "Cz" = (
 /obj/machinery/door/airlock/medical/glass{
 	name = "Infirmary"
@@ -5292,10 +5389,6 @@
 /obj/effect/turf_decal/trimline/brown/filled/warning,
 /turf/open/floor/iron/dark,
 /area/mine/mechbay)
-"CH" = (
-/obj/item/kirbyplants/random,
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
 "CI" = (
 /obj/structure/railing{
 	dir = 5
@@ -5356,6 +5449,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/north)
+"CY" = (
+/obj/structure/flora/ash/cacti,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "CZ" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/lattice/catwalk/mining,
@@ -5370,6 +5467,15 @@
 	},
 /turf/open/floor/iron/dark,
 /area/mine/production)
+"De" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/carpet/red,
+/area/mine/lobby/raptor)
+"Dh" = (
+/turf/open/misc/ashplanet/ash,
+/area/lavaland/surface/outdoors)
 "Di" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/turf_decal/trimline/green/filled/line,
@@ -5407,6 +5513,13 @@
 	dir = 4
 	},
 /area/mine/laborcamp)
+"Dt" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/turf/open/floor/plating/lavaland_atmos,
+/area/mine/lobby/raptor)
 "Dx" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/disposalpipe/segment{
@@ -5424,15 +5537,17 @@
 "Dz" = (
 /turf/closed/wall,
 /area/mine/medical)
+"DA" = (
+/obj/structure/chair/sofa/corner{
+	dir = 1;
+	color = "#AA4A44"
+	},
+/turf/open/floor/carpet/red,
+/area/mine/lobby/raptor)
 "DB" = (
 /obj/structure/marker_beacon/purple,
 /obj/effect/turf_decal/sand/plating/volcanic,
 /turf/open/floor/plating/lavaland_atmos,
-/area/lavaland/surface/outdoors)
-"DD" = (
-/obj/structure/lattice/catwalk/mining,
-/obj/structure/cable,
-/turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "DF" = (
 /obj/structure/cable,
@@ -5458,17 +5573,6 @@
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /turf/open/floor/plating,
 /area/mine/maintenance/public/north)
-"DS" = (
-/obj/structure/lattice/catwalk/mining,
-/obj/structure/railing,
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "DV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5518,6 +5622,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/north)
+"El" = (
+/obj/structure/lattice/catwalk,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "Eo" = (
 /obj/machinery/conveyor{
 	id = "mining_disposals"
@@ -5543,6 +5651,14 @@
 /obj/effect/turf_decal/tile/red/fourcorners,
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp/security)
+"Et" = (
+/obj/effect/mapping_helpers/airlock/access/all/engineering/general,
+/obj/machinery/door/airlock/maintenance{
+	name = "Mining Station Maintenance"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/mine/maintenance/service)
 "Ev" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -5639,6 +5755,10 @@
 /obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
+"ET" = (
+/obj/effect/spawner/random/lavaland_mob/raptor/baby,
+/turf/open/misc/hay/lavaland,
+/area/lavaland/surface/outdoors)
 "EX" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -5674,6 +5794,11 @@
 "Ff" = (
 /turf/open/floor/glass/reinforced,
 /area/mine/lounge)
+"Fg" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "Fn" = (
 /obj/structure/stone_tile/cracked{
 	dir = 4
@@ -5682,6 +5807,13 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"Fo" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/mining,
+/turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "Fp" = (
 /obj/structure/table,
@@ -5730,6 +5862,10 @@
 /obj/effect/turf_decal/sand/plating/volcanic,
 /turf/open/floor/plating/lavaland_atmos,
 /area/lavaland/surface/outdoors)
+"FA" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/red,
+/area/mine/lobby/raptor)
 "FD" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner,
 /obj/effect/turf_decal/siding/yellow{
@@ -5787,12 +5923,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/maintenance/production)
-"FZ" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
-/turf/open/floor/carpet/red,
-/area/mine/lobby/raptor)
 "Gc" = (
 /obj/structure/bookcase,
 /obj/effect/decal/cleanable/dirt,
@@ -5811,6 +5941,15 @@
 /obj/structure/cable,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
+"Gh" = (
+/obj/structure/table/wood,
+/obj/item/food/meat/slab,
+/obj/item/food/meat/slab{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "Gi" = (
 /obj/item/stack/cable_coil/cut,
 /turf/open/misc/asteroid/basalt/lava_land_surface{
@@ -5893,6 +6032,11 @@
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /turf/open/floor/iron,
 /area/mine/lounge)
+"GK" = (
+/obj/machinery/smartfridge/drying/rack,
+/obj/item/food/cheese/firm_cheese,
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "GL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5903,6 +6047,11 @@
 	dir = 4
 	},
 /area/mine/production)
+"GN" = (
+/obj/structure/table/wood,
+/obj/item/knife,
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "GR" = (
 /obj/structure/stone_tile/block/cracked{
 	dir = 4
@@ -5918,6 +6067,12 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/mine/laborcamp/security)
+"GX" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "GZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -6126,6 +6281,13 @@
 	},
 /turf/open/floor/iron/checker,
 /area/mine/laborcamp)
+"Id" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/mine/eva)
 "If" = (
 /obj/structure/cable,
 /obj/machinery/light/small/directional/north,
@@ -6180,11 +6342,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mine/maintenance/labor)
-"ID" = (
-/obj/machinery/smartfridge/drying/rack,
-/obj/item/food/cheese/firm_cheese,
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
+"IG" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/cable,
+/obj/structure/railing,
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "IH" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -6239,17 +6402,6 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"IR" = (
-/obj/machinery/door/airlock/external/glass{
-	name = "Labor Camp External Airlock"
-	},
-/obj/effect/mapping_helpers/airlock/access/any/security/brig,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "lavaland_gulag_east"
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/mine/maintenance/labor)
 "IS" = (
 /turf/open/floor/iron/freezer,
 /area/mine/living_quarters)
@@ -6286,13 +6438,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_edge,
 /area/mine/production)
-"IY" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plating,
-/area/mine/eva)
 "Je" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Labor Camp Maintenance"
@@ -6353,10 +6498,6 @@
 	},
 /turf/open/floor/plating,
 /area/mine/laborcamp/security/maintenance)
-"Jp" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/iron/dark/textured_large,
-/area/mine/eva)
 "Jt" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
@@ -6387,14 +6528,9 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "JA" = (
-/obj/machinery/computer/shuttle/mining/common,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("mine")
-	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
 	},
-/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
 /area/mine/lounge)
 "JB" = (
@@ -6468,18 +6604,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/mine/laborcamp/security/maintenance)
-"JO" = (
-/obj/structure/lattice/catwalk/mining,
-/obj/structure/cable,
-/obj/structure/railing,
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "JP" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6528,6 +6652,12 @@
 /obj/structure/stone_tile,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"JX" = (
+/obj/machinery/power/weather_tower,
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "JZ" = (
 /obj/structure/displaycase,
 /turf/open/floor/carpet/executive,
@@ -6550,6 +6680,15 @@
 	dir = 4
 	},
 /area/mine/eva)
+"Kd" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
+"Ke" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/railing/corner,
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "Kf" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -6580,13 +6719,6 @@
 /obj/structure/girder,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"Km" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood,
-/turf/open/floor/wood/large,
-/area/mine/lobby/raptor)
 "Kn" = (
 /obj/machinery/telecomms/relay/preset/mining,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -6613,6 +6745,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth_large,
 /area/mine/laborcamp)
+"Kr" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/item/storage/medkit/regular,
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 1
+	},
+/area/mine/eva)
 "Kt" = (
 /obj/structure/stone_tile/cracked,
 /obj/structure/stone_tile/cracked{
@@ -6675,14 +6819,16 @@
 	},
 /turf/open/floor/iron/checker,
 /area/mine/cafeteria)
-"KR" = (
-/obj/structure/lattice/catwalk/mining,
+"KT" = (
 /obj/structure/cable,
-/obj/structure/railing{
-	dir = 1
+/obj/machinery/airalarm/directional/east,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 4
 	},
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 8
+	},
+/area/mine/production)
 "KV" = (
 /obj/structure/table,
 /obj/machinery/light/directional/east,
@@ -6821,16 +6967,13 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/plating,
 /area/mine/storage)
-"LC" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/siding/wood{
+"LB" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/railing/corner{
 	dir = 1
 	},
-/obj/structure/chair/wood{
-	dir = 1
-	},
-/turf/open/floor/wood/large,
-/area/mine/lobby/raptor)
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "LE" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -6865,12 +7008,6 @@
 	dir = 1
 	},
 /area/mine/medical)
-"LH" = (
-/obj/structure/lattice/catwalk/mining,
-/obj/structure/cable,
-/obj/machinery/power/colony_wind_turbine,
-/turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "LJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -6949,6 +7086,10 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"Mb" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "Mc" = (
 /obj/structure/chair/wood/wings,
 /obj/machinery/light/small/directional/east,
@@ -6977,7 +7118,11 @@
 	},
 /area/mine/lounge)
 "Mh" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/structure/easel,
+/obj/item/canvas/fortyfive_twentyseven,
+/obj/item/canvas/thirtysix_twentyfour,
+/obj/item/canvas/twentythree_nineteen,
+/obj/item/paint_palette,
 /turf/open/floor/wood/parquet,
 /area/mine/lobby/raptor)
 "Mr" = (
@@ -7006,22 +7151,18 @@
 	},
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp/security)
-"Mv" = (
-/obj/structure/lattice/catwalk/mining,
-/obj/structure/cable,
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "My" = (
 /obj/machinery/light/small/directional/east,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth_large,
 /area/mine/laborcamp)
+"MC" = (
+/obj/item/bait_can/worm/premium{
+	pixel_y = 8;
+	pixel_x = -9
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "MD" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -7234,10 +7375,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/laborcamp/security/maintenance)
-"NP" = (
-/obj/machinery/airalarm/directional/north,
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
 "NR" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -7248,12 +7385,13 @@
 	},
 /area/mine/laborcamp/production)
 "NS" = (
-/obj/structure/lattice/catwalk/mining,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/surface/outdoors)
+/obj/structure/bookcase/random/reference,
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/large,
+/area/mine/lobby/raptor)
 "NT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -7288,13 +7426,12 @@
 	},
 /turf/open/floor/plating/lavaland_atmos,
 /area/lavaland/surface/outdoors)
-"Ob" = (
-/obj/machinery/suit_storage_unit/mining,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 5
-	},
-/turf/open/floor/iron/dark,
-/area/mine/eva)
+"NZ" = (
+/obj/machinery/power/colony_wind_turbine,
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/cable,
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "Og" = (
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
@@ -7360,12 +7497,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/quarters)
-"Ov" = (
-/obj/structure/lattice/catwalk/mining,
-/obj/structure/cable,
-/obj/structure/railing,
-/turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "Oy" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/red/filled/corner{
@@ -7375,18 +7506,15 @@
 	dir = 4
 	},
 /area/mine/laborcamp/security)
+"OF" = (
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "OH" = (
 /obj/item/storage/fancy/cigarettes/cigpack_robust{
 	pixel_x = -8;
 	pixel_y = 6
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
-"OJ" = (
-/obj/machinery/power/colony_wind_turbine,
-/obj/structure/lattice/catwalk/mining,
-/obj/structure/cable,
-/turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "OK" = (
 /obj/structure/closet/secure_closet/brig,
@@ -7511,10 +7639,6 @@
 /obj/item/toy/beach_ball,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"Px" = (
-/obj/structure/tank_holder/extinguisher,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "PA" = (
 /obj/structure/tank_holder/extinguisher,
 /obj/effect/turf_decal/trimline/yellow/filled/arrow_ccw{
@@ -7621,6 +7745,9 @@
 /obj/effect/spawner/random/entertainment/toy,
 /turf/open/floor/iron/checker,
 /area/mine/laborcamp)
+"PZ" = (
+/turf/closed/wall/mineral/iron,
+/area/lavaland/surface/outdoors)
 "Qa" = (
 /obj/item/kirbyplants/random,
 /obj/machinery/airalarm/directional/east,
@@ -7645,6 +7772,19 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
+"Qg" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/carpet/red,
+/area/mine/lobby/raptor)
+"Qh" = (
+/obj/machinery/suit_storage_unit/mining,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 5
+	},
+/turf/open/floor/iron/dark,
+/area/mine/eva)
 "Qi" = (
 /obj/machinery/door/airlock/research/glass{
 	name = "Mining Station Mech Bay"
@@ -7658,27 +7798,38 @@
 	},
 /turf/open/floor/iron/dark,
 /area/mine/mechbay)
-"Qj" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating/lavaland_atmos,
-/area/mine/lobby/raptor)
-"Qn" = (
-/obj/machinery/light/small/directional/east,
-/turf/open/floor/plating/lavaland_atmos,
-/area/mine/lobby/raptor)
-"Qo" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
+"Qm" = (
+/obj/item/food/grown/grass/fairy{
+	name = "weird hay";
+	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?";
+	pixel_y = -1;
+	pixel_x = 5
 	},
-/obj/machinery/light/directional/south,
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
-"Qp" = (
+/obj/item/food/grown/grass/fairy{
+	name = "weird hay";
+	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?";
+	pixel_y = 9;
+	pixel_x = 8
+	},
+/obj/item/food/grown/grass/fairy{
+	name = "weird hay";
+	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?";
+	pixel_y = 9;
+	pixel_x = 2
+	},
+/obj/item/food/grown/grass/fairy{
+	name = "weird hay";
+	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?"
+	},
+/turf/open/misc/hay/lavaland,
+/area/lavaland/surface/outdoors)
+"Qv" = (
 /obj/structure/lattice/catwalk/mining,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/floor/plating/lavaland_atmos,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "Qw" = (
 /obj/structure/stone_tile/cracked,
@@ -7707,12 +7858,18 @@
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/plating/lavaland_atmos,
 /area/lavaland/surface/outdoors)
-"QF" = (
-/obj/structure/railing/corner/end{
-	dir = 8
+"QE" = (
+/obj/structure/chair/plastic{
+	pixel_y = 4
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"QF" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_large,
+/area/mine/eva)
 "QG" = (
 /obj/machinery/door/airlock/public/glass{
 	id_tag = "gulag2";
@@ -7786,6 +7943,12 @@
 "QX" = (
 /turf/closed/wall,
 /area/mine/mechbay)
+"QY" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/cable,
+/obj/machinery/power/colony_wind_turbine,
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "Ra" = (
 /obj/machinery/door/airlock/mining/glass{
 	name = "Mining Station EVA"
@@ -7832,6 +7995,10 @@
 /obj/structure/easel,
 /turf/open/misc/hay/lavaland,
 /area/lavaland/surface/outdoors)
+"Rl" = (
+/obj/structure/lavaland_billboard,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "Ro" = (
 /obj/effect/turf_decal/loading_area,
 /obj/effect/turf_decal/trimline/brown/filled/line{
@@ -7877,10 +8044,13 @@
 /obj/structure/closet/toolcloset,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
-"Rz" = (
+"Rx" = (
+/obj/structure/lattice/catwalk/mining,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "RB" = (
 /obj/structure/railing/corner{
 	dir = 1
@@ -7910,6 +8080,10 @@
 /obj/structure/lattice/catwalk,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"RN" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating/lavaland_atmos,
+/area/mine/lobby/raptor)
 "RO" = (
 /obj/effect/turf_decal/sand/plating/volcanic,
 /obj/structure/railing{
@@ -7917,6 +8091,13 @@
 	},
 /turf/open/floor/plating/lavaland_atmos,
 /area/lavaland/surface/outdoors)
+"RP" = (
+/obj/machinery/microwave{
+	pixel_y = 6
+	},
+/obj/structure/table/wood,
+/turf/open/floor/carpet/red,
+/area/mine/lobby/raptor)
 "RV" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -7967,24 +8148,25 @@
 /obj/effect/turf_decal/sand/plating/volcanic,
 /turf/open/floor/plating/lavaland_atmos,
 /area/mine/maintenance/service/disposals)
+"Se" = (
+/obj/structure/tank_holder/extinguisher,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "Sg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/smooth_edge,
 /area/mine/laborcamp/production)
+"Sh" = (
+/obj/structure/fireplace,
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "Si" = (
 /obj/structure/stone_tile/cracked{
 	dir = 1
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"Sk" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/turf/open/floor/plating/lavaland_atmos,
-/area/mine/lobby/raptor)
 "Sm" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/turf_decal/siding/yellow,
@@ -7998,9 +8180,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/mine/hydroponics)
-"Sp" = (
-/turf/open/misc/ashplanet/ash,
-/area/lavaland/surface/outdoors)
 "Sq" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -8036,6 +8215,17 @@
 	dir = 1
 	},
 /area/mine/laborcamp/security)
+"Sw" = (
+/obj/structure/flora/rock/pile/style_random,
+/turf/open/water/lavaland_atmos/basalt,
+/area/lavaland/surface/outdoors)
+"Sx" = (
+/obj/structure/railing{
+	dir = 5
+	},
+/obj/item/reagent_containers/cup/bucket/wooden,
+/turf/open/misc/hay/lavaland,
+/area/lavaland/surface/outdoors)
 "Sz" = (
 /obj/machinery/hydroponics/constructable,
 /obj/machinery/light/small/directional/west,
@@ -8123,11 +8313,21 @@
 	dir = 1
 	},
 /area/mine/production)
-"SZ" = (
-/obj/structure/railing{
-	dir = 4
+"ST" = (
+/obj/structure/table/wood,
+/obj/item/raptor_dex{
+	pixel_y = 13
 	},
-/turf/open/misc/asteroid/basalt/lava_land_surface,
+/obj/item/raptor_dex{
+	pixel_y = 7
+	},
+/obj/item/raptor_dex,
+/turf/open/misc/hay/lavaland,
+/area/lavaland/surface/outdoors)
+"SY" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/cable,
+/turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "Tc" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -8146,14 +8346,10 @@
 	},
 /turf/open/floor/iron/dark/smooth_edge,
 /area/mine/eva)
-"Ti" = (
-/obj/effect/turf_decal/trimline/brown/filled/line,
-/obj/structure/table,
-/obj/item/paper/fluff/stations/lavaland/orm_notice,
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 1
-	},
-/area/mine/production)
+"Tg" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating/lavaland_atmos,
+/area/lavaland/surface/outdoors)
 "To" = (
 /obj/structure/table,
 /obj/machinery/reagentgrinder,
@@ -8213,6 +8409,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/north)
+"Ty" = (
+/obj/item/book/manual/fish_catalog{
+	pixel_y = -6;
+	pixel_x = 14
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "TD" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 1
@@ -8238,21 +8441,39 @@
 /obj/item/crusher_trophy/retool_kit/ashenskull,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"TI" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/chair/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/large,
+/area/mine/lobby/raptor)
 "TJ" = (
 /obj/effect/turf_decal/tile/brown/fourcorners,
 /turf/open/floor/iron/dark,
 /area/mine/production)
-"TQ" = (
-/obj/structure/table,
-/obj/item/storage/toolbox/mechanical{
-	pixel_x = -2;
-	pixel_y = 4
+"TK" = (
+/obj/machinery/door/airlock/external/glass{
+	name = "Labor Camp External Airlock"
 	},
-/obj/effect/turf_decal/trimline/brown/filled/line,
-/turf/open/floor/iron/dark/smooth_edge{
+/obj/effect/mapping_helpers/airlock/access/any/security/brig,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "lavaland_gulag_east"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/mine/maintenance/labor)
+"TM" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/area/mine/eva)
+/turf/open/floor/wood/large,
+/area/mine/lobby/raptor)
 "TR" = (
 /obj/structure/fence/cut/large{
 	dir = 4
@@ -8365,6 +8586,12 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/mine/production)
+"Us" = (
+/obj/structure/railing/corner/end{
+	dir = 8
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "Ut" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/smooth_edge,
@@ -8384,11 +8611,6 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"Uz" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
 "UD" = (
 /obj/structure/toilet{
 	dir = 8
@@ -8413,6 +8635,10 @@
 /obj/structure/sign/poster/official/no_erp/directional/south,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/quarters)
+"UP" = (
+/obj/effect/landmark/river_waypoint,
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "UQ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -8469,15 +8695,6 @@
 /obj/structure/fluff/drake_statue/falling,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"Vb" = (
-/obj/structure/table/wood,
-/obj/item/food/meat/slab,
-/obj/item/food/meat/slab{
-	pixel_x = 6;
-	pixel_y = 5
-	},
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
 "Vc" = (
 /obj/item/reagent_containers/cup/glass/colocup{
 	pixel_x = -5;
@@ -8485,10 +8702,6 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"Vd" = (
-/obj/structure/table/wood,
-/turf/open/floor/wood/parquet,
-/area/mine/lobby/raptor)
 "Ve" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/textured_large,
@@ -8645,6 +8858,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mine/maintenance/labor)
+"VR" = (
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood/large,
+/area/mine/lobby/raptor)
 "VS" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/decal/cleanable/dirt,
@@ -8665,20 +8887,16 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/mine/laborcamp)
-"VZ" = (
-/obj/machinery/power/apc/auto_name/directional/south,
-/obj/structure/cable,
-/obj/effect/turf_decal/trimline/brown/filled/line,
-/obj/structure/table,
-/obj/item/storage/medkit/regular,
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 1
-	},
-/area/mine/production)
 "Wb" = (
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
 /area/mine/production)
+"Wd" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/machinery/power/colony_wind_turbine,
+/obj/structure/cable,
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "We" = (
 /obj/machinery/light/small/directional/north,
 /obj/effect/decal/cleanable/dirt,
@@ -8689,18 +8907,6 @@
 /obj/effect/turf_decal/sand/plating/volcanic,
 /turf/open/floor/plating/lavaland_atmos,
 /area/mine/lounge)
-"Wh" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
-"Wk" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "Wl" = (
 /obj/machinery/door/airlock/external/glass{
 	name = "Mining External Airlock"
@@ -8720,12 +8926,21 @@
 	dir = 1
 	},
 /area/mine/laborcamp/security)
-"Wq" = (
-/obj/structure/chair/sofa/corner{
-	dir = 1;
-	color = "#AA4A44"
+"Wp" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/cable,
+/obj/structure/railing,
+/obj/structure/railing{
+	dir = 1
 	},
-/turf/open/floor/carpet/red,
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"Wr" = (
+/obj/structure/table/wood,
+/turf/open/floor/wood/parquet,
 /area/mine/lobby/raptor)
 "Wt" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -8735,41 +8950,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_edge,
 /area/mine/hydroponics)
-"Ww" = (
-/obj/structure/rack,
-/obj/item/food/grown/grass/fairy{
-	name = "weird hay";
-	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?"
-	},
-/obj/item/food/grown/grass/fairy{
-	name = "weird hay";
-	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?";
-	pixel_y = 9
-	},
-/obj/item/food/grown/grass/fairy{
-	name = "weird hay";
-	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?";
-	pixel_y = 9;
-	pixel_x = 2
-	},
-/obj/item/food/grown/grass/fairy{
-	name = "weird hay";
-	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?";
-	pixel_y = 6
-	},
-/obj/item/food/grown/grass/fairy{
-	name = "weird hay";
-	desc = "Somehow, somewhere, this tells you it should increase your friendship level with your animals. Too bad that doesn't work, right?";
-	pixel_y = 6;
-	pixel_x = 9
-	},
-/obj/item/crowbar/large,
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/turf/open/floor/wood/large,
-/area/mine/lobby/raptor)
 "Wx" = (
 /obj/machinery/computer/arcade/battle{
 	dir = 4
@@ -8783,21 +8963,19 @@
 	},
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"WA" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/chair/wood,
+/obj/structure/cable,
+/turf/open/floor/wood/parquet,
+/area/mine/lobby/raptor)
 "WB" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
 /obj/effect/turf_decal/tile/brown/fourcorners,
 /turf/open/floor/iron/dark,
 /area/mine/production)
-"WD" = (
-/obj/machinery/power/apc/auto_name/directional/south,
-/obj/structure/cable,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood,
-/turf/open/floor/wood/large,
-/area/mine/lobby/raptor)
 "WF" = (
 /obj/effect/spawner/random/trash/graffiti,
 /obj/effect/decal/cleanable/dirt,
@@ -8845,17 +9023,6 @@
 	},
 /turf/open/floor/plating,
 /area/mine/maintenance/production)
-"WQ" = (
-/obj/structure/table/wood,
-/obj/item/soap/deluxe{
-	pixel_y = 11
-	},
-/obj/item/soap/deluxe{
-	pixel_y = 6
-	},
-/obj/item/soap/deluxe,
-/turf/open/misc/hay/lavaland,
-/area/lavaland/surface/outdoors)
 "WU" = (
 /obj/machinery/space_heater,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -8947,10 +9114,6 @@
 	dir = 4
 	},
 /area/mine/production)
-"Xm" = (
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/mine/maintenance/labor)
 "Xp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -8977,6 +9140,9 @@
 /obj/effect/mapping_helpers/airlock/access/any/security/brig,
 /turf/open/floor/plating,
 /area/mine/laborcamp/security)
+"Xu" = (
+/turf/open/floor/carpet/red,
+/area/mine/lobby/raptor)
 "Xw" = (
 /obj/structure/railing{
 	dir = 1
@@ -9024,6 +9190,13 @@
 	dir = 1
 	},
 /area/mine/lounge)
+"XG" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/plating/lavaland_atmos,
+/area/lavaland/surface/outdoors)
 "XH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -9041,21 +9214,14 @@
 /obj/item/seeds/apple,
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp)
-"XM" = (
-/obj/structure/bookcase/random/reference,
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
+"XK" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/turf/open/floor/wood/large,
-/area/mine/lobby/raptor)
-"XN" = (
-/obj/machinery/microwave{
-	pixel_y = 6
-	},
-/obj/structure/table/wood,
-/turf/open/floor/carpet/red,
-/area/mine/lobby/raptor)
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/railing,
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "XP" = (
 /obj/structure/stone_tile/cracked,
 /obj/structure/stone_tile/block{
@@ -9092,6 +9258,25 @@
 	},
 /turf/open/floor/iron/dark/smooth_edge,
 /area/mine/mechbay)
+"XY" = (
+/obj/structure/table/wood,
+/obj/item/plate{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/item/plate{
+	pixel_x = -6;
+	pixel_y = -6
+	},
+/obj/item/reagent_containers/cup/glass/mug/tea{
+	pixel_x = 8;
+	pixel_y = -3
+	},
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 8
+	},
+/turf/open/floor/wood/large,
+/area/mine/lobby/raptor)
 "XZ" = (
 /obj/structure/table,
 /obj/item/storage/fancy/donut_box,
@@ -9144,23 +9329,6 @@
 /obj/effect/turf_decal/siding/yellow,
 /turf/open/floor/iron/large,
 /area/mine/lounge)
-"Yg" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/iron/dark/textured_large,
-/area/mine/eva)
-"Yh" = (
-/obj/structure/table/wood,
-/obj/item/raptor_dex{
-	pixel_y = 13
-	},
-/obj/item/raptor_dex{
-	pixel_y = 7
-	},
-/obj/item/raptor_dex,
-/turf/open/misc/hay/lavaland,
-/area/lavaland/surface/outdoors)
 "Yk" = (
 /obj/structure/stone_tile/center,
 /obj/structure/stone_tile/surrounding_tile,
@@ -9222,13 +9390,6 @@
 	dir = 1
 	},
 /area/mine/laborcamp/quarters)
-"YD" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 6
-	},
-/obj/item/radio/intercom/directional/east,
-/turf/open/floor/iron/dark,
-/area/mine/production)
 "YF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -9237,34 +9398,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
-"YG" = (
-/obj/structure/table/wood,
-/obj/item/plate{
-	pixel_x = 6;
-	pixel_y = 7
-	},
-/obj/item/plate{
-	pixel_x = -6;
-	pixel_y = -6
-	},
-/obj/item/reagent_containers/cup/glass/mug/tea{
-	pixel_x = 8;
-	pixel_y = -3
-	},
-/obj/effect/turf_decal/siding/wood/end{
-	dir = 8
-	},
-/turf/open/floor/wood/large,
-/area/mine/lobby/raptor)
 "YM" = (
 /obj/structure/barricade/wooden,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"YP" = (
-/obj/structure/bed,
-/obj/effect/spawner/random/bedsheet,
-/turf/open/floor/carpet/red,
-/area/mine/lobby/raptor)
 "YR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -9291,6 +9428,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
+"Za" = (
+/obj/structure/lattice/catwalk/mining,
+/obj/structure/cable,
+/obj/structure/railing,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "Zb" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -9301,9 +9447,13 @@
 /turf/open/floor/iron,
 /area/mine/lounge)
 "Zg" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/sign/directions/evac/directional/east,
-/turf/open/floor/plating,
+/obj/machinery/door/airlock/external/glass{
+	name = "Mining External Airlock"
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "lavaland_living_north"
+	},
+/turf/open/floor/iron/textured_large,
 /area/mine/lounge)
 "Zh" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -9353,6 +9503,9 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
+"Zs" = (
+/turf/open/misc/ashplanet/rocky,
+/area/lavaland/surface/outdoors)
 "Zt" = (
 /turf/closed/wall,
 /area/mine/laborcamp)
@@ -9400,11 +9553,6 @@
 	},
 /turf/open/floor/plating/lavaland_atmos,
 /area/lavaland/surface/outdoors)
-"ZF" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/carpet/red,
-/area/mine/lobby/raptor)
 "ZH" = (
 /obj/structure/closet/secure_closet/labor_camp_security,
 /obj/effect/turf_decal/trimline/red/filled/line{
@@ -9413,19 +9561,6 @@
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp/security)
-"ZJ" = (
-/obj/effect/spawner/random/food_or_drink/donkpockets,
-/obj/effect/spawner/random/food_or_drink/donkpockets{
-	pixel_x = 6;
-	pixel_y = 5
-	},
-/obj/structure/table/wood,
-/turf/open/floor/carpet/red,
-/area/mine/lobby/raptor)
-"ZL" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating/lavaland_atmos,
-/area/lavaland/surface/outdoors)
 "ZM" = (
 /obj/structure/railing{
 	dir = 8
@@ -9457,10 +9592,6 @@
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /turf/open/floor/plating,
 /area/mine/maintenance/public/north)
-"ZU" = (
-/obj/structure/lavaland_billboard,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "ZY" = (
 /turf/closed/mineral/random/volcanic,
 /area/lavaland/surface/outdoors/unexplored)
@@ -30005,11 +30136,11 @@ rX
 kg
 Vq
 rF
-Xm
-IR
-Xm
-IR
-yZ
+dN
+TK
+dN
+TK
+in
 pU
 pU
 uU
@@ -30266,7 +30397,7 @@ JE
 RD
 RD
 RD
-yZ
+in
 pU
 uU
 uU
@@ -30523,7 +30654,7 @@ aj
 aj
 aj
 pU
-yZ
+in
 pU
 uU
 uU
@@ -30777,10 +30908,10 @@ aj
 ey
 aj
 aj
-LH
+QY
 aj
 aj
-KR
+Qv
 pU
 uU
 uU
@@ -31034,10 +31165,10 @@ aj
 cU
 aj
 aj
-bk
-pt
-pt
-vH
+yD
+Ag
+Ag
+la
 pU
 uU
 uU
@@ -31291,7 +31422,7 @@ pU
 cU
 aj
 aj
-LH
+QY
 aj
 aj
 aj
@@ -33083,7 +33214,7 @@ vn
 Po
 Ia
 Gm
-fS
+ug
 he
 ZH
 Ya
@@ -36398,7 +36529,7 @@ pU
 pU
 pU
 pU
-Ci
+JX
 pU
 pU
 pU
@@ -36656,8 +36787,8 @@ aD
 aD
 aD
 aD
-yL
-yL
+El
+El
 pU
 pU
 pU
@@ -37435,7 +37566,7 @@ aj
 aj
 aj
 aj
-JO
+Wp
 aj
 aj
 aj
@@ -37691,9 +37822,9 @@ aj
 aj
 aj
 aj
-LH
-DD
-LH
+QY
+SY
+QY
 aj
 aj
 aj
@@ -37949,7 +38080,7 @@ aj
 aj
 aj
 aj
-sr
+Za
 aj
 aj
 aj
@@ -38205,9 +38336,9 @@ ON
 pU
 aj
 aj
-LH
-DD
-LH
+QY
+SY
+QY
 aj
 aj
 aj
@@ -38454,16 +38585,16 @@ Ue
 gB
 ON
 rA
-zd
+sM
 fi
-zd
+sM
 Rw
 ON
 ON
 ON
 aj
 aj
-sr
+Za
 aj
 aj
 aj
@@ -38711,16 +38842,16 @@ Qz
 ON
 ON
 ON
-lm
+Et
 ON
 fi
-zd
-xH
-zd
-qv
-Mv
-pt
-Ov
+sM
+qa
+sM
+ox
+zv
+Ag
+IG
 aj
 aj
 pU
@@ -38977,7 +39108,7 @@ xD
 xD
 aj
 aj
-cf
+sB
 aj
 aj
 pU
@@ -39233,9 +39364,9 @@ BK
 HA
 xD
 aj
-OJ
-DD
-re
+NZ
+SY
+Wd
 aj
 pU
 pU
@@ -39480,7 +39611,7 @@ Ue
 AA
 gB
 ON
-ps
+qB
 gq
 ER
 vc
@@ -39491,7 +39622,7 @@ Kn
 xD
 aj
 aj
-cf
+sB
 aj
 aj
 pU
@@ -39731,7 +39862,7 @@ ZY
 ZY
 pU
 pU
-Ci
+JX
 aD
 Qz
 ON
@@ -39747,9 +39878,9 @@ Ev
 HI
 xD
 aj
-re
-DD
-re
+Wd
+SY
+Wd
 aj
 pU
 pU
@@ -40005,7 +40136,7 @@ xD
 xD
 aj
 aj
-DS
+tk
 aj
 aj
 aj
@@ -40502,7 +40633,7 @@ ZY
 ZY
 pU
 pU
-Ci
+JX
 aD
 aD
 ON
@@ -43365,9 +43496,9 @@ iu
 pU
 aj
 aj
-aj
-pU
+Zq
 SP
+Zq
 kK
 Sm
 Vz
@@ -43619,11 +43750,11 @@ kC
 ho
 aj
 pU
-pU
-pU
-tF
-tF
-pU
+aj
+LV
+ZM
+td
+AY
 Zg
 ti
 DZ
@@ -43876,12 +44007,12 @@ cC
 iu
 aj
 aj
-pU
-pU
+aj
+yV
 tF
-aj
-aj
-Zq
+td
+AY
+Zg
 JA
 wp
 zF
@@ -44129,19 +44260,19 @@ di
 di
 tF
 yV
-Yq
-aj
-aj
-pU
-pU
-aj
-tF
-aj
-aj
+Fo
+eu
+oy
+ZM
+ZM
+LB
+Ke
 Zq
 SP
+Zq
+Zq
 bL
-SP
+Zq
 Zq
 aj
 aj
@@ -44386,13 +44517,13 @@ di
 aj
 aj
 yV
-Yq
-aj
-aj
-pU
-aj
-aj
-tF
+kx
+BE
+BE
+VK
+BE
+BE
+oE
 aj
 aj
 aj
@@ -44643,7 +44774,7 @@ di
 aj
 aj
 yV
-Yq
+XK
 aj
 aj
 aj
@@ -44653,9 +44784,9 @@ pU
 Pd
 NY
 NY
-SP
+Zq
 xN
-SP
+Zq
 NY
 NY
 LS
@@ -46461,7 +46592,7 @@ Lw
 pU
 pU
 pU
-aj
+pU
 aj
 aj
 aj
@@ -46975,7 +47106,7 @@ NY
 NY
 gQ
 pU
-pU
+aj
 aj
 aj
 aj
@@ -47218,7 +47349,7 @@ Le
 aj
 aj
 aj
-ZU
+Rl
 JD
 BP
 BP
@@ -47232,10 +47363,10 @@ BP
 BP
 Lw
 pU
+aj
+aj
+aj
 pU
-aj
-aj
-aj
 pU
 pU
 DB
@@ -47489,9 +47620,9 @@ BP
 BP
 Lw
 pU
+aj
+aj
 pU
-aj
-aj
 pU
 pU
 pU
@@ -47748,7 +47879,7 @@ Lw
 pU
 aj
 aj
-aj
+pU
 pU
 pU
 ai
@@ -48005,7 +48136,7 @@ Lw
 pU
 aj
 aj
-aj
+pU
 pU
 ai
 ad
@@ -48236,7 +48367,7 @@ Bb
 Ye
 GF
 nv
-cR
+KT
 Vt
 jW
 Fc
@@ -49007,11 +49138,11 @@ zD
 TD
 Vw
 wl
-Ti
+cL
 pK
 lg
 se
-Yg
+QF
 li
 dK
 pU
@@ -49264,12 +49395,12 @@ zJ
 oi
 Ts
 Wb
-VZ
+zt
 pK
 Tf
-Jp
-Yg
-TQ
+ay
+QF
+Kr
 dK
 pU
 pU
@@ -49521,11 +49652,11 @@ RY
 RY
 dQ
 Cg
-YD
+Ac
 pK
-Ob
+Qh
 IL
-cx
+zj
 KV
 pK
 aj
@@ -49539,13 +49670,13 @@ pU
 pU
 pU
 pU
+yW
 pU
 pU
 pU
 pU
 pU
 pU
-aj
 aj
 aj
 aj
@@ -49782,7 +49913,7 @@ NU
 pK
 pK
 dK
-IY
+Id
 pK
 pK
 aj
@@ -49794,16 +49925,16 @@ aj
 pU
 pU
 pU
+CY
+tl
+tl
+Sw
+tl
 pU
 pU
 pU
 pU
 pU
-pU
-aj
-aj
-aj
-aj
 aj
 aj
 zs
@@ -50039,7 +50170,7 @@ NU
 ai
 pU
 pU
-xv
+yk
 pU
 aj
 aj
@@ -50049,19 +50180,19 @@ NL
 aj
 aj
 aj
-aj
+pU
+pU
+tl
+Sw
+tl
+tl
+tl
+tl
 pU
 pU
 pU
 pU
 pU
-aj
-aj
-aj
-aj
-pU
-pU
-aj
 aj
 DB
 BP
@@ -50296,7 +50427,7 @@ pU
 pU
 pU
 pU
-NS
+Rx
 aj
 aj
 pU
@@ -50306,20 +50437,20 @@ NL
 aj
 aj
 pU
-aj
-aj
-aj
-aj
 pU
-aj
-aj
-aj
-aj
 pU
+tl
+tl
+tl
+tl
+Sw
+tl
 pU
 pU
 pU
-aj
+pU
+pU
+pU
 pU
 pU
 pU
@@ -50553,7 +50684,7 @@ pU
 aj
 aj
 aj
-NS
+Rx
 aj
 pU
 aj
@@ -50563,21 +50694,21 @@ NL
 aj
 pU
 pU
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+pU
+ph
+Sw
+tl
+tl
+tl
+tl
 pU
 pU
 pU
 pU
-ze
-ze
-ze
+pU
+Zs
+Zs
+Zs
 pU
 pU
 pU
@@ -50810,7 +50941,7 @@ aj
 aj
 aj
 aj
-NS
+Rx
 aj
 aj
 aj
@@ -50818,22 +50949,22 @@ zs
 tF
 de
 aj
-aj
-aj
-aj
-aj
-pU
-aj
-aj
-aj
-aj
-aj
 pU
 pU
 pU
-ze
-Sp
-ze
+pU
+Ty
+tl
+tl
+tl
+hA
+pU
+pU
+pU
+pU
+Zs
+Dh
+Zs
 BP
 pU
 pU
@@ -51067,7 +51198,7 @@ aj
 aj
 aj
 aj
-NS
+Rx
 aj
 aj
 aj
@@ -51075,22 +51206,22 @@ ct
 BP
 ct
 pU
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
 pU
 pU
 pU
-ze
+pU
+QE
+tl
+tl
+tl
+pU
+pU
+pU
+pU
+Zs
 BP
-Sp
-ze
+Dh
+Zs
 pU
 pU
 pU
@@ -51324,7 +51455,7 @@ ai
 ai
 pU
 pU
-NS
+Rx
 aj
 aj
 aj
@@ -51333,20 +51464,20 @@ BP
 BP
 pU
 pU
-aj
-aj
+pU
+pU
+CY
+MC
+tl
+Sw
 pU
 pU
 pU
 pU
-aj
-pU
-pU
-pU
-ze
-ze
-Sp
-ze
+Zs
+Zs
+Dh
+Zs
 lP
 pU
 pU
@@ -51581,11 +51712,11 @@ ai
 ai
 ai
 ai
-xv
-NS
-NS
-NS
-Qp
+yk
+Rx
+Rx
+Rx
+XG
 BP
 BP
 BP
@@ -51601,10 +51732,10 @@ lt
 Ri
 eN
 pU
-ze
-ze
-ze
-ze
+Zs
+Zs
+Zs
+Zs
 pU
 pU
 aj
@@ -51842,7 +51973,7 @@ ai
 pU
 pU
 pU
-NS
+Rx
 BP
 BP
 BP
@@ -51860,7 +51991,7 @@ pU
 pU
 pU
 pU
-ze
+Zs
 pU
 pU
 aj
@@ -52096,14 +52227,14 @@ aj
 aj
 ai
 ai
-hl
-tC
-Qj
-Sk
-Qj
-tC
-tC
-tC
+PZ
+iF
+RN
+Dt
+RN
+iF
+iF
+iF
 lt
 pU
 pU
@@ -52352,15 +52483,15 @@ aj
 aj
 aj
 aj
-tC
-tC
-Ww
-ID
-be
-XN
-ZJ
-tH
-Qj
+iF
+iF
+xk
+GK
+De
+RP
+wL
+GN
+RN
 Ns
 lt
 pU
@@ -52609,15 +52740,15 @@ aj
 aj
 aj
 aj
-tC
-eL
-aY
-Rz
-be
-oK
-FZ
-Vb
-Qj
+iF
+OF
+aR
+Mb
+De
+FA
+Qg
+Gh
+RN
 lt
 lt
 lt
@@ -52625,9 +52756,9 @@ pU
 pU
 pU
 BP
-Sp
-Sp
-ze
+Dh
+Dh
+Zs
 pU
 pU
 pU
@@ -52866,24 +52997,24 @@ ai
 ai
 aj
 aj
-tC
-zC
-LC
-kf
-ei
-YG
-wO
-tC
-tC
+iF
+Mh
+TI
+me
+WA
+XY
+tv
+iF
+iF
 pU
 lt
 pU
 pU
 pU
 pU
-ze
-Sp
-ze
+Zs
+Dh
+Zs
 BP
 pU
 pU
@@ -53123,14 +53254,14 @@ ai
 ai
 ai
 pU
-tC
-eL
-Cx
-AS
-be
-Km
-eL
-tC
+iF
+OF
+rI
+Xu
+De
+vo
+OF
+iF
 pU
 pU
 pU
@@ -53138,8 +53269,8 @@ lP
 pU
 BP
 pU
-ze
-Sp
+Zs
+Dh
 pU
 UI
 pU
@@ -53380,22 +53511,22 @@ aj
 ai
 ai
 ai
-tC
-Ah
-Wq
-AS
-be
-WD
-tC
-tC
-tC
+iF
+dY
+DA
+Xu
+De
+VR
+iF
+iF
+iF
 ct
 pU
 pU
 pU
 pU
 pU
-ze
+Zs
 pU
 pU
 lt
@@ -53637,15 +53768,15 @@ aj
 aj
 ai
 ai
-tC
-tY
-dF
-AS
-Uz
-Km
-vj
-Qn
-az
+iF
+Sh
+cI
+Xu
+Fg
+vo
+nw
+kP
+aZ
 BP
 pU
 BP
@@ -53894,15 +54025,15 @@ aj
 aj
 aj
 aj
-tC
-eL
-yk
-AS
-ZF
-Km
-tC
-tC
-tC
+iF
+OF
+wn
+Xu
+bG
+vo
+iF
+iF
+iF
 ct
 pU
 pU
@@ -53910,18 +54041,18 @@ pU
 pU
 pU
 BP
-Av
-Wh
-Wh
-hl
-ZL
-ZL
-hl
-hl
-ZL
-ZL
-hl
-hl
+oP
+GX
+GX
+PZ
+Tg
+Tg
+PZ
+PZ
+Tg
+Tg
+PZ
+PZ
 pU
 pU
 aj
@@ -54151,15 +54282,15 @@ aj
 aj
 aj
 aj
-tC
-NP
-bc
-AS
-ZF
-Km
-CH
-tC
-Px
+iF
+BQ
+fZ
+Xu
+bG
+vo
+uX
+iF
+Se
 pU
 lt
 lt
@@ -54171,14 +54302,14 @@ up
 lt
 pU
 up
-dl
+cd
 lt
 VU
 lt
 lt
-dl
+cd
 lt
-hl
+PZ
 pU
 pU
 aj
@@ -54400,7 +54531,6 @@ ZY
 ZY
 pU
 pU
-pU
 aj
 aj
 aj
@@ -54408,15 +54538,16 @@ aj
 aj
 aj
 aj
-tC
-ky
-wa
-bx
-Uz
-jC
-Qo
-tC
-tC
+aj
+iF
+Au
+TM
+zz
+Fg
+bk
+dd
+iF
+iF
 Ns
 lt
 pU
@@ -54435,7 +54566,7 @@ lt
 Cv
 Az
 lt
-ZL
+Tg
 pU
 aj
 aj
@@ -54656,24 +54787,24 @@ ZY
 ZY
 ZY
 ZY
-ZY
-pU
-pU
-pU
 aj
 aj
 aj
 aj
 aj
-tC
-zX
-XM
-eL
-pk
-pk
-pk
-Mh
-Qj
+aj
+aj
+aj
+aj
+iF
+vj
+NS
+OF
+ap
+ap
+ap
+Kd
+RN
 lt
 lt
 pU
@@ -54681,18 +54812,18 @@ pU
 pU
 lt
 pU
-Wk
+lR
 UI
 ct
 up
 lt
-rj
+ET
 VU
 lt
 lt
 lt
 lt
-ZL
+Tg
 pU
 pU
 aj
@@ -54912,25 +55043,25 @@ ZY
 ZY
 ZY
 ZY
-ZY
-ZY
-ZY
-pU
-pU
+aj
+aj
+aj
+aj
+aj
 pU
 pU
 pU
 pU
 aj
-tC
-tC
-XM
-eL
-AS
-AS
-YP
-Vd
-Qj
+iF
+iF
+NS
+OF
+Xu
+Xu
+kw
+Wr
+RN
 lt
 pU
 pU
@@ -54938,7 +55069,7 @@ pU
 pU
 pU
 pU
-Wk
+lR
 pU
 lt
 CI
@@ -54949,8 +55080,8 @@ lt
 lt
 ej
 ej
-hl
-hl
+PZ
+PZ
 pU
 aj
 "}
@@ -55168,11 +55299,11 @@ ZY
 ZY
 ZY
 ZY
-ZY
-ZY
-ZY
-ZY
-ZY
+aj
+aj
+aj
+aj
+aj
 pU
 pU
 pU
@@ -55180,14 +55311,14 @@ pU
 pU
 aj
 aj
-tC
-tC
-Qj
-Qj
-Qj
-tC
-tC
-tC
+iF
+iF
+RN
+RN
+RN
+iF
+iF
+iF
 lt
 pU
 pU
@@ -55195,19 +55326,19 @@ lt
 pU
 pU
 pU
-QF
-gL
+Us
+cS
 lt
 lt
 lt
 lt
 lt
 lt
-gL
+cS
 lt
 lt
 lt
-ZL
+Tg
 pU
 aj
 "}
@@ -55425,10 +55556,10 @@ fQ
 ZY
 ZY
 ZY
-ZY
-ZY
-ZY
-ZY
+aj
+UP
+aj
+aj
 ZY
 ZY
 ZY
@@ -55456,15 +55587,15 @@ lt
 lt
 lt
 lt
-Yh
-dI
+ST
+ca
 lt
 lt
 lt
-WQ
-dI
+sY
+ca
 lt
-ZL
+Tg
 aj
 aj
 "}
@@ -55683,8 +55814,8 @@ fQ
 fQ
 ZY
 ZY
-ZY
-ZY
+aj
+aj
 ZY
 ZY
 ZY
@@ -55714,14 +55845,14 @@ lt
 lt
 lt
 lt
-gL
+cS
 lt
 lt
 lt
 lt
 lt
 lt
-ZL
+Tg
 pU
 aj
 "}
@@ -55966,10 +56097,10 @@ pU
 lt
 pU
 pU
-Wk
+lR
 Cv
 lt
-aF
+cv
 tf
 lt
 AF
@@ -55977,8 +56108,8 @@ lt
 lt
 tf
 tf
-hl
-hl
+PZ
+PZ
 pU
 aj
 "}
@@ -56223,18 +56354,18 @@ pU
 pU
 pU
 pU
-Wk
+lR
 pU
 ct
 up
 lt
-hh
+Qm
 VU
 lt
-rj
+ET
 lt
 lt
-ZL
+Tg
 pU
 aj
 aj
@@ -56480,7 +56611,7 @@ pU
 pU
 lt
 lt
-Wk
+lR
 pU
 pU
 up
@@ -56491,7 +56622,7 @@ lt
 lt
 Az
 lt
-ZL
+Tg
 pU
 pU
 pU
@@ -56741,14 +56872,14 @@ up
 Pb
 pU
 up
-dl
+cd
 Cv
 VU
 lt
 lt
-dl
+cd
 lt
-hl
+PZ
 pU
 pU
 aj
@@ -56994,18 +57125,18 @@ pU
 lt
 lt
 BP
-oO
+Sx
 ej
-SZ
-hl
-ZL
-ZL
-hl
-hl
-ZL
-ZL
-hl
-hl
+iv
+PZ
+Tg
+Tg
+PZ
+PZ
+Tg
+Tg
+PZ
+PZ
 pU
 aj
 aj

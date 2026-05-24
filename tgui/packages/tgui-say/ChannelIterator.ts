@@ -11,7 +11,8 @@ export type Channel =
   | 'IRC'
   // IRIS EDIT ADDITION END
   | 'OOC'
-  | 'Admin';
+  | 'Admin'
+  | 'Pray';
 
 /**
  * ### ChannelIterator
@@ -35,9 +36,10 @@ export class ChannelIterator {
     // IRIS EDIT ADDITION END
     'OOC',
     'Admin',
+    'Pray',
   ];
   private readonly blacklist: Channel[] = ['Admin'];
-  private readonly quiet: Channel[] = ['OOC', 'LOOC', 'Admin']; // NOVA EDIT CHANGE (Add LOOC)
+  private readonly quiet: Channel[] = ['OOC', 'LOOC', 'Admin', 'Pray']; // NOVA EDIT CHANGE - ORIGINAL: private readonly quiet: Channel[] = ['OOC', 'Admin', 'Pray'];
 
   public next(): Channel {
     if (this.blacklist.includes(this.channels[this.index])) {

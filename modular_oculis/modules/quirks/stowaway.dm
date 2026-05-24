@@ -18,9 +18,6 @@
 	card.register_name(effective_alias)
 	stowaway.update_visible_name()
 
-	if(prob(20))
-		stowaway.adjust_drunk_effect(50) //What did I DO last night?
-
 	var/obj/structure/closet/selected_closet = get_unlocked_closed_locker() //Find your new home
 	if(selected_closet)
 		stowaway.forceMove(selected_closet) //Move in

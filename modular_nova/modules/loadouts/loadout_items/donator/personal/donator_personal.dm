@@ -157,7 +157,7 @@
 
 /datum/loadout_item/head/avipilot
 	name = "Smuggler's Flying Cap"
-	item_path = /obj/item/clothing/head/avipilot
+	item_path = /obj/item/clothing/head/costume/ushanka/avipilot
 	ckeywhitelist = list("slippyjoe")
 
 /datum/loadout_item/shoes/britches_shoes
@@ -208,7 +208,7 @@
 /datum/loadout_item/suit/caligram_parka_vest_tan
 	name = "Caligram Armored Tan Parka"
 	item_path = /obj/item/clothing/suit/armor/vest/caligram_parka_vest
-	restricted_roles = list(JOB_CAPTAIN,JOB_BRIDGE_ASSISTANT, ALL_JOBS_DEPTGUARD, ALL_JOBS_SEC)
+	restricted_roles = list(JOB_CAPTAIN,JOB_BRIDGE_ASSISTANT, ALL_JOBS_DEPTGUARD, ALL_JOBS_SEC, JOB_BARTENDER)
 /* // OCULIS EDIT REMOVAL START
 /datum/loadout_item/suit/brasspriest
 	name = "Brasspriest Coat"
@@ -1037,9 +1037,31 @@
 /datum/loadout_item/toys/plush/plushe_percy
 	name = "Dr. Percival Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/percy
+
 /* // OCULIS EDIT REMOVAL START
+/datum/loadout_item/toys/plush/plushie_bon
+	name = "Bon Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/bon
+
+/datum/loadout_item/pocket_items/bon_cape
+	name = "Bon's Cape"
+	item_path = /obj/item/sign/flag/pride/bon
+	ckeywhitelist = list("bonbyte")
+
 /datum/loadout_item/pocket_items/espatier
 	name = "dated Espatier holster"
 	item_path = /obj/item/storage/belt/espatier
 	ckeywhitelist = list("pyriteChimera", "darkinite", "deadmon_wonderland", "nonplayer775", "rilomatic")
+
+/datum/loadout_item/head/stachelm
+	name = "Stachelm"
+	item_path = /obj/item/clothing/head/helmet/donator/stachelm
+	ckeywhitelist = list("ghostof93")
+	restricted_roles = list(JOB_CAPTAIN, JOB_BLUESHIELD)
+
+/datum/loadout_item/suit/duke_armored_coat
+	name = "Duke's Armored Coat"
+	item_path = /obj/item/clothing/suit/armor/donator/duke_armored_coat
+	ckeywhitelist = list("ambermane")
+	restricted_roles = list(JOB_CAPTAIN)
 */ // OCULIS EDIT REMOVAL END

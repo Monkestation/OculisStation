@@ -6,3 +6,11 @@
 /obj/item/paper/fluff/ruins/oldstation/newcryoreport
 	name = "Cryo Awakening Report"
 	default_raw_text = "<h1><center>Cryosleep Awakening Report</h1><center>!!WARN!! -- Powergrid exhausted to wake crew<br>Time since cryosleep started: 86 years---------------------------------------------------------------------------------------------------<br><h3>Action Suggestions:</h3><br>1: Start emergency generators<br>2: Lift station lockdown in the Bridge<br>3: Obtain backup solar assemblies from Electrical Storage<br>4: Locate 'Station Intelligence Report' in the Bridge<br>---------------------------------------------------------------------------------------------------</center>"
+
+/obj/item/paper/fluff/ruins/oldstation/deltadoor
+	name = "hastily scrawled note"
+	default_raw_text = "i had to run out of the research division to keep those fucking bugs off my tail. i welded the door shut but they're crawling and scratching against the door and i don't know how long it'll take for them to get in. all of the other research division workers are dead or sleeping in cryo and the reactor in beta is making some really concerning noises. i'm going to get an oxygen tank and transponder and jump off the station. hopefully one of the rescue teams find me."
+
+/obj/item/paper/fluff/ruins/oldstation/newsurvivornote
+	name = "to those who find this"
+	default_raw_text = "I was on a mission of an exploration drone reclamation, when I lost the signal. I’ve had just enough pressure to make it back to the station…. But this is really bad…<br>Beta looks like a smashed tin can, and Alpha is sliced clean in two. I didn’t manage to find anyone except those sleeping beauties and something I don’t even know how to explain. The blood and gore is everywhere, those things took out the entire R&D. They’re hissing and crawling behind the maintenance hatch that I welded off to not let them in.<br>I had a proximity sensor with me, so I donated my left cybernetic arm to make this little fella. One of janitor’s bucket served as a perfect casing for him.<br>Here I thought that I’ll die of malnutrition, when I started feeling the symptoms of hypercapnia. I will turn you off to save the battery. It’s time for both us to sleep, little guy.<br>If you’re reading this, I’m probably dead. I’ve opened Ramboo’s maintenance pannel with my ID. Please let him help to clean up my remains…"

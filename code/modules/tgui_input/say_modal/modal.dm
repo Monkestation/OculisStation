@@ -33,6 +33,10 @@
 	var/window_open
 	/// What text was present in the say box the last time save_text was called
 	var/saved_text = ""
+	/// What channel was in use in the say box the last time save_text was called
+	var/saved_channel
+	/// Speech suffuxes used for force_say after "-". Defaults to hurt_phrases
+	var/list/alter_phrases
 	// OCULIS EDIT ADDITION START
 	/// Stores whichever channel the window was opened with
 	/// Ideally this would instead be the window's selected channel but that will require a more involved change
@@ -93,7 +97,7 @@
 	if(!payload?["channel"])
 		CRASH("No channel provided to an open TGUI-Say")
 	window_open = TRUE
-	if(payload["channel"] != OOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL /* && payload["channel"] != LOOC_CHANNEL */) // NOVA EDIT CHANGE (Add LOOC_CHANNEL) // OCULIS EDIT CHANGE: remove LOOC_CHANNEL check
+	if(payload["channel"] != OOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL && payload["channel"] != PRAY_CHANNEL /* && payload["channel"] != LOOC_CHANNEL*/) // OCULIS EDIT, REMOVED LOOC_CHANNEL // NOVA EDIT CHANGE - ORIGINAL: if(payload["channel"] != OOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL && payload["channel"] != PRAY_CHANNEL)
 		initial_channel = payload["channel"] // OCULIS EDIT ADDITION
 		start_thinking()
 	if(!client.typing_indicators)

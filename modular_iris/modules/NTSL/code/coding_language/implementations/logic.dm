@@ -400,6 +400,6 @@
 	name = "timestamp"
 
 /datum/n_function/default/timestamp/execute(this_obj, list/params)
-	return gameTimestamp(arglist(params))
+	return round_timestamp(arglist(params))
 
 #undef SCRIPT_MAX_REPLACEMENTS_ALLOWED

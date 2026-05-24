@@ -60,7 +60,7 @@ ADMIN_VERB_AND_CONTEXT_MENU(cmd_admin_headset_message, R_ADMIN, "Headset Message
 	log_directed_talk(mob, target, input, LOG_ADMIN, "reply")
 	message_admins("[key_name_admin(src)] replied to [key_name_admin(target)]'s [sender] message with: \"[input]\"")
 	target.balloon_alert(target, "you hear a voice")
-	to_chat(target, span_hear("You hear something crackle in your [human_recipient ? "ears" : "radio receiver"] for a moment before a voice speaks. \"Please stand by for a message from [sender == "Syndicate" ? "your benefactor" : "Central Command"]. Message as follows[sender == "Syndicate" ? ", agent." : ":"] <b>[input].</b> Message ends.\""), confidential = TRUE)
+	to_chat(target, span_hear("You hear something crackle in your [human_recipient ? "ears" : "radio receiver"] for a moment before a voice speaks. \"Please stand by for a message from [sender == "Syndicate" ? "your benefactor" : "Sectorial Command"]. Message as follows[sender == "Syndicate" ? ", agent." : ":"] <b>[input].</b> Message ends.\""), confidential = TRUE) // OCULIS EDIT - Central Command > Sectorial Command
 
 	BLACKBOX_LOG_ADMIN_VERB("Headset Message")
 
@@ -152,13 +152,13 @@ ADMIN_VERB(change_sec_level, R_ADMIN, "Set Security Level", "Changes the securit
 	message_admins("[key_name_admin(user)] changed the security level to [level]")
 	BLACKBOX_LOG_ADMIN_VERB("Set Security Level [capitalize(level)]")
 
-ADMIN_VERB(command_report_footnote, R_ADMIN, "Command Report Footnote", "Adds a footnote to the roundstart command report.", ADMIN_CATEGORY_EVENTS)
+ADMIN_VERB(command_report_footnote, R_FUN, "Command Report Footnote", "Adds a footnote to the roundstart command report.", ADMIN_CATEGORY_EVENTS)
 	var/datum/command_footnote/command_report_footnote = new /datum/command_footnote()
 	GLOB.communications_controller.block_command_report += 1 //Add a blocking condition to the counter until the inputs are done.
 
 	command_report_footnote.message = tgui_input_text(
 		user,
-		"This message will be attached to the bottom of the roundstart threat report. Be sure to delay the roundstart report if you need extra time.",
+		"This message will be attached to the bottom of the roundstart threat report.",
 		"P.S.",
 	)
 	if(!command_report_footnote.message)
@@ -176,13 +176,23 @@ ADMIN_VERB(command_report_footnote, R_ADMIN, "Command Report Footnote", "Adds a 
 		command_report_footnote.signature = "Classified"
 
 	GLOB.communications_controller.command_report_footnotes += command_report_footnote
-	GLOB.communications_controller.block_command_report--
+	GLOB.communications_controller.block_command_report -= 1
 
 	message_admins("[user] has added a footnote to the command report: [command_report_footnote.message], signed [command_report_footnote.signature]")
 
 /datum/command_footnote
 	var/message
 	var/signature
+
+ADMIN_VERB(command_report_content, R_FUN, "Command Report Content", "Sets the main content of the roundstart command report.", ADMIN_CATEGORY_EVENTS)
+	GLOB.communications_controller.block_command_report += 1
+	GLOB.communications_controller.command_report_main_content = tgui_input_text(
+		user,
+		"This message will be the main content of the roundstart command report, above the threat report (if enabled).",
+		"To Whom It May Concern",
+	)
+	GLOB.communications_controller.block_command_report -= 1
+	message_admins("[key_name_admin(user)] has [GLOB.communications_controller.command_report_main_content ? "set" : "cleared"] the main content of the roundstart command report.")
 
 ADMIN_VERB(delay_command_report, R_FUN, "Delay Command Report", "Prevents the roundstart command report from being sent; or forces it to send it delayed.", ADMIN_CATEGORY_EVENTS)
 	GLOB.communications_controller.block_command_report = !GLOB.communications_controller.block_command_report

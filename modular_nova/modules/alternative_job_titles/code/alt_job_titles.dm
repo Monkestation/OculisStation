@@ -40,7 +40,7 @@
 		"Atmospheric Technician",
 		"Atmospheric Trainee",
 		"Emergency Fire Technician",
-		"Hypertorus Fusion Reactor Operator",
+		"Fusion Reactor Operator",
 		"Gas Synthesis Technician",
 		"Nuclear Reactor Operator",
 		"Firefighter",
@@ -118,6 +118,7 @@
 		"Bouncer",
 		"Service Guard",
 		"Doorman",
+		"Service Guard Cadet", //OCULIS ADDITION
 	)
 
 /datum/job/corrections_officer
@@ -173,6 +174,8 @@
 		"Reverend",
 		"Shrine Maiden",
 		"Shrine Guardian",
+		"Shaman", //OCULIS ADDITION START
+		"Acolyte",
 	)
 
 /datum/job/chemist
@@ -249,6 +252,8 @@
 	alt_titles = list(
 		"Customs Agent",
 		"Supply Guard",
+		"Union Customs Agent", //OCULIS ADDITION START
+		"Supply Guard Trainee",
 	)
 
 /datum/job/cyborg
@@ -261,7 +266,7 @@
 /datum/job/detective
 	alt_titles = list(
 		"Detective",
-		"Detective Cadet",
+		"Junior Detective",
 		"Forensic Specialist",
 		"Forensic Scientist",
 		"Forensic Technician",
@@ -280,12 +285,18 @@
 		"Medical Student",
 		"Clinician",
 		"Physician Assistant",
-		"Internal Medicine Physician",
-		"Emergency Medicine Physician",
+		"Emergency Physician",
 		"Registered Nurse",
+		"Theoretical Physician", //OCULIS ADDITION
 	)
 
-/datum/job/engineering_guard //see orderly
+/datum/job/engineering_guard //see orderly //OCULIS EDIT, alt titles
+	alt_titles = list(
+		"Engineering Guard",
+		"OSHA Enforcer",
+		"Engineering Guard In-Training",
+		"Equipment Inspector",
+	)
 
 /datum/job/explorer // IRIS EDIT - EXPLORER JOB
 	alt_titles = list(
@@ -295,6 +306,7 @@
 		"Navigator",
 		"Frontiersperson",
 		"Apprentice Explorer",
+		"Union Explorer", //OCULIS ADDITION
 	)
 
 /datum/job/geneticist
@@ -351,9 +363,10 @@
 		"Legal Clerk",
 		"Prosecutor",
 		"Attorney At Law",
-		"Corporate General Counsel Attorney",
+		"General Counsel",
 		"Corporate Attorney",
 		"Public Defender",
+		"Crew Advocate",
 	)
 
 /datum/job/mime
@@ -365,17 +378,20 @@
 
 /datum/job/nanotrasen_consultant
 	alt_titles = list(
-		"Nanotrasen Corporate Consultant",
-		"Nanotrasen Corporate Advisor",
-		"Nanotrasen Corporate Regulation Advisor",
-		"Nanotrasen Corporate Representative",
-		"Nanotrasen Corporate Diplomat",
+		"Nanotrasen Representative",
+		"Nanotrasen Consultant",
+		"Nanotrasen Regulatory Advisor",
+		"Nanotrasen Diplomat",
+		"Corporate Adjutant",
+		"Corporate Representative",
+		"Corporate Advocate",
 	)
 
 /datum/job/orderly
 	alt_titles = list(
 		"Orderly",
 		"Medical Guard",
+		"Medical Guard In-Training", //OCULIS ADDITION
 	) //other dept guards' alt-titles should be kept to [department] guard to avoid confusion, unless the department gets a re-do.
 
 /datum/job/paramedic
@@ -439,8 +455,12 @@
 		"Apprentice Roboticist",
 	)
 
-/datum/job/science_guard //See orderly
-
+/datum/job/science_guard //See orderly //OCULIS EDIT, alt titles
+	alt_titles = list(
+		"Science Guard",
+		"Research Facility Protector",
+		"Science Guard Trainee",
+	)
 /datum/job/scientist
 	alt_titles = list(
 		"Scientist",
@@ -484,7 +504,7 @@
 	alt_titles = list(
 		"Station Engineer",
 		"Electrician",
-		"Emergency Damage Control Technician",
+		"Damage Control Technician",
 		"Engine Technician",
 		"EVA Technician",
 		"Mechanic",

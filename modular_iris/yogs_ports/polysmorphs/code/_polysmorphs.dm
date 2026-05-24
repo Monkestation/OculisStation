@@ -92,9 +92,9 @@
 
 /datum/species/polysmorph/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.dna.features["mcolor"] = "#444466"
-	human_for_preview.dna.mutant_bodyparts[FEATURE_TAIL] = human_for_preview.dna.species.build_mutant_part("Polysmorph Tail", list("#444466", "#FFFFFF", "#FFFFFF"))
-	human_for_preview.dna.mutant_bodyparts[FEATURE_XENODORSAL] = human_for_preview.dna.species.build_mutant_part("Polysmorph Double", list("#444466", "#FFFFFF", "#FFFFFF"))
-	human_for_preview.dna.mutant_bodyparts[FEATURE_XENOHEAD] = human_for_preview.dna.species.build_mutant_part("Polysmorph Queen", list("#444466", "#FFFFFF", "#FFFFFF"))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_TAIL] = build_mutant_part("Polysmorph Tail", list("#444466", "#FFFFFF", "#FFFFFF"))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_XENODORSAL] = build_mutant_part("Polysmorph Double", list("#444466", "#FFFFFF", "#FFFFFF"))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_XENOHEAD] = build_mutant_part("Polysmorph Queen", list("#444466", "#FFFFFF", "#FFFFFF"))
 	regenerate_organs(human_for_preview)
 	human_for_preview.update_body(is_creating = TRUE)
 

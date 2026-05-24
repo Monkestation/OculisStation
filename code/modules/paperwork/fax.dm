@@ -1,4 +1,4 @@
-GLOBAL_VAR_INIT(nt_fax_department, pick("Central Command")) // IRIS EDIT Original: "NT HR Department", "NT Legal Department", "NT Complaint Department", "NT Customer Relations", "Nanotrasen Tech Support", "NT Internal Affairs Dept"
+GLOBAL_VAR_INIT(nt_fax_department, pick("Sectorial Command")) // IRIS EDIT Original: "NT HR Department", "NT Legal Department", "NT Complaint Department", "NT Customer Relations", "Nanotrasen Tech Support", "NT Internal Affairs Dept" // OCULIS EDIT - Central Command > Sectorial Command
 GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 
 /obj/machinery/fax
@@ -80,7 +80,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 	return ..()
 
 /obj/machinery/fax/admin
-	name = "CentCom Fax Machine"
+	name = "Sectorial Command Fax Machine"
 
 /obj/machinery/fax/admin/Initialize(mapload)
 	if (!fax_name)
@@ -160,10 +160,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
  * Open and close the wire panel.
  */
 /obj/machinery/fax/screwdriver_act(mob/living/user, obj/item/screwdriver)
-	. = ..()
-	default_deconstruction_screwdriver(user, icon_state, icon_state, screwdriver)
-	update_appearance()
-	return TRUE
+	return default_deconstruction_screwdriver(user, screwdriver)
 
 /**
  * Using the multi-tool with the panel closed causes the fax network name to be renamed.
@@ -333,7 +330,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 				confidential = TRUE)
 			for(var/client/staff as anything in GLOB.admins)
 				if(staff?.prefs.read_preference(/datum/preference/toggle/comms_notification))
-					SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
+					SEND_SOUND(staff, sound('modular_oculis/modules/fax_sound/sound/fax.ogg')) // OCULIS EDIT, ORIGINAL:  SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
 
 			if(GLOB.fax_autoprinting)
 				for(var/obj/machinery/fax/admin/FAX as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin))
@@ -511,7 +508,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 	var/list/history_data = list()
 	history_data["history_type"] = history_type
 	history_data["history_fax_name"] = history_fax_name
-	history_data["history_time"] = station_time_timestamp()
+	history_data["history_time"] = round_timestamp()
 	fax_history += list(history_data)
 
 /// Clears the history of fax operations.
@@ -531,21 +528,12 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 			return TRUE
 	return FALSE
 
-/**
- * Attempts to shock the passed user, returns true if they are shocked.
- *
- * Arguments:
- * * user - the user to shock
- * * chance - probability the shock happens
- */
-/obj/machinery/fax/proc/shock(mob/living/user, chance)
-	if(!istype(user) || machine_stat & (BROKEN|NOPOWER))
+/obj/machinery/fax/shock(mob/living/shocking, chance = 100, shock_source, siemens_coeff = 1)
+	if( machine_stat & (BROKEN|NOPOWER))
 		return FALSE
-	if(!prob(chance))
-		return FALSE
-	do_sparks(5, TRUE, src)
-	var/check_range = TRUE
-	return electrocute_mob(user, get_area(src), src, 0.7, check_range)
+	if(isnull(siemens_coeff))
+		siemens_coeff = 0.7
+	return ..()
 
 
 /obj/machinery/fax/add_context(atom/source, list/context, obj/item/held_item, mob/user)

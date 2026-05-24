@@ -81,7 +81,7 @@
 		jobs[job.title] = list(
 			"description" = job.description,
 			"department" = department_name,
-			"alt_titles" = job.alt_titles, // NOVA EDIT
+			"alt_titles" = job.alt_titles, // NOVA EDIT ADDITION
 		)
 
 	data["departments"] = departments

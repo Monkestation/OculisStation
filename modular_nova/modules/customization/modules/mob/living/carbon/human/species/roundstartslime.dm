@@ -867,14 +867,14 @@
 		switch(hair_reset)
 			if("Hair")
 				alterer.hair_color = sanitize_hexcolor(new_mutant_colour)
-				alterer.update_body_parts()
+				alterer.update_hair()
 			if("Facial Hair")
 				alterer.facial_hair_color = sanitize_hexcolor(new_mutant_colour)
-				alterer.update_body_parts()
+				alterer.update_hair()
 			if("Both")
 				alterer.hair_color = sanitize_hexcolor(new_mutant_colour)
 				alterer.facial_hair_color = sanitize_hexcolor(new_mutant_colour)
-				alterer.update_body_parts()
+				alterer.update_hair()
 
 	alterer.update_body(is_creating = TRUE)
 
@@ -1032,7 +1032,7 @@
 			replacement_organ.sprite_accessory_flags = selected_sprite_accessory.flags_for_organ
 			replacement_organ.relevant_layers = selected_sprite_accessory.relevent_layers
 
-			var/datum/mutant_bodypart/new_mutant_bodypart = alterer.dna.species.build_mutant_part(
+			var/datum/mutant_bodypart/new_mutant_bodypart = build_mutant_part(
 				selected_sprite_accessory.name,
 				selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
 			)
@@ -1043,7 +1043,7 @@
 			replacement_organ.build_from_dna(alterer.dna, chosen_key)
 			replacement_organ.Insert(alterer, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		else
-			var/datum/mutant_bodypart/new_mutant_bodypart = alterer.dna.species.build_mutant_part(
+			var/datum/mutant_bodypart/new_mutant_bodypart = build_mutant_part(
 				selected_sprite_accessory.name,
 				selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
 			)
