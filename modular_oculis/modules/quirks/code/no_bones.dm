@@ -1,7 +1,7 @@
 /datum/quirk/no_bones
 	name = "Boneless"
 	desc = "You lack any bones."
-	value = 0
+	value = 1
 	gain_text = span_notice("You feel like gelatin.")
 	lose_text = span_notice("You feel more sturdy.")
 	medical_record_text = "Patient lacks any bones."
