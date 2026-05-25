@@ -1,7 +1,7 @@
 PROCESSING_SUBSYSTEM_DEF(eidolon_storm)
 	name = "Eidolon Storm"
 	stat_tag = "ES"
-	flags = SS_NO_INIT | SS_KEEP_TIMING
+	ss_flags = SS_NO_INIT | SS_KEEP_TIMING
 	runlevels = RUNLEVEL_GAME
 	wait = 1 MINUTES
 
