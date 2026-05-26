@@ -6,7 +6,7 @@ Module ID: ANTIMEMETICS
 
 ### Description:
 
-This entire module contains everything relating to mechanical memetics, antimemetics and related phenomena that are mainly used for admin / event shenanigens for Oculis Station.
+This entire module contains everything relating to mechanical memetics, antimemetics, memes and antimemes, and related phenomena that are mainly used for admin / event shenanigens for Oculis Station.
 
 ### TG Proc/File Changes:
 
