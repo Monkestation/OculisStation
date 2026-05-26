@@ -20,7 +20,8 @@
 	use_power = IDLE_POWER_USE
 	circuit = /obj/item/circuitboard/machine/reality_anchor
 	critical_machine = TRUE
-	idle_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 10 // 1 MW
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 10 // 1 MW
+	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION
 
 	/// Is it about to explode?
 	VAR_PRIVATE/going_kaboom = FALSE
@@ -71,6 +72,9 @@
 
 /obj/machinery/power/reality_anchor/interact(mob/user)
 	. = ..()
+	if(!anchored)
+		balloon_alert(user, "anchor first!")
+		return FALSE
 	toggle_power(user)
 
 /obj/machinery/power/reality_anchor/proc/toggle_power(mob/user)
@@ -78,7 +82,7 @@
 		balloon_alert(user, "no power!")
 		return
 	on = !on
-	use_power = on ? IDLE_POWER_USE : NO_POWER_USE
+	use_power = on ? ACTIVE_POWER_USE : IDLE_POWER_USE
 	update_current_power_usage()
 	playsound(src, 'modular_nova/master_files/sound/effects/gmalfunction.ogg', 100, TRUE)
 	balloon_alert_to_viewers("[on ? null : "de"]activated!")
@@ -86,9 +90,9 @@
 
 /obj/machinery/power/reality_anchor/power_change()
 	. = ..()
-	if(machine_stat & NOPOWER)
+	if((machine_stat & NOPOWER) && on)
 		on = FALSE
-		use_power = NO_POWER_USE
+		use_power = IDLE_POWER_USE
 		update_current_power_usage()
 		playsound(src, 'modular_nova/master_files/sound/effects/gmalfunction.ogg', 100, TRUE)
 		balloon_alert_to_viewers("deactivated!")
