@@ -12,7 +12,7 @@
 
 /obj/machinery/power/reality_anchor
 	name = "dunmore reality anchor"
-	desc = "A machine made to make reality more stable. Whatever that means."
+	desc = "A machine made to make reality more stable. A direct power connection is heavily recommended."
 	icon = 'modular_oculis/modules/antimemetics/icons/reality_anchor.dmi'
 	icon_state = "reality_anchor"
 	base_icon_state = "reality_anchor"
