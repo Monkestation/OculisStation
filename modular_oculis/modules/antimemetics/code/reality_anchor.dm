@@ -20,7 +20,7 @@
 	use_power = IDLE_POWER_USE
 	circuit = /obj/item/circuitboard/machine/reality_anchor
 	critical_machine = TRUE
-	idle_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 1000 // 1 MW
+	idle_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 10 // 1 MW
 
 	/// Is it about to explode?
 	VAR_PRIVATE/going_kaboom = FALSE
@@ -71,10 +71,28 @@
 
 /obj/machinery/power/reality_anchor/interact(mob/user)
 	. = ..()
+	toggle_power(user)
+
+/obj/machinery/power/reality_anchor/proc/toggle_power(mob/user)
+	if(!powered())
+		balloon_alert(user, "no power!")
+		return
 	on = !on
+	use_power = on ? IDLE_POWER_USE : NO_POWER_USE
+	update_current_power_usage()
 	playsound(src, 'modular_nova/master_files/sound/effects/gmalfunction.ogg', 100, TRUE)
 	balloon_alert_to_viewers("[on ? null : "de"]activated!")
 	update_icon()
+
+/obj/machinery/power/reality_anchor/power_change()
+	. = ..()
+	if(machine_stat & NOPOWER)
+		on = FALSE
+		use_power = NO_POWER_USE
+		update_current_power_usage()
+		playsound(src, 'modular_nova/master_files/sound/effects/gmalfunction.ogg', 100, TRUE)
+		balloon_alert_to_viewers("deactivated!")
+		update_icon()
 
 /obj/machinery/power/reality_anchor/proc/overload()
 	if(!on)
@@ -87,7 +105,7 @@
 		blind_message = span_hear("You hear a loud electrical crack!"),
 	)
 	playsound(src, 'sound/effects/magic/lightningshock.ogg', 100, TRUE, extrarange = 5)
-	tesla_zap(source = src, zap_range = 5, power = 1 MEGA WATTS)
+	tesla_zap(source = src, zap_range = 5, power = 20 KILO WATTS)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(explosion), src, 2, 3, 4, null, 8), 10 SECONDS) // Not a normal explosion.
 
 /obj/machinery/power/reality_anchor/bullet_act(obj/projectile/proj)
