@@ -58,6 +58,10 @@
 		underlays += underlay_appearance
 	register_context()
 
+	// OCULIS EDIT START
+	AddElement(/datum/element/wall_pin)
+	// OCULIS EDIT END
+
 /turf/closed/wall/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = NONE
 	if(!isnull(held_item))
