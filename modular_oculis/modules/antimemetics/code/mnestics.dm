@@ -21,9 +21,11 @@
 
 /datum/reagent/medicine/mnestic/on_mob_metabolize(mob/living/carbon/affected_carbon)
 	. = ..()
+	to_chat(affected_carbon, span_big(span_hypnophrase("You feel more in control of what you remember.")))
 
 /datum/reagent/medicine/mnestic/on_mob_end_metabolize(mob/living/carbon/affected_carbon)
 	. = ..()
+	to_chat(affected_carbon, span_big(span_hypnophrase("You lose the force you had on your memories.")))
 
 /datum/reagent/medicine/mnestic/overdose_process(mob/living/affected_carbon, seconds_per_tick, metabolization_ratio)
 	affected_carbon.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.5 * seconds_per_tick * metabolization_ratio, required_organ_flag = affected_organ_flags)
