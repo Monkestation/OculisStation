@@ -229,7 +229,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 		if(affecting.heal_damage(heal_amt, heal_amt, required_bodytype = BODYTYPE_ORGANIC))
 			built_in_his_image.update_damage_overlays()
 
-	built_in_his_image.visible_message(span_notice("[user] heals [built_in_his_image] with the power of [deity_name]!"))
+	built_in_his_image.visible_message(span_notice("[user] mends [built_in_his_image] with the power of [deity_name]!")) /// keygenpie edit
 	to_chat(built_in_his_image, span_boldnotice("The power of [deity_name] mends you!")) /// keygenpie edit
 	playsound(built_in_his_image, 'sound/effects/magic/staff_healing.ogg', 25, TRUE, -1) /// keygenpie edit
 	built_in_his_image.add_mood_event("blessing", /datum/mood_event/blessing)
@@ -282,9 +282,9 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 		if(!istype(carbon_target.head, /obj/item/clothing/head/helmet))
 			carbon_target.adjust_organ_loss(ORGAN_SLOT_BRAIN, 5, 60)
 			carbon_target.balloon_alert(carbon_target, "you feel dumber!")
-	target_mob.visible_message(span_danger("[user] beats [target_mob] over the head with [src]!"), \
-			span_userdanger("[user] beats [target_mob] over the head with [src]!"))
-	playsound(target_mob, SFX_PUNCH, 25, TRUE, -1)
+	target_mob.visible_message(span_danger("[user] attempts to mend [target_mob] with [src]!"), \
+			span_userdanger("[user] attempts to mend [target_mob] with [src]!")) /// keygenpie edit
+	playsound(target_mob, 'sound/effects/magic/staff_healing.ogg', 25, TRUE, -1) /// keygenpie edit
 	log_combat(user, target_mob, "attacked", src)
 
 /obj/item/book/bible/interact_with_atom(atom/bible_smacked, mob/living/user, list/modifiers)
