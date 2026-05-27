@@ -605,6 +605,10 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 	for(var/mob/living/soulcatcher_soul/mob_to_sort in sortmob)
 		moblist += mob_to_sort
 	// NOVA EDIT END - SOULCATCHERS
+	// OCULIS EDIT START -- OCULIS PAIS
+	for(var/mob/living/silicon/pai_oculis/mob_to_sort in sortmob)
+		moblist += mob_to_sort
+	// OCULIS EDIT END -- OCULIS PAIS
 	return moblist
 ///returns a mob type controlled by a specified ckey
 /proc/get_mob_by_ckey(key)

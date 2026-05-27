@@ -120,6 +120,8 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 
 	// We don't get silicon level access
 	REMOVE_TRAIT(src, TRAIT_SILICON_ACCESS, ROUNDSTART_TRAIT)
+	// We can still interact with consoles, though
+	AddElement(/datum/element/dextrous, hud_type = hud_type)
 
 /mob/living/silicon/pai_oculis/update_icon_state()
 	icon_state = resting ? "[chassis]_rest" : "[chassis]"

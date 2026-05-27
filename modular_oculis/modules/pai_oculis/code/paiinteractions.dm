@@ -27,9 +27,6 @@
 	return ..()
 
 /mob/living/silicon/pai_oculis/resolve_unarmed_attack(atom/attack_target, list/modifiers)
-	if(istype(attack_target, /obj/machinery))
-		var/obj/machinery/L = attack_target
-		L.ui_interact(usr)
 	return
 
 /mob/living/silicon/pai_oculis/resolve_right_click_attack(atom/target, list/modifiers)
