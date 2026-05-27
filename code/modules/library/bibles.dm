@@ -66,7 +66,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 
 /obj/item/book/bible
 	name = "bible"
-	desc = "Apply to head repeatedly."
+	desc = "Apply to the skin to mend." /// keygenpie edit
 	icon = 'icons/obj/storage/book.dmi'
 	icon_state = "bible"
 	worn_icon_state = "bible"
@@ -230,8 +230,8 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 			built_in_his_image.update_damage_overlays()
 
 	built_in_his_image.visible_message(span_notice("[user] heals [built_in_his_image] with the power of [deity_name]!"))
-	to_chat(built_in_his_image, span_boldnotice("May the power of [deity_name] compel you to be healed!"))
-	playsound(built_in_his_image, SFX_PUNCH, 25, TRUE, -1)
+	to_chat(built_in_his_image, span_boldnotice("The power of [deity_name] mends you!")) /// keygenpie edit
+	playsound(built_in_his_image, 'sound/effects/magic/staff_healing.ogg', 25, TRUE, -1) /// keygenpie edit
 	built_in_his_image.add_mood_event("blessing", /datum/mood_event/blessing)
 	return BLESSING_SUCCESS
 
@@ -259,8 +259,8 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 
 	if(target_mob.stat == DEAD)
 		if(GLOB.religious_sect?.sect_dead_bless(target_mob, user) == BLESSING_FAILED)
-			target_mob.visible_message(span_danger("[user] smacks [target_mob]'s lifeless corpse with [src]."))
-			playsound(target_mob, SFX_PUNCH, 25, TRUE, -1)
+			target_mob.visible_message(span_danger("[user] fails to mend [target_mob]'s lifeless corpse with [src].")) /// keygenpie edit
+			playsound(target_mob, 'sound/effects/magic/staff_healing.ogg', 25, TRUE, -1) /// keygenpie edit
 		return
 
 	if(user == target_mob)
