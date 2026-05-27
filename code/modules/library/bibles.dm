@@ -341,7 +341,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 	return NONE
 
 /obj/item/book/bible/booze
-	desc = "To be applied to the head repeatedly."
+	desc = "Apply to the skin to mend." /// keygenpie edit
 
 /obj/item/book/bible/booze/Initialize(mapload)
 	. = ..()
