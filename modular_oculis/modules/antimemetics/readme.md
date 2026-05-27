@@ -1,4 +1,4 @@
-https://github.com/Monkestation/OculisStation/pull/
+https://github.com/Monkestation/OculisStation/pull/255
 
 ## \<Antimemetics>
 
@@ -18,7 +18,7 @@ This entire module contains everything relating to mechanical memetics, antimeme
 
 ### Defines:
 
-- N/A
+- `code/__DEFINES/~~oculis_defines/traits/declarations.dm`
 
 ### Included files that are not contained in this module:
 
