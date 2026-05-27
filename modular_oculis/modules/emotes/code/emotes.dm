@@ -16,6 +16,6 @@
 
 /datum/emote/living/tailthump/can_run_emote(mob/user, status_check, intentional, params)
 	var/obj/item/organ/tail/tail = user.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
-	if(tail?.wag_flags & WAG_ABLE)
+	if(tail)
 		return ..()
 	return FALSE
