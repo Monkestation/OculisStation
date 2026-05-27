@@ -66,7 +66,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 
 /obj/item/book/bible
 	name = "bible"
-	desc = "Apply to the skin to mend." /// keygenpie edit
+	desc = "Mend the flesh and soul." /// keygenpie edit
 	icon = 'icons/obj/storage/book.dmi'
 	icon_state = "bible"
 	worn_icon_state = "bible"
@@ -341,7 +341,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 	return NONE
 
 /obj/item/book/bible/booze
-	desc = "Apply to the skin to mend." /// keygenpie edit
+	desc = "Mend the flesh and soul." /// keygenpie edit
 
 /obj/item/book/bible/booze/Initialize(mapload)
 	. = ..()
