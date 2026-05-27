@@ -1656,3 +1656,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_NECROPOLIS_WORSHIP "necropolis_worship"
 
 // END TRAIT DEFINES
+
+// OCULIS EDIT START
+#define TRAIT_PINNED "pinned"
+// OCULIS EDIT END

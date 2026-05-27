@@ -1,5 +1,3 @@
-#define TRAIT_PINNED "pinned"
-
 /// Element which lets mobs be pinned against this wall with an aggressive grab.
 /datum/element/wall_pin
 
@@ -110,7 +108,7 @@
 	ADD_TRAIT(pinned_mob, TRAIT_HANDS_BLOCKED, trait_source)
 	ADD_TRAIT(pinned_mob, TRAIT_PULL_BLOCKED, trait_source)
 	ADD_TRAIT(pinned_mob, TRAIT_PINNED, trait_source)
-	refresh_offsets(FALSE)
+	refresh_offsets(TRUE)
 
 /datum/component/wall_pin/UnregisterFromParent()
 	UnregisterSignal(parent, list(COMSIG_MOVABLE_PRE_MOVE, COMSIG_LIVING_SET_PULL_OFFSET, COMSIG_ATOM_NO_LONGER_PULLED, COMSIG_MOVABLE_MOVED, COMSIG_QDELETING, COMSIG_LIVING_HEALTH_UPDATE, COMSIG_LIVING_DEATH))
@@ -219,3 +217,8 @@
 		return FALSE
 
 	return TRUE
+
+/turf/closed/wall/attack_hand(mob/user, list/modifiers)
+	// Same as wall leaning, we only add the Element when we come interact with the wall, and not on Initialize() to not implode the map init time.
+	AddElement(/datum/element/wall_pin)
+	. = ..()
