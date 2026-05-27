@@ -14,6 +14,7 @@
 		"AI",
 		"Automated Overseer",
 		"Station Intelligence",
+		"Site Intelligence", /// keygenpie addition
 	)
 
 /datum/job/assistant
@@ -118,6 +119,7 @@
 		"Bouncer",
 		"Service Guard",
 		"Doorman",
+		"Doorwoman", /// keygenpie addition
 		"Service Guard Cadet", //OCULIS ADDITION
 	)
 
@@ -237,6 +239,7 @@
 		"Funeral Director",
 		"Medical Examiner",
 		"Mortician",
+		"Undertaker", /// keygenpie addition
 	)
 
 /datum/job/curator
