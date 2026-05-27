@@ -66,7 +66,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 
 /obj/item/book/bible
 	name = "bible"
-	desc = "Mend the flesh and soul." /// keygenpie edit
+	desc = "Mend the flesh and soul." /// OCULIS EDIT
 	icon = 'icons/obj/storage/book.dmi'
 	icon_state = "bible"
 	worn_icon_state = "bible"
@@ -229,9 +229,9 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 		if(affecting.heal_damage(heal_amt, heal_amt, required_bodytype = BODYTYPE_ORGANIC))
 			built_in_his_image.update_damage_overlays()
 
-	built_in_his_image.visible_message(span_notice("[user] mends [built_in_his_image] with the power of [deity_name]!")) /// keygenpie edit
-	to_chat(built_in_his_image, span_boldnotice("The power of [deity_name] mends you!")) /// keygenpie edit
-	playsound(built_in_his_image, 'sound/effects/magic/staff_healing.ogg', 25, TRUE, -1) /// keygenpie edit
+	built_in_his_image.visible_message(span_notice("[user] mends [built_in_his_image] with the power of [deity_name]!")) /// OCULIS EDIT
+	to_chat(built_in_his_image, span_boldnotice("The power of [deity_name] mends you!")) /// OCULIS EDIT
+	playsound(built_in_his_image, 'sound/effects/magic/staff_healing.ogg', 25, TRUE, -1) /// OCULIS EDIT
 	built_in_his_image.add_mood_event("blessing", /datum/mood_event/blessing)
 	return BLESSING_SUCCESS
 
@@ -259,8 +259,8 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 
 	if(target_mob.stat == DEAD)
 		if(GLOB.religious_sect?.sect_dead_bless(target_mob, user) == BLESSING_FAILED)
-			target_mob.visible_message(span_danger("[user] fails to mend [target_mob]'s lifeless corpse with [src].")) /// keygenpie edit
-			playsound(target_mob, 'sound/effects/magic/staff_healing.ogg', 25, TRUE, -1) /// keygenpie edit
+			target_mob.visible_message(span_danger("[user] fails to mend [target_mob]'s lifeless corpse with [src].")) /// OCULIS EDIT
+			playsound(target_mob, 'sound/effects/magic/staff_healing.ogg', 25, TRUE, -1) /// OCULIS EDIT
 		return
 
 	if(user == target_mob)
@@ -283,8 +283,8 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 			carbon_target.adjust_organ_loss(ORGAN_SLOT_BRAIN, 5, 60)
 			carbon_target.balloon_alert(carbon_target, "you feel dumber!")
 	target_mob.visible_message(span_danger("[user] attempts to mend [target_mob] with [src]!"), \
-			span_userdanger("[user] attempts to mend [target_mob] with [src]!")) /// keygenpie edit
-	playsound(target_mob, 'sound/effects/magic/staff_healing.ogg', 25, TRUE, -1) /// keygenpie edit
+			span_userdanger("[user] attempts to mend [target_mob] with [src]!")) /// OCULIS EDIT
+	playsound(target_mob, 'sound/effects/magic/staff_healing.ogg', 25, TRUE, -1) /// OCULIS EDIT
 	log_combat(user, target_mob, "attacked", src)
 
 /obj/item/book/bible/interact_with_atom(atom/bible_smacked, mob/living/user, list/modifiers)
@@ -341,7 +341,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 	return NONE
 
 /obj/item/book/bible/booze
-	desc = "Mend the flesh and soul." /// keygenpie edit
+	desc = "Mend the flesh and soul." /// OCULIS EDIT
 
 /obj/item/book/bible/booze/Initialize(mapload)
 	. = ..()
