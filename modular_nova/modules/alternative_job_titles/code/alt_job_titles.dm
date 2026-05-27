@@ -217,6 +217,7 @@
 		"Comedian",
 		"Jester",
 		"Joker",
+		"Prankster", /// keygenpie addition
 	)
 
 /datum/job/cook
@@ -249,6 +250,7 @@
 		"Conservator",
 		"Journalist",
 		"Librarian",
+		"Scholar", /// keygenpie addition
 	)
 
 /datum/job/customs_agent
@@ -320,6 +322,7 @@
 		"Gene Analyzer",
 		"Gene Tailor",
 		"Mutation Researcher",
+		"Genetic Engineer", /// keygenpie addition
 	)
 
 /datum/job/head_of_personnel
@@ -341,6 +344,7 @@
 		"Security Supervisor",
 		"Security Director",
 		"Sheriff",
+		"Marshall", /// keygenpie addition
 	)
 
 /datum/job/janitor
@@ -489,6 +493,7 @@
 		"Security Specialist",
 		"Deputy",
 		"Constable",
+		"Peace Officer", /// keygenpie addition
 	)
 
 /datum/job/shaft_miner
