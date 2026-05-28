@@ -1,4 +1,4 @@
-import { CheckboxInput, FeatureToggle } from '../../base';
+import { CheckboxInput, type FeatureToggle } from '../../base';
 
 export const eorgpreference: FeatureToggle = {
   name: 'Allow combat at the end of the round (EORG)',

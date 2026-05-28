@@ -106,18 +106,8 @@
 
 /proc/make_augment_references()
 	// Here we build the global loadout lists
-	for(var/path in subtypesof(/datum/augment_item))
-		var/datum/augment_item/L = path
-		if(initial(L.path))
-			L = new path()
-			GLOB.augment_items[L.path] = L
-
-			if(!GLOB.augment_slot_to_items[L.slot])
-				GLOB.augment_slot_to_items[L.slot] = list()
-				if(!GLOB.augment_categories_to_slots[L.category])
-					GLOB.augment_categories_to_slots[L.category] = list()
-				GLOB.augment_categories_to_slots[L.category] += L.slot
-			GLOB.augment_slot_to_items[L.slot] += L.path
+	for(var/datum/augment_item/aug_path as anything in valid_subtypesof(/datum/augment_item))
+		GLOB.augment_items[aug_path] = new aug_path()
 
 // Setup gas price overrides
 /proc/setup_gas_prices()

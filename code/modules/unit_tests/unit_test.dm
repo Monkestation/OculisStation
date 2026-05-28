@@ -279,6 +279,9 @@ GLOBAL_VAR_INIT(focused_tests, focused_tests())
 		/obj/effect/decal/cleanable/blood/trail,
 		//Should not exist outside of ethereals
 		/obj/item/stock_parts/power_store/cell/ethereal,
+		// Abstract type, controlled by turfs
+		// Literally errors on creation/deletion
+		/atom/movable/lighting_object,
 	)
 
 	// Everything that follows is a typesof() check.
@@ -373,10 +376,6 @@ GLOBAL_VAR_INIT(focused_tests, focused_tests())
 	// Can't be bothered adding more to them.
 	returnable_list += list(/obj/item/organ/neck_accessory, /obj/item/organ/head_accessory)
 	//NOVA EDIT ADDITION END
-
-	// OCULIS EDIT ADDITION START
-	returnable_list += /obj/effect/abstract/signboard_holder // shouldn't exist outside of signboards
-	// OCULIS EDIT ADDITION END
 
 	return returnable_list
 

@@ -1,9 +1,10 @@
+// THIS IS A OCULIS UI FILE
 import {
   CheckboxInput,
-  Feature,
-  FeatureChoicedServerData,
-  FeatureToggle,
-  FeatureValueProps,
+  type Feature,
+  type FeatureChoicedServerData,
+  type FeatureToggle,
+  type FeatureValueProps,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 

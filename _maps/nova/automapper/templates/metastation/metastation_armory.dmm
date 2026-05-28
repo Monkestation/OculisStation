@@ -116,6 +116,11 @@
 /obj/item/storage/box/lethalshot,
 /turf/open/floor/iron/smooth,
 /area/station/security/armory)
+"x" = (
+/obj/effect/turf_decal/bot,
+/mob/living/basic/bot/secbot/beepsky/armsky,
+/turf/open/floor/iron/dark,
+/area/station/security/armory)
 "y" = (
 /obj/effect/turf_decal/trimline/red/filled/corner,
 /turf/open/floor/iron/dark,
@@ -124,6 +129,19 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /turf/open/floor/plating,
+/area/station/security/armory)
+"B" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/armory/bulletproof_armor,
+/obj/machinery/requests_console/directional/north{
+	department = "Security";
+	name = "Security Requests Console"
+	},
+/obj/effect/mapping_helpers/requests_console/supplies,
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/effect/turf_decal/tile/blue/half/contrasted,
+/obj/effect/spawner/random/armory/bulletproof_helmet,
+/turf/open/floor/iron/dark,
 /area/station/security/armory)
 "C" = (
 /obj/effect/turf_decal/delivery/red,
@@ -135,6 +153,15 @@
 /obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 1
 	},
+/turf/open/floor/iron/dark,
+/area/station/security/armory)
+"E" = (
+/obj/structure/rack,
+/obj/machinery/light/directional/west,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/blue/half/contrasted,
+/obj/effect/spawner/random/armory/riot_armor,
+/obj/effect/spawner/random/armory/riot_helmet,
 /turf/open/floor/iron/dark,
 /area/station/security/armory)
 "F" = (
@@ -188,19 +215,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/armory)
-"J" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/armory/bulletproof_armor,
-/obj/machinery/requests_console/directional/north{
-	department = "Security";
-	name = "Security Requests Console"
-	},
-/obj/effect/mapping_helpers/requests_console/supplies,
-/obj/effect/mapping_helpers/requests_console/assistance,
-/obj/effect/turf_decal/tile/blue/half/contrasted,
-/obj/effect/spawner/random/armory/bulletproof_helmet,
-/turf/open/floor/iron/dark,
-/area/station/security/armory)
 "K" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
@@ -215,11 +229,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/station/security/armory)
-"L" = (
-/obj/effect/turf_decal/bot,
-/mob/living/simple_animal/bot/secbot/beepsky/armsky,
-/turf/open/floor/iron/dark,
-/area/station/security/armory)
 "M" = (
 /obj/effect/turf_decal/trimline/red/filled/corner{
 	dir = 1
@@ -229,15 +238,6 @@
 /area/station/security/armory)
 "N" = (
 /turf/closed/wall/r_wall,
-/area/station/security/armory)
-"O" = (
-/obj/structure/rack,
-/obj/machinery/light/directional/west,
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/blue/half/contrasted,
-/obj/effect/spawner/random/armory/riot_armor,
-/obj/effect/spawner/random/armory/riot_helmet,
-/turf/open/floor/iron/dark,
 /area/station/security/armory)
 "P" = (
 /obj/effect/turf_decal/trimline/red/filled/warning{
@@ -322,7 +322,7 @@ s
 s
 s
 A
-O
+E
 u
 H
 "}
@@ -333,7 +333,7 @@ s
 s
 s
 N
-J
+B
 u
 H
 "}
@@ -355,7 +355,7 @@ P
 r
 t
 F
-L
+x
 h
 N
 "}

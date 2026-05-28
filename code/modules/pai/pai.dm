@@ -115,17 +115,17 @@
 		"frog" = TRUE,
 		"giant enemy spider" = TRUE,
 		"hawk" = TRUE,
-		"kitten" = FALSE,
 		"lizard" = TRUE,
 		"monkey" = TRUE,
 		"mothroach" = TRUE,
 		"mouse" = TRUE,
 		"mushroom" = TRUE,
 		"phantom" = TRUE,
-		"puppy" = FALSE,
 		"rabbit" = TRUE,
 		"repairbot" = TRUE,
 		"snake" = TRUE,
+		// "kitten" = TRUE, // NOVA EDIT REMOVAL
+		// "puppy" = TRUE, // NOVA EDIT REMOVAL
 		"spider" = TRUE,
 	)
 	// IRIS EDIT ADDITION END

@@ -1965,6 +1965,7 @@ TREK
 
 /datum/greyscale_config/clothwraps/worn/digi
 	name = "Cloth Wraps (Worn, Digi)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/wraps/wraps_worn_digi.json'
 
 /datum/greyscale_config/legwraps
 	name = "Leg Wraps"
@@ -2814,3 +2815,13 @@ This is all our modular PDAs, ITS LARGE!
 	name = "Worn Bowtie Collar"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/bowtie_collar_worn.json'
+
+/datum/greyscale_config/henchmen
+	name = "Henchmen"
+	icon_file = 'modular_nova/modules/GAGS/icons/monkehenchmenobj.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/henchmen/henchmen.json'
+
+/datum/greyscale_config/henchmen/worn
+	name = "Henchmen Worn"
+	icon_file = 'modular_nova/modules/GAGS/icons/monkehenchmenmob.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/henchmen/henchmen.json'

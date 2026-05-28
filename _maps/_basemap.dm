@@ -30,9 +30,11 @@
 		#include "map_files\SerenityStation\SerenityStation.dmm"
 		// #include "map_files\Snowglobe\snowglobe.dmm"
 		// NOVA EDIT ADDITION END
-		// IRIS EDIT START
-		#include "map_files\KiloStation\KiloStation.dmm"
-		// IRIS EDIT END
+		// OCULIS EDIT START
+		#include "map_files\oceanpubby\oceanpubby.dmm"
+		#include "map_files\RemoraStation\RemoraStation.dmm"
+		#include "map_files\KiloStation_Oculis\KiloStation_Oculis.dmm"
+		// OCULIS EDIT END
 	#endif
 	#ifdef ALL_TEMPLATES
 		#include "templates.dm"

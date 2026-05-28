@@ -28,6 +28,30 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/mineral/titanium,
 /area/centcom/syndicate_mothership/control)
+"at" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 9
+	},
+/obj/structure/table/glass/plasmaglass,
+/obj/machinery/reagentgrinder{
+	pixel_x = -5;
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/cup/beaker/large{
+	pixel_x = -7;
+	pixel_y = -8
+	},
+/obj/item/reagent_containers/cup/beaker/cryoxadone{
+	pixel_x = 9;
+	pixel_y = -7
+	},
+/obj/structure/sign/poster/contraband/kudzu/directional/north,
+/obj/item/reagent_containers/spray/plantbgone{
+	pixel_x = 10;
+	pixel_y = 5
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/centcom/syndicate_mothership/expansion_bioterrorism)
 "au" = (
 /turf/open/floor/circuit/red,
 /area/centcom/syndicate_mothership/control)
@@ -148,30 +172,6 @@
 "cl" = (
 /turf/open/lava/plasma/ice_moon,
 /area/centcom/syndicate_mothership/control)
-"co" = (
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 9
-	},
-/obj/structure/table/glass/plasmaglass,
-/obj/machinery/reagentgrinder{
-	pixel_x = -5;
-	pixel_y = 12
-	},
-/obj/item/reagent_containers/cup/beaker/large{
-	pixel_x = -7;
-	pixel_y = -8
-	},
-/obj/item/reagent_containers/cup/beaker/cryoxadone{
-	pixel_x = 9;
-	pixel_y = -7
-	},
-/obj/structure/sign/poster/contraband/kudzu/directional/north,
-/obj/item/reagent_containers/spray/plantbgone{
-	pixel_x = 10;
-	pixel_y = 5
-	},
-/turf/open/floor/mineral/plastitanium/red,
-/area/centcom/syndicate_mothership/expansion_bioterrorism)
 "cq" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
@@ -1017,6 +1017,19 @@
 	},
 /turf/open/lava/plasma/ice_moon,
 /area/centcom/syndicate_mothership/control)
+"lb" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/airlock/highsecurity/syndicate{
+	name = "Sky Bridge"
+	},
+/turf/open/floor/iron/textured_large,
+/area/centcom/syndicate_mothership/control)
 "lc" = (
 /obj/effect/turf_decal/siding/red/corner{
 	dir = 4
@@ -1171,18 +1184,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/centcom/syndicate_mothership/expansion_chemicalwarfare)
-"ng" = (
-/obj/effect/turf_decal/delivery,
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 1
-	},
-/obj/machinery/door/poddoor/shutters{
-	id = "FBBZ1";
-	name = "Security Shutters"
-	},
-/obj/structure/fans/tiny,
-/turf/open/floor/mineral/titanium,
-/area/centcom/syndicate_mothership/control)
 "nk" = (
 /obj/structure/flora/tree/dead/style_random,
 /obj/structure/flora/grass/both/style_random,
@@ -1301,6 +1302,20 @@
 "ov" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /turf/open/floor/iron/dark/textured_large,
+/area/centcom/syndicate_mothership/control)
+"ox" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/airlock/highsecurity/syndicate{
+	name = "Sky Bridge"
+	},
+/turf/open/floor/iron/textured_large,
 /area/centcom/syndicate_mothership/control)
 "oy" = (
 /obj/machinery/door/poddoor/incinerator_ordmix{
@@ -1616,16 +1631,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/hidden/layer5,
 /turf/open/floor/iron/smooth,
-/area/centcom/syndicate_mothership/control)
-"ru" = (
-/obj/effect/turf_decal/siding/wideplating{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wideplating,
-/obj/machinery/door/poddoor/shutters/indestructible{
-	name = "Subterrainian Cargo Lift"
-	},
-/turf/open/floor/iron/dark/textured_half,
 /area/centcom/syndicate_mothership/control)
 "rA" = (
 /obj/effect/turf_decal/siding/purple{
@@ -2350,6 +2355,10 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/centcom/syndicate_mothership/expansion_bioterrorism)
+"Au" = (
+/obj/machinery/processor/slime/fullupgrade,
+/turf/closed/indestructible/opsglass,
+/area/centcom/syndicate_mothership/control)
 "Ax" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south{
 	name = "Tinted Window"
@@ -2378,20 +2387,6 @@
 /area/centcom/syndicate_mothership/control)
 "AM" = (
 /turf/closed/indestructible/iron,
-/area/centcom/syndicate_mothership/control)
-"AN" = (
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/effect/turf_decal/delivery,
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 1
-	},
-/obj/machinery/door/poddoor/shutters/window{
-	id = "FBBZ1";
-	name = "Security Shutters"
-	},
-/obj/structure/fans/tiny,
-/obj/effect/turf_decal/tile/bar/opposingcorners,
-/turf/open/floor/iron,
 /area/centcom/syndicate_mothership/control)
 "AO" = (
 /obj/structure/table/reinforced,
@@ -2426,6 +2421,18 @@
 /obj/machinery/chem_master,
 /turf/open/floor/mineral/titanium/tiled/yellow,
 /area/centcom/syndicate_mothership/expansion_chemicalwarfare)
+"AX" = (
+/obj/effect/turf_decal/delivery,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/structure/fans/tiny,
+/obj/machinery/door/poddoor/shutters/syndicate{
+	id = "FBBZ1";
+	name = "Security Shutters"
+	},
+/turf/open/floor/mineral/titanium,
+/area/centcom/syndicate_mothership/control)
 "Bg" = (
 /obj/effect/turf_decal/siding/purple{
 	dir = 1
@@ -3099,10 +3106,6 @@
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron,
 /area/centcom/syndicate_mothership/control)
-"HT" = (
-/obj/machinery/processor/slime/fullupgrade,
-/turf/closed/indestructible/opsglass,
-/area/centcom/syndicate_mothership/control)
 "HW" = (
 /obj/effect/light_emitter{
 	set_cap = 1;
@@ -3158,6 +3161,16 @@
 	},
 /turf/open/floor/mineral/titanium/tiled/yellow,
 /area/centcom/syndicate_mothership/expansion_bombthreat)
+"Ii" = (
+/obj/effect/turf_decal/siding/wideplating{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating,
+/obj/machinery/door/poddoor/shutters/syndicate/indestructible{
+	name = "Subterrainian Cargo Lift"
+	},
+/turf/open/floor/iron/dark/textured_half,
+/area/centcom/syndicate_mothership/control)
 "In" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 10
@@ -3317,6 +3330,17 @@
 /obj/effect/turf_decal/syndicateemblem/top/right,
 /obj/effect/turf_decal/syndicateemblem/top/left,
 /turf/open/floor/mineral/plastitanium/red,
+/area/centcom/syndicate_mothership/control)
+"JZ" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/turf_decal/delivery,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/door/poddoor/shutters/syndicate,
+/turf/open/floor/iron,
 /area/centcom/syndicate_mothership/control)
 "Ka" = (
 /obj/structure/chair/sofa/bench/right{
@@ -3630,6 +3654,11 @@
 	name = "Tac-Com"
 	},
 /area/centcom/syndicate_mothership/control)
+"Ni" = (
+/obj/machinery/light/small/directional/north,
+/obj/machinery/computer/slot_machine/syndicate,
+/turf/open/floor/wood/tile,
+/area/centcom/syndicate_mothership/control)
 "No" = (
 /turf/open/floor/iron/smooth_edge{
 	dir = 4
@@ -3658,19 +3687,6 @@
 "NP" = (
 /obj/structure/railing/corner,
 /turf/open/misc/asteroid/snow/icemoon,
-/area/centcom/syndicate_mothership/control)
-"NY" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 4
-	},
-/obj/machinery/door/airlock/highsecurity{
-	name = "Sky Bridge"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/turf/open/floor/iron/textured_large,
 /area/centcom/syndicate_mothership/control)
 "Oc" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -3796,23 +3812,6 @@
 	pixel_y = 32
 	},
 /turf/open/floor/wood/tile,
-/area/centcom/syndicate_mothership/control)
-"OW" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 4
-	},
-/obj/machinery/door/airlock/highsecurity{
-	name = "Sky Bridge"
-	},
-/obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/turf/open/floor/iron/textured_large,
 /area/centcom/syndicate_mothership/control)
 "OX" = (
 /obj/effect/turf_decal/stripes/end{
@@ -4052,11 +4051,6 @@
 /obj/item/circuitboard/computer/syndicate_shuttle_docker,
 /turf/open/floor/mineral/plastitanium/red,
 /area/centcom/syndicate_mothership)
-"Rp" = (
-/obj/machinery/light/small/directional/north,
-/obj/machinery/computer/slot_machine/syndicate,
-/turf/open/floor/wood/tile,
-/area/centcom/syndicate_mothership/control)
 "Rr" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium/red,
@@ -4256,6 +4250,23 @@
 	dir = 8
 	},
 /area/centcom/syndicate_mothership/control)
+"Td" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/airlock/highsecurity/syndicate{
+	name = "Sky Bridge"
+	},
+/turf/open/floor/iron/textured_large,
+/area/centcom/syndicate_mothership/control)
 "Te" = (
 /obj/effect/turf_decal/siding/wideplating{
 	dir = 1
@@ -4346,20 +4357,6 @@
 	},
 /turf/open/misc/asteroid/snow/airless,
 /area/centcom/syndicate_mothership)
-"TR" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 4
-	},
-/obj/machinery/door/airlock/highsecurity{
-	name = "Sky Bridge"
-	},
-/obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/turf/open/floor/iron/textured_large,
-/area/centcom/syndicate_mothership/control)
 "TS" = (
 /obj/structure/chair/stool/directional/north,
 /obj/structure/extinguisher_cabinet/directional/south,
@@ -5291,7 +5288,7 @@ ei
 ei
 ei
 xu
-co
+at
 HD
 oi
 MH
@@ -7830,7 +7827,7 @@ VK
 VK
 GE
 DZ
-Rp
+Ni
 Xu
 mL
 BH
@@ -7932,14 +7929,14 @@ uT
 VK
 VK
 DZ
-HT
+Au
 VK
 VK
 VK
 DZ
 qp
-NY
-NY
+lb
+lb
 Oi
 DZ
 DZ
@@ -9264,8 +9261,8 @@ DZ
 DZ
 tL
 tL
-TR
-OW
+ox
+Td
 Oi
 DZ
 DZ
@@ -9356,7 +9353,7 @@ bW
 qw
 nw
 MP
-ng
+AX
 DZ
 VK
 VK
@@ -9458,7 +9455,7 @@ bW
 qw
 qw
 qw
-ng
+AX
 hb
 TC
 FR
@@ -9560,7 +9557,7 @@ bW
 qw
 qw
 qw
-ng
+AX
 qJ
 TC
 TC
@@ -9674,7 +9671,7 @@ ij
 zH
 wG
 wG
-ru
+Ii
 Ev
 Ev
 Ev
@@ -9776,7 +9773,7 @@ Wr
 zH
 wG
 wG
-ru
+Ii
 Ev
 Ev
 Ev
@@ -9866,7 +9863,7 @@ bW
 qw
 qw
 qw
-AN
+JZ
 uX
 uX
 uX
@@ -9968,7 +9965,7 @@ bW
 qw
 qw
 qw
-AN
+JZ
 LS
 Mn
 uX
