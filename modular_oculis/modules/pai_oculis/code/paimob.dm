@@ -55,7 +55,7 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 	radio = /obj/item/radio/headset/silicon/pai
 	initial_language_holder = /datum/language_holder/pai_oculis
 
-	// Whether we can pilot exosuits. Currently for testing, will likely be removed once the robotics upgrade is implemented.
+	// Whether we can pilot exosuits.
 	var/can_pilot_mechs = FALSE
 	// Whether we have the ability to fold out into chassis mode
 	var/can_unfold = TRUE
