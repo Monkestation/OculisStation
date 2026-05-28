@@ -20,6 +20,10 @@
 	var/mob/living/silicon/pai_oculis/pai
 	// Whether the card's maintenance hatch is open
 	var/in_maintenance = FALSE
+	// How many upgrades we have
+	var/installed_upgrades = 0
+	// The maximum number of upgrades we can have
+	var/max_upgrades = 3
 
 
 /obj/item/pai_card_oculis/Initialize(mapload)
@@ -106,11 +110,11 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		return ITEM_INTERACT_SUCCESS
 
-// This is used for repairing burns with cable coil
+// This is used for repairing burns with cable coil and applying pAI upgrades
 /obj/item/pai_card_oculis/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!is_open(user))
+		return ITEM_INTERACT_BLOCKING
 	if(istype(tool, /obj/item/stack/cable_coil))
-		if(!is_open(user))
-			return ITEM_INTERACT_BLOCKING
 		var/obj/item/stack/cable_coil/coil = tool
 		if(!pai.get_fire_loss())
 			balloon_alert(user, "No wire damage present!")
@@ -123,6 +127,11 @@
 		playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
 		user.visible_message(span_notice("[user] repairs some of [pai]'s internal wiring."))
 		user.changeNext_move(CLICK_CD_MELEE)
+		return ITEM_INTERACT_SUCCESS
+
+	if(istype(tool, /obj/item/pai_upgrade))
+		var/obj/item/pai_upgrade/L = tool
+		L.upgrade_activate(src, user)
 		return ITEM_INTERACT_SUCCESS
 
 // Multitool to reboot if the pAI is dead

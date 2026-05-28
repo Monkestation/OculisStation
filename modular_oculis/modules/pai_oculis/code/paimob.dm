@@ -10,13 +10,11 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 1. Implement pAI upgrades (exosuit piloting, 'laser' eyes, multitool systems, EMP resistance etc)
 2. Implement interfaces (gives a simple, limited overview for those clicking on the card; allowing them to see pAI integrity, a list of upgrades [3 max], clear access and shutdown buttons)
 3. Implement disabler functionality (force pAI into card mode after a few shots)
-5. Add description stuff
-6. Implement job functionality for roundstart/latejoining
-7. Add spawn locations when joining at roundstart. On each map. God help me.
-8. Give pAIs the ability to interface with consoles (They have to be able to at least move from castor to the station, of course)
-9. Maybe implement a 2-3 brute damage basic attack? Having some way to do very, very basic self defense seems like a good idea for these, even if they're generally better off running or folding into card mode.
-10. Need to add in a (very short) cooldown for switching between card form and chassis form, as well as an extended cooldown when hit with EMPs/disablers
-11. Add a software interface for the pAI itself (The ability to download programs, self clear access, manage programs, PDA functionality, etc)
+4. Add description stuff
+5. Implement job functionality for roundstart/latejoining
+6. Add spawn locations when joining at roundstart. On each map. God help me.
+7. Need to add in a (very short) cooldown for switching between card form and chassis form, as well as an extended cooldown when hit with EMPs/disablers
+8. Add a software interface for the pAI itself (The ability to download programs, self clear access, manage programs, PDA functionality, etc)
 */
 
 /datum/language_holder/pai_oculis
@@ -58,7 +56,7 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 	initial_language_holder = /datum/language_holder/pai_oculis
 
 	// Whether we can pilot exosuits. Currently for testing, will likely be removed once the robotics upgrade is implemented.
-	var/can_pilot_mechs = TRUE
+	var/can_pilot_mechs = FALSE
 	// Whether we have the ability to fold out into chassis mode
 	var/can_unfold = TRUE
 	// Whether we're in card form or not
@@ -146,6 +144,10 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 
 /mob/living/silicon/pai_oculis/get_access()
 	return pai_access
+
+// Toggles our ability to pilot exosuits
+/mob/living/silicon/pai_oculis/proc/set_mech_access()
+	return can_pilot_mechs = !can_pilot_mechs
 
 /mob/living/silicon/pai_oculis/attackby(obj/item/item, mob/user, list/modifiers, list/attack_modifiers)
 	// When someone swipes their ID card over us, we gain their access. This access does not stack.
