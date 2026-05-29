@@ -26,16 +26,6 @@
 		/datum/ai_planning_subtree/ranged_skirmish/watcher,
 	)
 
-
-/mob/living/simple_animal/hostile/ooze/gelatinous/cosmic_entity
-	name = "ire"
-	desc = "<span class='danger'>You feel eternally watched near it.</span>"
-	icon = 'modular_oculis/modules/event/icons/enemies.dmi'
-	icon_state = "emark6"
-	faction = list(FACTION_VIOLET)
-	del_on_death = TRUE
-	stat_attack = HARD_CRIT
-
 /mob/living/basic/mining/hivelord/cosmic_entity
 	name = "rising hatred"
 	desc = "A series of strange purple parasitic creatures."

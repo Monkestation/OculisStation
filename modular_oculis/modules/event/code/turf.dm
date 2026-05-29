@@ -25,7 +25,7 @@
 	desc = "A tile made out of crystalline outcrops."
 	icon = 'icons/obj/tiles.dmi'
 	icon_state = "tile_tram_dark"
-	inhand_icon_state = "tile_tram_dark"
+	inhand_icon_state = "tile-tram"
 	mats_per_unit = list(/datum/material/bluespace = SHEET_MATERIAL_AMOUNT*0.25)
 	turf_type = /turf/open/floor/mineral/violetspace_crystal
 	mineralType = /obj/item/stack/ore/bluespace_crystal
