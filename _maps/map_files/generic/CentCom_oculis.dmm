@@ -6282,10 +6282,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 5
-	},
-/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
 /turf/open/floor/iron/smooth_large,
 /area/centcom/castor/engineering/atmospherics)
 "cFK" = (
@@ -6708,11 +6705,17 @@
 /area/centcom/central_command_areas/evacuation/ship)
 "deA" = (
 /obj/machinery/light/directional/west,
-/obj/machinery/atmospherics/pipe/layer_manifold/supply/visible,
+/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/visible,
 /turf/open/floor/iron/smooth_large,
 /area/centcom/castor/engineering/atmospherics)
 "deO" = (
 /turf/open/floor/engine/co2,
+/area/centcom/castor/engineering/atmospherics)
+"deP" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/heater/on{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth_large,
 /area/centcom/castor/engineering/atmospherics)
 "dfI" = (
 /obj/structure/cable,
@@ -7289,9 +7292,8 @@
 /turf/open/misc/grass/no_smooth,
 /area/centcom/castor/forest)
 "dGH" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
-/obj/machinery/atmospherics/pipe/bridge_pipe/cyan/visible{
-	dir = 4
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 6
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/castor/engineering/atmospherics)
@@ -9698,7 +9700,7 @@
 /turf/open/floor/iron/dark/smooth_half,
 /area/centcom/central_command_areas/supplypod/loading/ert)
 "fSC" = (
-/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/visible,
+/obj/machinery/atmospherics/pipe/layer_manifold/supply/visible,
 /turf/open/floor/iron/smooth_large,
 /area/centcom/castor/engineering/atmospherics)
 "fTb" = (
@@ -11913,6 +11915,12 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/briefing_room_one)
+"hWn" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/centcom/castor/engineering/atmospherics)
 "hWo" = (
 /obj/structure/railing/corner,
 /obj/effect/turf_decal/siding/green/corner,
@@ -13455,13 +13463,6 @@
 /obj/item/stack/sheet/rglass/fifty,
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/engineering/engine)
-"jya" = (
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
-/obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible{
-	dir = 4
-	},
-/turf/open/floor/iron/smooth_large,
-/area/centcom/castor/engineering/atmospherics)
 "jyh" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/mix_output,
 /turf/open/floor/engine/vacuum,
@@ -14771,13 +14772,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/smooth_large,
 /area/centcom/castor/engineering/atmospherics)
-"kVD" = (
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
-/turf/open/floor/iron/smooth_large,
-/area/centcom/castor/engineering/atmospherics)
 "kWb" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
@@ -15174,6 +15168,13 @@
 /obj/structure/cable,
 /turf/open/floor/iron/large,
 /area/centcom/castor/hallway_two)
+"lkm" = (
+/obj/machinery/meter/monitored/waste_loop,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/visible{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth_large,
+/area/centcom/castor/engineering/atmospherics)
 "lkn" = (
 /obj/structure/spacevine,
 /turf/open/water/beach,
@@ -15556,6 +15557,10 @@
 	initial_gas_mix = "o2=21.65;n2=80.7;TEMP=287.53"
 	},
 /area/centcom/castor/sectorial_personnel_administrator)
+"lAH" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/heater/on,
+/turf/open/floor/iron/smooth_large,
+/area/centcom/castor/engineering/atmospherics)
 "lAV" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/smooth_large,
@@ -19964,15 +19969,6 @@
 "pGK" = (
 /turf/open/floor/iron/dark/side,
 /area/centcom/holding/cafe)
-"pGR" = (
-/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 10
-	},
-/turf/open/floor/iron/smooth_large,
-/area/centcom/castor/engineering/atmospherics)
 "pGV" = (
 /obj/structure/curtain,
 /obj/machinery/smartfridge/organ,
@@ -21742,13 +21738,6 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafe)
-"rnk" = (
-/obj/machinery/meter/monitored/waste_loop,
-/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/visible{
-	dir = 4
-	},
-/turf/open/floor/iron/smooth_large,
-/area/centcom/castor/engineering/atmospherics)
 "rnl" = (
 /obj/effect/turf_decal/trimline/green/arrow_cw{
 	dir = 8
@@ -23467,7 +23456,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/arrivals)
 "sPy" = (
-/obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible{
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/visible{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth_large,
@@ -25008,7 +24998,7 @@
 /area/centcom/central_command_areas/evacuation/ship)
 "ulw" = (
 /obj/machinery/light/directional/west,
-/obj/machinery/atmospherics/components/unary/thermomachine/heater/on,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
 /turf/open/floor/iron/smooth_large,
 /area/centcom/castor/engineering/atmospherics)
 "ulU" = (
@@ -27198,7 +27188,7 @@
 "wnV" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	name = "Distro to Waste";
-	dir = 4
+	dir = 8
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/castor/engineering/atmospherics)
@@ -52575,10 +52565,10 @@ sfu
 cFv
 ulw
 sPy
-hHY
-gfb
+uDD
+lkm
 deA
-dhC
+dVZ
 uAc
 kAu
 jaF
@@ -52829,9 +52819,9 @@ kzR
 uSG
 rvP
 hII
-jya
+bbE
 irK
-jDM
+deP
 kAu
 wnV
 kAu
@@ -53086,13 +53076,13 @@ rak
 inC
 dSL
 mTn
-pGR
-kVD
+lwx
+jDM
 dGH
-uDD
-rnk
+hHY
+gfb
 fSC
-dVZ
+dhC
 uAc
 kAu
 jaF
@@ -53345,8 +53335,8 @@ igK
 eQO
 gSy
 jDM
-jDM
-kAu
+hWn
+lAH
 kAu
 kAu
 kAu
