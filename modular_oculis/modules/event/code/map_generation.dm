@@ -21,7 +21,6 @@
 
 /datum/map_generator_module/splatter_layer/random_enemies
 	spawnableAtoms = list(
-		/mob/living/simple_animal/hostile/ooze/gelatinous/cosmic_entity = 90,
 		/mob/living/basic/mining/watcher/cosmic_entity = 85,
 		/mob/living/basic/mining/hivelord/cosmic_entity = 85,
 	)
