@@ -27,7 +27,7 @@
 
 /// We have a mob pressed to a wall, but only an harm aggressive grab can hold them there.
 /datum/element/wall_pin/proc/perform_wall_pin(turf/closed/wall/wall, mob/living/user)
-	if(!wall.Adjacent(user) || !isliving(user.pulling) || !user.combat_mode)
+	if(!wall.Adjacent(user) || !isliving(user.pulling) || !user.combat_mode || user.pulling.GetComponent(/datum/component/wall_pin))
 		return
 
 	var/wall_dir = get_dir(user, wall)
@@ -67,9 +67,11 @@
 	)
 	to_chat(pinned_mob, span_userdanger("[user] pins you against [wall]!"))
 	playsound(wall, 'sound/effects/hit_kick.ogg', 40, TRUE)
-	pinned_mob.apply_damage(5, BRUTE)
+	if(!HAS_TRAIT(user, TRAIT_PACIFISM)) pinned_mob.apply_damage(5, BRUTE)
 	wall.add_fingerprint(user)
-	log_combat(user, pinned_mob, "pinned", null, "against [wall]")
+	wall.add_fingerprint(pinned_mob)
+
+	log_combat(user, pinned_mob, "pinned", null, "against [wall]", HAS_TRAIT(user, TRAIT_PACIFISM) ? "without damage" : null)
 
 /// Keeps a grabbed mob pinned in place until the grab is released, broken, or otherwise invalidated.
 /datum/component/wall_pin
@@ -104,10 +106,12 @@
 	var/mob/living/pinned_mob = parent
 	ADD_TRAIT(pinned_mob, TRAIT_FORCED_STANDING, trait_source)
 	ADD_TRAIT(pinned_mob, TRAIT_IMMOBILIZED, trait_source)
-	ADD_TRAIT(pinned_mob, TRAIT_GRABWEAKNESS, trait_source)
 	ADD_TRAIT(pinned_mob, TRAIT_HANDS_BLOCKED, trait_source)
 	ADD_TRAIT(pinned_mob, TRAIT_PULL_BLOCKED, trait_source)
 	ADD_TRAIT(pinned_mob, TRAIT_PINNED, trait_source)
+	if(pinned_mob.has_quirk(/datum/quirk/pushover)) ADD_TRAIT(pinned_mob, TRAIT_GRABWEAKNESS, trait_source)
+
+	ADD_TRAIT(aggressor, TRAIT_IMMOBILIZED, trait_source)
 	refresh_offsets(TRUE)
 
 /datum/component/wall_pin/UnregisterFromParent()
@@ -117,10 +121,12 @@
 		var/mob/living/pinned_mob = parent
 		REMOVE_TRAIT(pinned_mob, TRAIT_FORCED_STANDING, trait_source)
 		REMOVE_TRAIT(pinned_mob, TRAIT_IMMOBILIZED, trait_source)
-		REMOVE_TRAIT(pinned_mob, TRAIT_GRABWEAKNESS, trait_source)
 		REMOVE_TRAIT(pinned_mob, TRAIT_HANDS_BLOCKED, trait_source)
 		REMOVE_TRAIT(pinned_mob, TRAIT_PULL_BLOCKED, trait_source)
 		REMOVE_TRAIT(pinned_mob, TRAIT_PINNED, trait_source)
+		REMOVE_TRAIT(pinned_mob, TRAIT_GRABWEAKNESS, trait_source)
+
+		REMOVE_TRAIT(aggressor, TRAIT_IMMOBILIZED, trait_source)
 		pinned_mob.remove_offsets(TRAIT_PINNED)
 
 	if(!QDELETED(aggressor))
