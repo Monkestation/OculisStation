@@ -2444,7 +2444,9 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
-/obj/machinery/door/airlock/public/glass/incinerator/atmos_interior,
+/obj/machinery/door/airlock/public/glass/incinerator/atmos_interior{
+	id_tag = "castor_atmos_incinerator_airlock_interior"
+	},
 /obj/machinery/atmospherics/pipe/smart/simple/dark/visible{
 	dir = 4
 	},
@@ -10786,7 +10788,15 @@
 "gRR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/machinery/airlock_controller/incinerator_atmos{
-	pixel_x = -24
+	pixel_x = -24;
+	airpump_tag = "castor_atmos_incinerator_airlock_pump";
+	exterior_door_tag = "castor_atmos_incinerator_airlock_exterior";
+	interior_door_tag = "castor_atmos_incinerator_airlock_interior";
+	sensor_tag = "castor_atmos_incinerator_airlock_controller"
+	},
+/obj/machinery/airlock_sensor/incinerator_atmos{
+	pixel_x = 24;
+	master_tag = "castor_atmos_incinerator_airlock_controller"
 	},
 /turf/open/floor/engine/vacuum,
 /area/centcom/castor/engineering/incinerator)
@@ -12728,7 +12738,9 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
-/obj/machinery/door/airlock/public/glass/incinerator/atmos_exterior,
+/obj/machinery/door/airlock/public/glass/incinerator/atmos_exterior{
+	id_tag = "castor_atmos_incinerator_airlock_exterior"
+	},
 /obj/machinery/atmospherics/pipe/smart/simple/dark/visible{
 	dir = 4
 	},
@@ -15486,7 +15498,9 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/arrivals)
 "lyy" = (
-/obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/incinerator_atmos,
+/obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/incinerator_atmos{
+	id_tag = "castor_atmos_incinerator_airlock_pump"
+	},
 /obj/machinery/atmospherics/pipe/smart/simple/dark/visible{
 	dir = 4
 	},
@@ -23744,7 +23758,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
-/obj/machinery/air_sensor/incinerator_tank,
+/obj/machinery/air_sensor/incinerator_tank{
+	chamber_id = "castor_incinerator"
+	},
 /turf/open/floor/engine/vacuum,
 /area/centcom/castor/engineering/incinerator)
 "sXZ" = (
@@ -24008,7 +24024,8 @@
 "tqh" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/computer/atmos_control/nocontrol/incinerator{
-	dir = 4
+	dir = 4;
+	atmos_chambers = list("castor_incinerator" = "Incinerator Chamber")
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/castor/engineering/incinerator)
