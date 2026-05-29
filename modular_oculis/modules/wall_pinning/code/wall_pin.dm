@@ -1,9 +1,39 @@
-/// Element which lets mobs be pinned against this wall with an aggressive grab.
+/// Returns TRUE if this atom type can ever be used as a wall pin surface.
+/proc/is_wall_pin_surface_type(datum/target)
+	return istype(target, /turf/closed/wall) || istype(target, /obj/structure/window) || istype(target, /obj/machinery/door)
+
+/// Returns TRUE if this atom can be used as a wall pin surface.
+/proc/is_wall_pin_surface(datum/target)
+	if(istype(target, /turf/closed/wall))
+		return TRUE
+
+	if(istype(target, /obj/structure/window))
+		var/obj/structure/window/window = target
+		return window.anchored && window.density
+
+	if(istype(target, /obj/machinery/door))
+		var/obj/machinery/door/door = target
+		return door.density
+
+	return FALSE
+
+/// Direction from the user toward the pinning surface.
+/proc/get_wall_pin_dir(atom/pinning_surface, mob/user)
+	. = get_dir(user, pinning_surface)
+	if(.)
+		return
+
+	if(istype(pinning_surface, /obj/structure/window) && get_turf(user) == get_turf(pinning_surface))
+		var/obj/structure/window/window = pinning_surface
+		if(window.flags_1 & ON_BORDER_1)
+			return window.dir
+
+/// Element which lets mobs be pinned against this surface with an aggressive grab.
 /datum/element/wall_pin
 
 /datum/element/wall_pin/Attach(datum/target)
 	. = ..()
-	if(!istype(target, /turf/closed/wall))
+	if(!is_wall_pin_surface_type(target))
 		return ELEMENT_INCOMPATIBLE
 
 	RegisterSignal(target, COMSIG_ATOM_ATTACK_HAND, PROC_REF(on_interaction))
@@ -13,35 +43,42 @@
 	UnregisterSignal(source, COMSIG_ATOM_ATTACK_HAND)
 
 /// Called when someone clicks on our wall.
-/datum/element/wall_pin/proc/on_interaction(turf/closed/wall/wall, mob/user)
+/datum/element/wall_pin/proc/on_interaction(atom/pinning_surface, mob/user)
 	SIGNAL_HANDLER
 
-	if(!isliving(user) || !wall.Adjacent(user) || !user.pulling)
+	if(!isliving(user) || !pinning_surface.Adjacent(user) || !user.pulling)
 		return
 
 	if(!isliving(user.pulling))
 		return
 
-	INVOKE_ASYNC(src, PROC_REF(perform_wall_pin), wall, user)
+	if(!is_wall_pin_surface(pinning_surface))
+		return
+
+	INVOKE_ASYNC(src, PROC_REF(perform_wall_pin), pinning_surface, user)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
-/// We have a mob pressed to a wall, but only an harm aggressive grab can hold them there.
-/datum/element/wall_pin/proc/perform_wall_pin(turf/closed/wall/wall, mob/living/user)
-	if(!wall.Adjacent(user) || !isliving(user.pulling) || !user.combat_mode || user.pulling.GetComponent(/datum/component/wall_pin) || HAS_TRAIT(user, TRAIT_PACIFISM))
+/// We have a mob pressed to a surface, but only a harmful aggressive grab can hold them there.
+/datum/element/wall_pin/proc/perform_wall_pin(atom/pinning_surface, mob/living/user)
+	if(!pinning_surface.Adjacent(user) || !isliving(user.pulling) || !user.combat_mode || user.pulling.GetComponent(/datum/component/wall_pin) || HAS_TRAIT(user, TRAIT_PACIFISM))
 		return
 
-	var/wall_dir = get_dir(user, wall)
+	if(!is_wall_pin_surface(pinning_surface))
+		return
+
+	var/wall_dir = get_wall_pin_dir(pinning_surface, user)
 	if(!(wall_dir in GLOB.cardinals))
-		to_chat(user, span_warning("You need to be directly beside [wall] to pin someone against it!"))
+		to_chat(user, span_warning("You need to be directly beside [pinning_surface] to pin someone against it!"))
 		return
 
-	var/turf/pin_turf = get_step(wall, REVERSE_DIR(wall_dir))
-	if(get_turf(user) != pin_turf)
+	var/turf/user_turf = get_turf(user)
+	var/turf/pin_turf = user_turf == get_turf(pinning_surface) ? user_turf : get_step(pinning_surface, REVERSE_DIR(wall_dir))
+	if(user_turf != pin_turf)
 		return
 
 	var/mob/living/pinned_mob = user.pulling
 	if(user.grab_state < GRAB_AGGRESSIVE)
-		to_chat(user, span_warning("You need a better grip to pin [pinned_mob] against [wall]!"))
+		to_chat(user, span_warning("You need a better grip to pin [pinned_mob] against [pinning_surface]!"))
 		return
 
 	if(pinned_mob.buckled)
@@ -55,43 +92,45 @@
 
 	user.setGrabState(GRAB_AGGRESSIVE)
 	pinned_mob.setDir(REVERSE_DIR(wall_dir))
-	pinned_mob.AddComponent(/datum/component/wall_pin, user, wall)
+	pinned_mob.AddComponent(/datum/component/wall_pin, user, pinning_surface)
 
 	user.changeNext_move(CLICK_CD_MELEE)
 	user.visible_message(
-		span_danger("[user] pins [pinned_mob] against [wall]!"),
-		span_danger("You pin [pinned_mob] against [wall]!"),
+		span_danger("[user] pins [pinned_mob] against [pinning_surface]!"),
+		span_danger("You pin [pinned_mob] against [pinning_surface]!"),
 		span_hear("You hear aggressive shuffling against a wall."),
 		COMBAT_MESSAGE_RANGE,
 		list(pinned_mob),
 	)
-	to_chat(pinned_mob, span_userdanger("[user] pins you against [wall]!"))
-	playsound(wall, 'sound/effects/hit_kick.ogg', 40, TRUE)
+	to_chat(pinned_mob, span_userdanger("[user] pins you against [pinning_surface]!"))
+	playsound(pinning_surface, 'sound/effects/hit_kick.ogg', 40, TRUE)
 	pinned_mob.apply_damage(5, BRUTE)
-	wall.add_fingerprint(user)
-	wall.add_fingerprint(pinned_mob)
+	pinning_surface.add_fingerprint(user)
+	pinning_surface.add_fingerprint(pinned_mob)
 
-	log_combat(user, pinned_mob, "pinned", null, "against [wall]", HAS_TRAIT(user, TRAIT_PACIFISM) ? "without damage" : null)
+	log_combat(user, pinned_mob, "pinned", null, "against [pinning_surface]", HAS_TRAIT(user, TRAIT_PACIFISM) ? "without damage" : null)
 
 /// Keeps a grabbed mob pinned in place until the grab is released, broken, or otherwise invalidated.
 /datum/component/wall_pin
 	dupe_mode = COMPONENT_DUPE_HIGHLANDER
 	/// Mob maintaining the pin.
 	var/mob/living/aggressor
-	/// Wall the parent is being pinned against.
-	var/turf/closed/wall/pinning_wall
-	/// Direction from the aggressor to the wall when the pin started.
+	/// Surface the parent is being pinned against.
+	var/atom/pinning_surface
+	/// Direction from the aggressor to the surface when the pin started.
 	var/pin_dir
 	/// Trait source used for the extra immobilization while pinned.
 	var/trait_source
 
-/datum/component/wall_pin/Initialize(mob/living/aggressor, turf/closed/wall/pinning_wall)
-	if(!isliving(parent) || !istype(aggressor) || !istype(pinning_wall))
+/datum/component/wall_pin/Initialize(mob/living/aggressor, atom/pinning_surface)
+	if(!isliving(parent) || !istype(aggressor) || !istype(pinning_surface))
 		return COMPONENT_INCOMPATIBLE
 
 	src.aggressor = aggressor
-	src.pinning_wall = pinning_wall
-	pin_dir = get_dir(aggressor, pinning_wall)
+	src.pinning_surface = pinning_surface
+	pin_dir = get_wall_pin_dir(pinning_surface, aggressor)
+	if(!(pin_dir in GLOB.cardinals))
+		return COMPONENT_INCOMPATIBLE
 	trait_source = REF(src)
 
 /datum/component/wall_pin/RegisterWithParent()
@@ -126,15 +165,15 @@
 		REMOVE_TRAIT(pinned_mob, TRAIT_PINNED, trait_source)
 		REMOVE_TRAIT(pinned_mob, TRAIT_GRABWEAKNESS, trait_source)
 
-		REMOVE_TRAIT(aggressor, TRAIT_IMMOBILIZED, trait_source)
 		pinned_mob.remove_offsets(TRAIT_PINNED)
 
 	if(!QDELETED(aggressor))
 		UnregisterSignal(aggressor, list(COMSIG_MOVABLE_PRE_MOVE, COMSIG_ATOM_NO_LONGER_PULLING, COMSIG_MOVABLE_SET_GRAB_STATE, COMSIG_MOVABLE_MOVED, COMSIG_QDELETING, COMSIG_LIVING_HEALTH_UPDATE, COMSIG_LIVING_DEATH))
+		REMOVE_TRAIT(aggressor, TRAIT_IMMOBILIZED, trait_source)
 		aggressor.remove_offsets(TRAIT_PINNED)
 
 	aggressor = null
-	pinning_wall = null
+	pinning_surface = null
 	return ..()
 
 /datum/component/wall_pin/proc/on_pinned_pre_move(mob/living/source, atom/new_location)
@@ -207,7 +246,7 @@
 
 /datum/component/wall_pin/proc/pin_is_valid()
 	var/mob/living/pinned_mob = parent
-	if(QDELETED(pinned_mob) || QDELETED(aggressor) || QDELETED(pinning_wall))
+	if(QDELETED(pinned_mob) || QDELETED(aggressor) || QDELETED(pinning_surface))
 		return FALSE
 
 	if(pinned_mob.stat == DEAD || aggressor.stat == DEAD)
@@ -219,7 +258,7 @@
 	if(get_turf(pinned_mob) != get_turf(aggressor))
 		return FALSE
 
-	if(!pinning_wall.Adjacent(aggressor) || !pinning_wall.Adjacent(pinned_mob))
+	if(!pinning_surface.Adjacent(aggressor) || !pinning_surface.Adjacent(pinned_mob))
 		return FALSE
 
 	return TRUE

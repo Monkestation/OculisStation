@@ -138,6 +138,7 @@
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 	AddElement(/datum/element/can_barricade)
+	AddElement(/datum/element/wall_pin)
 	update_appearance()
 
 /obj/machinery/door/examine(mob/user)
