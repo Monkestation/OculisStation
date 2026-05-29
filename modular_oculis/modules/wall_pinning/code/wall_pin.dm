@@ -148,7 +148,8 @@
 	ADD_TRAIT(pinned_mob, TRAIT_HANDS_BLOCKED, trait_source)
 	ADD_TRAIT(pinned_mob, TRAIT_PULL_BLOCKED, trait_source)
 	ADD_TRAIT(pinned_mob, TRAIT_PINNED, trait_source)
-	if(pinned_mob.has_quirk(/datum/quirk/pushover)) ADD_TRAIT(pinned_mob, TRAIT_GRABWEAKNESS, trait_source)
+	if(pinned_mob.has_quirk(/datum/quirk/pushover))
+		ADD_TRAIT(pinned_mob, TRAIT_GRABWEAKNESS, trait_source)
 
 	ADD_TRAIT(aggressor, TRAIT_IMMOBILIZED, trait_source)
 	refresh_offsets(TRUE)
