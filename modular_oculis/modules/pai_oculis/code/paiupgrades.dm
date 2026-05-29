@@ -3,6 +3,8 @@
 /obj/item/pai_upgrade
 	name = "blank pAI upgrade"
 	desc = "An upgrade for older pAI systems."
+	icon = 'modular_oculis/modules/pai_oculis/icons/upgrades.dmi'
+	icon_state = "blank"
 	w_class = WEIGHT_CLASS_SMALL
 	sound_vary = TRUE
 	pickup_sound = SFX_GENERIC_DEVICE_PICKUP
@@ -14,6 +16,8 @@
 	var/slots_taken = 1
 	// The message given to the pAI when this upgrade is installed successfully
 	var/upgrade_message = "The upgrade confirms that it's been installed, but offers no additional functionality..."
+	// The message give to the pAI when this upgrade is removed successfully
+	var/remove_message = "The blank upgrade is removed from your system."
 
 // What happens when the upgrade is inserted into the card
 /obj/item/pai_upgrade/proc/upgrade_activate(card, user)
@@ -28,18 +32,28 @@
 	paicard.installed_upgrades = paicard.installed_upgrades + slots_taken
 	to_chat(paicard.pai, span_notice("[upgrade_message]"))
 	to_chat(user, span_notice("You successfully install the upgrade."))
+	playsound(paicard, 'sound/items/deconstruct.ogg', 50, TRUE)
+	paicard.upgrades_list += src
 
 // What happens when the upgrade is removed from the card
 /obj/item/pai_upgrade/proc/upgrade_remove()
-	return
+	to_chat(paicard.pai, span_notice("[remove_message]"))
+	forceMove(paicard.drop_location())
+	paicard = null
 
 // Upgrade that enables pAI exosuit access
 /obj/item/pai_upgrade/exosuit
 	name = "pAI upgrade: Mech pilot credentials"
 	desc = "An upgrade for older pAI systems. This one provides a pAI with the necessary software keys needed to interface with and pilot an exosuit."
+	icon_state = "mecha"
 	upgrade_message = "EXOSUIT CREDENTIAL KEYS GRANTED!"
+	remove_message = "EXOSUIT CREDENTIAL KEYS REVOKED!"
 
 /obj/item/pai_upgrade/exosuit/upgrade_activate(card)
 	. = ..()
 	paicard.pai.set_mech_access()
 	return
+
+/obj/item/pai_upgrade/exosuit/upgrade_remove()
+	paicard.pai.set_mech_access()
+	return ..()

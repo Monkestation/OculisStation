@@ -20,10 +20,14 @@
 	var/mob/living/silicon/pai_oculis/pai
 	// Whether the card's maintenance hatch is open
 	var/in_maintenance = FALSE
+	// Our minimum slots (magic numbers bad)
+	var/minimum_upgrades = 0
 	// How many upgrades we have
 	var/installed_upgrades = 0
 	// The maximum number of upgrades we can have
 	var/max_upgrades = 3
+	// The precise list of upgrades we have installed
+	var/upgrades_list = list()
 
 
 /obj/item/pai_card_oculis/Initialize(mapload)
@@ -112,7 +116,7 @@
 
 // This is used for repairing burns with cable coil and applying pAI upgrades
 /obj/item/pai_card_oculis/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	if(!is_open(user))
+	if(!is_open(user) && !istype(tool, /obj/item/screwdriver))
 		return ITEM_INTERACT_BLOCKING
 	if(istype(tool, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/coil = tool
@@ -150,6 +154,16 @@
 		else
 			to_chat(user, span_alert("[pai]'s systems are already active."))
 			return
+
+// Crowbar to remove all upgrades in the pAI
+/obj/item/pai_card_oculis/crowbar_act(mob/living/user, obj/item/tool)
+	if(is_open(user))
+		for(var/obj/item/pai_upgrade/L as anything in upgrades_list)
+			L.upgrade_remove()
+		upgrades_list = list()
+		installed_upgrades = minimum_upgrades
+		to_chat(user, span_notice("You remove all of the upgrades inside [src]"))
+		tool.play_tool_sound(src)
 
 /obj/item/pai_card_oculis/Destroy()
 	pai = null
