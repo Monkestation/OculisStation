@@ -97,7 +97,7 @@
 		update_current_power_usage()
 		playsound(src, 'modular_nova/master_files/sound/effects/gmalfunction.ogg', 100, TRUE)
 		balloon_alert_to_viewers("deactivated!")
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
 /obj/machinery/power/reality_anchor/proc/overload()
 	if(!on)
