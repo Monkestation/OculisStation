@@ -27,7 +27,7 @@
 
 /// We have a mob pressed to a wall, but only an harm aggressive grab can hold them there.
 /datum/element/wall_pin/proc/perform_wall_pin(turf/closed/wall/wall, mob/living/user)
-	if(!wall.Adjacent(user) || !isliving(user.pulling) || !user.combat_mode || user.pulling.GetComponent(/datum/component/wall_pin))
+	if(!wall.Adjacent(user) || !isliving(user.pulling) || !user.combat_mode || user.pulling.GetComponent(/datum/component/wall_pin) || HAS_TRAIT(user, TRAIT_PACIFISM))
 		return
 
 	var/wall_dir = get_dir(user, wall)
@@ -67,7 +67,7 @@
 	)
 	to_chat(pinned_mob, span_userdanger("[user] pins you against [wall]!"))
 	playsound(wall, 'sound/effects/hit_kick.ogg', 40, TRUE)
-	if(!HAS_TRAIT(user, TRAIT_PACIFISM)) pinned_mob.apply_damage(5, BRUTE)
+	pinned_mob.apply_damage(5, BRUTE)
 	wall.add_fingerprint(user)
 	wall.add_fingerprint(pinned_mob)
 
