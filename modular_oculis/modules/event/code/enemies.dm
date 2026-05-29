@@ -1,7 +1,7 @@
 /mob/living/basic/mining/watcher/cosmic_entity
 	name = "entrenched outcrop"
 	desc = "A surprisingly dense looking crystalline outcrop. It seems rooted into the floor."
-	icon = 'icons/effects/eldritch.dmi'
+	icon = 'modular_oculis/modules/event/icons/enemies.dmi'
 	icon_state = "cosmic_diamond"
 	maxHealth = 600
 	health = 600
@@ -26,10 +26,11 @@
 		/datum/ai_planning_subtree/ranged_skirmish/watcher,
 	)
 
+
 /mob/living/simple_animal/hostile/ooze/gelatinous/cosmic_entity
 	name = "ire"
 	desc = "<span class='danger'>You feel eternally watched near it.</span>"
-	icon = 'icons/effects/eldritch.dmi'
+	icon = 'modular_oculis/modules/event/icons/enemies.dmi'
 	icon_state = "emark6"
 	faction = list(FACTION_VIOLET)
 	del_on_death = TRUE
