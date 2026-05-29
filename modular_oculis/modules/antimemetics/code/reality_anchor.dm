@@ -83,7 +83,7 @@
 		balloon_alert(user, "no power!")
 		return
 	on = !on
-	use_power = on ? ACTIVE_POWER_USE : IDLE_POWER_USE
+	update_use_power(on ? ACTIVE_POWER_USE : IDLE_POWER_USE)
 	update_current_power_usage()
 	playsound(src, 'modular_nova/master_files/sound/effects/gmalfunction.ogg', 100, TRUE)
 	balloon_alert_to_viewers("[on ? null : "de"]activated!")
