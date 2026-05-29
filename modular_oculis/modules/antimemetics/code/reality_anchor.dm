@@ -34,7 +34,8 @@
 
 /obj/machinery/power/reality_anchor/examine(mob/user)
 	. = ..()
-	. += on ? "[span_purple("You feel stable.")]" : null
+	if(on)
+		. += span_purple("You feel stable.")
 
 /obj/machinery/power/reality_anchor/update_icon_state()
 	. = ..()
