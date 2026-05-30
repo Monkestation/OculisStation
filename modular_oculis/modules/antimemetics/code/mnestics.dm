@@ -19,20 +19,20 @@
 	purge_multiplier = 0.15
 	metabolized_traits = list(TRAIT_MNESTICS)
 
-/datum/reagent/medicine/mnestic/on_mob_metabolize(mob/living/carbon/affected_carbon)
+/datum/reagent/medicine/mnestic/on_mob_metabolize(mob/living/carbon/affected_mob)
 	. = ..()
-	to_chat(affected_carbon, span_big(span_boldnicegreen("You feel more in control of what you remember.")))
+	to_chat(affected_mob, span_big(span_boldnicegreen("You feel more in control of what you remember.")))
 
-/datum/reagent/medicine/mnestic/on_mob_end_metabolize(mob/living/carbon/affected_carbon)
+/datum/reagent/medicine/mnestic/on_mob_end_metabolize(mob/living/carbon/affected_mob)
 	. = ..()
-	to_chat(affected_carbon, span_big(span_bolddanger("You lose the force you had on your memories.")))
+	to_chat(affected_mob, span_big(span_bolddanger("You lose the force you had on your memories.")))
 
-/datum/reagent/medicine/mnestic/overdose_process(mob/living/affected_carbon, seconds_per_tick, metabolization_ratio)
-	affected_carbon.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.5 * seconds_per_tick * metabolization_ratio, required_organ_flag = affected_organ_flags)
-	affected_carbon.adjust_confusion(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
-	affected_carbon.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
-	affected_carbon.adjust_eye_blur(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
-	affected_carbon.adjust_drowsiness(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+/datum/reagent/medicine/mnestic/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
+	affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.5 * seconds_per_tick * metabolization_ratio, required_organ_flag = affected_organ_flags)
+	affected_mob.adjust_confusion(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+	affected_mob.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+	affected_mob.adjust_eye_blur(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+	affected_mob.adjust_drowsiness(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
 	return TRUE
 
 /datum/reagent/medicine/mnestic_x
@@ -45,19 +45,19 @@
 	chemical_flags = REAGENT_NO_RANDOM_RECIPE
 	purge_multiplier = 0.15
 
-/datum/reagent/medicine/mnestic_x/on_mob_metabolize(mob/living/carbon/affected_carbon)
+/datum/reagent/medicine/mnestic_x/on_mob_metabolize(mob/living/carbon/affected_mob)
 	. = ..()
-	to_chat(affected_carbon, span_big(span_boldnicegreen("You start to remember that which you had forgotten.")))
+	to_chat(affected_mob, span_big(span_boldnicegreen("You start to remember that which you had forgotten.")))
 
-/datum/reagent/medicine/mnestic_x/on_mob_end_metabolize(mob/living/carbon/affected_carbon)
+/datum/reagent/medicine/mnestic_x/on_mob_end_metabolize(mob/living/carbon/affected_mob)
 	. = ..()
-	to_chat(affected_carbon, span_big(span_bolddanger("You remember what shouldn't be remembered. It was real after all...")))
+	to_chat(affected_mob, span_big(span_bolddanger("You remember what shouldn't be remembered. It was real after all...")))
 
-/datum/reagent/medicine/mnestic_x/overdose_process(mob/living/affected_carbon, seconds_per_tick, metabolization_ratio)
-	affected_carbon.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.5 * seconds_per_tick * metabolization_ratio, required_organ_flag = affected_organ_flags)
-	affected_carbon.adjust_confusion(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
-	affected_carbon.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
-	affected_carbon.adjust_eye_blur(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
-	affected_carbon.adjust_drowsiness(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+/datum/reagent/medicine/mnestic_x/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
+	affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.5 * seconds_per_tick * metabolization_ratio, required_organ_flag = affected_organ_flags)
+	affected_mob.adjust_confusion(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+	affected_mob.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+	affected_mob.adjust_eye_blur(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+	affected_mob.adjust_drowsiness(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
 	return TRUE
 

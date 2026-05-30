@@ -19,26 +19,26 @@
 	chemical_flags = REAGENT_NO_RANDOM_RECIPE
 	metabolized_traits = list(TRAIT_AMNESTICS)
 
-/datum/reagent/medicine/amnestic/on_mob_metabolize(mob/living/carbon/affected_carbon)
+/datum/reagent/medicine/amnestic/on_mob_metabolize(mob/living/carbon/affected_mob)
 	. = ..()
-	if(!HAS_TRAIT(affected_carbon, TRAIT_MNESTICS))
-		to_chat(affected_carbon, span_big(span_hypnophrase("You feel specific memories slipping away.")))
+	if(!HAS_TRAIT(affected_mob, TRAIT_MNESTICS))
+		to_chat(affected_mob, span_big(span_hypnophrase("You feel specific memories slipping away.")))
 
-/datum/reagent/medicine/amnestic/on_mob_end_metabolize(mob/living/carbon/affected_carbon)
+/datum/reagent/medicine/amnestic/on_mob_end_metabolize(mob/living/carbon/affected_mob)
 	. = ..()
-	if(!HAS_TRAIT(affected_carbon, TRAIT_MNESTICS))
-		to_chat(affected_carbon, span_big(span_hypnophrase("You can't seem to remember what you forgot...")))
+	if(!HAS_TRAIT(affected_mob, TRAIT_MNESTICS))
+		to_chat(affected_mob, span_big(span_hypnophrase("You can't seem to remember what you forgot...")))
 
 /datum/reagent/medicine/amnestic/metabolize_reagent(mob/living/carbon/affected_mob, seconds_per_tick, metabolized_volume)
 	if(SPT_PROB(25, seconds_per_tick))
-		affected_carbon.adjust_drowsiness(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
-		affected_carbon.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+		affected_mob.adjust_drowsiness(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+		affected_mob.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
 
-/datum/reagent/medicine/amnestic/overdose_process(mob/living/affected_carbon, seconds_per_tick, metabolization_ratio)
+/datum/reagent/medicine/amnestic/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(SPT_PROB(25, seconds_per_tick))
-		affected_carbon.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.25 * seconds_per_tick * metabolization_ratio, required_organ_flag = affected_organ_flags)
-		affected_carbon.adjust_confusion(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
-		affected_carbon.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+		affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.25 * seconds_per_tick * metabolization_ratio, required_organ_flag = affected_organ_flags)
+		affected_mob.adjust_confusion(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+		affected_mob.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
 	return TRUE
 
 /datum/reagent/medicine/amnestic_b
@@ -51,22 +51,22 @@
 	chemical_flags = REAGENT_NO_RANDOM_RECIPE
 	metabolized_traits = list(TRAIT_AMNESTICS)
 
-/datum/reagent/medicine/amnestic_b/on_mob_metabolize(mob/living/carbon/affected_carbon)
+/datum/reagent/medicine/amnestic_b/on_mob_metabolize(mob/living/carbon/affected_mob)
 	. = ..()
-	to_chat(affected_carbon, span_big(span_hypnophrase("You feel your memories slipping away, starting with your most recent ones.")))
+	to_chat(affected_mob, span_big(span_hypnophrase("You feel your memories slipping away, starting with your most recent ones.")))
 
-/datum/reagent/medicine/amnestic_b/on_mob_end_metabolize(mob/living/carbon/affected_carbon)
+/datum/reagent/medicine/amnestic_b/on_mob_end_metabolize(mob/living/carbon/affected_mob)
 	. = ..()
-	to_chat(affected_carbon, span_big(span_hypnophrase("You can't seem to remember what you forgot...")))
+	to_chat(affected_mob, span_big(span_hypnophrase("You can't seem to remember what you forgot...")))
 
 /datum/reagent/medicine/amnestic_b/metabolize_reagent(mob/living/carbon/affected_mob, seconds_per_tick, metabolized_volume)
 	if(SPT_PROB(25, seconds_per_tick))
-		affected_carbon.adjust_drowsiness(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
-		affected_carbon.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+		affected_mob.adjust_drowsiness(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+		affected_mob.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
 
-/datum/reagent/medicine/amnestic_b/overdose_process(mob/living/affected_carbon, seconds_per_tick, metabolization_ratio)
+/datum/reagent/medicine/amnestic_b/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(SPT_PROB(25, seconds_per_tick))
-		affected_carbon.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.25 * seconds_per_tick * metabolization_ratio, required_organ_flag = affected_organ_flags)
-		affected_carbon.adjust_confusion(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
-		affected_carbon.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+		affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.25 * seconds_per_tick * metabolization_ratio, required_organ_flag = affected_organ_flags)
+		affected_mob.adjust_confusion(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+		affected_mob.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
 	return TRUE
