@@ -13,7 +13,7 @@
 	datum/saymode/saymode,
 	list/message_mods = list(),
 )
-	if(!lowertext(REDACTION_FILTER_CHECK(message)))
+	if(!LOWER_TEXT(REDACTION_FILTER_CHECK(message)))
 		return ..()
 	message = SSredaction.redact_sentence(message, src)
 	..()
