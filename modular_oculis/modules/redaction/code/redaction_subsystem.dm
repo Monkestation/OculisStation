@@ -10,7 +10,7 @@ SUBSYSTEM_DEF(redaction)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/redaction/proc/add_word(mob/user)
-	var/word = tgui_input_text(user, "Enter a word to redact from everyone.", "Word Redaction", null)
+	var/word = tgui_input_text(user, "Enter a word to redact from everyone.", "Word Redaction", null, encode = FALSE)
 	if(!word)
 		return
 	redacted_words |= lowertext(word)
@@ -31,17 +31,17 @@ SUBSYSTEM_DEF(redaction)
 		filter += REGEX_QUOTE(line)
 	redacted_words_regex = filter.len ? regex("\\b([jointext(filter, "|")])\\b", "i") : null
 
-#define REDACTION "█"
 
 /datum/controller/subsystem/redaction/proc/redact_sentence(sentence, mob/user)
-	var/character_count = length(SSredaction.redacted_words_regex.match)
-
-	var/generated_redaction = ""
-	for(var/i in 1 to character_count)
-		generated_redaction += REDACTION
-
-	var/redacted_sentence = replacetext(sentence, SSredaction.redacted_words_regex.match, generated_redaction)
+	var/redacted_sentence = replacetext_char(sentence, SSredaction.redacted_words_regex, GLOBAL_PROC_REF(replace_with_redactions))
 	message_admins("[ADMIN_LOOKUPFLW(user)]] attempted to say the word: [SSredaction.redacted_words_regex.match]")
 	return redacted_sentence
+
+#define REDACTION "█"
+
+/proc/replace_with_redactions(text)
+    . = ""
+    for(var/i = 1 to length_char(text))
+        . += REDACTION
 
 #undef REDACTION
