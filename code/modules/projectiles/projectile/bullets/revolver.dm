@@ -136,7 +136,7 @@
 
 /obj/projectile/bullet/c357
 	name = ".357 bullet"
-	damage = 60
+	damage = 60 //OCULIS EDIT, damage value edited in modular_oculis/modules/gun_related_things
 	wound_bonus = -30
 
 /obj/projectile/bullet/c357/phasic
