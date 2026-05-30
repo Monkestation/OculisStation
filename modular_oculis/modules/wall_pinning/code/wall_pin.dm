@@ -176,7 +176,7 @@
 
 		pinned_mob.remove_offsets(TRAIT_PINNED)
 
-		if(trip || release_damage)
+		if(trip)
 			playsound(pinning_surface, 'sound/effects/bang.ogg', 40, TRUE)
 			to_chat(pinned_mob, span_userdanger("[aggressor] slams into you as they lose grip!"))
 			pinned_mob.apply_damage(1 + release_damage, BRUTE)
