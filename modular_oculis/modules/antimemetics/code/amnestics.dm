@@ -29,7 +29,7 @@
 	if(!HAS_TRAIT(affected_mob, TRAIT_MNESTICS))
 		to_chat(affected_mob, span_big(span_hypnophrase("You can't seem to remember what you forgot...")))
 
-/datum/reagent/medicine/amnestic/metabolize_reagent(mob/living/carbon/affected_mob, seconds_per_tick, metabolized_volume)
+/datum/reagent/medicine/amnestic/metabolize_reagent(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(SPT_PROB(25, seconds_per_tick))
 		affected_mob.adjust_drowsiness(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
 		affected_mob.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
