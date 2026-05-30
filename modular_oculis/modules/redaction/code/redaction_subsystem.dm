@@ -13,7 +13,7 @@ SUBSYSTEM_DEF(redaction)
 	var/word = tgui_input_text(user, "Enter a word to redact from everyone.", "Word Redaction", null, encode = FALSE)
 	if(!word)
 		return
-	redacted_words |= lowertext(word)
+	redacted_words |= LOWER_TEXT(word)
 	reinitialize_regex()
 	return word
 
@@ -21,7 +21,7 @@ SUBSYSTEM_DEF(redaction)
 	var/word = tgui_input_list(user, "Select a word to approve.", "Word Approval", redacted_words, null)
 	if(!word)
 		return
-	redacted_words -= lowertext(word)
+	redacted_words -= LOWER_TEXT(word)
 	reinitialize_regex()
 	return word
 
