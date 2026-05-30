@@ -7,7 +7,7 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 */
 
 /* TODO:
-1. Implement pAI upgrades (exosuit piloting, 'laser' eyes, multitool systems, EMP resistance etc)
+1. Implement more pAI upgrades ('laser' eyes, multitool systems, EMP resistance etc)
 2. Implement interfaces (gives a simple, limited overview for those clicking on the card; allowing them to see pAI integrity, a list of upgrades [3 max], clear access and shutdown buttons)
 3. Implement disabler functionality (force pAI into card mode after a few shots)
 4. Add description stuff

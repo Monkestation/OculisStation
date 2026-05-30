@@ -1,5 +1,3 @@
-// TODO: add proper sprites. Make a list that holds all the upgrades so the deactivate proc can work properly
-
 /obj/item/pai_upgrade
 	name = "blank pAI upgrade"
 	desc = "An upgrade for older pAI systems."
@@ -25,7 +23,11 @@
 	if(!card)
 		return
 	paicard = card
-	if(paicard.installed_upgrades == paicard.max_upgrades || (paicard.installed_upgrades + slots_taken) > paicard.max_upgrades)
+	if(locate(type) in paicard.upgrades_list)
+		to_chat(user, span_alert("[paicard] already has this upgrade installed!"))
+		paicard = null
+		return
+	if((paicard.installed_upgrades + slots_taken) > paicard.max_upgrades)
 		to_chat(user, span_alert("[paicard] doesn't have enough upgrade slots for this."))
 		return
 	forceMove(paicard)
@@ -51,7 +53,8 @@
 
 /obj/item/pai_upgrade/exosuit/upgrade_activate(card)
 	. = ..()
-	paicard.pai.set_mech_access()
+	if(paicard)
+		paicard.pai.set_mech_access()
 	return
 
 /obj/item/pai_upgrade/exosuit/upgrade_remove()
