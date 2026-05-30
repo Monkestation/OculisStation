@@ -104,11 +104,11 @@
 	)
 	to_chat(pinned_mob, span_userdanger("[user] pins you against [pinning_surface]!"))
 	playsound(pinning_surface, 'sound/effects/hit_kick.ogg', 40, TRUE)
-	pinned_mob.apply_damage(5, BRUTE)
+	pinned_mob.apply_damage(2, BRUTE)
 	pinning_surface.add_fingerprint(user)
 	pinning_surface.add_fingerprint(pinned_mob)
 
-	log_combat(user, pinned_mob, "pinned", null, "against [pinning_surface]", HAS_TRAIT(user, TRAIT_PACIFISM) ? "without damage" : null)
+	log_combat(user, pinned_mob, "pinned", null, "against [pinning_surface]")
 
 /// Keeps a grabbed mob pinned in place until the grab is released, broken, or otherwise invalidated.
 /datum/component/wall_pin
@@ -121,6 +121,8 @@
 	var/pin_dir
 	/// Trait source used for the extra immobilization while pinned.
 	var/trait_source
+	/// Trip the aggresor and mob on removal.
+	var/trip
 
 /datum/component/wall_pin/Initialize(mob/living/aggressor, atom/pinning_surface)
 	if(!isliving(parent) || !istype(aggressor) || !istype(pinning_surface))
@@ -141,6 +143,7 @@
 	RegisterSignal(aggressor, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(on_aggressor_pre_move))
 	RegisterSignal(aggressor, COMSIG_MOVABLE_SET_GRAB_STATE, PROC_REF(on_aggressor_grab_state_change))
 	RegisterSignals(aggressor, list(COMSIG_ATOM_NO_LONGER_PULLING, COMSIG_MOVABLE_MOVED, COMSIG_QDELETING, COMSIG_LIVING_HEALTH_UPDATE, COMSIG_LIVING_DEATH), PROC_REF(check_pin))
+	RegisterSignal(pinning_surface, COMSIG_ATOM_DENSITY_CHANGED, PROC_REF(check_pin))
 
 	var/mob/living/pinned_mob = parent
 	ADD_TRAIT(pinned_mob, TRAIT_FORCED_STANDING, trait_source)
@@ -148,7 +151,7 @@
 	ADD_TRAIT(pinned_mob, TRAIT_HANDS_BLOCKED, trait_source)
 	ADD_TRAIT(pinned_mob, TRAIT_PULL_BLOCKED, trait_source)
 	ADD_TRAIT(pinned_mob, TRAIT_PINNED, trait_source)
-	if(pinned_mob.has_quirk(/datum/quirk/pushover))
+	if(!aggressor.has_quirk(/datum/quirk/pushover))
 		ADD_TRAIT(pinned_mob, TRAIT_GRABWEAKNESS, trait_source)
 
 	ADD_TRAIT(aggressor, TRAIT_IMMOBILIZED, trait_source)
@@ -156,9 +159,14 @@
 
 /datum/component/wall_pin/UnregisterFromParent()
 	UnregisterSignal(parent, list(COMSIG_MOVABLE_PRE_MOVE, COMSIG_LIVING_SET_PULL_OFFSET, COMSIG_ATOM_NO_LONGER_PULLED, COMSIG_MOVABLE_MOVED, COMSIG_QDELETING, COMSIG_LIVING_HEALTH_UPDATE, COMSIG_LIVING_DEATH))
+	UnregisterSignal(pinning_surface, COMSIG_ATOM_DENSITY_CHANGED)
+	var/mob/living/pinned_mob = parent
+	var/release_damage = 0
+
+	if(!QDELETED(aggressor) && (HAS_TRAIT(aggressor, TRAIT_OVERSIZED) || HAS_TRAIT(aggressor, TRAIT_HEAVYSET)))
+		release_damage += 50
 
 	if(!QDELETED(parent))
-		var/mob/living/pinned_mob = parent
 		REMOVE_TRAIT(pinned_mob, TRAIT_FORCED_STANDING, trait_source)
 		REMOVE_TRAIT(pinned_mob, TRAIT_IMMOBILIZED, trait_source)
 		REMOVE_TRAIT(pinned_mob, TRAIT_HANDS_BLOCKED, trait_source)
@@ -168,10 +176,25 @@
 
 		pinned_mob.remove_offsets(TRAIT_PINNED)
 
+		if(trip || release_damage)
+			playsound(pinning_surface, 'sound/effects/bang.ogg', 40, TRUE)
+			to_chat(pinned_mob, span_userdanger("[aggressor] slams into you as they lose grip!"))
+			pinned_mob.apply_damage(1 + release_damage, BRUTE)
+			pinned_mob.Move(get_step(pinned_mob, pin_dir))
+			pinned_mob.Paralyze(3 SECONDS)
+
 	if(!QDELETED(aggressor))
-		UnregisterSignal(aggressor, list(COMSIG_MOVABLE_PRE_MOVE, COMSIG_ATOM_NO_LONGER_PULLING, COMSIG_MOVABLE_SET_GRAB_STATE, COMSIG_MOVABLE_MOVED, COMSIG_QDELETING, COMSIG_LIVING_HEALTH_UPDATE, COMSIG_LIVING_DEATH))
+		UnregisterSignal(aggressor, list(COMSIG_MOVABLE_PRE_MOVE, COMSIG_ATOM_NO_LONGER_PULLING, COMSIG_MOVABLE_SET_GRAB_STATE, COMSIG_MOVABLE_MOVED, COMSIG_QDELETING, COMSIG_LIVING_HEALTH_UPDATE, COMSIG_LIVING_DEATH, COMSIG_ATOM_DENSITY_CHANGED))
 		REMOVE_TRAIT(aggressor, TRAIT_IMMOBILIZED, trait_source)
 		aggressor.remove_offsets(TRAIT_PINNED)
+
+		if(trip)
+			to_chat(aggressor, span_userdanger("You lose your footing and slam onto [pinned_mob]!"))
+			aggressor.Move(get_step(aggressor, pin_dir))
+			aggressor.Paralyze(0.5 SECONDS)
+
+	if(trip)
+		log_combat(aggressor, pinned_mob, "unpinned via falling", null)
 
 	aggressor = null
 	pinning_surface = null
@@ -230,18 +253,23 @@
 	apply_pin_offset(pinned_mob, REVERSE_DIR(pin_dir), 16, animate)
 
 /datum/component/wall_pin/proc/apply_pin_offset(mob/living/offset_mob, dir, offset, animate = FALSE)
+	var/mob/living/pinned_mob = parent
 	var/new_x = 0
 	var/new_y = 0
 
 	switch(dir)
 		if(SOUTH)
-			new_y += offset
+			new_y += HAS_TRAIT(aggressor, TRAIT_OVERSIZED) && offset_mob == pinned_mob ? offset - 8 : offset
 		if(NORTH)
-			new_y -= offset
+			new_y -= HAS_TRAIT(aggressor, TRAIT_OVERSIZED) && offset_mob == pinned_mob ? offset + 8 : offset
 		if(WEST)
 			new_x += offset
+			if(HAS_TRAIT(aggressor, TRAIT_OVERSIZED) && offset_mob == pinned_mob)
+				new_y += 8
 		if(EAST)
 			new_x -= offset
+			if(HAS_TRAIT(aggressor, TRAIT_OVERSIZED) && offset_mob == pinned_mob)
+				new_y += 8
 
 	offset_mob.add_offsets(TRAIT_PINNED, x_add = new_x, y_add = new_y, animate = animate)
 
@@ -260,6 +288,10 @@
 		return FALSE
 
 	if(!pinning_surface.Adjacent(aggressor) || !pinning_surface.Adjacent(pinned_mob))
+		return FALSE
+
+	if(!pinning_surface.density)
+		trip = TRUE
 		return FALSE
 
 	return TRUE
