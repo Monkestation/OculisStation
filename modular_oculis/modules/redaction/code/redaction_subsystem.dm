@@ -29,8 +29,7 @@ SUBSYSTEM_DEF(redaction)
 	var/list/filter = list()
 	for(var/line in redacted_words)
 		filter += REGEX_QUOTE(line)
-	redacted_words_regex = filter.len ? regex("\\b([jointext(filter, "|")](?:|es|ed|ing|er|ers|est|ly|ness|ment|ments)?)\\b", "i") : null
-
+	redacted_words_regex = filter.len ? regex("\\b([jointext(filter, "|")](?:s|es|ed|ing|er|ers|est|ly|ness|ment|ments)?)\\b", "gi") : null
 
 /datum/controller/subsystem/redaction/proc/redact_sentence(sentence, mob/user)
 	var/redacted_sentence = replacetext_char(sentence, SSredaction.redacted_words_regex, GLOBAL_PROC_REF(replace_with_redactions))
