@@ -27,7 +27,7 @@ SUBSYSTEM_DEF(redaction)
 
 /datum/controller/subsystem/redaction/proc/reinitialize_regex()
 	var/list/filter = list()
-	for(var/line as anything in redacted_words)
+	for(var/line in redacted_words)
 		filter += REGEX_QUOTE(line)
 	redacted_words_regex = filter.len ? regex("\\b([jointext(filter, "|")])\\b", "i") : null
 
