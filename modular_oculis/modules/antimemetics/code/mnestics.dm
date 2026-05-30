@@ -35,6 +35,11 @@
 	affected_mob.adjust_drowsiness(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
 	return TRUE
 
+/obj/item/reagent_containers/cup/bottle/mnestic
+	name = "class w mnestic bottle"
+	desc = "A small bottle of mnestics."
+	list_reagents = list(/datum/reagent/medicine/mnestic = 50)
+
 /datum/reagent/medicine/mnestic_x
 	name = "Class X Mnestics"
 	description = "Retroactive memory repair."
@@ -61,3 +66,7 @@
 	affected_mob.adjust_drowsiness(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
 	return TRUE
 
+/obj/item/reagent_containers/cup/bottle/mnestic_x
+	name = "class x mnestic bottle"
+	desc = "A small bottle of strong mnestics."
+	list_reagents = list(/datum/reagent/medicine/mnestic_x = 50)

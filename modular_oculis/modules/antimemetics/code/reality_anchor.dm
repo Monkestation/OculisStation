@@ -31,6 +31,11 @@
 /obj/machinery/power/reality_anchor/Initialize(mapload)
 	. = ..()
 	connect_to_network()
+	GLOB.reality_anchors += src
+
+/obj/machinery/power/reality_anchor/Destroy()
+	GLOB.reality_anchors -= src
+	return ..()
 
 /obj/machinery/power/reality_anchor/examine(mob/user)
 	. = ..()

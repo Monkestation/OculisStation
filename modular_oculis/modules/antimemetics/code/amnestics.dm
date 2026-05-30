@@ -41,6 +41,11 @@
 		affected_mob.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
 	return TRUE
 
+/obj/item/reagent_containers/cup/bottle/amnestic
+	name = "class a amnestic bottle"
+	desc = "A small bottle of amnestics."
+	list_reagents = list(/datum/reagent/medicine/amnestic = 50)
+
 /datum/reagent/medicine/amnestic_b
 	name = "Class B Amnestics"
 	description = "Retrograde amnesiac medicine."
@@ -59,7 +64,7 @@
 	. = ..()
 	to_chat(affected_mob, span_big(span_hypnophrase("You can't seem to remember what you forgot...")))
 
-/datum/reagent/medicine/amnestic_b/metabolize_reagent(mob/living/carbon/affected_mob, seconds_per_tick, metabolized_volume)
+/datum/reagent/medicine/amnestic_b/metabolize_reagent(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(SPT_PROB(25, seconds_per_tick))
 		affected_mob.adjust_drowsiness(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
 		affected_mob.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
@@ -70,3 +75,8 @@
 		affected_mob.adjust_confusion(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
 		affected_mob.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
 	return TRUE
+
+/obj/item/reagent_containers/cup/bottle/amnestic_b
+	name = "class b amnestic bottle"
+	desc = "A small bottle of strong amnestics."
+	list_reagents = list(/datum/reagent/medicine/amnestic = 50)

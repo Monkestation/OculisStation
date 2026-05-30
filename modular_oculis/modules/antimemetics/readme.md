@@ -19,6 +19,7 @@ This entire module contains everything relating to mechanical memetics, antimeme
 ### Defines:
 
 - `code/__DEFINES/~~oculis_defines/traits/declarations.dm`
+- `code/__DEFINES/~~oculis_defines/_globalvars/lists/objects.dm`
 
 ### Included files that are not contained in this module:
 
