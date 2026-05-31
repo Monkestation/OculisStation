@@ -10,7 +10,7 @@ This entire module contains everything relating to mechanical memetics, antimeme
 
 ### TG Proc/File Changes:
 
-- N/A
+- `code/__HELPERS/priority_announce.dm`
 
 ### Modular Overrides:
 
@@ -20,6 +20,7 @@ This entire module contains everything relating to mechanical memetics, antimeme
 
 - `code/__DEFINES/~~oculis_defines/traits/declarations.dm`
 - `code/__DEFINES/~~oculis_defines/_globalvars/lists/objects.dm`
+- `code/__DEFINES/~~oculis_defines/redaction.dm`
 
 ### Included files that are not contained in this module:
 

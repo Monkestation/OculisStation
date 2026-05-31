@@ -31,14 +31,14 @@
 
 /datum/reagent/medicine/amnestic/metabolize_reagent(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(SPT_PROB(25, seconds_per_tick))
-		affected_mob.adjust_drowsiness(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
-		affected_mob.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+		affected_mob.adjust_drowsiness_up_to(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio, 30 SECONDS)
+		affected_mob.adjust_staggered_up_to(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio, 30 SECONDS)
 
 /datum/reagent/medicine/amnestic/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(SPT_PROB(25, seconds_per_tick))
 		affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.25 * seconds_per_tick * metabolization_ratio, required_organ_flag = affected_organ_flags)
-		affected_mob.adjust_confusion(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
-		affected_mob.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+		affected_mob.adjust_confusion_up_to(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio, 30 SECONDS)
+		affected_mob.adjust_staggered_up_to(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio, 30 SECONDS)
 	return TRUE
 
 /obj/item/reagent_containers/cup/bottle/amnestic
@@ -66,14 +66,14 @@
 
 /datum/reagent/medicine/amnestic_b/metabolize_reagent(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(SPT_PROB(25, seconds_per_tick))
-		affected_mob.adjust_drowsiness(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
-		affected_mob.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+		affected_mob.adjust_drowsiness_up_to(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio, 30 SECONDS)
+		affected_mob.adjust_staggered_up_to(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio, 30 SECONDS)
 
 /datum/reagent/medicine/amnestic_b/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(SPT_PROB(25, seconds_per_tick))
 		affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.25 * seconds_per_tick * metabolization_ratio, required_organ_flag = affected_organ_flags)
-		affected_mob.adjust_confusion(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
-		affected_mob.adjust_staggered(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
+		affected_mob.adjust_confusion_up_to(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio, 30 SECONDS)
+		affected_mob.adjust_staggered_up_to(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio, 30 SECONDS)
 	return TRUE
 
 /obj/item/reagent_containers/cup/bottle/amnestic_b
