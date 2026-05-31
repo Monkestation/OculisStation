@@ -1,13 +1,3 @@
-/datum/chemical_reaction/mnestic
-	results = list(/datum/reagent/medicine/mnestic = 4)
-	required_reagents = list(
-		/datum/reagent/medicine/neurine = 1,
-		/datum/reagent/medicine/rezadone = 1,
-		/datum/reagent/medicine/psicodine = 1,
-		/datum/reagent/medicine/modafinil = 1,
-		)
-	reaction_tags = NONE
-
 /datum/reagent/medicine/mnestic
 	name = "Class W Mnestics"
 	description = "You can never forget a dose of mnestics."

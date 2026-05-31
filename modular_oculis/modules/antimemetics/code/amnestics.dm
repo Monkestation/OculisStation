@@ -30,6 +30,7 @@
 		to_chat(affected_mob, span_big(span_hypnophrase("You can't seem to remember what you forgot...")))
 
 /datum/reagent/medicine/amnestic/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
+	. = ..()
 	if(SPT_PROB(25, seconds_per_tick))
 		affected_mob.adjust_drowsiness_up_to(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio, 30 SECONDS)
 		affected_mob.adjust_staggered_up_to(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio, 30 SECONDS)
@@ -65,6 +66,7 @@
 	to_chat(affected_mob, span_big(span_hypnophrase("You can't seem to remember what you forgot...")))
 
 /datum/reagent/medicine/amnestic_b/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
+	. = ..()
 	if(SPT_PROB(25, seconds_per_tick))
 		affected_mob.adjust_drowsiness_up_to(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio, 30 SECONDS)
 		affected_mob.adjust_staggered_up_to(0.5 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio, 30 SECONDS)
