@@ -32,7 +32,6 @@
 /mob/living/silicon/pai_oculis/resolve_right_click_attack(atom/target, list/modifiers)
 	return target.attack_pai_secondary(src, modifiers)
 
-
 // Test in progress, will refine later
 /mob/living/silicon/pai_oculis/default_can_use_topic(src_object)
 	return UI_INTERACTIVE

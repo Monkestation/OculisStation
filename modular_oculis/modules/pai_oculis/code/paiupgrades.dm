@@ -60,3 +60,23 @@
 /obj/item/pai_upgrade/exosuit/upgrade_remove()
 	paicard.pai.set_mech_access()
 	return ..()
+
+// Upgrade that halves damage taken via EMPs
+/obj/item/pai_upgrade/empres
+	name = "pAI upgrade: EMP resistance"
+	desc = "An upgrade for older pAI systems. This one provides a pAI with active EMP shielding."
+	icon_state = "empres"
+	upgrade_message = "ELECTROMAGNETIC PULSE SHIELD ONLINE!"
+	remove_message = "ELECTROMAGNETIC PULSE SHIELD OFFLINE!"
+	var/total_res = 2 // How much resistance we provide
+	var/default_res = 1 // Used to set the pAIs resistance to EMPs back to its default (1) when the upgrade is removed
+
+/obj/item/pai_upgrade/empres/upgrade_activate(card)
+	. = ..()
+	if(paicard)
+		paicard.pai.emp_res = total_res
+	return
+
+/obj/item/pai_upgrade/empres/upgrade_remove()
+	paicard.pai.emp_res = default_res
+	return ..()

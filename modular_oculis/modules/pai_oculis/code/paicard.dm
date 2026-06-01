@@ -126,7 +126,6 @@
 		if(!coil.use(1))
 			balloon_alert(user, "Not enough cable!")
 			return ITEM_INTERACT_BLOCKING
-		user.visible_message(span_notice("[user] begins to repair some of [pai]'s internal wiring..."))
 		pai.adjust_fire_loss(-30)
 		playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
 		user.visible_message(span_notice("[user] repairs some of [pai]'s internal wiring."))

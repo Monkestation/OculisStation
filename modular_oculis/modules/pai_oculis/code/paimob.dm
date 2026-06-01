@@ -7,7 +7,7 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 */
 
 /* TODO:
-1. Implement more pAI upgrades ('laser' eyes, multitool systems, EMP resistance etc)
+1. Implement more pAI upgrades ('laser' eyes, multitool system)
 2. Implement interfaces (gives a simple, limited overview for those clicking on the card; allowing them to see pAI integrity, a list of upgrades [3 max], clear access and shutdown buttons)
 3. Implement disabler functionality (force pAI into card mode after a few shots)
 4. Add description stuff
@@ -55,6 +55,10 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 	radio = /obj/item/radio/headset/silicon/pai
 	initial_language_holder = /datum/language_holder/pai_oculis
 
+	// Our resistance to EMPs
+	var/emp_res = 1
+	// Whether laser eyes are available
+	var/laser_optics = FALSE
 	// Whether we can pilot exosuits.
 	var/can_pilot_mechs = FALSE
 	// Whether we have the ability to fold out into chassis mode
@@ -164,17 +168,24 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 
 /mob/living/silicon/pai_oculis/emp_act(severity)
 	. = ..()
-	to_chat(src, span_danger("WWARNING: ELECTROMAGNETIC PULSE DETECTED!"))
+	to_chat(src, span_danger("WARNING: ELECTROMAGNETIC PULSE DETECTED!"))
 	if(. & EMP_PROTECT_SELF || QDELETED(src))
 		return
+	var/heavy_damage = 50
+	var/light_damage = 30
+	var/total_damage = 0
 	switch(severity)
 		if(1)
-			take_bodypart_damage(burn = 50)
-			fold_in(forced = TRUE)
+			total_damage = heavy_damage / emp_res
+			take_bodypart_damage(burn = total_damage)
+			if(total_damage >= heavy_damage)
+				fold_in(forced = TRUE)
 			return
 		if(2)
-			take_bodypart_damage(burn = 30)
-			fold_in(forced = TRUE)
+			total_damage = light_damage / emp_res
+			take_bodypart_damage(burn = total_damage)
+			if(total_damage >= light_damage)
+				fold_in(forced = TRUE)
 			return
 
 // We have no laws, so we don't need to check for them or create new ones.
