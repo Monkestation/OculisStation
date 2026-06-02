@@ -14,7 +14,7 @@
 		"AI",
 		"Automated Overseer",
 		"Station Intelligence",
-		"Site Intelligence", /// keygenpie addition
+		"Site Intelligence", /// OCULIS addition
 	)
 
 /datum/job/assistant
@@ -119,7 +119,7 @@
 		"Bouncer",
 		"Service Guard",
 		"Doorman",
-		"Doorwoman", /// keygenpie addition
+		"Doorwoman", /// OCULIS addition
 		"Service Guard Cadet", //OCULIS ADDITION
 	)
 
@@ -217,7 +217,7 @@
 		"Comedian",
 		"Jester",
 		"Joker",
-		"Prankster", /// keygenpie addition
+		"Prankster", /// OCULIS addition
 	)
 
 /datum/job/cook
@@ -240,7 +240,7 @@
 		"Funeral Director",
 		"Medical Examiner",
 		"Mortician",
-		"Undertaker", /// keygenpie addition
+		"Undertaker", /// OCULIS addition
 	)
 
 /datum/job/curator
@@ -250,7 +250,7 @@
 		"Conservator",
 		"Journalist",
 		"Librarian",
-		"Scholar", /// keygenpie addition
+		"Scholar", /// OCULIS addition
 	)
 
 /datum/job/customs_agent
@@ -322,7 +322,7 @@
 		"Gene Analyzer",
 		"Gene Tailor",
 		"Mutation Researcher",
-		"Genetic Engineer", /// keygenpie addition
+		"Genetic Engineer", /// OCULIS addition
 	)
 
 /datum/job/head_of_personnel
@@ -344,7 +344,7 @@
 		"Security Supervisor",
 		"Security Director",
 		"Sheriff",
-		"Marshall", /// keygenpie addition
+		"Marshall", /// OCULIS addition
 	)
 
 /datum/job/janitor
@@ -493,7 +493,7 @@
 		"Security Specialist",
 		"Deputy",
 		"Constable",
-		"Peace Officer", /// keygenpie addition
+		"Peace Officer", /// OCULIS addition
 	)
 
 /datum/job/shaft_miner
