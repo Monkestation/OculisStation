@@ -21,6 +21,12 @@
 	///how big is the randomized aim radius when flicked
 	var/projectile_aim_radius = 30
 
+// OCULIS EDIT ADDITION START
+/obj/item/clothing/head/hair_tie/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/hat_stabilizer, loose_hat = FALSE)
+// OCULIS EDIT ADDITION END
+
 /obj/item/clothing/head/hair_tie/scrunchie
 	name = "scrunchie"
 	desc = "An elastic hair tie, its fabric is velvet soft."
