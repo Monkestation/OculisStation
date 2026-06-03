@@ -60,7 +60,7 @@
 
 /// We have a mob pressed to a surface, but only a harmful aggressive grab can hold them there.
 /datum/element/wall_pin/proc/perform_wall_pin(atom/pinning_surface, mob/living/user)
-	if(!pinning_surface.Adjacent(user) || !isliving(user.pulling) || !user.combat_mode || user.pulling.GetComponent(/datum/component/wall_pin) || HAS_TRAIT(user, TRAIT_PACIFISM))
+	if(!pinning_surface.Adjacent(user) || !isliving(user.pulling) || !user.combat_mode || HAS_TRAIT(user.pulling, TRAIT_PINNED) || HAS_TRAIT(user, TRAIT_PACIFISM))
 		return
 
 	if(!is_wall_pin_surface(pinning_surface))
