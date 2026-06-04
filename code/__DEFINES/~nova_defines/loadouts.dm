@@ -16,10 +16,6 @@
 
 /// Used to set custom descriptions.
 #define INFO_DESCRIBED "description"
-// OCULIS EDIT ADDITION START
-#define INFO_CUSTOM_COLOR "custom_color"
-#define INFO_COLOR_MODE "color_mode"
-// OCULIS EDIT ADDITION END
 
 /// Max amonut of misc / backpack items that are allowed.
 #define MAX_ALLOWED_MISC_ITEMS 3
