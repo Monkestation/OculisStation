@@ -1,6 +1,6 @@
 /obj/item/mod/control/pre_equipped/abel
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
-	icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
+	worn_icon = 'modular_oculis/modules/abel/icons/mod_clothing_worn.dmi'
+	icon = 'modular_oculis/modules/abel/icons/mod_clothing.dmi'
 	icon_state = "abel-control"
 	theme = /datum/mod_theme/abel
 	applied_modules = list(
