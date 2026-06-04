@@ -203,9 +203,9 @@
 
 	if(charging_state == POWER_IDLE)
 		return
-	if((charging_state == POWER_UP) && charge_count >= 100)
+	if((charging_state == POWER_UP) && (charge_count >= 100) && !on)
 		enable()
-	else if((charging_state == POWER_DOWN) && charge_count <= 0)
+	else if((charging_state == POWER_DOWN) && (charge_count <= 0) && on)
 		disable()
 	else
 		if(charging_state == POWER_UP)

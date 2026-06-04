@@ -22,7 +22,7 @@ This module is responsible for Eidolon's storm, anchor, as well as how both work
 
 ### Included files that are not contained in this module:
 
-- N/A
+- `tgui/packages/tgui/interfaces/RedspaceAnchor.tsx`
 
 ### Credits:
 

@@ -70,14 +70,15 @@ return (
         <LabeledList.Item label="Discharge Violetspace Energy">
             <Button.Confirm
             icon={'fire'}
-            children={"Discharge"}
             color="bad"
             confirmColor={"danger"}
             confirmIcon={'fa-exclamation-triangle'}
             confirmContent={"Confirm?"}
             disabled={!operational}
             onClick={() => act('discharge_violetspace')}
-            />
+            >
+            Discharge
+            </Button.Confirm>
         </LabeledList.Item>
         </LabeledList>
     </Section>
