@@ -1,6 +1,6 @@
 /datum/job/detective
 	title = JOB_DETECTIVE
-	description = "Investigate crimes, gather evidence, perform interrogations." /// OCULIS EDIT (prev. "Investigate crimes, gather evidence, perform interrogations, look badass, smoke cigarettes.")
+	description = "Investigate crimes, gather evidence, perform interrogations." /// OCULIS EDIT (ORIGINAL: "Investigate crimes, gather evidence, perform interrogations, look badass, smoke cigarettes.")
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_STATION
 	total_positions = 1
