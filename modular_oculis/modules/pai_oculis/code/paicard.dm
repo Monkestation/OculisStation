@@ -32,7 +32,6 @@
 
 /obj/item/pai_card_oculis/Initialize(mapload)
 	. = ..()
-
 	update_appearance()
 	ADD_TRAIT(src, TRAIT_CASTABLE_LOC, INNATE_TRAIT)
 

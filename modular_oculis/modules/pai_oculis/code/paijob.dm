@@ -28,3 +28,18 @@
 		return
 	var/mob/living/silicon/pai_oculis/pai_spawn = spawned
 	pai_spawn.unfold()
+
+// We just use the same spawn points as assistants. This means I don't have to map shit, which means I retain 0.01% of sanity
+/datum/job/pai/get_default_roundstart_spawn_point()
+	for(var/obj/effect/landmark/start/spawn_point as anything in GLOB.start_landmarks_list)
+		if(spawn_point.name != "Assistant")
+			continue
+		. = spawn_point
+		if(spawn_point.used)
+			continue
+		spawn_point.used = TRUE
+		break
+	if(!.)
+		. = ..()
+	if(!.)
+		log_mapping("Job [title] ([type]) couldn't find a round start spawn point.")
