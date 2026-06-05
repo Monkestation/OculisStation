@@ -55,8 +55,6 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 
 	// Our resistance to EMPs
 	var/emp_res = 1
-	// Whether laser eyes are available
-	var/laser_optics = FALSE
 	// Whether we can pilot exosuits.
 	var/can_pilot_mechs = FALSE
 	// Whether we have the ability to fold out into chassis mode
@@ -82,7 +80,7 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 		"butterfly" = TRUE,
 		"carp" = TRUE,
 		"cat" = TRUE,
-		"chicken" = FALSE,
+		"chicken" = TRUE,
 		"corgi" = TRUE,
 		"crow" = TRUE,
 		"duffel" = TRUE,
@@ -90,14 +88,14 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 		"frog" = TRUE,
 		"giant enemy spider" = TRUE,
 		"hawk" = TRUE,
-		"kitten" = FALSE,
+		"kitten" = TRUE,
 		"lizard" = TRUE,
 		"monkey" = TRUE,
 		"mothroach" = TRUE,
 		"mouse" = TRUE,
 		"mushroom" = TRUE,
 		"phantom" = TRUE,
-		"puppy" = FALSE,
+		"puppy" = TRUE,
 		"rabbit" = TRUE,
 		"repairbot" = TRUE,
 		"snake" = TRUE,

@@ -33,14 +33,20 @@ GLOBAL_LIST_INIT(pai_chassis, sort_list(list(
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "preferred_pai_chassis"
 
+/datum/preference/choiced/pai_chassis/init_possible_values()
+	return assoc_to_keys(GLOB.pai_chassis)
+
+/datum/preference/choiced/pai_chassis/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return
+
 /// Apply a pAIs preferred chassis
 /mob/living/silicon/pai_oculis/proc/apply_pref_chassis(client/player_client)
 	if(player_client.prefs?.read_preference(/datum/preference/choiced/pai_chassis))
 		var/list/chassis_choice = player_client.prefs.read_preference(/datum/preference/choiced/pai_chassis)
-		if(chassis_choice == "Random")
-			chassis_choice = pick(GLOB.pai_chassis)
 
-		set_chassis(GLOB.pai_chassis[chassis_choice])
+		chassis = GLOB.pai_chassis[chassis_choice]
+		update_appearance(UPDATE_DESC | UPDATE_ICON_STATE)
+		return
 
 /mob/living/silicon/pai_oculis/apply_prefs_job(client/player_client, datum/job/job)
 	apply_pref_name(/datum/preference/name/pai, player_client)
