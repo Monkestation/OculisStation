@@ -7,14 +7,12 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 */
 
 /* TODO:
-1. Implement more pAI upgrades ('laser' eyes, multitool system)
-2. Implement interfaces (gives a simple, limited overview for those clicking on the card; allowing them to see pAI integrity, a list of upgrades [3 max], clear access and shutdown buttons)
-3. Implement disabler functionality (force pAI into card mode after a few shots)
-4. Add description stuff
-5. Implement job functionality for roundstart/latejoining
-6. Add spawn locations when joining at roundstart. On each map. God help me.
-7. Need to add in a (very short) cooldown for switching between card form and chassis form, as well as an extended cooldown when hit with EMPs/disablers
-8. Add a software interface for the pAI itself (The ability to download programs, self clear access, manage programs, PDA functionality, etc)
+-Implement interfaces (gives a simple, limited overview for those clicking on the card; allowing them to see pAI integrity, a list of upgrades [3 max], clear access and shutdown buttons, alongside a software interface for the pAI itself (The ability to download programs, self clear access, manage programs, PDA functionality, etc))
+-Implement disabler functionality (force pAI into card mode after a few shots)
+-Add description stuff
+-Implement job functionality for roundstart/latejoining
+-Add spawn locations when joining at roundstart. On each map. God help me.
+-Need to add in a (very short) cooldown for switching between card form and chassis form, as well as an extended cooldown when hit with EMPs/disablers
 */
 
 /datum/language_holder/pai_oculis

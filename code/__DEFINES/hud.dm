@@ -113,9 +113,6 @@
 #define HUD_PAI_HOST_MONITOR "paimonitor"
 #define HUD_PAI_GPS "paigps"
 
-#define HUD_PAIOCU_SHELL "paiocushell" // Oculis edit start: Adds custom pAI oculis buttons
-#define HUD_PAIOCU_CHASSIS "paiocuchassis" // Oculis edit end
-
 #define HUD_GHOST_SPAWNERS "ghost_spawners"
 #define HUD_GHOST_ORBIT "ghost_orbit"
 #define HUD_GHOST_REENTER_CORPSE "ghost_corpse"

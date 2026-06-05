@@ -116,21 +116,22 @@
 
 // This is used for repairing burns with cable coil and applying pAI upgrades
 /obj/item/pai_card_oculis/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	if(!is_open(user) && !istype(tool, /obj/item/screwdriver))
-		return ITEM_INTERACT_BLOCKING
-	if(istype(tool, /obj/item/stack/cable_coil))
-		var/obj/item/stack/cable_coil/coil = tool
-		if(!pai.get_fire_loss())
-			balloon_alert(user, "No wire damage present!")
+	if(!istype(tool, /obj/item/screwdriver))
+		if(!is_open(user))
 			return ITEM_INTERACT_BLOCKING
-		if(!coil.use(1))
-			balloon_alert(user, "Not enough cable!")
-			return ITEM_INTERACT_BLOCKING
-		pai.adjust_fire_loss(-30)
-		playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
-		user.visible_message(span_notice("[user] repairs some of [pai]'s internal wiring."))
-		user.changeNext_move(CLICK_CD_MELEE)
-		return ITEM_INTERACT_SUCCESS
+		if(istype(tool, /obj/item/stack/cable_coil))
+			var/obj/item/stack/cable_coil/coil = tool
+			if(!pai.get_fire_loss())
+				balloon_alert(user, "No wire damage present!")
+				return ITEM_INTERACT_BLOCKING
+			if(!coil.use(1))
+				balloon_alert(user, "Not enough cable!")
+				return ITEM_INTERACT_BLOCKING
+			pai.adjust_fire_loss(-30)
+			playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
+			user.visible_message(span_notice("[user] repairs some of [pai]'s internal wiring."))
+			user.changeNext_move(CLICK_CD_MELEE)
+			return ITEM_INTERACT_SUCCESS
 
 	if(istype(tool, /obj/item/pai_upgrade))
 		var/obj/item/pai_upgrade/L = tool
