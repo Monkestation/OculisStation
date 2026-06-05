@@ -3,6 +3,7 @@
 #define STORM_INTENSITY_DRIZZLE 2
 #define STORM_INTENSITY_STORM 3
 #define STORM_INTENSITY_MONSOON 4
+#define STORM_INTENSITY_ADMIN 5
 
 /datum/storm_ruleset
 	/// Which storm intensity this ruleset belongs to. See defines for values.
@@ -32,9 +33,14 @@
 	min_pop = 25
 	storm_cooldown = 5 MINUTES
 
+/datum/storm_ruleset/admin
+	intensity = STORM_INTENSITY_ADMIN
+	min_pop = 999
+	storm_cooldown = 10 MINUTES
 
 #undef STORM_INTENSITY_NONE
 #undef STORM_INTENSITY_CALM
 #undef STORM_INTENSITY_DRIZZLE
 #undef STORM_INTENSITY_STORM
 #undef STORM_INTENSITY_MONSOON
+#undef STORM_INTENSITY_ADMIN

@@ -14,8 +14,8 @@
 	* and this is purelly done so that the code is readable without pulling out a calculator
 	* to make sure these values are right.
 	*/
-	active_power_usage = (6 MEGA WATTS) // Lotta fucking power to keep the storm at bay.
-	idle_power_usage = (100 KILO WATTS) // Slightly less power to keep it idle.
+	use_power = IDLE_POWER_USE
+	idle_power_usage = (6 MEGA WATTS) // Lotta fucking power to keep the storm at bay.
 
 	// 3x3 offset by one row
 	pixel_x = -32
@@ -153,7 +153,6 @@
 /obj/machinery/redspace_anchor/proc/enable()
 	charging_state = POWER_IDLE
 	on = TRUE
-	update_use_power(IDLE_POWER_USE)
 
 	//soundloop.start()
 	update_appearance()
@@ -166,7 +165,6 @@
 /obj/machinery/redspace_anchor/proc/disable()
 	charging_state = POWER_IDLE
 	on = FALSE
-	update_use_power(IDLE_POWER_USE)
 
 	//soundloop.stop()
 	update_appearance()
@@ -210,10 +208,8 @@
 	else
 		if(charging_state == POWER_UP)
 			charge_count += 2
-			update_use_power(ACTIVE_POWER_USE)
 		else if(charging_state == POWER_DOWN)
 			charge_count -= 2
-			update_use_power(IDLE_POWER_USE)
 
 		for(var/mob/mobs as anything in GLOB.mob_list)
 			var/turf/mob_turf = get_turf(mobs)
