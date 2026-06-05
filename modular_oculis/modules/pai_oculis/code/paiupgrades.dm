@@ -43,6 +43,10 @@
 	forceMove(paicard.drop_location())
 	paicard = null
 
+/obj/item/pai_upgrade/Destroy()
+	. = ..()
+	paicard = null
+
 // Upgrade that enables pAI exosuit access
 /obj/item/pai_upgrade/exosuit
 	name = "pAI upgrade: Mech pilot credentials"

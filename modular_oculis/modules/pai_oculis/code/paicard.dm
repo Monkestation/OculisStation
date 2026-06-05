@@ -167,4 +167,5 @@
 
 /obj/item/pai_card_oculis/Destroy()
 	pai = null
+	upgrades_list = null
 	return ..()
