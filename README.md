@@ -15,8 +15,8 @@
 | Code                     | [https://github.com/Monkestation/OculisStation](https://github.com/Monkestation/OculisStation)                                         |
 | Wiki                     | [https://oculis.miraheze.org/wiki/Main_Page](https://oculis.miraheze.org/wiki/Main_Page)                                               |
 | Nova's Codedocs          | [https://NovaSector.github.io/NovaSector/](https://NovaSector.github.io/NovaSector/)                                                   |
-| Oculis Station's Discord | [https://discord.gg/azps5ydx2F](https://discord.gg/azps5ydx2F)                                                                         |
-| Coderbus Discord         | [https://discord.gg/h77rMj2Eb8](https://discord.gg/h77rMj2Eb8)                                                                         |
+| Oculis Station's Discord | [https://discord.gg/h77rMj2Eb8](https://discord.gg/h77rMj2Eb8)                                                                         |
+| Coderbus Discord         | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)                                                                               |
 
 This is Oculis' [Iris' downstream](https://github.com/IrisSS13/IrisStation/) fork of [Nova Sector](https://github.com/NovaSector/NovaSector/), which in turn is a downstream fork of [/tg/station](https://github.com/tgstation/tgstation) created in BYOND.
 
