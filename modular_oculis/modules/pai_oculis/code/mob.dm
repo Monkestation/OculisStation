@@ -10,9 +10,8 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 -Implement interfaces (gives a simple, limited overview for those clicking on the card; allowing them to see pAI integrity, a list of upgrades [3 max], clear access and shutdown buttons, alongside a software interface for the pAI itself (The ability to download programs, self clear access, manage programs, PDA functionality, etc))
 -Implement disabler functionality (force pAI into card mode after a few shots)
 -Add description stuff
--Implement job functionality for roundstart/latejoining
--Add spawn locations when joining at roundstart. On each map. God help me.
 -Need to add in a (very short) cooldown for switching between card form and chassis form, as well as an extended cooldown when hit with EMPs/disablers
+-Add pAI upgrades to robotics exofabs
 */
 
 /datum/language_holder/pai_oculis
@@ -75,31 +74,31 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 	var/list/pai_access = list()
 	// List of available chassis
 	var/static/list/possible_chassis = list(
-		"bat" = TRUE,
-		"bee" = TRUE,
-		"butterfly" = TRUE,
-		"carp" = TRUE,
-		"cat" = TRUE,
-		"chicken" = TRUE,
-		"corgi" = TRUE,
-		"crow" = TRUE,
-		"duffel" = TRUE,
-		"fox" = TRUE,
-		"frog" = TRUE,
-		"giant enemy spider" = TRUE,
-		"hawk" = TRUE,
-		"kitten" = TRUE,
-		"lizard" = TRUE,
-		"monkey" = TRUE,
-		"mothroach" = TRUE,
-		"mouse" = TRUE,
-		"mushroom" = TRUE,
-		"phantom" = TRUE,
-		"puppy" = TRUE,
-		"rabbit" = TRUE,
-		"repairbot" = TRUE,
-		"snake" = TRUE,
-		"spider" = TRUE,
+		"bat",
+		"bee",
+		"butterfly",
+		"carp",
+		"cat",
+		"chicken",
+		"corgi",
+		"crow",
+		"duffel",
+		"fox",
+		"frog",
+		"giant enemy spider",
+		"hawk",
+		"kitten",
+		"lizard",
+		"monkey",
+		"mothroach",
+		"mouse",
+		"mushroom",
+		"phantom",
+		"puppy",
+		"rabbit",
+		"repairbot",
+		"snake",
+		"spider",
 	)
 
 /mob/living/silicon/pai_oculis/Initialize(mapload)
@@ -120,6 +119,7 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 	REMOVE_TRAIT(src, TRAIT_SILICON_ACCESS, ROUNDSTART_TRAIT)
 	// We can still interact with consoles, though
 	AddElement(/datum/element/dextrous, hud_type = hud_type)
+
 
 /mob/living/silicon/pai_oculis/update_icon_state()
 	icon_state = resting ? "[chassis]_rest" : "[chassis]"

@@ -44,10 +44,11 @@ GLOBAL_LIST_INIT(pai_chassis, sort_list(list(
 	if(player_client.prefs?.read_preference(/datum/preference/choiced/pai_chassis))
 		var/list/chassis_choice = player_client.prefs.read_preference(/datum/preference/choiced/pai_chassis)
 
-		chassis = GLOB.pai_chassis[chassis_choice]
+		chassis = chassis_choice
 		update_appearance(UPDATE_DESC | UPDATE_ICON_STATE)
 		return
 
 /mob/living/silicon/pai_oculis/apply_prefs_job(client/player_client, datum/job/job)
 	apply_pref_name(/datum/preference/name/pai, player_client)
 	apply_pref_chassis(player_client)
+
