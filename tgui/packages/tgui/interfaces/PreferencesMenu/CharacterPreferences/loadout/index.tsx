@@ -7,9 +7,8 @@ import {
   Button,
   Dimmer, // NOVA EDIT ADDITION: Multiple loadout presets
   Divider,
-  Dropdown,
-  // NOVA EDIT ADDITION: Multiple loadout presets
-  Flex,
+  Dropdown, // NOVA EDIT ADDITION: Multiple loadout presets
+  Flex, // NOVA EDIT ADDITION: Multiple loadout presets
   Icon,
   Input,
   NoticeBox,
@@ -464,7 +463,12 @@ function LoadoutPreviewSection() {
     >
       <Stack vertical fill>
         <Stack.Item grow align="center">
-          <CharacterPreview height="100%" width="240px" id={data.character_preview_view} /> {/* NOVA EDIT CHANGE - ORIGINAL: <CharacterPreview height="100%" id={data.character_preview_view} /> */}
+          <CharacterPreview
+            height="100%"
+            width="240px"
+            id={data.character_preview_view}
+          />{' '}
+          {/* NOVA EDIT CHANGE - ORIGINAL: <CharacterPreview height="100%" id={data.character_preview_view} /> */}
         </Stack.Item>
         <Stack.Divider />
         <Stack.Item align="center">

@@ -22,7 +22,7 @@
 	item_path = /obj/item/clothing/head/costume/nova/papakha
 
 /datum/loadout_item/head/standalone_hood
-	name = "Standalone Hood"
+	name = "Hood"
 	item_path = /obj/item/clothing/head/standalone_hood
 
 /*
@@ -78,42 +78,52 @@
 /datum/loadout_item/head/atmos_beret
 	name = "Beret - Atmospherics"
 	item_path = /obj/item/clothing/head/beret/atmos
+	group = "Jobs"
 
 /datum/loadout_item/head/beret_chem
 	name = "Beret - Chemist"
 	item_path = /obj/item/clothing/head/beret/medical/chemist
+	group = "Jobs"
 
 /datum/loadout_item/head/engi_beret
 	name = "Beret - Engineering"
 	item_path = /obj/item/clothing/head/beret/engi
+	group = "Jobs"
 
 /datum/loadout_item/head/beret_med
 	name = "Beret - Medical"
 	item_path = /obj/item/clothing/head/beret/medical
+	group = "Jobs"
 
 /datum/loadout_item/head/beret_paramedic
 	name = "Beret - Paramedic"
 	item_path = /obj/item/clothing/head/beret/medical/paramedic
+	group = "Jobs"
 
 /datum/loadout_item/head/beret_robo
 	name = "Beret - Roboticist"
 	item_path = /obj/item/clothing/head/beret/science/fancy/robo
+	group = "Jobs"
 
 /datum/loadout_item/head/beret_sci
 	name = "Beret - Scientist"
 	item_path = /obj/item/clothing/head/beret/science
+	group = "Jobs"
 
 /datum/loadout_item/head/cargo_beret
 	name = "Beret - Supply"
 	item_path = /obj/item/clothing/head/beret/cargo
+	group = "Jobs"
 
 /datum/loadout_item/head/beret_viro
 	name = "Beret - Virologist"
 	item_path = /obj/item/clothing/head/beret/medical/virologist
+	group = "Jobs"
 
 /datum/loadout_item/head/beret_clown
 	name = "Beret - Clown"
 	item_path = /obj/item/clothing/head/beret/clown
+	group = "Jobs"
 
 /*
 *	CAPS
@@ -157,8 +167,8 @@
 /datum/loadout_item/head/tarkon
 	name = "Tarkon Welder"
 	item_path = /obj/item/clothing/head/utility/welding/hat
-	blacklisted_roles = list(ALL_JOBS_SEC, ALL_JOBS_COM, JOB_PRISONER)
-	group = "Job-Locked"
+	blacklisted_roles = list(JOB_PRISONER)
+	group = "Jobs"
 
 /datum/loadout_item/head/welder
 	name = "Regular Welder"
@@ -299,6 +309,11 @@
 /*
 *	COSTUME
 */
+
+/datum/loadout_item/head/roman_helmet
+	name = "Roman Helmet"
+	item_path = /obj/item/clothing/head/helmet/roman/fake
+	group = "Costumes"
 
 /datum/loadout_item/head/rastafarian
 	group = "Costumes"
@@ -605,22 +620,27 @@
 /datum/loadout_item/head/trekcap
 	name = "Officer's Cap (White)"
 	item_path = /obj/item/clothing/head/hats/caphat/parade/fedcap
+	group = "Jobs"
 
 /datum/loadout_item/head/trekcapcap
 	name = "Officer's Cap (Black)"
 	item_path = /obj/item/clothing/head/hats/caphat/parade/fedcap/black
+	group = "Jobs"
 
 /datum/loadout_item/head/trekcapmedisci
 	name = "Officer's Cap - MedSci (Blue)"
 	item_path = /obj/item/clothing/head/hats/caphat/parade/fedcap/medsci
+	group = "Jobs"
 
 /datum/loadout_item/head/trekcapeng
 	name = "Officer's Cap - Eng (Yellow)"
 	item_path = /obj/item/clothing/head/hats/caphat/parade/fedcap/eng
+	group = "Jobs"
 
 /datum/loadout_item/head/trekcapsec
 	name = "Officer's Cap - OpSec (Red)"
 	item_path = /obj/item/clothing/head/hats/caphat/parade/fedcap/sec
+	group = "Jobs"
 
 /datum/loadout_item/head/trekcapcustom
 	name = "Officer's Cap (Colorable)"
@@ -638,11 +658,12 @@
 	name = "Naval Cap (Colorable, Gold Badge)"
 	item_path = /obj/item/clothing/head/hats/caphat/naval/custom/gold
 
+
 /datum/loadout_item/head/imperial_generic
 	name = "Naval Officer Cap"
 	item_path = /obj/item/clothing/head/hats/imperial
 /*
-*	JOB-LOCKED
+*	JOBS
 */
 
 //COM
@@ -650,101 +671,101 @@
 	name = "Captain's Naval Cap"
 	item_path = /obj/item/clothing/head/hats/imperial/cap
 	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
-	group = "Job-Locked"
+	group = "Jobs"
 
 //SERV
 /datum/loadout_item/head/imperial_hop
 	name = "Head of Personnel's Naval Cap"
 	item_path = /obj/item/clothing/head/hats/imperial/hop
 	restricted_roles = list(JOB_HEAD_OF_PERSONNEL, JOB_NT_REP)
-	group = "Job-Locked"
+	group = "Jobs"
 
 //MED
 /datum/loadout_item/head/imperial_cmo
 	name = "Chief Medical Officer's Naval Cap"
 	item_path = /obj/item/clothing/head/hats/imperial/cmo
 	restricted_roles = list(JOB_CHIEF_MEDICAL_OFFICER)
-	group = "Job-Locked"
+	group = "Jobs"
 
 //ENGI
 /datum/loadout_item/head/imperial_ce
 	name = "Chief Engineer's Blast Helmet"
 	item_path = /obj/item/clothing/head/hats/imperial/ce
 	restricted_roles = list(JOB_CHIEF_ENGINEER)
-	group = "Job-Locked"
+	group = "Jobs"
 
 //SEC
 /datum/loadout_item/head/navybluehoscap
 	name = "Head of Security's Naval Cap"
 	item_path = /obj/item/clothing/head/hats/imperial/hos
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
-	group = "Job-Locked"
+	group = "Jobs"
 
 /datum/loadout_item/head/navybluewardenberet
 	name = "Warden's Beret (Navy Blue)"
 	item_path = /obj/item/clothing/head/beret/sec/navywarden
 	restricted_roles = list(JOB_WARDEN)
-	group = "Job-Locked"
+	group = "Jobs"
 
 /datum/loadout_item/head/officerberet
 	name = "Security Beret"
 	item_path = /obj/item/clothing/head/beret/sec/nova
 	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
-	group = "Job-Locked"
+	group = "Jobs"
 
 /datum/loadout_item/head/navyblueofficerberet
 	name = "Security Beret (Navy Blue)"
 	item_path = /obj/item/clothing/head/beret/sec/navyofficer
 	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
-	group = "Job-Locked"
+	group = "Jobs"
 
 /datum/loadout_item/head/officercap
 	name = "Security Cap"
 	item_path = /obj/item/clothing/head/security_cap
 	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
-	group = "Job-Locked"
+	group = "Jobs"
 
 /datum/loadout_item/head/officergarrisoncap
 	name = "Security Cap - Garrison"
 	item_path = /obj/item/clothing/head/security_garrison
 	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
-	group = "Job-Locked"
+	group = "Jobs"
 
 /datum/loadout_item/head/officerpatrolcap
 	name = "Security Cap - Patrol"
 	item_path = /obj/item/clothing/head/hats/warden/police/patrol
 	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
-	group = "Job-Locked"
+	group = "Jobs"
 
 /datum/loadout_item/head/cowboyhat_sec
 	name = "Security Cattleman Hat"
 	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/sec
 	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
-	group = "Job-Locked"
+	group = "Jobs"
 
 /datum/loadout_item/head/cowboyhat_secwide
 	name = "Security Cattleman Hat - Wide-Brimmed"
 	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/wide/sec
 	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
-	group = "Job-Locked"
+	group = "Jobs"
 
 /datum/loadout_item/head/ushanka/sec
 	name = "Security Ushanka"
 	item_path = /obj/item/clothing/head/costume/ushanka/sec
 	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
-	group = "Job-Locked"
+	group = "Jobs"
 
 /datum/loadout_item/head/cybergoggles //Cyberpunk-P.I. Outfit
 	name = "Detective's Type-34P Forensics Headwear"
 	item_path = /obj/item/clothing/head/fedora/det_hat/cybergoggles
 	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
-	group = "Job-Locked"
+	group = "Jobs"
 
 /datum/loadout_item/head/detfedora
 	name = "Detective's Fedora"
 	item_path = /obj/item/clothing/head/fedora/det_hat
 	restricted_roles = list(JOB_DETECTIVE)
-	group = "Job-Locked"
+	group = "Jobs"
 
 /*
 *	DONATOR

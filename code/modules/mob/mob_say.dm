@@ -46,7 +46,7 @@
 
 	QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, TYPE_PROC_REF(/mob, emote), "me", NONE, message, TRUE), SSspeech_controller)
 
-/mob/try_speak(message, ignore_spam = FALSE, forced = null, filterproof = FALSE)
+/mob/try_speak(message, ignore_spam = FALSE, forced = null, filterproof = FALSE, mute_bypass = FALSE) //Oculis edit: adds 'mute_bypass', specifically to allow the 'Do' command to work for mute characters
 	var/list/filter_result
 	var/list/soft_filter_result
 	if(client && !forced && !filterproof)
@@ -87,7 +87,7 @@
 	if(sigreturn & COMPONENT_CANNOT_SPEAK)
 		return FALSE
 
-	if(!..()) // the can_speak check
+	if(!..() && !mute_bypass) // the can_speak check + OCULIS EDIT: adds mute_bypass check for the Do command
 		if(HAS_MIND_TRAIT(src, TRAIT_MIMING))
 			to_chat(src, span_green("Your vow of silence prevents you from speaking!"))
 		else
@@ -164,12 +164,7 @@
 	var/displayed_key = key
 	if(client?.holder?.fakekey)
 		displayed_key = null
-	deadchat_broadcast(rendered, source, follow_target = src, speaker_key = displayed_key)
-	for(var/mob/mobs_hearing as anything in GLOB.player_list)
-		if(SSticker.current_state != GAME_STATE_FINISHED && (mobs_hearing.see_invisible < invisibility || !isdead(mobs_hearing)))
-			continue
-		if(runechat_prefs_check(mobs_hearing))
-			mobs_hearing.create_chat_message(src, /datum/language/common, message)
+	deadchat_broadcast(rendered, source, follow_target = src, speaker_key = displayed_key, original_message = message)
 
 ///Check if this message is an emote
 /mob/proc/check_emote(message, forced)

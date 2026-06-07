@@ -117,9 +117,9 @@
 			var/obj/item/organ/horms = ethereal.organs_slot["horns"]
 			horms.bodypart_overlay.draw_color = list(current_color)
 		// OCULIS EDIT ADDITION END
-		ethereal.update_body()
 		ethereal.set_facial_haircolor(current_color, override = TRUE, update = FALSE)
-		ethereal.set_haircolor(current_color, override = TRUE,  update = TRUE)
+		ethereal.set_haircolor(current_color, override = TRUE, update = FALSE)
+		ethereal.update_body()
 	else
 		ethereal_light.set_light_on(FALSE)
 		// OCULIS EDIT REMOVAL START
@@ -135,10 +135,9 @@
 			horms.bodypart_overlay.draw_color = list(dead_color)
 		current_color = dead_color //Ethereal limbs directly get the color of the ethereal's current_color and not fixed_mut_color.
 		// OCULIS EDIT ADDITION END
-		ethereal.update_body()
 		ethereal.set_facial_haircolor(dead_color, override = TRUE, update = FALSE)
-		ethereal.set_haircolor(dead_color, override = TRUE, update = TRUE)
-	ethereal.update_body()
+		ethereal.set_haircolor(dead_color, override = TRUE, update = FALSE)
+		ethereal.update_body()
 
 /datum/species/ethereal/proc/on_emp_act(mob/living/carbon/human/source, severity, protection)
 	SIGNAL_HANDLER
