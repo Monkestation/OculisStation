@@ -61,7 +61,7 @@ For getting started (dev env, compilation) see the HackMD document [here](https:
 
 For overall design documentation see [HackMD](https://hackmd.io/@tgstation).
 
-For TG lore, [see Common Core](https://github.com/tgstation/common_core). Oculis lore is currently under development and will be released on [wiki](https://oculis.miraheze.org/wiki/Lore).
+Oculis lore is currently under development and will be released on [wiki](https://oculis.miraheze.org/wiki/Lore).
 
 ## LICENSE
 
