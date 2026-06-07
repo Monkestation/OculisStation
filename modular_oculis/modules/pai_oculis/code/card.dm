@@ -15,7 +15,7 @@
 	drop_sound = SFX_GENERIC_DEVICE_DROP
 
 	// The screen our pAI will be using
-	var/datum/pai_screen_oculis/screen_image = /datum/pai_screen_oculis/off
+	var/datum/pai_screen_oculis/screen_image = /datum/pai_screen_oculis/on
 	// The pAI the card belongs to
 	var/mob/living/silicon/pai_oculis/pai
 	// Whether the card's maintenance hatch is open
@@ -29,24 +29,30 @@
 	// The precise list of upgrades we have installed
 	var/upgrades_list = list()
 
-
 /obj/item/pai_card_oculis/Initialize(mapload)
 	. = ..()
 	update_appearance()
 	ADD_TRAIT(src, TRAIT_CASTABLE_LOC, INNATE_TRAIT)
 
-
 // pAI screen image datums
-// TODO: Add screens for a basic 'on' setting (just a green screen) and a 'dead' screen (spiderweb cracked screen type thing, perhaps)
 
 /datum/pai_screen_oculis
 	var/name
 	var/icon/icon = 'modular_oculis/modules/pai_oculis/icons/pai_old.dmi'
 	var/icon_state
 
+	name = "Off"
 /datum/pai_screen_oculis/off
 	name = "Off"
 	icon_state = "pai-off"
+
+/datum/pai_screen_oculis/on
+	name = "On"
+	icon_state = "pai-on"
+
+/datum/pai_screen_oculis/dead
+	name = "Dead"
+	icon_state = "pai-dead"
 
 /datum/pai_screen_oculis/what
 	name = "What"
@@ -75,6 +81,16 @@
 /datum/pai_screen_oculis/angry
 	name = "Angry"
 	icon_state = "pai-angry"
+
+/obj/item/pai_card_oculis/update_overlays()
+	. = ..()
+	. += image(icon = screen_image.icon, icon_state = screen_image.icon_state)
+
+// Updates the screen appearance if the card's screen image is VV'd
+/obj/item/pai_card_oculis/vv_edit_var(vname, vval)
+	. = ..()
+	if(vname == NAMEOF(src, screen_image))
+		update_appearance()
 
 // Tools and how they interact with our card.
 
@@ -168,3 +184,32 @@
 	pai = null
 	upgrades_list = null
 	return ..()
+
+// tgui shenanigans
+
+/obj/item/pai_card_oculis/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "PaiCardOculis", "Debug Menu ([pai.name])")
+		ui.open()
+
+/obj/item/pai_card_oculis/ui_data(mob/user)
+	var/list/data = list()
+	data["health"] = pai.health
+	data["maxHealth"] = pai.maxHealth
+	data["name"] = pai.name
+
+	return data
+
+/obj/item/pai_card_oculis/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+	if(action == "clearaccess")
+		to_chat(usr, span_notice("You clear [pai.name]'s access credentials!"))
+		pai.clear_access()
+	if(action == "unfold")
+		if(!pai.can_switch_forms)
+			to_chat(usr,span_danger("[src] displays an error; something is preventing its internal mechanisms from functioning properly!"))
+			return
+		pai.unfold(TRUE)

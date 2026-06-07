@@ -67,7 +67,9 @@
 	if(full_heal_flags & HEAL_ADMIN)
 		card.in_maintenance = FALSE
 	update_stat()
-	can_unfold = TRUE
+	can_switch_forms = TRUE
 	playsound(src, 'sound/effects/pai_boot.ogg', 50, FALSE)
 	card.visible_message(span_alert("[src]'s systems come back online!"))
+	card.screen_image = /datum/pai_screen_oculis/on
+	card.update_appearance()
 	return TRUE

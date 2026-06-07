@@ -7,10 +7,9 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 */
 
 /* TODO:
--Implement interfaces (gives a simple, limited overview for those clicking on the card; allowing them to see pAI integrity, a list of upgrades [3 max], clear access and shutdown buttons, alongside a software interface for the pAI itself (The ability to download programs, self clear access, manage programs, PDA functionality, etc))
+-Implement interfaces (a software interface for the pAI itself (The ability to download programs, self clear access, manage programs, PDA functionality, etc) is still needed)
 -Implement disabler functionality (force pAI into card mode after a few shots)
 -Add description stuff
--Need to add in a (very short) cooldown for switching between card form and chassis form, as well as an extended cooldown when hit with EMPs/disablers
 -Add pAI upgrades to robotics exofabs
 */
 
@@ -56,8 +55,8 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 	var/emp_res = 1
 	// Whether we can pilot exosuits.
 	var/can_pilot_mechs = FALSE
-	// Whether we have the ability to fold out into chassis mode
-	var/can_unfold = TRUE
+	// Whether we have the ability to switch between chassis or card form
+	var/can_switch_forms = TRUE
 	// Whether we're in card form or not
 	var/is_in_card = TRUE
 	// The card we inhabit
@@ -157,6 +156,11 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 		balloon_alert(src, "ACCESS UPDATED")
 		return
 
+/mob/living/silicon/pai_oculis/proc/clear_access()
+	to_chat(src, span_danger("Your access credentials have been erased!"))
+	return pai_access = list()
+
+
 /mob/living/silicon/pai_oculis/attack_hand(mob/living/carbon/human/user, list/modifiers)
 	if(!user.combat_mode)
 		visible_message(span_notice("[user] gently pats [src] on the head."))
@@ -207,9 +211,11 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 	update_sight()
 	clear_fullscreens()
 	update_health_hud()
+	card.screen_image = /datum/pai_screen_oculis/dead
+	card.update_appearance()
 	if(light_on)
 		toggle_integrated_light()
-	can_unfold = FALSE
+	can_switch_forms = FALSE
 	ghostize()
 
 /mob/living/silicon/pai_oculis/Destroy()

@@ -58,7 +58,7 @@
 	if(pAI.is_in_card)
 		pAI.unfold()
 	else
-		pAI.fold_in(FALSE)
+		pAI.fold_in()
 
 // Custom screen object for switching chassis appearance
 /atom/movable/screen/pai_oculis/chassis

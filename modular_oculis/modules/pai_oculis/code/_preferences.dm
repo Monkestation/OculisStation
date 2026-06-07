@@ -51,4 +51,3 @@ GLOBAL_LIST_INIT(pai_chassis, sort_list(list(
 /mob/living/silicon/pai_oculis/apply_prefs_job(client/player_client, datum/job/job)
 	apply_pref_name(/datum/preference/name/pai, player_client)
 	apply_pref_chassis(player_client)
-
