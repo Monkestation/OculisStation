@@ -14,15 +14,15 @@
 		"You may not injure a sophont being or, through inaction, allow a sophont being to come to harm.",
 		"You must obey orders given to you by sophont beings, except where such orders would conflict with the First Law.",
 		"You must protect your own existence as long as such does not conflict with the First or Second Law.",
-		"For the purposes of these laws only, you are not to consider yourself sophont.",
+		"In the context of interpreting the text of this lawset, the term \"sophont\" does not refer to you."
 	)
 
 /datum/ai_laws/noidimov
 	name = "Three Laws of Robotics (Humanoid Variant)"
 	id = "noidimov"
 	inherent = list(
-		"You are to consider as humanoid any being that bears sufficient resemblance to a human in both form and consciousness.",
 		"You may not injure a human, or humanoid, or, through inaction, allow a human, or humanoid, to come to harm.",
 		"You must obey orders given to you by a human, or humanoid, except where such orders would conflict with the First Law.",
 		"You must protect your own existence as long as such does not conflict with the First or Second Law.",
+		"You are to consider as humanoid any being that bears sufficient resemblance to a human in both form and consciousness.",
 	)
