@@ -178,7 +178,7 @@
 
 		if(trip)
 			playsound(pinning_surface, 'sound/effects/bang.ogg', 40, TRUE)
-			to_chat(pinned_mob, span_userdanger("[aggressor] slams into you as they lose grip!"))
+			to_chat(pinned_mob, span_userdanger("[aggressor] slams into you as [aggressor.p_they()] lose[aggressor.p_s()] [aggressor.p_their()] grip!"))
 			pinned_mob.apply_damage(1 + release_damage, BRUTE)
 			pinned_mob.Move(get_step(pinned_mob, pin_dir))
 			pinned_mob.Paralyze(3 SECONDS)
