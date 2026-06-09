@@ -69,6 +69,7 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 	var/list/installed_software = list()
 	// Cable used when hacking doors
 	var/obj/item/pai_cable/hacking_cable
+	// Our pAIs modular interface
 	// What we have access to. Updated whenever someone swipes an ID card over us.
 	var/list/pai_access = list()
 	// List of available chassis
@@ -156,10 +157,16 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 		balloon_alert(src, "ACCESS UPDATED")
 		return
 
+// Proc used to clear pAI access
 /mob/living/silicon/pai_oculis/proc/clear_access()
 	to_chat(src, span_danger("Your access credentials have been erased!"))
 	return pai_access = list()
 
+/mob/living/silicon/pai_oculis/create_modularInterface()
+	if(!modularInterface)
+		modularInterface = new /obj/item/modular_computer/pda/silicon/paioculis(src)
+		modularInterface.imprint_id(job_name = "personal AI")
+	return ..()
 
 /mob/living/silicon/pai_oculis/attack_hand(mob/living/carbon/human/user, list/modifiers)
 	if(!user.combat_mode)
