@@ -14,7 +14,7 @@
 		"AI",
 		"Automated Overseer",
 		"Station Intelligence",
-		"Site Intelligence", /// OCULIS addition
+		"Site Intelligence", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/assistant
