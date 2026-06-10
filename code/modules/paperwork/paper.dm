@@ -246,9 +246,9 @@
 	if(is_signature)
 		field_text = signature_name
 	else if(is_date)
-		field_text = "[time2text(world.timeofday, "DD/MM")]/[CURRENT_STATION_YEAR]"
+		field_text = "[server_timestamp("DD/MM/YYYY", ic_time = TRUE)]"
 	else if(is_time)
-		field_text = time2text(world.timeofday, "hh:mm")
+		field_text = round_timestamp()
 
 	var/field_font = is_signature ? SIGNATURE_FONT : font
 
@@ -339,7 +339,6 @@
 
 /obj/item/paper/verb/rename()
 	set name = "Rename paper"
-	set category = "Object"
 	set src in usr
 
 	if(!usr.can_read(src) || usr.is_blind() || INCAPACITATED_IGNORING(usr, INCAPABLE_RESTRAINTS|INCAPABLE_GRAB) || (isobserver(usr) && !isAdminGhostAI(usr)))
@@ -867,10 +866,8 @@
 /// Returns the raw contents of the input as html, with **ZERO SANITIZATION**
 /datum/paper_input/proc/to_raw_html()
 	var/final = raw_text
-	if(font)
-		final = "<font face='[font]'>[final]</font>"
-	if(colour)
-		final = "<font color='[colour]'>[final]</font>"
+	if(font || colour)
+		final = "<font[" color='[colour]'"][" face='[font]'"]>[final]</font>"
 	if(bold)
 		final = "<b>[final]</b>"
 	return final

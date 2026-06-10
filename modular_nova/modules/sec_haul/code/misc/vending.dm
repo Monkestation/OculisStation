@@ -28,6 +28,7 @@
 		/obj/item/watertank/pepperspray = 2,
 		/obj/item/storage/belt/holster/energy = 4,
 		/obj/item/storage/box/holobadge = 1,
+		/obj/item/ammo_box/advanced/s12gauge/frangible = 2,
 	)
 
 /obj/machinery/vending/wardrobe/sec_wardrobe
@@ -61,11 +62,17 @@
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec = 4,
 				/obj/item/clothing/gloves/color/black/security = 4,
 				/obj/item/clothing/shoes/jackboots/sec = 4,
+				/obj/item/clothing/shoes/jackboots/gogo_boots = 4,
 				/obj/item/storage/backpack/security = 4,
 				/obj/item/storage/backpack/satchel/sec = 4,
 				/obj/item/storage/backpack/duffelbag/sec = 4,
 				/obj/item/storage/backpack/messenger/sec = 4,
-				/obj/item/clothing/head/costume/ushanka/sec = 4
+				/obj/item/clothing/head/costume/ushanka/sec = 4,
+				/obj/item/clothing/suit/armor/security_tailcoat = 6,
+				/obj/item/clothing/neck/tie/bunnytie/security = 6,
+				/obj/item/clothing/suit/armor/security_tailcoat/assistant = 6,
+				/obj/item/clothing/neck/tie/bunnytie/security_assistant = 6,
+				/obj/item/clothing/neck/tie/bunnytie/prisoner = 6,
 			),
 		),
 
@@ -78,7 +85,7 @@
 				/obj/item/clothing/head/security_cap = 4,
 				/obj/item/clothing/head/helmet/sec/white = 3,
 				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
-				///obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4, temporary
+				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
 				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
 				/obj/item/clothing/suit/armor/vest/brit = 3,
 				/obj/item/clothing/neck/security_cape = 4,
@@ -123,4 +130,5 @@
 		/obj/item/clothing/suit/armor/vest/hc_police = 3,
 		/obj/item/clothing/suit/armor/vest/hc_police_jacket = 3,
 		)
+
 	payment_department = ACCOUNT_SEC

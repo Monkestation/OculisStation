@@ -1,6 +1,6 @@
 /obj/structure/xen_crystal
 	name = "resonating crystal"
-	desc = "A strange resinating crystal."
+	desc = "A strange resonating crystal." //OCULIS EDIT
 	icon = 'modular_iris/modules/black_mesa/icons/plants.dmi'
 	icon_state = "crystal"
 	light_power = 2

@@ -10,6 +10,16 @@
 				/obj/item/clothing/suit/costume/samurai = 5,
 				/obj/item/clothing/suit/dutchjacketsr = 5,
 				/obj/item/clothing/head/costume/sombrero = 5,
+				/obj/item/clothing/neck/tie/bunnytie = 6,
+				/obj/item/clothing/neck/tie/bunnytie/blue = 6,
+				/obj/item/clothing/neck/tie/bunnytie/communist = 6,
+				/obj/item/clothing/neck/tie/bunnytie/magician = 6,
+				/obj/item/clothing/suit/jacket/tailcoat = 6,
+				/obj/item/clothing/suit/jacket/tailcoat/british = 6,
+				/obj/item/clothing/suit/jacket/tailcoat/communist = 6,
+				/obj/item/clothing/suit/jacket/tailcoat/magician = 6,
+				/obj/item/clothing/suit/jacket/tailcoat/plasmaman = 6,
+				/obj/item/clothing/suit/jacket/tailcoat/usa = 6,
 			),
 		),
 		list(
@@ -25,6 +35,10 @@
 				/obj/item/clothing/under/rank/civilian/clown/pink_clown_outfit = 5,
 				/obj/item/clothing/shoes/clown_shoes/pink/heels = 5,
 				/obj/item/clothing/gloves/pink_clown = 5,
+				/obj/item/clothing/neck/tie/clown = 3,
+				/obj/item/clothing/shoes/clown_shoes/heeled = 3,
+				/obj/item/clothing/suit/jacket/tailcoat/clown = 3,
+				/obj/item/clothing/suit/jacket/tailcoat/mime = 3,
 			),
 		),
 		list(
@@ -97,6 +111,8 @@
 		/obj/item/clothing/gloves/tactical_maid = 5,
 		/obj/item/clothing/under/syndicate/nova/maid/loadout_maid = 5,
 		/obj/item/clothing/accessory/maidcorset/syndicate/loadout_corset = 5,
+		/obj/item/clothing/neck/tie/bunnytie/syndicate = 3, //Armored but it's only Fire and Acid, not a balance concern
+		/obj/item/clothing/suit/jacket/tailcoat/syndicate/fake = 3,
 	)
 
 	premium_nova = list(

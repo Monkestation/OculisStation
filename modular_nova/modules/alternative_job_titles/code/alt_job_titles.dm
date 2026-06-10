@@ -118,6 +118,7 @@
 		"Bouncer",
 		"Service Guard",
 		"Doorman",
+		"Service Guard Cadet", //OCULIS ADDITION
 	)
 
 /datum/job/corrections_officer
@@ -173,6 +174,8 @@
 		"Reverend",
 		"Shrine Maiden",
 		"Shrine Guardian",
+		"Shaman", //OCULIS ADDITION START
+		"Acolyte",
 	)
 
 /datum/job/chemist
@@ -249,6 +252,8 @@
 	alt_titles = list(
 		"Customs Agent",
 		"Supply Guard",
+		"Union Customs Agent", //OCULIS ADDITION START
+		"Supply Guard Trainee",
 	)
 
 /datum/job/cyborg
@@ -282,9 +287,16 @@
 		"Physician Assistant",
 		"Emergency Physician",
 		"Registered Nurse",
+		"Theoretical Physician", //OCULIS ADDITION
 	)
 
-/datum/job/engineering_guard //see orderly
+/datum/job/engineering_guard //see orderly //OCULIS EDIT, alt titles
+	alt_titles = list(
+		"Engineering Guard",
+		"OSHA Enforcer",
+		"Engineering Guard In-Training",
+		"Equipment Inspector",
+	)
 
 /datum/job/explorer // IRIS EDIT - EXPLORER JOB
 	alt_titles = list(
@@ -294,6 +306,7 @@
 		"Navigator",
 		"Frontiersperson",
 		"Apprentice Explorer",
+		"Union Explorer", //OCULIS ADDITION
 	)
 
 /datum/job/geneticist
@@ -378,6 +391,7 @@
 	alt_titles = list(
 		"Orderly",
 		"Medical Guard",
+		"Medical Guard In-Training", //OCULIS ADDITION
 	) //other dept guards' alt-titles should be kept to [department] guard to avoid confusion, unless the department gets a re-do.
 
 /datum/job/paramedic
@@ -441,8 +455,12 @@
 		"Apprentice Roboticist",
 	)
 
-/datum/job/science_guard //See orderly
-
+/datum/job/science_guard //See orderly //OCULIS EDIT, alt titles
+	alt_titles = list(
+		"Science Guard",
+		"Research Facility Protector",
+		"Science Guard Trainee",
+	)
 /datum/job/scientist
 	alt_titles = list(
 		"Scientist",

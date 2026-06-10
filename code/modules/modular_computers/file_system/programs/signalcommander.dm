@@ -79,7 +79,7 @@
 	if(user)
 		computer.balloon_alert(user, "signaled")
 
-	var/time = time_stamp()
+	var/time = server_timestamp()
 	var/turf/T = get_turf(computer)
 	var/user_deets
 	if(signaling)

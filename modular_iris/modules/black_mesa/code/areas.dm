@@ -1,5 +1,6 @@
 /area/awaymission/black_mesa
 	name = "Black Mesa Inside"
+	requires_power = FALSE //OCULIS ADDITION, objects inside should be powered now
 
 /area/awaymission/black_mesa/entrance
 	name = "Black Mesa Entrance"

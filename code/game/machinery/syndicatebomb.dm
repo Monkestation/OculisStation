@@ -20,7 +20,7 @@
 	/// What is the lowest amount of time we can set the timer to?
 	var/minimum_timer = SYNDIEBOMB_MIN_TIMER_SECONDS
 	/// What is the highest amount of time we can set the timer to?
-	var/maximum_timer = 100 MINUTES
+	var/maximum_timer = 100*60 // 100 MINUTES // not using the MINUTES define because those are for deciseconds
 	/// What is the default amount of time we set the timer to?
 	var/timer_set = SYNDIEBOMB_MIN_TIMER_SECONDS
 	/// Can we be unanchored?
@@ -233,7 +233,7 @@
 	// 12 booms, 6 duds at ~9 minutes
 	var/datum/wires/syndicatebomb/bomb_wires = wires
 	if(add_boom_wires)
-		var/boom_wires = clamp(round(timer_set / 45, 1), 2, 12)
+		var/boom_wires = round(LERP(2, 12, INVERSE_LERP(minimum_timer, maximum_timer, timer_set)), 1) // OCULIS EDIT
 		var/dud_wires = 0
 		if(boom_wires >= 3)
 			dud_wires = floor(boom_wires / 2)

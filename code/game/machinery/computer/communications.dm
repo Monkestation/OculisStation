@@ -212,7 +212,7 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 			if (new_sec_level < SEC_LEVEL_GREEN || new_sec_level > SEC_LEVEL_AMBER) //NOVA EDIT CHANGE - ALERTS
 				return
 			if (SSsecurity_level.get_current_level_as_number() >= SEC_LEVEL_DELTA)
-				to_chat(user, span_warning("Central Command has placed a lock on the alert level due to a doomsday!"))
+				to_chat(user, span_warning("Sectorial Administration has placed a lock on the alert level due to a doomsday!")) // OCULIS EDIT - Central Command > Sectorial Administration
 				return
 			if (SSsecurity_level.get_current_level_as_number() == new_sec_level)
 				return
@@ -257,9 +257,9 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 				to_chat(user, span_danger("Message transmitted to Syndicate Command."))
 			else
 				message_centcom(message, user)
-				to_chat(user, span_notice("Message transmitted to Central Command."))
+				to_chat(user, span_notice("Message transmitted to Sectorial Command.")) // OCULIS EDIT - Central Command > Sectorial Command
 
-			var/associates = (emagged || syndicate) ? "the Syndicate": "CentCom"
+			var/associates = (emagged || syndicate) ? "the Syndicate": "Sectorial Command" // OCULIS EDIT - CentCom > Sectorial Command
 			user.log_talk(message, LOG_SAY, tag = "message to [associates]")
 			deadchat_broadcast(" has messaged [associates], \"[message]\" at [span_name("[get_area_name(user, TRUE)]")].", span_name("[user.real_name]"), user, message_type = DEADCHAT_ANNOUNCEMENT)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)

@@ -290,9 +290,7 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 	glass_price = DRINK_PRICE_STOCK
 	metabolized_traits = list(TRAIT_STIMULATED)
-	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
-	addiction_types = list(/datum/addiction/coffee = 5)
-	//IRIS ADDITION END
+	addiction_types = list(/datum/addiction/coffee = 75) //OCULIS EDIT: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
 
 /datum/reagent/consumable/coffee/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
@@ -396,9 +394,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 	metabolized_traits = list(TRAIT_STIMULATED)
-	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
-	addiction_types = list(/datum/addiction/coffee = 5)
-	//IRIS ADDITION END
+	addiction_types = list(/datum/addiction/coffee = 75) //OCULIS EDIT: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
 
 /datum/reagent/consumable/icecoffee/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
@@ -421,9 +417,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 	metabolized_traits = list(TRAIT_STIMULATED)
-	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
-	addiction_types = list(/datum/addiction/coffee = 5)
-	//IRIS ADDITION END
+	addiction_types = list(/datum/addiction/coffee = 75) //OCULIS EDIT: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
 
 /datum/reagent/consumable/hot_ice_coffee/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
@@ -773,9 +767,7 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 	glass_price = DRINK_PRICE_EASY
 	metabolized_traits = list(TRAIT_STIMULATED)
-	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
-	addiction_types = list(/datum/addiction/coffee = 4)
-	//IRIS ADDITION END
+	addiction_types = list(/datum/addiction/coffee = 75) //OCULIS EDIT: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
 
 /datum/reagent/consumable/soy_latte/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
@@ -804,9 +796,7 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 	glass_price = DRINK_PRICE_EASY
 	metabolized_traits = list(TRAIT_STIMULATED)
-	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
-	addiction_types = list(/datum/addiction/coffee = 4)
-	//IRIS ADDITION END
+	addiction_types = list(/datum/addiction/coffee = 75) //OCULIS EDIT: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
 
 /datum/reagent/consumable/cafe_latte/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
@@ -948,9 +938,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 	metabolized_traits = list(TRAIT_STIMULATED)
-	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
-	addiction_types = list(/datum/addiction/coffee = 4)
-	//IRIS ADDITION END
+	addiction_types = list(/datum/addiction/coffee = 75) //OCULIS EDIT: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
 
 /datum/reagent/consumable/pumpkin_latte/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()

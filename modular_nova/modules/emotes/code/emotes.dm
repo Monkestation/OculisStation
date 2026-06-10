@@ -5,7 +5,7 @@
 	var/nextsoundemote = 1 //Time at which the next emote can be played
 
 /datum/emote
-	cooldown = EMOTE_DELAY
+	// cooldown = EMOTE_DELAY // OCULIS EDIT REMOVAL
 	var/muzzle_ignore = FALSE
 
 //Disables the custom emote blacklist from TG that normally applies to slimes.

@@ -4,7 +4,7 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = JOB_CENTCOM
+	supervisors = "Sectorial Administration" // OCULIS EDIT - JOB_CENTCOM > "Sectorial Administration"
 	minimal_player_age = 14
 	exp_requirements = 600
 	exp_required_type = EXP_TYPE_CREW
@@ -110,7 +110,7 @@
 /obj/item/modular_computer/pda/nanotrasen_consultant
 	name = "nanotrasen consultant's PDA"
 	inserted_disk = /obj/item/disk/computer/command/captain
-	inserted_item = /obj/item/pen/fountain/captain
+	inserted_item = /obj/item/pen/fountain/green
 	greyscale_colors = "#017941#0060b8"
 
 /obj/item/storage/bag/garment/nanotrasen_consultant
@@ -177,3 +177,11 @@
 	)
 
 	return selectable_gun_types
+
+/obj/item/pen/fountain/green
+	name = "nanotrasen fountain pen"
+	desc = "It's an expensive green fountain pen. The case may be plastic, but that gold is real!"
+	icon = 'modular_nova/master_files/icons/obj/bureaucracy.dmi'
+	icon_state = "pen-fountain-nt"
+	colour = "#18610D"
+	custom_materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*7.5)

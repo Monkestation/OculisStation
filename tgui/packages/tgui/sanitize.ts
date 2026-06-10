@@ -299,7 +299,7 @@ function validateCssStyle(styleValue: string): {
  * @param input - Input HTML string to sanitize
  * @param advHtml - Flag to enable/disable advanced HTML
  * @param tags - List of allowed HTML tags
- * @param allowAttr - List of allowed HTML attributes
+ * @param forbidAttr - List of forbidden HTML attributes
  * @param advTags - List of advanced HTML tags allowed for trusted sources
  * @returns Sanitized HTML string or object with sanitized content and blocked summary
  */
@@ -307,16 +307,17 @@ export function sanitizeText(
   input: string,
   advHtml = false,
   tags = defTag,
-  allowAttr = allowedAttr,
+  forbidAttr = forbiddenAttr,
   advTags = advTag,
 ): string | { sanitized: string; blockedSummary?: string } {
   // This is VERY important to think first if you NEED
-  // the tag you put in here.  We are pushing all this
+  // the tag you put in here. We are pushing all this
   // though dangerouslySetInnerHTML and even though
   // the default DOMPurify kills javascript, it doesn't
   // kill href links or such
   if (advHtml) {
     tags = tags.concat(advTags);
+    forbidAttr = [];
   }
 
   let blockedCssItems: string[] = [];
@@ -337,7 +338,7 @@ export function sanitizeText(
 
   const sanitized = DOMPurify.sanitize(processedInput, {
     ALLOWED_TAGS: tags,
-    ALLOWED_ATTR: allowAttr,
+    ALLOWED_ATTR: allowedAttr,
     FORBID_ATTR: forbiddenAttr,
   });
 

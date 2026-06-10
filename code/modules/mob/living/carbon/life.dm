@@ -842,7 +842,9 @@
 	return TRUE
 
 /mob/living/carbon/proc/needs_heart()
-	if(HAS_TRAIT(src, TRAIT_STABLEHEART))
+	var/obj/item/organ/heart/second_heart/double_hearted = get_organ_by_type(/obj/item/organ/heart/second_heart)
+
+	if(HAS_TRAIT(src, TRAIT_STABLEHEART) || istype(double_hearted)) //OCULIS EDIT, if(HAS_TRAIT(src, TRAIT_STABLEHEART))
 		return FALSE
 	if(dna && dna.species && (!CAN_HAVE_BLOOD(src) || isnull(dna.species.mutantheart))) //not all carbons have species!
 		return FALSE

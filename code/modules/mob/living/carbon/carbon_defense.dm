@@ -326,6 +326,13 @@
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/helper, force_friendly)
 	var/nosound = FALSE //NOVA EDIT ADDITION - EMOTES
+//OCULIS ADDITION START
+	var/selected_area = helper.parse_zone_with_bodypart(helper.zone_selected)
+	var/washing_face = FALSE
+
+	if(selected_area in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_EYES))
+		washing_face = TRUE
+//OCULIS ADDITION END
 	if(on_fire)
 		to_chat(helper, span_warning("You can't put [p_them()] out with just your bare hands!"))
 		return
@@ -334,6 +341,13 @@
 		return
 
 	if(helper == src)
+//OCULIS ADDITION START
+		if(istype(src.get_organ_slot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/lizard) && washing_face)
+			visible_message("<span class='notice'[src] cleans [p_their()] face with [p_their()] forked tongue.</span>",
+			"<span class='notice'>You clean your face with your forked tongue.")
+			SEND_SIGNAL(helper, COMSIG_COMPONENT_CLEAN_FACE_ACT, CLEAN_WASH)
+			return
+//OCULIS ADDITION END
 		check_self_for_injuries()
 		return
 

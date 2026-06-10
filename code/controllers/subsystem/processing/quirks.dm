@@ -27,7 +27,8 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/settler, /datum/quirk/freerunning),
 	list(/datum/quirk/numb, /datum/quirk/selfaware),
 	list(/datum/quirk/empath, /datum/quirk/evil),
-	//NOVA EDIT ADDITION BEGIN
+	list(/datum/quirk/keen_nose, /datum/quirk/item_quirk/anosmia),
+	// NOVA EDIT ADDITION BEGIN
 	list(/datum/quirk/equipping/nerve_staple, /datum/quirk/nonviolent),
 	list(/datum/quirk/equipping/nerve_staple, /datum/quirk/item_quirk/nearsighted),
 	list(/datum/quirk/no_guns, /datum/quirk/poor_aim),
@@ -46,7 +47,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/psionic_dampener, /datum/quirk/telepathic),
 	list(/datum/quirk/hydrophobia, /datum/quirk/item_quirk/breather/water_breather),
 	list(/datum/quirk/unblinking, /datum/quirk/item_quirk/fluoride_stare),
-	//NOVA EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 	//IRIS EDIT ADDITION BEGIN
 	//ORBSTATION PORT: if you're illiterate, farsighted would just be free points
 	list(/datum/quirk/item_quirk/farsighted, /datum/quirk/illiterate),
@@ -65,6 +66,9 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/undersized, /datum/quirk/frail),
 	list(/datum/quirk/undersized, /datum/quirk/oversized),
 	//IRIS EDIT ADDITION END
+	//OCULIS EDIT ADDITION START
+	list(/datum/quirk/affluent, /datum/quirk/indebted),
+	//OCULIS EDIT ADDITION END
 ))
 
 GLOBAL_LIST_INIT(quirk_string_blacklist, generate_quirk_string_blacklist())
@@ -92,8 +96,17 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 	var/list/quirk_points = list() //Assoc. list of quirk names and their "point cost"; positive numbers are good traits, and negative ones are bad
 	///An assoc list of quirks that can be obtained as a hardcore character, and their hardcore value.
 	var/list/hardcore_quirks = list()
+	/// Whether or not quirk points are enabled, per server config
+	var/points_enabled
+	/// The number of max positive quirks that we allow, per server config
+	var/max_positive_quirks
+	// The default number of quirk points that you get to spend, per server config
+	var/default_quirk_points
 
 /datum/controller/subsystem/processing/quirks/Initialize()
+	points_enabled = !CONFIG_GET(flag/disable_quirk_points)
+	max_positive_quirks = CONFIG_GET(number/max_positive_quirks)
+	default_quirk_points = CONFIG_GET(number/default_quirk_points)
 	get_quirks()
 	return SS_INIT_SUCCESS
 
@@ -127,7 +140,7 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 			continue
 		hardcore_quirks[quirk_type] += hardcore_value
 
-/datum/controller/subsystem/processing/quirks/proc/AssignQuirks(mob/living/user, client/applied_client, list/blacklist = list()) // OCULIS EDIT ADDITION: add blacklist arg
+/datum/controller/subsystem/processing/quirks/proc/AssignQuirks(mob/living/user, client/applied_client, list/blacklist = list(), add_unique = TRUE, quirk_transfer = FALSE,) // OCULIS EDIT ADDITION: add blacklist arg, quirk_transfer, add_unique
 	var/badquirk = FALSE
 	for(var/quirk_name in applied_client.prefs.all_quirks)
 		var/datum/quirk/quirk_type = quirks[quirk_name]
@@ -136,7 +149,7 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 			if(quirk_type in blacklist)
 				continue
 			// OCULIS EDIT ADDITION END
-			if(user.add_quirk(quirk_type, override_client = applied_client, announce = FALSE))
+			if(user.add_quirk(quirk_type, override_client = applied_client, add_unique = add_unique, announce = FALSE, quirk_transfer = quirk_transfer)) // OCULIS EDIT add quirk_transfer, add_unique
 				SSblackbox.record_feedback("tally", "quirks_taken", 1, "[quirk_name]")
 		else
 			stack_trace("Invalid quirk \"[quirk_name]\" in client [applied_client.ckey] preferences")
@@ -157,7 +170,6 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 	///Cached list of possible quirks
 	var/list/possible_quirks = quirks.Copy()
 
-	var/max_positive_quirks = CONFIG_GET(number/max_positive_quirks)
 	if(max_positive_quirks < 0)
 		max_positive_quirks = 6
 
@@ -221,17 +233,15 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 /datum/controller/subsystem/processing/quirks/proc/filter_invalid_quirks(list/quirks, list/augments) // NOVA EDIT CHANGE - AUGMENTS+ - ORIGINAL: /datum/controller/subsystem/processing/quirks/proc/filter_invalid_quirks(list/quirks)
 	var/list/new_quirks = list()
 	var/list/positive_quirks = list()
-	var/points_enabled = !CONFIG_GET(flag/disable_quirk_points)
-	var/max_positive_quirks = CONFIG_GET(number/max_positive_quirks)
-	var/balance = -CONFIG_GET(number/default_quirk_points)
+	var/balance = -default_quirk_points
 
 	var/list/all_quirks = get_quirks()
 
-	// NOVA EDIT BEGIN - AUGMENTS+
-	for(var/key in augments)
-		var/datum/augment_item/aug = GLOB.augment_items[augments[key]]
+	// NOVA EDIT ADDITION BEGIN - AUGMENTS+
+	for(var/key, aug_path in augments)
+		var/datum/augment_item/aug = GLOB.augment_items[aug_path]
 		balance += aug.cost
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 	for (var/quirk_name in quirks)
 		var/datum/quirk/quirk = all_quirks[quirk_name]
 		if (isnull(quirk))

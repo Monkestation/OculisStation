@@ -44,9 +44,17 @@
 	name = "Sectorial Internal Affairs Administrator's Office"
 	icon_state = "castor_ia_office"
 
+/area/centcom/castor/intern_office
+	name = "Intern's Office"
+	icon_state = "castor"
+
 /area/centcom/castor/briefing_room_one
 	name = "Castor Briefing Room 1"
 	icon_state = "castor_briefing_one"
+
+/area/centcom/castor/psychologist
+	name = "Castor Psychologist's Office"
+	icon_state = "castor"
 
 /area/centcom/castor/briefing_room_two
 	name = "Castor Briefing Room 2"
@@ -82,4 +90,40 @@
 
 /area/centcom/castor/customs
 	name = "Castor Customs Office"
+	icon_state = "castor_customs"
+
+/area/centcom/castor/forest
+	name = "Castor Forest"
+	icon_state = "castor"
+
+/area/centcom/castor/engineering
+	name = "Castor Engineering"
+	icon_state = "castor"
+
+/area/centcom/castor/engineering/foyer
+	name = "Castor Engineering Foyer"
+	icon_state = "castor"
+
+/area/centcom/castor/engineering/engine
+	name = "Castor Engine Room"
+	icon_state = "castor"
+
+/area/centcom/castor/engineering/atmospherics
+	name = "Castor Atmospherics"
+	icon_state = "castor"
+
+/area/centcom/castor/engineering/hfr
+	name = "Castor HFR Room"
+	icon_state = "castor"
+
+/area/centcom/castor/engineering/office
+	name = "Sectorial Engineering Administrator's Office"
+	icon_state = "castor"
+
+/area/centcom/castor/engineering/incinerator
+	name = "Castor Incinerator Room"
+	icon_state = "castor"
+
+/area/centcom/castor/engineering/security_post
+	name = "Castor Engineering Security Post"
 	icon_state = "castor_customs"

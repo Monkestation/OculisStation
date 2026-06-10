@@ -1,4 +1,5 @@
-#define PARALLAX_ICON_SIZE 672 //IRIS EDIT
+#define PARALLAX_ICON_SIZE 672 // IRIS EDIT
+
 /// Decides if parallax should be rendered or not, and sets things up accordingly
 /datum/hud/proc/check_parallax()
 	var/client/displaying_client = mymob.client
@@ -81,7 +82,7 @@
 		if(EAST)
 			new_transform = matrix(1, 0, PARALLAX_ICON_SIZE, 0, 1, 0) // OCULIS EDIT
 		if(WEST)
-			new_transform = matrix(1, 0,-PARALLAX_ICON_SIZE, 0, 1, 0) // OCULIS EDIT
+			new_transform = matrix(1, 0, -PARALLAX_ICON_SIZE, 0, 1, 0) // OCULIS EDIT
 
 	var/longest_timer = 0
 	for(var/key in displaying_client.parallax_animate_timers)
@@ -204,7 +205,6 @@
 		hud_used.set_parallax_movedir(areaobj.parallax_movedir, TRUE)
 
 // Root object for parallax, all parallax layers are drawn onto this and it manages them
-INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 /atom/movable/screen/parallax_home
 	icon = null
 	blend_mode = BLEND_ADD
@@ -266,16 +266,16 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 			return new /atom/movable/screen/parallax_layer/stars(null, null, owner) // OCULIS EDIT, ORIGINAL: return new /atom/movable/screen/parallax_layer/layer_2(null, null, owner)
 		if(3)
 			return new /atom/movable/screen/parallax_layer/planet(null, null, owner)
+		/* // OCULIS EDIT REMOVAL START
 		if(4)
 			if(SSparallax.random_layer)
 				return new SSparallax.random_layer.type(null, null, owner, FALSE, SSparallax.random_layer)
-			/* // OCULIS EDIT REMOVAL START
 			else
 				return new /atom/movable/screen/parallax_layer/layer_3(null, null, owner)
 		if(5)
 			if(SSparallax.random_layer)
 				return new /atom/movable/screen/parallax_layer/layer_3(null, null, owner)
-			*/ //OCULIS EDIT REMOVAL END
+		*/ //OCULIS EDIT REMOVAL END
 
 /atom/movable/screen/parallax_home/proc/regenerate_layers()
 	clear_layers()
@@ -284,7 +284,9 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 
 	parallax_layers_cached = list()
 	for(var/space_layer in 1 to layers_to_draw)
-		parallax_layers_cached += generate_space_layer(space_layer)
+		var/atom/movable/screen/parallax_layer/parallax = generate_space_layer(space_layer)
+		if (parallax)
+			parallax_layers_cached += parallax
 
 	if(draw_old_space)
 		parallax_layers_cached += new /atom/movable/screen/parallax_layer/old(null, null, owner)
@@ -296,9 +298,8 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 	QDEL_LIST(parallax_layers_cached)
 
 // We need parallax to always pass its args down into initialize, so we immediate init it
-INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 /atom/movable/screen/parallax_layer
-	icon = 'modular_iris/master_files/icons/effects/skybox.dmi' //IRIS EDIT
+	icon = 'modular_iris/master_files/icons/effects/skybox.dmi' // IRIS EDIT
 	var/speed = 1
 	var/offset_x = 0
 	var/offset_y = 0
@@ -355,25 +356,25 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 			if(x == 0 && y == 0)
 				continue
 			var/mutable_appearance/texture_overlay = tileable_appearance()
-			texture_overlay.pixel_w += PARALLAX_ICON_SIZE * x //IRIS EDIT
-			texture_overlay.pixel_z += PARALLAX_ICON_SIZE * y //IRIS EDIT
+			texture_overlay.pixel_w += PARALLAX_ICON_SIZE * x // IRIS EDIT
+			texture_overlay.pixel_z += PARALLAX_ICON_SIZE * y // IRIS EDIT
 			. += texture_overlay
 
 /atom/movable/screen/parallax_layer/proc/tileable_appearance()
 	return mutable_appearance(icon, icon_state)
 
-//IRIS EDIT START
+// OCULIS EDIT ADDITION START
 /atom/movable/screen/parallax_layer/layer_1
 	icon_state = "dyable"
 	blend_mode = BLEND_OVERLAY
 	speed = 0.5
 	layer = 1
 	///This NEEDS to be a static, otherwise space turns into a bigass rave
-	var/static/skybox_starlight = COLOR_VIOLET //OCULIS EDIT
+	var/static/skybox_starlight = pick(COLOR_LIGHT_PINK, COLOR_VIOLET, COLOR_MOSTLY_PURE_PINK, COLOR_AMETHYST, COLOR_OCULIS_LOGO) //OCULIS EDIT
 
 /atom/movable/screen/parallax_layer/layer_1/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	src.add_atom_colour(skybox_starlight, ADMIN_COLOUR_PRIORITY)
+	add_atom_colour(skybox_starlight, ADMIN_COLOUR_PRIORITY)
 	set_base_starlight(skybox_starlight)
 
 /atom/movable/screen/parallax_layer/stars
@@ -381,10 +382,11 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	blend_mode = BLEND_OVERLAY
 	layer = 1
 	speed = 0.5
-//IRIS EDIT END
+// OCULIS EDIT ADDITION END
 
-//IRIS REMOVAL START
+// OCULIS EDIT REMOVAL START
 /*
+/atom/movable/screen/parallax_layer/layer_1
 	icon_state = "layer1"
 	speed = 0.6
 	layer = 1
@@ -399,7 +401,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	speed = 1.4
 	layer = 3
 */
-//IRIS REMOVAL END
+// OCULIS EDIT REMOVAL END
 
 /atom/movable/screen/parallax_layer/old
 	icon = null
@@ -430,7 +432,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	. += tileable_appearance()
 
 /atom/movable/screen/parallax_layer/planet
-	icon = 'icons/effects/parallax.dmi' //IRIS ADDITION: need it since main one uses other dmi
+	icon = 'icons/effects/parallax.dmi' // IRIS ADDITION: need it since main one uses other dmi
 	icon_state = "planet"
 	blend_mode = BLEND_OVERLAY
 	absolute = TRUE //Status of separation
