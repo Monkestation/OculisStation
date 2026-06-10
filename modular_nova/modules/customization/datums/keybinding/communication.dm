@@ -24,7 +24,7 @@
 	winset(user, null, "command=[user.tgui_say_create_open_command(WHIS_CHANNEL)]")
 	return TRUE
 
-/* // OCULIS EDIT REMOVAL STARTR
+/* // OCULIS EDIT REMOVAL START
 /datum/keybinding/client/communication/Do
 	hotkey_keys = list("K")
 	name = DO_CHANNEL
