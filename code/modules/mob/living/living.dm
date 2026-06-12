@@ -1312,6 +1312,12 @@ NOVA EDIT REMOVAL END */
 		if(HAS_TRAIT(pulledby, TRAIT_OVERSIZED))
 			resist_chance -= OVERSIZED_GRAB_RESIST_BONUS
 		//NOVA EDIT ADDITION END
+		// OCULIS EDIT ADDITION START
+		if(HAS_TRAIT(src, TRAIT_HEAVYSET))
+			resist_chance += HEAVYSET_GRAB_RESIST_BONUS
+		if(HAS_TRAIT(pulledby, TRAIT_HEAVYSET))
+			resist_chance -= HEAVYSET_GRAB_RESIST_BONUS
+		// OCULIS EDIT ADDITION END
 		if(prob(resist_chance))
 			//NOVA EDIT ADDITION
 			// Akula break-out flavor

@@ -341,6 +341,13 @@
 	if (HAS_TRAIT(src, TRAIT_GRABWEAKNESS))
 		fitness_modifier /= 1.5
 
+	// OCULIS EDIT ADDITION START
+	if (HAS_TRAIT(src, TRAIT_HEAVYSET))
+		fitness_modifier *= 2
+	if (HAS_TRAIT(src, TRAIT_OVERSIZED))
+		fitness_modifier *= 2.5
+	// OCULIS EDIT ADDITION END
+
 	var/athletics_level = mind?.get_skill_level(/datum/skill/athletics) || 1
 
 	var/min_damage = 0
