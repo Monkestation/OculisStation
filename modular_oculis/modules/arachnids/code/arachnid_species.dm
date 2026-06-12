@@ -18,8 +18,11 @@
 	mutanttongue = /obj/item/organ/tongue/arachnid
 	mutanteyes = /obj/item/organ/eyes/night_vision/arachnid
 	mutantheart = /obj/item/organ/heart/arachnid
+	mutantliver = /obj/item/organ/liver/arachnid
 
-	exotic_bloodtype = /datum/blood_type/arachnid
+	COOLDOWN_DECLARE(pesticide_toxin_damage_cooldown)
+
+	exotic_bloodtype = BLOOD_TYPE_ARACHNID
 	inherent_factions = list(FACTION_SPIDER)
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/arachnid,
@@ -42,11 +45,10 @@
 	return features
 
 /datum/species/arachnid/get_scream_sound(mob/living/carbon/human/arachnid)
-	return 'modular_oculis/modules/arachnids/sound/arachnid_scream.ogg'
+	return 'modular_oculis/modules/arachnids/sounds/arachnid_scream.ogg'
 
 /datum/species/arachnid/get_laugh_sound(mob/living/carbon/human/arachnid)
-	return 'modular_oculis/modules/arachnids/sound/arachnid_laugh.ogg'
-
+	return 'modular_oculis/modules/arachnids/sounds/arachnid_laugh.ogg'
 
 
 // TODO: make this shit work
@@ -62,10 +64,26 @@
 /datum/species/arachnid/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load)
 	. = ..()
 	RegisterSignal(human_who_gained_species, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(damage_weakness))
+	RegisterSignal(human_who_gained_species, COMSIG_ATOM_EXPOSE_REAGENTS, PROC_REF(on_reagent_expose))
 
 /datum/species/arachnid/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	. = ..()
 	UnregisterSignal(C, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS)
+	UnregisterSignal(C, COMSIG_ATOM_EXPOSE_REAGENTS)
+
+
+/datum/species/arachnid/proc/on_reagent_expose(mob/living/carbon/human/H, list/reagents, datum/reagents/source, methods, volume_modifier, show_message)
+	SIGNAL_HANDLER
+
+	if(!(locate(/datum/reagent/toxin/pestkiller) in reagents))
+		return NONE
+	if(!COOLDOWN_FINISHED(src, pesticide_toxin_damage_cooldown))
+		return FALSE
+	COOLDOWN_START(src, pesticide_toxin_damage_cooldown, 0.1 SECONDS)
+
+	H.apply_damage(3, TOX)
+	H.reagents.remove_reagent(/datum/reagent/toxin/pestkiller, REAGENTS_METABOLISM * 0.1)
+	return NONE
 
 /datum/species/arachnid/proc/damage_weakness(datum/source, list/damage_mods, damage_amount, damagetype, def_zone, sharpness, attack_direction, obj/item/attacking_item)
 	SIGNAL_HANDLER

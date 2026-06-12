@@ -40,6 +40,18 @@
 /obj/item/organ/heart/arachnid
 	name = "arachnid heart"
 
+/obj/item/organ/liver/arachnid
+	name = "arachnid liver"
+	desc = "Smells faintly of copper."
+	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5, /datum/reagent/copper = 5)
+
+/obj/item/organ/liver/arachnid/handle_chemical(mob/living/carbon/organ_owner, datum/reagent/chem, seconds_per_tick)
+	. = ..()
+	if((. & COMSIG_MOB_STOP_REAGENT_TICK) || (organ_flags & ORGAN_FAILING))
+		return
+	if(chem.type == /datum/reagent/toxin/pestkiller)
+		organ_owner.take_damage(4 * seconds_per_tick, TOX)
+
 /obj/item/organ/tongue/arachnid
 	name = "arachnid tongue"
 	desc = "The tongue of an Arachnid. Mostly used for lying."
