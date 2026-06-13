@@ -111,6 +111,7 @@
 	desc = "Some fang things, spooky."
 
 	zone = BODY_ZONE_HEAD
+
 	slot = ORGAN_SLOT_EXTERNAL_SNOUT
 
 	mutantpart_key = FEATURE_ARACHNID_CHELICERAE
@@ -121,7 +122,7 @@
 
 /datum/bodypart_overlay/mutant/arachnid_chelicerae
 	feature_key = FEATURE_ARACHNID_CHELICERAE
-	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
+	layers = EXTERNAL_FRONT
 
 /datum/bodypart_overlay/mutant/arachnid_chelicerae/get_global_feature_list()
 	return SSaccessories.sprite_accessories[FEATURE_ARACHNID_CHELICERAE]
@@ -130,8 +131,4 @@
 	return sprite_datum.icon_state //i still hate you
 
 /datum/bodypart_overlay/mutant/arachnid_chelicerae/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner, is_husked = FALSE)
-	//. = ..()
-	//if(!(human.wear_mask?.flags_inv & HIDESNOUT) && !(human.head?.flags_inv & HIDESNOUT))
-	//	return TRUE
-	//return FALSE
 	return ..() && !(bodypart_owner.owner?.obscured_slots & HIDESNOUT)
