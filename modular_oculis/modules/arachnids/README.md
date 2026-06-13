@@ -19,6 +19,7 @@ Arachnids are a humanoid spider-like species, their differences are:
 - Can't eat vegetables nor fruit.
 
 ### TG Proc/File Changes:
+- `code/_globalvars/traits/_traits.dm` -> Added `TRAIT_ARACHNID_WEB_SURFER` to /mob
 - `code/__DEFINES/DNA.dm` -> Added `ORGAN_SLOT_GLAND`, along with adding it to the organ process order
 - `code/__DEFINES/icon_smoothing.dm` -> Added `SMOOTH_GROUP_SILK_WALLS`
 - `code/__DEFINES/~~oculis_defines/DNA.dm` -> Added `SPECIES_ARACHNID`, `FEATURE_ARACHNID_APPENDAGES` and `FEATURE_ARACHNID_CHELICERAE`
@@ -39,6 +40,7 @@ None, I think?
 - `SPECIES_ARACHNID`, `FEATURE_ARACHNID_APPENDAGES`, `FEATURE_ARACHNID_CHELICERAE`, in `code/__DEFINES/~~oculis_defines/DNA.dm`
 - `BLOOD_COLOR_ARACHNID`, in `code/__DEFINES/~~oculis_defines/colors.dm`
 - `BLOOD_TYPE_ARACHNID`, in `code/__DEFINES/~~oculis_defines/mobs.dm`
+- `TRAIT_ARACHNID_WEB_SURFER` in `code/__DEFINES/~~oculis_defines/traits/declarations.dm`
 
 ### Included files that are not contained in this module:
 - `sound/items/weapons/slash.ogg` -> For the bodypart arms, when attacking

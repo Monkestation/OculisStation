@@ -27,10 +27,11 @@ GLOBAL_LIST_INIT(silk_recipes, list ( \
 		new /datum/stack_recipe("red kimono", /obj/item/clothing/under/costume/kimono/red, 3, crafting_flags = 0x0, category = CAT_CLOTHING), \
 		new /datum/stack_recipe("purple kimono", /obj/item/clothing/under/costume/kimono/purple, 3, crafting_flags = 0x0, category = CAT_CLOTHING), \
 		new /datum/stack_recipe("mummy wrapping", /obj/item/clothing/under/costume/mummy, 3, crafting_flags = 0x0, category = CAT_CLOTHING), \
+		new /datum/stack_recipe("beanie", /obj/item/clothing/head/beanie, 2, crafting_flags = 0x0, category = CAT_CLOTHING), \
 		)),
 	new /datum/stack_recipe_list("arachnid web structures", list(
 		new /datum/stack_recipe("arachnid web", /obj/structure/spider/stickyweb/arachnid, 3, time = 6 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE), \
-		new /datum/stack_recipe("arachnid solid web", /obj/structure/spider/solid/arachnid, 4, time = 6 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE), \
+		new /datum/stack_recipe("arachnid solid web", /obj/structure/spider/stickyweb/sealed/tough/arachnid, 4, time = 6 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE), \
 		new /datum/stack_recipe("arachnid web spikes", /obj/structure/spider/spikes/arachnid, 5, time = 6 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE), \
 		new /datum/stack_recipe("arachnid web passage", /obj/structure/spider/passage/arachnid, 3, time = 4 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE), \
 		)),

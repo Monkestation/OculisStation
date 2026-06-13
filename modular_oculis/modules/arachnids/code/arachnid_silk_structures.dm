@@ -94,7 +94,7 @@
  * Weaker versions of the spider structures
  */
 
-/obj/structure/spider/solid/arachnid //reduced integrity.
+/obj/structure/spider/stickyweb/sealed/tough/arachnid //reduced integrity.
 	name = "arachnid solid web"
 	desc = "A solid wall of arachnid silk, thick enough to block air flow. Since arachnid silk is softer than the average silk, it's easier to destroy."
 	max_integrity = 30
@@ -123,12 +123,15 @@
 /obj/structure/spider/stickyweb/arachnid/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
 	if(isliving(mover))
-		//if(HAS_TRAIT(mover, TRAIT_ARACHNID_WEB_SURFER))
-		//	return TRUE
-		//if(mover.pulledby && HAS_TRAIT(mover.pulledby, TRAIT_ARACHNID_WEB_SURFER))
-		//	return TRUE
+		if(HAS_TRAIT(mover, TRAIT_ARACHNID_WEB_SURFER))
+			return TRUE
+		if(mover.pulledby && HAS_TRAIT(mover.pulledby, TRAIT_ARACHNID_WEB_SURFER))
+			return TRUE
 		if(prob(50))
 			loc.balloon_alert(mover, "stuck in web!")
 			return FALSE
 	else if(isprojectile(mover))
 		return prob(30)
+
+/obj/structure/spider/stickyweb/arachnid/is_whitelisted(mob/candidate)
+	return HAS_TRAIT(candidate, TRAIT_WEB_SURFER) | HAS_TRAIT(candidate, TRAIT_ARACHNID_WEB_SURFER)

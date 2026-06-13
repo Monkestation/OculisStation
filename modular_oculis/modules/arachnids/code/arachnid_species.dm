@@ -5,6 +5,7 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
+		TRAIT_ARACHNID_WEB_SURFER
 	)
 	inherent_biotypes = MOB_ORGANIC | MOB_HUMANOID | MOB_BUG
 
@@ -51,16 +52,6 @@
 	return 'modular_oculis/modules/arachnids/sounds/arachnid_laugh.ogg'
 
 
-// TODO: make this shit work
-/*
-/datum/species/arachnid/handle_chemical(datum/reagent/chem, mob/living/carbon/human/H, seconds_per_tick, times_fired)
-	if(chem.type == /datum/reagent/toxin/pestkiller)
-		H.adjustToxLoss(3 * REM * seconds_per_tick)
-		H.reagents.remove_reagent(chem.type, REAGENTS_METABOLISM * seconds_per_tick)
-		return TRUE
-	return ..()
-*/
-
 /datum/species/arachnid/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load)
 	. = ..()
 	RegisterSignal(human_who_gained_species, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(damage_weakness))
@@ -92,8 +83,17 @@
 		damage_mods += 30 // Yes, a 30x damage modifier
 
 /datum/species/arachnid/get_species_description()
-	return "Arachnids are a species of humanoid spiders from a planet long lost to history. \
-	They are known for their useful silks, which have saved lives in emergencies." // Allan please add details
+	return "Arachnids are a species of humanoid spiders from a very far away place. \
+	They are known for their ability to weave silk, which has saved lives in emergencies."
+
+/datum/species/arachnid/get_species_lore()
+	return list(
+		"The true origin of Arachnids is still debated to this day. \
+		Some say they were born in a lab out of sheer experimentation. \
+		Others say they've naturally evolved over countless years. \
+		What is actually known, is the fact that they've had to emigrate from a very, very far away place to make it here.",
+	)
+
 
 /datum/species/arachnid/prepare_human_for_preview(mob/living/carbon/human/arachnid)
 	arachnid.set_eye_color("#4c4c1c", "#4c4c1c")
@@ -118,7 +118,7 @@
 			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 			SPECIES_PERK_ICON = "bolt",
 			SPECIES_PERK_NAME = "Agile",
-			SPECIES_PERK_DESC = "Arachnids run slightly faster than other species, but are still outpaced by Goblins.",
+			SPECIES_PERK_DESC = "Arachnids run slightly faster than other species.",
 		),
 		list(
 			SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
@@ -147,7 +147,7 @@
 /datum/reagent/mutationtoxin/arachnid
 	name = "Arachnid Mutation Toxin"
 	description = "A spidering toxin."
-	color = "#5EFF3B" //RGB: 94, 255, 59
+	color = "#3B5EFF" //RGB: 59, 94, 255
 	race = /datum/species/arachnid
 	taste_description = "webs"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
