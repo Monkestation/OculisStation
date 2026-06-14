@@ -53,7 +53,7 @@
 	reagents_list = list(/datum/reagent/medicine/c2/synthflesh = 20)
 	build_path = /obj/item/organ/arachnid_appendages
 	research_icon = 'modular_oculis/modules/arachnids/icons/research_icons.dmi'
-	research_icon_state = 'appendages'
+	research_icon_state = "appendages"
 	category = list(SPECIES_ARACHNID)
 
 /datum/design/arachnid_chelicerae
@@ -63,7 +63,7 @@
 	reagents_list = list(/datum/reagent/medicine/c2/synthflesh = 15)
 	build_path = /obj/item/organ/arachnid_chelicerae
 	research_icon = 'modular_oculis/modules/arachnids/icons/research_icons.dmi'
-	research_icon_state = 'chelicerae'
+	research_icon_state = "chelicerae"
 	category = list(SPECIES_ARACHNID)
 
 /datum/design/arachnid_silkgland
@@ -73,7 +73,7 @@
 	reagents_list = list(/datum/reagent/medicine/c2/synthflesh = 15)
 	build_path = /obj/item/organ/silkgland
 	research_icon = 'modular_oculis/modules/arachnids/icons/research_icons.dmi'
-	research_icon_state = 'silkgland'
+	research_icon_state = "silkgland"
 	category = list(SPECIES_ARACHNID)
 
 /obj/item/disk/design_disk/limbs/arachnid
