@@ -29,6 +29,7 @@ Arachnids are a humanoid spider-like species, their differences are:
 - `code/controllers/subsystem/sprite_accessories.dm` -> Added `FEATURE_ARACHNID_APPENDAGES` and `FEATURE_ARACHNID_CHELICERAE` to the feature_list in `/datum/controller/subsystem/accessories/proc/setup_lists()`
 - `config/game_options.txt` -> Added arachnid to the roundstart races
 - `modular_oculis/modules/master_files/code/game/machinery/limbgrower.dm` -> Added `/obj/machinery/limbgrower/Initialize(mapload)` -> Adds `SPECIES_ARACHNID` to the list of categories
+- `modular_oculis/modules/master_files/code/modules/research/techweb/all_nodes.dm` -> Added `/datum/techweb_node/xenobiology/New()` -> Adds `limbdesign_arachnid` to the xenobiology research
 - `tgui/packages/tgui/interfaces/PreferencesMenu/preferences/features/character_preferences/oculis/arachnid_preferences.tsx` -> Created
 
 ### Modular Overrides:
@@ -47,6 +48,7 @@ None, I think?
 - `sound/items/weapons/slashmiss.ogg` -> For the bodypart arms, when attacking
 - `modular_oculis/modules/master_files/code/game/machinery/limbgrower.dm` -> Adds the `SPECIES_ARACHNID` to the categories
 - `modular_oculis/modules/master_files/code/modules/research/designs/limbgrower_designs.dm` -> Arachnid recipes for the limb grower
+- `modular_oculis/modules/master_files/code/modules/research/techweb/all_nodes.dm` -> Adds `limbdesign_arachnid` to the xenobiology research
 - `tgui/packages/tgui/interfaces/PreferencesMenu/preferences/features/character_preferences/oculis/arachnid_preferences.tsx` -> Preferences for appendages / chelicerae
 
 ### Credits:
