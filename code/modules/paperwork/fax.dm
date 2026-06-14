@@ -1,5 +1,5 @@
 GLOBAL_VAR_INIT(nt_fax_department, pick("Sectorial Command")) // IRIS EDIT Original: "NT HR Department", "NT Legal Department", "NT Complaint Department", "NT Customer Relations", "Nanotrasen Tech Support", "NT Internal Affairs Dept" // OCULIS EDIT - Central Command > Sectorial Command
-GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
+GLOBAL_VAR_INIT(fax_autoprinting, TRUE) // OCULIS EDIT - FALSE -> TRUE - getting the physical papers is nice
 
 /obj/machinery/fax
 	name = "Fax Machine"
@@ -333,7 +333,8 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 					SEND_SOUND(staff, sound('modular_oculis/modules/fax_sound/sound/fax.ogg')) // OCULIS EDIT, ORIGINAL:  SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
 
 			if(GLOB.fax_autoprinting)
-				for(var/obj/machinery/fax/admin/FAX as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin))
+				var/fax_machine_types = SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin) + SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/castor) // OCULIS ADDITION
+				for(var/obj/machinery/fax/admin/FAX as anything in fax_machine_types) // OCULIS EDIT - SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin) -> fax_machine_types
 					if(FAX.fax_id != params["id"])
 						continue
 					FAX.receive(fax_paper, fax_name)
