@@ -323,9 +323,20 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 
 			history_add("Send", params["name"])
 
+			// OCULIS ADDITION START
+			var/notice_text = "[icon2html(src.icon, GLOB.admins)]<b><font color=green>FAX REQUEST: </font>[ADMIN_FULLMONTY(usr)]:</b> [span_linkify("sent a fax message from [fax_name]/[fax_id][ADMIN_FLW(src)] to [html_encode(params["name"])]")] [ADMIN_SHOW_PAPER(fax_paper)] [ADMIN_PRINT_FAX(fax_paper, fax_name, params["id"])]"
+			// Find the machine if it exists so we can give the admins a JMP to it
+			var/fax_machine_types = SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin) + SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/castor)
+			for(var/obj/machinery/fax/FAX as anything in fax_machine_types)
+				if(FAX.fax_id != params["id"])
+					continue
+				notice_text += " [ADMIN_JMP(FAX)]"
+				break
+			// OCULIS ADDITION END
+
 			GLOB.requests.fax_request(usr.client, "sent a fax message from [fax_name]/[fax_id] to [params["name"]]", list("paper" = fax_paper, "destination_id" = params["id"], "sender_name" = fax_name))
 			to_chat(GLOB.admins,
-				span_adminnotice("[icon2html(src.icon, GLOB.admins)]<b><font color=green>FAX REQUEST: </font>[ADMIN_FULLMONTY(usr)]:</b> [span_linkify("sent a fax message from [fax_name]/[fax_id][ADMIN_FLW(src)] to [html_encode(params["name"])]")] [ADMIN_SHOW_PAPER(fax_paper)] [ADMIN_PRINT_FAX(fax_paper, fax_name, params["id"])]"),
+				span_adminnotice(notice_text), // OCULIS EDIT, ORIGINAL: span_adminnotice("[icon2html(src.icon, GLOB.admins)]<b><font color=green>FAX REQUEST: </font>[ADMIN_FULLMONTY(usr)]:</b> [span_linkify("sent a fax message from [fax_name]/[fax_id][ADMIN_FLW(src)] to [html_encode(params["name"])]")] [ADMIN_SHOW_PAPER(fax_paper)] [ADMIN_PRINT_FAX(fax_paper, fax_name, params["id"])]"),
 				type = MESSAGE_TYPE_PRAYER,
 				confidential = TRUE)
 			for(var/client/staff as anything in GLOB.admins)
@@ -333,8 +344,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 					SEND_SOUND(staff, sound('modular_oculis/modules/fax_sound/sound/fax.ogg')) // OCULIS EDIT, ORIGINAL:  SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
 
 			if(GLOB.fax_autoprinting)
-				var/fax_machine_types = SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin) + SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/castor) // OCULIS ADDITION
-				for(var/obj/machinery/fax/FAX as anything in fax_machine_types) // OCULIS EDIT - fax/admin/FAX -> fax/FAX, SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin) -> fax_machine_types
+				for(var/obj/machinery/fax/FAX as anything in fax_machine_types) // OCULIS EDIT, ORIGINAL: for(var/obj/machinery/fax/admin/FAX as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin)
 					if(FAX.fax_id != params["id"])
 						continue
 					FAX.receive(fax_paper, fax_name)
