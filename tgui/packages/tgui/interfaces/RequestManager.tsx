@@ -170,6 +170,11 @@ const RequestControls = (props) => {
           <Button onClick={() => act('print', { id: request.id })}>
             PRINT
           </Button>
+          {/* OCULIS ADDITION START */}
+          <Button onClick={() => act('fax_flw', { id: request.id })}>
+            FAX FLW
+          </Button>
+          {/* OCULIS ADDITION END */}
         </>
       )}
       {request.req_type === 'request_internet_sound' && (

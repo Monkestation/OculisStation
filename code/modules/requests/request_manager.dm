@@ -261,6 +261,19 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 				web_sound(usr, request.message)
 			// OCULIS EDIT ADDITION END
 			return TRUE
+		// OCULIS ADDITION START: fax_flw
+		if("fax_flw")
+			var/fax_machine_found = FALSE
+			for(var/obj/machinery/fax/FAX as anything in (SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin) + SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/castor)))
+				if(FAX.fax_id != request.additional_information["destination_id"])
+					continue
+				fax_machine_found = TRUE
+				usr.client.admin_follow(FAX)
+				break
+			if(!fax_machine_found)
+				to_chat(usr, "Fax machine doesn't exist.", confidential = TRUE)
+			return TRUE
+		// OCULIS ADDITION END: fax_flw
 
 /datum/request_manager/ui_data(mob/user)
 	var/list/data = list()
