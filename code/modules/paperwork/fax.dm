@@ -334,7 +334,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 
 			if(GLOB.fax_autoprinting)
 				var/fax_machine_types = SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin) + SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/castor) // OCULIS ADDITION
-				for(var/obj/machinery/fax/admin/FAX as anything in fax_machine_types) // OCULIS EDIT - SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin) -> fax_machine_types
+				for(var/obj/machinery/fax/FAX as anything in fax_machine_types) // OCULIS EDIT - fax/admin/FAX -> fax/FAX, SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin) -> fax_machine_types
 					if(FAX.fax_id != params["id"])
 						continue
 					FAX.receive(fax_paper, fax_name)
