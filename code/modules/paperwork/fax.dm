@@ -1,5 +1,5 @@
 GLOBAL_VAR_INIT(nt_fax_department, pick("Sectorial Command")) // IRIS EDIT Original: "NT HR Department", "NT Legal Department", "NT Complaint Department", "NT Customer Relations", "Nanotrasen Tech Support", "NT Internal Affairs Dept" // OCULIS EDIT - Central Command > Sectorial Command
-GLOBAL_VAR_INIT(fax_autoprinting, TRUE) // OCULIS EDIT - FALSE -> TRUE - getting the physical papers is nice
+GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 
 /obj/machinery/fax
 	name = "Fax Machine"
