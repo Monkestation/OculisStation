@@ -52,6 +52,8 @@
 	build_type = LIMBGROWER
 	reagents_list = list(/datum/reagent/medicine/c2/synthflesh = 20)
 	build_path = /obj/item/organ/arachnid_appendages
+	research_icon = 'modular_oculis/modules/arachnids/icons/arachnid_appendages.dmi'
+	research_icon_state = 'm_arachnid_appendages_zigzag_BEHIND'
 	category = list(SPECIES_ARACHNID)
 
 /datum/design/arachnid_chelicerae
@@ -60,6 +62,8 @@
 	build_type = LIMBGROWER
 	reagents_list = list(/datum/reagent/medicine/c2/synthflesh = 15)
 	build_path = /obj/item/organ/arachnid_chelicerae
+	research_icon = 'modular_oculis/modules/arachnids/icons/arachnid_chelicerae.dmi'
+	research_icon_state = 'm_arachnid_chelicerae_basic_FRONT'
 	category = list(SPECIES_ARACHNID)
 
 /datum/design/arachnid_silkgland
@@ -68,6 +72,8 @@
 	build_type = LIMBGROWER
 	reagents_list = list(/datum/reagent/medicine/c2/synthflesh = 15)
 	build_path = /obj/item/organ/silkgland
+	research_icon = 'modular_oculis/modules/arachnids/icons/organs.dmi'
+	research_icon_state = 'arachnid_silkgland'
 	category = list(SPECIES_ARACHNID)
 
 /obj/item/disk/design_disk/limbs/arachnid

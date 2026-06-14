@@ -122,7 +122,7 @@
 
 /datum/bodypart_overlay/mutant/arachnid_chelicerae
 	feature_key = FEATURE_ARACHNID_CHELICERAE
-	layers = EXTERNAL_FRONT
+	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
 
 /datum/bodypart_overlay/mutant/arachnid_chelicerae/get_global_feature_list()
 	return SSaccessories.sprite_accessories[FEATURE_ARACHNID_CHELICERAE]
