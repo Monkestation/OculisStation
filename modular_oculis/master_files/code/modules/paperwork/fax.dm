@@ -19,5 +19,7 @@
 
 /obj/machinery/fax/castor/Initialize(mapload)
 	. = ..()
+	if(!fax_id)
+		return
 	fax_name = special_networks[fax_id]["fax_name"]
 	name = "[fax_name]'s Fax Machine"
