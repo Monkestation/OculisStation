@@ -342,7 +342,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 			// OCULIS ADDITION START
 			var/notice_text = "[icon2html(src.icon, GLOB.admins)]<b><font color=green>FAX REQUEST: </font>[ADMIN_FULLMONTY(usr)]:</b> [span_linkify("sent a fax message from [fax_name]/[fax_id][ADMIN_FLW(src)] to [html_encode(params["name"])]")] [ADMIN_SHOW_PAPER(fax_paper)] [ADMIN_PRINT_FAX(fax_paper, fax_name, params["id"])]"
 			// Find the machine if it exists so we can give the admins a FLW to it
-			for(var/obj/machinery/fax/admin/FAX as SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin))
+			for(var/obj/machinery/fax/admin/FAX as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin))
 				if(FAX.fax_id != params["id"])
 					continue
 				notice_text += " [ADMIN_FLW(FAX)]"
