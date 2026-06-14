@@ -50,6 +50,7 @@ None, I think?
 - `modular_oculis/modules/master_files/code/modules/research/designs/limbgrower_designs.dm` -> Arachnid recipes for the limb grower
 - `modular_oculis/modules/master_files/code/modules/research/techweb/all_nodes.dm` -> Adds `limbdesign_arachnid` to the xenobiology research
 - `tgui/packages/tgui/interfaces/PreferencesMenu/preferences/features/character_preferences/oculis/arachnid_preferences.tsx` -> Preferences for appendages / chelicerae
+- `code/modules/unit_tests/screenshots/screenshot_humanoids__datum_species_arachnid.png` -> Necessary for the unit tests to pass
 
 ### Credits:
 [PixelTK](https://github.com/PixelTheKermit): Originally making arachnids over in [SS14](https://github.com/space-wizards/space-station-14/pull/13945).  
