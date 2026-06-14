@@ -239,7 +239,7 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 			if (request.req_type != REQUEST_FAX)
 				to_chat(usr, "Request doesn't have a paper to print.", confidential = TRUE)
 				return TRUE
-			for(var/obj/machinery/fax/admin/FAX as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin))
+			for(var/obj/machinery/fax/FAX as anything in (SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin) + SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/castor))) // OCULIS EDIT, ORIGINAL: for(var/obj/machinery/fax/admin/FAX as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin))
 				if(FAX.fax_id != request.additional_information["destination_id"])
 					continue
 				var/obj/item/paper/request_message = request.additional_information["paper"]
