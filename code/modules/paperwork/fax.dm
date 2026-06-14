@@ -79,15 +79,31 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 	syndicate_network = TRUE
 	return ..()
 
-/obj/machinery/fax/admin
+// OCULIS ADDITION START
+/obj/machinery/fax/admin/nanotrasen
 	name = "Sectorial Command Fax Machine"
 
-/obj/machinery/fax/admin/Initialize(mapload)
+/obj/machinery/fax/admin/nanotrasen/Initialize(mapload)
 	if (!fax_name)
 		fax_name = "[GLOB.nt_fax_department]"
 	if(!fax_id)
 		fax_id = special_networks["nanotrasen"]["fax_id"]
 	name = "[fax_name] Fax Machine"
+	visible_to_network = FALSE
+	return ..()
+// OCULIS ADDITION END
+
+/obj/machinery/fax/admin
+	name = "Admin Fax Machine" // OCULIS EDIT, ORIGINAL: name = "Sectorial Command Fax Machine"
+
+/obj/machinery/fax/admin/Initialize(mapload)
+	/* OCULIS REMOVAL START
+	if (!fax_name)
+		fax_name = "[GLOB.nt_fax_department]"
+	if(!fax_id)
+		fax_id = special_networks["nanotrasen"]["fax_id"]
+	name = "[fax_name] Fax Machine"
+	OCULIS REMOVAL END */
 	visible_to_network = FALSE
 	return ..()
 
@@ -326,8 +342,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 			// OCULIS ADDITION START
 			var/notice_text = "[icon2html(src.icon, GLOB.admins)]<b><font color=green>FAX REQUEST: </font>[ADMIN_FULLMONTY(usr)]:</b> [span_linkify("sent a fax message from [fax_name]/[fax_id][ADMIN_FLW(src)] to [html_encode(params["name"])]")] [ADMIN_SHOW_PAPER(fax_paper)] [ADMIN_PRINT_FAX(fax_paper, fax_name, params["id"])]"
 			// Find the machine if it exists so we can give the admins a FLW to it
-			var/fax_machine_types = SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin) + SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/castor)
-			for(var/obj/machinery/fax/FAX as anything in fax_machine_types)
+			for(var/obj/machinery/fax/admin/FAX as SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin))
 				if(FAX.fax_id != params["id"])
 					continue
 				notice_text += " [ADMIN_FLW(FAX)]"
@@ -344,7 +359,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 					SEND_SOUND(staff, sound('modular_oculis/modules/fax_sound/sound/fax.ogg')) // OCULIS EDIT, ORIGINAL:  SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
 
 			if(GLOB.fax_autoprinting)
-				for(var/obj/machinery/fax/FAX as anything in fax_machine_types) // OCULIS EDIT, ORIGINAL: for(var/obj/machinery/fax/admin/FAX as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin)
+				for(var/obj/machinery/fax/admin/FAX as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin))
 					if(FAX.fax_id != params["id"])
 						continue
 					FAX.receive(fax_paper, fax_name)

@@ -240,7 +240,7 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 				to_chat(usr, "Request doesn't have a paper to print.", confidential = TRUE)
 				return TRUE
 			var/fax_machine_found = FALSE // OCULIS ADDITION
-			for(var/obj/machinery/fax/FAX as anything in (SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin) + SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/castor))) // OCULIS EDIT, ORIGINAL: for(var/obj/machinery/fax/admin/FAX as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin))
+			for(var/obj/machinery/fax/admin/FAX as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin))
 				if(FAX.fax_id != request.additional_information["destination_id"])
 					continue
 				fax_machine_found = TRUE // OCULIS ADDITION
@@ -270,7 +270,7 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 		// OCULIS ADDITION START: fax_flw
 		if("fax_flw")
 			var/fax_machine_found = FALSE
-			for(var/obj/machinery/fax/FAX as anything in (SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin) + SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/castor)))
+			for(var/obj/machinery/fax/admin/FAX as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin))
 				if(FAX.fax_id != request.additional_information["destination_id"])
 					continue
 				fax_machine_found = TRUE

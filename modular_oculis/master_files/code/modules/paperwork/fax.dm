@@ -14,10 +14,10 @@
 	return ..()
 
 // Separate from the /admin type, to not collide with the conficting init. Requires a fax_id specified when mapping!
-/obj/machinery/fax/castor
+/obj/machinery/fax/admin/castor
 	name = "Castor Fax Machine"
 
-/obj/machinery/fax/castor/Initialize(mapload)
+/obj/machinery/fax/admin/castor/Initialize(mapload)
 	. = ..()
 	if(!fax_id)
 		return
