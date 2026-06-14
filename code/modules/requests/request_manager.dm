@@ -251,7 +251,7 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 			if(!fax_machine_found)
 				to_chat(usr, "Fax machine doesn't exist.", confidential = TRUE)
 			// OCULIS ADDITION END
-			return TRUE // OCULIS EDIT - decreased by one tab from original
+			return TRUE // OCULIS EDIT - decreased indentation by one tab from original
 		if ("play")
 			if(request.req_type != REQUEST_INTERNET_SOUND)
 				to_chat(usr, "Request doesn't have a sound to play.", confidential = TRUE)
