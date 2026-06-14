@@ -239,13 +239,19 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 			if (request.req_type != REQUEST_FAX)
 				to_chat(usr, "Request doesn't have a paper to print.", confidential = TRUE)
 				return TRUE
+			var/fax_machine_found = FALSE // OCULIS ADDITION
 			for(var/obj/machinery/fax/FAX as anything in (SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin) + SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/castor))) // OCULIS EDIT, ORIGINAL: for(var/obj/machinery/fax/admin/FAX as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/fax/admin))
 				if(FAX.fax_id != request.additional_information["destination_id"])
 					continue
+				fax_machine_found = TRUE // OCULIS ADDITION
 				var/obj/item/paper/request_message = request.additional_information["paper"]
 				var/sender_name = request.additional_information["sender_name"]
 				FAX.receive(request_message, sender_name)
-				return TRUE
+			// OCULIS ADDITION START
+			if(!fax_machine_found)
+				to_chat(usr, "Fax machine doesn't exist.", confidential = TRUE)
+			// OCULIS ADDITION END
+			return TRUE // OCULIS EDIT - decreased by one tab from original
 		if ("play")
 			if(request.req_type != REQUEST_INTERNET_SOUND)
 				to_chat(usr, "Request doesn't have a sound to play.", confidential = TRUE)
