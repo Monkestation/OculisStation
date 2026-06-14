@@ -79,33 +79,26 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 	syndicate_network = TRUE
 	return ..()
 
-// OCULIS ADDITION START
-/obj/machinery/fax/admin/nanotrasen
+/obj/machinery/fax/admin/nanotrasen // OCULIS EDIT, ORIGINAL: /obj/machinery/fax/admin
 	name = "Sectorial Command Fax Machine"
 
-/obj/machinery/fax/admin/nanotrasen/Initialize(mapload)
+/obj/machinery/fax/admin/nanotrasen/Initialize(mapload) // OCULIS EDIT, ORIGINAL: /obj/machinery/fax/admin/Initialize(mapload)
 	if (!fax_name)
 		fax_name = "[GLOB.nt_fax_department]"
 	if(!fax_id)
 		fax_id = special_networks["nanotrasen"]["fax_id"]
 	name = "[fax_name] Fax Machine"
+	visible_to_network = FALSE
+	return ..()
+
+// OCULIS ADDITION START
+/obj/machinery/fax/admin
+	name = "Admin Fax Machine"
+
+/obj/machinery/fax/admin/Initialize(mapload)
 	visible_to_network = FALSE
 	return ..()
 // OCULIS ADDITION END
-
-/obj/machinery/fax/admin
-	name = "Admin Fax Machine" // OCULIS EDIT, ORIGINAL: name = "Sectorial Command Fax Machine"
-
-/obj/machinery/fax/admin/Initialize(mapload)
-	/* OCULIS REMOVAL START
-	if (!fax_name)
-		fax_name = "[GLOB.nt_fax_department]"
-	if(!fax_id)
-		fax_id = special_networks["nanotrasen"]["fax_id"]
-	name = "[fax_name] Fax Machine"
-	OCULIS REMOVAL END */
-	visible_to_network = FALSE
-	return ..()
 
 /obj/machinery/fax/Initialize(mapload)
 	. = ..()
