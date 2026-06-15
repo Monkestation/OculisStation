@@ -172,10 +172,11 @@
 	description = "The crew must pass through an otherworldly arena to board this shuttle. Expect massive casualties."
 	prerequisites = "The source of the Bloody Signal must be tracked down and eliminated to unlock this shuttle."
 	admin_notes = "RIP AND TEAR."
-	credit_cost = CARGO_CRATE_VALUE * 20
+	credit_cost = INFINITY // OCULIS EDIT, ORIGINAL: credit_cost = CARGO_CRATE_VALUE * 20
 	occupancy_limit = "1/2"
 	/// Whether the arena z-level has been created
 	var/arena_loaded = FALSE
+	who_can_purchase = null // OCULIS ADDITION
 
 /datum/map_template/shuttle/emergency/arena/prerequisites_met()
 	return SSshuttle.shuttle_purchase_requirements_met[SHUTTLE_UNLOCK_BUBBLEGUM]
