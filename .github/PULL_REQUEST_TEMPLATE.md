@@ -9,11 +9,14 @@
 
 <!-- Please add a short description of why you think these changes would benefit the game and the roleplay atmosphere of the server. If you can't justify it in words, it might not be worth adding. -->
 
-<details>
-<summary><h2>Proof of Testing</h2></summary>
+## Proof of Testing
 
 <!-- Include any screenshots/videos/debugging steps of the code functioning successfully, between the </summary> and </details> code blocks. -->
 <!-- To our mappers and spriters: Posting screenshots of content INSIDE EDITORS (aseprite, PDN, SDMM, ect) is NOT valid proof of testing. Please make sure that you COMPILE the game and provide PROOF you tested your edits. -->
+
+<details>
+<summary>Screenshots/Videos</summary>
+
 </details>
 
 ## Changelog
