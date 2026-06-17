@@ -118,7 +118,6 @@
 	name = "arachnid web"
 	desc = "Designed to slow anything that isn't an arachnid. Really fragile."
 	max_integrity = 10
-	//arachnid = TRUE
 
 /obj/structure/spider/stickyweb/arachnid/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()

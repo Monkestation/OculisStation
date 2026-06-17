@@ -1,8 +1,6 @@
-<!-- This should be copy-pasted into the root of your module folder as readme.md -->
-https://github.com/Monkestation/OculisStation/pull/277 <!--not out yet-->
+[https://github.com/Monkestation/OculisStation/pull/277](https://github.com/Monkestation/OculisStation/pull/277)
 
-
-## Arachnids <!--Title of your addition.-->
+## Arachnids
 Module ID: ARACHNIDS
 
 ### Description:
@@ -54,5 +52,5 @@ None, I think?
 
 ### Credits:
 [PixelTK](https://github.com/PixelTheKermit): Originally making arachnids over in [SS14](https://github.com/space-wizards/space-station-14/pull/13945).  
-[MilkForever](https://github.com/MilkForever): Porting arachnids to SS13.  
+[MilkForever](https://github.com/MilkForever): Porting arachnids to [SS13](https://github.com/Monkestation/Monkestation2.0/pull/240).  
 [Lokachop](https://github.com/Lokachop): Porting arachnids to Oculis.
