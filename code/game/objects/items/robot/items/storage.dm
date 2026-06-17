@@ -302,6 +302,7 @@
 		/obj/item/stack/tile,
 		/obj/item/vending_refill
 		// NOVA EDIT ADDITION END
+		/obj/item/airbag // OCULIS ADDITION
 	)
 
 /obj/item/borg/apparatus/engineering/Initialize(mapload)
