@@ -300,7 +300,7 @@
 		/obj/item/wallframe,
 		/obj/item/stack/conveyor,
 		/obj/item/stack/tile,
-		/obj/item/vending_refill
+		/obj/item/vending_refill,
 		// NOVA EDIT ADDITION END
 		/obj/item/airbag // OCULIS ADDITION
 	)
