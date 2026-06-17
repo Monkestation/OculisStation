@@ -138,6 +138,9 @@
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 	AddElement(/datum/element/can_barricade)
+	// OCULIS EDIT START
+	AddElement(/datum/element/wall_pin)
+	// OCULIS EDIT END
 	update_appearance()
 
 /obj/machinery/door/examine(mob/user)

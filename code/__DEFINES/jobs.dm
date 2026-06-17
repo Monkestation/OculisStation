@@ -149,6 +149,9 @@
 #define JOB_SOLFED "SolGov"
 #define JOB_SOLFED_LIASON "SolGov Liason"
 // NOVA EDIT ADDITION END
+// OCULIS EDIT ADDITION START
+#define JOB_ABEL_ASSOCIATE "Abel Associate"
+// OCULIS EDIT ADDITION END
 
 //Lost crew
 #define JOB_LOSTCREW_ENGINEER "Visiting Engineer"
