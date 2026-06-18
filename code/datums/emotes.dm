@@ -404,7 +404,7 @@
 	else if(ismonkey(user) && message_monkey)
 		. = message_monkey
 	// OCULIS EDIT ADDITION START - hologram specific emotes
-	else if (HAS_TRAIT(user, TRAIT_HOLOSYNTH))
+	else if (HAS_TRAIT(user, TRAIT_HOLOSYNTH) && message_hologram)
 		. = message_hologram
 	// OCULIS EDIT ADDITION END
 	else if((iscyborg(user) || (living_user.mob_biotypes & MOB_ROBOTIC)) && message_robot)
