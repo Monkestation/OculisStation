@@ -2,7 +2,7 @@
 	name = "Emergency Capsule Crate"
 	desc = "Station crashed onto lavaland? Out of mining points but still worried about being caught in a storm? \
 	Contains one deployable survival capsule. \
-		<b>Warranty void once deployed.</b>"
+		Warranty void once deployed."
 	cost = CARGO_CRATE_VALUE * 6
 	contains = list(/obj/item/survivalcapsule = 1
 				)
