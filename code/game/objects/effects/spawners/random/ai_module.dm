@@ -47,6 +47,7 @@
 		/obj/item/ai_module/remove,
 		// /obj/item/ai_module/core/full/dagothbot, // NOVA EDIT - EDITION // OCULIS EDIT REMOVAL
 		/obj/item/ai_module/core/full/texas, // NOVA EDIT - EDITION
+		/obj/item/ai_module/core/full/godcomplex // OCULIS EDIT ADDITION
 	)
 
 /obj/effect/spawner/random/aimodule/harmful
