@@ -32,7 +32,7 @@
 
 /datum/keybinding/living/look_up
 	// hotkey_keys = list("L") // ORIGINAL
-	hotkey_keys = list("P") //NOVA EDIT CHANGE - CUSTOMIZATION
+	hotkey_keys = list("\[") //NOVA EDIT CHANGE - CUSTOMIZATION // OCULIS EDIT, NOVA ORIGINAL: hotkey_keys = list("P")
 	name = "look up"
 	full_name = "Look Up"
 	description = "Look up at the next z-level.  Only works if directly below open space."
@@ -54,7 +54,7 @@
 
 /datum/keybinding/living/look_down
 	// hotkey_keys = list(";") // ORIGINAL
-	hotkey_keys = list("\[") //NOVA EDIT CHANGE - CUSTOMIZATION
+	hotkey_keys = list("\]") //NOVA EDIT CHANGE - CUSTOMIZATION // OCULIS EDIT, NOVA ORIGINAL: hotkey_keys = list("\[")
 	name = "look down"
 	full_name = "Look Down"
 	description = "Look down at the previous z-level.  Only works if directly above open space."
