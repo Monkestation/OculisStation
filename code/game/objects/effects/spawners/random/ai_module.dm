@@ -45,7 +45,7 @@
 		/obj/item/ai_module/supplied/quarantine,
 		/obj/item/ai_module/core/full/yesman,
 		/obj/item/ai_module/remove,
-		/obj/item/ai_module/core/full/dagothbot, // NOVA EDIT - EDITION
+		// /obj/item/ai_module/core/full/dagothbot, // NOVA EDIT - EDITION // OCULIS EDIT REMOVAL
 		/obj/item/ai_module/core/full/texas, // NOVA EDIT - EDITION
 	)
 
