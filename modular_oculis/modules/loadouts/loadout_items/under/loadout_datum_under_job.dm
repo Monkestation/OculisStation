@@ -13,8 +13,6 @@
 	item_path = /obj/item/clothing/under/rank/medical/coroner
 	group = "Workwear"
 
-
-
 /datum/loadout_item/under/hos_blue
 	name = "Head of Security's Turtleneck"
 	item_path = /obj/item/clothing/under/rank/security/head_of_security/nova/blue
@@ -24,18 +22,6 @@
 /datum/loadout_item/under/hos_formal_blue
 	name = "Head of Security's Formal Suit"
 	item_path = /obj/item/clothing/under/rank/security/head_of_security/nova/formal/blue
-	restricted_roles = list(JOB_HEAD_OF_SECURITY)
-	group = "Job-Locked"
-
-/datum/loadout_item/under/hos_imperialvest
-	name = "Head of Security's Naval Jumpsuit"
-	item_path = /obj/item/clothing/under/imperialvest/hos
-	restricted_roles = list(JOB_HEAD_OF_SECURITY)
-	group = "Job-Locked"
-
-/datum/loadout_item/under/hos_imperialskirtvest
-	name = "Head of Security's Naval Jumpsuit"
-	item_path = /obj/item/clothing/under/imperialskirtvest/hos
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
