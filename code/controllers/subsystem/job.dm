@@ -430,105 +430,13 @@ SUBSYSTEM_DEF(job)
 
 	job_debug("DO: Player count to assign roles to: [initial_players_to_assign]")
 
-	//Scale number of open security officer slots to population
-	setup_officer_positions()
-
-	//Jobs will have fewer access permissions if the number of players exceeds the threshold defined in game_options.txt
-	var/min_access_threshold = CONFIG_GET(number/minimal_access_threshold)
-	if(min_access_threshold)
-		if(min_access_threshold > initial_players_to_assign)
-			CONFIG_SET(flag/jobs_have_minimal_access, FALSE)
-		else
-			CONFIG_SET(flag/jobs_have_minimal_access, TRUE)
-
 	//Shuffle player list.
 	shuffle_inplace(unassigned)
 
-	handle_feedback_gathering()
-
-	// Assign any priority positions before all other standard job selections.
-	job_debug("DO: Assigning priority positions")
-	assign_priority_positions()
-	job_debug("DO: Priority assignment complete")
-
-	// The overflow role has limitless slots, plus having the Overflow box ticked in prefs should (with one exception) set the priority to JP_HIGH.
-	// So everyone with overflow enabled will get that job. Thus we can assign it immediately to all players that have it enabled.
-	job_debug("DO: Assigning early overflow roles")
-	assign_all_overflow_positions()
-	job_debug("DO: Early overflow roles assigned.")
-
-	// At this point we can assume the following:
-	// From assign_priority_positions()
-	// 1. If possible, any necessary job roles to allow Dynamic rulesets to execute (such as an AI for malf AI) are satisfied.
-	// 2. All Head of Staff roles with any player pref set to JP_HIGH are filled out.
-	// 3. If any player not selected by the above has any Head of Staff preference enabled at any JP_ level, there is at least one Head of Staff.
-	//
-	// From assign_all_overflow_positions()
-	// 4. Anyone with the overflow role enabled has been given the overflow role.
-
-	// Copy the joinable occupation list and filter out ineligible occupations due to above job assignments.
-	var/list/available_occupations = joinable_occupations.Copy()
-	var/datum/job_department/command_department = get_department_type(/datum/job_department/command)
-
-	for(var/datum/job/job in available_occupations)
-		// Make sure the job isn't filled. If it is, remove it from the list so it doesn't get checked.
-		if((job.current_positions >= job.spawn_positions) && job.spawn_positions != -1)
-			job_debug("DO: Job is now filled, Job: [job], Current: [job.current_positions], Limit: [job.spawn_positions]")
-			available_occupations -= job
-			continue
-
-		// Command jobs are handled via fill_all_head_positions_at_priority(...)
-		// Remove these jobs from the list of available occupations to prevent multiple players being assigned to the same
-		// limited role without constantly having to iterate over the available_occupations list and re-check them.
-		if(job in command_department?.department_jobs)
-			available_occupations -= job
-
-	job_debug("DO: Running standard job assignment")
-
-	for(var/level in level_order)
-		job_debug("JOBS: Filling in head roles, Level: [job_priority_level_to_string(level)]")
-		// Fill the head jobs first each level
-		fill_all_head_positions_at_priority(level)
-
-		// Loop through all unassigned players
-		for(var/mob/dead/new_player/player in unassigned)
-			if(!allow_all)
-				if(popcap_reached())
-					job_debug("JOBS: Popcap reached, trying to reject player: [player]")
-					try_reject_player(player)
-
-			job_debug("JOBS: Finding a job for player: [player], at job priority pref: [job_priority_level_to_string(level)]")
-
-			// Loop through all jobs and build a list of jobs this player could be eligible for.
-			var/list/possible_jobs = list()
-			for(var/datum/job/job in available_occupations)
-				// Filter any job that doesn't fit the current level.
-				var/player_job_level = player.client?.prefs.job_preferences[job.title]
-				if(isnull(player_job_level))
-					job_debug("JOBS: Job not enabled, Job: [job]")
-					continue
-				if(player_job_level != level)
-					job_debug("JOBS: Job enabled at different priority pref, Job: [job], TheirLevel: [job_priority_level_to_string(player_job_level)], ReqLevel: [job_priority_level_to_string(level)]")
-					continue
-
-				if(check_job_eligibility(player, job, "JOBS", add_job_to_log = TRUE) != JOB_AVAILABLE)
-					continue
-
-				possible_jobs += job
-
-			// If there are no possible jobs for them at this priority, skip them.
-			if(!length(possible_jobs))
-				job_debug("JOBS: Player not eligible for any available jobs at this priority level: [player]")
-				continue
-
-			// Otherwise, pick one of those jobs at random.
-			var/datum/job/picked_job = pick(possible_jobs)
-
-			job_debug("JOBS: Now assigning role to player: [player], Job:[picked_job.title]")
-			assign_role(player, picked_job, do_eligibility_checks = FALSE)
-			if((picked_job.current_positions >= picked_job.spawn_positions) && picked_job.spawn_positions != -1)
-				job_debug("JOBS: Job is now full, Job: [picked_job], Positions: [picked_job.current_positions], Limit: [picked_job.spawn_positions]")
-				available_occupations -= picked_job
+	for(var/mob/dead/new_player/player in unassigned)
+		// Otherwise, pick one of those jobs at random.
+		var/datum/job/picked_job = /datum/job/assistant
+		assign_role(player, picked_job, do_eligibility_checks = FALSE)
 
 	job_debug("DO: Ending standard job assignment")
 
@@ -536,18 +444,6 @@ SUBSYSTEM_DEF(job)
 	// For any players that didn't get a job, fall back on their pref setting for what to do.
 	for(var/mob/dead/new_player/player in unassigned)
 		handle_unassigned(player, allow_all)
-	job_debug("DO: Ending handle unassigned")
-
-	job_debug("DO: Handle unrejectable unassigned")
-	//Mop up people who can't leave.
-	for(var/mob/dead/new_player/player in unassigned) //Players that wanted to back out but couldn't because they're antags (can you feel the edge case?)
-		if(!give_random_job(player))
-			if(!assign_role(player, get_job_type(overflow_role))) //If everything is already filled, make them an assistant
-				job_debug("DO: Forced antagonist could not be assigned any random job or the overflow role. divide_occupations failed.")
-				job_debug("---------------------------------------------------")
-				run_divide_occupation_pure = FALSE
-				return FALSE //Living on the edge, the forced antagonist couldn't be assigned to overflow role (bans, client age) - just reroll
-	job_debug("DO: Ending handle unrejectable unassigned")
 
 	job_debug("All divide occupations tasks completed.")
 	job_debug("---------------------------------------------------")
@@ -556,47 +452,8 @@ SUBSYSTEM_DEF(job)
 
 //We couldn't find a job from prefs for this guy.
 /datum/controller/subsystem/job/proc/handle_unassigned(mob/dead/new_player/player, allow_all = FALSE)
-	var/jobless_role = player.client.prefs.read_preference(/datum/preference/choiced/jobless_role)
-
-	if(!allow_all)
-		if(popcap_reached())
-			job_debug("HU: Popcap reached, trying to reject player: [player]")
-			try_reject_player(player)
-			return
-
-	switch (jobless_role)
-		if (BEOVERFLOW)
-			var/datum/job/overflow_role_datum = get_job_type(overflow_role)
-
-			if((overflow_role_datum.current_positions >= overflow_role_datum.spawn_positions) && overflow_role_datum.spawn_positions != -1)
-				job_debug("HU: Overflow role player cap reached, trying to reject: [player]")
-				try_reject_player(player)
-				return
-
-			if(check_job_eligibility(player, overflow_role_datum, debug_prefix = "HU", add_job_to_log = TRUE) != JOB_AVAILABLE)
-				job_debug("HU: Player cannot be overflow, trying to reject: [player]")
-				try_reject_player(player)
-				return
-
-			if(!assign_role(player, overflow_role_datum, do_eligibility_checks = FALSE))
-				job_debug("HU: Player could not be assigned overflow role, trying to reject: [player]")
-				try_reject_player(player)
-				return
-		if (BERANDOMJOB)
-			if(!give_random_job(player))
-				job_debug("HU: Player cannot be given a random job, trying to reject: [player]")
-				try_reject_player(player)
-				return
-		if (RETURNTOLOBBY)
-			job_debug("HU: Player unable to be assigned job, return to lobby enabled: [player]")
-			try_reject_player(player)
-			return
-		else //Something gone wrong if we got here.
-			job_debug("HU: [player] has an invalid jobless_role var: [jobless_role]")
-			log_game("[player] has an invalid jobless_role var: [jobless_role]")
-			message_admins("[player] has an invalid jobless_role, this shouldn't happen.")
-			try_reject_player(player)
-
+	job_debug("HU: Player unable to be assigned job, return to lobby enabled: [player]")
+	try_reject_player(player)
 
 //Gives the player the stuff he should have with his rank
 /datum/controller/subsystem/job/proc/equip_rank(mob/living/equipping, datum/job/job, client/player_client)

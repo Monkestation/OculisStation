@@ -249,32 +249,6 @@ SUBSYSTEM_DEF(ticker)
 
 	var/list/players_and_readiness = get_player_ready_states()
 	log_game("Players and Readiness: [json_encode(players_and_readiness)]", players_and_readiness)
-
-	CHECK_TICK
-	//Configure mode and assign player to antagonists
-	var/can_continue = FALSE
-	can_continue = SSdynamic.select_roundstart_antagonists() //Choose antagonists
-	CHECK_TICK
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_PRE_JOBS_ASSIGNED, src)
-	can_continue = can_continue && SSjob.divide_occupations() //Distribute jobs
-	CHECK_TICK
-
-	if(!GLOB.debugging_enabled)
-		if(!can_continue)
-			log_game("Game failed pre_setup")
-			to_chat(world, "<B>Error setting up game.</B> Reverting to pre-game lobby.")
-			SSjob.reset_occupations()
-			return FALSE
-	else
-		message_admins(span_notice("DEBUG: Bypassing prestart checks..."))
-
-	CHECK_TICK
-
-	// There may be various config settings that have been set or modified by this point.
-	// This is the point of no return before spawning in new players, let's run over the
-	// job trim singletons and update them based on any config settings.
-	SSid_access.refresh_job_trim_singletons()
-
 	CHECK_TICK
 
 	if(!CONFIG_GET(flag/ooc_during_round))
@@ -303,17 +277,11 @@ SUBSYSTEM_DEF(ticker)
 	log_world("Game start took [(world.timeofday - init_start)/10]s")
 	INVOKE_ASYNC(SSdbcore, TYPE_PROC_REF(/datum/controller/subsystem/dbcore,SetRoundStart))
 
-	to_chat(world, span_notice(span_bold("Welcome to [station_name()], enjoy your stay!")))
-	alert_sound_to_playing(sound(SSstation.announcer.get_rand_welcome_sound())) // NOVA EDIT CHANGE - ORIGINAL: SEND_SOUND(world, sound(SSstation.announcer.get_rand_welcome_sound()))
+	to_chat(world, span_notice(span_bold("Welcome to the rim.")))
+	alert_sound_to_playing(sound('modular_oculis/modules/rimworld/sounds/Game_Start_Sting_1a.ogg'))
 
 	current_state = GAME_STATE_PLAYING
 	Master.SetRunLevel(RUNLEVEL_GAME)
-
-	if(length(GLOB.holidays))
-		to_chat(world, span_notice("and..."))
-		for(var/holidayname in GLOB.holidays)
-			var/datum/holiday/holiday = GLOB.holidays[holidayname]
-			to_chat(world, span_info(holiday.greet()))
 
 	PostSetup()
 
@@ -519,43 +487,6 @@ SUBSYSTEM_DEF(ticker)
 
 
 /datum/controller/subsystem/ticker/proc/equip_characters()
-	GLOB.security_officer_distribution = decide_security_officer_departments(
-		shuffle(GLOB.new_player_list),
-		shuffle(GLOB.available_depts),
-	)
-
-	var/captainless = TRUE
-
-	var/highest_rank = length(SSjob.chain_of_command) + 1
-	var/list/spare_id_candidates = list()
-	var/mob/dead/new_player/picked_spare_id_candidate
-
-	// Find a suitable player to hold captaincy.
-	for(var/mob/dead/new_player/new_player_mob as anything in GLOB.new_player_list)
-		if(is_banned_from(new_player_mob.ckey, list(JOB_CAPTAIN)))
-			CHECK_TICK
-			continue
-		if(!ishuman(new_player_mob.new_character))
-			continue
-		var/mob/living/carbon/human/new_player_human = new_player_mob.new_character
-		if(!new_player_human.mind || is_unassigned_job(new_player_human.mind.assigned_role))
-			continue
-		// Keep a rolling tally of who'll get the cap's spare ID vault code.
-		// Check assigned_role's priority and curate the candidate list appropriately.
-		var/player_assigned_role = new_player_human.mind.assigned_role.title
-		var/spare_id_priority = SSjob.chain_of_command[player_assigned_role]
-		if(spare_id_priority)
-			if(spare_id_priority < highest_rank)
-				spare_id_candidates.Cut()
-				spare_id_candidates += new_player_mob
-				highest_rank = spare_id_priority
-			else if(spare_id_priority == highest_rank)
-				spare_id_candidates += new_player_mob
-		CHECK_TICK
-
-	if(length(spare_id_candidates))
-		picked_spare_id_candidate = pick(spare_id_candidates)
-
 	for(var/mob/dead/new_player/new_player_mob as anything in GLOB.new_player_list)
 		if(QDELETED(new_player_mob) || !isliving(new_player_mob.new_character))
 			CHECK_TICK
@@ -564,42 +495,26 @@ SUBSYSTEM_DEF(ticker)
 		if(!new_player_living.mind)
 			CHECK_TICK
 			continue
-		var/datum/job/player_assigned_role = new_player_living.mind.assigned_role
-		if(player_assigned_role.job_flags & JOB_EQUIP_RANK)
-			SSjob.equip_rank(new_player_living, player_assigned_role, new_player_mob.client)
-		player_assigned_role.after_roundstart_spawn(new_player_living, new_player_mob.client)
-		if(picked_spare_id_candidate == new_player_mob)
-			captainless = FALSE
-			var/acting_captain = !is_captain_job(player_assigned_role)
-			SSjob.promote_to_captain(new_player_living, acting_captain)
-			OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(minor_announce), player_assigned_role.get_captaincy_announcement(new_player_living)))
 		if(ishuman(new_player_living))
 			if(player_assigned_role.job_flags & JOB_ASSIGN_QUIRKS)
 				if(CONFIG_GET(flag/roundstart_traits))
 					if(new_player_mob.client?.prefs?.should_be_random_hardcore(player_assigned_role, new_player_living.mind))
 						new_player_mob.client.prefs.hardcore_random_setup(new_player_living)
-					SSquirks.AssignQuirks(new_player_living, new_player_mob.client)
+					/// Quirks that should just be completely skipped.
+					var/list/skip_quirks = typecacheof(list(
+						/datum/quirk/item_quirk,
+						/datum/quirk/prosthetic_limb,
+						/datum/quirk/prosthetic_organ,
+						/datum/quirk/quadruple_amputee,
+						/datum/quirk/tin_man,
+					))
+					SSquirks.AssignQuirks(new_player_living, new_player_mob.client, skip_quirks)
 			else // clear any personalities the prefs added since our job clearly does not want them
 				new_player_living.clear_personalities()
 
 		if(ishuman(new_player_living))
 			SEND_SIGNAL(new_player_living, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
-			// NOVA EDIT ADDITION START
-			var/list/loadout = new_player_living.client?.get_loadout_datums()
-			for(var/datum/loadout_item/item as anything in loadout)
-				if (item.restricted_roles && length(item.restricted_roles) && !(player_assigned_role.title in item.restricted_roles))
-					continue
-				item.post_equip_item(new_player_mob.client?.prefs, new_player_living)
-			// NOVA EDIT ADDITION END
 		CHECK_TICK
-
-	if(captainless)
-		for(var/mob/dead/new_player/new_player_mob as anything in GLOB.new_player_list)
-			var/mob/living/carbon/human/new_player_human = new_player_mob.new_character
-			if(new_player_human)
-				to_chat(new_player_mob, span_notice("Captainship not forced on anyone."))
-			CHECK_TICK
-
 
 /datum/controller/subsystem/ticker/proc/decide_security_officer_departments(
 	list/new_players,
