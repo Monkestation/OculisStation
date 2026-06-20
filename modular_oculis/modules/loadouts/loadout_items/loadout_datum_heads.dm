@@ -19,13 +19,13 @@
 
 // HOS ONLY
 /datum/loadout_item/head/hos_beret
-	name = "Head of Security's Beret"
+	name = "Head of Security's beret"
 	item_path = /obj/item/clothing/head/hats/hos/beret
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
     group = "Job-Locked"
 
 /datum/loadout_item/head/hos_cap
-	name = "Head of Security's Cap"
+	name = "Head of Security's cap"
 	item_path = /obj/item/clothing/head/hats/hos/cap
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
     group = "Job-Locked"
