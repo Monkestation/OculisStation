@@ -27,6 +27,7 @@
 	if(!isoldpAI(spawned))
 		return
 	var/mob/living/silicon/pai_oculis/pai_spawn = spawned
+	pai_spawn.modularInterface.turn_on()
 	pai_spawn.unfold()
 
 // We just use the same spawn points as assistants. This means I don't have to map shit, which means I retain 0.01% of sanity

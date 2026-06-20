@@ -7,19 +7,16 @@
 	add_screen_object(/atom/movable/screen/language_menu, HUD_MOB_LANGUAGE_MENU, ui_style, ui_pai_language_menu)
 	add_screen_object(/atom/movable/screen/navigate, HUD_MOB_NAVIGATE_MENU, ui_style, ui_pai_navigate_menu)
 	add_screen_object(/atom/movable/screen/memories, HUD_MOB_MEMORIES, HUD_GROUP_STATIC, ui_style, ui_pai_memories_menu)
-	add_screen_object(/atom/movable/screen/pai/software, HUD_PAI_SOFTWARE)
+	add_screen_object(/atom/movable/screen/pai_oculis/software, HUD_PAI_SOFTWARE)
 	add_screen_object(/atom/movable/screen/pai_oculis/shell, HUD_PAIOCU_SHELL)
 	add_screen_object(/atom/movable/screen/pai_oculis/chassis, HUD_PAIOCU_CHASSIS)
 	add_screen_object(/atom/movable/screen/pai/rest, HUD_MOB_REST)
 	add_screen_object(/atom/movable/screen/pai/light, HUD_CYBORG_LAMP)
 	add_screen_object(/atom/movable/screen/pai/newscaster, HUD_PAI_NEWSCASTER)
-	add_screen_object(/atom/movable/screen/pai/host_monitor, HUD_PAI_HOST_MONITOR)
-	add_screen_object(/atom/movable/screen/pai/crew_manifest, HUD_AI_CREW_MANIFEST)
 	add_screen_object(/atom/movable/screen/pai/internal_gps, HUD_PAI_GPS)
 	add_screen_object(/atom/movable/screen/pai/image_take, HUD_AI_TAKE_IMAGE)
 	add_screen_object(/atom/movable/screen/pai/image_view, HUD_AI_IMAGE_VIEW)
 	add_screen_object(/atom/movable/screen/pai/radio, HUD_CYBORG_RADIO)
-	add_screen_object(/atom/movable/screen/pai/modpc, HUD_SILICON_TABLET)
 	add_screen_object(/atom/movable/screen/healths/robot, HUD_MOB_HEALTH, HUD_GROUP_INFO)
 
 	update_software_buttons()
@@ -71,3 +68,14 @@
 		return
 	var/mob/living/silicon/pai_oculis/pAI = usr
 	pAI.choose_chassis()
+
+/atom/movable/screen/pai_oculis/software
+	name = "Software Interface"
+	icon_state = "pai"
+	screen_loc = ui_pai_software
+
+/atom/movable/screen/pai_oculis/software/Click()
+	if(!..())
+		return
+	var/mob/living/silicon/pai_oculis/pAI = usr
+	pAI.ui_interact(pAI)

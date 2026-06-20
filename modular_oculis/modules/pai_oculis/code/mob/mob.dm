@@ -69,7 +69,6 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 	var/list/installed_software = list()
 	// Cable used when hacking doors
 	var/obj/item/pai_cable/hacking_cable
-	// Our pAIs modular interface
 	// What we have access to. Updated whenever someone swipes an ID card over us.
 	var/list/pai_access = list()
 	// List of available chassis
@@ -120,6 +119,7 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 	// We can still interact with consoles, though
 	AddElement(/datum/element/dextrous, hud_type = hud_type)
 
+	INVOKE_ASYNC(src, PROC_REF(create_modularInterface))
 
 /mob/living/silicon/pai_oculis/update_icon_state()
 	icon_state = resting ? "[chassis]_rest" : "[chassis]"
@@ -169,7 +169,7 @@ tl;dr an 'older' model of pAIs that aren't seen as much anymore, but still exist
 	return ..()
 
 /mob/living/silicon/pai_oculis/attack_hand(mob/living/carbon/human/user, list/modifiers)
-	if(!user.combat_mode)
+	if(!user.combat_mode && user != src)
 		visible_message(span_notice("[user] gently pats [src] on the head."))
 		return
 
