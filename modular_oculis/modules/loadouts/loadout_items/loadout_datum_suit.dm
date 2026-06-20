@@ -34,3 +34,29 @@
     item_path = /obj/item/clothing/suit/armor/vest/hc_police_jacket/suit
     restricted_roles = list(ALL_JOBS_SEC)
     group = "Job-Locked"
+
+
+// HOS ONLY
+/datum/loadout_item/suit/hos_armor
+	name = "armored greatcoat"
+	item_path = /obj/item/clothing/suit/armor/hos
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+	group = "Job-Locked"
+
+/datum/loadout_item/suit/hos_formal
+	name = "Head of Security's parade jacket"
+	item_path = /obj/item/clothing/suit/armor/hos/hos_formal
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+	group = "Job-Locked"
+
+/datum/loadout_item/suit/hos_trenchcoat
+	name = "Head of Security's winter trenchcoat"
+	item_path = /obj/item/clothing/suit/armor/hos/trenchcoat/winter
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+	group = "Job-Locked"
+
+/datum/loadout_item/suit/leather_armorvest
+	name = "security overcoat"
+	item_path = /obj/item/clothing/suit/armor/vest/leather
+	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_WARDEN)
+	group = "Job-Locked"
