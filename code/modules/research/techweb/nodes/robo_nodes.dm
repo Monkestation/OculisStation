@@ -54,7 +54,7 @@
 		"crewsimov_module",
 		"sophontsimov_module",
 		"noidimov_module",
-		"godcomplex_module"
+		"godcomplex_module",
 		//IRIS EDIT ADDITION END
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)

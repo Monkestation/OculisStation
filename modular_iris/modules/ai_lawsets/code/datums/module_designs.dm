@@ -31,7 +31,7 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
-/datum/design/board/noidimov
+/datum/design/board/godcomplex
 	name = "God Complex AI Module"
 	desc = "Allows for the construction of a 'God Complex' AI Core Module."
 	id = "godcomplex_module"
