@@ -990,7 +990,6 @@ SUBSYSTEM_DEF(job)
 		job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_AGE)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_UNAVAILABLE_AGE
 	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
-
 	if(possible_job.has_banned_quirk(player.client.prefs))
 		job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_QUIRK)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_UNAVAILABLE_QUIRK
