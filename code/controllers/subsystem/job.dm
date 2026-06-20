@@ -990,9 +990,6 @@ SUBSYSTEM_DEF(job)
 		job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_AGE)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_UNAVAILABLE_AGE
 	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
-	if(GLOB.nova_star_restrictions && possible_job.nova_stars_only && !SSplayer_ranks.is_nova_star(player.client))
-		job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_NOT_NOVA_STAR)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
-		return JOB_NOT_NOVA_STAR
 
 	if(possible_job.has_banned_quirk(player.client.prefs))
 		job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_QUIRK)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
