@@ -7,28 +7,21 @@
 	supervisors = "absolutely everyone"
 	exp_granted_type = EXP_TYPE_CREW
 	outfit = /datum/outfit
-	plasmaman_outfit = /datum/outfit/plasmaman
-	paycheck = PAYCHECK_LOWER // Get a job. Job reassignment changes your paycheck now. Get over it.
+	plasmaman_outfit = /datum/outfit // No plasmamen allowed.
+	paycheck = PAYCHECK_ZERO
 
 	paycheck_department = ACCOUNT_CIV
 	display_order = JOB_DISPLAY_ORDER_ASSISTANT
 
-	liver_traits = list(TRAIT_MAINTENANCE_METABOLISM)
+	liver_traits = list()
 
 	department_for_prefs = /datum/job_department/assistant
 
-	family_heirlooms = list(/obj/item/storage/toolbox/mechanical/old/heirloom, /obj/item/clothing/gloves/cut/heirloom)
+	family_heirlooms = list()
 
-	mail_goodies = list(
-		/obj/effect/spawner/random/food_or_drink/donkpockets = 10,
-		/obj/item/clothing/mask/gas = 10,
-		/obj/item/clothing/gloves/color/fyellow = 7,
-		/obj/item/choice_beacon/music = 5,
-		/obj/item/toy/sprayoncan = 3,
-		/obj/item/crowbar/large = 1
-	)
+	mail_goodies = list()
 
-	job_flags = STATION_JOB_FLAGS
+	job_flags = JOB_CREW_MANIFEST|JOB_CREW_MEMBER|JOB_NEW_PLAYER_JOINABLE|JOB_REOPEN_ON_ROUNDSTART_LOSS|JOB_ASSIGN_QUIRKS
 	rpg_title = "Lout"
 	config_tag = "ASSISTANT"
 
