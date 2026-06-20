@@ -16,3 +16,16 @@
     item_path = /obj/item/clothing/head/hats/colonial/hc_police
     restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
     group = "Job-Locked"
+
+// HOS ONLY
+/datum/loadout_item/head/hos_beret
+	name = "Head of Security's Beret"
+	item_path = /obj/item/clothing/head/hats/hos/beret
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+    group = "Job-Locked"
+
+/datum/loadout_item/head/hos_cap
+	name = "Head of Security's Cap"
+	item_path = /obj/item/clothing/head/hats/hos/cap
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+    group = "Job-Locked"
