@@ -21,6 +21,11 @@
 /obj/structure/girder,
 /turf/template_noop,
 /area/ruin/space/bb13/engineering/s_solars_control)
+"aq" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "ar" = (
 /obj/structure/chair{
 	dir = 4
@@ -38,6 +43,7 @@
 	anchored = 1;
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/atmos)
 "aE" = (
@@ -444,9 +450,7 @@
 /obj/structure/grille/broken,
 /obj/item/shard/plasma,
 /obj/item/shard/plasma,
-/obj/machinery/atmospherics/pipe/layer_manifold/general{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/atmos)
 "hZ" = (
@@ -504,7 +508,7 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/medical)
 "iw" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector,
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored,
 /turf/open/floor/engine/o2,
 /area/ruin/space/bb13/engineering/atmos)
 "iz" = (
@@ -608,6 +612,7 @@
 	anchored = 1;
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/engineering/atmos)
 "jj" = (
@@ -700,6 +705,11 @@
 /obj/structure/table_frame,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/service)
+"kq" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "ku" = (
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/airless,
@@ -842,6 +852,7 @@
 	anchored = 1;
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/atmos)
 "ni" = (
@@ -1162,6 +1173,7 @@
 /obj/machinery/computer/atmos_control/noreconnect{
 	atmos_chambers = list("babylon-air"="Air Supply")
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/atmos)
 "ry" = (
@@ -1284,7 +1296,7 @@
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/s_solars_control)
 "td" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector{
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored{
 	dir = 8
 	},
 /turf/open/floor/engine/plasma,
@@ -1855,6 +1867,7 @@
 /obj/machinery/computer/atmos_control/noreconnect{
 	atmos_chambers = list("babylon-n2"="Nitrogen Supply")
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/atmos)
 "BP" = (
@@ -2033,7 +2046,7 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/service)
 "Fo" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector,
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored,
 /turf/open/floor/engine/air,
 /area/ruin/space/bb13/engineering/atmos)
 "Fs" = (
@@ -2284,6 +2297,11 @@
 /obj/structure/table_frame,
 /turf/template_noop,
 /area/ruin/space/bb13/medical)
+"Jb" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "Jd" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/mapping_helpers/broken_floor,
@@ -2492,6 +2510,7 @@
 /obj/machinery/computer/atmos_control/noreconnect{
 	atmos_chambers = list("babylon-o2"="Oxygen Supply")
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/engineering/atmos)
 "MO" = (
@@ -2693,7 +2712,7 @@
 "PQ" = (
 /obj/structure/grille/broken,
 /obj/item/shard/plasma,
-/obj/machinery/atmospherics/pipe/layer_manifold/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/atmos)
 "PV" = (
@@ -2852,8 +2871,13 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/hallway/central)
+"SA" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "SD" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector,
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored,
 /turf/open/floor/engine/n2,
 /area/ruin/space/bb13/engineering/atmos)
 "SE" = (
@@ -3061,6 +3085,7 @@
 	atmos_chambers = list("babylon-plasma"="Plasma Supply");
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/atmos)
 "Vs" = (
@@ -7571,7 +7596,7 @@ yZ
 Ks
 Qm
 SD
-yh
+aq
 BO
 nq
 sI
@@ -7740,7 +7765,7 @@ Ks
 Ks
 nq
 nq
-gF
+nq
 nq
 nq
 ZW
@@ -7820,7 +7845,7 @@ yZ
 Ks
 dP
 iw
-yh
+aq
 MN
 ug
 dW
@@ -7915,7 +7940,7 @@ Ml
 CP
 ug
 jh
-yh
+aq
 Vb
 hc
 ZW
@@ -7989,7 +8014,7 @@ Ks
 Ks
 ug
 ug
-dW
+sI
 sI
 bQ
 nq
@@ -8069,7 +8094,7 @@ Om
 Ks
 Bz
 Fo
-yh
+kq
 rx
 UD
 Ml
@@ -8153,10 +8178,10 @@ Ks
 pG
 FY
 yh
+SA
 Ml
 Ml
-Ml
-Ml
+Jb
 Ml
 sI
 ug
@@ -8164,7 +8189,7 @@ ug
 bQ
 ZW
 ne
-yh
+aq
 CM
 ZW
 Ks
@@ -8239,7 +8264,7 @@ Ks
 ug
 Ml
 Vh
-Ml
+Jb
 QS
 nq
 nq
@@ -8321,7 +8346,7 @@ Za
 XR
 EM
 Ks
-xH
+aq
 xH
 Ks
 sI
