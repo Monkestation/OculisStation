@@ -56,7 +56,7 @@ type CharacterControlsProps = {
 function CharacterControls(props: CharacterControlsProps) {
   return (
     <Stack>
-      {/* // OCULIS EDIT REMOVAL START
+      { /* // OCULIS EDIT REMOVAL START
       <Stack.Item>
         <Button
           onClick={() => props.handleRotate(true)} // NOVA EDIT CHANGE - Original: onClick={props.handleRotate}
