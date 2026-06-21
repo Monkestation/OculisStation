@@ -716,13 +716,6 @@
 	else if (old_euphoria && !new_euphoria)
 		breather.clear_mood_event("chemical_euphoria")
 
-	// OCULIS EDIT ADDITION START - N2O gives analgesia
-	if(n2o_euphoria == EUPHORIA_ACTIVE)
-		ADD_TRAIT(breather, TRAIT_ANALGESIA, N2O_TRAIT)
-	else
-		REMOVE_TRAIT(breather, TRAIT_ANALGESIA, N2O_TRAIT)
-	// OCULIS EDIT ADDITION END
-
 	if(has_moles)
 		handle_breath_temperature(breath, breather)
 		// Merge breath_out into breath. They're kept seprerate before now to ensure stupid like, order of operations shit doesn't happen
