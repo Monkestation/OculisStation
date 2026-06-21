@@ -56,7 +56,7 @@ type CharacterControlsProps = {
 function CharacterControls(props: CharacterControlsProps) {
   return (
     <Stack>
-      { /* // OCULIS EDIT REMOVAL START
+      {/* // OCULIS EDIT REMOVAL START
       <Stack.Item>
         <Button
           onClick={() => props.handleRotate(true)} // NOVA EDIT CHANGE - Original: onClick={props.handleRotate}
@@ -610,7 +610,7 @@ export function MainPage(props: MainPageProps) {
                 }}
                 setGender={createSetPreference(act, 'gender')}
                 showGender={
-                  true // OCULIS EDIT, ORIGINAL: currentSpeciesData ? !!currentSpeciesData.sexes : true
+                  true // OCULIS EDIT, don't force people to have or not have a gender, ORIGINAL: currentSpeciesData ? !!currentSpeciesData.sexes : true
                 }
                 // NOVA EDIT ADDITION START
                 handleFood={() => {
