@@ -9,7 +9,7 @@
 	/// How many uses this item has before being deleted
 	var/uses = 1
 	/// Used in the deployment message - What company is sending the equipment, flavor
-	var/company_source = "Sectorial Command" // OCULIS EDIT, SectCommening 2, ORIGINAL: .*Central Command"
+	var/company_source = "Sectorial Command" // OCULIS EDIT, SectCommening 2, ORIGINAL: var/company_source = "Central Command"
 	/// Used inthe deployment message - What is the company saying with their message, flavor
 	var/company_message = span_bold("Item request received. Your package is inbound, please stand back from the landing site.")
 

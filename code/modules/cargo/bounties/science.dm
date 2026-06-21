@@ -72,7 +72,7 @@
 
 /datum/bounty/item/science/ntnet/laptops
 	name = "Modular Laptops"
-	description = "Sectorial Command brass need something more powerful than a tablet, but more portable than a console. Help these old fogeys out by shipping us some working laptops. Send them turned on." // OCULIS EDIT, SectCommening 2, ORIGINAL: .*Central Command brass need something more powerful than a tablet, but more portable than a console. Help these old fogeys out by shipping us some working laptops. Send them turned on."
+	description = "Sectorial Command brass need something more powerful than a tablet, but more portable than a console. Help these old fogeys out by shipping us some working laptops. Send them turned on." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Central command brass need something more powerful than a tablet, but more portable than a console. Help these old fogeys out by shipping us some working laptops. Send them turned on."
 	reward = CARGO_CRATE_VALUE * 3
 	required_count = 2
 	wanted_types = list(/obj/item/modular_computer/laptop = TRUE)

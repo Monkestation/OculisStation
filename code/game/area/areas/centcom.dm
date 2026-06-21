@@ -13,7 +13,7 @@
 
 // This is just to define the category
 /area/centcom/central_command_areas
-	name = "Sectorial Command Areas" // OCULIS EDIT, SectCommening 2, ORIGINAL: .*Central Command Areas"
+	name = "Sectorial Command Areas" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "Central Command Areas"
 
 /area/centcom/central_command_areas/control
 	name = "CentCom Central Control"

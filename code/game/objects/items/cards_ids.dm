@@ -1418,7 +1418,7 @@
 
 /obj/item/card/id/advanced/centcom
 	name = "\improper CentCom ID"
-	desc = "An ID straight from Sectorial Command." // OCULIS EDIT, SectCommening 2, ORIGINAL: .*Central Command."
+	desc = "An ID straight from Sectorial Command." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "An ID straight from Central Command."
 	icon_state = "card_centcom"
 	assigned_icon_state = "assigned_centcom"
 	registered_name = JOB_CENTCOM
