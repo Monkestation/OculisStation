@@ -1,0 +1,1239 @@
+// LOADOUT ITEM DATUMS FOR THE SUIT SLOT
+/datum/loadout_item/suit/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE) // don't bother storing in backpack, can't fit
+	if(initial(outfit_important_for_life.suit))
+		return TRUE
+
+/datum/loadout_item/suit/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE, override_items = LOADOUT_OVERRIDE_BACKPACK)
+	if(override_items == LOADOUT_OVERRIDE_BACKPACK && !visuals_only)
+		if(outfit.suit)
+			LAZYADD(outfit.backpack_contents, outfit.suit)
+		outfit.suit = item_path
+	else
+		outfit.suit = item_path
+
+/*
+*	ITEMS BELOW HERE
+*/
+
+/datum/loadout_item/suit/dagger_mantle
+	name = "'Dagger' Designer Mantle"
+	item_path = /obj/item/clothing/suit/dagger_mantle
+
+/datum/loadout_item/suit/croptop
+	name = "Crop Top Turtleneck"
+	item_path = /obj/item/clothing/suit/jacket/croptop
+	reskin_datum = /datum/atom_skin/cableknit_sweater
+
+/datum/loadout_item/suit/czech
+	name = "Czech Coat"
+	item_path = /obj/item/clothing/suit/modernwintercoatthing
+
+/datum/loadout_item/suit/henchcoat
+	name = "Henchmen Coat"
+	item_path = /obj/item/clothing/suit/jacket/henchmen_coat
+	group = "Jackets"
+
+/datum/loadout_item/suit/korea
+	name = "Eastern Coat"
+	item_path = /obj/item/clothing/suit/koreacoat
+
+/datum/loadout_item/suit/hawaiian_shirt
+	name = "Hawaiian Shirt"
+	item_path = /obj/item/clothing/suit/costume/hawaiian
+
+/datum/loadout_item/suit/overcoat
+	name = "Overcoat (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/overcoat
+	group = "Jackets"
+
+/datum/loadout_item/suit/wellwornshirt
+	name = "Oversized Shirt"
+	item_path = /obj/item/clothing/suit/costume/wellworn_shirt
+
+/datum/loadout_item/suit/wellworn_graphicshirt
+	name = "Oversized Shirt (Graphic)"
+	item_path = /obj/item/clothing/suit/costume/wellworn_shirt/graphic
+
+/datum/loadout_item/suit/ianshirt
+	name = "Oversized Shirt (Ian)"
+	item_path = /obj/item/clothing/suit/costume/wellworn_shirt/graphic/ian
+
+/datum/loadout_item/suit/wornoutshirt
+	name = "Oversized Shirt - Worn-out"
+	item_path = /obj/item/clothing/suit/costume/wellworn_shirt/wornout
+
+/datum/loadout_item/suit/wornout_graphicshirt
+	name = "Oversized Shirt - Worn-out (Graphic)"
+	item_path = /obj/item/clothing/suit/costume/wellworn_shirt/wornout/graphic
+
+/datum/loadout_item/suit/wornout_ianshirt
+	name = "Oversized Shirt - Worn-out (Ian)"
+	item_path = /obj/item/clothing/suit/costume/wellworn_shirt/wornout/graphic/ian
+
+/datum/loadout_item/suit/messyshirt
+	name = "Oversized Shirt - Messy"
+	item_path = /obj/item/clothing/suit/costume/wellworn_shirt/messy
+
+/datum/loadout_item/suit/messy_graphicshirt
+	name = "Oversized Shirt - Messy (Graphic)"
+	item_path = /obj/item/clothing/suit/costume/wellworn_shirt/messy/graphic
+
+/datum/loadout_item/suit/messy_ianshirt
+	name = "Oversized Shirt - Messy (Ian)"
+	item_path = /obj/item/clothing/suit/costume/wellworn_shirt/messy/graphic/ian
+
+/datum/loadout_item/suit/wornshirt
+	name = "Oversized Shirt - Wrinkled"
+	item_path = /obj/item/clothing/suit/wornshirt
+
+/datum/loadout_item/suit/suspenders
+	name = "Suspenders (Colorable)"
+	item_path = /obj/item/clothing/suit/toggle/suspenders
+
+/datum/loadout_item/suit/big_sweater
+	name = "Big Sweater With Bow (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/sweater/bow
+
+/datum/loadout_item/suit/big_sweater_bowless
+	name = "Big Sweater (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/sweater
+
+/*
+*	WINTER COATS
+*/
+
+/datum/loadout_item/suit/winter_coat
+	name = "Winter Coat"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat
+
+/datum/loadout_item/suit/gags_wintercoat
+	name = "Winter Coat (Colorable)"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/colourable
+
+/datum/loadout_item/suit/aformal
+	name = "Winter Coat - Assistant's Formal"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova
+
+/datum/loadout_item/suit/brass
+	name = "Winter Coat - Brass"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/ratvar
+
+/datum/loadout_item/suit/winter_coat/christmas
+	name = "Winter Coat - Christmas"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/christmas
+
+/datum/loadout_item/suit/winter_coat/christmas/green
+	name = "Winter Coat - Christmas (Green)"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/christmas/green
+
+/datum/loadout_item/suit/runed
+	name = "Winter Coat - Runed"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/narsie
+
+/datum/loadout_item/suit/winter_coat_greyscale
+	name = "Winter Coat - Tailored (Colorable)"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/custom
+
+/datum/loadout_item/suit/winter_coat_fancy
+	name = "Winter Coat - Trenchcoat (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/furred_trenchcoat
+
+//Job Winter Coats (Don't want to alphabetize these mixed with the other wintercoats)
+/datum/loadout_item/suit/coat_atmos
+	name = "Winter Coat - Atmospherics"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/engineering/atmos
+
+/datum/loadout_item/suit/coat_bar
+	name = "Winter Coat - Bartender"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/bartender
+
+/datum/loadout_item/suit/coat_cargo
+	name = "Winter Coat - Cargo"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/cargo
+
+/datum/loadout_item/suit/coat_eng
+	name = "Winter Coat - Engineering"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/engineering
+
+/datum/loadout_item/suit/coat_hydro
+	name = "Winter Coat - Hydroponics"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/hydro
+
+/datum/loadout_item/suit/coat_med
+	name = "Winter Coat - Medical"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/medical
+
+/datum/loadout_item/suit/coat_miner
+	name = "Winter Coat - Mining"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/miner
+
+/datum/loadout_item/suit/coat_paramedic
+	name = "Winter Coat - Paramedic"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/medical/paramedic
+
+/datum/loadout_item/suit/coat_robotics
+	name = "Winter Coat - Robotics"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/science/robotics
+
+/datum/loadout_item/suit/coat_sci
+	name = "Winter Coat - Science"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/science
+
+/*
+*	SUITS / SUIT JACKETS
+*/
+
+/datum/loadout_item/suit/recolorable
+	name = "Suit Jacket (Colorable)"
+	item_path = /obj/item/clothing/suit/toggle/lawyer/greyscale
+	group = "Jackets"
+
+/datum/loadout_item/suit/black_suit_jacket
+	name = "Suit Jacket (Black)"
+	item_path = /obj/item/clothing/suit/toggle/lawyer/black
+	group = "Jackets"
+
+/datum/loadout_item/suit/blue_suit_jacket
+	name = "Suit Jacket (Blue)"
+	item_path = /obj/item/clothing/suit/toggle/lawyer
+	group = "Jackets"
+
+/datum/loadout_item/suit/purple_suit_jacket
+	name = "Suit Jacket (Purple)"
+	item_path = /obj/item/clothing/suit/toggle/lawyer/purple
+	group = "Jackets"
+
+/datum/loadout_item/suit/suitwhite
+	name = "Suit Jacket - Texan"
+	item_path = /obj/item/clothing/suit/texas
+	group = "Jackets"
+
+/datum/loadout_item/suit/dutchjacket
+	name = "Suit Jacket - Western"
+	item_path = /obj/item/clothing/suit/dutchjacketsr
+	group = "Jackets"
+
+/*
+*	JACKETS
+*/
+
+/datum/loadout_item/suit/big_jacket
+	name = "Alpha Atelier Pilot Jacket"
+	item_path = /obj/item/clothing/suit/big_jacket
+	group = "Jackets"
+
+/datum/loadout_item/suit/blazer_jacket
+	name = "Blazer (Colorable)"
+	item_path = /obj/item/clothing/suit/jacket/blazer
+	group = "Jackets"
+
+/datum/loadout_item/suit/discojacket
+	name = "Blazer - Disco"
+	item_path = /obj/item/clothing/suit/jacket/discoblazer
+	group = "Jackets"
+
+/datum/loadout_item/suit/bomber_jacket
+	name = "Bomber Jacket"
+	item_path = /obj/item/clothing/suit/jacket/bomber
+	group = "Jackets"
+
+/datum/loadout_item/suit/jacketbomber_alt
+	name = "Bomber Jacket w/ Zipper"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova
+	group = "Jackets"
+
+/datum/loadout_item/suit/kimjacket
+	name = "Bomber Jacket, Aerostatic"
+	item_path = /obj/item/clothing/suit/kimjacket
+	group = "Jackets"
+
+/datum/loadout_item/suit/cardigan
+	name = "Cardigan"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/cardigan
+	group = "Jackets"
+
+/datum/loadout_item/suit/sports_jacket
+	name = "Customizable Jacket (Colorable)"
+	item_path = /obj/item/clothing/suit/crop_jacket/long
+	group = "Jackets"
+
+/datum/loadout_item/suit/shortsleeve_sports_jacket
+	name = "Customizable Jacket (Short-Sleeved, Colorable)"
+	item_path = /obj/item/clothing/suit/crop_jacket/shortsleeve/long
+	group = "Jackets"
+
+/datum/loadout_item/suit/sleeveless_sports_jacket
+	name = "Customizable Jacket (Sleeveless, Colorable)"
+	item_path = /obj/item/clothing/suit/crop_jacket/sleeveless/long
+	group = "Jackets"
+
+/datum/loadout_item/suit/crop_jacket
+	name = "Customizable Jacket - Crop Top (Colorable)"
+	item_path = /obj/item/clothing/suit/crop_jacket
+	group = "Jackets"
+
+/datum/loadout_item/suit/shortsleeve_crop_jacket
+	name = "Customizable Jacket - Crop-Top (Short-Sleeved, Colorable)"
+	item_path = /obj/item/clothing/suit/crop_jacket/shortsleeve
+	group = "Jackets"
+
+/datum/loadout_item/suit/sleeveless_crop_jacket
+	name = "Customizable Jacket - Crop-Top (Sleeveless, Colorable)"
+	item_path = /obj/item/clothing/suit/crop_jacket/sleeveless
+	group = "Jackets"
+
+/datum/loadout_item/suit/colourable_leather_jacket
+	name = "Leather Jacket (Colorable)"
+	item_path = /obj/item/clothing/suit/jacket/leather/colourable
+	group = "Jackets"
+
+/datum/loadout_item/suit/duster
+	name = "Duster (Colorable)"
+	item_path = /obj/item/clothing/suit/duster
+	group = "Jackets"
+
+/datum/loadout_item/suit/parka
+	name = "Falls Parka"
+	item_path = /obj/item/clothing/suit/fallsparka
+	group = "Jackets"
+
+/datum/loadout_item/suit/jacket_fancy
+	name = "Fancy Fur Coat  (Colorable)"
+	item_path = /obj/item/clothing/suit/jacket/fancy
+	group = "Jackets"
+
+/datum/loadout_item/suit/flannel_gags
+	name = "Flannel  (Colorable)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/flannel/gags
+
+/datum/loadout_item/suit/flannel_aqua
+	name = "Flannel (Aqua)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/flannel/aqua
+
+/datum/loadout_item/suit/flannel_black
+	name = "Flannel (Black)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/flannel
+
+/datum/loadout_item/suit/flannel_brown
+	name = "Flannel (Brown)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/flannel/brown
+
+/datum/loadout_item/suit/flannel_red
+	name = "Flannel (Red)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/flannel/red
+
+/datum/loadout_item/suit/frontierjacket
+	abstract_type = /datum/loadout_item/suit/frontierjacket
+
+/datum/loadout_item/suit/frontierjacket/short
+	name = "Frontier Jacket (Short)"
+	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/short
+	group = "Jackets"
+
+/datum/loadout_item/suit/maxson
+	name = "Furred Coat (Brown)"
+	item_path = /obj/item/clothing/suit/brownbattlecoat
+
+/datum/loadout_item/suit/bossu
+	name = "Furred Coat (Black)"
+	item_path = /obj/item/clothing/suit/blackfurrich
+
+/datum/loadout_item/suit/leather_jacket
+	name = "Leather Jacket"
+	item_path = /obj/item/clothing/suit/jacket/leather
+	group = "Jackets"
+
+/datum/loadout_item/suit/leather_jacket/hooded
+	name = "Leather Jacket with Hoodie"
+	item_path = /obj/item/clothing/suit/hooded/leather
+	group = "Jackets"
+
+/datum/loadout_item/suit/leather_jacket/biker
+	name = "Leather Jacket with Zipper"
+	item_path = /obj/item/clothing/suit/jacket/leather/biker
+	group = "Jackets"
+
+/datum/loadout_item/suit/woolcoat
+	name = "Leather Overcoat"
+	item_path = /obj/item/clothing/suit/woolcoat
+
+/datum/loadout_item/suit/military_jacket
+	name = "Military Jacket"
+	item_path = /obj/item/clothing/suit/jacket/miljacket
+	group = "Jackets"
+
+/datum/loadout_item/suit/jacket_oversized
+	name = "Oversized Jacket (Colorable)"
+	item_path = /obj/item/clothing/suit/jacket/oversized
+
+/datum/loadout_item/suit/peacoat
+	name = "Peacoat (Colorable)"
+	item_path = /obj/item/clothing/suit/toggle/peacoat
+	group = "Jackets"
+
+/datum/loadout_item/suit/puffer_jacket
+	name = "Puffer Jacket"
+	item_path = /obj/item/clothing/suit/jacket/puffer
+	group = "Jackets"
+
+/datum/loadout_item/suit/puffer_vest
+	name = "Puffer Vest"
+	item_path = /obj/item/clothing/suit/jacket/puffer/vest
+	group = "Jackets"
+
+/datum/loadout_item/suit/jacket_sweater
+	name = "Sweater Jacket (Colorable)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/sweater
+	group = "Jackets"
+
+/datum/loadout_item/suit/tailored_jacket
+	name = "Tailored Jacket (Colorable)"
+	item_path = /obj/item/clothing/suit/tailored_jacket
+	group = "Jackets"
+
+/datum/loadout_item/suit/tailored_short_jacket
+	name = "Tailored Jacket, Short (Colorable)"
+	item_path = /obj/item/clothing/suit/tailored_jacket/short
+	group = "Jackets"
+
+/datum/loadout_item/suit/trackjacket
+	name = "Track Jacket"
+	item_path = /obj/item/clothing/suit/toggle/trackjacket
+	group = "Jackets"
+
+/datum/loadout_item/suit/jacket_trenchcoat
+	name = "Trenchcoat  (Colorable)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/trenchcoat
+
+/datum/loadout_item/suit/bltrench
+	name = "Trenchcoat (Black)"
+	item_path = /obj/item/clothing/suit/trenchblack
+
+/datum/loadout_item/suit/frenchtrench
+	name = "Trenchcoat (Blue)"
+	item_path = /obj/item/clothing/suit/frenchtrench
+
+/datum/loadout_item/suit/brtrench
+	name = "Trenchcoat (Brown)"
+	item_path = /obj/item/clothing/suit/trenchbrown
+
+/datum/loadout_item/suit/frontiertrench
+	name = "Trenchcoat - Frontier"
+	item_path = /obj/item/clothing/suit/jacket/frontier_colonist
+
+/datum/loadout_item/suit/cossak
+	name = "Ukrainian Coat"
+	item_path = /obj/item/clothing/suit/cossack
+
+/datum/loadout_item/suit/urban
+	name = "Urban Coat"
+	item_path = /obj/item/clothing/suit/urban
+
+/datum/loadout_item/suit/warm_coat
+	name = "Warm Coat (Colorable)"
+	item_path = /obj/item/clothing/suit/warm_coat
+
+/datum/loadout_item/suit/warm_sweater
+	name = "Warm Sweater (Colorable)"
+	item_path = /obj/item/clothing/suit/warm_sweater
+
+/datum/loadout_item/suit/heart_sweater
+	name = "Warm Sweater (Colorable, Heart)"
+	item_path = /obj/item/clothing/suit/heart_sweater
+
+/datum/loadout_item/suit/varsity
+	name = "Varsity Jacket"
+	item_path = /obj/item/clothing/suit/varsity
+
+/datum/loadout_item/suit/offdep_jacket
+	name = "Work Jacket - Off-Department"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber
+	group = "Jackets"
+
+/datum/loadout_item/suit/engi_jacket
+	name = "Work Jacket - Engineering"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/engi
+	group = "Jobs"
+
+/datum/loadout_item/suit/sci_jacket
+	name = "Work Jacket - Science"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sci
+	group = "Jobs"
+
+/datum/loadout_item/suit/med_jacket
+	name = "Work Jacket - Medbay"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/med
+	group = "Jobs"
+
+/datum/loadout_item/suit/supply_jacket
+	name = "Work Jacket - Supply"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/supply
+	group = "Jobs"
+
+/*
+*	HOODIES
+*/
+
+/datum/loadout_item/suit/hoodie
+	abstract_type = /datum/loadout_item/suit/hoodie
+
+/datum/loadout_item/suit/hoodie/greyscale
+	name = "Hoodie (Colorable)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie
+
+/datum/loadout_item/suit/hoodie/greyscale_trim_alt
+	name = "Hoodie (Colorable, Pocket Trim)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/trim/alt
+
+/datum/loadout_item/suit/hoodie/greyscale_trim
+	name = "Hoodie (Colorable, Zipper Trim)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/trim
+
+/datum/loadout_item/suit/hoodie/black
+	name = "Hoodie (Black)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/black
+
+/datum/loadout_item/suit/hoodie/red
+	name = "Hoodie (Red)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/red
+
+/datum/loadout_item/suit/hoodie/blue
+	name = "Hoodie (Blue)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/blue
+
+/datum/loadout_item/suit/hoodie/green
+	name = "Hoodie (Green)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/green
+
+/datum/loadout_item/suit/hoodie/orange
+	name = "Hoodie (Orange)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/orange
+
+/datum/loadout_item/suit/hoodie/yellow
+	name = "Hoodie (Yellow)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/yellow
+
+/datum/loadout_item/suit/hoodie/grey
+	name = "Hoodie (Grey)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/grey
+
+/datum/loadout_item/suit/hoodie/nt
+	name = "Hoodie - NT"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded
+
+/datum/loadout_item/suit/hoodie/smw
+	name = "Hoodie - SMW"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/smw
+
+/datum/loadout_item/suit/hoodie/nrti
+	name = "Hoodie - NRTI"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/nrti
+
+/datum/loadout_item/suit/hoodie/cti
+	name = "Hoodie - CTI"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/cti
+
+/datum/loadout_item/suit/hoodie/mu
+	name = "Hoodie - MU"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/mu
+
+/datum/loadout_item/suit/recolorable_apron
+	name = "Apron"
+	item_path = /obj/item/clothing/suit/apron/chef/colorable_apron
+	group = "Jobs"
+
+/datum/loadout_item/suit/gear_harness
+	name = "Gear Harness (Suit)"
+	item_path = /obj/item/clothing/under/misc/nova/gear_harness/suit
+
+/datum/loadout_item/suit/frontierjacket/short/medical
+	name = "Frontier Jacket - Medical (Short)"
+	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/medical
+	group = "Jobs"
+
+/datum/loadout_item/suit/cargo_gorka_jacket
+	name = "Gorka Jacket - Cargo"
+	item_path = /obj/item/clothing/suit/toggle/cargo_tech
+	group = "Jobs"
+
+/datum/loadout_item/suit/labcoat_highvis
+	name = "High-Vis Jacket"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/highvis
+	group = "Jobs"
+
+/datum/loadout_item/suit/labcoat
+	name = "Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat
+	group = "Jobs"
+
+/datum/loadout_item/suit/labcoat_custom
+	name = "Labcoat  (Colorable)"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/custom
+	group = "Jobs"
+
+/datum/loadout_item/suit/labcoat_green
+	name = "Labcoat (Green)"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/mad
+	group = "Jobs"
+
+/datum/loadout_item/suit/labcoat_medical
+	name = "Labcoat -  Medical"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/medical
+	group = "Jobs"
+
+/datum/loadout_item/suit/labcoat_lalunevest
+	name = "Labcoat - Designer"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/lalunevest
+	group = "Jobs"
+
+/datum/loadout_item/suit/fancy_labcoat
+	name = "Labcoat - Fancy (Colorable)"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy
+	group = "Jobs"
+
+/datum/loadout_item/suit/labcoat_regular
+	name = "Labcoat - Fancy, Research"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/regular
+	group = "Jobs"
+
+/datum/loadout_item/suit/labcoat_pharmacist
+	name = "Labcoat - Fancy, Pharmacy"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/pharmacist
+	group = "Jobs"
+
+/datum/loadout_item/suit/labcoat_geneticist
+	name = "Labcoat - Fancy, Genetics"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/geneticist
+	group = "Jobs"
+
+/datum/loadout_item/suit/labcoat_roboticist
+	name = "Labcoat - Fancy, Robotics"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/roboticist
+	group = "Jobs"
+
+/datum/loadout_item/suit/overall
+	name = "Overalls (Recolorable)" // can't have both job palettes and player coloring, so we prefer player colors
+	loadout_flags = LOADOUT_FLAG_ALLOW_NAMING
+	group = "Jobs"
+
+/datum/loadout_item/suit/overalls_loneskirt
+	name = "Overalls Skirt"
+	item_path = /obj/item/clothing/suit/apron/overalls_loneskirt
+	group = "Jobs"
+
+//Religious Clothing
+/datum/loadout_item/suit/chap_eastmonk
+	name = "Religious - Eastern Monk's Robe"
+	item_path = /obj/item/clothing/suit/chaplainsuit/monkrobeeast/no_hide // OCULIS EDIT - ORIGINAL: item_path = /obj/item/clothing/suit/chaplainsuit/monkrobeeast
+	group = "Jobs"
+
+/datum/loadout_item/suit/chap_holiday
+	name = "Religious - Holiday Priest Robe"
+	item_path = /obj/item/clothing/suit/chaplainsuit/holidaypriest/no_hide // OCULIS EDIT - ORIGINAL: item_path = /obj/item/clothing/suit/chaplainsuit/holidaypriest
+	group = "Jobs"
+
+/datum/loadout_item/suit/chap_brownmonk
+	name = "Religious - Monk's Habit"
+	item_path = /obj/item/clothing/suit/hooded/chaplainsuit/monkhabit/no_hide // OCULIS EDIT - ORIGINAL: item_path = /obj/item/clothing/suit/hooded/chaplainsuit/monkhabit
+	group = "Jobs"
+
+/datum/loadout_item/suit/chap_nun
+	name = "Religious - Nun's Robe"
+	item_path = /obj/item/clothing/suit/chaplainsuit/nun/no_hide // OCULIS EDIT - ORIGINAL: item_path = /obj/item/clothing/suit/chaplainsuit/nun
+	group = "Jobs"
+
+/datum/loadout_item/suit/chap_shrinehand
+	name = "Religious - Shrinehand's Robe"
+	item_path = /obj/item/clothing/suit/chaplainsuit/shrinehand/no_hide // OCULIS EDIT - ORIGINAL: item_path = /obj/item/clothing/suit/chaplainsuit/shrinehand
+	group = "Jobs"
+
+/datum/loadout_item/suit/chap_blackmonk
+	name = "Religious - Tunic"
+	item_path = /obj/item/clothing/suit/chaplainsuit/habit/no_hide // OCULIS EDIT - ORIGINAL: item_path = /obj/item/clothing/suit/chaplainsuit/habit
+	group = "Jobs"
+
+/*
+*	COSTUMES
+*/
+
+/datum/loadout_item/suit/syndi
+	name = "Black And Red Space Suit Replica"
+	item_path = /obj/item/clothing/suit/syndicatefake
+	group = "Costumes"
+
+/datum/loadout_item/suit/blastwave_suit
+	name = "Blastwave Trenchcoat"
+	item_path = /obj/item/clothing/suit/blastwave
+	group = "Costumes"
+
+/datum/loadout_item/suit/caretaker
+	name = "Caretaker Jacket"
+	item_path = /obj/item/clothing/suit/victoriantailcoatbutler
+	group = "Costumes"
+
+/datum/loadout_item/suit/deckers
+	name = "Deckers Hoodie"
+	item_path = /obj/item/clothing/suit/costume/deckers
+	group = "Costumes"
+
+/datum/loadout_item/suit/flakjack
+	name = "Flak Jacket"
+	item_path = /obj/item/clothing/suit/flakjack
+	group = "Costumes"
+
+/datum/loadout_item/suit/plague_doctor
+	name = "Plague Doctor Robes"
+	item_path = /obj/item/clothing/suit/bio_suit/plaguedoctorsuit/fake // OCULIS EDIT - ORIGINAL: item_path = /obj/item/clothing/suit/bio_suit/plaguedoctorsuit
+	group = "Costumes"
+
+/datum/loadout_item/suit/pg
+	name = "PG Coat"
+	item_path = /obj/item/clothing/suit/costume/pg
+	group = "Costumes"
+
+/datum/loadout_item/suit/poncho
+	name = "Poncho"
+	item_path = /obj/item/clothing/suit/costume/poncho
+	group = "Costumes"
+
+/datum/loadout_item/suit/poncho_green
+	name = "Poncho (Green)"
+	item_path = /obj/item/clothing/suit/costume/poncho/green
+	group = "Costumes"
+
+/datum/loadout_item/suit/poncho_red
+	name = "Poncho (Red)"
+	item_path = /obj/item/clothing/suit/costume/poncho/red
+	group = "Costumes"
+
+/datum/loadout_item/suit/redhood
+	name = "Red Cloak"
+	item_path = /obj/item/clothing/suit/hooded/cloak/david
+	group = "Costumes"
+
+/datum/loadout_item/suit/soviet
+	name = "Soviet Coat"
+	item_path = /obj/item/clothing/suit/costume/soviet
+	group = "Costumes"
+
+/datum/loadout_item/suit/bee
+	name = "Suit - Bee"
+	item_path = /obj/item/clothing/suit/hooded/bee_costume
+	group = "Costumes"
+
+/datum/loadout_item/suit/cardborg
+	name = "Suit - Cardborg"
+	item_path = /obj/item/clothing/suit/costume/cardborg
+	group = "Costumes"
+
+/datum/loadout_item/suit/carp_costume
+	name = "Suit - Carp"
+	item_path = /obj/item/clothing/suit/hooded/carp_costume
+	group = "Costumes"
+
+/datum/loadout_item/suit/chicken
+	name = "Suit - Chicken"
+	item_path = /obj/item/clothing/suit/costume/chickensuit
+	group = "Costumes"
+
+/datum/loadout_item/suit/ian_costume
+	name = "Suit - Corgi"
+	item_path = /obj/item/clothing/suit/hooded/ian_costume
+	group = "Costumes"
+
+/datum/loadout_item/suit/griffin
+	name = "Suit - Griffon"
+	item_path = /obj/item/clothing/suit/toggle/owlwings/griffinwings
+	group = "Costumes"
+
+/datum/loadout_item/suit/monkey
+	name = "Suit - Monkey"
+	item_path = /obj/item/clothing/suit/costume/monkeysuit
+	group = "Costumes"
+
+/datum/loadout_item/suit/owl
+	name = "Suit - Owl"
+	item_path = /obj/item/clothing/suit/toggle/owlwings
+	group = "Costumes"
+
+/datum/loadout_item/suit/shark_costume
+	name = "Suit - Shark"
+	item_path = /obj/item/clothing/suit/hooded/shark_costume
+	group = "Costumes"
+
+/datum/loadout_item/suit/shork_costume
+	name = "Suit - Shork"
+	item_path = /obj/item/clothing/suit/hooded/shork_costume
+	group = "Costumes"
+
+/datum/loadout_item/suit/snowman
+	name = "Suit - Snowman"
+	item_path = /obj/item/clothing/suit/costume/snowman
+	group = "Costumes"
+
+/datum/loadout_item/suit/xenos
+	name = "Suit - Xenos"
+	item_path = /obj/item/clothing/suit/costume/xenos
+	group = "Costumes"
+
+/datum/loadout_item/suit/tmc
+	name = "TMC Coat"
+	item_path = /obj/item/clothing/suit/costume/tmc
+	group = "Costumes"
+
+/datum/loadout_item/suit/white_dress
+	name = "White Dress"
+	item_path = /obj/item/clothing/suit/costume/whitedress
+	group = "Costumes"
+
+/datum/loadout_item/suit/tailcoat
+	name = "Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatbartender
+	name = "Bartender's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/bartender
+	restricted_roles = list(JOB_BARTENDER)
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatwizard
+	name = "Magician's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/magician
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatbrit
+	name = "Brit's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/british
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatussr
+	name = "Soviet's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/communist
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatusa
+	name = "Yank's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/usa
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatcargo
+	name = "Cargo's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/cargo
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatbitrunner
+	name = "Gamer's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/bitrunner
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatmedical
+	name = "Doctor's Tailcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/doctor_tailcoat
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatmedicalpara
+	name = "Paramedic's Tailcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/paramedic/doctor_tailcoat
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatmedicalchem
+	name = "Chemist's Tailcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/chemist/doctor_tailcoat
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatmedicalviro
+	name = "Pathologist's Tailcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/virologist/doctor_tailcoat
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatmedicalcoroner
+	name = "Edgelord's Tailcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/coroner/doctor_tailcoat
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatrnd
+	name = "Scientist's Tailcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/science/doctor_tailcoat
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatrndrobo
+	name = "Roboticist's Tailcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/roboticist/doctor_tailcoat
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatrndgenetics
+	name = "Geneticist's Tailcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/genetics/doctor_tailcoat
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatjanitor
+	name = "Janitor's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/janitor
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatcook
+	name = "Chef's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/cook
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoathydro
+	name = "Botanist's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/botanist
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatclown
+	name = "Clown's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/clown
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatmime
+	name = "Mime's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/mime
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatchaplain
+	name = "Priest's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/chaplain
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatcuratorred
+	name = "Curator's Red Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/curator_red
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatcuratorgreen
+	name = "Curator's Green Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/curator_green
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatcuratorteal
+	name = "Curator's Teal Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/curator_teal
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatlawyerblack
+	name = "Lawyer's Black Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/lawyer_black
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatlawyerblue
+	name = "Lawyer's Blue Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/lawyer_blue
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatlawyerred
+	name = "Lawyer's Red Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/lawyer_red
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatlawyergood
+	name = "Lawyer's Good Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/lawyer_good
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatshrink
+	name = "Psychologist's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/psychologist
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/jacket/long_robe
+	name = "Long Robe"
+	item_path = /obj/item/clothing/suit/jacket/long_robe
+	reskin_datum = /datum/atom_skin/long_robe
+	group = "Costumes"
+
+/datum/loadout_item/suit/jacket/haori
+	name = "Haori"
+	item_path = /obj/item/clothing/suit/jacket/haori
+	reskin_datum = /datum/atom_skin/haori
+	group = "Costumes"
+
+/datum/loadout_item/suit/witch
+	name = "Witch Robe"
+	item_path = /obj/item/clothing/suit/wizrobe/marisa/fake
+	group = "Costumes"
+
+/datum/loadout_item/suit/wizard
+	name = "Wizard Robe"
+	item_path = /obj/item/clothing/suit/wizrobe/fake
+	group = "Costumes"
+
+/datum/loadout_item/suit/yuri
+	name = "Yuri Coat"
+	item_path = /obj/item/clothing/suit/costume/yuri
+	group = "Costumes"
+
+/*
+*	SPECIES-UNIQUE
+*/
+
+/datum/loadout_item/suit/mothcoat
+	name = "Mothic Flightsuit"
+	item_path = /obj/item/clothing/suit/mothcoat
+	group = "Species-Unique"
+
+/datum/loadout_item/suit/mantella
+	name = "Mothic Mantella"
+	item_path = /obj/item/clothing/suit/mothcoat/winter
+	group = "Species-Unique"
+
+/datum/loadout_item/suit/ethereal_raincoat
+	name = "Ethereal Raincoat"
+	item_path = /obj/item/clothing/suit/hooded/ethereal_raincoat
+	group = "Species-Unique"
+
+/*
+*	Jobs
+*/
+
+//COM
+/datum/loadout_item/suit/tailcoatcc
+	name = "SectCom Tailcoat" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "Centcom Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/centcom
+	restricted_roles = list(ALL_JOBS_CC)
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatcap
+	name = "Captain's Tailcoat"
+	item_path = /obj/item/clothing/suit/armor/vest/capcarapace/tailcoat_captain
+	restricted_roles = list(JOB_CAPTAIN)
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoathop
+	name = "Head of Personnel's Tailcoat"
+	item_path = /obj/item/clothing/suit/armor/hop_tailcoat
+	restricted_roles = list(JOB_HEAD_OF_PERSONNEL)
+	group = "Tailcoats"
+
+//CARGO
+/datum/loadout_item/suit/qm_jacket
+	name = "Quartermaster's Overcoat"
+	item_path = /obj/item/clothing/suit/jacket/quartermaster
+	restricted_roles = list(JOB_QUARTERMASTER)
+	group = "Jobs"
+
+/datum/loadout_item/suit/tailcoatqm
+	name = "Quartermaster's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/quartermaster
+	restricted_roles = list(JOB_QUARTERMASTER)
+	group = "Tailcoats"
+
+//ENGI
+
+/datum/loadout_item/suit/tailcoatengi/ce
+	name = "Chief Engineer's Tailcoat"
+	item_path = /obj/item/clothing/suit/utility/fire/ce_tailcoat
+	restricted_roles = list(JOB_CHIEF_ENGINEER)
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatengi
+	name = "Engineer's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/engineer
+	restricted_roles = list(ALL_JOBS_ENGI)
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatengiatmos
+	name = "Atmos Tech's Tailcoat"
+	item_path = /obj/item/clothing/suit/utility/fire/atmos_tech_tailcoat
+	restricted_roles = list(ALL_JOBS_ENGI)
+	group = "Tailcoats"
+
+//MED
+/datum/loadout_item/suit/tailcoatmedcmo
+	name = "Chief Medical Officer's Tailcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/cmo/doctor_tailcoat
+	restricted_roles = list(JOB_CHIEF_MEDICAL_OFFICER)
+	group = "Tailcoats"
+
+//SCI
+/datum/loadout_item/suit/tailcoatrndrd
+	name = "Research Director's Tailcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/research_director/tailcoat
+	restricted_roles = list(JOB_RESEARCH_DIRECTOR)
+	group = "Tailcoats"
+
+//SEC
+/datum/loadout_item/suit/navybluejackethos
+	name = "Head of Security's Formal Jacket (Navy Blue)"
+	item_path = /obj/item/clothing/suit/jacket/hos/blue
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+	group = "Jobs"
+
+/datum/loadout_item/suit/tailcoatsechos
+	name = "Head of Security's Tailcoat"
+	item_path = /obj/item/clothing/suit/armor/hos_tailcoat
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/navybluejacketwarden
+	name = "Warden's Formal Jacket (Navy Blue)"
+	item_path = /obj/item/clothing/suit/jacket/warden/blue
+	restricted_roles = list(JOB_WARDEN)
+	group = "Jobs"
+
+/datum/loadout_item/suit/tailcoatsecwarden
+	name = "Warden's Tailcoat"
+	item_path = /obj/item/clothing/suit/armor/security_tailcoat/warden
+	restricted_roles = list(JOB_WARDEN)
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/british_jacket
+	name = "Security British Coat"
+	item_path = /obj/item/clothing/suit/british_officer
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
+	group = "Jobs"
+
+/datum/loadout_item/suit/navybluejacketofficer
+	name = "Security Formal Jacket (Navy Blue)"
+	item_path = /obj/item/clothing/suit/jacket/officer/blue
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
+	group = "Jobs"
+
+/datum/loadout_item/suit/brit
+	name = "Security High Vis Armored Vest"
+	item_path = /obj/item/clothing/suit/armor/vest/brit
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
+	group = "Jobs"
+
+/datum/loadout_item/suit/vested_jacket
+	name = "Vested Security Jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/vested_jacket
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
+	group = "Jobs"
+
+/datum/loadout_item/suit/security_wintercoat
+	name = "Security Winter Jacket"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/security
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
+	group = "Jobs"
+
+/datum/loadout_item/suit/security_wintercoat_blue
+	name = "Security Winter Coat (Blue)"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/security/blue
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
+	group = "Jobs"
+
+/datum/loadout_item/suit/security_jacket
+	name = "Security Work Jacket"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/sec
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
+	group = "Jobs"
+
+/datum/loadout_item/suit/tailcoatsec
+	name = "Security's Tailcoat"
+	item_path = /obj/item/clothing/suit/armor/security_tailcoat
+	restricted_roles = list(ALL_JOBS_SEC)
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatsecdept
+	name = "Security's Deputy Tailcoat"
+	item_path = /obj/item/clothing/suit/armor/security_tailcoat/assistant
+	restricted_roles = list(ALL_JOBS_SEC)
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatsecmedic
+	name = "Security's Medicated Tailcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/security_medic/doctor_tailcoat
+	restricted_roles = list(ALL_JOBS_SEC)
+	group = "Tailcoats"
+
+//Detective
+/datum/loadout_item/suit/deckard
+	name = "Detective Runner Coat"
+	item_path = /obj/item/clothing/suit/toggle/deckard
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Jobs"
+
+/datum/loadout_item/suit/detectivearmorvest
+	name = "Detective's Armor Vest"
+	item_path = /obj/item/clothing/suit/armor/vest/det_suit
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Jobs"
+
+/datum/loadout_item/suit/detjacketbrown
+	name = "Detective's Jacket"
+	item_path = /obj/item/clothing/suit/jacket/det_suit
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Jobs"
+
+/datum/loadout_item/suit/detjackenoir
+	name = "Detective's Jacket (Noir)"
+	item_path = /obj/item/clothing/suit/jacket/det_suit/noir
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Jobs"
+
+/datum/loadout_item/suit/detjacketplain
+	name = "Detective's Trenchcoat"
+	item_path = /obj/item/clothing/suit/toggle/jacket/det_trench
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Jobs"
+
+/datum/loadout_item/suit/detjacket
+	name = "Detective's Trenchcoat (Dark)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/det_trench/noir
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Jobs"
+
+/datum/loadout_item/suit/tailcoatsecdet
+	name = "Detective's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/det_suit/tailcoat
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Tailcoats"
+
+/datum/loadout_item/suit/tailcoatsecdetnoir
+	name = "Detective's Noir Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/det_suit/tailcoat/noir
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Tailcoats"
+
+/*
+*	DONATOR
+*/
+
+/datum/loadout_item/suit/donator
+	abstract_type = /datum/loadout_item/suit/donator
+	donator_only = TRUE
+
+/datum/loadout_item/suit/donator/blondie
+	name = "Cowboy Vest"
+	item_path = /obj/item/clothing/suit/cowboyvest
+
+/datum/loadout_item/suit/digicoat_glitched //Public donator reward for Razurath.
+	name = "Digicoat - Glitched"
+	item_path = /obj/item/clothing/suit/toggle/digicoat/glitched
+
+/datum/loadout_item/suit/donator/digicoat
+	abstract_type = /datum/loadout_item/suit/donator/digicoat
+
+/datum/loadout_item/suit/donator/digicoat/interdyne
+	name = "Digicoat - Interdyne"
+	item_path = /obj/item/clothing/suit/toggle/digicoat/interdyne
+
+/datum/loadout_item/suit/donator/digicoat/nanotrasen
+	name = "Digicoat - Nanotrasen"
+	item_path = /obj/item/clothing/suit/toggle/digicoat/nanotrasen
+
+/datum/loadout_item/suit/donator/furredjacket
+	name = "Furred Jacket"
+	item_path = /obj/item/clothing/suit/brownfurrich/public
+
+/datum/loadout_item/suit/donator/whitefurredjacket
+	name = "Furred Jacket (White)"
+	item_path = /obj/item/clothing/suit/brownfurrich/white
+
+/datum/loadout_item/suit/donator/creamfurredjacket
+	name = "Furred Jacket (Cream)"
+	item_path = /obj/item/clothing/suit/brownfurrich/cream
+
+/datum/loadout_item/suit/donator/chokha //All-donators donator item for BlindPoet
+	name = "Iseurian Chokha"
+	item_path = /obj/item/clothing/suit/chokha
+
+/datum/loadout_item/suit/donator/modern_winter
+	name = "Modern Winter Coat"
+	item_path = /obj/item/clothing/suit/modern_winter
+
+/datum/loadout_item/suit/donator/replica_parade_jacket
+	name = "Replica Parade Jacket"
+	item_path = /obj/item/clothing/suit/replica_parade_jacket
