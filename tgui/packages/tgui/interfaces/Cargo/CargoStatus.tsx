@@ -58,7 +58,7 @@ export function CargoStatus(props) {
             String(location)
           )}
         </LabeledList.Item>
-        <LabeledList.Item label="SectCom Message">{message}</LabeledList.Item> // OCULIS EDIT, SectCommening 2, ORIGINAL: <LabeledList.Item label="CentCom Message">{message}</LabeledList.Item>
+        <LabeledList.Item label="SectCom Message">{message}</LabeledList.Item> {/* OCULIS EDIT, SectCommening 2, ORIGINAL: <LabeledList.Item label="CentCom Message">{message}</LabeledList.Item> */}
         {!!loan && !requestonly && (
           <LabeledList.Item label="Loan">
             {!loan_dispatched ? (

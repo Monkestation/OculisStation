@@ -160,7 +160,7 @@ Always compile, always use that verb, and always make sure that it works for wha
 
 // must correspond to _basemap.dm for things to work correctly
 #define DEFAULT_MAP_TRAITS list(\
-	DECLARE_LEVEL("SectCom", ZTRAITS_CENTCOM),\ // OCULIS EDIT, SectCommening 2, ORIGINAL: DECLARE_LEVEL("CentCom", ZTRAITS_CENTCOM),\
+	DECLARE_LEVEL("SectCom", ZTRAITS_CENTCOM),\ // OCULIS EDIT, SectCommening 2, ORIGINAL: DECLARE_LEVEL("CentCom", ZTRAITS_CENTCOM),
 )
 
 // Camera lock flags
