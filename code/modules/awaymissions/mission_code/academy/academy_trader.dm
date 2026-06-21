@@ -1,6 +1,6 @@
 /mob/living/basic/trader/mr_corporate
 	name = "Mr Corporate"
-	desc = "A high ranking centcom official in their modsuit, they seem a bit, shallow."
+	desc = "A high ranking SectCom official in their modsuit, they seem a bit, shallow." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A high ranking centcom official in their modsuit, they seem a bit, shallow."
 	speak_emote = list("demands")
 	mob_biotypes = MOB_UNDEAD|MOB_HUMANOID
 	gender = MALE
@@ -15,7 +15,7 @@
 	outfit = /datum/outfit/mr_corporate
 
 /datum/outfit/mr_corporate
-	name = "Centcom official"
+	name = "SectCom official" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "Centcom official"
 	uniform = /obj/item/clothing/under/rank/centcom/commander
 	mask = /obj/item/clothing/mask/gas/atmos/centcom
 	ears = /obj/item/radio/headset/headset_cent/alt/leader

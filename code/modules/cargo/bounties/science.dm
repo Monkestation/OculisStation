@@ -139,5 +139,5 @@
 
 /datum/bounty/item/science/ref_anomaly/dimensional
 	name = "Refined Dimensional Core"
-	description = "We're trying to save money on our annual renovations at CentCom. Send us a dimensional core."
+	description = "We're trying to save money on our annual renovations at SectCom. Send us a dimensional core." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "We're trying to save money on our annual renovations at CentCom. Send us a dimensional core."
 	wanted_types = list(/obj/item/assembly/signaler/anomaly/dimensional = TRUE)

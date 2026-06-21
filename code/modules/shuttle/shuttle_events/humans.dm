@@ -42,7 +42,7 @@
 	outfit = /datum/outfit/centcom/centcom_intern/unarmed
 
 	spawn_anyway_if_no_player = FALSE
-	ghost_alert_string = "Would you like to be a centcom intern shot at the shuttle?"
+	ghost_alert_string = "Would you like to be a SectCom intern shot at the shuttle?" // OCULIS EDIT, SectCommening 2, ORIGINAL: ghost_alert_string = "Would you like to be a centcom intern shot at the shuttle?"
 
 /datum/shuttle_event/simple_spawner/player_controlled/human/greytide/interns/activate()
 	..()
@@ -56,7 +56,7 @@
 	outfit = /datum/outfit/centcom/centcom_intern
 
 	spawn_anyway_if_no_player = FALSE
-	ghost_alert_string = "Would you like to be a centcom intern shot at the shuttle?"
+	ghost_alert_string = "Would you like to be a SectCom intern shot at the shuttle?" // OCULIS EDIT, SectCommening 2, ORIGINAL: ghost_alert_string = "Would you like to be a centcom intern shot at the shuttle?"
 
 /datum/shuttle_event/simple_spawner/player_controlled/human/hitchhiker
 	name = "Hitchhiker! (Harmless, single ghost spawn)"

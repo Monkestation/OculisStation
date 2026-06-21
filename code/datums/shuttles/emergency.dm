@@ -229,7 +229,7 @@
 /datum/map_template/shuttle/emergency/cramped
 	suffix = "cramped"
 	name = "Secure Transport Vessel 5 (STV5)"
-	description = "Well, looks like CentCom only had this ship in the area, they probably weren't expecting you to need evac for a while. \
+	description = "Well, looks like SectCom only had this ship in the area, they probably weren't expecting you to need evac for a while. \ // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Well, looks like CentCom only had this ship in the area, they probably weren't expecting you to need evac for a while. \
 	Probably best if you don't rifle around in whatever equipment they were transporting. I hope you're friendly with your coworkers, because there is very little space in this thing.\n\
 	\n\
 	Contains contraband armory guns, maintenance loot, and abandoned crates!"
@@ -336,7 +336,7 @@
 	suffix = "supermatter"
 	name = "Hyperfractal Gigashuttle"
 	description = "\"I dunno, this seems kinda needlessly complicated.\"\n\
-	\"This shuttle has very a very high safety record, according to CentCom Officer Cadet Yins.\"\n\
+	\"This shuttle has very a very high safety record, according to SectCom Officer Cadet Yins.\"\n\ // OCULIS EDIT, SectCommening 2, ORIGINAL: \"This shuttle has very a very high safety record, according to CentCom Officer Cadet Yins.\"\n\
 	\"Are you sure?\"\n\
 	\"Yes, it has a safety record of N-A-N, which is apparently larger than 100%.\""
 	admin_notes = "Supermatter that spawns on shuttle is special anchored 'hugbox' supermatter that cannot take damage and does not take in or emit gas. \
@@ -505,8 +505,8 @@
 
 /datum/map_template/shuttle/emergency/raven
 	suffix = "raven"
-	name = "CentCom Raven Cruiser"
-	description = "The CentCom Raven Cruiser is a former high-risk salvage vessel, now repurposed into an emergency escape shuttle. \
+	name = "SectCom Raven Cruiser" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Raven Cruiser"
+	description = "The SectCom Raven Cruiser is a former high-risk salvage vessel, now repurposed into an emergency escape shuttle. \ // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "The CentCom Raven Cruiser is a former high-risk salvage vessel, now repurposed into an emergency escape shuttle. \
 	Once first to the scene to pick through warzones for valuable remains, it now serves as an excellent escape option for stations under heavy fire from outside forces. \
 	This escape shuttle boasts shields and numerous anti-personnel turrets guarding its perimeter to fend off meteors and enemy boarding attempts."
 	admin_notes = "Comes with turrets that will target anything without the neutral faction (nuke ops, xenos etc, but not pets)."

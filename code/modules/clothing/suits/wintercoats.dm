@@ -127,7 +127,7 @@
 	acid = 20
 
 /obj/item/clothing/suit/hooded/wintercoat/centcom
-	name = "centcom winter coat"
+	name = "SectCom winter coat" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "centcom winter coat"
 	desc = "A luxurious winter coat woven in the bright green and gold colours of Sectorial Command. It has a small pin in the shape of the Nanotrasen logo for a zipper." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A luxurious winter coat woven in the bright green and gold colours of Central Command. It has a small pin in the shape of the Nanotrasen logo for a zipper."
 	icon_state = "coatcentcom"
 	inhand_icon_state = null

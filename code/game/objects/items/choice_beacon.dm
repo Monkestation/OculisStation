@@ -1,6 +1,6 @@
 /obj/item/choice_beacon
 	name = "choice beacon"
-	desc = "Hey, why are you viewing this?!! Please let CentCom know about this odd occurrence."
+	desc = "Hey, why are you viewing this?!! Please let SectCom know about this odd occurrence." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "Hey, why are you viewing this?!! Please let CentCom know about this odd occurrence."
 	icon = 'icons/obj/devices/remote.dmi'
 	icon_state = "generic_delivery"
 	inhand_icon_state = "generic_delivery"
