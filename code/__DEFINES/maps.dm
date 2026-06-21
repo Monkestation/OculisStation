@@ -159,8 +159,9 @@ Always compile, always use that verb, and always make sure that it works for wha
 #define DECLARE_LEVEL(NAME, TRAITS) list(DL_NAME = NAME, DL_TRAITS = TRAITS)
 
 // must correspond to _basemap.dm for things to work correctly
+// OCULIS EDIT, SectCommening 2, ORIGINAL: DECLARE_LEVEL("CentCom", ZTRAITS_CENTCOM),
 #define DEFAULT_MAP_TRAITS list(\
-	DECLARE_LEVEL("SectCom", ZTRAITS_CENTCOM),\ // OCULIS EDIT, SectCommening 2, ORIGINAL: DECLARE_LEVEL("CentCom", ZTRAITS_CENTCOM),
+	DECLARE_LEVEL("SectCom", ZTRAITS_CENTCOM),\
 )
 
 // Camera lock flags
