@@ -489,7 +489,7 @@
 /datum/map_template/shuttle/emergency/northstar
 	suffix = "northstar"
 	name = "North Star Emergency Shuttle"
-	description = "A rugged shuttle meant for long-distance transit from the tips of the frontier to Sectorial Command and back. \ // OCULIS EDIT, SectCommening 2, ORIGINAL: 	description = "A rugged shuttle meant for long-distance transit from the tips of the frontier to Central Command and back. \
+	description = "A rugged shuttle meant for long-distance transit from the tips of the frontier to Sectorial Command and back. \ // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "A rugged shuttle meant for long-distance transit from the tips of the frontier to Central Command and back. \
 	moderately comfortable and large, but cramped."
 	credit_cost = CARGO_CRATE_VALUE * 14
 	occupancy_limit = "55"

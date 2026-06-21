@@ -48,7 +48,7 @@
 
 /datum/bounty/item/assistant/toolbox
 	name = "Stocked Toolbox"
-	description = "There's an absence of robustness at Sectorial Command. Ship them a fully packed toolbox as a solution, containing a screwdriver, wrench, welding tool, crowbar, analyzer, and wirecutters." // OCULIS EDIT, SectCommening 2, ORIGINAL: 	description = "There's an absence of robustness at Central Command. Ship them a fully packed toolbox as a solution, containing a screwdriver, wrench, welding tool, crowbar, analyzer, and wirecutters."
+	description = "There's an absence of robustness at Sectorial Command. Ship them a fully packed toolbox as a solution, containing a screwdriver, wrench, welding tool, crowbar, analyzer, and wirecutters." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "There's an absence of robustness at Central Command. Ship them a fully packed toolbox as a solution, containing a screwdriver, wrench, welding tool, crowbar, analyzer, and wirecutters."
 	reward = CARGO_CRATE_VALUE * 4
 	wanted_types = list(/obj/item/storage/toolbox = TRUE)
 	/// List of tools that we want to see sorted into a toolbox
@@ -80,7 +80,7 @@
 
 /datum/bounty/item/assistant/statue
 	name = "Statue"
-	description = "Sectorial Command would like to commission an artsy statue for the lobby. Ship one out, when possible." // OCULIS EDIT, SectCommening 2, ORIGINAL: 	description = "Central Command would like to commission an artsy statue for the lobby. Ship one out, when possible."
+	description = "Sectorial Command would like to commission an artsy statue for the lobby. Ship one out, when possible." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Central Command would like to commission an artsy statue for the lobby. Ship one out, when possible."
 	reward = CARGO_CRATE_VALUE * 4
 	wanted_types = list(/obj/structure/statue = TRUE)
 
@@ -166,7 +166,7 @@
 
 /datum/bounty/item/assistant/potted_plants
 	name = "Potted Plants"
-	description = "Sectorial Command is looking to commission a new BirdBoat-class station. You've been ordered to supply the potted plants." // OCULIS EDIT, SectCommening 2, ORIGINAL: 	description = "Central Command is looking to commission a new BirdBoat-class station. You've been ordered to supply the potted plants."
+	description = "Sectorial Command is looking to commission a new BirdBoat-class station. You've been ordered to supply the potted plants." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Central Command is looking to commission a new BirdBoat-class station. You've been ordered to supply the potted plants."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 3
 	wanted_types = list(
@@ -176,7 +176,7 @@
 
 /datum/bounty/item/assistant/monkey_cubes
 	name = "Monkey Cubes"
-	description = "Due to a recent genetics accident, Sectorial Command is in serious need of monkeys. Your mission is to ship monkey cubes." // OCULIS EDIT, SectCommening 2, ORIGINAL: 	description = "Due to a recent genetics accident, Central Command is in serious need of monkeys. Your mission is to ship monkey cubes."
+	description = "Due to a recent genetics accident, Sectorial Command is in serious need of monkeys. Your mission is to ship monkey cubes." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Due to a recent genetics accident, Central Command is in serious need of monkeys. Your mission is to ship monkey cubes."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 3
 	wanted_types = list(/obj/item/food/monkeycube = TRUE)

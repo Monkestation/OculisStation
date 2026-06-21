@@ -450,7 +450,7 @@
 
 /obj/item/clothing/head/helmet/space/plasmaman/centcom_commander
 	name = "CentCom commander plasma envirosuit helmet"
-	desc = "A special containment helmet designed for the Higher Sectorial Command Staff. Not many of these exist, as CentCom does not usually employ plasmamen to higher staff positions due to their complications." // OCULIS EDIT, SectCommening 2, ORIGINAL: 	desc = "A special containment helmet designed for the Higher Central Command Staff. Not many of these exist, as CentCom does not usually employ plasmamen to higher staff positions due to their complications."
+	desc = "A special containment helmet designed for the Higher Sectorial Command Staff. Not many of these exist, as CentCom does not usually employ plasmamen to higher staff positions due to their complications." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A special containment helmet designed for the Higher Central Command Staff. Not many of these exist, as CentCom does not usually employ plasmamen to higher staff positions due to their complications."
 	icon_state = "commander_envirohelm"
 	inhand_icon_state = null
 	armor_type = /datum/armor/hats_centhat/plasmaman

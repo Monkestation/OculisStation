@@ -59,9 +59,9 @@
 /datum/antagonist/ert/official/greet()
 	. = ..()
 	if (ert_team)
-		to_chat(owner, "<span class='warningplain'>Sectorial Command is sending you to [station_name()] with the task: [ert_team.mission.explanation_text]</span>") // OCULIS EDIT, SectCommening 2, ORIGINAL: 		to_chat(owner, "<span class='warningplain'>Central Command is sending you to [station_name()] with the task: [ert_team.mission.explanation_text]</span>")
+		to_chat(owner, "<span class='warningplain'>Sectorial Command is sending you to [station_name()] with the task: [ert_team.mission.explanation_text]</span>") // OCULIS EDIT, SectCommening 2, ORIGINAL: to_chat(owner, "<span class='warningplain'>Central Command is sending you to [station_name()] with the task: [ert_team.mission.explanation_text]</span>")
 	else
-		to_chat(owner, "<span class='warningplain'>Sectorial Command is sending you to [station_name()] with the task: [mission.explanation_text]</span>") // OCULIS EDIT, SectCommening 2, ORIGINAL: 		to_chat(owner, "<span class='warningplain'>Central Command is sending you to [station_name()] with the task: [mission.explanation_text]</span>")
+		to_chat(owner, "<span class='warningplain'>Sectorial Command is sending you to [station_name()] with the task: [mission.explanation_text]</span>") // OCULIS EDIT, SectCommening 2, ORIGINAL: to_chat(owner, "<span class='warningplain'>Central Command is sending you to [station_name()] with the task: [mission.explanation_text]</span>")
 
 /datum/antagonist/ert/official/forge_objectives()
 	if (ert_team)
