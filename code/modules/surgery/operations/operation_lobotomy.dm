@@ -40,8 +40,8 @@
 	display_results(
 		surgeon,
 		organ.owner,
-		span_notice("You begin to perform an invasive removal on [FORMAT_ORGAN_OWNER(organ)]'s brain..."), // OCULIS EDIT, ORIGINAL: span_notice("You begin to perform a lobotomy on [FORMAT_ORGAN_OWNER(organ)]'s brain..."),
-		span_notice("[surgeon] begins to perform an invasive removal on [FORMAT_ORGAN_OWNER(organ)]'s brain."), // OCULIS EDIT, ORIGINAL: span_notice("[surgeon] begins to perform a lobotomy on [FORMAT_ORGAN_OWNER(organ)]'s brain."),
+		span_notice("You begin to perform an invasive tissue removal on [FORMAT_ORGAN_OWNER(organ)]'s brain..."), // OCULIS EDIT, ORIGINAL: span_notice("You begin to perform a lobotomy on [FORMAT_ORGAN_OWNER(organ)]'s brain..."),
+		span_notice("[surgeon] begins to perform an invasive tissue removal on [FORMAT_ORGAN_OWNER(organ)]'s brain."), // OCULIS EDIT, ORIGINAL: span_notice("[surgeon] begins to perform a lobotomy on [FORMAT_ORGAN_OWNER(organ)]'s brain."),
 		span_notice("[surgeon] begins to perform surgery on [FORMAT_ORGAN_OWNER(organ)]'s brain."),
 	)
 	display_pain(organ.owner, "Your head pounds with unimaginable pain!")
@@ -50,7 +50,7 @@
 	display_results(
 		surgeon,
 		organ.owner,
-		span_notice("You successfully perform an invasive removal on [FORMAT_ORGAN_OWNER(organ)]!"), // OCULIS EDIT, ORIGINAL: span_notice("You successfully perform a lobotomy on [FORMAT_ORGAN_OWNER(organ)]!"),
+		span_notice("You successfully perform an invasive tissue removal on [FORMAT_ORGAN_OWNER(organ)]'s brain!"), // OCULIS EDIT, ORIGINAL: span_notice("You successfully perform a lobotomy on [FORMAT_ORGAN_OWNER(organ)]!"),
 		span_notice("[surgeon] invasively removes tissue from [FORMAT_ORGAN_OWNER(organ)]'s brain!"), // OCULIS EDIT, ORIGINAL: span_notice("[surgeon] successfully lobotomizes [FORMAT_ORGAN_OWNER(organ)]!"),
 		span_notice("[surgeon] finishes performing surgery on [FORMAT_ORGAN_OWNER(organ)]'s brain."),
 	)
