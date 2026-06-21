@@ -331,12 +331,12 @@
 	desc = "A Syndicate approved cape denoting one's movitation for their chosen career. This one has a golden trim. Fancy! The smell of death is decidedly less so, however."
 
 /obj/item/clothing/neck/jobcape/cc // Not used in game
-	name = "cape of the CC Official"
+	name = "cape of the SC Official" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "cape of the CC Official"
 	desc = "You know you're fucked when your boss rolls in rocking this bad boy."
 	icon_state = "centcom-skillcape"
 
 /obj/item/clothing/neck/jobcape/cc/trimmed // Not used in game
-	name = "trimmed cape of the CC Official"
+	name = "trimmed cape of the SC Official" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "trimmed cape of the CC Official"
 	icon_state = "centcom-trimmed"
 
 /obj/item/clothing/neck/jobcape/ghost // Not used in game
