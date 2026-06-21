@@ -69,7 +69,7 @@ const PaiInterfaceOculisGeneral = (props) => {
             }}
           />
         </LabeledList.Item>
-        <LabeledList.Item label="APPLICATIONS:">
+        <LabeledList.Item label="APPLICATIONS">
           <Button
             content={'Open Persocom'}
             onClick={() => act('openpda')}
@@ -98,6 +98,13 @@ const PaiInterfaceOculisSettings = (props) => {
           />
           <Button content={'Cat'} onClick={() => act('screencat')} />
           <Button content={'Angry'} onClick={() => act('screenangry')} />
+        </LabeledList.Item>
+        <LabeledList.Item label="SYSTEM SETTINGS">
+          <Button
+            content={'Clear Access'}
+            onClick={() => act('clearaccess')}
+            color="bad"
+          />
         </LabeledList.Item>
       </LabeledList>
     </Section>

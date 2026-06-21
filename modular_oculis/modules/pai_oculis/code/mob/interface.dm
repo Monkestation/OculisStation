@@ -44,3 +44,6 @@
 	if(action == "screenangry")
 		card.screen_image = /datum/pai_screen_oculis/angry
 		card.update_appearance()
+
+	if(action == "clearaccess")
+		clear_access()
