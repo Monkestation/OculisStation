@@ -11,7 +11,7 @@
 		/obj/item/shard = 4,
 		/obj/item = 5,
 	)
-	time = 15 SECONDS // OCULIS ADDITION
+	time = 15 SECONDS // OCULIS EDIT ADDITION
 	target_type = /obj/item/organ/brain
 	required_organ_flag = ORGAN_TYPE_FLAGS & ~ORGAN_ROBOTIC
 	preop_sound = 'sound/items/handling/surgery/scalpel1.ogg'
@@ -20,14 +20,14 @@
 	all_surgery_states_required = SURGERY_SKIN_OPEN|SURGERY_BONE_SAWED
 	any_surgery_states_blocked = SURGERY_VESSELS_UNCLAMPED
 
-// OCULIS ADDITION START
+// OCULIS EDIT ADDITION START
 // Don't show the surgery if there's no traumas that require it to fix
 /datum/surgery_operation/organ/lobotomy/state_check(obj/item/organ/brain/brain)
 	for(var/datum/brain_trauma/trauma in brain.traumas)
 		if(trauma.resilience == TRAUMA_RESILIENCE_LOBOTOMY)
 			return TRUE
 	return FALSE
-// OCULIS ADDITION END
+// OCULIS EDIT ADDITION END
 
 /datum/surgery_operation/organ/lobotomy/get_any_tool()
 	return "Any sharp edged item"
