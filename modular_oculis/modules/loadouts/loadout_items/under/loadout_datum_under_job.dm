@@ -13,6 +13,8 @@
 	item_path = /obj/item/clothing/under/rank/medical/coroner
 	group = "Workwear"
 
+
+//HOS 
 /datum/loadout_item/under/hos_blue
 	name = "Head of Security's Turtleneck"
 	item_path = /obj/item/clothing/under/rank/security/head_of_security/nova/blue
@@ -95,5 +97,43 @@
 	name = "Head of Security's Formal Uniform"
 	item_path = /obj/item/clothing/under/rank/security/head_of_security/parade/female
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+	group = "Job-Locked"
+
+// Warden
+
+/datum/loadout_item/under/warden_formal
+	name = "warden's formal uniform"
+	item_path = /obj/item/clothing/under/rank/security/warden/formal
+	restricted_roles = list(JOB_WARDEN)
+	group = "Job-Locked"
+
+/datum/loadout_item/under/warden_skirt
+	name = "warden's suitskirt"
+	item_path = /obj/item/clothing/under/rank/security/warden/skirt
+	restricted_roles = list(JOB_WARDEN)
+	group = "Job-Locked"
+
+/datum/loadout_item/under/warden_nova
+	name = "warden's uniform"
+	item_path = /obj/item/clothing/under/rank/security/warden/nova
+	restricted_roles = list(JOB_WARDEN)
+	group = "Job-Locked"
+
+/datum/loadout_item/under/warden_nova_suit
+	name = "warden's suit"
+	item_path = /obj/item/clothing/under/rank/security/warden/nova/suit
+	restricted_roles = list(JOB_WARDEN)
+	group = "Job-Locked"
+
+/datum/loadout_item/under/warden_nova_blue
+	name = "warden's suit"
+	item_path = /obj/item/clothing/under/rank/security/warden/nova/blue
+	restricted_roles = list(JOB_WARDEN)
+	group = "Job-Locked"
+
+/datum/loadout_item/under/warden_nova_suit_blue
+	name = "warden's suit"
+	item_path = /obj/item/clothing/under/rank/security/warden/nova/suit/blue
+	restricted_roles = list(JOB_WARDEN)
 	group = "Job-Locked"
 
