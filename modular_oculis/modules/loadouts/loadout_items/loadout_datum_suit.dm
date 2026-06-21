@@ -58,7 +58,7 @@
 /datum/loadout_item/suit/leather_armorvest
 	name = "security overcoat"
 	item_path = /obj/item/clothing/suit/armor/vest/leather
-	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_WARDEN)
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
 //WARDEN
