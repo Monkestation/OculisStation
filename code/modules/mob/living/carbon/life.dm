@@ -424,8 +424,10 @@
 	// Handle chemical euphoria mood event, caused by N2O.
 	if (n2o_euphoria == EUPHORIA_ACTIVE)
 		add_mood_event("chemical_euphoria", /datum/mood_event/chemical_euphoria)
+		ADD_TRAIT(src, TRAIT_ANALGESIA, N2O_TRAIT) // OCULIS EDIT ADDITION
 	else if (n2o_euphoria == EUPHORIA_INACTIVE)
 		clear_mood_event("chemical_euphoria")
+		REMOVE_TRAIT(src, TRAIT_ANALGESIA, N2O_TRAIT) // OCULIS EDIT ADDITION
 	// Activate mood on first flag, remove on second, do nothing on third.
 
 	if(has_moles)
