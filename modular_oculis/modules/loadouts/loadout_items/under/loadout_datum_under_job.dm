@@ -25,6 +25,12 @@
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
+/datum/loadout_item/under/hos_formal_blue
+	name = "Head of Security's Formal Suit"
+	item_path = /obj/item/clothing/under/rank/security/head_of_security/nova/formal
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+	group = "Job-Locked"
+
 /datum/loadout_item/under/hos_parade
 	name = "Head of Security's Parade Uniform"
 	item_path = /obj/item/clothing/under/rank/security/head_of_security/nova/parade
