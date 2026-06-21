@@ -91,14 +91,14 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 	visible_to_network = FALSE
 	return ..()
 
-// OCULIS ADDITION START
+// OCULIS EDIT ADDITION START
 /obj/machinery/fax/admin
 	name = "Admin Fax Machine"
 
 /obj/machinery/fax/admin/Initialize(mapload)
 	visible_to_network = FALSE
 	return ..()
-// OCULIS ADDITION END
+// OCULIS EDIT ADDITION END
 
 /obj/machinery/fax/Initialize(mapload)
 	. = ..()
