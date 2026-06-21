@@ -60,3 +60,23 @@
 	item_path = /obj/item/clothing/suit/armor/vest/leather
 	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_WARDEN)
 	group = "Job-Locked"
+
+//WARDEN
+
+/datum/loadout_item/suit/warden_alt_armor
+	name = "warden's armoured jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/warden/alt
+	restricted_roles = list(JOB_WARDEN)
+	group = "Job-Locked"
+
+/datum/loadout_item/suit/warden_armor
+	name = "warden's jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/warden
+	restricted_roles = list(JOB_WARDEN)
+	group = "Job-Locked"
+
+/datum/loadout_item/suit/warden_blue_armor
+	name = "warden's armoured jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/warden/blue
+	restricted_roles = list(JOB_WARDEN)
+	group = "Job-Locked"
