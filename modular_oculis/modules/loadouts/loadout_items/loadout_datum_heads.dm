@@ -48,12 +48,6 @@
 	restricted_roles = list(JOB_WARDEN)
 	group = "Job-Locked"
 
-/datum/loadout_item/head/warden_navyberet
-	name = "warden's beret"
-	item_path = /obj/item/clothing/head/beret/sec/navywarden
-	restricted_roles = list(JOB_WARDEN)
-	group = "Job-Locked"
-
 /datum/loadout_item/head/warden_navyberet_nova
 	name = "warden's beret"
 	item_path = /obj/item/clothing/head/beret/sec/navywarden/nova
