@@ -12,7 +12,7 @@ import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export const PaiInterfaceOculis = (Props, context) => {
-  const { data } = useBackend(context);
+  const { data } = useBackend();
   const [tab, setTab] = useState('general');
   return (
     <Window width={580} height={700}>
