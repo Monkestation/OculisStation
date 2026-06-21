@@ -1,6 +1,6 @@
 /datum/bounty/item/chef/birthday_cake
 	name = "Birthday Cake"
-	description = "Nanotrasen's birthday is coming up! Ship Central Command a birthday cake to celebrate!"
+	description = "Nanotrasen's birthday is coming up! Ship Sectorial Command a birthday cake to celebrate!" // OCULIS EDIT, SectCommening 2, ORIGINAL: .*Central Command a birthday cake to celebrate!"
 	reward = CARGO_CRATE_VALUE * 8
 	wanted_types = list(
 		/obj/item/food/cake/birthday = TRUE,
@@ -88,7 +88,7 @@
 
 /datum/bounty/item/chef/poppypretzel
 	name = "Poppy Pretzel"
-	description = "Central Command needs a reason to fire their HR head. Send over a poppy pretzel to force a failed drug test."
+	description = "Sectorial Command needs a reason to fire their HR head. Send over a poppy pretzel to force a failed drug test." // OCULIS EDIT, SectCommening 2, ORIGINAL: .*Central Command needs a reason to fire their HR head. Send over a poppy pretzel to force a failed drug test."
 	reward = CARGO_CRATE_VALUE * 6
 	wanted_types = list(/obj/item/food/poppypretzel = TRUE)
 

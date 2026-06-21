@@ -120,7 +120,7 @@
 #define JOB_ERT_JANITOR "Janitorial Response Officer"
 #define JOB_ERT_CLOWN "Entertainment Response Officer"
 //CentCom
-#define JOB_CENTCOM "Central Command"
+#define JOB_CENTCOM "Sectorial Command" // OCULIS EDIT, SectCommening 2, ORIGINAL: .*Central Command"
 #define JOB_CENTCOM_OFFICIAL "CentCom Official"
 #define JOB_CENTCOM_ADMIRAL "Admiral"
 #define JOB_CENTCOM_COMMANDER "CentCom Commander"
@@ -245,7 +245,7 @@
 #define DEPARTMENT_BITFLAG_CAPTAIN (1<<9)
 #define DEPARTMENT_CAPTAIN "Captain"
 #define DEPARTMENT_BITFLAG_CENTRAL_COMMAND (1<<10) //NOVA EDIT CHANGE
-#define DEPARTMENT_CENTRAL_COMMAND "Central Command" //NOVA EDIT CHANGE
+#define DEPARTMENT_CENTRAL_COMMAND "Sectorial Command" //NOVA EDIT CHANGE // OCULIS EDIT, SectCommening 2, ORIGINAL: .*Central Command"
 
 DEFINE_BITFIELD(departments_bitflags, list(
 	"SECURITY" = DEPARTMENT_BITFLAG_SECURITY,

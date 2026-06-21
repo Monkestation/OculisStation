@@ -25,7 +25,7 @@
  */
 /datum/techweb/admin
 	id = "ADMIN"
-	organization = "Central Command"
+	organization = "Sectorial Command" // OCULIS EDIT, SectCommening 2, ORIGINAL: .*Central Command"
 
 /datum/techweb/admin/New()
 	. = ..()

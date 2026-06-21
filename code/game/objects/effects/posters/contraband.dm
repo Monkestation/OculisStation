@@ -354,7 +354,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/bountyhunters,
 
 /obj/structure/sign/poster/contraband/the_big_gas_giant_truth
 	name = "The Big Gas Giant Truth"
-	desc = "Don't believe everything you see on a poster, patriots. All the lizards at central command don't want to answer this SIMPLE QUESTION: WHERE IS THE GAS MINER MINING FROM, CENTCOM?"
+	desc = "Don't believe everything you see on a poster, patriots. All the lizards at Sectorial Command don't want to answer this SIMPLE QUESTION: WHERE IS THE GAS MINER MINING FROM, CENTCOM?" // OCULIS EDIT, SectCommening 2, ORIGINAL: .*Central Command don't want to answer this SIMPLE QUESTION: WHERE IS THE GAS MINER MINING FROM, CENTCOM?"
 	icon_state = "the_big_gas_giant_truth"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/the_big_gas_giant_truth, 32)

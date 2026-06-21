@@ -555,7 +555,7 @@
 	ACCESS_VAULT, \
 )
 /// Name for the Centcom region.
-#define REGION_CENTCOM "Central Command"
+#define REGION_CENTCOM "Sectorial Command" // OCULIS EDIT, SectCommening 2, ORIGINAL: .*Central Command"
 /// Used to seed the accesses_by_region list in SSid_access. A list of all CENTCOM_ACCESS regional accesses.
 #define REGION_ACCESS_CENTCOM CENTCOM_ACCESS
 

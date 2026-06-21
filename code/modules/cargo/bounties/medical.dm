@@ -12,7 +12,7 @@
 
 /datum/bounty/item/medical/lung
 	name = "Lungs"
-	description = "A recent explosion at Central Command has left multiple staff with punctured lungs. Ship spare lungs to be rewarded. We'll take cybernetic ones if need be, but only if they're upgraded."
+	description = "A recent explosion at Sectorial Command has left multiple staff with punctured lungs. Ship spare lungs to be rewarded. We'll take cybernetic ones if need be, but only if they're upgraded." // OCULIS EDIT, SectCommening 2, ORIGINAL: .*Central Command has left multiple staff with punctured lungs. Ship spare lungs to be rewarded. We'll take cybernetic ones if need be, but only if they're upgraded."
 	reward = CARGO_CRATE_VALUE * 10
 	required_count = 3
 	wanted_types = list(
@@ -25,7 +25,7 @@
 
 /datum/bounty/item/medical/appendix
 	name = "Appendix"
-	description = "Chef Gibb of Central Command wants to prepare a meal using a very special delicacy: an appendix. If you ship one, he'll pay."
+	description = "Chef Gibb of Sectorial Command wants to prepare a meal using a very special delicacy: an appendix. If you ship one, he'll pay." // OCULIS EDIT, SectCommening 2, ORIGINAL: .*Central Command wants to prepare a meal using a very special delicacy: an appendix. If you ship one, he'll pay."
 	reward = CARGO_CRATE_VALUE * 5 //there are no synthetic appendixes
 	wanted_types = list(/obj/item/organ/appendix = TRUE)
 
@@ -89,7 +89,7 @@
 
 /datum/bounty/item/medical/cat_tail
 	name = "Cat Tail"
-	description = "Central Command has run out of heavy duty pipe cleaners. Can you ship over a cat tail to help us out?"
+	description = "Sectorial Command has run out of heavy duty pipe cleaners. Can you ship over a cat tail to help us out?" // OCULIS EDIT, SectCommening 2, ORIGINAL: .*Central Command has run out of heavy duty pipe cleaners. Can you ship over a cat tail to help us out?"
 	reward = CARGO_CRATE_VALUE * 6
 	wanted_types = list(/obj/item/organ/tail/cat = TRUE)
 
