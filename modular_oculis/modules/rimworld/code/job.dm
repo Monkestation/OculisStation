@@ -38,7 +38,7 @@
 	belt = null
 	back = null
 	shoes = null
-	box =null
+	box = null
 
 /datum/outfit/job/colonist/pre_equip(mob/living/carbon/human/target)
 	..()
