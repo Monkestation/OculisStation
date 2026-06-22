@@ -30,6 +30,7 @@
 
 	always_customizable = FALSE
 
+/* // OCULIS EDIT REMOVAL START - see code\modules\surgery\bodyparts\bodypart_effects.dm for photosynthesis code instead
 /datum/species/pod/podweak/spec_life(mob/living/carbon/human/H, seconds_per_tick)
 	. = ..()
 	if(H.stat != CONSCIOUS)
@@ -56,6 +57,7 @@
 	if(H.nutrition < NUTRITION_LEVEL_STARVING + 50)
 		H.take_overall_damage(1 * seconds_per_tick, 0)
 		new /obj/effect/temp_visual/annoyed/plant(get_turf(H))
+*/ // OCULIS EDIT REMOVAL END
 
 /datum/species/pod/prepare_human_for_preview(mob/living/carbon/human/human)
 	human.dna.mutant_bodyparts[FEATURE_POD_HAIR] = build_mutant_part("Ivy", list(COLOR_VIBRANT_LIME, COLOR_VIBRANT_LIME, COLOR_VIBRANT_LIME))

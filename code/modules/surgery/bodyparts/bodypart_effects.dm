@@ -2,6 +2,12 @@
 #define GET_BODYPART_COEFFICIENT(X) round(X.len / BODYPARTS_DEFAULT_MAXIMUM , 0.1)
 /// Check if it's full body. These are mostly here so we can change just one place when we ever add more limbs (?)
 #define IS_FULL_BODY(X) (X.len == BODYPARTS_DEFAULT_MAXIMUM )
+// OCULIS ADDITION START
+/// How much a /datum/species/pod/podweak should heal with photosynthesis. [Brute, Burn, Tox, Ox, Stam]
+#define PODWEAK_HEALING list(0.5, 0.35, 0.1, 0.2, 0.4)
+/// How much a NON /datum/species/pod/podweak should heal with photosynthesis. [Brute, Burn, Tox, Ox, Stam]
+#define PODPERSON_HEALING list(0.5, 0.5, 0.5, 0.5, 0)
+// OCULIS ADDITION END
 
 /// Effects added to a carbon focused on the bodyparts itself, such as adding a photosynthesis component that
 /datum/status_effect/grouped/bodypart_effect
@@ -102,10 +108,25 @@
 
 	if(light_amount > 0.2) // If there's enough light, heal
 		var/need_mob_update = FALSE
+		/* // OCULIS REMOVAL START
 		need_mob_update += owner.heal_overall_damage(brute = 0.5 * bodypart_coefficient, \
 			burn = 0.5 * bodypart_coefficient, updating_health = FALSE, required_bodytype = BODYTYPE_PLANT)
 		need_mob_update += owner.adjust_tox_loss(-0.5 * bodypart_coefficient, updating_health = FALSE)
 		need_mob_update += owner.adjust_oxy_loss(-0.5 * bodypart_coefficient, updating_health = FALSE)
+		*/ // OCULIS REMOVAL END
+		// OCULIS ADDITION START
+		var/list/healing
+		var/datum/dna/dna = owner.has_dna()
+		if(dna && istype(dna.species, /datum/species/pod/podweak))
+			healing = PODWEAK_HEALING
+		else
+			healing = PODPERSON_HEALING
+		need_mob_update += owner.heal_overall_damage(brute = healing[1] * bodypart_coefficient * seconds_between_ticks, \
+			burn = healing[2] * bodypart_coefficient * seconds_between_ticks, updating_health = FALSE, required_bodytype = BODYTYPE_PLANT)
+		need_mob_update += owner.adjust_tox_loss(-healing[3] * bodypart_coefficient * seconds_between_ticks, updating_health = FALSE)
+		need_mob_update += owner.adjust_oxy_loss(-healing[4] * bodypart_coefficient * seconds_between_ticks, updating_health = FALSE)
+		need_mob_update += owner.adjust_stamina_loss(-healing[5] * seconds_between_ticks, updating_stamina = FALSE)
+		// OCULIS ADDITION END
 		if(need_mob_update)
 			owner.updatehealth()
 
@@ -187,3 +208,7 @@
 
 #undef GET_BODYPART_COEFFICIENT
 #undef IS_FULL_BODY
+// OCULIS ADDITION START
+#undef PODWEAK_HEALING
+#undef PODPERSON_HEALING
+// OCULIS ADDTIION END
