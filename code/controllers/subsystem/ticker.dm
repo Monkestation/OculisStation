@@ -495,6 +495,10 @@ SUBSYSTEM_DEF(ticker)
 		if(!new_player_living.mind)
 			CHECK_TICK
 			continue
+		var/datum/job/player_assigned_role = new_player_living.mind.assigned_role
+		if(player_assigned_role.job_flags & JOB_EQUIP_RANK)
+			SSjob.equip_rank(new_player_living, player_assigned_role, new_player_mob.client)
+		player_assigned_role.after_roundstart_spawn(new_player_living, new_player_mob.client)
 		if(ishuman(new_player_living))
 			if(player_assigned_role.job_flags & JOB_ASSIGN_QUIRKS)
 				if(CONFIG_GET(flag/roundstart_traits))
