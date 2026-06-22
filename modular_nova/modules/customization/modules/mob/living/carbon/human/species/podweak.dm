@@ -17,6 +17,7 @@
 		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE)
 	)
 
+/* // OCULIS EDIT REMOVAL START
 /datum/species/pod/podweak
 	name = "Podperson"
 	id = SPECIES_PODPERSON_WEAK
@@ -30,7 +31,7 @@
 
 	always_customizable = FALSE
 
-/* // OCULIS EDIT REMOVAL START - see code\modules\surgery\bodyparts\bodypart_effects.dm for photosynthesis code instead
+// OCULIS COMMENT - see code\modules\surgery\bodyparts\bodypart_effects.dm for photosynthesis code
 /datum/species/pod/podweak/spec_life(mob/living/carbon/human/H, seconds_per_tick)
 	. = ..()
 	if(H.stat != CONSCIOUS)

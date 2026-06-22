@@ -4,7 +4,7 @@
 //Actual Species
 #define isvox(A) (is_species(A,/datum/species/vox))
 #define isvoxprimalis(A) (is_species(A,/datum/species/vox_primalis))
-#define ispodweak(A) (is_species(A,/datum/species/pod/podweak))
+// #define ispodweak(A) (is_species(A,/datum/species/pod/podweak)) // OCULIS EDIT REMOVAL
 #define isxenohybrid(A) (is_species(A,/datum/species/xeno))
 #define isdwarf(A) (is_species(A,/datum/species/dwarf))
 #define isroundstartslime(A) (is_species(A,/datum/species/jelly/roundstartslime))

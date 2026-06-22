@@ -3,10 +3,12 @@
 /// Check if it's full body. These are mostly here so we can change just one place when we ever add more limbs (?)
 #define IS_FULL_BODY(X) (X.len == BODYPARTS_DEFAULT_MAXIMUM )
 // OCULIS ADDITION START
-/// How much a /datum/species/pod/podweak should heal with photosynthesis. [Brute, Burn, Tox, Ox, Stam]
-#define PODWEAK_HEALING list(0.5, 0.35, 0.1, 0.2, 0.4)
-/// How much a NON /datum/species/pod/podweak should heal with photosynthesis. [Brute, Burn, Tox, Ox, Stam]
-#define PODPERSON_HEALING list(0.5, 0.5, 0.5, 0.5, 0)
+// Values taken from modular_nova\modules\customization\modules\mob\living\carbon\human\species\podweak.dm
+#define PLANT_BRUTE_HEALING 0.5
+#define PLANT_BURN_HEALING 0.35
+#define PLANT_TOX_HEALING 0.1
+#define PLANT_OX_HEALING 0.2
+#define PLANT_STAM_HEALING 0.4
 // OCULIS ADDITION END
 
 /// Effects added to a carbon focused on the bodyparts itself, such as adding a photosynthesis component that
@@ -88,7 +90,7 @@
 /// This limb regens in light! Only BODYTYPE_PLANT limbs will heal, but limbs without the flag (and with the effect) still contribute to healing of the other limbs
 /datum/status_effect/grouped/bodypart_effect/photosynthesis
 	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
-	tick_interval = 1 SECONDS
+	tick_interval = 2 SECONDS // OCULIS EDIT, making it the same as photosynthesis used to be, ORIGINAL: tick_interval = 1 SECONDS
 	id = "photosynthesis"
 
 /datum/status_effect/grouped/bodypart_effect/photosynthesis/tick(seconds_between_ticks)
@@ -115,17 +117,11 @@
 		need_mob_update += owner.adjust_oxy_loss(-0.5 * bodypart_coefficient, updating_health = FALSE)
 		*/ // OCULIS REMOVAL END
 		// OCULIS ADDITION START
-		var/list/healing
-		var/datum/dna/dna = owner.has_dna()
-		if(dna && istype(dna.species, /datum/species/pod/podweak))
-			healing = PODWEAK_HEALING
-		else
-			healing = PODPERSON_HEALING
-		need_mob_update += owner.heal_overall_damage(brute = healing[1] * bodypart_coefficient * seconds_between_ticks, \
-			burn = healing[2] * bodypart_coefficient * seconds_between_ticks, updating_health = FALSE, required_bodytype = BODYTYPE_PLANT)
-		need_mob_update += owner.adjust_tox_loss(-healing[3] * bodypart_coefficient * seconds_between_ticks, updating_health = FALSE)
-		need_mob_update += owner.adjust_oxy_loss(-healing[4] * bodypart_coefficient * seconds_between_ticks, updating_health = FALSE)
-		need_mob_update += owner.adjust_stamina_loss(-healing[5] * seconds_between_ticks, updating_stamina = FALSE)
+		need_mob_update += owner.heal_overall_damage(brute = PLANT_BRUTE_HEALING * bodypart_coefficient * seconds_between_ticks, \
+			burn = PLANT_BURN_HEALING * bodypart_coefficient * seconds_between_ticks, updating_health = FALSE, required_bodytype = BODYTYPE_PLANT)
+		need_mob_update += owner.adjust_tox_loss(-PLANT_TOX_HEALING * bodypart_coefficient * seconds_between_ticks, updating_health = FALSE)
+		need_mob_update += owner.adjust_oxy_loss(-PLANT_OX_HEALING * bodypart_coefficient * seconds_between_ticks, updating_health = FALSE)
+		need_mob_update += owner.adjust_stamina_loss(-PLANT_STAM_HEALING * seconds_between_ticks, updating_stamina = FALSE)
 		// OCULIS ADDITION END
 		if(need_mob_update)
 			owner.updatehealth()
@@ -209,6 +205,9 @@
 #undef GET_BODYPART_COEFFICIENT
 #undef IS_FULL_BODY
 // OCULIS ADDITION START
-#undef PODWEAK_HEALING
-#undef PODPERSON_HEALING
+#undef PLANT_BRUTE_HEALING
+#undef PLANT_BURN_HEALING
+#undef PLANT_TOX_HEALING
+#undef PLANT_OX_HEALING
+#undef PLANT_STAM_HEALING
 // OCULIS ADDTIION END

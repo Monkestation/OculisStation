@@ -30,8 +30,10 @@
 /mob/living/carbon/human/species/unathi
 	race = /datum/species/unathi
 
+/* // OCULIS REMOVAL START
 /mob/living/carbon/human/species/podweak
 	race = /datum/species/pod/podweak
+*/ // OCULIS REMOVAL END
 
 /mob/living/carbon/human/species/xeno
 	race = /datum/species/xeno

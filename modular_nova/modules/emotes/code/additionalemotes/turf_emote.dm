@@ -42,7 +42,7 @@
 		if(isaquatic(user) || isakula(user) || HAS_TRAIT(user, TRAIT_WATER_ASPECT))
 			user.allowed_turfs += "water"
 
-		if(ispodperson(user) || ispodweak(user) || HAS_TRAIT(user, TRAIT_FLORAL_ASPECT))
+		if(ispodperson(user) || HAS_TRAIT(user, TRAIT_FLORAL_ASPECT)) // OCULIS EDIT, ORIGINAL: if(ispodperson(user) || ispodweak(user) || HAS_TRAIT(user, TRAIT_FLORAL_ASPECT))
 			user.allowed_turfs += "vines"
 
 		if(issynthetic(user))
