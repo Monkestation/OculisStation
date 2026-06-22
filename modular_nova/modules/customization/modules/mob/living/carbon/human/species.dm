@@ -110,7 +110,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	can_augment = FALSE
 
 /datum/species/pod
-	name = "Podperson" // OCULIS EDIT, ORIGINAL: name = "Primal Podperson"
+	name = "Primal Podperson"
 	always_customizable = TRUE
 
 /datum/species/randomize_features(mob/living/carbon/human/human_mob)

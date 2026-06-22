@@ -143,7 +143,6 @@
 		to_chat(bartender, span_notice("You're not technically old enough to access or serve alcohol, but your ID has been discreetly modified to display your age as [AGE_MINOR]. Try to keep that a secret!"))
 
 //Preserved terrarium/seed vault: Spawns in seed vault structures in lavaland. Ghosts become plantpeople and are advised to begin growing plants in the room near them.
-// OCULIS COMMENT - keep an eye on the difficulty of this ghostrole, regular podpeople have been nerfed slightly
 /obj/effect/mob_spawn/ghost_role/human/seed_vault
 	name = "preserved terrarium"
 	desc = "An ancient machine that seems to be used for storing plant matter. The glass is obstructed by a mat of vines."
