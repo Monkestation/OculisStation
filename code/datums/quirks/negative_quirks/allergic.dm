@@ -23,6 +23,10 @@
 		/datum/reagent/medicine/sansufentanyl,
 		/datum/reagent/medicine/salglu_solution,
 		/datum/reagent/medicine/albuterol,
+		/datum/reagent/medicine/amnestic, // OCULIS EDIT ADDITION
+		/datum/reagent/medicine/amnestic_b, // OCULIS EDIT ADDITION
+		/datum/reagent/medicine/mnestic, // OCULIS EDIT ADDITION
+		/datum/reagent/medicine/mnestic_x, // OCULIS EDIT ADDITION
 		)
 	var/allergy_string
 
