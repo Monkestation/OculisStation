@@ -52,14 +52,18 @@ export function setClientTheme(name): void | Promise<void> {
     'rules.text-color': themeColor.TEXT,
     'wiki.background-color': themeColor.BUTTON,
     'wiki.text-color': themeColor.TEXT,
-    'forum.background-color': themeColor.BUTTON,
-    'forum.text-color': themeColor.TEXT,
     'github.background-color': themeColor.BUTTON,
     'github.text-color': themeColor.TEXT,
-    'report-issue.background-color': themeColor.BUTTON,
-    'report-issue.text-color': themeColor.TEXT,
     'fullscreen-toggle.background-color': themeColor.BUTTON,
     'fullscreen-toggle.text-color': themeColor.TEXT,
+    'reconnect.background-color': themeColor.BUTTON,
+    'reconnect.text-color': themeColor.TEXT,
+    'report-issue.background-color': themeColor.BG_IMPORTANT,
+    'report-issue.text-color': themeColor.TEXT_IMPORTANT,
+    // NOVA ADDITION START
+    'nova-connect-to-relay.background-color': themeColor.BG_IMPORTANT,
+    'nova-connect-to-relay.text-color': themeColor.TEXT_IMPORTANT,
+    // NOVA ADDITION END
     // Status and verb tabs
     'output.background-color': themeColor.BG_BASE,
     'output.text-color': themeColor.TEXT,
