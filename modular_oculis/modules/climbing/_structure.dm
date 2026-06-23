@@ -17,7 +17,7 @@
 
 //Climb fluid tanks (water/welding fuel etc. Also covers plumbed ones)
 /obj/structure/reagent_dispensers
-	climbable_pixel_shift = 25
+	climbable_pixel_shift = 20
 
 //Don't climb the water cooler... it's too tall
 /obj/structure/reagent_dispensers/water_cooler

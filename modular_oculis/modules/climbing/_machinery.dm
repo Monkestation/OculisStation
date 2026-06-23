@@ -52,11 +52,11 @@
 
 //Climb thermomachines
 /obj/machinery/atmospherics/components/unary/thermomachine
-	climbable_pixel_shift = 10
+	climbable_pixel_shift = 15
 
 //Climb R&D servers
 /obj/machinery/rnd/server
-	climbable_pixel_shift = 10
+	climbable_pixel_shift = 20
 
 //Climb ammo workbench
 /obj/machinery/ammo_workbench
@@ -68,15 +68,15 @@
 
 //Climb washing machine
 /obj/machinery/washing_machine
-	climbable_pixel_shift = 10
+	climbable_pixel_shift = 20
 
 //Climb message server
 /obj/machinery/telecomms/message_server
-	climbable_pixel_shift = 10
+	climbable_pixel_shift = 20
 
 //Climb telecomms server
 /obj/machinery/telecomms/server
-	climbable_pixel_shift = 10
+	climbable_pixel_shift = 20
 //Climb oven
 /obj/machinery/oven
 	climbable_pixel_shift = 20
@@ -84,3 +84,11 @@
 //BUT NOT THE RANGE, YOU'LL BURN YOURSELF
 /obj/machinery/oven/range
 	climbable_pixel_shift = 0
+
+//Climb PDA painters
+/obj/machinery/pdapainter
+	climbable_pixel_shift = 20
+
+//Climb mech rechargers
+/obj/machinery/mech_bay_recharge_port
+	climbable_pixel_shift = 20
