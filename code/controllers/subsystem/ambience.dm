@@ -3,7 +3,7 @@ SUBSYSTEM_DEF(ambience)
 	name = "Ambience"
 	ss_flags = SS_BACKGROUND|SS_NO_INIT
 	priority = FIRE_PRIORITY_AMBIENCE
-	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
+	runlevels = NONE
 	wait = 1 SECONDS
 	///Assoc list of listening client - next ambience time
 	var/list/ambience_listening_clients = list()
@@ -42,7 +42,7 @@ SUBSYSTEM_DEF(ambience)
 				continue
 
 		//Run play_ambience() on the client-mob and set a cooldown
-		ambience_listening_clients[client_iterator] = world.time + current_area.play_ambience(client_mob)
+		// ambience_listening_clients[client_iterator] = world.time + current_area.play_ambience(client_mob)
 
 		//We REALLY don't want runtimes in SSambience
 		if(client_iterator)
@@ -109,7 +109,7 @@ SUBSYSTEM_DEF(ambience)
 		ambience_tracked_area = new_area
 		RegisterSignal(ambience_tracked_area, COMSIG_AREA_POWER_CHANGE, PROC_REF(refresh_looping_ambience), TRUE)
 
-	refresh_looping_ambience()
+	// refresh_looping_ambience()
 
 /mob/proc/refresh_looping_ambience()
 	SIGNAL_HANDLER

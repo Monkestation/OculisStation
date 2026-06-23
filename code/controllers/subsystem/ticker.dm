@@ -141,7 +141,7 @@ SUBSYSTEM_DEF(ticker)
 				start_at = world.time + (CONFIG_GET(number/lobby_countdown) * (1 SECONDS))
 			for(var/client/C in GLOB.clients)
 				window_flash(C, ignorepref = TRUE) //let them know lobby has opened up.
-			to_chat(world, span_notice("<b>Welcome to [station_name()]!</b>"))
+			to_chat(world, span_notice("<b>Welcome to the rim!!</b>"))
 			/* // OCULIS EDIT REMOVAL START
 			// NOVA EDIT ADDITION START
 			if(!discord_alerted)
@@ -290,6 +290,7 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/PostSetup()
 	set waitfor = FALSE
 
+	/*
 	// Spawn traitors and stuff
 	for(var/datum/dynamic_ruleset/roundstart/ruleset in SSdynamic.queued_rulesets)
 		ruleset.execute()
@@ -301,6 +302,7 @@ SUBSYSTEM_DEF(ticker)
 		GLOB.communications_controller.queue_roundstart_report()
 	*/ // NOVA EDIT REMOVAL END
 	GLOB.communications_controller.queue_roundstart_report() // NOVA EDIT ADDITION: Config option handled inside
+	*/
 	// Queue admin logout report
 	var/roundstart_logout_timer = CONFIG_GET(number/roundstart_logout_report_time_average)
 	var/roundstart_report_variance = CONFIG_GET(number/roundstart_logout_report_time_variance)

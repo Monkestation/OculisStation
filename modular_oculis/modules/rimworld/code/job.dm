@@ -50,3 +50,7 @@
 		uniform = /obj/item/clothing/under/color/grey
 	else
 		uniform = /obj/item/clothing/under/color/jumpskirt/grey
+
+/obj/effect/landmark/start/colonist
+	name = "Colonist"
+	icon_state = JOB_ASSISTANT //icon_state is case sensitive. why are all of these capitalized? because fuck you that's why
