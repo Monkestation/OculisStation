@@ -8,12 +8,17 @@
         AddElement(/datum/element/elevation, pixel_shift = climbable_pixel_shift)
 
 //Climb tank dispensers
-/obj/structure/tank_dispenser/Initialize(mapload)
+/obj/structure/tank_dispenser
 	climbable_pixel_shift = 25
 
 //Climb morgues
-/obj/structure/bodycontainer/morgue/Initialize(mapload)
+/obj/structure/bodycontainer/morgue
 	climbable_pixel_shift = 10
 
+//Climb fluid tanks (water/welding fuel etc. Also covers plumbed ones)
 /obj/structure/reagent_dispensers
 	climbable_pixel_shift = 25
+
+//Don't climb the water cooler... it's too tall
+/obj/structure/reagent_dispensers/water_cooler
+	climbable_pixel_shift = 0
