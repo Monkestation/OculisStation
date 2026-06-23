@@ -1,129 +1,86 @@
+/obj/machinery
+    var/climbable_pixel_shift = 0 // If set to a value above 0, the machinery becomes climbable with this specific pixel shift elevation.
 
-//Climb computers
-/obj/machinery/computer/Initialize(mapload, obj/item/circuitboard/C)
-	. = ..()
+/obj/machinery/Initialize(mapload)
+    . = ..()
+    if(climbable_pixel_shift)
+        AddElement(/datum/element/climbable)
+        AddElement(/datum/element/elevation, pixel_shift = climbable_pixel_shift)
 
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 10)
+/* === Climb Computers === */
+/obj/machinery/computer
+	climbable_pixel_shift = 10
 
-/obj/machinery/modular_computer/Initialize(mapload, obj/item/circuitboard/C)
-	. = ..()
-
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 10)
+/obj/machinery/modular_computer
+	climbable_pixel_shift = 10
 
 //Computer-based machine climbing exceptions
-/obj/machinery/computer/slot_machine/Initialize(mapload, obj/item/circuitboard/C)
-	. = ..()
+/obj/machinery/computer/slot_machine
+	climbable_pixel_shift = 0
 
-	RemoveElement(/datum/element/climbable)
-	RemoveElement(/datum/element/elevation, pixel_shift = 10)
+/obj/machinery/computer/pandemic
+	climbable_pixel_shift = 0
 
-/obj/machinery/computer/pandemic/Initialize(mapload, obj/item/circuitboard/C)
-	. = ..()
-
-	RemoveElement(/datum/element/climbable)
-	RemoveElement(/datum/element/elevation, pixel_shift = 10)
-
+/* === Climb Machines === */
 //Climb lathes
-/obj/machinery/power/manufacturing/lathe/Initialize(mapload)
-	. = ..()
-
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 20)
+/obj/machinery/power/manufacturing/lathe
+	climbable_pixel_shift = 20
 
 //Climb circuit imprinters
-/obj/machinery/rnd/production/Initialize(mapload)
-	. = ..()
-
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 20)
+/obj/machinery/rnd/production
+	climbable_pixel_shift = 20
 
 //Climb autolathes
-/obj/machinery/autolathe/Initialize(mapload)
-	. = ..()
+/obj/machinery/autolathe
+	climbable_pixel_shift = 20
 
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 20)
+//Climb charging station //check rechargestation.dm in this module if issues arise
+/obj/machinery/recharge_station
+	climbable_pixel_shift = 10
 
 //Climb canisters
-/obj/machinery/portable_atmospherics/canister/Initialize(mapload)
-	. = ..()
-
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 25)
-
-//Climb charging station
-/obj/machinery/recharge_station/Initialize(mapload)
-	. = ..()
-
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 10)
+/obj/machinery/portable_atmospherics/canister
+	climbable_pixel_shift = 25
 
 //Climb transit tubes
-/obj/machinery/transit_tube/Initialize(mapload)
-	. = ..()
-
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 10)
+/obj/machinery/transit_tube
+	climbable_pixel_shift = 10
 
 //Climb pacmans
-/obj/machinery/power/port_gen/pacman/Initialize(mapload)
-	. = ..()
-
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 10)
+/obj/machinery/power/port_gen/pacman
+	climbable_pixel_shift = 20
 
 //Climb thermomachines
-/obj/machinery/atmospherics/components/unary/thermomachine/Initialize(mapload)
-	. = ..()
-
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 10)
+/obj/machinery/atmospherics/components/unary/thermomachine
+	climbable_pixel_shift = 10
 
 //Climb R&D servers
-/obj/machinery/rnd/server/Initialize(mapload)
-	. = ..()
-
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 10)
+/obj/machinery/rnd/server
+	climbable_pixel_shift = 10
 
 //Climb ammo workbench
-/obj/machinery/ammo_workbench/Initialize(mapload)
-	. = ..()
-
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 10)
+/obj/machinery/ammo_workbench
+	climbable_pixel_shift = 15
 
 //Climb microwave
-/obj/machinery/microwave/Initialize(mapload)
-	. = ..()
-
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 10)
+/obj/machinery/microwave
+	climbable_pixel_shift = 25
 
 //Climb washing machine
-/obj/machinery/washing_machine/Initialize(mapload)
-	. = ..()
-
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 10)
+/obj/machinery/washing_machine
+	climbable_pixel_shift = 10
 
 //Climb message server
-/obj/machinery/telecomms/message_server/Initialize(mapload)
-	. = ..()
+/obj/machinery/telecomms/message_server
+	climbable_pixel_shift = 10
 
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 10)
 //Climb telecomms server
-/obj/machinery/telecomms/server/Initialize(mapload)
-	. = ..()
-
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 10)
+/obj/machinery/telecomms/server
+	climbable_pixel_shift = 10
 //Climb oven
-/obj/machinery/oven/Initialize(mapload)
-	. = ..()
+/obj/machinery/oven
+	climbable_pixel_shift = 20
 
-	AddElement(/datum/element/climbable)
-	AddElement(/datum/element/elevation, pixel_shift = 10)
+//BUT NOT THE RANGE, YOU'LL BURN YOURSELF
+/obj/machinery/oven/range
+	climbable_pixel_shift = 0
