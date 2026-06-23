@@ -95,7 +95,7 @@
 
 /datum/design/caffinator
 	name = "NT-CFFE Caffinator"
-	desc = "This thigh implant converts blood into tasty and energizing coffee! Contains integrated cup dispenser and cardboard recycler."
+	desc = "This thigh-implanted cybernetic utilizes the very real science of hemosuccoric convertotronology to transmute blood into tasty and energizing coffee! Contains integrated cup dispenser and cardboard recycler."
 	id = "ci-caffinator"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 6 SECONDS
