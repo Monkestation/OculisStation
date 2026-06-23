@@ -11,26 +11,6 @@
 	medium_light_cutoff = list(35, 30, 0)
 	high_light_cutoff = list(50, 40, 0)
 
-/obj/item/organ/eyes/night_vision/arachnid/on_mob_insert(mob/living/carbon/eye_owner)
-	. = ..()
-	if(!ishuman(eye_owner))
-		return
-	var/mob/living/carbon/human/human_receiver = eye_owner
-	if(!human_receiver.can_mutate())
-		return
-	var/datum/species/rec_species = human_receiver.dna.species
-	rec_species.update_no_equip_flags(eye_owner, rec_species.no_equip_flags | ITEM_SLOT_EYES)
-
-/obj/item/organ/eyes/night_vision/arachnid/on_mob_remove(mob/living/carbon/eye_owner)
-	. = ..()
-	if(!ishuman(eye_owner))
-		return
-	var/mob/living/carbon/human/human_receiver = eye_owner
-	if(!human_receiver.can_mutate())
-		return
-	var/datum/species/rec_species = human_receiver.dna.species
-	rec_species.update_no_equip_flags(eye_owner, initial(rec_species.no_equip_flags))
-
 /obj/item/organ/eyes/night_vision/arachnid/get_emissive_overlays(mutable_appearance/eye_left, mutable_appearance/eye_right, atom/spokesman)
 	. = list()
 
