@@ -117,7 +117,7 @@
 	icon_state = "sec_processing"
 
 /area/station/security/execution/education
-	name = "\improper Prisoner Education Chamber"
+	name = "\improper Sentence Resolution Room" // OCULIS EDIT, ORIGINAL: name = "\improper Prisoner Education Chamber"
 
 /area/station/security/mechbay
 	name = "Security Mechbay"
