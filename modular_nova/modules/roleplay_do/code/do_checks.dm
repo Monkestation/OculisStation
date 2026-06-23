@@ -1,3 +1,4 @@
+/* // OCULIS EDIT REMOVAL START
 /mob/living/proc/doverb_checks(message)
 	if(!length(message))
 		return FALSE
@@ -18,3 +19,4 @@
 		return FALSE
 
 	return TRUE
+*/ // OCULIS EDIT REMOVAL END

@@ -291,6 +291,11 @@
 		if(!(human.mind.assigned_role.job_flags & JOB_CREW_MEMBER))
 			continue
 
+		// OCULIS EDIT START
+		if(HAS_TRAIT(human, TRAIT_NO_MAIL))
+			continue
+		// OCULIS EDIT END
+
 		mail_recipients += human.mind
 
 	for(var/i in 1 to mail_count)
