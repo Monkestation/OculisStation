@@ -1378,6 +1378,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	var/static/icon/lenghten_torso_mask = icon('icons/effects/cut.dmi', "Cut3")
 	var/static/icon/lenghten_legs_mask = icon('icons/effects/cut.dmi', "Cut4")
 */ // IRIS EDIT REMOVAL END
+	var/static/icon/lenghten_arms_mask = icon('icons/effects/cut.dmi', "Cut5")
 
 	// IRIS EDIT ADDITION START - Height-based displacement masks.
 	var/static/list/screamed_icons
@@ -1425,6 +1426,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 		"Lenghten_Ankles", // IRIS ADDITION
 		"Lenghten_Legs",
 		"Lenghten_Torso",
+		"Lenghten_Arms",
 		"Gnome_Cut_Torso",
 		"Gnome_Cut_Legs",
 		"Monkey_Torso",
@@ -1527,9 +1529,14 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 					"params" = displacement_map_filter(lenghten_torso_mask, x = 0, y = adjust_y, size = 1), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 				),
 				list(
+					"name" = "Lenghten_Arms",
+					"priority" = 1,
+					"params" = displacement_map_filter(lenghten_arms_mask, x = 0, y = 0, size = 1),
+				),
+				list(
 					"name" = "Lenghten_Legs",
 					"priority" = 1,
-					"params" = displacement_map_filter(lenghten_legs_mask, x = 0, y = adjust_y, size = 1), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`, `size = 2` -> `size = 1`
+					"params" = displacement_map_filter(lenghten_legs_mask, x = 0, y = adjust_y, size = 1), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`, `size = 1`
 				),
 				// IRIS EDIT ADDITION START - add Lengthen_Ankles filter
 				list(
