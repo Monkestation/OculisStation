@@ -58,3 +58,8 @@
 	new /obj/item/restraints/handcuffs/cable/green(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/storage/bag/garment/service_guard(src)
+
+//Prisoner Lockers
+
+/obj/structure/closet/secure_closet/brig/PopulateContents()
+	..()

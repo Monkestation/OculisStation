@@ -142,7 +142,7 @@ export const DiscordVerification = (props) => {
           <Button
             icon="paperclip"
             as="a"
-            // @ts-ignore
+            // @ts-expect-error
             href={discord_invite}
             target="_blank"
           >
