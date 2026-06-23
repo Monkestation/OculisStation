@@ -1,3 +1,4 @@
+/*
 /// Check if we have an upcoming transfer vote, or we're already evacuating.
 /datum/controller/subsystem/events/checkEvent()
 	if(scheduled <= world.time)
@@ -43,3 +44,4 @@
 
 	log_game("ICES: Reschedule proc calling for timed intensity credit")
 	change_intensity_credits(2, 1, TRUE, TRUE, FALSE)
+*/

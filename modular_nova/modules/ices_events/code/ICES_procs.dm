@@ -1,3 +1,4 @@
+/*
 /// Runs a check to determine if events will be suspended due to shuttle related events
 /datum/controller/subsystem/events/proc/debug_event_schedule()
 	message_admins("ICES: Real time: [world.realtime]")
@@ -18,3 +19,4 @@
 		message_admins("ICES: Shuttle precondition check: FAILED ([SSshuttle.canEvac()])")
 	else
 		message_admins("ICES: Shuttle precondition check: PASSED")
+*/
