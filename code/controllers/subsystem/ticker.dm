@@ -278,7 +278,7 @@ SUBSYSTEM_DEF(ticker)
 	INVOKE_ASYNC(SSdbcore, TYPE_PROC_REF(/datum/controller/subsystem/dbcore,SetRoundStart))
 
 	to_chat(world, span_notice(span_bold("Welcome to the rim.")))
-	alert_sound_to_playing(sound('modular_oculis/modules/rimworld/sounds/Game_Start_Sting_1a.ogg'))
+	SEND_SOUND(world, sound('modular_oculis/modules/rimworld/sounds/Game_Start_Sting_1a.ogg'))
 
 	current_state = GAME_STATE_PLAYING
 	Master.SetRunLevel(RUNLEVEL_GAME)
