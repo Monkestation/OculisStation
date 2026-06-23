@@ -92,11 +92,12 @@ GLOBAL_LIST_INIT(freqtospan, list(
  * - ignore_spam (bool): should we ignore spam?
  * - forced (null|string): what was it forced by? null if voluntary
  * - filterproof (bool): are we filterproof?
+ * - mute_bypass (bool): if we should ignore muteness for this check // OCULIS EDIT ADDITION
  *
  * Returns:
  * 	TRUE of FASE depending on if our movable can speak
  */
-/atom/movable/proc/try_speak(message, ignore_spam = FALSE, forced = null, filterproof = FALSE)
+/atom/movable/proc/try_speak(message, ignore_spam = FALSE, forced = null, filterproof = FALSE, mute_bypass = FALSE) // OCULIS EDIT, ORIGINAL: /atom/movable/proc/try_speak(message, ignore_spam = FALSE, forced = null, filterproof = FALSE)
 	return can_speak()
 
 /**
