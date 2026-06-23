@@ -163,10 +163,8 @@
 
 /datum/scream_type/arachnid
 	name = "Arachnid Scream"
-	male_screamsounds = list('modular_oculis/modules/arachnids/sounds/arachnid_scream.ogg')
-	female_screamsounds = null
+	scream_sounds = list('modular_oculis/modules/arachnids/sounds/arachnid_scream.ogg')
 
 /datum/laugh_type/arachnid
 	name = "Arachnid Laugh"
-	male_laughsounds = list('modular_oculis/modules/arachnids/sounds/arachnid_laugh.ogg')
-	female_laughsounds = null
+	laugh_sounds = list('modular_oculis/modules/arachnids/sounds/arachnid_laugh.ogg')
