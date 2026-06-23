@@ -209,7 +209,14 @@
 	if(damage_type != BURN && damage_type != BRUTE)
 		return
 
-	source.adjust_nutrition(round(-3 * damage_amt, 0.01), forced = TRUE)
+	// OCULIS EDIT ADDITION START - Gets number of golem body parts for use in calculating nutrition damage.
+	var/num_golem = 0
+	for(var/bpcheck in source.bodyparts)
+		if(bpcheck.bodytype & BODYTYPE_GOLEM)
+			num_golem += 1
+	// OCULIS EDIT ADDITION END
+
+	source.adjust_nutrition(round(-3 * damage_amt * num_golem / MAX_BODYPARTS, 0.01), forced = TRUE) // OCULIS EDIT, ORIGINAL: source.adjust_nutrition(round(-3 * damage_amt, 0.01), forced = TRUE)
 
 /datum/species/golem/proc/check_nutrition(mob/living/carbon/human/source)
 	SIGNAL_HANDLER
