@@ -1,3 +1,4 @@
+/* // OCULIS EDIT REMOVAL START
 /mob/verb/do_verb(message as message)
 	set name = "Do"
 	set category = "IC"
@@ -51,3 +52,4 @@
 				receiver.create_chat_message(ai.eyeobj, null, message, null, EMOTE_MESSAGE)
 			else
 				receiver.create_chat_message(usr, null, message, null, EMOTE_MESSAGE)
+*/ // OCULIS EDIT REMOVAL END

@@ -102,7 +102,7 @@
 	/// If objects are below this layer, we pass through them
 	var/hit_threshhold = PROJECTILE_HIT_THRESHHOLD_LAYER
 
-	/// How many tiles we pass in a single SSprojectiles tick
+	/// How many tiles we pass in a single SSprojectiles tick - increased by 25% for bullets and beams on init in projectile_speed.dm // OCULIS COMMENT EDIT
 	var/speed = 1.25
 
 	/// The current angle of the projectile. Initially null, so if the arg is missing from [/fire()], we can calculate it from firer and target as fallback.

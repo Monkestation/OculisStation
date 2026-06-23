@@ -11,12 +11,12 @@
 	registered_account = new(player_account = FALSE)
 	registered_account.account_id = ADMIN_ACCOUNT_ID // this is so bank_card_talk() can work.
 	registered_account.account_job = SSjob.get_job_type(/datum/job/castor)
-	registered_account.account_balance += 999999 // MONEY! We add more money to the account every time we spawn because it's a debug item and infinite money whoopie
+	registered_account.account_balance += 20000
 
 /obj/item/card/id/advanced/castor/alt_click_can_use_id(mob/living/user)
 	. = ..()
 	if(!. || isnull(user.client?.holder)) // admins only as a safety so people don't steal all the dollars. spawn in a holochip if you want them to get some dosh
-		registered_account.bank_card_talk(span_warning("Only authorized representatives of Nanotrasen may use this card."), force = TRUE)
+		registered_account.bank_card_talk(span_warning("Only authorized representatives of Castor Station may use this card."), force = TRUE)
 		return FALSE
 	return TRUE
 
@@ -49,7 +49,6 @@
 
 /obj/item/card/id/advanced/castor/sectorial_commander
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_commander
 
 /datum/id_trim/admin/castor/sectorial_personnel_administrator
@@ -62,7 +61,6 @@
 
 /obj/item/card/id/advanced/castor/sectorial_personnel_administrator
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_personnel_administrator
 
 /datum/id_trim/admin/castor/sectorial_security_administrator
@@ -75,7 +73,6 @@
 
 /obj/item/card/id/advanced/castor/sectorial_security_administrator
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_security_administrator
 
 /datum/id_trim/admin/castor/sectorial_research_administrator
@@ -88,7 +85,6 @@
 
 /obj/item/card/id/advanced/castor/sectorial_research_administrator
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_research_administrator
 
 /datum/id_trim/admin/castor/sectorial_medical_administrator
@@ -101,7 +97,6 @@
 
 /obj/item/card/id/advanced/castor/sectorial_medical_administrator
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_medical_administrator
 
 /datum/id_trim/admin/castor/sectorial_logistics_administrator
@@ -114,7 +109,6 @@
 
 /obj/item/card/id/advanced/castor/sectorial_logistics_administrator
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_logistics_administrator
 
 /datum/id_trim/admin/castor/sectorial_engineering_administrator
@@ -127,7 +121,6 @@
 
 /obj/item/card/id/advanced/castor/sectorial_engineering_administrator
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_engineering_administrator
 
 /datum/id_trim/admin/castor/sectorial_internal_affairs_administrator
@@ -140,5 +133,4 @@
 
 /obj/item/card/id/advanced/castor/sectorial_internal_affairs_administrator
 	name = "\improper ID card"
-	desc = "A Castor Station ID card. Has ALL the access of the both your station and Castor's."
 	trim = /datum/id_trim/admin/castor/sectorial_internal_affairs_administrator
