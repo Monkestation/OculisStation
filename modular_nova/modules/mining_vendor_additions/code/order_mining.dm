@@ -52,6 +52,3 @@
 	purchase_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/railgun
 	cost_per_order = 1250
 
-/datum/orderable_item/accelerator/gun/m79
-	purchase_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/m79
-	cost_per_order = 1250
