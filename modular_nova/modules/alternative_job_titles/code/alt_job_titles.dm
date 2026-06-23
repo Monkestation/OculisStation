@@ -119,6 +119,8 @@
 		"Service Guard",
 		"Doorman",
 		"Service Guard Cadet", //OCULIS ADDITION
+		"Civil Protection Officer",
+		"Public Peacekeeper",
 	)
 
 /datum/job/corrections_officer
@@ -252,8 +254,10 @@
 	alt_titles = list(
 		"Customs Agent",
 		"Supply Guard",
-		"Union Customs Agent", //OCULIS ADDITION START
-		"Supply Guard Trainee",
+		"Union Customs Agent", //OCULIS ADDITION
+		"Supply Guard Trainee", //OCULIS ADDITION
+		"Deck Defense Officer", //OCULIS ADDITION
+		"Delivery Escort",
 	)
 
 /datum/job/cyborg
@@ -290,12 +294,14 @@
 		"Theoretical Physician", //OCULIS ADDITION
 	)
 
-/datum/job/engineering_guard //see orderly //OCULIS EDIT, alt titles
+/datum/job/engineering_guard //see orderly
 	alt_titles = list(
 		"Engineering Guard",
-		"OSHA Enforcer",
-		"Engineering Guard In-Training",
-		"Equipment Inspector",
+		"OSHA Enforcer", //OCULIS EDIT, alt titles
+		"Engineering Guard In-Training", //OCULIS EDIT, alt titles
+		"Equipment Inspector", //OCULIS EDIT, alt titles
+		"Power Plant Guard",
+		"Construction Guard",
 	)
 
 /datum/job/explorer // IRIS EDIT - EXPLORER JOB
@@ -358,8 +364,8 @@
 		"Lawyer",
 		"Barrister",
 		"Defense Attorney",
-		"Sapient Resources Agent", // IRIS EDIT - it's "Sapient" now
-		"Internal Affairs Agent",
+		"Sophont Resources Agent", // OCULIS EDIT
+		// "Internal Affairs Agent", // OCULIS EDIT REMOVAL
 		"Legal Clerk",
 		"Prosecutor",
 		"Attorney At Law",
@@ -455,11 +461,14 @@
 		"Apprentice Roboticist",
 	)
 
-/datum/job/science_guard //See orderly //OCULIS EDIT, alt titles
+/datum/job/science_guard //See orderly
 	alt_titles = list(
 		"Science Guard",
-		"Research Facility Protector",
-		"Science Guard Trainee",
+		"Research Facility Protector", //OCULIS EDIT, alt titles
+		"Science Guard Trainee", //OCULIS EDIT, alt titles
+		"Hazardous Experiment Overwatch",
+		"Xenobiological Recontainment Officer",
+		"Expedition Protection Agent",
 	)
 /datum/job/scientist
 	alt_titles = list(
