@@ -4,7 +4,8 @@
 /obj/structure/Initialize(mapload)
     . = ..()
     if(climbable_pixel_shift)
-        AddElement(/datum/element/climbable)
+		//Climbing time and stun time are based on how tall the climbed thing is
+        AddElement(/datum/element/climbable, climb_time = climbable_pixel_shift/3 SECONDS, climb_stun = climbable_pixel_shift/3 SECONDS)
         AddElement(/datum/element/elevation, pixel_shift = climbable_pixel_shift)
 
 //Climb tank dispensers

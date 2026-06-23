@@ -127,6 +127,7 @@
 			dir_step = get_dir(user, get_step(climbed_thing, climbed_thing.dir))
 	. = step(user, dir_step)
 	climbed_thing.set_density(TRUE)
+	after_climb_effects(climbed_thing, user) // OCULIS EDIT ADDITION - Climbing module (for damaging the climbed thing)
 
 ///Handles climbing onto the atom when you click-drag
 /datum/element/climbable/proc/mousedrop_receive(atom/climbed_thing, atom/movable/dropped_atom, mob/user, params)
