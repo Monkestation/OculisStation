@@ -123,6 +123,48 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 			if(reskin_datum)
 				return set_skin(manager, user, params)
 
+	//OCULIS EDIT ADDITION START
+		if("select_color_simple")
+			return item_color_painting(manager, user)
+
+		if("set_color_mode")
+			return item_color_mode(manager, user)
+
+	return TRUE
+
+/datum/loadout_item/proc/item_color_painting(datum/preference_middleware/loadout/manager, mob/user)
+	if(manager.menu)
+		return FALSE
+
+	var/list/loadout = manager.get_current_loadout()
+	if(!loadout?[item_path])
+		return FALSE
+
+	var/chosen_color = tgui_color_picker(user, "Pick new color. Setting color to pitch black will remove the existing color.", "Repaint item", "#000000")
+	if(isnull(chosen_color))
+		return FALSE
+
+	var/hsl = rgb2num(chosen_color, COLORSPACE_HSL)
+	if(hsl[3] == 0)
+		loadout[item_path][INFO_CUSTOM_COLOR] = null
+	else
+		loadout[item_path][INFO_CUSTOM_COLOR] = chosen_color
+
+	manager.save_current_loadout(loadout)
+	return TRUE
+
+/datum/loadout_item/proc/item_color_mode(datum/preference_middleware/loadout/manager, mob/user)
+	var/list/loadout = manager.get_current_loadout()
+	if(!loadout?[item_path])
+		return FALSE
+
+	if(isnull(loadout[item_path][INFO_COLOR_MODE]))
+		loadout[item_path][INFO_COLOR_MODE] = FALSE
+
+	loadout[item_path][INFO_COLOR_MODE] = !loadout[item_path][INFO_COLOR_MODE]
+	manager.save_current_loadout(loadout)
+	// OCULIS EDIT ADDITION END
+
 	return TRUE
 
 /// Opens up the GAGS editing menu.
@@ -270,6 +312,11 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		equipped_item.set_greyscale(item_color)
 		update_flag |= equipped_item.slot_flags
 
+	// OCULIS EDIT ADDITION START
+	if(item_details?[INFO_CUSTOM_COLOR] && !istype(equipper, /mob/living/carbon/human/dummy)) //the dummy check makes it not color the item in the loadout because that causes runtimes, joining into the game colors the item as intended. If you want to fix it, start here
+		equipped_item.add_atom_colour(color_transition_filter(item_details[INFO_CUSTOM_COLOR], item_details[INFO_COLOR_MODE] ? SATURATION_OVERRIDE : SATURATION_MULTIPLY), FIXED_COLOUR_PRIORITY)
+	// OCULIS EDIT ADDITION END
+
 	if((loadout_flags & LOADOUT_FLAG_ALLOW_NAMING) && item_details?[INFO_NAMED] && !visuals_only)
 		equipped_item.name = trim(item_details[INFO_NAMED], PREVENT_CHARACTER_TRIM_LOSS(MAX_NAME_LEN))
 		ADD_TRAIT(equipped_item, TRAIT_WAS_RENAMED, "Loadout")
@@ -400,6 +447,22 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 			"button_icon" = FA_ICON_PALETTE,
 			"active_key" = INFO_GREYSCALE,
 		))
+	// OCULIS EDIT ADDITION START
+	else
+		UNTYPED_LIST_ADD(button_list, list(
+			"label" = "Repaint",
+			"act_key" = "select_color_simple",
+			"button_icon" = FA_ICON_PALETTE,
+			"active_key" = INFO_CUSTOM_COLOR,
+		))
+		UNTYPED_LIST_ADD(button_list, list(
+			"label" = "Repainting mode",
+			"act_key" = "set_color_mode",
+			"active_key" = INFO_COLOR_MODE,
+			"active_text" = "Override Color",
+			"inactive_text" = "Multiply Color",
+		))
+	// OCULIS EDIT ADDITION END
 
 	if(loadout_flags & LOADOUT_FLAG_ALLOW_NAMING)
 		UNTYPED_LIST_ADD(button_list, list(

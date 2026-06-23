@@ -197,6 +197,10 @@
 	)
 	/// Combined lists
 	var/static/list/all_drawables = graffiti + symbols + drawings + oriented + runes + graffiti_large_h
+	// OCULIS EDIT ADDITION START
+	var/washable_coloring_mode = TRUE
+	var/remove_coloring = FALSE
+	// OCULIS EDIT ADDITION END
 
 /obj/item/toy/crayon/proc/isValidSurface(surface)
 	return isfloorturf(surface)
@@ -385,6 +389,10 @@
 	.["can_change_colour"] = can_change_colour
 	.["selected_color"] = GLOB.pipe_color_name[paint_color] || paint_color
 	.["paint_colors"] = GLOB.pipe_paint_colors
+	// OCULIS EDIT ADDITION START
+	.["washable_coloring_mode"] = washable_coloring_mode
+	.["remove_coloring"] = remove_coloring
+	// OCULIS EDIT ADDITION END
 
 /obj/item/toy/crayon/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -427,6 +435,16 @@
 			. = TRUE
 			paint_mode = PAINT_NORMAL
 			drawtype = "a"
+		// OCULIS EDIT ADDITION START
+		if("change_color_mode") //bubber addition
+			if(has_cap)
+				washable_coloring_mode = !washable_coloring_mode
+				. = TRUE
+		if("toggle_remove_coloring") //bubber addition
+			if(has_cap)
+				remove_coloring = !remove_coloring
+				. = TRUE
+		// OCULIS EDIT ADDITION END
 	update_appearance()
 
 /obj/item/toy/crayon/proc/crayon_text_strip(text)
@@ -897,6 +915,12 @@
 	if(check_empty(user))
 		return ITEM_INTERACT_BLOCKING
 
+	// OCULIS EDIT ADDITION START
+	if(remove_coloring && isitem(target))
+		target.remove_atom_colour(FIXED_COLOUR_PRIORITY)
+		return ITEM_INTERACT_SUCCESS
+	// OCULIS EDIT ADDITION END
+
 	if (isbodypart(target))
 		if (color_limb(target, user))
 			return ITEM_INTERACT_SUCCESS
@@ -926,7 +950,7 @@
 		var/fraction = min(1, . / reagents.maximum_volume)
 		reagents.expose(carbon_target, VAPOR, fraction * volume_multiplier)
 
-	else if(actually_paints && target.is_atom_colour(paint_color, min_priority_index = WASHABLE_COLOUR_PRIORITY))
+	else if(actually_paints && target.is_atom_colour(paint_color, min_priority_index = washable_coloring_mode ? WASHABLE_COLOUR_PRIORITY : FIXED_COLOUR_PRIORITY)) //OCULIS EDIT - ORIGINAL else if(actually_paints && target.is_atom_colour(paint_color, min_priority_index = WASHABLE_COLOUR_PRIORITY))
 		balloon_alert(user, "[target.p_theyre()] already that color!")
 		return ITEM_INTERACT_BLOCKING
 
@@ -980,9 +1004,9 @@
 		target_pipe.paint(paint_color)
 		balloon_alert(user, "painted in [GLOB.pipe_color_name[paint_color]] color")
 	else if (is_type_in_typecache(target, direct_color_types))
-		target.add_atom_colour(paint_color, WASHABLE_COLOUR_PRIORITY)
+		target.add_atom_colour(paint_color, washable_coloring_mode ? WASHABLE_COLOUR_PRIORITY : FIXED_COLOUR_PRIORITY) //OCULIS EDIT CHANGE - ORIGINAL: target.add_atom_colour(paint_color, WASHABLE_COLOUR_PRIORITY)
 	else
-		target.add_atom_colour(color_transition_filter(paint_color, saturation_mode), WASHABLE_COLOUR_PRIORITY)
+		target.add_atom_colour(color_transition_filter(paint_color, saturation_mode), washable_coloring_mode ? WASHABLE_COLOUR_PRIORITY : FIXED_COLOUR_PRIORITY) //OCULIS EDIT CHANGE - ORIGINAL: target.add_atom_colour(color_transition_filter(paint_color, saturation_mode), WASHABLE_COLOUR_PRIORITY)
 
 	if(isitem(target) && isliving(target.loc))
 		var/obj/item/target_item = target
