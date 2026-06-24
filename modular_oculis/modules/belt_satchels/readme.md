@@ -17,9 +17,10 @@ In specific, allows `/obj/item/storage/backpack/satchel/`s to be worn on the bel
 ### Modular Overrides:
 
 - `modular_oculis/master_files/code/game/objects/items/storage/backpack.dm`:
-  - `/obj/item/storage/backpack/equipped`
-  - `/obj/item/storage/backpack/dropped`
-  - `/obj/item/storage/backpack/satchel/Initialize`
+  - `/obj/item/storage/backpack/proc/equipped`
+  - `/obj/item/storage/backpack/proc/dropped`
+  - `/obj/item/storage/backpack/satchel/proc/Initialize`
+  - `/obj/item/storage/backpack/satchel/var/slot_flags`
 
 ### Defines:
 

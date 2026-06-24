@@ -1,3 +1,6 @@
+/obj/item/storage/backpack
+	var/satchel_movespeed_modifier = PAIRED_STORAGE_DEFAULT_SLOWDOWN
+
 /obj/item/storage/backpack/proc/check_belt_satchel(mob/user)
 	if(QDELETED(user))
 		return
