@@ -2808,10 +2808,6 @@
 /obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/pod/dark,
 /area/station/service/chapel/funeral)
-"aOs" = (
-/obj/structure/window/reinforced/spawner/directional/south,
-/turf/open/floor/engine,
-/area/station/science/explab)
 "aOI" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 4
@@ -4035,6 +4031,11 @@
 /obj/effect/landmark/start/cargo_technician,
 /turf/open/floor/iron/smooth,
 /area/station/cargo/sorting)
+"beA" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/effect/spawner/random/gizmo,
+/turf/open/floor/engine,
+/area/station/science/explab)
 "beU" = (
 /obj/effect/turf_decal/tile/green/diagonal_centre,
 /obj/machinery/light_switch/directional/west,
@@ -11516,28 +11517,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth,
 /area/station/science/research/abandoned)
-"dsV" = (
-/obj/item/phone{
-	desc = "Supposedly a direct line to Nanotrasen Sectorial Command. It's not even plugged in.";
-	pixel_x = -8;
-	pixel_y = -3
-	},
-/obj/item/cigarette/cigar{
-	pixel_x = 4.5
-	},
-/obj/item/cigarette/cigar/havana{
-	pixel_x = 3
-	},
-/obj/item/cigarette/cigar/cohiba{
-	pixel_x = 6
-	},
-/obj/item/flashlight/lamp{
-	pixel_x = -5;
-	pixel_y = 13
-	},
-/obj/structure/table/reinforced/plastitaniumglass,
-/turf/open/floor/carpet/royalblack,
-/area/station/command/heads_quarters/hos)
 "dsW" = (
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/large,
@@ -42958,6 +42937,28 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/cmo)
+"mef" = (
+/obj/item/phone{
+	desc = "Supposedly a direct line to Nanotrasen Sectorial Command. It's not even plugged in.";
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/obj/item/cigarette/cigar{
+	pixel_x = 4.5
+	},
+/obj/item/cigarette/cigar/havana{
+	pixel_x = 3
+	},
+/obj/item/cigarette/cigar/cohiba{
+	pixel_x = 6
+	},
+/obj/item/flashlight/lamp{
+	pixel_x = -5;
+	pixel_y = 13
+	},
+/obj/structure/table/reinforced/plastitaniumglass,
+/turf/open/floor/carpet/royalblack,
+/area/station/command/heads_quarters/hos)
 "mel" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -61561,6 +61562,31 @@
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/small,
 /area/station/hallway/primary/central)
+"rgi" = (
+/obj/item/flashlight/lamp{
+	pixel_x = -3;
+	pixel_y = 13
+	},
+/obj/item/phone{
+	desc = "Supposedly a direct line to Nanotrasen Sectorial Command. It's not even plugged in.";
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/coin/antagtoken{
+	pixel_x = -7;
+	pixel_y = -1
+	},
+/obj/machinery/camera/directional/north{
+	c_tag = "Command - Blueshield's Office";
+	name = "command camera"
+	},
+/obj/structure/table/wood,
+/obj/structure/noticeboard/captain{
+	name = "Blueshield's Notice Board";
+	pixel_y = 32
+	},
+/turf/open/floor/carpet/cyan,
+/area/station/command/heads_quarters/blueshield)
 "rgt" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/fancy/cigarettes/cigars/cohiba{
@@ -77807,31 +77833,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/hallway/primary/fore)
-"vEu" = (
-/obj/item/flashlight/lamp{
-	pixel_x = -3;
-	pixel_y = 13
-	},
-/obj/item/phone{
-	desc = "Supposedly a direct line to Nanotrasen Sectorial Command. It's not even plugged in.";
-	pixel_x = 7;
-	pixel_y = -3
-	},
-/obj/item/coin/antagtoken{
-	pixel_x = -7;
-	pixel_y = -1
-	},
-/obj/machinery/camera/directional/north{
-	c_tag = "Command - Blueshield's Office";
-	name = "command camera"
-	},
-/obj/structure/table/wood,
-/obj/structure/noticeboard/captain{
-	name = "Blueshield's Notice Board";
-	pixel_y = 32
-	},
-/turf/open/floor/carpet/cyan,
-/area/station/command/heads_quarters/blueshield)
 "vEx" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -110464,7 +110465,7 @@ kVR
 oyg
 oyg
 oyg
-aOs
+beA
 dTn
 skf
 aVa
@@ -118148,7 +118149,7 @@ nAw
 wLb
 tuF
 cmH
-vEu
+rgi
 ohi
 imV
 uNm
@@ -125364,7 +125365,7 @@ xMq
 ttw
 oEn
 xbH
-dsV
+mef
 ftA
 ngD
 ngD
