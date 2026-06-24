@@ -1,4 +1,4 @@
-#define PAIRED_STORAGE_DEFAULT_SLOWDOWN 1.5
+#define PAIRED_STORAGE_DEFAULT_SLOWDOWN 1.5 // OCULIS EDIT ADDITION
 
 /* Backpacks
  * Contains:
@@ -529,4 +529,4 @@
 	icon_state = "messenger_clown"
 	inhand_icon_state = "messenger_clown"
 
-#undef PAIRED_STORAGE_DEFAULT_SLOWDOWN
+#undef PAIRED_STORAGE_DEFAULT_SLOWDOWN // OCULIS EDIT ADDITION
