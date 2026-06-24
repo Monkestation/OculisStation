@@ -35,7 +35,3 @@
 /datum/movespeed_modifier/binocs_wielded
 	multiplicative_slowdown = 1.5
 
-// OCULIS EDIT ADDITION START
-/datum/movespeed_modifier/belt_satchel
-	variable = TRUE
-// OCULIS EDIT ADDITION END

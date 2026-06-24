@@ -9,3 +9,6 @@
 		user.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/belt_satchel, TRUE, min(back_item.satchel_movespeed_modifier, belt_item.satchel_movespeed_modifier))
 	else
 		user.update_movespeed()
+
+/datum/movespeed_modifier/belt_satchel
+	variable = TRUE
