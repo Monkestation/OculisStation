@@ -27,24 +27,34 @@
 	drop_sound = 'sound/items/handling/backpack/backpack_drop1.ogg'
 	equip_sound = 'sound/items/equip/backpack_equip.ogg'
 	sound_vary = TRUE
+	var/satchel_movespeed_modifier = PAIRED_STORAGE_DEFAULT_SLOWDOWN // OCULIS EDIT ADDITION
 
 /obj/item/storage/backpack/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/attack_equip)
 
-/obj/item/storage/backpack/equipped(mob/user, slot, initial) //iris edit start
+// OCULIS EDIT ADDITION START
+/obj/item/storage/backpack/equipped(mob/user, slot, initial)
 	. = ..()
-	if(slot == ITEM_SLOT_BACK)
-		var/obj/item/storage/backpack/satchel/worn_satchel = user.get_item_by_slot(ITEM_SLOT_BELT)
-		if(istype(worn_satchel) && HAS_TRAIT(user, TRAIT_BELT_SATCHEL))
-			slowdown = 1.5
-			user.update_equipment_speed_mods()
+	check_belt_satchel(user)
 
 /obj/item/storage/backpack/dropped(mob/user, silent)
 	. = ..()
-	slowdown = initial(slowdown) //iris edit end
-/*
+	slowdown = initial(slowdown)
 
+/obj/item/storage/backpack/proc/check_belt_satchel(mob/user)
+	if(QDELETED(user))
+		return
+	user.remove_movespeed_modifier(/datum/movespeed_modifier/belt_satchel, update = FALSE)
+	var/obj/item/storage/backpack/back_item = user.get_item_by_slot(ITEM_SLOT_BACK)
+	var/obj/item/storage/backpack/belt_item = user.get_item_by_slot(ITEM_SLOT_BELT)
+	if(istype(back_item) && istype(belt_item))
+		user.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/belt_satchel, TRUE, min(back_item.satchel_movespeed_modifier, belt_item.satchel_movespeed_modifier))
+	else
+		user.update_movespeed()
+// OCULIS EDIT ADDITION END
+
+/*
  * Backpack Types
  */
 
@@ -307,27 +317,11 @@
 	desc = "A trendy looking satchel."
 	icon_state = "satchel-norm"
 	inhand_icon_state = "satchel-norm"
-	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT //iris edit
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT // OCULIS EDIT ADDITION
 
 /obj/item/storage/backpack/satchel/Initialize(mapload)
 	. = ..()
 	atom_storage.max_total_storage = 18
-
-/obj/item/storage/backpack/satchel/equipped(mob/user, slot, initial) //iris edit start
-	. = ..()
-	if(slot == ITEM_SLOT_BELT)
-		ADD_TRAIT(user, TRAIT_BELT_SATCHEL, CLOTHING_TRAIT)
-		var/obj/item/storage/backpack/worn_backpack = user.get_item_by_slot(ITEM_SLOT_BACK)
-		if(istype(worn_backpack))
-			worn_backpack.slowdown = 1.5
-			user.update_equipment_speed_mods()
-
-/obj/item/storage/backpack/satchel/dropped(mob/user, silent)
-	. = ..()
-	REMOVE_TRAIT(user, TRAIT_BELT_SATCHEL, CLOTHING_TRAIT)
-	var/obj/item/storage/backpack/worn_backpack = user.get_item_by_slot(ITEM_SLOT_BACK)
-	if(istype(worn_backpack))
-		worn_backpack.slowdown = initial(worn_backpack.slowdown) //iris edit end
 
 /obj/item/storage/backpack/satchel/leather
 	name = "leather satchel"
