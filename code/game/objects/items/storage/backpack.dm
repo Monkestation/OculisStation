@@ -118,7 +118,7 @@
 	user.visible_message(span_suicide("[user] places [src] over [user.p_their()] head and pulls it tight! It looks like [user.p_they()] [user.p_are()]n't in the Christmas spirit..."))
 	return OXYLOSS
 
-/obj/item/storage/backpack/santabag/proc/regenerate_presents() // IRIS EDIT - CHANGES /obj/item/gift/anything to normal vers
+/obj/item/storage/backpack/santabag/proc/regenerate_presents()
 	addtimer(CALLBACK(src, PROC_REF(regenerate_presents)), 30 SECONDS)
 
 	var/mob/user = get(loc, /mob)
@@ -126,7 +126,7 @@
 		return
 	if(HAS_MIND_TRAIT(user, TRAIT_CANNOT_OPEN_PRESENTS))
 		var/turf/floor = get_turf(src)
-		var/obj/item/thing = new /obj/item/gift(floor)
+		var/obj/item/thing = new /obj/item/gift(floor) // OCULIS EDIT, ORIGINAL: var/obj/item/thing = new /obj/item/gift/anything(floor)
 		if(!atom_storage.attempt_insert(thing, user, override = TRUE, force = STORAGE_SOFT_LOCKED))
 			qdel(thing)
 
@@ -319,9 +319,11 @@
 	inhand_icon_state = "satchel-norm"
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT // OCULIS EDIT ADDITION
 
+// OCULIS EDIT ADDITION START
 /obj/item/storage/backpack/satchel/Initialize(mapload)
 	. = ..()
 	atom_storage.max_total_storage = 18
+// OCULIS EDIT ADDITION END
 
 /obj/item/storage/backpack/satchel/leather
 	name = "leather satchel"
