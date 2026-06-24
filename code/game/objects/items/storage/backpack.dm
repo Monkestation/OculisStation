@@ -1,5 +1,3 @@
-#define PAIRED_STORAGE_DEFAULT_SLOWDOWN 1.5 // OCULIS EDIT ADDITION - Monke uses 2, but the Iris value was 1.5
-
 /* Backpacks
  * Contains:
  * Backpack
@@ -34,28 +32,6 @@
 /obj/item/storage/backpack/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/attack_equip)
-
-// OCULIS EDIT ADDITION START
-/obj/item/storage/backpack/equipped(mob/user, slot, initial)
-	. = ..()
-	check_belt_satchel(user)
-
-/obj/item/storage/backpack/dropped(mob/user, silent)
-	. = ..()
-	check_belt_satchel(user)
-
-/obj/item/storage/backpack/proc/check_belt_satchel(mob/user)
-	if(QDELETED(user))
-		return
-	user.remove_movespeed_modifier(/datum/movespeed_modifier/belt_satchel, update = FALSE)
-	var/obj/item/storage/backpack/back_item = user.get_item_by_slot(ITEM_SLOT_BACK)
-	var/obj/item/storage/backpack/belt_item = user.get_item_by_slot(ITEM_SLOT_BELT)
-	if(istype(back_item) && istype(belt_item))
-		// Min is used here instead of max because Monke had standout lighter bags but no extra-heavy ones
-		user.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/belt_satchel, TRUE, min(back_item.satchel_movespeed_modifier, belt_item.satchel_movespeed_modifier))
-	else
-		user.update_movespeed()
-// OCULIS EDIT ADDITION END
 
 /*
  * Backpack Types
@@ -322,12 +298,6 @@
 	inhand_icon_state = "satchel-norm"
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT // OCULIS EDIT ADDITION
 
-// OCULIS EDIT ADDITION START
-/obj/item/storage/backpack/satchel/Initialize(mapload)
-	. = ..()
-	atom_storage.max_total_storage = 18
-// OCULIS EDIT ADDITION END
-
 /obj/item/storage/backpack/satchel/leather
 	name = "leather satchel"
 	desc = "It's a very fancy satchel made with fine leather."
@@ -529,5 +499,3 @@
 	desc = "The latest in storage 'technology' from Honk Co. Hey, how does this fit so much with such a small profile anyway? The wearer will definitely never tell you."
 	icon_state = "messenger_clown"
 	inhand_icon_state = "messenger_clown"
-
-#undef PAIRED_STORAGE_DEFAULT_SLOWDOWN // OCULIS EDIT ADDITION
