@@ -1,4 +1,4 @@
-#define PAIRED_STORAGE_DEFAULT_SLOWDOWN 1.5 // OCULIS EDIT ADDITION
+#define PAIRED_STORAGE_DEFAULT_SLOWDOWN 1.5 // OCULIS EDIT ADDITION - Monke uses 2, but the Iris value was 1.5
 
 /* Backpacks
  * Contains:
