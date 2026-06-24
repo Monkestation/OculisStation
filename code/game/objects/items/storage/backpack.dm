@@ -42,7 +42,7 @@
 
 /obj/item/storage/backpack/dropped(mob/user, silent)
 	. = ..()
-	slowdown = initial(slowdown)
+	check_belt_satchel(user)
 
 /obj/item/storage/backpack/proc/check_belt_satchel(mob/user)
 	if(QDELETED(user))
