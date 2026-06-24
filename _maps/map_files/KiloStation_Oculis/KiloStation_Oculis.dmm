@@ -1322,15 +1322,6 @@
 	},
 /turf/open/floor/iron/textured,
 /area/station/service/chapel/dock)
-"apL" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/poddoor/shutters/preopen{
-	dir = 4;
-	id = "resolutionshutter";
-	name = "Sentence Resolution Shutter"
-	},
-/turf/open/floor/plating,
-/area/station/security/execution/education)
 "aqe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -2623,14 +2614,6 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/station/security/brig)
-"aOf" = (
-/obj/effect/turf_decal/delivery,
-/obj/machinery/door/poddoor{
-	id = "resolutionblast";
-	name = "Sentence Resolution Blast Door"
-	},
-/turf/open/floor/iron/dark,
-/area/station/security/execution/education)
 "aOg" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -23874,6 +23857,14 @@
 /obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/blueshield)
+"hkh" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/door/poddoor{
+	id = "resolutionblast";
+	name = "Sentence Resolution Blast Door"
+	},
+/turf/open/floor/iron/dark,
+/area/station/security/execution/education)
 "hkq" = (
 /turf/open/floor/iron/dark/side{
 	dir = 8
@@ -28039,6 +28030,26 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage/tech)
+"iqh" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/security{
+	aiControlDisabled = 1;
+	id_tag = "resolutiondoor_2";
+	name = "Sentence Resolution Room"
+	},
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/button/door/directional/north{
+	id = "resolutiondoor_2";
+	name = "Sentence Resolution Door Lock";
+	normaldoorcontrol = 1;
+	req_access = list("armory");
+	silicon_access_disabled = 1;
+	specialfunctions = 4
+	},
+/obj/effect/mapping_helpers/airlock/access/all/security/armory,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/iron/dark,
+/area/station/security/execution/education)
 "iqk" = (
 /obj/structure/flora/rock/pile/style_random{
 	pixel_x = 4;
@@ -29504,6 +29515,29 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance/office)
+"iKQ" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/security{
+	aiControlDisabled = 1;
+	id_tag = "resolutiondoor";
+	name = "Sentence Resolution Room"
+	},
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/structure/cable,
+/obj/machinery/button/door/directional/west{
+	id = "resolutiondoor";
+	name = "Sentence Resolution Door Lock";
+	normaldoorcontrol = 1;
+	req_access = list("armory");
+	silicon_access_disabled = 1;
+	specialfunctions = 4
+	},
+/obj/effect/mapping_helpers/airlock/access/all/security/armory,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/iron/dark,
+/area/station/security/execution/education)
 "iKT" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/cup/glass/bottle/holywater,
@@ -30457,6 +30491,24 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
+"iYv" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/machinery/atmospherics/components/binary/valve,
+/obj/machinery/door/window/right/directional/north{
+	name = "Sentence Resolution Windoor"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/station/security/execution/education)
 "iYx" = (
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 8
@@ -35492,26 +35544,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/storage/gas)
-"kES" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/security{
-	aiControlDisabled = 1;
-	id_tag = "resolutiondoor_2";
-	name = "Sentence Resolution Room"
-	},
-/obj/effect/mapping_helpers/airlock/locked,
-/obj/machinery/button/door/directional/north{
-	id = "resolutiondoor_2";
-	name = "Sentence Resolution Door Lock";
-	normaldoorcontrol = 1;
-	req_access = list("armory");
-	silicon_access_disabled = 1;
-	specialfunctions = 4
-	},
-/obj/effect/mapping_helpers/airlock/access/all/security/armory,
-/obj/structure/barricade/wooden/crude,
-/turf/open/floor/iron/dark,
-/area/station/security/execution/education)
 "kEX" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/conveyor{
@@ -38982,6 +39014,18 @@
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
+"lIc" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/obj/machinery/door/window/left/directional/north{
+	name = "Sentence Resolution Windoor"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/station/security/execution/education)
 "lIn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/structure/crate,
@@ -42619,29 +42663,6 @@
 /obj/effect/landmark/blobstart,
 /turf/open/floor/wood,
 /area/station/service/library/abandoned)
-"mOb" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/security{
-	aiControlDisabled = 1;
-	id_tag = "resolutiondoor";
-	name = "Sentence Resolution Room"
-	},
-/obj/effect/mapping_helpers/airlock/locked,
-/obj/structure/cable,
-/obj/machinery/button/door/directional/west{
-	id = "resolutiondoor";
-	name = "Sentence Resolution Door Lock";
-	normaldoorcontrol = 1;
-	req_access = list("armory");
-	silicon_access_disabled = 1;
-	specialfunctions = 4
-	},
-/obj/effect/mapping_helpers/airlock/access/all/security/armory,
-/obj/structure/barricade/wooden/crude,
-/turf/open/floor/iron/dark,
-/area/station/security/execution/education)
 "mOc" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -42863,30 +42884,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/showroomfloor,
 /area/station/medical/cryo)
-"mRF" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
-/obj/machinery/door/window/brigdoor/left/directional/east{
-	name = "Sentence Resolution Windoor";
-	req_access = list("armory")
-	},
-/obj/machinery/door/window/brigdoor/right/directional/west{
-	name = "Sentence Resolution Windoor";
-	req_access = list("armory")
-	},
-/obj/machinery/door/poddoor/shutters/preopen{
-	dir = 4;
-	id = "resolutionshutter";
-	name = "Sentence Resolution Shutter"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/dark,
-/area/station/security/execution/education)
 "mRV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -52494,6 +52491,29 @@
 /obj/structure/closet/cardboard,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
+"pPk" = (
+/obj/structure/closet/secure_closet/injection,
+/obj/effect/turf_decal/bot,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/light_switch/directional/north,
+/obj/machinery/button/door/directional/west{
+	id = "resolutionblast";
+	name = "Sentence Resolution Vent Toggle";
+	pixel_y = 8;
+	req_access = list("armory")
+	},
+/obj/machinery/button/door/directional/west{
+	id = "resolutionshutter";
+	name = "Sentence Resolution Shutter Control";
+	pixel_y = -8;
+	req_access = list("brig")
+	},
+/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/dark,
+/area/station/security/execution/education)
 "pPD" = (
 /obj/structure/flora/bush/leavy/style_random,
 /obj/structure/flora/bush/sunny/style_random,
@@ -53983,24 +54003,6 @@
 	},
 /turf/open/floor/engine/air,
 /area/station/engineering/atmos)
-"qnc" = (
-/obj/effect/turf_decal/tile/neutral,
-/obj/machinery/atmospherics/components/binary/valve,
-/obj/machinery/door/window/right/directional/north{
-	name = "Sentence Resolution Windoor"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/stripes/line{
-	dir = 5
-	},
-/obj/effect/turf_decal/tile/red/half/contrasted{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
-/area/station/security/execution/education)
 "qny" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line,
@@ -63762,6 +63764,17 @@
 /obj/structure/chair/stool/bar/directional/south,
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
+"tit" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 4;
+	id = "resolutionshutter";
+	name = "Sentence Resolution Shutter"
+	},
+/turf/open/floor/plating,
+/area/station/security/execution/education)
 "tiv" = (
 /turf/closed/wall,
 /area/station/service/chapel)
@@ -67124,29 +67137,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
-"unv" = (
-/obj/structure/closet/secure_closet/injection,
-/obj/effect/turf_decal/bot,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/machinery/light_switch/directional/north,
-/obj/machinery/button/door/directional/west{
-	id = "resolutionblast";
-	name = "Sentence Resolution Vent Toggle";
-	pixel_y = 8;
-	req_access = list("armory")
-	},
-/obj/machinery/button/door/directional/west{
-	id = "resolutionshutter";
-	name = "Sentence Resolution Shutter Control";
-	pixel_y = -8;
-	req_access = list("brig")
-	},
-/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/dark,
-/area/station/security/execution/education)
 "unx" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/structure/disposalpipe/segment,
@@ -67547,6 +67537,15 @@
 	},
 /turf/open/floor/carpet/grimey,
 /area/station/hallway/primary/fore)
+"usP" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 4;
+	id = "resolutionshutter";
+	name = "Sentence Resolution Shutter"
+	},
+/turf/open/floor/plating,
+/area/station/security/execution/education)
 "usV" = (
 /obj/structure/bookcase/random/fiction,
 /turf/open/floor/wood,
@@ -68173,6 +68172,30 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
+"uDD" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/obj/machinery/door/window/brigdoor/left/directional/east{
+	name = "Sentence Resolution Windoor";
+	req_access = list("armory")
+	},
+/obj/machinery/door/window/brigdoor/right/directional/west{
+	name = "Sentence Resolution Windoor";
+	req_access = list("armory")
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 4;
+	id = "resolutionshutter";
+	name = "Sentence Resolution Shutter"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark,
+/area/station/security/execution/education)
 "uDM" = (
 /obj/effect/turf_decal/stripes/red/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -71029,18 +71052,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/science/robotics/mechbay)
-"vvn" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
-/obj/machinery/door/window/left/directional/north{
-	name = "Sentence Resolution Windoor"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/stripes/line{
-	dir = 9
-	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
-/area/station/security/execution/education)
 "vvs" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -72619,17 +72630,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/station/ai/upload/chamber)
-"vPG" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/poddoor/shutters/preopen{
-	dir = 4;
-	id = "resolutionshutter";
-	name = "Sentence Resolution Shutter"
-	},
-/turf/open/floor/plating,
-/area/station/security/execution/education)
 "vPU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /obj/machinery/camera/directional/west{
@@ -94949,7 +94949,7 @@ ibt
 bIq
 iVj
 iVj
-kES
+iqh
 xfx
 iVj
 iVj
@@ -95209,7 +95209,7 @@ vBM
 tlV
 ezY
 qCi
-aOf
+hkh
 kiO
 acm
 dZA
@@ -95466,7 +95466,7 @@ vBM
 vgv
 rkV
 aLg
-aOf
+hkh
 qWz
 aaQ
 dZA
@@ -95720,9 +95720,9 @@ ikb
 hQa
 mMy
 vBM
-vPG
-mRF
-apL
+tit
+uDD
+usP
 vBM
 wAt
 cJx
@@ -95976,7 +95976,7 @@ hzd
 pmd
 wWj
 mMy
-unv
+pPk
 mLe
 bGx
 ffo
@@ -96232,11 +96232,11 @@ sJD
 lix
 uRg
 nOR
-mOb
+iKQ
 bdH
 hPG
 rRW
-vvn
+lIc
 tSN
 cuR
 bvR
@@ -96493,7 +96493,7 @@ lGV
 jtl
 bUl
 pZM
-qnc
+iYv
 nIM
 cuR
 wNf
