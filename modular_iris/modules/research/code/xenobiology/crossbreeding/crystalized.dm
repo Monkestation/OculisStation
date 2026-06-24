@@ -413,7 +413,7 @@
 	if(!center)
 		return
 	for(var/turf/T as anything in RANGE_TURFS(2, center) - center)
-		if(T.is_blocked_turf() || isspaceturf(T)  || prob(50))
+		if(T.is_blocked_turf() || isspaceturf(T) || prob(50))
 			continue
 		var/obj/structure/cerulean_slime_crystal/CSC = locate() in range(1, T)
 		if(CSC)
