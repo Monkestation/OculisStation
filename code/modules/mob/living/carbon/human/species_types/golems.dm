@@ -209,6 +209,7 @@
 	if(damage_type != BURN && damage_type != BRUTE)
 		return
 
+	// source.adjust_nutrition(round(-3 * damage_amt, 0.01), forced = TRUE) // OCULIS EDIT REMOVAL
 	// OCULIS EDIT ADDITION START - Gets number of golem body parts for use in calculating nutrition damage.
 	var/num_golem = 0
 	for(var/obj/item/bodypart/bpcheck in source.bodyparts)
