@@ -215,6 +215,7 @@
 	for(var/obj/item/bodypart/bpcheck in source.bodyparts)
 		if(bpcheck.bodytype & BODYTYPE_GOLEM)
 			num_golem += 1
+	source.adjust_nutrition(round(-3 * damage_amt * num_golem / BODYPARTS_DEFAULT_MAXIMUM, 0.01), forced = TRUE)
 	// OCULIS EDIT ADDITION END
 
 	source.adjust_nutrition(round(-3 * damage_amt * num_golem / BODYPARTS_DEFAULT_MAXIMUM, 0.01), forced = TRUE) // OCULIS EDIT, ORIGINAL: source.adjust_nutrition(round(-3 * damage_amt, 0.01), forced = TRUE)
