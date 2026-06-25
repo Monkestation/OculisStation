@@ -218,8 +218,6 @@
 	source.adjust_nutrition(round(-3 * damage_amt * num_golem / BODYPARTS_DEFAULT_MAXIMUM, 0.01), forced = TRUE)
 	// OCULIS EDIT ADDITION END
 
-	source.adjust_nutrition(round(-3 * damage_amt * num_golem / BODYPARTS_DEFAULT_MAXIMUM, 0.01), forced = TRUE) // OCULIS EDIT, ORIGINAL: source.adjust_nutrition(round(-3 * damage_amt, 0.01), forced = TRUE)
-
 /datum/species/golem/proc/check_nutrition(mob/living/carbon/human/source)
 	SIGNAL_HANDLER
 
