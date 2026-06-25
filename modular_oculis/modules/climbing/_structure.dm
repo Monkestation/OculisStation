@@ -23,3 +23,7 @@
 //Don't climb the water cooler... it's too tall
 /obj/structure/reagent_dispensers/water_cooler
 	climbable_pixel_shift = 0
+
+//Fixes pepper spray dispensers and virus food dispensers bumping your height when you get on a tile that technically holds that dispenser but it looks like it's mounted on the wall next to it
+/obj/structure/reagent_dispensers/wall
+	climbable_pixel_shift = 0
