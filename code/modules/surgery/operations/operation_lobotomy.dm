@@ -1,6 +1,6 @@
-/datum/surgery_operation/organ/lobotomy //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
-	name = "Invasive Neurological Tissue Repair"
-	rnd_name = "Invasive Neurological Tissue Repair"
+/datum/surgery_operation/organ/lobotomy
+	name = "Invasive Neurological Tissue Removal" // OCULIS EDIT, ORIGINAL - name = "Lobotomy"
+	rnd_name = "Invasive Neurological Tissue Removal" // OCULIS EDIT, ORIGINAL - rnd_name = "Lobotomy"
 	desc = "Repair most of a patient's brain traumas, with the risk of causing new permanent traumas."
 	rnd_desc = "An invasive surgical procedure which guarantees removal of almost all brain traumas, but might cause another permanent trauma in return."
 	operation_flags = OPERATION_MORBID | OPERATION_AFFECTS_MOOD | OPERATION_LOCKED | OPERATION_NOTABLE | OPERATION_NO_PATIENT_REQUIRED
@@ -11,6 +11,7 @@
 		/obj/item/shard = 4,
 		/obj/item = 5,
 	)
+	time = 15 SECONDS // OCULIS EDIT ADDITION
 	target_type = /obj/item/organ/brain
 	required_organ_flag = ORGAN_TYPE_FLAGS & ~ORGAN_ROBOTIC
 	preop_sound = 'sound/items/handling/surgery/scalpel1.ogg'
@@ -19,6 +20,15 @@
 	all_surgery_states_required = SURGERY_SKIN_OPEN|SURGERY_BONE_SAWED
 	any_surgery_states_blocked = SURGERY_VESSELS_UNCLAMPED
 
+// OCULIS EDIT ADDITION START
+// Don't show the surgery if there's no traumas that require it to fix
+/datum/surgery_operation/organ/lobotomy/state_check(obj/item/organ/brain/brain)
+	for(var/datum/brain_trauma/trauma in brain.traumas)
+		if(trauma.resilience == TRAUMA_RESILIENCE_LOBOTOMY)
+			return TRUE
+	return FALSE
+// OCULIS EDIT ADDITION END
+
 /datum/surgery_operation/organ/lobotomy/get_any_tool()
 	return "Any sharp edged item"
 
@@ -26,22 +36,22 @@
 	// Require edged sharpness OR a tool behavior match
 	return ((tool.get_sharpness() & SHARP_EDGED) || implements[tool.tool_behaviour])
 
-/datum/surgery_operation/organ/lobotomy/on_preop(obj/item/organ/brain/organ, mob/living/surgeon, obj/item/tool, list/operation_args) //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
+/datum/surgery_operation/organ/lobotomy/on_preop(obj/item/organ/brain/organ, mob/living/surgeon, obj/item/tool, list/operation_args)
 	display_results(
 		surgeon,
 		organ.owner,
-		span_notice("You begin to perform an invasive repair on [FORMAT_ORGAN_OWNER(organ)]'s brain..."),
-		span_notice("[surgeon] begins to perform an invasive repair on [FORMAT_ORGAN_OWNER(organ)]'s brain."),
+		span_notice("You begin to perform an invasive tissue removal on [FORMAT_ORGAN_OWNER(organ)]'s brain..."), // OCULIS EDIT, ORIGINAL: span_notice("You begin to perform a lobotomy on [FORMAT_ORGAN_OWNER(organ)]'s brain..."),
+		span_notice("[surgeon] begins to perform an invasive tissue removal on [FORMAT_ORGAN_OWNER(organ)]'s brain."), // OCULIS EDIT, ORIGINAL: span_notice("[surgeon] begins to perform a lobotomy on [FORMAT_ORGAN_OWNER(organ)]'s brain."),
 		span_notice("[surgeon] begins to perform surgery on [FORMAT_ORGAN_OWNER(organ)]'s brain."),
 	)
 	display_pain(organ.owner, "Your head pounds with unimaginable pain!")
 
-/datum/surgery_operation/organ/lobotomy/on_success(obj/item/organ/brain/organ, mob/living/surgeon, obj/item/tool, list/operation_args) //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
+/datum/surgery_operation/organ/lobotomy/on_success(obj/item/organ/brain/organ, mob/living/surgeon, obj/item/tool, list/operation_args)
 	display_results(
 		surgeon,
 		organ.owner,
-		span_notice("You successfully perform an invasive repair on [FORMAT_ORGAN_OWNER(organ)]!"),
-		span_notice("[surgeon] invasively repairs [FORMAT_ORGAN_OWNER(organ)]!"),
+		span_notice("You successfully perform an invasive tissue removal on [FORMAT_ORGAN_OWNER(organ)]'s brain!"), // OCULIS EDIT, ORIGINAL: span_notice("You successfully perform a lobotomy on [FORMAT_ORGAN_OWNER(organ)]!"),
+		span_notice("[surgeon] invasively removes tissue from [FORMAT_ORGAN_OWNER(organ)]'s brain!"), // OCULIS EDIT, ORIGINAL: span_notice("[surgeon] successfully lobotomizes [FORMAT_ORGAN_OWNER(organ)]!"),
 		span_notice("[surgeon] finishes performing surgery on [FORMAT_ORGAN_OWNER(organ)]'s brain."),
 	)
 	display_pain(organ.owner, "Your head goes totally numb for a moment, the pain is overwhelming!")
@@ -52,7 +62,7 @@
 	else if (organ.brainmob)
 		organ.brainmob.mind?.remove_antag_datum(/datum/antagonist/brainwashed)
 
-	if(!prob(75))
+	if(prob(50)) // OCULIS EDIT, ORIGINAL: if(!prob(75))
 		return
 
 	switch(rand(1, 3))//Now let's see what hopefully-not-important part of the brain we cut off
@@ -66,12 +76,12 @@
 		if(3)
 			organ.gain_trauma_type(BRAIN_TRAUMA_SPECIAL, TRAUMA_RESILIENCE_MAGIC)
 
-/datum/surgery_operation/organ/lobotomy/on_failure(obj/item/organ/brain/organ, mob/living/surgeon, obj/item/tool, list/operation_args) //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
+/datum/surgery_operation/organ/lobotomy/on_failure(obj/item/organ/brain/organ, mob/living/surgeon, obj/item/tool, list/operation_args)
 	display_results(
 		surgeon,
 		organ.owner,
 		span_warning("You remove the wrong part, causing more damage!"),
-		span_notice("[surgeon] unsuccessfully attempts to invasively repair [FORMAT_ORGAN_OWNER(organ)]!"),
+		span_notice("[surgeon] unsuccessfully attempts to invasively remove tissue from [FORMAT_ORGAN_OWNER(organ)]'s brain!"), // OCULIS EDIT, ORIGINAL: span_notice("[surgeon] unsuccessfully attempts to lobotomize [FORMAT_ORGAN_OWNER(organ)]!"),
 		span_notice("[surgeon] completes the surgery on [FORMAT_ORGAN_OWNER(organ)]'s brain."),
 	)
 	display_pain(organ.owner, "The pain in your head only seems to get worse!")
