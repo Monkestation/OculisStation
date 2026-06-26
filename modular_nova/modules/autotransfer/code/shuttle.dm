@@ -1,3 +1,4 @@
+/*
 /datum/controller/subsystem/shuttle
 	var/endvote_passed = FALSE
 
@@ -10,3 +11,4 @@
 	emergency_no_recall = TRUE
 	endvote_passed = TRUE
 	SSevents.can_fire = FALSE // we're going home
+*/

@@ -1,3 +1,4 @@
+/*
 #define CHOICE_TRANSFER "Initiate Crew Transfer"
 #define CHOICE_CONTINUE "Continue Playing"
 
@@ -45,3 +46,4 @@
 
 #undef CHOICE_TRANSFER
 #undef CHOICE_CONTINUE
+*/

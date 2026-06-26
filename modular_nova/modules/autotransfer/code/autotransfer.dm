@@ -1,3 +1,4 @@
+/*
 #define NO_MAXVOTES_CAP -1
 
 SUBSYSTEM_DEF(autotransfer)
@@ -46,3 +47,4 @@ SUBSYSTEM_DEF(autotransfer)
 	message_admins("Autotransfer enabled, first vote in [DisplayTimeText(targettime - starttime)]")
 
 #undef NO_MAXVOTES_CAP
+*/
