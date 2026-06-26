@@ -33,12 +33,6 @@
 	zone = BODY_ZONE_L_ARM
 	slot = ORGAN_SLOT_WRISTWATCH_L
 
-/datum/augment_item/implant/l_arm
-	icon = FA_ICON_ARROW_LEFT
-
-/datum/augment_item/implant/r_arm
-	icon = FA_ICON_ARROW_RIGHT
-
 /datum/augment_item/implant/wristwatch
 	name = "internal chronometer"
 	extra_info = "Tells the time."
