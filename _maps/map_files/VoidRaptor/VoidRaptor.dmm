@@ -18104,8 +18104,8 @@
 /area/station/command/cc_dock)
 "fkX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/trimline/blue/filled/warning,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
 	},
@@ -19085,6 +19085,8 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/medical/medbay/lobby)
 "fza" = (
@@ -29829,6 +29831,10 @@
 	pixel_x = -4;
 	pixel_y = 14
 	},
+/obj/item/surgicaldrill{
+	pixel_x = -2;
+	pixel_y = 16
+	},
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 4
 	},
@@ -32545,8 +32551,6 @@
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/science/ordnance/storage)
 "jpH" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 6
 	},
@@ -46723,7 +46727,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
 	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+/obj/machinery/computer/records/medical{
 	dir = 8
 	},
 /turf/open/floor/iron/white/smooth_edge{
@@ -50512,7 +50516,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
-/obj/machinery/status_display/evac/directional/west,
 /obj/machinery/firealarm/directional/north{
 	pixel_x = -7
 	},
@@ -50522,6 +50525,7 @@
 	normaldoorcontrol = 1;
 	pixel_x = 5
 	},
+/obj/structure/fireaxecabinet/jawsofrecovery/directional/west,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
 "oiZ" = (
@@ -71819,13 +71823,13 @@
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/starboard/aft)
 "tWj" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical/glass{
 	name = "Medbay Desk"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/medbay/lobby)
 "tWD" = (
@@ -77577,7 +77581,7 @@
 /area/station/maintenance/aft/lesser)
 "vAX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/medbay/lobby)
 "vBa" = (
@@ -117464,7 +117468,7 @@ jML
 aDx
 vAX
 fkX
-cOf
+tWj
 fyY
 oob
 qtB
@@ -117721,7 +117725,7 @@ bVR
 nCl
 nhi
 jpH
-tWj
+cOf
 kqY
 tQF
 haq
