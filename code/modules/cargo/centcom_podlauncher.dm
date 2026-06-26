@@ -130,7 +130,7 @@ ADMIN_VERB(centcom_podlauncher, R_ADMIN, "Config/Launch Supplypod", "Configure a
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		// Open UI
-		ui = new(user, src, "SectComPodLauncher") // OCULIS EDIT, SectCommening 2, ORIGINAL: ui = new(user, src, "CentcomPodLauncher")
+		ui = new(user, src, "CentComPodLauncher")
 		ui.open()
 		refreshView()
 	return ui
