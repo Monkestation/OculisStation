@@ -1,28 +1,88 @@
-/datum/map_generator/cave_generator/forest
-	weighted_open_turf_types = list(/turf/open/misc/asteroid/forest = 1)
-	weighted_closed_turf_types = list(/turf/closed/mineral/random/forest = 1)
-	flora_spawn_chance = 25
-	smoothing_iterations = 15
-	mob_spawn_chance = 0
+//the random offset applied to square coordinates, causes intermingling at biome borders
+#define BIOME_RANDOM_SQUARE_DRIFT 4
 
-	weighted_flora_spawn_list = list(
-		/obj/structure/flora/ash/fireblossom = 2,
-		/obj/structure/flora/grass/jungle/a/style_random = 15,
-		/obj/structure/flora/grass/jungle/b/style_random = 30,
-		/obj/structure/flora/bush/jungle/a/style_random = 5,
-		/obj/structure/flora/bush/jungle/b/style_random = 5,
-		/obj/structure/flora/bush/jungle/c/style_random = 5,
-		/obj/structure/flora/rock/pile/jungle/style_random = 3,
-		/obj/structure/flora/rock/pile/jungle/large/style_random = 1,
-		/obj/structure/flora/tree/jungle/style_random = 7,
-		/obj/structure/flora/tree/jungle/small/style_random = 3,
+/datum/map_generator/rimworld
+	///2D list of all biomes based on heat and humidity combos.
+	var/list/possible_biomes = list(
+	BIOME_LOW_HEAT = list(
+		BIOME_LOW_HUMIDITY = /datum/biome/plains,
+		BIOME_LOWMEDIUM_HUMIDITY = /datum/biome/mudlands,
+		BIOME_HIGHMEDIUM_HUMIDITY = /datum/biome/mudlands,
+		BIOME_HIGH_HUMIDITY = /datum/biome/water
+		),
+	BIOME_LOWMEDIUM_HEAT = list(
+		BIOME_LOW_HUMIDITY = /datum/biome/plains,
+		BIOME_LOWMEDIUM_HUMIDITY = /datum/biome/jungle,
+		BIOME_HIGHMEDIUM_HUMIDITY = /datum/biome/jungle,
+		BIOME_HIGH_HUMIDITY = /datum/biome/mudlands
+		),
+	BIOME_HIGHMEDIUM_HEAT = list(
+		BIOME_LOW_HUMIDITY = /datum/biome/plains,
+		BIOME_LOWMEDIUM_HUMIDITY = /datum/biome/plains,
+		BIOME_HIGHMEDIUM_HUMIDITY = /datum/biome/jungle/deep,
+		BIOME_HIGH_HUMIDITY = /datum/biome/jungle
+		),
+	BIOME_HIGH_HEAT = list(
+		BIOME_LOW_HUMIDITY = /datum/biome/wasteland,
+		BIOME_LOWMEDIUM_HUMIDITY = /datum/biome/plains,
+		BIOME_HIGHMEDIUM_HUMIDITY = /datum/biome/jungle,
+		BIOME_HIGH_HUMIDITY = /datum/biome/jungle/deep
+		)
 	)
-	///Note that this spawn list is also in the lavaland generator
-	weighted_feature_spawn_list = list(
-		/obj/structure/geyser/hollowwater = 10,
-		/obj/structure/geyser/plasma_oxide = 10,
-		/obj/structure/geyser/protozine = 10,
-		/obj/structure/geyser/random = 2,
-		/obj/structure/geyser/wittel = 10,
-	)
+	///Used to select "zoom" level into the perlin noise, higher numbers result in slower transitions
+	var/perlin_zoom = 75
+
+///Seeds the rust-g perlin noise with a random number.
+/datum/map_generator/rimworld/generate_terrain(list/turfs, area/generate_in)
+	. = ..()
+	var/height_seed = rand(0, 50000)
+	var/humidity_seed = rand(0, 50000)
+	var/heat_seed = rand(0, 50000)
+
+	for(var/t in turfs) //Go through all the turfs and generate them
+		var/turf/gen_turf = t
+		var/drift_x = (gen_turf.x + rand(-BIOME_RANDOM_SQUARE_DRIFT, BIOME_RANDOM_SQUARE_DRIFT)) / perlin_zoom
+		var/drift_y = (gen_turf.y + rand(-BIOME_RANDOM_SQUARE_DRIFT, BIOME_RANDOM_SQUARE_DRIFT)) / perlin_zoom
+
+		var/height = text2num(rustg_noise_get_at_coordinates("[height_seed]", "[drift_x]", "[drift_y]"))
+
+
+		var/datum/biome/selected_biome
+		if(height <= 0.85) //If height is less than 0.85, we generate biomes based on the heat and humidity of the area.
+			var/humidity = text2num(rustg_noise_get_at_coordinates("[humidity_seed]", "[drift_x]", "[drift_y]"))
+			var/heat = text2num(rustg_noise_get_at_coordinates("[heat_seed]", "[drift_x]", "[drift_y]"))
+			var/heat_level //Type of heat zone we're in LOW-MEDIUM-HIGH
+			var/humidity_level  //Type of humidity zone we're in LOW-MEDIUM-HIGH
+
+			switch(heat)
+				if(0 to 0.25)
+					heat_level = BIOME_LOW_HEAT
+				if(0.25 to 0.5)
+					heat_level = BIOME_LOWMEDIUM_HEAT
+				if(0.5 to 0.75)
+					heat_level = BIOME_HIGHMEDIUM_HEAT
+				if(0.75 to 1)
+					heat_level = BIOME_HIGH_HEAT
+			switch(humidity)
+				if(0 to 0.25)
+					humidity_level = BIOME_LOW_HUMIDITY
+				if(0.25 to 0.5)
+					humidity_level = BIOME_LOWMEDIUM_HUMIDITY
+				if(0.5 to 0.75)
+					humidity_level = BIOME_HIGHMEDIUM_HUMIDITY
+				if(0.75 to 1)
+					humidity_level = BIOME_HIGH_HUMIDITY
+			selected_biome = possible_biomes[heat_level][humidity_level]
+		else //Over 0.85; It's a mountain
+			selected_biome = /datum/biome/mountain
+		selected_biome = SSmapping.biomes[selected_biome] //Get the instance of this biome from SSmapping
+		selected_biome.generate_turf(gen_turf)
+		CHECK_TICK
+
+/datum/map_generator/cave_generator/rimworld
+	name = "Rimworld Cave Generator"
+	weighted_open_turf_types = list(/turf/open/misc/dirt/forest = 1)
+	weighted_closed_turf_types = list(/turf/closed/mineral/random = 1)
+
+#undef BIOME_RANDOM_SQUARE_DRIFT
 

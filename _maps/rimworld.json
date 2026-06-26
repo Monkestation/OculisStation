@@ -3,15 +3,30 @@
 	"map_name": "Rimworld",
 	"map_path": "map_files/Rimworld",
 	"map_file": "rimworld.dmm",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	"wilderness_levels": 0,
+	"planetary": 1,
 	"exclude_from_ci": true,
 	"traits": [
 		{
-			"Linkage": null,
+			"Linkage": "Self",
 			"Gravity": true,
 			"Baseturf": "/turf/open/misc/dirt/forest",
-			"No Parallax": true
+			"Jungle Cave Ruins": true,
+			"Jungle Ruins": true,
+			"No Parallax": true,
+			"Up": true
+		},
+		{
+			"Linkage": "Self",
+			"Gravity": true,
+			"Baseturf": "/turf/open/openspace/forest",
+			"No Parallax": true,
+			"Weather_Rainstorm": true,
+			"Down": true
 		}
 	],
-	"minetype": "lavaland",
+	"minetype": "none",
 	"blacklist_file": "jungleruinblacklist.txt"
 }

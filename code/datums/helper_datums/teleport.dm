@@ -175,12 +175,15 @@
 	SHOULD_BE_PURE(TRUE)
 
 	. = FALSE
-	if(!isfloorturf(random_location))
+	if(!ismiscturf(random_location))
 		return
 	var/turf/open/floor/floor_turf = random_location
 	var/area/destination_area = floor_turf.loc
 
 	if(no_teleport && (destination_area.area_flags & NOTELEPORT))
+		return
+
+	if(!istype(destination_area, /area/rimworld))
 		return
 
 	var/datum/gas_mixture/floor_gas_mixture = floor_turf.air
