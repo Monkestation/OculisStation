@@ -27,3 +27,7 @@
 //Fixes pepper spray dispensers and virus food dispensers bumping your height when you get on a tile that technically holds that dispenser but it looks like it's mounted on the wall next to it
 /obj/structure/reagent_dispensers/wall
 	climbable_pixel_shift = 0
+
+//ditto, with telescreens
+/obj/machinery/computer/security/telescreen/
+	climbable_pixel_shift = 0
