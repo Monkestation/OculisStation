@@ -1,6 +1,6 @@
 /obj/item/organ/cyberimp/caffinator
 	name = "\improper NT-CFFE Caffinator"
-	desc = "This coffee-maker integrates into the thigh and uses classified technology to produce delicious coffee from somewhat less delicious nutriated blood. Refill cup dispenser by activating implant while holding cardboard or empty cups."
+	desc = "This coffee-maker integrates into the thigh and uses classified technology to produce delicious coffee from bloodstream nutrients. Refill cup dispenser by activating implant while holding cardboard or empty cups."
 	icon_state = "nutriment_implant"
 	zone = BODY_ZONE_R_LEG
 	valid_zones = list(
@@ -13,7 +13,7 @@
 	COOLDOWN_DECLARE(dispense_cooldown)
 	var/dispensedreagent = /datum/reagent/consumable/coffee
 	var/dispensedamount = 30
-	var/bloodcost = 30
+	var/cost = 30
 	var/cooldown_time = 5 SECONDS
 
 /obj/item/organ/cyberimp/caffinator/ui_action_click()
@@ -22,9 +22,9 @@
 		if(recycleit.reagents.total_volume != 0)
 			owner.balloon_alert(owner, "can't recycle, not empty!")
 			return
-		owner.visible_message(span_notice("[owner] eats [recycleit]."), span_notice("You eat [recycleit], [src] converting the cardboard into usable cup fabrication ingredients."))
+		owner.visible_message(span_notice("[owner] eats [recycleit]."), span_notice("You eat [recycleit], [src] converting it into usable cup fabrication ingredients."))
 		numberofcups += 0.5
-		to_chat(owner, span_notice("Microfabricator supplies replenished. [numberofcups] now available."))
+		to_chat(owner, span_notice("Microfabricator supplies replenished. [numberofcups] cups now available."))
 		qdel(recycleit)
 		playsound_if_pref(owner.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating)
 		return
@@ -33,7 +33,7 @@
 		owner.visible_message(span_notice("[owner] eats some of [thestack]."), span_notice("You eat some of [thestack], [src] converting it into usable cup fabrication ingredients."))
 		thestack.use(1)
 		numberofcups += 1
-		to_chat(owner, span_notice("Microfabricator supplies replenished. [numberofcups] now available."))
+		to_chat(owner, span_notice("Microfabricator supplies replenished. [numberofcups] cups now available."))
 		playsound_if_pref(owner.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating)
 		return
 	if(owner.get_active_held_item())
@@ -46,15 +46,15 @@
 		owner.balloon_alert(owner, "no cups left!")
 		return
 	COOLDOWN_START(src, dispense_cooldown, cooldown_time)
-	owner.adjust_blood_volume(-bloodcost) //yes this has no limit so you can make all your blood into coffee and die. emergent behavior #wontfix
+	owner.adjust_nutrition(-cost)
 	var/obj/item/reagent_containers/cup/glass/coffee/ourcup = new(owner.loc)
 	ourcup.reagents.clear_reagents()
 	fill_cup(ourcup)
 	owner.put_in_hands(ourcup)
 	playsound(src, 'sound/machines/coffeemaker_brew.ogg', 20, vary = TRUE)
-	owner.visible_message(span_notice("[owner]'s reaches down to their hip and is suddenly holding [ourcup]!"), span_notice("You reach down to your hip and activate [src], dispensing a delicious beverage right into your hand."))
+	owner.visible_message(span_notice("[owner]'s reaches down to [owner.p_their()] hip and is suddenly holding [ourcup]!"), span_notice("You reach down to your hip and activate [src], dispensing a delicious beverage right into your hand."))
 	numberofcups -= 1
-	to_chat(owner, span_notice("[numberofcups] now available."))
+	to_chat(owner, span_notice("[numberofcups] cups now available."))
 	return
 
 /obj/item/organ/cyberimp/caffinator/proc/fill_cup(thecup)
@@ -84,7 +84,7 @@
 
 /datum/augment_item/implant/caffinator
 	name = "NT-CFFE Caffinator"
-	extra_info = "Makes coffee from your blood."
+	extra_info = "Makes coffee from nutrition."
 	cost = 2
 	path = /obj/item/organ/cyberimp/caffinator
 	slot = AUGMENT_SLOT_R_LEG
@@ -95,7 +95,7 @@
 
 /datum/design/caffinator
 	name = "NT-CFFE Caffinator"
-	desc = "This thigh-implanted cybernetic utilizes the very real science of hemosuccoric convertotronology to transmute blood into tasty and energizing coffee! Contains integrated cup dispenser and cardboard recycler."
+	desc = "This thigh-implanted cybernetic utilizes the very real science of hemosuccoric convertotronology to transmute bloodborne nutrients into tasty and energizing coffee! Contains integrated cup dispenser and cardboard recycler."
 	id = "ci-caffinator"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 6 SECONDS
@@ -114,9 +114,9 @@
 	id = TECHWEB_NODE_CAFFINATOR
 	display_name = "Hemosuccoric Convertotronology"
 	description = "Blood = Coffee"
-	prereq_ids = list(TECHWEB_NODE_CAFETERIA_EQUIP)
+	prereq_ids = list(TECHWEB_NODE_FOOD_PROC, TECHWEB_NODE_CYBER_IMPLANTS)
 	design_ids = list(
 		"ci-caffinator"
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS / 2)
 	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_MEDICAL, RADIO_CHANNEL_SCIENCE)
