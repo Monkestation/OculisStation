@@ -64,6 +64,12 @@
 	name = "Castor Arrivals Bay"
 	icon_state = "castor_arrivals"
 
+/// Called when a living mob that spawned here, joining the round, receives the player client.
+/area/centcom/castor/arrivals/on_joining_game(mob/living/boarder)
+	var/obj/structure/closet/supplypod/back_to_station/return_pod = new()
+	var/turf/location = find_safe_turf(extended_safety_checks = TRUE, dense_atoms = FALSE)
+	return_pod.return_from_capture(boarder, location)
+
 /area/centcom/castor/hallway_one
 	name = "Castor Station Hallway 1"
 	icon_state = "castor_hallway_one"
