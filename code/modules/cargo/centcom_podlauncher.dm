@@ -130,7 +130,7 @@ ADMIN_VERB(centcom_podlauncher, R_ADMIN, "Config/Launch Supplypod", "Configure a
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		// Open UI
-		ui = new(user, src, "CentComPodLauncher")
+		ui = new(user, src, "CentcomPodLauncher")
 		ui.open()
 		refreshView()
 	return ui
@@ -239,7 +239,7 @@ ADMIN_VERB(centcom_podlauncher, R_ADMIN, "Config/Launch Supplypod", "Configure a
 			log_admin("[key_name(usr)] jumped to [AREACOORD(dropoff_turf)]")
 			message_admins("[key_name_admin(usr)] jumped to [AREACOORD(dropoff_turf)]")
 			. = TRUE
-		if("teleportSectCom") //Teleports the user to the centcom supply loading facility. // OCULIS EDIT, SectCommening 2, ORIGINAL: if("teleportCentcom")
+		if("teleportCentcom") //Teleports the user to the centcom supply loading facility.
 			var/mob/holder_mob = holder.mob //We teleport whatever mob the client is attached to at the point of clicking
 			var/turf/current_location = get_turf(holder_mob)
 			var/area/bay_area = bay
