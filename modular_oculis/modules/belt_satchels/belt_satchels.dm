@@ -15,3 +15,12 @@
 
 /datum/movespeed_modifier/belt_satchel
 	variable = TRUE
+
+/obj/item/storage/backpack/duffelbag/deforest_medkit
+	satchel_movespeed_modifier = PAIRED_STORAGE_NO_SLOWDOWN
+
+/obj/item/storage/backpack/duffelbag/deforest_surgical
+	satchel_movespeed_modifier = PAIRED_STORAGE_NO_SLOWDOWN
+
+/obj/item/storage/backpack/duffelbag/deforest_paramedic
+	satchel_movespeed_modifier = PAIRED_STORAGE_NO_SLOWDOWN
