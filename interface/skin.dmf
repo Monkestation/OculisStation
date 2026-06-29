@@ -8,6 +8,70 @@ macro "default"
 		name = "SHIFT+UP"
 		command = ".winset :map.right-click=true"
 
+menu "menu"
+	elem
+		name = "&File"
+		command = ""
+		saved-params = "is-checked"
+  elem
+		name = "&Quick screenshot\tF2"
+		command = ".screenshot auto"
+		category = "&File"
+		saved-params = "is-checked"
+	elem
+		name = "&Save screenshot as...\tShift+F2"
+		command = ".screenshot"
+		category = "&File"
+		saved-params = "is-checked"
+	elem
+		name = ""
+		command = ""
+		category = "&File"
+		saved-params = "is-checked"
+	elem "reconnectbutton"
+		name = "&Reconnect"
+		command = ".reconnect"
+		category = "&File"
+		saved-params = "is-checked"
+	elem
+		name = "&Quit\tAlt-F4"
+		command = ".quit"
+		category = "&File"
+		saved-params = "is-checked"
+	elem "help-menu"
+		name = "&Help"
+		command = ""
+		saved-params = "is-checked"
+	elem
+		name = "&Admin Help\tF1"
+		command = "adminhelp"
+		category = "&Help"
+		saved-params = "is-checked"
+	elem
+		name = "&Hotkeys"
+		command = "Hotkeys-Help"
+		category = "&Help"
+		saved-params = "is-checked"
+  	elem
+		name = "Refresh TGUI"
+		command = "refresh-tgui"
+		category = "&Help"
+		saved-params = "is-checked"
+	elem
+		name = "Fix Chat"
+		command = "fix-chat"
+		category = "&Help"
+		saved-params = "is-checked"
+	elem  "Use Internet Routing Relay"
+		name = "Internet Routing Relays"
+		command = "internet-routing-relays"
+		saved-params = "is-checked"
+	elem
+		name = "Stop All Sounds"
+		command = "stop-sounds"
+		category = "&Help"
+		saved-params = "is-checked"
+
 window "mainwindow"
 	elem "mainwindow"
 		type = MAIN
@@ -20,6 +84,7 @@ window "mainwindow"
 		statusbar = false
 		icon = 'modular_iris\\master_files\\icons\\ui_icons\\common\\oculis_logo_32.png'
 		macro = "default"
+		menu = "menu"
 	elem "split"
 		type = CHILD
 		pos = 0,0

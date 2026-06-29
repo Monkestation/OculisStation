@@ -132,6 +132,7 @@
 
 /client/verb/hotkeys_help()
 	set name = "Hotkeys Help"
+	set category = "OOC"
 	set hidden = TRUE
 
 	if(!GLOB.hotkeys_tgui)

@@ -9,9 +9,11 @@
 	return ..()
 
 /client/proc/client_procs(href_list)
+	/* OCULIS REMOVAL START - we already have relays
 	if(href_list["connect_to_relay"])
 		connect_to_relay()
 		return TRUE
+	*/ // OCULIS REMOVAL END
 
 	if(href_list["mentor_msg"])
 		if(CONFIG_GET(flag/mentors_mobname_only))
