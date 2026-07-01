@@ -22,6 +22,9 @@
 /obj/machinery/computer/pandemic
 	climbable_pixel_shift = 0
 
+/obj/machinery/modular_computer/preset/time_clock
+	climbable_pixel_shift = 0
+
 /* === Climb Machines === */
 //Climb lathes
 /obj/machinery/power/manufacturing/lathe
