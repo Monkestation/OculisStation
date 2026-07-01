@@ -27,6 +27,9 @@
 	var/is_dormant = PULSATING_TUMOR_ACTIVE
 	/// What is the current rate (per second) at which the tumor is consuming blood?
 	var/bloodloss_rate = NORMAL_HEMOPHAGE_BLOOD_DRAIN
+	///OCULIS EDIT ADDITION START
+	var/affected_bodytypes = BODYTYPE_ORGANIC
+	///OCULIS EDIT ADDITION END
 
 
 /obj/item/organ/heart/hemophage/on_mob_insert(mob/living/carbon/tumorful, special, movement_flags)
@@ -68,12 +71,19 @@
 	// once.
 	// It's intended that you can't print a tumor, because why would you?
 	operated = FALSE
+	//OCULIS EDIT ADDITION START
+	if(owner.get_bodypart(BODY_ZONE_CHEST))
+		var/obj/item/bodypart/chest/inthemiddleofourhouse = owner.get_bodypart(BODY_ZONE_CHEST)
+		affected_bodytypes = inthemiddleofourhouse.bodytype
+	//OCULIS EDIT ADDITION END
 	//IRIS EDIT START
 	if(!owner?.client)
 		return
 
 	if(can_heal_owner_damage())
-		owner.apply_status_effect(/datum/status_effect/blood_regen_active)
+		//OCULIS EDIT ADDITION START
+		owner.apply_status_effect(/datum/status_effect/blood_regen_active, affected_bodytypes)
+		//OCULIS EDIT ADDITION END
 
 	else
 		owner.remove_status_effect(/datum/status_effect/blood_regen_active)
@@ -95,8 +105,9 @@
 	// We handle the least expensive checks first.
 	if(owner.health >= owner.maxHealth || is_dormant || owner.blood_volume <= MINIMUM_VOLUME_FOR_REGEN || (!in_closet(owner)))
 		return FALSE
-
-	return length(owner.get_damaged_bodyparts(TRUE, TRUE, BODYTYPE_ORGANIC)) || (owner.get_tox_loss() && owner.can_adjust_tox_loss())
+//OCULIS EDIT START
+	return length(owner.get_damaged_bodyparts(TRUE, TRUE, affected_bodytypes)) || (owner.get_tox_loss() && owner.can_adjust_tox_loss())
+//OCULIS EDIT END
 //IRIS EDIT END
 
 /obj/item/organ/heart/hemophage/get_status_text(advanced, add_tooltips, colored = TRUE)

@@ -4,7 +4,7 @@ GLOBAL_VAR(department_cd_override)
 /datum/computer_file/program/department_order
 	filename = "dept_order"
 	filedesc = "Departmental Orders"
-	can_run_on_flags = PROGRAM_CONSOLE
+	can_run_on_flags = PROGRAM_LAPTOP | PROGRAM_CONSOLE // OCULIS EDIT, ORIGINAL: can_run_on_flags = PROGRAM_CONSOLE
 	downloader_category = PROGRAM_CATEGORY_SUPPLY
 	program_open_overlay = "request"
 	extended_desc = "Allows for departments to order supplied from Cargo for free, with a cooldown between orders."
