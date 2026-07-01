@@ -1,0 +1,1 @@
+#define MAX_RECORDS_LEN 8192
