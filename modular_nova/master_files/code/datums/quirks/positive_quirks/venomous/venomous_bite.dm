@@ -98,8 +98,8 @@
 
 	var/text = "[owner] sinks [owner.p_their()] teeth into [target]'s [target.parse_zone_with_bodypart(target_zone)]!"
 	/* // OCULIS EDIT REMOVAL START
-	var/self_message = target != owner ? "You sink your teeth into [target]'s [target.parse_zone_with_bodypart(target_zone)]!":null // OCULIS EDIT, ORIGINAL: var/self_message = "You sink your teeth into [target]'s [target.parse_zone_with_bodypart(target_zone)]!"
-	var/victim_message = target != owner ? "[owner] sinks [owner.p_their()] teeth into your [target.parse_zone_with_bodypart(target_zone)]!":"You sink your teeth into your [target.parse_zone_with_bodypart(target_zone)]!" // OCULIS EDIT, ORIGINAL: var/victim_message = "[owner] sinks [owner.p_their()] teeth into your [target.parse_zone_with_bodypart(target_zone)]!"
+	var/self_message = "You sink your teeth into [target]'s [target.parse_zone_with_bodypart(target_zone)]!"
+	var/victim_message = "[owner] sinks [owner.p_their()] teeth into your [target.parse_zone_with_bodypart(target_zone)]!"
 	*/ // OCULIS EDIT REMOVAL END
 	// OCULIS EDIT ADDITION START
 	var/self_message
@@ -121,8 +121,8 @@
 
 				text = "[owner] tries to bite [target], but breaks [owner.p_their()] teeth on [target]'s clothing! Ouch!"
 				/* // OCULIS EDIT REMOVAL START
-				self_message = target != owner ? "You try to bite [target], but you break your teeth on [target.p_their()] clothing! Ouch!":null // OCULIS EDIT, ORIGINAL: self_message = "You try to bite [target], but you break your teeth on [target.p_their()] clothing! Ouch!"
-				victim_message = target != owner ? "[owner] tries to bite you, but breaks [owner.p_their()] teeth on your clothing! Ouch!":"You try to bite yourself, but break your teeth on your clothing! Ouch!" // OCULIS EDIT, ORIGINAL: victim_message = "[owner] tries to bite you, but breaks [owner.p_their()] teeth on your clothing! Ouch!"
+				self_message = "You try to bite [target], but you break your teeth on [target.p_their()] clothing! Ouch!"
+				victim_message = "[owner] tries to bite you, but breaks [owner.p_their()] teeth on your clothing! Ouch!"
 				*/ // OCULIS EDIT REMOVAL END
 				// OCULIS EDIT ADDITION START
 				if(target != owner)
