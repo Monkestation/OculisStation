@@ -76,7 +76,7 @@
 		if(!(owner.zone_selected in GLOB.arm_zones))
 			owner.balloon_alert(owner, "can only bite your arms!")
 			return FALSE
-		owner.visible_message(span_warning("[owner] starts to bite %PRONOUN_themself!"), span_userdanger("You start to bite yourself!"))
+		owner.visible_message(span_warning("[owner] starts to bite [owner.p_them()]self!"), span_userdanger("You start to bite yourself!"))
 	// OCULIS EDIT ADDITION END
 	owner.balloon_alert_to_viewers("biting...")
 	var/result = do_after(owner, 0.5 SECONDS, target_atom, IGNORE_HELD_ITEM)
