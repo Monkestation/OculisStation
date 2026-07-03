@@ -10,9 +10,9 @@ GLOBAL_LIST_INIT(nearsighted_glasses, list(
 	"Binoclard" = /obj/item/clothing/glasses/regular/kim,
 	"Modern" = /obj/item/clothing/glasses/regular/modern, // NOVA EDIT ADDITION
 	// OCULIS EDIT ADDITION START
-	"Transparent Glasses" = /datum/loadout_item/glasses/prescription_glasses/transparent,
-	"Transparent Circle Glasses" = /datum/loadout_item/glasses/prescription_glasses/circle_glasses/transparent,
-	"Transparent Thin Glasses" = /datum/loadout_item/glasses/prescription_glasses/thin/transparent,
+	"Transparent Glasses" = /obj/item/clothing/glasses/regular/transparent,
+	"Transparent Circle Glasses" = /obj/item/clothing/glasses/regular/circle/transparent,
+	"Transparent Thin Glasses" = /obj/item/clothing/glasses/regular/thin/transparent,
 	// OCULIS EDIT ADDITION END
 
 ))
