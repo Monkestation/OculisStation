@@ -41,7 +41,7 @@
 		crime_name = pick(assoc_to_keys(GLOB.prisoner_crimes))
 
 	var/datum/prisoner_crime/crime = GLOB.prisoner_crimes[crime_name]
-	var/datum/crime/past_crime = new(crime.name, crime.desc, "Central Command", "Indefinite.")
+	var/datum/crime/past_crime = new(crime.name, crime.desc, "Sectorial Command", "Indefinite.") // OCULIS EDIT, SectCommening 2, ORIGINAL: var/datum/crime/past_crime = new(crime.name, crime.desc, "Central Command", "Indefinite.")
 	var/datum/record/crew/target_record = find_record(crewmember.real_name)
 	target_record.crimes += past_crime
 	target_record.recreate_manifest_photos(add_height_chart = TRUE)

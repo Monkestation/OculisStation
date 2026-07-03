@@ -172,7 +172,7 @@
 	dat += "<BR><b><font color='green'>Living Players:|[living_players_connected] active|[living_players - living_players_connected] disconnected|</font></b>"
 	dat += "<BR><b><font color='#e29300'>Antagonists Players:|[antagonists] ingame|[antagonists-antagonists_dead] alive|[antagonists_dead] dead|</font></b>"
 	dat += "<BR><b><font color='#860e03'>Security Players:|[security] ingame|[security-security_dead] alive|[security_dead] dead|</font></b>"
-	dat += "<BR><b><font color='#bf42f4'>SKIPPED \[On centcom Z-level\]: [living_skipped] living players|[drones] living drones|</font></b>"
+	dat += "<BR><b><font color='#bf42f4'>SKIPPED \[On SectCom Z-level\]: [living_skipped] living players|[drones] living drones|</font></b>" // OCULIS EDIT, SectCommening 2, ORIGINAL: dat += "<BR><b><font color='#bf42f4'>SKIPPED \[On centcom Z-level\]: [living_skipped] living players|[drones] living drones|</font></b>"
 	dat += "<BR><b><font color='red'>Dead/Observing players:|[observers_connected] active|[observers - observers_connected] disconnected|[brains] brains|</font></b>"
 	if(other_players)
 		dat += "<BR>[span_userdanger("[other_players] players in invalid state or the statistics code is bugged!")]"

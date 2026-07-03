@@ -65,7 +65,7 @@
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "general_record"
-	maximum_value_length = MAX_FLAVOR_LEN
+	maximum_value_length = MAX_RECORDS_LEN // OCULIS EDIT, ORIGINAL: maximum_value_length = MAX_FLAVOR_LEN
 
 /datum/preference/text/general/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
@@ -74,7 +74,7 @@
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "medical_record"
-	maximum_value_length = MAX_FLAVOR_LEN
+	maximum_value_length = MAX_RECORDS_LEN // OCULIS EDIT, ORIGINAL: maximum_value_length = MAX_FLAVOR_LEN
 
 /datum/preference/text/medical/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
@@ -83,7 +83,7 @@
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "security_record"
-	maximum_value_length = MAX_FLAVOR_LEN
+	maximum_value_length = MAX_RECORDS_LEN // OCULIS EDIT, ORIGINAL: maximum_value_length = MAX_FLAVOR_LEN
 
 /datum/preference/text/security/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
@@ -92,7 +92,7 @@
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "exploitable_info"
-	maximum_value_length = MAX_FLAVOR_LEN
+	maximum_value_length = MAX_RECORDS_LEN // OCULIS EDIT, ORIGINAL: maximum_value_length = MAX_FLAVOR_LEN
 
 /datum/preference/text/exploitable/create_default_value()
 	return EXPLOITABLE_DEFAULT_TEXT
@@ -104,7 +104,7 @@
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "background_info"
-	maximum_value_length = MAX_FLAVOR_LEN
+	maximum_value_length = MAX_RECORDS_LEN // OCULIS EDIT, ORIGINAL: maximum_value_length = MAX_FLAVOR_LEN
 
 /datum/preference/text/background/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE

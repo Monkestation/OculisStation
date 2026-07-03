@@ -225,7 +225,7 @@
 */
 
 /datum/loadout_item/accessory/medal/cc_pin
-	name = "Neckpin - CentCom"
+	name = "Neckpin - SectCom" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "Neckpin - CentCom"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/neckpin/centcom
 	restricted_roles = list(JOB_CAPTAIN, ALL_JOBS_CC)
 
