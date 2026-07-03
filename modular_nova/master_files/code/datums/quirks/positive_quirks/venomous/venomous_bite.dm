@@ -74,7 +74,8 @@
 		to_chat(target_atom, span_userdanger("[owner] starts to bite you!"))
 	else
 		if(!(owner.zone_selected in GLOB.arm_zones))
-			owner.balloon_alert(owner, "can only bite your own arms!")
+			owner.balloon_alert(owner, "can only bite your arms!")
+			return FALSE
 		owner.visible_message(span_warning("[owner] starts to bite %PRONOUN_themself!"), span_userdanger("You start to bite yourself!"))
 	// OCULIS EDIT ADDITION END
 	owner.balloon_alert_to_viewers("biting...")
