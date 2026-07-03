@@ -60,12 +60,23 @@
 		owner.balloon_alert(owner, "too far!")
 		return FALSE
 
+	/* // OCULIS EDIT REMOVAL START
 	if (target_atom == owner)
 		owner.balloon_alert(owner, "can't bite yourself!")
 		return FALSE
 
 	owner.visible_message(span_warning("[owner] starts to bite [target_atom]!"), span_warning("You start to bite [target_atom]!"), ignored_mobs = target_atom)
 	to_chat(target_atom, span_userdanger("[owner] starts to bite you!"))
+	*/ // OCULIS EDIT REMOVAL END
+	// OCULIS EDIT ADDITION START
+	if (target_atom != owner)
+		owner.visible_message(span_warning("[owner] starts to bite [target_atom]!"), span_warning("You start to bite [target_atom]!"), ignored_mobs = target_atom)
+		to_chat(target_atom, span_userdanger("[owner] starts to bite you!"))
+	else
+		if(!(owner.zone_selected in GLOB.arm_zones))
+			owner.balloon_alert(owner, "can only bite your own arms!")
+		owner.visible_message(span_warning("[owner] starts to bite %PRONOUN_themself!"), span_userdanger("You start to bite yourself!"))
+	// OCULIS EDIT ADDITION END
 	owner.balloon_alert_to_viewers("biting...")
 	var/result = do_after(owner, 0.5 SECONDS, target_atom, IGNORE_HELD_ITEM)
 	if (!result)
