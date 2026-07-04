@@ -66,6 +66,7 @@
 	if(prob(1)) // D BOYYYYSSSSS
 		head = /obj/item/clothing/head/beanie/black/dboy
 
+/* // OCULIS EDIT REMOVAL START
 /datum/outfit/job/prisoner/post_equip(mob/living/carbon/human/new_prisoner, visuals_only)
 	. = ..()
 
@@ -80,3 +81,4 @@
 		var/obj/item/bodypart/tatted_limb = pick_n_take(limbs_to_tat)
 		var/list/tattoo = pick_n_take(SSpersistence.prison_tattoos_to_use)
 		tatted_limb.AddComponent(/datum/component/tattoo, tattoo["story"])
+*/ // OCULIS EDIT REMOVAL END
