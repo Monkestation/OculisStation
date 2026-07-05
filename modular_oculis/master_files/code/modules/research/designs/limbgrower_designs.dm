@@ -1,4 +1,4 @@
-# I would like it to be known these were added out of spite
+// I would like it to be known these were added out of spite
 
 /datum/design/liver/golem
 	name = "Porous Rock"
