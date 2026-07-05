@@ -13,7 +13,7 @@
 	if(organ_flags & ORGAN_FAILING)
 		owner.visible_message(span_notice("[owner] glances at [owner.p_their()] wrist."), span_warning("You glance at [src]. The time is @#*%&^% and 999999999 seconds. The date, apparently, is DAYNOTFOUNDday, Febuary 30rd, The Year Of The Staphylococcus Aureus Bacterium. Enlightening."))
 		return
-	var/thetime = span_notice("You glance at [src]. The time is [server_timestamp(format = "hh:mm and ss seconds. The date is DDD, MMM DD, YYYY", ic_time = TRUE, twelve_hour_clock = owner.client?.prefs.read_preference(/datum/preference/toggle/twelve_hour))]")
+	var/thetime = span_notice("You glance at [src]. The time is [server_timestamp(format = "hh:mm and ss seconds. The date is DDD, MMM DD, YYYY.", ic_time = TRUE, twelve_hour_clock = owner.client?.prefs.read_preference(/datum/preference/toggle/twelve_hour))]")
 	owner.visible_message(span_notice("[owner] glances at [owner.p_their()] wrist."), thetime)
 
 /obj/item/organ/cyberimp/arm/wristwatch/emp_act(severity)

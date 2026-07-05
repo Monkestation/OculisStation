@@ -71,6 +71,7 @@
 	owner.visible_message(span_danger("[src] in [owner]'s leg malfunctions, dispensing cupfuls of blood!"))
 	for(var/i in 1 to floor(numberofcups))
 		var/obj/item/reagent_containers/cup/glass/coffee/ourcup = new(owner.loc)
+		ourcup.reagents.clear_reagents()
 		owner.transfer_blood_to(ourcup, dispensedamount)
 	numberofcups = 0
 	playsound(src, 'sound/machines/coffeemaker_brew.ogg', 50, vary = TRUE)
