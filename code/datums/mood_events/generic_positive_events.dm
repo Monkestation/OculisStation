@@ -718,3 +718,7 @@
 	mood_change = 4
 
 //IRIS EDIT END
+/datum/mood_event/gizmo_positive
+	description = "I hear a voice whispering kind words in my ear!"
+	mood_change = 3
+	timeout = 30 SECONDS

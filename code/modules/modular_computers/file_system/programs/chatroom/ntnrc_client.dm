@@ -73,6 +73,10 @@
 					channel.add_client(src)
 					return TRUE
 
+			// OCULIS EDIT START
+			if(REDACTION_FILTER_CHECK(message))
+				message = SSredaction.redact_sentence(message, usr)
+			// OCULIS EDIT END
 			channel.add_message(message, username)
 			var/mob/living/user = usr
 			user.log_talk(message, LOG_CHAT, tag = "as [username] to channel [channel.title]")

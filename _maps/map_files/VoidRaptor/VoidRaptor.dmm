@@ -2808,10 +2808,6 @@
 /obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/pod/dark,
 /area/station/service/chapel/funeral)
-"aOs" = (
-/obj/structure/window/reinforced/spawner/directional/south,
-/turf/open/floor/engine,
-/area/station/science/explab)
 "aOI" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 4
@@ -3069,7 +3065,6 @@
 /obj/machinery/newscaster/directional/north,
 /obj/machinery/airalarm/directional/east,
 /obj/structure/closet/secure_closet/injection{
-	name = "educational injections";
 	pixel_x = 2
 	},
 /obj/effect/turf_decal/bot,
@@ -4036,6 +4031,11 @@
 /obj/effect/landmark/start/cargo_technician,
 /turf/open/floor/iron/smooth,
 /area/station/cargo/sorting)
+"beA" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/effect/spawner/random/gizmo,
+/turf/open/floor/engine,
+/area/station/science/explab)
 "beU" = (
 /obj/effect/turf_decal/tile/green/diagonal_centre,
 /obj/machinery/light_switch/directional/west,
@@ -11517,28 +11517,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth,
 /area/station/science/research/abandoned)
-"dsV" = (
-/obj/item/phone{
-	desc = "Supposedly a direct line to Nanotrasen Central Command. It's not even plugged in.";
-	pixel_x = -8;
-	pixel_y = -3
-	},
-/obj/item/cigarette/cigar{
-	pixel_x = 4.5
-	},
-/obj/item/cigarette/cigar/havana{
-	pixel_x = 3
-	},
-/obj/item/cigarette/cigar/cohiba{
-	pixel_x = 6
-	},
-/obj/item/flashlight/lamp{
-	pixel_x = -5;
-	pixel_y = 13
-	},
-/obj/structure/table/reinforced/plastitaniumglass,
-/turf/open/floor/carpet/royalblack,
-/area/station/command/heads_quarters/hos)
 "dsW" = (
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/large,
@@ -18173,8 +18151,8 @@
 /area/station/command/cc_dock)
 "fkX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/trimline/blue/filled/warning,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
 	},
@@ -19138,6 +19116,8 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/medical/medbay/lobby)
 "fza" = (
@@ -29172,7 +29152,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/smooth_edge,
 /area/station/engineering/atmos)
@@ -29850,6 +29829,10 @@
 /obj/item/radio/headset/headset_med{
 	pixel_x = -4;
 	pixel_y = 14
+	},
+/obj/item/surgicaldrill{
+	pixel_x = -2;
+	pixel_y = 16
 	},
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 4
@@ -32490,8 +32473,6 @@
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/science/ordnance/storage)
 "jpH" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 6
 	},
@@ -42959,6 +42940,28 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/cmo)
+"mef" = (
+/obj/item/phone{
+	desc = "Supposedly a direct line to Nanotrasen Sectorial Command. It's not even plugged in.";
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/obj/item/cigarette/cigar{
+	pixel_x = 4.5
+	},
+/obj/item/cigarette/cigar/havana{
+	pixel_x = 3
+	},
+/obj/item/cigarette/cigar/cohiba{
+	pixel_x = 6
+	},
+/obj/item/flashlight/lamp{
+	pixel_x = -5;
+	pixel_y = 13
+	},
+/obj/structure/table/reinforced/plastitaniumglass,
+/turf/open/floor/carpet/royalblack,
+/area/station/command/heads_quarters/hos)
 "mel" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -45296,11 +45299,6 @@
 	},
 /turf/open/floor/iron/edge,
 /area/station/hallway/primary/fore)
-"mMw" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
-/turf/open/floor/iron/smooth_large,
-/area/station/engineering/atmos)
 "mMB" = (
 /obj/effect/turf_decal/box/corners{
 	dir = 4
@@ -46782,7 +46780,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
 	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+/obj/machinery/computer/records/medical{
 	dir = 8
 	},
 /turf/open/floor/iron/white/smooth_edge{
@@ -50614,7 +50612,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
-/obj/machinery/status_display/evac/directional/west,
 /obj/machinery/firealarm/directional/north{
 	pixel_x = -7
 	},
@@ -50624,6 +50621,7 @@
 	normaldoorcontrol = 1;
 	pixel_x = 5
 	},
+/obj/structure/fireaxecabinet/jawsofrecovery/directional/west,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
 "oiZ" = (
@@ -55566,11 +55564,11 @@
 	},
 /area/station/hallway/primary/fore)
 "pzD" = (
-/obj/machinery/atmospherics/components/trinary/filter/atmos/co2{
-	dir = 8
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
+	dir = 4
 	},
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/atmos)
@@ -61562,6 +61560,31 @@
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/small,
 /area/station/hallway/primary/central)
+"rgi" = (
+/obj/item/flashlight/lamp{
+	pixel_x = -3;
+	pixel_y = 13
+	},
+/obj/item/phone{
+	desc = "Supposedly a direct line to Nanotrasen Sectorial Command. It's not even plugged in.";
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/coin/antagtoken{
+	pixel_x = -7;
+	pixel_y = -1
+	},
+/obj/machinery/camera/directional/north{
+	c_tag = "Command - Blueshield's Office";
+	name = "command camera"
+	},
+/obj/structure/table/wood,
+/obj/structure/noticeboard/captain{
+	name = "Blueshield's Notice Board";
+	pixel_y = 32
+	},
+/turf/open/floor/carpet/cyan,
+/area/station/command/heads_quarters/blueshield)
 "rgt" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/fancy/cigarettes/cigars/cohiba{
@@ -71913,13 +71936,13 @@
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/starboard/aft)
 "tWj" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical/glass{
 	name = "Medbay Desk"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/medbay/lobby)
 "tWD" = (
@@ -77652,7 +77675,7 @@
 /area/station/maintenance/aft/lesser)
 "vAX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/medbay/lobby)
 "vBa" = (
@@ -77808,31 +77831,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/hallway/primary/fore)
-"vEu" = (
-/obj/item/flashlight/lamp{
-	pixel_x = -3;
-	pixel_y = 13
-	},
-/obj/item/phone{
-	desc = "Supposedly a direct line to Nanotrasen Central Command. It's not even plugged in.";
-	pixel_x = 7;
-	pixel_y = -3
-	},
-/obj/item/coin/antagtoken{
-	pixel_x = -7;
-	pixel_y = -1
-	},
-/obj/machinery/camera/directional/north{
-	c_tag = "Command - Blueshield's Office";
-	name = "command camera"
-	},
-/obj/structure/table/wood,
-/obj/structure/noticeboard/captain{
-	name = "Blueshield's Notice Board";
-	pixel_y = 32
-	},
-/turf/open/floor/carpet/cyan,
-/area/station/command/heads_quarters/blueshield)
 "vEx" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -77867,7 +77865,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/machinery/door/airlock/security{
-	name = "Education Chamber"
+	name = "Sentence Resolution Room"
 	},
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
@@ -82923,7 +82921,6 @@
 "wXg" = (
 /obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/hidden,
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Atmospherics Maintenance"
 	},
@@ -110465,7 +110462,7 @@ kVR
 oyg
 oyg
 oyg
-aOs
+beA
 dTn
 skf
 aVa
@@ -112361,7 +112358,7 @@ pkR
 iXs
 jmM
 wXg
-mMw
+ace
 irQ
 pzD
 qPY
@@ -117464,7 +117461,7 @@ jML
 aDx
 vAX
 fkX
-cOf
+tWj
 fyY
 oob
 qtB
@@ -117721,7 +117718,7 @@ bVR
 nCl
 nhi
 jpH
-tWj
+cOf
 kqY
 tQF
 haq
@@ -118149,7 +118146,7 @@ nAw
 wLb
 tuF
 cmH
-vEu
+rgi
 ohi
 imV
 uNm
@@ -125365,7 +125362,7 @@ xMq
 ttw
 oEn
 xbH
-dsV
+mef
 ftA
 ngD
 ngD

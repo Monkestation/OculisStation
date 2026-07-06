@@ -67,7 +67,7 @@ function CentComName(props) {
   }
 
   return (
-    <Section title="Set Central Command name" textAlign="center">
+    <Section title="Set Sectorial Command name" textAlign="center"> {/* OCULIS EDIT, SectCommening 2, ORIGINAL: <Section title="Set Central Command name" textAlign="center"> */}
       <Dropdown
         width="100%"
         selected={name}

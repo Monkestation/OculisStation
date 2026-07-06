@@ -64,7 +64,7 @@
 
 	var/datum/bank_account/buyer = SSeconomy.get_dep_account(cargo_account)
 	var/obj/item/card/id/id_card = computer.stored_id?.GetID()
-	if(id_card?.registered_account)
+	if(id_card?.registered_account?.account_job?.paycheck_department)
 		buyer = SSeconomy.get_dep_account(id_card?.registered_account.account_job.paycheck_department)
 		if((ACCESS_BUDGET in id_card.access))
 			requestonly = FALSE
@@ -214,7 +214,7 @@
 				return
 			else
 				SSshuttle.shuttle_loan.loan_shuttle()
-				computer.say("The supply shuttle has been loaned to CentCom.")
+				computer.say("The supply shuttle has been loaned to SectCom.") // OCULIS EDIT, SectCommening 2, ORIGINAL: computer.say("The supply shuttle has been loaned to CentCom.")
 				user.investigate_log("accepted a shuttle loan event.", INVESTIGATE_CARGO)
 				user.log_message("accepted a shuttle loan event.", LOG_GAME)
 				. = TRUE

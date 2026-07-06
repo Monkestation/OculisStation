@@ -376,7 +376,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	keyslot = /obj/item/encryptionkey/headset_service
 
 /obj/item/radio/headset/headset_cent
-	name = "\improper CentCom headset"
+	name = "\improper SectCom headset" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom headset"
 	desc = "A headset used by the upper echelons of Nanotrasen."
 	icon_state = "cent_headset"
 	worn_icon_state = "cent_headset"
@@ -392,7 +392,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	command = TRUE
 
 /obj/item/radio/headset/headset_cent/alt
-	name = "\improper CentCom bowman headset"
+	name = "\improper SectCom bowman headset" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom bowman headset"
 	desc = "A headset especially for emergency response personnel. Protects ears from flashbangs."
 	icon_state = "cent_headset_alt"
 	worn_icon_state = "cent_headset_alt"

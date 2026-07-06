@@ -2092,7 +2092,7 @@
 /area/station/commons/fitness/recreation)
 "aFX" = (
 /obj/machinery/button/flasher{
-	id = "reeducation";
+	id = "resolution";
 	pixel_x = 28;
 	pixel_y = -4;
 	req_access = list("brig_entrance")
@@ -2109,7 +2109,6 @@
 	dir = 5
 	},
 /obj/structure/closet/secure_closet/injection{
-	name = "educational injections";
 	pixel_x = 2
 	},
 /turf/open/floor/iron,
@@ -8287,7 +8286,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/machinery/door/airlock/security{
-	name = "Education Chamber"
+	name = "Sentence Resolution Room"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/armory,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -14218,15 +14217,6 @@
 /obj/machinery/oven/range,
 /turf/open/floor/iron/cafeteria,
 /area/station/maintenance/department/science/lower)
-"efl" = (
-/obj/structure/table/wood,
-/obj/item/phone{
-	desc = "Supposedly a direct line to Nanotrasen Central Command. It's not even plugged in.";
-	pixel_x = 4;
-	pixel_y = 3
-	},
-/turf/open/floor/carpet,
-/area/station/command/meeting_room)
 "efm" = (
 /obj/machinery/telecomms/server/presets/command,
 /obj/effect/turf_decal/stripes/line,
@@ -17821,22 +17811,6 @@
 /obj/effect/turf_decal/trimline/dark_green/filled/line,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/virology)
-"fie" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/structure/table/wood,
-/obj/item/coin/antagtoken{
-	pixel_x = -7;
-	pixel_y = -1
-	},
-/obj/item/phone{
-	desc = "Supposedly a direct line to Nanotrasen Central Command. It's not even plugged in.";
-	pixel_x = 7;
-	pixel_y = -3
-	},
-/turf/open/floor/wood/large,
-/area/station/command/heads_quarters/blueshield)
 "fiF" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line,
 /turf/open/floor/iron,
@@ -23981,6 +23955,15 @@
 	},
 /turf/open/floor/plating/forest,
 /area/station/science/ordnance/bomb)
+"gSi" = (
+/obj/structure/table/wood,
+/obj/item/phone{
+	desc = "Supposedly a direct line to Nanotrasen Sectorial Command. It's not even plugged in.";
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/turf/open/floor/carpet,
+/area/station/command/meeting_room)
 "gSk" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
@@ -37661,6 +37644,10 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
+"kMn" = (
+/obj/effect/spawner/random/gizmo,
+/turf/open/floor/engine,
+/area/station/science/explab)
 "kMA" = (
 /obj/structure/table/wood,
 /obj/effect/turf_decal/siding/wood/corner{
@@ -39674,6 +39661,22 @@
 /obj/item/chair/plastic,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
+"lqJ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/structure/table/wood,
+/obj/item/coin/antagtoken{
+	pixel_x = -7;
+	pixel_y = -1
+	},
+/obj/item/phone{
+	desc = "Supposedly a direct line to Nanotrasen Sectorial Command. It's not even plugged in.";
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/blueshield)
 "lqM" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -65574,7 +65577,7 @@
 /obj/machinery/light/directional/north,
 /obj/structure/chair,
 /obj/machinery/flasher/directional/north{
-	id = "reeducation"
+	id = "resolution"
 	},
 /turf/open/floor/engine,
 /area/station/security/execution/education)
@@ -112779,7 +112782,7 @@ hrh
 dzw
 byD
 fgh
-efl
+gSi
 dnZ
 dnZ
 dnZ
@@ -181159,7 +181162,7 @@ iNV
 uUl
 qjq
 cvE
-fie
+lqJ
 deE
 fQo
 rdd
@@ -183935,7 +183938,7 @@ uqE
 gtX
 xkB
 rvF
-eNs
+kMn
 oSl
 xLb
 gtX

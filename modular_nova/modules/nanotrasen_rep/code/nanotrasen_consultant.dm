@@ -71,19 +71,19 @@
 	id_trim = /datum/id_trim/job/nanotrasen_consultant
 
 /obj/item/encryptionkey/headset_cent/ccrep
-	name = "\improper CentCom representative's encryption key"
+	name = "\improper SectCom representative's encryption key" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom representative's encryption key"
 	channels = list(RADIO_CHANNEL_CENTCOM = 1, RADIO_CHANNEL_SECURITY = 1)
 
 /obj/item/radio/headset/heads/nanotrasen_consultant
 	name = "\proper the Nanotrasen consultant's headset"
-	desc = "An official Central Command headset."
+	desc = "An official Sectorial Command headset." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "An official Central Command headset."
 	icon_state = "cent_headset"
 	keyslot = new /obj/item/encryptionkey/headset_com
 	keyslot2 = new /obj/item/encryptionkey/headset_cent/ccrep
 
 /obj/item/radio/headset/heads/nanotrasen_consultant/alt
 	name = "\proper the Nanotrasen consultant's bowman headset"
-	desc = "An official Central Command headset. Protects ears from flashbangs."
+	desc = "An official Sectorial Command headset. Protects ears from flashbangs." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "An official Central Command headset. Protects ears from flashbangs."
 	icon_state = "cent_headset_alt"
 
 /obj/item/radio/headset/heads/nanotrasen_consultant/alt/Initialize(mapload)

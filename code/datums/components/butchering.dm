@@ -77,6 +77,12 @@
 		to_chat(user, span_warning("You don't want to harm other living beings!"))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 
+	// OCULIS EDIT START
+	if (HAS_TRAIT(user, TRAIT_IMMOBILIZED) || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
+		to_chat(user, span_warning("You don't have the mobility for this!"))
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+	// OCULIS EDIT END
+
 	if (victim.has_status_effect(/datum/status_effect/neck_slice))
 		return
 

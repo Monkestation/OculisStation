@@ -235,7 +235,7 @@
 
 /datum/award/achievement/misc/sisyphus
 	name = "Ordeal of Sisyphus"
-	desc = "Successfully carry a boulder from Lavaland all the way to Centcom, without ever dropping it. We must imagine you're happy to unlock this."
+	desc = "Successfully carry a boulder from Lavaland all the way to SectCom, without ever dropping it. We must imagine you're happy to unlock this." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "Successfully carry a boulder from Lavaland all the way to Centcom, without ever dropping it. We must imagine you're happy to unlock this."
 	database_id = MEDAL_SISYPHUS
 	icon_state = "sisyphus"
 

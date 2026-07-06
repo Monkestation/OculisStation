@@ -454,7 +454,7 @@
 				return
 			else
 				SSshuttle.shuttle_loan.loan_shuttle()
-				say("The supply shuttle has been loaned to CentCom.")
+				say("The supply shuttle has been loaned to SectCom.") // OCULIS EDIT, SectCommening 2, ORIGINAL: say("The supply shuttle has been loaned to CentCom.")
 				ui.user.investigate_log("accepted a shuttle loan event.", INVESTIGATE_CARGO)
 				ui.user.log_message("accepted a shuttle loan event.", LOG_GAME)
 				. = TRUE
