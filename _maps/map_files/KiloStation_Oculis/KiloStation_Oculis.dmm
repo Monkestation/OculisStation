@@ -53857,7 +53857,8 @@
 	},
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/window/right/directional/east{
-	name = "Security Delivery Access"
+	name = "Security Delivery Access";
+	req_access = list("security")
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
@@ -54882,7 +54883,8 @@
 /obj/item/folder/red,
 /obj/item/pen,
 /obj/machinery/door/window/brigdoor/right/directional/south{
-	name = "Armory Windoor"
+	name = "Armory Windoor";
+	req_access = list("armory")
 	},
 /turf/open/floor/plating,
 /area/station/security/armory)
