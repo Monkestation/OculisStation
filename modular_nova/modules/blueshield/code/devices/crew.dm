@@ -25,6 +25,10 @@ GLOBAL_DATUM_INIT(blueshield_crewmonitor, /datum/crewmonitor/blueshield, new)
 		JOB_CHIEF_MEDICAL_OFFICER = 5,
 		JOB_HEAD_OF_SECURITY = 6,
 		JOB_QUARTERMASTER = 7,
+		// OCULIS EDIT ADDITION START
+		JOB_BRIDGE_ASSISTANT = 8,
+		JOB_VETERAN_ADVISOR = 9,
+		// OCULIS EDIT ADDITION END
 	)
 	if(isnull(jobs_command))
 		jobs_command = list()
