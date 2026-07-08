@@ -71,7 +71,7 @@
 		user.playsound_local(src, 'sound/machines/compiler/compiler-failure.ogg', 20, TRUE)
 		return UI_CLOSE
 	if(!length(music_player.songs))
-		to_chat(user,span_warning("Error: No music tracks have been authorized for your station. Petition Central Command to resolve this issue."))
+		to_chat(user,span_warning("Error: No music tracks have been authorized for your station. Petition Sectorial Command to resolve this issue.")) // OCULIS EDIT, SectCommening 2, ORIGINAL: to_chat(user,span_warning("Error: No music tracks have been authorized for your station. Petition Central Command to resolve this issue."))
 		user.playsound_local(src, 'sound/machines/compiler/compiler-failure.ogg', 25, TRUE)
 		return UI_CLOSE
 	return ..()

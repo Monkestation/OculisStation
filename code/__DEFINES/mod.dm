@@ -52,7 +52,7 @@
 #define MODLINK_FREQ_NANOTRASEN "NT"
 #define MODLINK_FREQ_SYNDICATE "SYND"
 #define MODLINK_FREQ_CHARLIE "CHRL"
-#define MODLINK_FREQ_CENTCOM "CC"
+#define MODLINK_FREQ_CENTCOM "SC" // OCULIS EDIT, SectCommening 2, ORIGINAL: #define MODLINK_FREQ_CENTCOM "CC"
 
 //Default text for different messages for the user.
 #define HELMET_UNSEAL_MESSAGE "hisses open"

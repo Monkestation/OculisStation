@@ -1,4 +1,4 @@
-ADMIN_VERB(fax_panel, R_ADMIN, "Fax Panel", "View and respond to faxes sent to CC.", ADMIN_CATEGORY_EVENTS)
+ADMIN_VERB(fax_panel, R_ADMIN, "Fax Panel", "View and respond to faxes sent to SC.", ADMIN_CATEGORY_EVENTS) // OCULIS EDIT, SectCommening 2, ORIGINAL: ADMIN_VERB(fax_panel, R_ADMIN, "Fax Panel", "View and respond to faxes sent to CC.", ADMIN_CATEGORY_EVENTS)
 	var/datum/fax_panel_interface/ui = new /datum/fax_panel_interface(user.mob)
 	ui.ui_interact(user.mob)
 

@@ -193,7 +193,7 @@
 	build_path = /obj/machinery/computer/camera_advanced/base_construction/aux
 
 /obj/item/circuitboard/computer/base_construction/centcom
-	name = "Centcom Base Construction Console"
+	name = "SectCom Base Construction Console" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "Centcom Base Construction Console"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/camera_advanced/base_construction/centcom
 

@@ -209,13 +209,13 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module/malf))
 		return
 	owner.playsound_local(owner, 'sound/announcer/alarm/bloblarm.ogg', 50, 0, use_reverb = FALSE)
 	to_chat(owner, span_userdanger("!!! UNAUTHORIZED SELF-DESTRUCT ACCESS !!!"))
-	to_chat(owner, span_bolddanger("This is a class-3 security violation. This incident will be reported to Central Command."))
+	to_chat(owner, span_bolddanger("This is a class-3 security violation. This incident will be reported to Sectorial Command.")) // OCULIS EDIT, SectCommening 2, ORIGINAL: to_chat(owner, span_bolddanger("This is a class-3 security violation. This incident will be reported to Central Command."))
 	for(var/i in 1 to 3)
 		sleep(2 SECONDS)
 		if(QDELETED(owner) || !isturf(owner_AI.loc))
 			active = FALSE
 			return
-		to_chat(owner, span_bolddanger("Sending security report to Central Command.....[rand(0, 9) + (rand(20, 30) * i)]%"))
+		to_chat(owner, span_bolddanger("Sending security report to Sectorial Command.....[rand(0, 9) + (rand(20, 30) * i)]%")) // OCULIS EDIT, SectCommening 2, ORIGINAL: to_chat(owner, span_bolddanger("Sending security report to Central Command.....[rand(0, 9) + (rand(20, 30) * i)]%"))
 	sleep(0.3 SECONDS)
 	if(QDELETED(owner) || !isturf(owner_AI.loc))
 		active = FALSE

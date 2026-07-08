@@ -832,7 +832,7 @@
 
 //CentCom
 /obj/item/clothing/head/beret/centcom_formal
-	name = "\improper CentCom Formal Beret"
+	name = "\improper SectCom Formal Beret" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom Formal Beret"
 	desc = "Sometimes, a compromise between fashion and defense needs to be made. Thanks to Nanotrasen's most recent nano-fabric durability enhancements, this time, it's not the case."
 	icon_state = "/obj/item/clothing/head/beret/centcom_formal"
 	post_init_icon_state = "beret_badge"
