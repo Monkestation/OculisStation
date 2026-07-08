@@ -27,4 +27,4 @@
 	if(force_use_syllables)
 		return ..()
 
-	return "[pick(GLOB.polysmorph_names)]"
+	return pick(GLOB.polysmorph_names)
