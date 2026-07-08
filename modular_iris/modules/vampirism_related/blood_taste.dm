@@ -7,10 +7,8 @@
 
 	// [ ? "":""]
 	var/list/Q = data["quirks"]
-	//oculis edit start
 	if(!Q)
 		return list("[blood_taste_text]" = 1)
-	//oculis edit end
 	blood_taste_text += "[Q.Find(/datum/quirk/item_quirk/addict/alcoholic) || Q.Find(/datum/quirk/drunkhealing) || Q.Find(/datum/quirk/alcohol_tolerance) ? ". They seem to be an alcoholic":""]"
 
 	blood_taste_text += "[Q.Find(/datum/quirk/blooddeficiency) ? ". They are blood deficient":""]"
