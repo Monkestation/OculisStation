@@ -250,7 +250,7 @@
 	group = "Bunny Ties"
 
 /datum/loadout_item/neck/bowtiecc
-	name = "Tie - Centcom Bow Collar"
+	name = "Tie - SectCom Bow Collar" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "Tie - Centcom Bow Collar"
 	item_path = /obj/item/clothing/neck/tie/bunnytie/centcom
 	group = "Bunny Ties"
 

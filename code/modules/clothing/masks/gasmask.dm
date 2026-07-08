@@ -201,7 +201,7 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/mask/gas/atmos/centcom
-	name = "\improper CentCom gas mask"
+	name = "\improper SectCom gas mask" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom gas mask"
 	desc = "Oooh, gold and green. Fancy! This should help as you sit in your office."
 	icon = 'icons/obj/clothing/masks.dmi'
 	worn_icon = 'icons/mob/clothing/mask.dmi'

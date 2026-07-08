@@ -50,7 +50,7 @@ ADMIN_VERB(access_news_network, R_ADMIN, "Access Newscaster Network", "Allows yo
 	var/list/message_list = list()
 
 	data["user"] = list()
-	data["user"]["name"] = "Centcom Official"
+	data["user"]["name"] = "SectCom Official" // OCULIS EDIT, SectCommening 2, ORIGINAL: data["user"]["name"] = "Centcom Official"
 	data["user"]["job"] = "Official"
 	data["user"]["department"] = "Department of News"
 
@@ -253,7 +253,7 @@ ADMIN_VERB(access_news_network, R_ADMIN, "Access Newscaster Network", "Allows yo
 		if("submitWantedIssue")
 			if(!crime_description || !criminal_name)
 				return TRUE
-			GLOB.news_network.submit_wanted(criminal_name, crime_description, "Centcom Official", current_image, adminMsg = TRUE, newMessage = TRUE)
+			GLOB.news_network.submit_wanted(criminal_name, crime_description, "SectCom Official", current_image, adminMsg = TRUE, newMessage = TRUE) // OCULIS EDIT, SectCommening 2, ORIGINAL: GLOB.news_network.submit_wanted(criminal_name, crime_description, "Centcom Official", current_image, adminMsg = TRUE, newMessage = TRUE)
 			current_image = null
 			return TRUE
 
@@ -297,7 +297,7 @@ ADMIN_VERB(access_news_network, R_ADMIN, "Access Newscaster Network", "Allows yo
 		return TRUE
 	var/choice = tgui_alert(usr, "Please confirm feed channel creation","Network Channel Handler", list("Confirm","Cancel"))
 	if(choice == "Confirm")
-		GLOB.news_network.create_feed_channel(channel_name, "Centcom Official", channel_desc, locked = channel_locked)
+		GLOB.news_network.create_feed_channel(channel_name, "SectCom Official", channel_desc, locked = channel_locked) // OCULIS EDIT, SectCommening 2, ORIGINAL: GLOB.news_network.create_feed_channel(channel_name, "Centcom Official", channel_desc, locked = channel_locked)
 		SSblackbox.record_feedback("text", "newscaster_channels", 1, "[channel_name]")
 	creating_channel = FALSE
 
@@ -309,7 +309,7 @@ ADMIN_VERB(access_news_network, R_ADMIN, "Access Newscaster Network", "Allows yo
 		creating_comment = FALSE
 		return TRUE
 	var/datum/feed_comment/new_feed_comment = new /datum/feed_comment
-	new_feed_comment.author = "Centcom Official"
+	new_feed_comment.author = "SectCom Official" // OCULIS EDIT, SectCommening 2, ORIGINAL: new_feed_comment.author = "Centcom Official"
 	new_feed_comment.body = comment_text
 	new_feed_comment.time_stamp = round_timestamp()
 	current_message.comments += new_feed_comment
@@ -348,7 +348,7 @@ ADMIN_VERB(access_news_network, R_ADMIN, "Access Newscaster Network", "Allows yo
 		return TRUE
 	if(temp_message)
 		feed_channel_message = temp_message
-	GLOB.news_network.submit_article("<font face=\"[PEN_FONT]\">[parsemarkdown(feed_channel_message, usr)]</font>", "Centcom Official", current_channel.channel_name, send_photo_data(), adminMessage = TRUE, allow_comments = TRUE)
+	GLOB.news_network.submit_article("<font face=\"[PEN_FONT]\">[parsemarkdown(feed_channel_message, usr)]</font>", "SectCom Official", current_channel.channel_name, send_photo_data(), adminMessage = TRUE, allow_comments = TRUE) // OCULIS EDIT, SectCommening 2, ORIGINAL: GLOB.news_network.submit_article("<font face=\"[PEN_FONT]\">[parsemarkdown(feed_channel_message, usr)]</font>", "Centcom Official", current_channel.channel_name, send_photo_data(), adminMessage = TRUE, allow_comments = TRUE)
 	SSblackbox.record_feedback("amount", "newscaster_stories", 1)
 	feed_channel_message = ""
 	current_image = null

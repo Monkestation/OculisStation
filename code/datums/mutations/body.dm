@@ -15,7 +15,7 @@
 		trigger_seizure()
 
 /datum/mutation/epilepsy/proc/trigger_seizure()
-	if(owner.stat != CONSCIOUS)
+	if((owner.stat != CONSCIOUS) || (HAS_TRAIT(owner, TRAIT_ANTICONVULSANT))) // OCULIS EDIT, ORIGINAL: if(owner.stat != CONSCIOUS)
 		return
 	owner.visible_message(span_danger("[owner] starts having a seizure!"), span_userdanger("You have a seizure!"))
 	owner.Unconscious(200 * GET_MUTATION_POWER(src))

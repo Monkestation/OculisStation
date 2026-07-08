@@ -727,7 +727,7 @@ GLOBAL_VAR_INIT(roaches_deployed, FALSE)
 
 /obj/machinery/vending/wardrobe/cent_wardrobe
 	name = "\improper CentDrobe"
-	desc = "A one-of-a-kind vending machine for all your centcom aesthetic needs!"
+	desc = "A one-of-a-kind vending machine for all your SectCom aesthetic needs!" // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A one-of-a-kind vending machine for all your centcom aesthetic needs!"
 	icon_state = "centdrobe"
 	product_ads = "Show those ERTs who's the most stylish in the briefing room!"
 	vend_reply = "Thank you for using the CentDrobe!"

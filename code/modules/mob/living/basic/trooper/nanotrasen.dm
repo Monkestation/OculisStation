@@ -49,7 +49,7 @@
 
 /mob/living/basic/trooper/nanotrasen/ranged/assault
 	name = "Nanotrasen Assault Officer"
-	desc = "Nanotrasen Assault Officer. Contact CentCom if you saw him on your station. Prepare to die, if you've been found near Syndicate property."
+	desc = "Nanotrasen Assault Officer. Contact SectCom if you saw him on your station. Prepare to die, if you've been found near Syndicate property." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "Nanotrasen Assault Officer. Contact CentCom if you saw him on your station. Prepare to die, if you've been found near Syndicate property."
 
 	casingtype = /obj/item/ammo_casing/a223/weak
 	burst_shots = 4

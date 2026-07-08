@@ -8,7 +8,8 @@
  */
 /obj/item/inspector
 	name = "\improper N-spect scanner"
-	desc = "Central Command standard issue inspection device. \
+	// OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "Central Command standard issue inspection device.
+	desc = "Sectorial Command standard issue inspection device. \
 		Used for precision scans to determine if an item contains, or is itself, contraband."
 	icon = 'icons/obj/devices/scanner.dmi'
 	icon_state = "inspector"

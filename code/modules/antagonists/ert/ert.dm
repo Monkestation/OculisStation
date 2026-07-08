@@ -49,7 +49,7 @@
 	owner.current.fully_replace_character_name(owner.current.real_name,"[role] [pick(name_source)]")
 
 /datum/antagonist/ert/official
-	name = "CentCom Official"
+	name = "SectCom Official" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Official"
 	show_name_in_check_antagonists = TRUE
 	var/datum/objective/mission
 	role = "Inspector"
@@ -59,9 +59,9 @@
 /datum/antagonist/ert/official/greet()
 	. = ..()
 	if (ert_team)
-		to_chat(owner, "<span class='warningplain'>Central Command is sending you to [station_name()] with the task: [ert_team.mission.explanation_text]</span>")
+		to_chat(owner, "<span class='warningplain'>Sectorial Command is sending you to [station_name()] with the task: [ert_team.mission.explanation_text]</span>") // OCULIS EDIT, SectCommening 2, ORIGINAL: to_chat(owner, "<span class='warningplain'>Central Command is sending you to [station_name()] with the task: [ert_team.mission.explanation_text]</span>")
 	else
-		to_chat(owner, "<span class='warningplain'>Central Command is sending you to [station_name()] with the task: [mission.explanation_text]</span>")
+		to_chat(owner, "<span class='warningplain'>Sectorial Command is sending you to [station_name()] with the task: [mission.explanation_text]</span>") // OCULIS EDIT, SectCommening 2, ORIGINAL: to_chat(owner, "<span class='warningplain'>Central Command is sending you to [station_name()] with the task: [mission.explanation_text]</span>")
 
 /datum/antagonist/ert/official/forge_objectives()
 	if (ert_team)
@@ -159,7 +159,7 @@
 	owner.set_holy_role(HOLY_ROLE_PRIEST)
 
 /datum/antagonist/ert/intern
-	name = "CentCom Intern"
+	name = "SectCom Intern" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Intern"
 	outfit = /datum/outfit/centcom/centcom_intern
 	plasmaman_outfit = /datum/outfit/plasmaman/centcom_intern
 	random_names = FALSE
@@ -167,7 +167,7 @@
 	suicide_cry = "FOR MY INTERNSHIP!!"
 
 /datum/antagonist/ert/intern/leader
-	name = "CentCom Head Intern"
+	name = "SectCom Head Intern" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Head Intern"
 	outfit = /datum/outfit/centcom/centcom_intern/leader
 	random_names = FALSE
 	role = "Head Intern"

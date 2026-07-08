@@ -233,7 +233,7 @@
 	W.update_icon()
 
 /datum/outfit/centcom/commander
-	name = "CentCom Commander"
+	name = "SectCom Commander" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Commander"
 
 	id = /obj/item/card/id/advanced/centcom
 	id_trim = /datum/id_trim/centcom/commander
@@ -261,7 +261,7 @@
 	..()
 
 /datum/outfit/centcom/commander/mod
-	name = "CentCom Commander (MODsuit)"
+	name = "SectCom Commander (MODsuit)" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Commander (MODsuit)"
 
 	suit_store = /obj/item/tank/internals/oxygen
 	suit = null

@@ -41,7 +41,7 @@
 		crime_name = pick(assoc_to_keys(GLOB.prisoner_crimes))
 
 	var/datum/prisoner_crime/crime = GLOB.prisoner_crimes[crime_name]
-	var/datum/crime/past_crime = new(crime.name, crime.desc, "Central Command", "Indefinite.")
+	var/datum/crime/past_crime = new(crime.name, crime.desc, "Sectorial Command", "Indefinite.") // OCULIS EDIT, SectCommening 2, ORIGINAL: var/datum/crime/past_crime = new(crime.name, crime.desc, "Central Command", "Indefinite.")
 	var/datum/record/crew/target_record = find_record(crewmember.real_name)
 	target_record.crimes += past_crime
 	target_record.recreate_manifest_photos(add_height_chart = TRUE)
@@ -66,6 +66,7 @@
 	if(prob(1)) // D BOYYYYSSSSS
 		head = /obj/item/clothing/head/beanie/black/dboy
 
+/* // OCULIS EDIT REMOVAL START
 /datum/outfit/job/prisoner/post_equip(mob/living/carbon/human/new_prisoner, visuals_only)
 	. = ..()
 
@@ -80,3 +81,4 @@
 		var/obj/item/bodypart/tatted_limb = pick_n_take(limbs_to_tat)
 		var/list/tattoo = pick_n_take(SSpersistence.prison_tattoos_to_use)
 		tatted_limb.AddComponent(/datum/component/tattoo, tattoo["story"])
+*/ // OCULIS EDIT REMOVAL END

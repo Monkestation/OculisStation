@@ -350,7 +350,7 @@
 	base_icon_state = "hydrocrate"
 
 /obj/structure/closet/crate/centcom
-	name = "centcom crate"
+	name = "SectCom crate" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "centcom crate"
 	icon_state = "centcom"
 	base_icon_state = "centcom"
 
