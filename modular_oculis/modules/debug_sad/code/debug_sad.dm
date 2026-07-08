@@ -6,6 +6,6 @@
 	. = ..()
 	processing_time = 1 SECONDS
 
-/obj/machinery/self_actualization_device/RefreshParts()
+/obj/machinery/self_actualization_device/debug/RefreshParts()
 	. = ..()
 	processing_time = 1 SECONDS
