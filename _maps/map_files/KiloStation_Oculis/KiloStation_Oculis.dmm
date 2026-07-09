@@ -9447,6 +9447,12 @@
 	pixel_y = 11
 	},
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/item/radio/intercom/directional/north{
+	broadcasting = 1;
+	name = "Interrogation Intercom";
+	frequency = 1423;
+	listening = 0
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/security/interrogation)
 "cUy" = (
@@ -14254,13 +14260,11 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
-/obj/item/radio/intercom/directional/west{
-	name = "Interrogation Intercom";
-	frequency = 1423;
-	pixel_x = 0;
-	pixel_y = 32
-	},
 /obj/effect/landmark/start/security_officer,
+/obj/item/radio/intercom/directional/north{
+	name = "Interrogation Intercom";
+	frequency = 1423
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/security/interrogation)
 "eso" = (
@@ -27178,9 +27182,7 @@
 /obj/machinery/light/directional/east,
 /obj/structure/rack,
 /obj/structure/secure_safe/directional/east,
-/obj/item/melee/breaching_hammer,
-/obj/item/melee/breaching_hammer,
-/obj/item/melee/breaching_hammer,
+/obj/effect/spawner/random/armory/oculis/breaching_hammer,
 /turf/open/floor/iron/dark/textured_edge{
 	dir = 4
 	},
@@ -72879,15 +72881,7 @@
 	},
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/window/reinforced/spawner/directional/east,
-/obj/item/storage/box/rubbershot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/rubbershot,
-/obj/item/storage/box/rubbershot{
-	pixel_x = 3;
-	pixel_y = -3
-	},
+/obj/effect/spawner/random/armory/rubbershot,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/security/armory)
 "vVx" = (
