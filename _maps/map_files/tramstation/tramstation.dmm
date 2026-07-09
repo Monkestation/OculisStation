@@ -9961,10 +9961,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/execution/transfer)
-"csc" = (
-/obj/effect/landmark/event_spawn,
-/turf/open/floor/glass/reinforced,
-/area/station/security/brig)
 "csg" = (
 /obj/structure/table/glass,
 /obj/item/stack/sheet/mineral/plasma{
@@ -12877,6 +12873,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/courtroom/holding)
+"dro" = (
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 1
+	},
+/obj/effect/landmark/event_spawn,
+/turf/open/floor/glass/reinforced,
+/area/station/security/brig)
 "drq" = (
 /obj/structure/table,
 /obj/item/flashlight/lamp,
@@ -59067,6 +59070,19 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/station/maintenance/tram/mid)
+"tIS" = (
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/window/brigdoor{
+	name = "Dump Chute";
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/red/filled/warning{
+	dir = 1
+	},
+/turf/open/floor/glass/reinforced,
+/area/station/security/brig)
 "tIT" = (
 /obj/structure/table/wood,
 /obj/structure/mirror/directional/south,
@@ -59562,6 +59578,13 @@
 /obj/machinery/drone_dispenser,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/science)
+"tRJ" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/effect/landmark/firealarm_sanity,
+/turf/open/openspace,
+/area/station/security/brig)
 "tRT" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 1
@@ -156094,12 +156117,12 @@ hvZ
 mGN
 gNK
 rOh
-tfp
-lSo
-csc
+dro
 lSo
 lSo
 lSo
+tRJ
+tIS
 lSo
 azy
 tFK
