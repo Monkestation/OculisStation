@@ -8001,12 +8001,6 @@
 	},
 /turf/open/space/openspace,
 /area/station/solars/port)
-"bMV" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/catwalk_floor,
-/area/station/maintenance/central/greater)
 "bMZ" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 5
@@ -29159,6 +29153,19 @@
 /area/station/command/meeting_room)
 "joG" = (
 /obj/structure/table,
+/obj/item/reagent_containers/condiment/saltshaker{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/condiment/peppermill{
+	desc = "Often used to flavor food or make people sneeze. Fashionably moved to the left side of the table.";
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/condiment/enzyme{
+	pixel_x = 9;
+	pixel_y = 3
+	},
 /obj/item/book/manual/chef_recipes,
 /obj/structure/sign/clock/directional/south,
 /turf/open/floor/iron/cafeteria,
@@ -53150,6 +53157,13 @@
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/engineering/supermatter/room)
+"rFb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/plumbing/synthesizer{
+	reagent_id = /datum/reagent/water
+	},
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/central/greater)
 "rGj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/cafeteria,
@@ -61138,12 +61152,12 @@
 /turf/open/floor/plating,
 /area/station/science/robotics/mechbay)
 "usm" = (
-/obj/machinery/plumbing/synthesizer{
-	reagent_id = /datum/reagent/water
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/light/small/directional/east,
-/turf/open/floor/iron/smooth,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor,
 /area/station/maintenance/central/greater)
 "uss" = (
 /obj/effect/decal/cleanable/dirt,
@@ -66533,6 +66547,9 @@
 /area/station/maintenance/department/medical)
 "whC" = (
 /obj/structure/table,
+/obj/item/storage/fancy/egg_box,
+/obj/item/reagent_containers/condiment/flour,
+/obj/item/reagent_containers/condiment/rice,
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/cafeteria,
 /area/station/security/prison/mess)
@@ -93608,7 +93625,7 @@ hFr
 hFr
 xwf
 aaf
-dqp
+nMu
 dqp
 anU
 vEc
@@ -93865,8 +93882,8 @@ aab
 mMK
 aae
 mST
-bMV
 nMu
+dqp
 vzY
 xwf
 jdt
@@ -94124,7 +94141,7 @@ xwf
 aah
 dQR
 usm
-vzY
+rFb
 xwf
 pxW
 isW
