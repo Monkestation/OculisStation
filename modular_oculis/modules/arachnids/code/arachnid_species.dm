@@ -1,5 +1,5 @@
 /datum/species/arachnid
-	name = "\improper Arachnid"
+	name = "Arachnid"
 	plural_form = "Arachnids"
 	id = SPECIES_ARACHNID
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
@@ -11,7 +11,7 @@
 
 	mutant_organs = list(/obj/item/organ/silkgland)
 
-	//sexes = FALSE // arachnids are sexless, sadly this nukes the pronoun picker, which is sad so we have to comment it out =c
+	sexes = FALSE
 	meat = /obj/item/food/meat/slab/spider
 
 	species_language_holder = /datum/language_holder/fly
