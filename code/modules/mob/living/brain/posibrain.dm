@@ -60,7 +60,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	if(!brainmob)
 		set_brainmob(new /mob/living/brain(src))
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SILICONS))
-		to_chat(user, span_warning("Central Command has temporarily outlawed posibrain sentience in this sector..."))
+		to_chat(user, span_warning("Sectorial Command has temporarily outlawed posibrain sentience in this sector...")) // OCULIS EDIT, SectCommening 2, ORIGINAL: to_chat(user, span_warning("Central Command has temporarily outlawed posibrain sentience in this sector..."))
 	if(is_occupied())
 		to_chat(user, span_warning("This [name] is already active!"))
 		return

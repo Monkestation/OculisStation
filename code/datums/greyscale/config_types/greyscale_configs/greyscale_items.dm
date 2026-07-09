@@ -201,7 +201,7 @@
 	json_config = 'code/datums/greyscale/json_configs/encryptionkey_engineering.json'
 
 /datum/greyscale_config/encryptionkey_centcom
-	name = "Centcom Encryptionkey"
+	name = "SectCom Encryptionkey" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "Centcom Encryptionkey"
 	icon_file = 'icons/obj/devices/circuitry_n_data.dmi'
 	json_config = 'code/datums/greyscale/json_configs/encryptionkey_centcom.json'
 

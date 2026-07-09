@@ -309,7 +309,7 @@ SUBSYSTEM_DEF(job)
 			continue
 		//NOVA EDIT ADDITION
 		if(job.departments_bitflags & DEPARTMENT_BITFLAG_CENTRAL_COMMAND) //If you want a CC position, select it!
-			job_debug("GRJ skipping Central Command role, Player: [player], Job: [job]")
+			job_debug("GRJ skipping Sectorial Command role, Player: [player], Job: [job]") // OCULIS EDIT, SectCommening 2, ORIGINAL: job_debug("GRJ skipping Central Command role, Player: [player], Job: [job]")
 			continue
 		//NOVA EDIT ADDITION END
 

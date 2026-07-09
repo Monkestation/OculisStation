@@ -230,7 +230,7 @@
 	)
 
 /obj/structure/mannequin/operative_barracks/wildcard/intern
-	name = "centcom intern mannequin"
+	name = "SectCom intern mannequin" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "centcom intern mannequin"
 	starting_items = list(
 		/obj/item/clothing/glasses/sunglasses/robohand,
 		/obj/item/clothing/under/rank/centcom/officer,

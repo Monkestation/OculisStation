@@ -71,8 +71,8 @@
 	opendoors = FALSE
 	leader_role = /datum/antagonist/ert/official
 	roles = list(/datum/antagonist/ert/official)
-	rename_team = "CentCom Officials"
-	polldesc = "a CentCom Official"
+	rename_team = "SectCom Officials" // OCULIS EDIT, SectCommening 2, ORIGINAL: rename_team = "CentCom Officials"
+	polldesc = "a SectCom Official" // OCULIS EDIT, SectCommening 2, ORIGINAL: polldesc = "a CentCom Official"
 	random_names = FALSE
 	leader_experience = FALSE
 
@@ -126,7 +126,7 @@
 	opendoors = FALSE
 	rename_team = "Bounty Hunters"
 	mission = "Assist the station in catching perps, dead or alive."
-	polldesc = "a Centcom-hired bounty hunting gang"
+	polldesc = "a SectCom-hired bounty hunting gang" // OCULIS EDIT, SectCommening 2, ORIGINAL: polldesc = "a Centcom-hired bounty hunting gang"
 	random_names = FALSE
 	ert_template = /datum/map_template/shuttle/ert/bounty
 

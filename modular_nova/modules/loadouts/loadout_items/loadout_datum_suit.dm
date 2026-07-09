@@ -989,7 +989,7 @@
 
 //COM
 /datum/loadout_item/suit/tailcoatcc
-	name = "Centcom Tailcoat"
+	name = "SectCom Tailcoat" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "Centcom Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/centcom
 	restricted_roles = list(ALL_JOBS_CC)
 	group = "Tailcoats"

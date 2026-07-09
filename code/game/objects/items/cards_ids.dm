@@ -1417,8 +1417,8 @@
 	inherent_assigned_name = "Captain"
 
 /obj/item/card/id/advanced/centcom
-	name = "\improper CentCom ID"
-	desc = "An ID straight from Central Command."
+	name = "\improper SectCom ID" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom ID"
+	desc = "An ID straight from Sectorial Command." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "An ID straight from Central Command."
 	icon_state = "card_centcom"
 	assigned_icon_state = "assigned_centcom"
 	registered_name = JOB_CENTCOM
@@ -1427,7 +1427,7 @@
 	wildcard_slots = WILDCARD_LIMIT_CENTCOM
 
 /obj/item/card/id/advanced/centcom/ert
-	name = "\improper CentCom ID"
+	name = "\improper SectCom ID" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom ID"
 	desc = "An ERT ID card."
 	registered_age = null
 	registered_name = "Emergency Response Intern"

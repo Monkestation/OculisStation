@@ -22,8 +22,8 @@
 	item_type = /obj/item/mod/control/pre_equipped/ninja
 
 /datum/opposing_force_equipment/modsuit/corporate
-	name = "CentCom's Corporate"
-	description = "An even more costly version of the Magnate model, the corporate suit is a thermally insulated, anti-corrosion coated suit for high-ranking CentCom Officers, deploying pristine protective armor and	advanced actuators, feeling practically weightless when turned on."
+	name = "SectCom's Corporate" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom's Corporate"
+	description = "An even more costly version of the Magnate model, the corporate suit is a thermally insulated, anti-corrosion coated suit for high-ranking SectCom Officers, deploying pristine protective armor and	advanced actuators, feeling practically weightless when turned on." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "An even more costly version of the Magnate model, the corporate suit is a thermally insulated, anti-corrosion coated suit for high-ranking CentCom Officers, deploying pristine protective armor and	advanced actuators, feeling practically weightless when turned on."
 	item_type = /obj/item/mod/control/pre_equipped/corporate
 
 /datum/opposing_force_equipment/modsuit/standard

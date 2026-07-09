@@ -44,7 +44,7 @@
 			H.set_nutrition(NUTRITION_LEVEL_ALMOST_FULL)
 		if(light_amount > 0.2) //if there's enough light, heal
 			var/need_mob_update
-			need_mob_update += H.heal_overall_damage(0.5 * seconds_per_tick, 0.35 * seconds_per_tick, updating_health = FALSE)
+			need_mob_update += H.heal_overall_damage(0.5 * seconds_per_tick, 0.35 * seconds_per_tick, updating_health = FALSE, required_bodytype = BODYTYPE_PLANT) // OCULIS EDIT, ORIGINAL: need_mob_update += H.heal_overall_damage(0.5 * seconds_per_tick, 0.35 * seconds_per_tick, updating_health = FALSE)
 			need_mob_update += H.adjust_stamina_loss(-0.4 * seconds_per_tick, updating_stamina = FALSE)
 			need_mob_update += H.adjust_tox_loss(-0.1 * seconds_per_tick, updating_health = FALSE)
 			need_mob_update += H.adjust_oxy_loss(-0.2 * seconds_per_tick, updating_health = FALSE)
