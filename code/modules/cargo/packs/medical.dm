@@ -5,8 +5,8 @@
 
 /datum/supply_pack/medical/bloodpacks
 	name = "Blood Pack Variety Crate"
-	desc = "Contains ten different blood packs for reintroducing blood to patients."
-	cost = CARGO_CRATE_VALUE * 7
+	desc = "Contains eleven different blood packs for reintroducing blood to patients." // OCULIS EDIT, ORIGINAL: desc = "Contains ten different blood packs for reintroducing blood to patients."
+	cost = CARGO_CRATE_VALUE * 8 // OCULIS EDIT, proportional price increase for adding insect blood, ORIGINAL: cost = CARGO_CRATE_VALUE * 7
 	contains = list(
 		/obj/item/reagent_containers/blood = 2,
 		/obj/item/reagent_containers/blood/a_plus,
@@ -17,6 +17,7 @@
 		/obj/item/reagent_containers/blood/o_minus,
 		/obj/item/reagent_containers/blood/lizard,
 		/obj/item/reagent_containers/blood/ethereal,
+		/obj/item/reagent_containers/blood/insect, // OCULIS EDIT ADDITION
 		/obj/item/paper/fluff/jobs/medical/blood_types,
 	)
 	crate_name = "blood freezer"
