@@ -30,6 +30,7 @@ Arachnids are a humanoid spider-like species, their differences are:
 - `modular_oculis/modules/master_files/code/modules/research/techweb/all_nodes.dm` -> Added `/datum/techweb_node/xenobiology/New()` -> Adds `limbdesign_arachnid` to the xenobiology research
 - `tgui/packages/tgui/interfaces/PreferencesMenu/preferences/features/character_preferences/oculis/arachnid_preferences.tsx` -> Created
 - `modular_nova/modules/customization/modules/client/augment/organs.dm` -> Added `/datum/augment_item/organ/eyes/apply()` -> Makes it so actions are not copied over for eye organs (so the NVG toggle action isn't copied)
+- `modular_nova/modules/unusual_biochemistry/reagents.dm` -> Added `/obj/item/reagent_containers/blood/arachnid = 2` -> Adds arachnid blood to the uncommon blood pack variety crate 
 
 ### Modular Overrides:
 None, I think?
