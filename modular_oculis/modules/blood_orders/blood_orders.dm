@@ -2,7 +2,6 @@
 	group = "★ Medical Supplies"
 	crate_name = "blood freezer"
 	crate_type = /obj/structure/closet/crate/freezer
-	auto_name = TRUE
 	order_flags = ORDER_COMPANY
 	discountable = SUPPLY_PACK_UNCOMMON_DISCOUNTABLE
 	cost = CARGO_CRATE_VALUE
