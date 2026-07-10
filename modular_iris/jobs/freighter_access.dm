@@ -1,6 +1,3 @@
-#define ACCESS_FREIGHTER_GENERAL "freighter_general"
-#define ACCESS_FREIGHTER_COMMAND "freighter_command"
-
 /datum/id_trim/away/freighter
 	department_color = COLOR_CARGO_BROWN
 	subdepartment_color = COLOR_CARGO_BROWN

@@ -6,11 +6,8 @@
 		icon = initial(icon)
 		return
 
-	// uses modular icon file
-	if(istype(chosen_sign, /datum/barsign/nova/large))
-		icon = NOVA_LARGE_BARSIGN_FILE
-	else
-		icon = NOVA_BARSIGN_FILE
+
+	icon = NOVA_BARSIGN_FILE
 
 /datum/barsign/nova/spaceballgrille
 	name = "Spaceball Grille"
@@ -281,10 +278,3 @@
 	icon_state = "hungrybug"
 	desc = "Stop by and enjoy some of the Hole's famous gyoza!"
 	neon_color = "#E2B001"
-
-// 96x96 signs
-
-/datum/barsign/nova/large/cyberslyph
-	name = "Cyberslyph"
-	icon_state = "cyberslyph"
-	neon_color = "#00FFFF"

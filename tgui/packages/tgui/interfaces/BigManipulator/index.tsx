@@ -181,7 +181,7 @@ function TaskEditModal(props: TaskEditModalProps) {
 
   const isCargo = !!task.turf;
   const isPickup = task.task_type.includes('pickup');
-  const isDropoff = task.task_type.includes('dropoff');
+  const isDropoff = task.task_type === 'drop' || task.task_type === 'throw' || task.task_type === 'use';
   const isInteract = task.task_type.includes('interact');
 
   const currentButton = task.turf ? getPointButtonNumber(task.turf) : null;
@@ -245,12 +245,16 @@ function TaskEditModal(props: TaskEditModalProps) {
             </Stack.Item>
             <Stack.Item grow>
               <Table>
-                <ConfigRow
-                  label="Object Type"
-                  content={getFilteringModeText(task.filtering_mode ?? 1)}
-                  onClick={() => adjust('cycle_filtering_mode')}
-                  tooltip="Cycle object category"
-                />
+                {(task.task_type === 'pickup' ||
+                  task.task_type === 'drop' ||
+                  task.task_type === 'throw') && (
+                  <ConfigRow
+                    label="Object Type"
+                    content={getFilteringModeText(task.filtering_mode ?? 1)}
+                    onClick={() => adjust('cycle_filtering_mode')}
+                    tooltip="Cycle object category"
+                  />
+                )}
                 <ConfigRow
                   label="Use Filters"
                   content={task.filters_status ? 'TRUE' : 'FALSE'}
@@ -267,19 +271,15 @@ function TaskEditModal(props: TaskEditModalProps) {
                 )}
                 {isDropoff && (
                   <>
-                    <ConfigRow
-                      label="Mode"
-                      content={(task.interaction_mode ?? '').toUpperCase()}
-                      onClick={() => adjust('cycle_interaction_mode')}
-                      tooltip="Drop / Throw / Use"
-                    />
-                    <ConfigRow
-                      label="Overflow"
-                      content={task.overflow_status ?? '—'}
-                      onClick={() => adjust('cycle_overflow_status')}
-                      tooltip="Cycle overflow behaviour"
-                    />
-                    {task.interaction_mode?.toUpperCase() === 'THROW' && (
+                    {task.task_type === 'drop' && (
+                      <ConfigRow
+                        label="Overflow"
+                        content={task.overflow_status ?? '—'}
+                        onClick={() => adjust('cycle_overflow_status')}
+                        tooltip="Cycle overflow behaviour"
+                      />
+                    )}
+                    {task.task_type === 'throw' && (
                       <ConfigRow
                         label="Throw Range"
                         content={`${task.throw_range} TILES`}
@@ -289,35 +289,40 @@ function TaskEditModal(props: TaskEditModalProps) {
                     )}
                   </>
                 )}
-                {(isDropoff || isInteract) &&
-                  task.interaction_mode?.toUpperCase() !== 'THROW' && (
-                    <>
-                      <ConfigRow
-                        label="Worker Action"
-                        content={task.worker_interaction ?? '—'}
-                        onClick={() => adjust('cycle_worker_interaction')}
-                        tooltip="Normal / Single use / Empty hand"
-                      />
-                      <ConfigRow
-                        label="Alt Click"
-                        content={task.worker_use_rmb ? 'TRUE' : 'FALSE'}
-                        onClick={() => adjust('toggle_worker_rmb')}
-                        tooltip="Simulate RMB click"
-                      />
-                      <ConfigRow
-                        label="Combat Mode"
-                        content={task.worker_combat_mode ? 'TRUE' : 'FALSE'}
-                        onClick={() => adjust('toggle_worker_combat')}
-                        tooltip="Use combat mode during interaction"
-                      />
-                      <ConfigRow
-                        label="No Uses Left"
-                        content={task.use_post_interaction ?? '—'}
-                        onClick={() => adjust('cycle_post_interaction')}
-                        tooltip="What to do when nothing left to interact with"
-                      />
-                    </>
-                  )}
+                {(task.task_type === 'use' || isInteract) && (
+                  <>
+                    <ConfigRow
+                      label="Worker Action"
+                      content={task.worker_interaction ?? '—'}
+                      onClick={() => adjust('cycle_worker_interaction')}
+                      tooltip="Normal / Single use / Empty hand"
+                    />
+                    <ConfigRow
+                      label="Alt Click"
+                      content={task.worker_use_rmb ? 'TRUE' : 'FALSE'}
+                      onClick={() => adjust('toggle_worker_rmb')}
+                      tooltip="Simulate RMB click"
+                    />
+                    <ConfigRow
+                      label="Combat Mode"
+                      content={task.worker_combat_mode ? 'TRUE' : 'FALSE'}
+                      onClick={() => adjust('toggle_worker_combat')}
+                      tooltip="Use combat mode during interaction"
+                    />
+                    <ConfigRow
+                      label="Skip Anchored"
+                      content={task.skip_anchored ? 'TRUE' : 'FALSE'}
+                      onClick={() => adjust('toggle_skip_anchored')}
+                      tooltip="Skip anchored objects when looking for interaction targets"
+                    />
+                    <ConfigRow
+                      label="No Uses Left"
+                      content={task.use_post_interaction ?? '—'}
+                      onClick={() => adjust('cycle_post_interaction')}
+                      tooltip="What to do when nothing left to interact with"
+                    />
+                  </>
+                )}
               </Table>
             </Stack.Item>
           </Stack>
@@ -630,20 +635,17 @@ export const BigManipulator = () => {
         <Section>
           <Stack>
             <Stack.Item grow>
-              <Button
-                style={{
-                  width: '100%',
-                  lineHeight: '24px',
-                }}
-                icon={data.disk_inserted ? 'eject' : 'info'}
-                disabled={!data.disk_inserted || !!active || !!stopping}
-                color={!data.disk_inserted && 'none'}
-                onClick={() => act('disk_eject')}
-              >
-                {data.disk_inserted
-                  ? `floppy drive (tasks: ${data.disk_task_count})`
-                  : 'No drives inserted'}
-              </Button>
+            <Button style={{
+              width: '100%',
+              lineHeight: '24px'
+            }}
+              icon={ data.disk_inserted ? "eject" : 'info' }
+              disabled={!data.disk_inserted || !!active || !!stopping}
+              color={!data.disk_inserted && "none"}
+              onClick={() => act('disk_eject')}
+            >
+              { data.disk_inserted ? `floppy drive (tasks: ${data.disk_task_count})` : "No drives inserted" }
+            </Button>
             </Stack.Item>
             <Stack.Item>
               <Button
