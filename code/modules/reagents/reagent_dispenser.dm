@@ -58,9 +58,11 @@
 	if(icon_state == "water" && check_holidays(APRIL_FOOLS))
 		icon_state = "water_fools"
 		icon = 'icons/obj/medical/chemical_tanks.dmi' // NOVA EDIT ADDITION - undoes override
+	/*  // OCULIS EDIT REMOVAL START - Climbing module (implementing structure climbing in the module)
 	if(climbable)
 		AddElement(/datum/element/climbable, climb_time = 4 SECONDS, climb_stun = 4 SECONDS)
 		AddElement(/datum/element/elevation, pixel_shift = 14)
+		*/ // OCULIS EDIT REMOVAL END
 
 /obj/structure/reagent_dispensers/examine(mob/user)
 	. = ..()
