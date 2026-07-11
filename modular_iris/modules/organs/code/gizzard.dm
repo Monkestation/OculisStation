@@ -11,12 +11,12 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/gizzard
 
 /obj/item/organ/wings/functional/gizzard/get_action_path()
-    return /datum/action/innate/flight/gizzard
+	return /datum/action/innate/flight/gizzard
 
 /obj/item/organ/wings/functional/gizzard/handle_flight(mob/living/carbon/human/human)
-  . = ..()
-  if(HAS_TRAIT_FROM(human, TRAIT_MOVE_FLOATING, SPECIES_FLIGHT_TRAIT))
-  		human.adjust_stamina_loss(8)
+	. = ..()
+	if(HAS_TRAIT_FROM(human, TRAIT_MOVE_FLOATING, SPECIES_FLIGHT_TRAIT))
+		human.adjust_stamina_loss(8)
 
 
 /obj/item/organ/wings/functional/gizzard
