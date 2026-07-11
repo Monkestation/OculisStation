@@ -22,18 +22,18 @@
 		return FALSE
 
 	if(isdead(nabber) || nabber.incapacitated)
-		nabber.balloon_alert(nabber, "Incapacitated!")
+		nabber.balloon_alert(nabber, "incapacitated!")
 		return FALSE
 
 	if(nabber.num_hands < 2)
-		nabber.balloon_alert(nabber, "Need both hands!")
+		nabber.balloon_alert(nabber, "need both hands!")
 		return	FALSE
 
 	var/obj/item/held = nabber.get_active_held_item()
 	var/obj/item/inactive = nabber.get_inactive_held_item()
 
 	if(((held || inactive) && !nabber.drop_all_held_items()) && !(istype((inactive || held), /obj/item/melee/nabber_blade)))
-		nabber.balloon_alert(nabber, "Hands occupied!")
+		nabber.balloon_alert(nabber, "hands occupied!")
 		return	FALSE
 
 	else if(istype((inactive || held), /obj/item/melee/nabber_blade))
@@ -47,16 +47,16 @@
 
 /datum/action/cooldown/toggle_arms/proc/rise_arms()
 	var/mob/living/carbon/human/nabber = owner
-	nabber.balloon_alert(nabber, "Begin pumping blood in!")
+	nabber.balloon_alert(nabber, "begin pumping blood in!")
 	nabber.visible_message(span_danger("[nabber] starts to pump blood into their hunting arms!"), span_warning("You let out a aggressive screech, raising your blade-arms!"), span_hear("You hear a sharp screech of an agitated creature!"))
 	playsound(nabber, 'modular_iris/monke_ports/gas/sounds/nabberscream.ogg', 70)
 
 	if(!do_after(nabber, 1.5 SECONDS, nabber))
 		StartCooldown()
-		nabber.balloon_alert(nabber, "Stand still!")
+		nabber.balloon_alert(nabber, "stand still!")
 		return FALSE
 	RegisterSignal(nabber, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(hit_by_projectile), override = TRUE)
-	nabber.balloon_alert(nabber, "Arms raised!")
+	nabber.balloon_alert(nabber, "arms raised!")
 	nabber.visible_message(span_warning("[nabber] raised their mantid-like hunting arms in a frenzy, ready for a fight!"), span_warning("You raise your mantis arms, ready for combat."), span_hear("You hear a terrible hunting screech!"))
 	playsound(nabber, 'modular_iris/monke_ports/gas/sounds/nabberscream.ogg', 70)
 
@@ -95,10 +95,10 @@
 		UnregisterSignal(nabber, list(COMSIG_ATOM_ATTACKBY, COMSIG_ATOM_PRE_BULLET_ACT))
 		return	FALSE
 
-	nabber.balloon_alert(nabber, "Removing blood from hunting-arms!")
+	nabber.balloon_alert(nabber, "removing blood from hunting-arms!")
 
 	if(!do_after(nabber, 0.5 SECONDS, nabber))
-		nabber.balloon_alert(nabber, "Stand still!")
+		nabber.balloon_alert(nabber, "stand still!")
 		return	FALSE
 
 	UnregisterSignal(nabber, list(COMSIG_ATOM_ATTACKBY, COMSIG_ATOM_PRE_BULLET_ACT))
@@ -112,7 +112,7 @@
 		qdel(held)
 
 	UnregisterSignal(owner, COMSIG_CARBON_REMOVE_LIMB)
-	nabber.balloon_alert(nabber, "Arms down!")
+	nabber.balloon_alert(nabber, "arms down!")
 	button_icon_state = "arms_off"
 	nabber.update_action_buttons()
 
@@ -125,7 +125,7 @@
 
 	nabber.visible_message(span_notice("[nabber] has their arm violently removed, spurting high-pressure haemolyph, the other going limp!"), span_notice("HOLY SHIT MY ARM!"), span_hear("You hear [nabber] let out a sharp hiss as they lose a limb!"))
 	playsound(nabber, 'modular_iris/monke_ports/gas/sounds/nabberscream.ogg', 70)
-	nabber.balloon_alert(nabber, "Lost hands!")
+	nabber.balloon_alert(nabber, "lost hands!")
 	nabber.Stun(5 SECONDS)
 	if(blade_type)
 		UnregisterSignal(nabber, COMSIG_ATOM_EXAMINE, PROC_REF(examined))
@@ -146,7 +146,7 @@
 
 /datum/action/cooldown/toggle_arms/proc/hit_by_projectile(mob/living/nabber, obj/projectile/hitting_projectile, def_zone) //stolen from sleeping carp my beloved
 	SIGNAL_HANDLER
-	if(blade_type == (NABBER_ARM_TYPE_SYNDICATE || NABBER_ARM_TYPE_NUCLEAR))
+	if(blade_type == (NABBER_ARM_TYPE_SYNDICATE))
 		if(hitting_projectile.reflectable == TRUE) //Should only work on very few projectiles.
 			nabber.visible_message(
 				span_bolddanger("[nabber] deflects [hitting_projectile] aside with a shower of sparks! [nabber.p_They()] can deflect energy projectiles with [nabber.p_their()] glowing armblades!"),
