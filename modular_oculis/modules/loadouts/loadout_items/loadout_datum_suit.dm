@@ -24,16 +24,16 @@
 
 //SEC
 /datum/loadout_item/suit/hc_police_bomber_jacket
-    name = "Coalition Police Aerostatic Bomber Jacket"
-    item_path = /obj/item/clothing/suit/armor/vest/hc_police_jacket
-    restricted_roles = list(ALL_JOBS_SEC)
-    group = "Job-Locked"
+	name = "Coalition Police Aerostatic Bomber Jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/hc_police_jacket
+	restricted_roles = list(ALL_JOBS_SEC)
+	group = "Job-Locked"
 
 /datum/loadout_item/suit/hc_police_jacket
-    name = "Coalition Police Official Jacket"
-    item_path = /obj/item/clothing/suit/armor/vest/hc_police_jacket/suit
-    restricted_roles = list(ALL_JOBS_SEC)
-    group = "Job-Locked"
+	name = "Coalition Police Official Jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/hc_police_jacket/suit
+	restricted_roles = list(ALL_JOBS_SEC)
+	group = "Job-Locked"
 
 
 // HOS ONLY

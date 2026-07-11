@@ -13,6 +13,3 @@
 
 /datum/holiday/iris/greet()
 	return "On the day 12th of June, Iris Station was formed. Happy Birthday, Iris Station. Thanks for playing! <3"
-
-/datum/holiday/iris/getStationPrefix()
-	return pick("Cabriole","Iris","Anniversary","Aimatios")
