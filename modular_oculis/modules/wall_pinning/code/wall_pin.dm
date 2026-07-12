@@ -298,5 +298,6 @@
 
 /turf/closed/wall/attack_hand(mob/user, list/modifiers)
 	// Same as wall leaning, we only add the Element when we come interact with the wall, and not on Initialize() to not implode the map init time.
-	AddElement(/datum/element/wall_pin)
+	if(user.ckey)
+		AddElement(/datum/element/wall_pin)
 	. = ..()

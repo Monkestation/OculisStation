@@ -21,6 +21,6 @@
 
 	if(temporary_flavor_text)
 		if(length_char(temporary_flavor_text) <= 40)
-			. += span_notice("<b>They look different than usual:</b> [temporary_flavor_text]")
+			. += span_notice("<b>[p_They()] look[p_s()] different than usual:</b> [temporary_flavor_text]")
 		else
-			. += span_notice("<b>They look different than usual:</b> [copytext_char(temporary_flavor_text, 1, 37)]... <a href='byond://?src=[REF(src)];temporary_flavor=1'>More...</a>")
+			. += span_notice("<b>[p_They()] look[p_s()] different than usual:</b> [copytext_char(temporary_flavor_text, 1, 37)]... <a href='byond://?src=[REF(src)];temporary_flavor=1'>More...</a>")

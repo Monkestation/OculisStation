@@ -176,6 +176,7 @@
 /datum/supply_pack/companies/armor/bolt
 	cost = CARGO_CRATE_VALUE * 2
 
+/* // OCULIS EDIT REMOVAL START
 /datum/supply_pack/companies/armor/bolt/energy_shield
 	contains = list(/obj/item/clothing/accessory/energy_shield/civilian)
-
+*/ // OCULIS EDIT REMOVAL END

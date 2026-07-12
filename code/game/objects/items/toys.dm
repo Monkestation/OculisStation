@@ -1302,10 +1302,13 @@
 	icon_state = "detective"
 	toysay = "This airlock has grey jumpsuit and insulated glove fibers on it."
 
+
+/* // OCULIS EDIT REMOVAL START
 /obj/item/toy/figure/dsquad
 	name = "\improper Deathsquad Officer action figure"
 	icon_state = "dsquad"
 	toysay = "Kill 'em all!"
+*/ // OCULIS EDIT REMOVAL END
 
 /obj/item/toy/figure/engineer
 	name = "\improper Station Engineer action figure"
@@ -1834,7 +1837,7 @@ GLOBAL_LIST_EMPTY(intento_players)
  */
 /obj/item/toy/foam_runic_scepter
 	name = "foam scepter"
-	desc = "A foam replica of the scepters Wizards us on Vendormancy Soccer."
+	desc = "A foam replica of the scepters Wizards use on Vendormancy Soccer."
 	icon_state = "vendor_staff"
 	worn_icon_state = "vendor_staff" //For the back
 	inhand_icon_state = "vendor_staff"

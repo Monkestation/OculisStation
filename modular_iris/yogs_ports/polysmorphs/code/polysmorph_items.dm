@@ -1,7 +1,7 @@
 /datum/uplink_item/species_restricted/xeno_kit
 	name = "Xenomorph Organ Kit"
 	desc = "A kit containing some organs that were... 'donated' by your ancestors. Contains an autosurgeon, a plasma vessel, \
-	 	a resin spinner, alongside both acid and neurotoxin glands."
+			a resin spinner, alongside both acid and neurotoxin glands."
 	item = /obj/item/storage/box/syndie_kit/xeno_kit
 	cost = 15
 	restricted_species = list(SPECIES_POLYSMORPH)

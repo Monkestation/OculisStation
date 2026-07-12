@@ -11,7 +11,7 @@
 	var/mob/living/carbon/human/nabber = owner
 	if(!do_after(nabber, 1 SECONDS, nabber)) //Makes it so its difficult to abuse these in combat to avoid flashes
 		StartCooldown()
-		nabber.balloon_alert(nabber, "Stand still!")
+		nabber.balloon_alert(nabber, "stand still!")
 		return FALSE
 	eyes.toggle_shielding()
 	StartCooldown()
