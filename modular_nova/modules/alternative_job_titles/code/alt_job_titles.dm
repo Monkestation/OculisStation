@@ -296,28 +296,17 @@
 		"Physician Assistant",
 		"Emergency Physician",
 		"Registered Nurse",
-		"Theoretical Physician", //OCULIS ADDITION
+		"Theoretical Physician", //OCULIS EDIT ADDITION
 	)
 
 /datum/job/engineering_guard //see orderly
 	alt_titles = list(
 		"Engineering Guard",
-		"OSHA Enforcer", //OCULIS EDIT, alt titles
-		"Engineering Guard In-Training", //OCULIS EDIT, alt titles
-		"Equipment Inspector", //OCULIS EDIT, alt titles
+		"OSHA Enforcer", //OCULIS EDIT ADDITION, alt titles
+		"Engineering Guard In-Training", //OCULIS EDIT ADDITION, alt titles
+		"Equipment Inspector", //OCULIS EDIT ADDITION, alt titles
 		"Power Plant Guard",
 		"Construction Guard",
-	)
-
-/datum/job/explorer // IRIS EDIT - EXPLORER JOB
-	alt_titles = list(
-		"Explorer",
-		"Surveyor",
-		"Pioneer",
-		"Navigator",
-		"Frontiersperson",
-		"Apprentice Explorer",
-		"Union Explorer", //OCULIS ADDITION
 	)
 
 /datum/job/geneticist
@@ -338,7 +327,7 @@
 		"Employment Officer",
 		"Human Resources Officer",
 		"Executive Officer",
-		"Senior Sapient Resources Agent", // IRIS EDIT - new title
+		"Senior Sapient Resources Agent", // OCULIS EDIT ADDITION - new title
 	)
 
 /datum/job/head_of_security
@@ -371,7 +360,7 @@
 		"Lawyer",
 		"Barrister",
 		"Defense Attorney",
-		"Sophont Resources Agent", // OCULIS EDIT
+		"Sophont Resources Agent", // OCULIS EDIT ADDITION
 		// "Internal Affairs Agent", // OCULIS EDIT REMOVAL
 		"Legal Clerk",
 		"Prosecutor",
@@ -404,7 +393,7 @@
 	alt_titles = list(
 		"Orderly",
 		"Medical Guard",
-		"Medical Guard In-Training", //OCULIS ADDITION
+		"Medical Guard In-Training", //OCULIS EDIT ADDITION
 	) //other dept guards' alt-titles should be kept to [department] guard to avoid confusion, unless the department gets a re-do.
 
 /datum/job/paramedic
@@ -471,8 +460,8 @@
 /datum/job/science_guard //See orderly
 	alt_titles = list(
 		"Science Guard",
-		"Research Facility Protector", //OCULIS EDIT, alt titles
-		"Science Guard Trainee", //OCULIS EDIT, alt titles
+		"Research Facility Protector", //OCULIS EDIT ADDITION, alt titles
+		"Science Guard Trainee", //OCULIS EDIT ADDITION, alt titles
 		"Hazardous Experiment Overwatch",
 		"Xenobiological Recontainment Officer",
 		"Expedition Protection Agent",
