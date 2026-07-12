@@ -267,11 +267,7 @@
 // Advanced implants, some of these can be printed but this is a way to get them before tech if you REALLY wanted
 /datum/supply_pack/companies/medical/cyber_implants
 	cost = CARGO_CRATE_VALUE * 1.5
-	// OCULIS EDIT ADDITION START
-	express_lock = TRUE
-	access = ACCESS_WEAPONS
-	access_view = ACCESS_WEAPONS
-	// OCULIS EDIT ADDITION END
+	express_lock = TRUE // OCULIS EDIT ADDITION
 
 /datum/supply_pack/companies/medical/cyber_implants/razorwire
 	name = "Razorwire Spool Implant"
