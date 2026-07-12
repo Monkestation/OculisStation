@@ -196,7 +196,7 @@
 	intensity_restriction = TRUE
 
 /datum/round_event_control/fake_virus
-	max_occurrences = 1
+	max_occurrences = 0 // OCULIS EDIT CHANGE - ORIGINAL: max_occurrences = 1
 	weight = LOW_EVENT_FREQ
 
 /datum/round_event_control/heart_attack
