@@ -119,8 +119,8 @@
 		"Bouncer",
 		"Service Guard",
 		"Doorman",
-		"Doorwoman", /// OCULIS addition
-		"Service Guard Cadet", //OCULIS ADDITION
+		"Doorwoman", // OCULIS EDIT ADDITION
+		"Service Guard Cadet", // OCULIS EDIT ADDITION
 		"Civil Protection Officer",
 		"Public Peacekeeper",
 	)
@@ -219,7 +219,7 @@
 		"Comedian",
 		"Jester",
 		"Joker",
-		"Prankster", /// OCULIS addition
+		"Prankster", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/cook
@@ -242,7 +242,7 @@
 		"Funeral Director",
 		"Medical Examiner",
 		"Mortician",
-		"Undertaker", /// OCULIS addition
+		"Undertaker", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/curator
@@ -252,7 +252,7 @@
 		"Conservator",
 		"Journalist",
 		"Librarian",
-		"Scholar", /// OCULIS addition
+		"Scholar", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/customs_agent
@@ -328,7 +328,7 @@
 		"Gene Analyzer",
 		"Gene Tailor",
 		"Mutation Researcher",
-		"Genetic Engineer", /// OCULIS addition
+		"Genetic Engineer", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/head_of_personnel
@@ -350,7 +350,7 @@
 		"Security Supervisor",
 		"Security Director",
 		"Sheriff",
-		"Marshall", /// OCULIS addition
+		"Marshall", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/janitor
@@ -502,7 +502,7 @@
 		"Security Specialist",
 		"Deputy",
 		"Constable",
-		"Peace Officer", /// OCULIS addition
+		"Peace Officer", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/shaft_miner
