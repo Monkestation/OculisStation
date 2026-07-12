@@ -66,6 +66,7 @@
 	RegisterSignal(human_who_gained_species, COMSIG_CARBON_DEFIB_HEART_CHECK, PROC_REF(defib_check))
 	RegisterSignal(human_who_gained_species, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(rebuild_check))
 	RegisterSignal(human_who_gained_species, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
+	RegisterSignal(human_who_gained_species, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 	// nutrition = health, so give people a head start
 	human_who_gained_species.set_nutrition(NUTRITION_LEVEL_WELL_FED)
 
@@ -81,14 +82,16 @@
 		COMSIG_CARBON_DEFIB_HEART_CHECK,
 		COMSIG_ATOM_ITEM_INTERACTION,
 		COMSIG_ATOM_EXAMINE,
+		COMSIG_LIVING_LIFE,
 	))
 
 	human_who_lost_species.physiology.stamina_mod /= 0.6
 	human_who_lost_species.physiology.stun_mod /= 0.6
 	human_who_lost_species.physiology.knockdown_mod /= 1.2
 
-/datum/species/golem/spec_life(mob/living/carbon/human/source, seconds_per_tick)
-	. = ..()
+/datum/species/golem/proc/on_life(mob/living/carbon/human/source, seconds_per_tick)
+	SIGNAL_HANDLER
+
 	if(source.nutrition <= 20)
 		// this is "hard crit" for golems
 		source.Unconscious(1.5 SECONDS * seconds_per_tick)
@@ -209,7 +212,14 @@
 	if(damage_type != BURN && damage_type != BRUTE)
 		return
 
-	source.adjust_nutrition(round(-3 * damage_amt, 0.01), forced = TRUE)
+	// source.adjust_nutrition(round(-3 * damage_amt, 0.01), forced = TRUE) // OCULIS EDIT REMOVAL
+	// OCULIS EDIT ADDITION START - Gets number of golem body parts for use in calculating nutrition damage.
+	var/num_golem = 0
+	for(var/obj/item/bodypart/bpcheck in source.bodyparts)
+		if(bpcheck.bodytype & BODYTYPE_GOLEM)
+			num_golem += 1
+	source.adjust_nutrition(round(-3 * damage_amt * num_golem / BODYPARTS_DEFAULT_MAXIMUM, 0.01), forced = TRUE)
+	// OCULIS EDIT ADDITION END
 
 /datum/species/golem/proc/check_nutrition(mob/living/carbon/human/source)
 	SIGNAL_HANDLER

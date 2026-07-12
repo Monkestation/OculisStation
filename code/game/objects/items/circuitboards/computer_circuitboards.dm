@@ -1,4 +1,4 @@
-/obj/item/circuitboard/computer
+/obj/item/circuitboard/computer/obj/machinery/computer/upload/ai/no_lock
 	name = "Generic"
 	abstract_type = /obj/item/circuitboard/computer
 	name_extension = "(Computer Board)"
@@ -14,11 +14,21 @@
 	name = "AI Upload"
 	greyscale_colors = CIRCUIT_COLOR_COMMAND
 	build_path = /obj/machinery/computer/upload/ai
+	req_one_access = list(ACCESS_AI_UPLOAD)
+
+/obj/item/circuitboard/computer/aiupload/no_lock
+	build_path = /obj/machinery/computer/upload/ai/no_lock
+	req_one_access = null
 
 /obj/item/circuitboard/computer/borgupload
 	name = "Cyborg Upload"
 	greyscale_colors = CIRCUIT_COLOR_COMMAND
+	req_one_access = list(ACCESS_AI_UPLOAD)
 	build_path = /obj/machinery/computer/upload/borg
+
+/obj/item/circuitboard/computer/borgupload/no_lock
+	req_one_access = null
+	build_path = /obj/machinery/computer/upload/borg/no_lock
 
 /obj/item/circuitboard/computer/bsa_control
 	name = "Bluespace Artillery Controls"
@@ -193,7 +203,7 @@
 	build_path = /obj/machinery/computer/camera_advanced/base_construction/aux
 
 /obj/item/circuitboard/computer/base_construction/centcom
-	name = "Centcom Base Construction Console"
+	name = "SectCom Base Construction Console" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "Centcom Base Construction Console"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/camera_advanced/base_construction/centcom
 

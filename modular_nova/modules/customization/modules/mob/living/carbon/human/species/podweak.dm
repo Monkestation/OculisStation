@@ -30,8 +30,16 @@
 
 	always_customizable = FALSE
 
-/datum/species/pod/podweak/spec_life(mob/living/carbon/human/H, seconds_per_tick)
+/datum/species/pod/podweak/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons, replace_missing)
 	. = ..()
+	RegisterSignal(human_who_gained_species, COMSIG_LIVING_LIFE, PROC_REF(on_life))
+
+/datum/species/pod/podweak/on_species_loss(mob/living/carbon/human/human, datum/species/new_species, pref_load)
+	. = ..()
+	UnregisterSignal(human, COMSIG_LIVING_LIFE)
+
+/datum/species/pod/podweak/proc/on_life(mob/living/carbon/human/H, seconds_per_tick)
+	SIGNAL_HANDLER
 	if(H.stat != CONSCIOUS)
 		return
 
@@ -44,7 +52,7 @@
 			H.set_nutrition(NUTRITION_LEVEL_ALMOST_FULL)
 		if(light_amount > 0.2) //if there's enough light, heal
 			var/need_mob_update
-			need_mob_update += H.heal_overall_damage(0.5 * seconds_per_tick, 0.35 * seconds_per_tick, updating_health = FALSE)
+			need_mob_update += H.heal_overall_damage(0.5 * seconds_per_tick, 0.35 * seconds_per_tick, updating_health = FALSE, required_bodytype = BODYTYPE_PLANT) // OCULIS EDIT, ORIGINAL: need_mob_update += H.heal_overall_damage(0.5 * seconds_per_tick, 0.35 * seconds_per_tick, updating_health = FALSE)
 			need_mob_update += H.adjust_stamina_loss(-0.4 * seconds_per_tick, updating_stamina = FALSE)
 			need_mob_update += H.adjust_tox_loss(-0.1 * seconds_per_tick, updating_health = FALSE)
 			need_mob_update += H.adjust_oxy_loss(-0.2 * seconds_per_tick, updating_health = FALSE)

@@ -824,7 +824,7 @@
 
 /obj/item/clothing/head/hooded/cloakhood/zuliecloak
 	name = "NT special issue"
-	desc = "This hat is unquestionably the best one, bluespaced to and from CentCom. It smells of Fish and Tea with a hint of antagonism"
+	desc = "This hat is unquestionably the best one, bluespaced to and from SectCom. It smells of Fish and Tea with a hint of antagonism" // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "This hat is unquestionably the best one, bluespaced to and from CentCom. It smells of Fish and Tea with a hint of antagonism"
 	icon_state = "zuliecap"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
@@ -1276,7 +1276,7 @@
 
 //Donation reward for Hacker T.Dog
 /obj/item/clothing/head/nanotrasen_consultant/hubert
-	name = "CC ensign's cap"
+	name = "SC ensign's cap" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CC ensign's cap"
 	desc = "A tailor made peaked cap, denoting the rank of Ensign."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
@@ -1284,7 +1284,7 @@
 
 //Donation reward for Hacker T.Dog
 /obj/item/clothing/suit/armor/vest/nanotrasen_consultant/hubert
-	name = "CC ensign's armoured vest"
+	name = "SC ensign's armoured vest" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CC ensign's armoured vest"
 	desc = "A tailor made Ensign's armoured vest, providing the same protection - but in a more stylish fashion."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
@@ -1292,7 +1292,7 @@
 
 //Donation reward for Hacker T.Dog
 /obj/item/clothing/under/rank/nanotrasen_consultant/hubert
-	name = "CC ensign's uniform"
+	name = "SC ensign's uniform" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CC ensign's uniform"
 	desc = "A tailor-made Ensign's uniform, various medals and chains hang down from it."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'

@@ -326,6 +326,7 @@
 /datum/cardboard_cutout/ash_walker/get_name()
 	return generate_random_name_species_based(species_type = /datum/species/lizard)
 
+/* // OCULIS EDIT REMOVAL START
 /datum/cardboard_cutout/death_squad
 	name = "Deathsquad Officer"
 	applied_name = "deathsquad officer"
@@ -334,6 +335,7 @@
 
 /datum/cardboard_cutout/death_squad/get_name()
 	return pick(GLOB.commando_names)
+*/ // OCULIS EDIT REMOVAL END
 
 /datum/cardboard_cutout/ian
 	name = "Ian"

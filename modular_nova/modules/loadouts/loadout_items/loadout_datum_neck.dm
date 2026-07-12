@@ -250,7 +250,7 @@
 	group = "Bunny Ties"
 
 /datum/loadout_item/neck/bowtiecc
-	name = "Tie - Centcom Bow Collar"
+	name = "Tie - SectCom Bow Collar" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "Tie - Centcom Bow Collar"
 	item_path = /obj/item/clothing/neck/tie/bunnytie/centcom
 	group = "Bunny Ties"
 
@@ -504,7 +504,7 @@
 
 /datum/loadout_item/neck/security_cape
 	name = "Security Cape"
-	item_path = /obj/item/clothing/neck/security_cape
+	item_path = /obj/item/clothing/neck/security_cape/shoulder
 	group = "Cloaks and Shrouds"
 
 /datum/loadout_item/neck/gags_shroud
@@ -609,13 +609,24 @@
 	name = "Head of Security's Mantle"
 	item_path = /obj/item/clothing/neck/mantle/hosmantle
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
-	group = "Job-Locked"
+	group = "Guard"
 
 /datum/loadout_item/neck/security_gauntlet
-	name = "Security Gauntlet"
+	name = "Guard Gauntlet"
 	item_path = /obj/item/clothing/neck/security_cape/armplate
-	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)	// OCULIS EDIT - ORIGINAL: restricted_roles = list(ALL_JOBS_SEC)
-	group = "Job-Locked"
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+	group = "Guard"
+
+/datum/loadout_item/neck/security_caped_gauntlet
+	name = "Guard Caped Gauntlet (Colorable)"
+	item_path = /obj/item/clothing/neck/security_cape/armplate_caped
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+	group = "Guard"
+
+/datum/loadout_item/neck/security_cape
+	name = "Guard Cape (Colorable)"
+	item_path = /obj/item/clothing/neck/security_cape/shoulder
+	group = "Guard"
 
 /*
 *	DONATOR

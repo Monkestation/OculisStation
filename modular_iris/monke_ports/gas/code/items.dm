@@ -1,10 +1,4 @@
 //HANDLES ALL NABBER-UNIQUE ITEMS, INCLUDING TRAITOR ITEMS\\
-//Defines. Handles what type of arm to give. Always use blank or /type to prevent issues with regular arms.
-#define NABBER_ARM_TYPE_REGULAR ""
-#define NABBER_ARM_TYPE_SHARPENED "/sharp"
-#define NABBER_ARM_TYPE_SYNDICATE "/syndicate"
-#define NABBER_ARM_TYPE_NUCLEAR 3 //Unimplemented for now.
-#define NABBER_ARM_TYPE_PACIFIED 4 //Unimplemented for now.
 
 //Moves all nabber items to its own folder. Note: Do not add to toggle_arms unless you want this to be an unreadable mess.
 
@@ -152,7 +146,7 @@
 		var/obj/machinery/computer/C = target
 		C.attack_alien(user)
 
-                      //TRAITOR ITEMS\\
+//TRAITOR ITEMS\\
 
 /datum/uplink_item/device_tools/nabber_energyblades
 	name = "Energy Projector Attachment Case (EPAC)"

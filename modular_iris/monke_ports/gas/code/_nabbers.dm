@@ -4,7 +4,7 @@
 
 //Nabbers armor datum. Change this to change their resistances. Is now affected by armor piercing/etc
 //By default, this is a way easier method of balancing a species rather than directly affecting burn/brute_mod, as this takes into account AP.
-//Currently Nabbers also recieve a 5% brute damage reduction atop of this, and a 1.8x burn modifier, atop of their pre-existing heat modifiers.
+//Currently Nabbers also receive a 5% brute damage reduction atop of this, and a 1.8x burn modifier, atop of their pre-existing heat modifiers.
 //Whenever you adjust these variables, make sure to adjust their damage reduction, heat modifiers, and burn vulnerability to prevent scaling issues.
 //All values are currently temporary and will require further balancing as eye protection, and nabber nukie modsuits are added.
 
@@ -84,6 +84,7 @@
 	//threat_mod = new(nabber)
 	//threat_mod.Grant(nabber)
 	nabber.physiology.armor = nabber.physiology.armor.add_other_armor(/datum/armor/nabbers)
+	RegisterSignal(nabber, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 
 /datum/species/nabber/get_species_description()
 	return "(PH) PUT IRIS LORE HERE IDK"
@@ -104,9 +105,9 @@
 	qdel(camouflage)
 	C.physiology.armor = C.physiology.armor.subtract_other_armor(/datum/armor/nabbers)
 	//threat_mod.Destroy()
+	UnregisterSignal(C, COMSIG_LIVING_LIFE)
 
-/datum/species/nabber/spec_life(mob/living/carbon/human/H, seconds_per_tick, times_fired)
-	. = ..()
+/datum/species/nabber/proc/on_life(mob/living/carbon/human/H, seconds_per_tick)
 	if(H.stat == DEAD) //Should never allow for them to keep burning forever
 		return
 	//Handles bonus burn damage

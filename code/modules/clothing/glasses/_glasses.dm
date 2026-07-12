@@ -621,16 +621,7 @@
 	color_cutoffs = null
 	vision_flags = SEE_TURFS|SEE_MOBS|SEE_OBJS
 	glass_colour_type = /datum/client_colour/glass_colour/lightblue
-
-/obj/item/clothing/glasses/thermal/xray/equipped(mob/living/carbon/human/user, slot)
-	. = ..()
-	if(!(slot & ITEM_SLOT_EYES) || !istype(user))
-		return
-	ADD_TRAIT(user, TRAIT_XRAY_VISION, GLASSES_TRAIT)
-
-/obj/item/clothing/glasses/thermal/xray/dropped(mob/living/carbon/human/user)
-	. = ..()
-	REMOVE_TRAIT(user, TRAIT_XRAY_VISION, GLASSES_TRAIT)
+	clothing_traits = list(TRAIT_XRAY_VISION)
 
 /obj/item/clothing/glasses/thermal/syndi
 	name = "chameleon thermals"
@@ -741,6 +732,7 @@
 		TRAIT_SECURITY_HUD,
 		TRAIT_DIAGNOSTIC_HUD,
 		TRAIT_BOT_PATH_HUD,
+		TRAIT_NEARSIGHTED_CORRECTED, // OCULIS EDIT ADDITION
 	)
 	var/xray = FALSE
 	pickup_sound = SFX_GOGGLES_PICKUP

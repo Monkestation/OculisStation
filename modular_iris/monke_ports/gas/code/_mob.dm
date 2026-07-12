@@ -7,7 +7,7 @@
 	var/held_accessory //neccessary for nabbers having cool shit
 	var/held_accessory_path // should not exist unless you're using things like custom arm overlays
 
-/mob/living/carbon/human/proc/modify_accessory_overlay(var/accessory) //Repurposing this to be for all accessories/mods that need a spare layer.
+/mob/living/carbon/human/proc/modify_accessory_overlay(accessory) //Repurposing this to be for all accessories/mods that need a spare layer.
 	var/mob/living/carbon/human/human_wearer = src
 	var/wanted_accessory = accessory
 	var/image/held_overlay

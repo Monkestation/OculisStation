@@ -1,5 +1,5 @@
 /obj/machinery/vending/clothing
-        product_categories_oculis = list(
+	product_categories_oculis = list(
 		list(
 			"name" = "Head",
 			"icon" = "hat-cowboy",

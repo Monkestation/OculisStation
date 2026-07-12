@@ -1,7 +1,7 @@
 /* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/strange_object
 	name = "Strange Object"
-	description = "Nanotrasen has taken an interest in strange objects. Find one in maintenance, and ship it off to CentCom right away."
+	description = "Nanotrasen has taken an interest in strange objects. Find one in maintenance, and ship it off to SectCom right away." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Nanotrasen has taken an interest in strange objects. Find one in maintenance, and ship it off to CentCom right away."
 	reward = CARGO_CRATE_VALUE * 2.4
 	wanted_types = list(/obj/item/relic = TRUE)
 */ // NOVA EDIT REMOVAL END
@@ -9,14 +9,14 @@
 /* NOVA EDIT REMOVAL START - Removes bounties, these are just boring.
 /datum/bounty/item/assistant/scooter
 	name = "Scooter"
-	description = "Nanotrasen has determined walking to be wasteful. Ship a scooter to CentCom to speed operations up."
+	description = "Nanotrasen has determined walking to be wasteful. Ship a scooter to SectCom to speed operations up." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Nanotrasen has determined walking to be wasteful. Ship a scooter to CentCom to speed operations up."
 	reward = CARGO_CRATE_VALUE * 2.16 // the mat hoffman
 	wanted_types = list(/obj/vehicle/ridden/scooter = TRUE)
 	include_subtypes = FALSE
 
 /datum/bounty/item/assistant/skateboard
 	name = "Skateboard"
-	description = "Nanotrasen has determined walking to be wasteful. Ship a skateboard to CentCom to speed operations up."
+	description = "Nanotrasen has determined walking to be wasteful. Ship a skateboard to SectCom to speed operations up." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Nanotrasen has determined walking to be wasteful. Ship a skateboard to CentCom to speed operations up."
 	reward = CARGO_CRATE_VALUE * 1.8 // the tony hawk
 	wanted_types = list(
 		/obj/vehicle/ridden/scooter/skateboard = TRUE,
@@ -26,14 +26,14 @@
 
 /datum/bounty/item/assistant/stunprod
 	name = "Stunprod"
-	description = "CentCom demands a stunprod to use against dissidents. Craft one, then ship it."
+	description = "SectCom demands a stunprod to use against dissidents. Craft one, then ship it." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "CentCom demands a stunprod to use against dissidents. Craft one, then ship it."
 	reward = CARGO_CRATE_VALUE * 2.6
 	wanted_types = list(/obj/item/melee/baton/security/cattleprod = TRUE)
 
 /* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/soap
 	name = "Soap"
-	description = "Soap has gone missing from CentCom's bathrooms and nobody knows who took it. Replace it and be the hero CentCom needs."
+	description = "Soap has gone missing from SectCom's bathrooms and nobody knows who took it. Replace it and be the hero CentCom needs." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Soap has gone missing from CentCom's bathrooms and nobody knows who took it. Replace it and be the hero CentCom needs."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 3
 	wanted_types = list(/obj/item/soap = TRUE)
@@ -41,14 +41,14 @@
 
 /datum/bounty/item/assistant/spear
 	name = "Spears"
-	description = "CentCom's security forces are going through budget cuts. You will be paid if you ship a set of spears."
+	description = "SectCom's security forces are going through budget cuts. You will be paid if you ship a set of spears." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "CentCom's security forces are going through budget cuts. You will be paid if you ship a set of spears."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 5
 	wanted_types = list(/obj/item/spear = TRUE)
 
 /datum/bounty/item/assistant/toolbox
 	name = "Stocked Toolbox"
-	description = "There's an absence of robustness at Central Command. Ship them a fully packed toolbox as a solution, containing a screwdriver, wrench, welding tool, crowbar, analyzer, and wirecutters."
+	description = "There's an absence of robustness at Sectorial Command. Ship them a fully packed toolbox as a solution, containing a screwdriver, wrench, welding tool, crowbar, analyzer, and wirecutters." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "There's an absence of robustness at Central Command. Ship them a fully packed toolbox as a solution, containing a screwdriver, wrench, welding tool, crowbar, analyzer, and wirecutters."
 	reward = CARGO_CRATE_VALUE * 4
 	wanted_types = list(/obj/item/storage/toolbox = TRUE)
 	/// List of tools that we want to see sorted into a toolbox
@@ -80,7 +80,7 @@
 
 /datum/bounty/item/assistant/statue
 	name = "Statue"
-	description = "Central Command would like to commission an artsy statue for the lobby. Ship one out, when possible."
+	description = "Sectorial Command would like to commission an artsy statue for the lobby. Ship one out, when possible." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Central Command would like to commission an artsy statue for the lobby. Ship one out, when possible."
 	reward = CARGO_CRATE_VALUE * 4
 	wanted_types = list(/obj/structure/statue = TRUE)
 
@@ -93,7 +93,7 @@
 
 /datum/bounty/item/assistant/cheesiehonkers
 	name = "Cheesie Honkers"
-	description = "Apparently the company that makes Cheesie Honkers is going out of business soon. CentCom wants to stock up before it happens!"
+	description = "Apparently the company that makes Cheesie Honkers is going out of business soon. SectCom wants to stock up before it happens!" // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Apparently the company that makes Cheesie Honkers is going out of business soon. CentCom wants to stock up before it happens!"
 	reward = CARGO_CRATE_VALUE * 2.4
 	required_count = 3
 	wanted_types = list(/obj/item/food/cheesiehonkers = TRUE)
@@ -101,7 +101,7 @@
 
 /datum/bounty/item/assistant/baseball_bat
 	name = "Baseball Bat"
-	description = "Baseball fever is going on at CentCom! Be a dear and ship them some baseball bats, so that management can live out their childhood dream."
+	description = "Baseball fever is going on at SectCom! Be a dear and ship them some baseball bats, so that management can live out their childhood dream." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Baseball fever is going on at CentCom! Be a dear and ship them some baseball bats, so that management can live out their childhood dream."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 5
 	wanted_types = list(/obj/item/melee/baseball_bat = TRUE)
@@ -114,21 +114,21 @@
 
 /datum/bounty/item/assistant/donut
 	name = "Donuts"
-	description = "CentCom's security forces are facing heavy losses against the Syndicate. Ship donuts to raise morale."
+	description = "SectCom's security forces are facing heavy losses against the Syndicate. Ship donuts to raise morale." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "CentCom's security forces are facing heavy losses against the Syndicate. Ship donuts to raise morale."
 	reward = CARGO_CRATE_VALUE * 6
 	required_count = 6
 	wanted_types = list(/obj/item/food/donut = TRUE)
 
 /datum/bounty/item/assistant/donkpocket
 	name = "Donk-Pockets"
-	description = "Consumer safety recall: Warning. Donk-Pockets manufactured in the past year contain hazardous lizard biomatter. Return units to CentCom immediately."
+	description = "Consumer safety recall: Warning. Donk-Pockets manufactured in the past year contain hazardous lizard biomatter. Return units to SectCom immediately." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Consumer safety recall: Warning. Donk-Pockets manufactured in the past year contain hazardous lizard biomatter. Return units to CentCom immediately."
 	reward = CARGO_CRATE_VALUE * 6
 	required_count = 10
 	wanted_types = list(/obj/item/food/donkpocket = TRUE)
 
 /datum/bounty/item/assistant/monkey_hide
 	name = "Monkey Hide"
-	description = "One of the scientists at CentCom is interested in testing products on monkey skin. Your mission is to acquire monkey's hide and ship it."
+	description = "One of the scientists at SectCom is interested in testing products on monkey skin. Your mission is to acquire monkey's hide and ship it." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "One of the scientists at CentCom is interested in testing products on monkey skin. Your mission is to acquire monkey's hide and ship it."
 	reward = CARGO_CRATE_VALUE * 3
 	wanted_types = list(/obj/item/stack/sheet/animalhide/carbon/monkey = TRUE)
 
@@ -166,7 +166,7 @@
 
 /datum/bounty/item/assistant/potted_plants
 	name = "Potted Plants"
-	description = "Central Command is looking to commission a new BirdBoat-class station. You've been ordered to supply the potted plants."
+	description = "Sectorial Command is looking to commission a new BirdBoat-class station. You've been ordered to supply the potted plants." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Central Command is looking to commission a new BirdBoat-class station. You've been ordered to supply the potted plants."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 3
 	wanted_types = list(
@@ -176,14 +176,14 @@
 
 /datum/bounty/item/assistant/monkey_cubes
 	name = "Monkey Cubes"
-	description = "Due to a recent genetics accident, Central Command is in serious need of monkeys. Your mission is to ship monkey cubes."
+	description = "Due to a recent genetics accident, Sectorial Command is in serious need of monkeys. Your mission is to ship monkey cubes." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Due to a recent genetics accident, Central Command is in serious need of monkeys. Your mission is to ship monkey cubes."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 3
 	wanted_types = list(/obj/item/food/monkeycube = TRUE)
 
 /datum/bounty/item/assistant/ied
 	name = "IED"
-	description = "Nanotrasen's maximum security prison at CentCom is undergoing personnel training. Ship a handful of IEDs to serve as a training tools."
+	description = "Nanotrasen's maximum security prison at SectCom is undergoing personnel training. Ship a handful of IEDs to serve as a training tools." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Nanotrasen's maximum security prison at CentCom is undergoing personnel training. Ship a handful of IEDs to serve as a training tools."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 3
 	wanted_types = list(/obj/item/grenade/iedcasing = TRUE)
@@ -191,7 +191,7 @@
 /* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/corgimeat
 	name = "Raw Corgi Meat"
-	description = "The Syndicate recently stole all of CentCom's corgi meat. Ship out a replacement immediately."
+	description = "The Syndicate recently stole all of SectCom's corgi meat. Ship out a replacement immediately." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "The Syndicate recently stole all of CentCom's corgi meat. Ship out a replacement immediately."
 	reward = CARGO_CRATE_VALUE * 6
 	wanted_types = list(/obj/item/food/meat/slab/corgi = TRUE)
 

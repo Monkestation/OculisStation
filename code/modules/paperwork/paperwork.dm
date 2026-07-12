@@ -70,7 +70,7 @@
 			. += detailed_desc
 		else
 			if(stamped)
-				. += span_info("It looks like these documents have already been stamped. Now they can be returned to Central Command.")
+				. += span_info("It looks like these documents have already been stamped. Now they can be returned to Sectorial Command.") // OCULIS EDIT, SectCommening 2, ORIGINAL: . += span_info("It looks like these documents have already been stamped. Now they can be returned to Central Command.")
 			else
 				var/datum/job/stamp_title = stamp_job
 				var/title = initial(stamp_title.title)
@@ -150,7 +150,7 @@
 /obj/item/paperwork/service/Initialize(mapload)
 	. = ..()
 
-	detailed_desc += span_info(" You begin scanning over the document. This is a standard Nanotrasen NT-435Z3 form used for requests to Central Command.")
+	detailed_desc += span_info(" You begin scanning over the document. This is a standard Nanotrasen NT-435Z3 form used for requests to Sectorial Command.") // OCULIS EDIT, SectCommening 2, ORIGINAL: detailed_desc += span_info(" You begin scanning over the document. This is a standard Nanotrasen NT-435Z3 form used for requests to Central Command.")
 	detailed_desc += span_info(" Looks like a nearby station has sent in a MAXIMUM priority request for coal, in seemingly ridiculous quantities.")
 	detailed_desc += span_info(" The reason listed for the request seems to be hastily filled in -- 'Seeking alternative methods to power the station.'")
 	detailed_desc += span_info(" A MAXIMUM priority request like this is nothing to balk at. You should probably stamp this.")
@@ -229,7 +229,7 @@
 		if(voided)
 			. += span_notice("It looks like it's been marked as 'VOID' on the front. It's unlikely that anyone will accept these now.")
 		else
-			. += span_notice("The stamp on the front appears to be smudged and faded. Central Command will probably still accept these, right?")
+			. += span_notice("The stamp on the front appears to be smudged and faded. Sectorial Command will probably still accept these, right?") // OCULIS EDIT, SectCommening 2, ORIGINAL: . += span_notice("The stamp on the front appears to be smudged and faded. Central Command will probably still accept these, right?")
 	else
 		. += span_notice("These appear to just be a photocopy of the original documents.")
 
@@ -254,7 +254,7 @@
 /obj/item/paperwork/ancient/Initialize(mapload)
 	. = ..()
 
-	detailed_desc = span_notice("It's impossible to really tell how old these are or what they're for, but Central Command might appreciate them anyway.")
+	detailed_desc = span_notice("It's impossible to really tell how old these are or what they're for, but Sectorial Command might appreciate them anyway.") // OCULIS EDIT, SectCommening 2, ORIGINAL: detailed_desc = span_notice("It's impossible to really tell how old these are or what they're for, but Central Command might appreciate them anyway.")
 
 	var/static/list/paperwork_to_use //Make the ancient paperwork function like one of the main types
 	if(!paperwork_to_use)

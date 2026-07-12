@@ -498,7 +498,7 @@
 #define IFF_FACTION_SYNDICATE "Syndicate"
 #define IFF_FACTION_CREW "Crew"
 #define IFF_FACTION_SEC_COMMAND "Security & Command"
-#define IFF_FACTION_CENTCOM "CentCom"
+#define IFF_FACTION_CENTCOM "SectCom" // OCULIS EDIT, SectCommening 2, ORIGINAL: #define IFF_FACTION_CENTCOM "CentCom"
 #define IFF_FACTION_EVERYONE "Non-Allies"
 
 /obj/item/organ/eyes/robotic/tacvisor
