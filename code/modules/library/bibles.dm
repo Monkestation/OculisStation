@@ -66,7 +66,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 
 /obj/item/book/bible
 	name = "bible"
-	desc = "Mend the flesh and soul." /// OCULIS EDIT (ORIGINAL: "Apply to head repeatedly.")
+	desc = "Apply to head repeatedly."
 	icon = 'icons/obj/storage/book.dmi'
 	icon_state = "bible"
 	worn_icon_state = "bible"
@@ -229,9 +229,9 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 		if(affecting.heal_damage(heal_amt, heal_amt, required_bodytype = BODYTYPE_ORGANIC))
 			built_in_his_image.update_damage_overlays()
 
-	built_in_his_image.visible_message(span_notice("[user] mends [built_in_his_image] with the power of [deity_name]!")) /// OCULIS EDIT (ORIGINAL: "[user] heals [built_in_his_image] with the power of [deity_name]!")
-	to_chat(built_in_his_image, span_boldnotice("The power of [deity_name] mends you!")) /// OCULIS EDIT (ORIGINAL: "May the power of [deity_name] compel you to be healed!")
-	playsound(built_in_his_image, 'sound/effects/magic/staff_healing.ogg', 25, TRUE, -1) /// OCULIS EDIT (ORIGINAL: SFX_PUNCH)
+	built_in_his_image.visible_message(span_notice("[user] heals [built_in_his_image] with the power of [deity_name]!"))
+	to_chat(built_in_his_image, span_boldnotice("May the power of [deity_name] compel you to be healed!"))
+	playsound(built_in_his_image, SFX_PUNCH, 25, TRUE, -1)
 	built_in_his_image.add_mood_event("blessing", /datum/mood_event/blessing)
 	return BLESSING_SUCCESS
 
@@ -259,8 +259,8 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 
 	if(target_mob.stat == DEAD)
 		if(GLOB.religious_sect?.sect_dead_bless(target_mob, user) == BLESSING_FAILED)
-			target_mob.visible_message(span_danger("[user] fails to mend [target_mob]'s lifeless corpse with [src].")) /// OCULIS EDIT (ORIGINAL: ("[user] smacks [target_mob]'s lifeless corpse with [src].")
-			playsound(target_mob, 'sound/effects/magic/staff_healing.ogg', 25, TRUE, -1) /// OCULIS EDIT (ORIGINAL: SFX_PUNCH)
+			target_mob.visible_message(span_danger("[user] smacks [target_mob]'s lifeless corpse with [src]."))
+			playsound(target_mob, SFX_PUNCH, 25, TRUE, -1)
 		return
 
 	if(user == target_mob)
@@ -282,9 +282,9 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 		if(!istype(carbon_target.head, /obj/item/clothing/head/helmet))
 			carbon_target.adjust_organ_loss(ORGAN_SLOT_BRAIN, 5, 60)
 			carbon_target.balloon_alert(carbon_target, "you feel dumber!")
-	target_mob.visible_message(span_danger("[user] attempts to mend [target_mob] with [src]!"), \
-			span_userdanger("[user] attempts to mend [target_mob] with [src]!")) /// OCULIS EDIT (ORIGINAL: "[user] beats [target_mob] over the head with [src]!")
-	playsound(target_mob, 'sound/effects/magic/staff_healing.ogg', 25, TRUE, -1) /// OCULIS EDIT (ORIGINAL: SFX_PUNCH)
+	target_mob.visible_message(span_danger("[user] beats [target_mob] over the head with [src]!"), \
+			span_userdanger("[user] beats [target_mob] over the head with [src]!"))
+	playsound(target_mob, SFX_PUNCH, 25, TRUE, -1)
 	log_combat(user, target_mob, "attacked", src)
 
 /obj/item/book/bible/interact_with_atom(atom/bible_smacked, mob/living/user, list/modifiers)
@@ -341,7 +341,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 	return NONE
 
 /obj/item/book/bible/booze
-	desc = "Mend the flesh and soul." /// OCULIS EDIT (ORIGINAL: "Apply to head repeatedly.")
+	desc = "To be applied to the head repeatedly."
 
 /obj/item/book/bible/booze/Initialize(mapload)
 	. = ..()
