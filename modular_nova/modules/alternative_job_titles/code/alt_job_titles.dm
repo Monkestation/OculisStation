@@ -327,7 +327,8 @@
 		"Employment Officer",
 		"Human Resources Officer",
 		"Executive Officer",
-		"Senior Sapient Resources Agent", // OCULIS EDIT ADDITION - new title
+		"First Officer", // OCULIS EDIT ADDITION
+		"Senior Sophont Resources Agent", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/head_of_security
@@ -335,6 +336,7 @@
 		"Head of Security",
 		"Chief Constable",
 		"Chief of Security",
+		"Chief Security Officer", // OCULIS EDIT ADDITION
 		"Security Commander",
 		"Security Supervisor",
 		"Security Director",
@@ -408,7 +410,9 @@
 /datum/job/prisoner
 	alt_titles = list(
 		"Prisoner",
+		"Convict", // OCULIS EDIT ADDITION
 		"Minimum Security Prisoner",
+		"Medium Security Prisoner", // OCULIS EDIT ADDITION
 		"Maximum Security Prisoner",
 		"SuperMax Security Prisoner",
 		"Protective Custody Prisoner",
@@ -489,6 +493,8 @@
 		"Security Operative",
 		"Security Cadet",
 		"Security Specialist",
+		"Junior Officer", // OCULIS EDIT ADDITION
+		"Senior Officer", // OCULIS EDIT ADDITION
 		"Deputy",
 		"Constable",
 		"Peace Officer", // OCULIS EDIT ADDITION
@@ -545,5 +551,8 @@
 		"Brig Sergeant",
 		"Brig Governor",
 		"Dispatch Officer",
+		"Armaments Supervisor", // OCULIS EDIT ADDITION
 		"Jailer",
+		"Sentry", // OCULIS EDIT ADDITION
+		"Armorer", // OCULIS EDIT ADDITION
 	)
