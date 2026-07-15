@@ -32,19 +32,7 @@
 	. = ..()
 	AddElement(/datum/element/attack_equip)
 
-/obj/item/storage/backpack/equipped(mob/user, slot, initial) //iris edit start
-	. = ..()
-	if(slot == ITEM_SLOT_BACK)
-		var/obj/item/storage/backpack/satchel/worn_satchel = user.get_item_by_slot(ITEM_SLOT_BELT)
-		if(istype(worn_satchel) && HAS_TRAIT(user, TRAIT_BELT_SATCHEL))
-			slowdown = 1.5
-			user.update_equipment_speed_mods()
-
-/obj/item/storage/backpack/dropped(mob/user, silent)
-	. = ..()
-	slowdown = initial(slowdown) //iris edit end
 /*
-
  * Backpack Types
  */
 
@@ -72,7 +60,7 @@
 	icon_state = "bag_of_holding"
 	inhand_icon_state = "holdingpack"
 	resistance_flags = FIRE_PROOF
-	item_flags = NO_MAT_REDEMPTION
+	item_flags = NO_MAT_REDEMPTION | BLUESPACE_INTERFERENCE
 	armor_type = /datum/armor/backpack_holding
 	storage_type = /datum/storage/bag_of_holding
 	pickup_sound = null
@@ -108,7 +96,7 @@
 	user.visible_message(span_suicide("[user] places [src] over [user.p_their()] head and pulls it tight! It looks like [user.p_they()] [user.p_are()]n't in the Christmas spirit..."))
 	return OXYLOSS
 
-/obj/item/storage/backpack/santabag/proc/regenerate_presents() // IRIS EDIT - CHANGES /obj/item/gift/anything to normal vers
+/obj/item/storage/backpack/santabag/proc/regenerate_presents()
 	addtimer(CALLBACK(src, PROC_REF(regenerate_presents)), 30 SECONDS)
 
 	var/mob/user = get(loc, /mob)
@@ -116,7 +104,7 @@
 		return
 	if(HAS_MIND_TRAIT(user, TRAIT_CANNOT_OPEN_PRESENTS))
 		var/turf/floor = get_turf(src)
-		var/obj/item/thing = new /obj/item/gift(floor)
+		var/obj/item/thing = new /obj/item/gift(floor) // OCULIS EDIT, ORIGINAL: var/obj/item/thing = new /obj/item/gift/anything(floor)
 		if(!atom_storage.attempt_insert(thing, user, override = TRUE, force = STORAGE_SOFT_LOCKED))
 			qdel(thing)
 
@@ -307,27 +295,6 @@
 	desc = "A trendy looking satchel."
 	icon_state = "satchel-norm"
 	inhand_icon_state = "satchel-norm"
-	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT //iris edit
-
-/obj/item/storage/backpack/satchel/Initialize(mapload)
-	. = ..()
-	atom_storage.max_total_storage = 18
-
-/obj/item/storage/backpack/satchel/equipped(mob/user, slot, initial) //iris edit start
-	. = ..()
-	if(slot == ITEM_SLOT_BELT)
-		ADD_TRAIT(user, TRAIT_BELT_SATCHEL, CLOTHING_TRAIT)
-		var/obj/item/storage/backpack/worn_backpack = user.get_item_by_slot(ITEM_SLOT_BACK)
-		if(istype(worn_backpack))
-			worn_backpack.slowdown = 1.5
-			user.update_equipment_speed_mods()
-
-/obj/item/storage/backpack/satchel/dropped(mob/user, silent)
-	. = ..()
-	REMOVE_TRAIT(user, TRAIT_BELT_SATCHEL, CLOTHING_TRAIT)
-	var/obj/item/storage/backpack/worn_backpack = user.get_item_by_slot(ITEM_SLOT_BACK)
-	if(istype(worn_backpack))
-		worn_backpack.slowdown = initial(worn_backpack.slowdown) //iris edit end
 
 /obj/item/storage/backpack/satchel/leather
 	name = "leather satchel"

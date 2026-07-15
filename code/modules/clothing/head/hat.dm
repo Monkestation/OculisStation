@@ -4,7 +4,7 @@
 	abstract_type = /obj/item/clothing/head/hats
 
 /obj/item/clothing/head/hats/centhat
-	name = "\improper CentCom hat"
+	name = "\improper SectCom hat" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom hat"
 	icon_state = "centcom"
 	desc = "It's good to be emperor."
 	inhand_icon_state = "that"
@@ -226,7 +226,13 @@
 /obj/item/clothing/head/costume/jesteralt
 	name = "jester hat"
 	desc = "A hat with bells, to add some merriness to the suit."
-	icon_state = "jester2"
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
+	icon_state = "/obj/item/clothing/head/costume/jesteralt"
+	post_init_icon_state = "jester_alt"
+	greyscale_config = /datum/greyscale_config/jester_hat_alt
+	greyscale_config_worn = /datum/greyscale_config/jester_hat_alt/worn
+	greyscale_colors = "#E10000#E1E100"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/costume/rice_hat
 	name = "rice hat"
@@ -280,8 +286,8 @@
 	icon_state = "delinquent"
 
 /obj/item/clothing/head/hats/intern
-	name = "\improper CentCom Head Intern beancap"
-	desc = "A horrifying mix of beanie and softcap in CentCom green. You'd have to be pretty desperate for power over your peers to agree to wear this."
+	name = "\improper SectCom Head Intern beancap" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom Head Intern beancap"
+	desc = "A horrifying mix of beanie and softcap in SectCom green. You'd have to be pretty desperate for power over your peers to agree to wear this." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A horrifying mix of beanie and softcap in CentCom green. You'd have to be pretty desperate for power over your peers to agree to wear this."
 	icon_state = "intern_hat"
 	inhand_icon_state = null
 
@@ -314,9 +320,9 @@
 	inhand_icon_state = null
 
 /obj/item/clothing/head/hats/centcom_cap
-	name = "\improper CentCom commander cap"
+	name = "\improper SectCom commander cap" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom commander cap"
 	icon_state = "centcom_cap"
-	desc = "Worn by the finest of CentCom commanders. Two faint initials lie inside the lining of the cap."
+	desc = "Worn by the finest of SectCom commanders. Two faint initials lie inside the lining of the cap." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "Worn by the finest of CentCom commanders. Two faint initials lie inside the lining of the cap."
 	inhand_icon_state = "that"
 	flags_inv = 0
 	armor_type = /datum/armor/hats_centcom_cap

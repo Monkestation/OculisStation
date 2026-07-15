@@ -48,6 +48,7 @@
 		/obj/item/reagent_containers/blood/haemoglobin = 2, // OCULIS ADDITION
 		/obj/item/reagent_containers/blood/haemotoxin = 2, // OCULIS ADDITION
 		/obj/item/reagent_containers/blood/nanoblood = 2, // OCULIS ADDITION
+		/obj/item/reagent_containers/blood/arachnid = 2, // OCULIS ADDITION
 	)
 	crate_name = "blood freezer"
 	crate_type = /obj/structure/closet/crate/freezer

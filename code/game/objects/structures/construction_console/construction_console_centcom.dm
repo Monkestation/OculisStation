@@ -1,6 +1,6 @@
 ///admin-only base consturctino console subtype for building anywhere!
 /obj/machinery/computer/camera_advanced/base_construction/centcom
-	name = "centcom base construction console"
+	name = "SectCom base construction console" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "centcom base construction console"
 	circuit = /obj/item/circuitboard/computer/base_construction/centcom
 
 /obj/machinery/computer/camera_advanced/base_construction/centcom/Initialize(mapload)

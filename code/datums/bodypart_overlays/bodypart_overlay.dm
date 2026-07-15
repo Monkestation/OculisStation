@@ -70,7 +70,7 @@
 		if(-BODY_FRONT_LAYER)
 			return "FRONT"
 		//NOVA EDIT ADDITION - Customization
-		if(-BODY_FRONT_UNDER_CLOTHES)
+		if(-UNDER_UNIFORM_LAYER)
 			return "FRONT_UNDER"
 		if(-ABOVE_BODY_FRONT_HEAD_LAYER)
 			return "FRONT_OVER"
@@ -93,7 +93,7 @@
 			return -BODY_FRONT_LAYER
 		//NOVA EDIT ADDITION - Customization
 		if(EXTERNAL_FRONT_UNDER_CLOTHES)
-			return -BODY_FRONT_UNDER_CLOTHES
+			return -UNDER_UNIFORM_LAYER
 		if(EXTERNAL_FRONT_OVER)
 			return -ABOVE_BODY_FRONT_HEAD_LAYER
 		if(EXTERNAL_FRONT_ABOVE_HAIR)
@@ -114,7 +114,7 @@
 	CRASH("External organ color set to override with no override proc.")
 
 ///Generate a unique identifier to cache with. If you change something about the image, but the icon cache stays the same, it'll simply pull the unchanged image out of the cache
-/datum/bodypart_overlay/proc/generate_icon_cache()
+/datum/bodypart_overlay/proc/generate_icon_cache(obj/item/bodypart/limb)
 	return list()
 
 /// Additionally color or texture the limb

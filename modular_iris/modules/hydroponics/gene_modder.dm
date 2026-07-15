@@ -444,7 +444,7 @@
 	var/datum/plant_gene/gene
 	obj_flags = UNIQUE_RENAME
 
-/obj/item/disk/plantgene/Initialize()
+/obj/item/disk/plantgene/Initialize(mapload)
 	. = ..()
 	icon_state = "datadisk11"
 	set_sticker_icon_state(pick("o_dna1"))
