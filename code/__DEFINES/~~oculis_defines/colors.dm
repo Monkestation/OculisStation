@@ -1,1 +1,3 @@
 #define COLOR_OCULIS_LOGO "#af031a"
+
+#define BLOOD_COLOR_ARACHNID "#04e1ed"
