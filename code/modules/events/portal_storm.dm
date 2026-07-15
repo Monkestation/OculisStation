@@ -32,21 +32,20 @@
 	)
 
 // OCULIS EDIT ADDITION START - MORE_PORTAL_STORMS
-/datum/round_event_control/portal_storm_lavaland
-	name = "Portal Storm: Lavaland"
-	typepath = /datum/round_event/portal_storm/lavaland
+/datum/round_event_control/portal_storm_xenomorph
+	name = "Portal Storm: Aliens"
+	typepath = /datum/round_event/portal_storm/xenomorph
 	weight = 1
 	min_players = 20
 	earliest_start = 30 MINUTES
 	category = EVENT_CATEGORY_ENTITIES
-	description = "Lavaland monsters pour out of portals."
+	description = "Xenomorphs pour out of portals."
 
-/datum/round_event/portal_storm/lavaland
-	boss_types = list(/mob/living/basic/mining/hivelord = 1)
+/datum/round_event/portal_storm/xenomorph
+	boss_types = list(/mob/living/basic/alien/queen = 1)
 	hostile_types = list(
-		/mob/living/basic/mining/brimdemon = 2,
-		/mob/living/basic/mining/lobstrosity/lava = 4,
-		/mob/living/basic/mining/legion = 2,
+		/mob/living/basic/alien = 7,
+		/mob/living/basic/alien/drone = 5,
 	)
 // OCULIS EDIT ADDITION END
 
