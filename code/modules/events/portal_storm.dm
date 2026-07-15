@@ -46,6 +46,7 @@
 	hostile_types = list(
 		/mob/living/basic/mining/brimdemon = 3,
 		/mob/living/basic/mining/lobstrosity/lava = 5,
+		/mob/living/basic/mining/legion = 2,
 	)
 // OCULIS EDIT ADDITION END
 
