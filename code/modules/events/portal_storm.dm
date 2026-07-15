@@ -47,6 +47,22 @@
 		/mob/living/basic/alien = 7,
 		/mob/living/basic/alien/drone = 5,
 	)
+
+/datum/round_event_control/portal_storm_netherworld
+	name = "Portal Storm: Netherworld"
+	typepath = /datum/round_event/portal_storm/netherworld
+	weight = 1
+	min_players = 20
+	earliest_start = 30 MINUTES
+	category = EVENT_CATEGORY_ENTITIES
+	description = "Netherworld creatures pour out of portals."
+
+/datum/round_event/portal_storm/netherworld
+	boss_types = list(/mob/living/basic/migo = 4)
+	hostile_types = list(
+		/mob/living/basic/creature/hatchling = 9,
+		/mob/living/basic/creature = 7,
+	)
 // OCULIS EDIT ADDITION END
 
 /datum/round_event/portal_storm
