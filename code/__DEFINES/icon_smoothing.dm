@@ -271,6 +271,10 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_CRYSTAL_WALL S_OBJ(88) ///turf/closed/wall/mineral/violetspace_crystal
 // OCULIS EDIT END
 
+//OCULIS EDIT ADDITION - SMOOTH_GROUP_SILK_WALLS - For arachnid silk walls
+#define SMOOTH_GROUP_SILK_WALLS S_OBJ(89) ///turf/closed/wall/material/silk /obj/structure/falsewall/silk
+//OCULIS EDIT END
+
 /// Performs the work to set smoothing_groups and canSmoothWith.
 /// An inlined function used in both turf/Initialize and atom/Initialize.
 #define SETUP_SMOOTHING(...) \

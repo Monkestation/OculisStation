@@ -120,6 +120,11 @@
 #define	ORGAN_SLOT_GIZZARD "gizzard"
 //end iris gizzard edit
 
+// OCULIS EDIT ADDITION START - ORGAN_SLOT_GLAND - Arachnid silk gland slot, this needs to be here so it can be in the organ process order
+#define	ORGAN_SLOT_GLAND "gland"
+// OCULIS EDIT ADDITION END
+
+
 /// Organ slot external
 #define ORGAN_SLOT_EXTERNAL_TAIL "tail"
 #define ORGAN_SLOT_EXTERNAL_SPINES "spines"
@@ -195,6 +200,10 @@ GLOBAL_LIST_INIT(organ_process_order, list(
 	//iris gizzard edit
 	ORGAN_SLOT_GIZZARD,
 	//end iris gizzard edit
+
+	// OCULIS EDIT ADDITION START - ORGAN_SLOT_GLAND
+	ORGAN_SLOT_GLAND,
+	// OCULIS EDIT ADDITION END
 	))
 
 // Defines for used in creating "perks" for the species preference pages.
