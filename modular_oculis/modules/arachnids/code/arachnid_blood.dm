@@ -1,7 +1,7 @@
 /datum/blood_type/arachnid
 	name = BLOOD_TYPE_ARACHNID
 
-	desc = "Copper based blood, very blue."
+	desc = "Copper based blood, very blue. The label indicates that this is meant for arachnids."
 	dna_string = "Arachnid DNA"
 
 	color = BLOOD_COLOR_ARACHNID
