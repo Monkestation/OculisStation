@@ -36,16 +36,16 @@
 	name = "Portal Storm: Lavaland"
 	typepath = /datum/round_event/portal_storm/lavaland
 	weight = 1
-	min_players = 15
+	min_players = 20
 	earliest_start = 30 MINUTES
 	category = EVENT_CATEGORY_ENTITIES
 	description = "Lavaland monsters pour out of portals."
 
 /datum/round_event/portal_storm/lavaland
-	boss_types = list(/mob/living/basic/mining/hivelord = 2)
+	boss_types = list(/mob/living/basic/mining/hivelord = 1)
 	hostile_types = list(
-		/mob/living/basic/mining/brimdemon = 3,
-		/mob/living/basic/mining/lobstrosity/lava = 5,
+		/mob/living/basic/mining/brimdemon = 2,
+		/mob/living/basic/mining/lobstrosity/lava = 4,
 		/mob/living/basic/mining/legion = 2,
 	)
 // OCULIS EDIT ADDITION END
