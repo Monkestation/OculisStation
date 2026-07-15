@@ -25,3 +25,8 @@
 	contains = list(/obj/item/reagent_containers/blood/snail)
 	name = "blood pack - S"
 	desc = "Contains blood used for transfusion. Must be attached to an IV drip. It's a bit slimy... The label indicates that this is meant for snails."
+
+/datum/supply_pack/medical/bloodpack/arachnid
+	contains = list(/obj/item/reagent_containers/blood/arachnid)
+	name = "blood pack - CU"
+	desc = "Contains blood used for transfusion. Must be attached to an IV drip. Copper based blood, very blue. The label indicates that this is meant for arachnids."
