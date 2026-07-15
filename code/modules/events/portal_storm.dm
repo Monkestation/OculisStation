@@ -52,7 +52,7 @@
 	name = "Portal Storm: Netherworld"
 	typepath = /datum/round_event/portal_storm/netherworld
 	weight = 1
-	min_players = 20
+	min_players = 15
 	earliest_start = 30 MINUTES
 	category = EVENT_CATEGORY_ENTITIES
 	description = "Netherworld creatures pour out of portals."
