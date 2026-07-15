@@ -31,6 +31,24 @@
 		/mob/living/basic/construct/wraith/hostile = 6,
 	)
 
+// OCULIS EDIT ADDITION START - MORE_PORTAL_STORMS
+/datum/round_event_control/portal_storm_lavaland
+	name = "Portal Storm: Lavaland"
+	typepath = /datum/round_event/portal_storm/lavaland
+	weight = 1
+	min_players = 15
+	earliest_start = 30 MINUTES
+	category = EVENT_CATEGORY_ENTITIES
+	description = "Lavaland monsters pour out of portals."
+
+/datum/round_event/portal_storm/lavaland
+	boss_types = list(/mob/living/basic/mining/hivelord = 2)
+	hostile_types = list(
+		/mob/living/basic/mining/brimdemon = 3,
+		/mob/living/basic/mining/lobstrosity/lava = 5,
+	)
+// OCULIS EDIT ADDITION END
+
 /datum/round_event/portal_storm
 	start_when = 7
 	end_when = 999
