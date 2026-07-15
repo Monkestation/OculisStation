@@ -44,10 +44,6 @@ You can also ask for custom rituals through prayers, but it's not guaranteed som
 		quirk_holder.mind.teach_crafting_recipe(crafting_recipe_type)
 
 
-// I hope this works
-//#define CAT_MAGIC "Magic"
-// it didn't
-
 //~~~~~~~~~~~~~~~~~~~~~~~~\\
 //       THE EXTRACTS
 //~~~~~~~~~~~~~~~~~~~~~~~~\\

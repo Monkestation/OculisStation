@@ -109,6 +109,11 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	feature_list[FEATURE_HORNS_ETHEREAL] = INIT_ACCESSORY(/datum/sprite_accessory/ethereal_horns)
 	// OCULIS EDIT ADDITION END
 
+	// OCULIS EDIT ADDITION START - Arachnid Features
+	feature_list[FEATURE_ARACHNID_APPENDAGES] = INIT_ACCESSORY(/datum/sprite_accessory/arachnid_appendages)
+	feature_list[FEATURE_ARACHNID_CHELICERAE] = INIT_ACCESSORY(/datum/sprite_accessory/arachnid_chelicerae)
+	// OCULIS EDIT ADDITION END
+
 	// moths
 	feature_list[FEATURE_MOTH_WINGS] = INIT_ACCESSORY(/datum/sprite_accessory/moth_wings)
 	feature_list[FEATURE_MOTH_ANTENNAE] = INIT_ACCESSORY(/datum/sprite_accessory/moth_antennae)

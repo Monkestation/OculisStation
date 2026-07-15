@@ -58,7 +58,7 @@
 		flash_protect = FLASH_PROTECTION_WELDER
 		tint = 2
 		owner.update_tint()
-		owner.balloon_alert(owner, "Welder eyelids shut!")
+		owner.balloon_alert(owner, "welder eyelids shut!")
 		shield.button_icon_state = "nabber-shield-1"
 		owner.update_action_buttons()
 		return
@@ -66,7 +66,7 @@
 	flash_protect = FLASH_PROTECTION_SENSITIVE
 	tint = 0
 	owner.update_tint()
-	owner.balloon_alert(owner, "Welder eyelids open!")
+	owner.balloon_alert(owner, "welder eyelids open!")
 	shield.button_icon_state = "nabber-shield-0"
 	owner.update_action_buttons()
 
@@ -115,4 +115,11 @@
 	if(chem.type == /datum/reagent/toxin/plasma || chem.type == /datum/reagent/toxin/hot_ice)
 		chem.toxpwr = 0
 		owner.adjust_oxy_loss(-0.5 * REM * seconds_per_tick, updating_health = FALSE)
+
 #undef ORGAN_ICON_NABBER
+#undef NABBER_COLD_THRESHOLD_1
+#undef NABBER_COLD_THRESHOLD_2
+#undef NABBER_COLD_THRESHOLD_3
+#undef NABBER_HEAT_THRESHOLD_1
+#undef NABBER_HEAT_THRESHOLD_2
+#undef NABBER_HEAT_THRESHOLD_3

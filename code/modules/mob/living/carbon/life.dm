@@ -20,6 +20,9 @@
 
 	if(HAS_TRAIT(src, TRAIT_STASIS))
 		. = ..()
+		if(QDELETED(src))
+			return
+
 		reagents?.handle_stasis_chems(src, seconds_per_tick)
 	else
 		//Reagent processing needs to come before breathing, to prevent edge cases.
@@ -37,9 +40,6 @@
 			for(var/key in mind?.addiction_points)
 				GLOB.addictions[key].process_addiction(src, seconds_per_tick)
 			handle_brain_damage(seconds_per_tick)
-
-	if(stat != DEAD)
-		handle_bodyparts(seconds_per_tick)
 
 	if(stat != DEAD)
 		return TRUE
@@ -520,6 +520,7 @@
 
 	var/blood_transfusion_cap = (MONKEY_ORIGINS in chem.data) && chem.data[MONKEY_ORIGINS] ? BLOOD_VOLUME_NORMAL : BLOOD_VOLUME_MAXIMUM // NOVA EDIT ADDITION - Clamp the value so that being injected with monkey blood when you're past 560u doesn't do anything
 	var/blood_added = adjust_blood_volume(round(reac_volume, CHEMICAL_VOLUME_ROUNDING), maximum = blood_transfusion_cap) // NOVA EDIT CHANGE - ORIGINAL: var/blood_added = adjust_blood_volume(round(reac_volume, CHEMICAL_VOLUME_ROUNDING))
+	reagents.remove_reagent(chem.type, blood_added)
 
 	if(chem.data?[BLOOD_DATA_SYNTH_CONTENT] && !IS_BLOOD_ALWAYS_SYNTHETIC(src))
 		var/added_synth_volume = blood_added * chem.data[BLOOD_DATA_SYNTH_CONTENT]
@@ -536,10 +537,6 @@
 			return COMPONENT_NO_EXPOSE_REAGENTS
 
 	return COMPONENT_NO_EXPOSE_REAGENTS
-
-/mob/living/carbon/proc/handle_bodyparts(seconds_per_tick)
-	for(var/obj/item/bodypart/limb as anything in get_bodyparts(include_stumps = TRUE))
-		. |= limb.on_life(seconds_per_tick)
 
 /mob/living/carbon/proc/handle_organs(seconds_per_tick)
 	if(stat == DEAD)
@@ -561,49 +558,6 @@
 		var/obj/item/organ/organ = organs_slot[slot]
 		if(organ?.owner) // This exist mostly because reagent metabolization can cause organ reshuffling
 			organ.on_life(seconds_per_tick)
-
-/mob/living/carbon/handle_diseases(seconds_per_tick)
-	for(var/datum/disease/disease as anything in diseases)
-		if(QDELETED(disease)) //Got cured/deleted while the loop was still going.
-			continue
-		if(stat != DEAD || disease.process_dead)
-			disease.stage_act(seconds_per_tick)
-
-/mob/living/carbon/handle_mutations(time_since_irradiated, seconds_per_tick)
-	if(!LAZYLEN(dna?.temporary_mutations))
-		return
-
-	for(var/mut, mut_data in dna.temporary_mutations)
-		if(mut_data < world.time)
-			if(!LAZYLEN(dna.previous))
-				continue
-			if(mut == UI_CHANGED)
-				if(dna.previous["UI"])
-					dna.unique_identity = merge_text(dna.unique_identity,dna.previous["UI"])
-					updateappearance(mutations_overlay_update=1)
-					dna.previous.Remove("UI")
-				LAZYREMOVE(dna.temporary_mutations, mut)
-				continue
-			if(mut == UF_CHANGED)
-				if(dna.previous["UF"])
-					dna.unique_features = merge_text(dna.unique_features,dna.previous["UF"])
-					updateappearance(mutcolor_update=1, mutations_overlay_update=1)
-					dna.previous.Remove("UF")
-				LAZYREMOVE(dna.temporary_mutations, mut)
-				continue
-			if(mut == UE_CHANGED)
-				if(dna.previous["name"])
-					real_name = dna.previous["name"]
-					name = real_name
-					dna.previous.Remove("name")
-				if(dna.previous["UE"])
-					dna.unique_enzymes = dna.previous["UE"]
-					dna.previous.Remove("UE")
-				if(dna.previous["blood_type"])
-					set_blood_type(dna.previous["blood_type"])
-					dna.previous.Remove("blood_type")
-				LAZYREMOVE(dna.temporary_mutations, mut)
-				continue
 
 /**
  * Returns a multiplier representing how effectively this mob can regenerate blood
