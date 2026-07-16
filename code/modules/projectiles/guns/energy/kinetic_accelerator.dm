@@ -679,6 +679,17 @@
 	KA.trigger_guard = TRIGGER_GUARD_NORMAL
 	..()
 
+//OCULIS EDIT ADDITION START - ANOMALY_KITS
+
+//Blank PK modkit, able to be fit with an anomaly core
+/obj/item/borg/upgrade/modkit/blank
+	name = "blank anomaly kit"
+	desc = "A specialized PK anomaly modkit. This one is currently empty, awaiting an anomaly core for completion."
+	cost = 10
+	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
+	icon_state = "anomalykitempty"
+
+//OCULIS EDIT ADDITION END
 
 //Cosmetic
 
