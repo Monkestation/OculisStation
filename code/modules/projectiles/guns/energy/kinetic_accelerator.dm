@@ -698,6 +698,7 @@
 		/obj/effect/anomaly/bluespace = /obj/item/borg/upgrade/modkit/cooldown/bluespace,
 		/obj/effect/anomaly/bhole = /obj/item/borg/upgrade/modkit/vortex,
 		/obj/effect/anomaly/flux = /obj/item/borg/upgrade/modkit/flux,
+		/obj/effect/anomaly/dimensional = /obj/item/borg/upgrade/modkit/cooldown/dimensional,
 	)
 
 	if(istype(tool, /obj/item/assembly/signaler/anomaly))
@@ -817,6 +818,24 @@
 /obj/item/borg/upgrade/modkit/flux/modify_projectile(obj/projectile/kinetic/K)
 	K.damage += modifier
 	K.range += 1
+
+/obj/item/borg/upgrade/modkit/cooldown/dimensional
+	name = "rift cleaver"
+	desc = "A specialized PK anomaly modkit. This one vastly increases the weapon's range at the cost of cooldown, as well as giving it a chance to shift dimensions in a small radius when striking."
+	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
+	icon_state = "anomalykit"
+	modifier = -5
+	cost = 35
+
+/obj/item/borg/upgrade/modkit/cooldown/dimensional/modify_projectile(obj/projectile/kinetic/K)
+	K.range -= modifier * 2
+
+/obj/item/borg/upgrade/modkit/cooldown/dimensional/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
+	if(!QDELETED(target) && istype(target, /mob) && prob(20))
+		var/new_theme_path = pick(subtypesof(/datum/dimension_theme))
+		var/datum/dimension_theme/theme = SSmaterials.dimensional_themes[new_theme_path]
+		for(var/turf/turf as anything in RANGE_TURFS(1, target_turf))
+			theme.apply_theme(turf, show_effect = TRUE)
 
 //OCULIS EDIT ADDITION END
 
