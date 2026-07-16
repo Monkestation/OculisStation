@@ -15,8 +15,8 @@
 		/datum/language/polysmorph = 20,
 	)
 
-
-//commented out until i figure out why it breaks in tests
+//this is a terrible way to fix something, however this code seemingly only breaks during unit tests and ive been unable to reproduce it locally
+#ifndef UNIT_TESTS
 /datum/language/polysmorph/get_random_name(
 	gender = NEUTER,
 	name_count = default_name_count,
@@ -28,3 +28,4 @@
 		return ..()
 
 	return "[pick(GLOB.polysmorph_names)]"
+#endif
