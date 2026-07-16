@@ -699,6 +699,7 @@
 		/obj/effect/anomaly/bhole = /obj/item/borg/upgrade/modkit/vortex,
 		/obj/effect/anomaly/flux = /obj/item/borg/upgrade/modkit/flux,
 		/obj/effect/anomaly/dimensional = /obj/item/borg/upgrade/modkit/cooldown/dimensional,
+		/obj/effect/anomaly/bioscrambler = /obj/item/borg/upgrade/modkit/bioscrambler,
 	)
 
 	if(istype(tool, /obj/item/assembly/signaler/anomaly))
@@ -837,6 +838,19 @@
 		for(var/turf/turf as anything in RANGE_TURFS(1, target_turf))
 			theme.apply_theme(turf, show_effect = TRUE)
 
+/obj/item/borg/upgrade/modkit/bioscrambler
+	name = "genetic inducer"
+	desc = "A specialized PK anomaly modkit. This one allows the weapon to genetically batter its opponent, giving it a chance to deal critical internal damage."
+	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
+	icon_state = "anomalykit"
+	modifier = 20
+	cost = 35
+
+/obj/item/borg/upgrade/modkit/bioscrambler/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
+	if(!QDELETED(target) && istype(target, /mob) && prob(modifier))
+		playsound(target, 'sound/items/weapons/zapbang.ogg', 100, TRUE)
+		if(target.uses_integrity)
+			target.take_damage(60, BRUTE, ENERGY, FALSE)
 //OCULIS EDIT ADDITION END
 
 //Cosmetic
