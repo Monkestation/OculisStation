@@ -151,10 +151,13 @@
 
 	for(var/pack_id in SSshuttle.supply_packs)
 		var/datum/supply_pack/pack = SSshuttle.supply_packs[pack_id]
+		var/list/available_packs = get_packs_data(pack.group)
+		if(!length(available_packs)) //No available packs, hide category
+			continue
 		if(!data["supplies"][pack.group])
 			data["supplies"][pack.group] = list(
 				"name" = pack.group,
-				"packs" = get_packs_data(pack.group),
+				"packs" = available_packs,
 			)
 
 	data["displayed_currency_full_name"] = " [MONEY_NAME]"
@@ -454,7 +457,7 @@
 				return
 			else
 				SSshuttle.shuttle_loan.loan_shuttle()
-				say("The supply shuttle has been loaned to CentCom.")
+				say("The supply shuttle has been loaned to SectCom.") // OCULIS EDIT, SectCommening 2, ORIGINAL: say("The supply shuttle has been loaned to CentCom.")
 				ui.user.investigate_log("accepted a shuttle loan event.", INVESTIGATE_CARGO)
 				ui.user.log_message("accepted a shuttle loan event.", LOG_GAME)
 				. = TRUE

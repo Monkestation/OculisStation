@@ -46,7 +46,7 @@
 
 	QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, TYPE_PROC_REF(/mob, emote), "me", NONE, message, TRUE), SSspeech_controller)
 
-/mob/try_speak(message, ignore_spam = FALSE, forced = null, filterproof = FALSE, mute_bypass = FALSE) //Oculis edit: adds 'mute_bypass', specifically to allow the 'Do' command to work for mute characters
+/mob/try_speak(message, ignore_spam = FALSE, forced = null, filterproof = FALSE, mute_bypass = FALSE) // OCULIS EDIT, ORIGINAL: /mob/try_speak(message, ignore_spam = FALSE, forced = null, filterproof = FALSE)
 	var/list/filter_result
 	var/list/soft_filter_result
 	if(client && !forced && !filterproof)
@@ -177,7 +177,7 @@
 	return FALSE
 
 ///The amount of items we are looking for in the message
-#define MESSAGE_MODS_LENGTH 6
+#define MESSAGE_MODS_LENGTH 7
 
 /mob/proc/check_for_custom_say_emote(message, list/mods)
 	var/customsaypos = findtext(message, "*")

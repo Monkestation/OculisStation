@@ -993,7 +993,7 @@
 			announcement_text_list += "We're also offering fortune telling services out of the front door if you have paying customers."
 			announcement_title += "Fortune-Telling Entertainment Shuttle"
 		if(HUNTER_PACK_MI13)
-			announcement_text_list += "Illegal intrusion detected in the crew monitoring network. Central Command has been informed."
+			announcement_text_list += "Illegal intrusion detected in the crew monitoring network. Sectorial Command has been informed." // OCULIS EDIT, SectCommening 2, ORIGINAL: announcement_text_list += "Illegal intrusion detected in the crew monitoring network. Central Command has been informed."
 			announcement_text_list += "Please report any suspicious individuals or behaviour to your local security team."
 			announcement_title += "Nanotrasen Intrusion Countermeasures Electronics"
 
@@ -1035,7 +1035,7 @@
 	candidate_role = "Slaughter Demon"
 	// preview_antag_datum = /datum/antagonist/slaughter // Doesn't actually have its own pref
 	midround_type = HEAVY_MIDROUND
-	jobban_flag = ROLE_ALIEN
+	jobban_flag = ROLE_SENTIENCE
 	ruleset_flags = RULESET_INVADER
 	weight = 0
 	min_pop = 20

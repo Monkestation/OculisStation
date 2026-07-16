@@ -233,7 +233,7 @@
 	W.update_icon()
 
 /datum/outfit/centcom/commander
-	name = "CentCom Commander"
+	name = "SectCom Commander" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Commander"
 
 	id = /obj/item/card/id/advanced/centcom
 	id_trim = /datum/id_trim/centcom/commander
@@ -261,7 +261,7 @@
 	..()
 
 /datum/outfit/centcom/commander/mod
-	name = "CentCom Commander (MODsuit)"
+	name = "SectCom Commander (MODsuit)" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Commander (MODsuit)"
 
 	suit_store = /obj/item/tank/internals/oxygen
 	suit = null
@@ -421,7 +421,7 @@
 	back = /obj/item/mod/control/pre_equipped/debug
 	backpack_contents = list(
 		/obj/item/melee/energy/axe = 1,
-		/obj/item/storage/part_replacer/bluespace/tier4 = 1,
+		/obj/item/storage/part_replacer/bluespace/AdminDebug = 1,
 		/obj/item/gun/magic/wand/resurrection/debug = 1,
 		/obj/item/gun/magic/wand/death/debug = 1,
 		/obj/item/debug/human_spawner = 1,
@@ -452,7 +452,7 @@
 	back = /obj/item/mod/control/pre_equipped/administrative
 	backpack_contents = list(
 		/obj/item/melee/energy/axe = 1,
-		/obj/item/storage/part_replacer/bluespace/tier4 = 1,
+		/obj/item/storage/part_replacer/bluespace/AdminDebug = 1,
 		/obj/item/gun/magic/wand/resurrection/debug = 1,
 		/obj/item/gun/magic/wand/death/debug = 1,
 		/obj/item/debug/human_spawner = 1,

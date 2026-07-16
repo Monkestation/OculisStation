@@ -8,7 +8,7 @@
 #define SEC_RESTRICTED_QUIRKS "Blind" = TRUE, "Brain Tumor" = TRUE, "Deaf" = TRUE, "Paraplegic" = TRUE, "Hemiplegic" = TRUE, "Foreigner" = TRUE, "Pacifist" = TRUE, "No Guns" = TRUE, "Illiterate" = TRUE, "Nerve Stapled" = TRUE, "Underworld Connections" = TRUE, "Stowaway" = TRUE, "Paroled Convict" = TRUE  //IRIS EDIT - Adds Stowaway, removes Mute
 #define HEAD_RESTRICTED_QUIRKS "Blind" = TRUE, "Deaf" = TRUE, "Mute" = TRUE, "Foreigner" = TRUE, "Brain Tumor" = TRUE, "Illiterate" = TRUE, "Underworld Connections" = TRUE, "Stowaway" = TRUE, "Stowaway" = TRUE, "Paroled Convict" = TRUE   //IRIS EDIT - Adds Stowaway and Convict
 #define HEAD_RESTRICTED_QUIRKS_QM "Blind" = TRUE, "Deaf" = TRUE, "Mute" = TRUE, "Foreigner" = TRUE, "Brain Tumor" = TRUE, "Illiterate" = TRUE, "Stowaway" = TRUE, "Paroled Convict" = TRUE   //IRIS EDIT - Adds Stowaway and Convict
-#define GUARD_RESTRICTED_QUIRKS "Blind" = TRUE, "Deaf" = TRUE, "Foreigner" = TRUE, "Pacifist" = TRUE, "Nerve Stapled" = TRUE, "Stowaway" = TRUE, "Underworld Connections" = TRUE, "Paroled Convict" = TRUE  //IRIS EDIT - Adds Stowaway, Convict and Underworld Connections
+#define GUARD_RESTRICTED_QUIRKS "Blind" = TRUE, "Deaf" = TRUE, "Foreigner" = TRUE, "Pacifist" = TRUE, "Nerve Stapled" = TRUE, "Stowaway" = TRUE, "Underworld Connections" = TRUE // OCULIS EDIT - Adds Stowaway and Underworld Connections 
 #define PRISONER_RESTRICTED_QUIRKS "Underworld Connections" = TRUE, "Stowaway" = TRUE //IRIS EDIT - Adds Stowaway
 
 #define SEC_RESTRICTED_SPECIES SPECIES_ABDUCTORWEAK = TRUE, SPECIES_GOLEMWEAK = TRUE, SPECIES_DULLAHAN = TRUE

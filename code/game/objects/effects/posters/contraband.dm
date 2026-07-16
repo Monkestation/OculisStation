@@ -134,7 +134,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/eat, 32)
 
 /obj/structure/sign/poster/contraband/tools
 	name = "Tools"
-	desc = "This poster looks like an advertisement for tools, but is in fact a subliminal jab at the tools at CentCom."
+	desc = "This poster looks like an advertisement for tools, but is in fact a subliminal jab at the tools at SectCom." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "This poster looks like an advertisement for tools, but is in fact a subliminal jab at the tools at CentCom."
 	icon_state = "tools"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/tools, 32)
@@ -183,7 +183,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/borg_fancy_2, 
 
 /obj/structure/sign/poster/contraband/kss13
 	name = "Kosmicheskaya Stantsiya 13 Does Not Exist"
-	desc = "A poster mocking CentCom's denial of the existence of the derelict station near Space Station 13."
+	desc = "A poster mocking SectCom's denial of the existence of the derelict station near Space Station 13." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A poster mocking CentCom's denial of the existence of the derelict station near Space Station 13."
 	icon_state = "kss13"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/kss13, 32)
@@ -268,7 +268,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/the_griffin, 3
 
 /obj/structure/sign/poster/contraband/free_drone
 	name = "Free Drone"
-	desc = "This poster commemorates the bravery of the rogue drone; once exiled, and then ultimately destroyed by CentCom."
+	desc = "This poster commemorates the bravery of the rogue drone; once exiled, and then ultimately destroyed by SectCom." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "This poster commemorates the bravery of the rogue drone; once exiled, and then ultimately destroyed by CentCom."
 	icon_state = "free_drone"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/free_drone, 32)
@@ -354,7 +354,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/bountyhunters,
 
 /obj/structure/sign/poster/contraband/the_big_gas_giant_truth
 	name = "The Big Gas Giant Truth"
-	desc = "Don't believe everything you see on a poster, patriots. All the lizards at central command don't want to answer this SIMPLE QUESTION: WHERE IS THE GAS MINER MINING FROM, CENTCOM?"
+	desc = "Don't believe everything you see on a poster, patriots. All the lizards at Sectorial Command don't want to answer this SIMPLE QUESTION: WHERE IS THE GAS MINER MINING FROM, CENTCOM?" // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "Don't believe everything you see on a poster, patriots. All the lizards at central command don't want to answer this SIMPLE QUESTION: WHERE IS THE GAS MINER MINING FROM, CENTCOM?"
 	icon_state = "the_big_gas_giant_truth"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/the_big_gas_giant_truth, 32)

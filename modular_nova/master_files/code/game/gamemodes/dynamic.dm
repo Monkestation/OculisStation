@@ -1,6 +1,6 @@
 // A lite version of the intercept, which only sends a paper with goals and a trait report (or a lack thereof)
 /datum/communciations_controller/proc/send_trait_report(greenshift)
-	. = "<b><i>Central Command Status Summary</i></b><hr>"
+	. = "<b><i>Sectorial Command Status Summary</i></b><hr>" // OCULIS EDIT, SectCommening 2, ORIGINAL: . = "<b><i>Central Command Status Summary</i></b><hr>"
 
 	var/dynamic_report = SSdynamic.get_advisory_report()
 	if(isnull(greenshift)) // if we're not forced to be greenshift or not - check if we are an actual greenshift
@@ -30,5 +30,5 @@
 	. += "<hr>This concludes your shift-start evaluation. Have a secure shift!<hr>\
 	<p style=\"color: grey; text-align: justify;\">This label certifies an Intern has reviewed the above before sending. This document is the property of Nanotrasen Corporation.</p>"
 
-	print_command_report(., "Central Command Status Summary", announce = FALSE)
+	print_command_report(., "Sectorial Command Status Summary", announce = FALSE) // OCULIS EDIT, SectCommening 2, ORIGINAL: print_command_report(., "Central Command Status Summary", announce = FALSE)
 	priority_announce("Hello, crew of [station_name()]. Our intern has finished their shift-start divergency and goals evaluation, which has been sent to your communications console. Have a secure shift!", "Divergency Report", SSstation.announcer.get_rand_report_sound())

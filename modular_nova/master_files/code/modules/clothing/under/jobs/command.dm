@@ -19,14 +19,14 @@
 	name = "captain's naval jumpsuit"
 	desc = "A white naval suit adorned with a gold rank badge denoting a Captain. There are two ways to destroy a person, kill him, or ruin his reputation."
 	icon_state = "/obj/item/clothing/under/imperial/captain"
-	greyscale_colors = "#eeeeee#eeeeee#eeeeee#373741#FFCE5B#FFCE5B#FFCE5B"
+	greyscale_colors = "#FFFFFF#FFFFFF#FFFFFF#373741#FFCE5B#FFCE5B#FFCE5B"
 	flags_1 = NONE
 	armor_type = /datum/armor/clothing_under/rank_captain
 
 /obj/item/clothing/under/imperialskirt/captain
 	name = "captain's naval skirt"
 	desc = "A white naval suit adorned with a gold rank badge denoting a Captain. There are two ways to destroy a person, kill him, or ruin his reputation."
-	greyscale_colors = "#eeeeee#eeeeee#373741#FFCE5B#FFCE5B#FFCE5B"
+	greyscale_colors = "#FFFFFF#FFFFFF#373741#FFCE5B#FFCE5B#FFCE5B"
 	icon_state = "/obj/item/clothing/under/imperialskirt/captain"
 	flags_1 = NONE
 	armor_type = /datum/armor/clothing_under/rank_captain
@@ -117,18 +117,18 @@
 	icon_state = "bs_formal"
 
 /obj/item/clothing/under/imperialvest/blueshield
-	name = "blueshield's naval skirt"
-	desc = "An upper level uniform granted to shields alike, representing CentCom's grand naval fleet."
-	icon_state = "/obj/item/clothing/under/imperialvest/bs"
+	name = "blueshield's naval uniform"
+	desc = "An upper level uniform granted to shields alike, representing SectCom's grand naval fleet." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "An upper level uniform granted to shields alike, representing CentCom's grand naval fleet."
+	icon_state = "/obj/item/clothing/under/imperialvest/blueshield"
 	greyscale_colors = "#363740#363740#3c485a#373741#bbbbbb#21212B#bbbbbb#bbbbbb"
 	flags_1 = NONE
 	armor_type = /datum/armor/clothing_under/rank_blueshield
 
 /obj/item/clothing/under/imperialskirtvest/blueshield
 	name = "blueshield's naval skirt"
-	desc = "An upper level uniform granted to shields alike, representing CentCom's grand naval fleet."
+	desc = "An upper level uniform granted to shields alike, representing SectCom's grand naval fleet." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "An upper level uniform granted to shields alike, representing CentCom's grand naval fleet."
 	greyscale_colors = "#363740#3c485a#373741#bbbbbb#21212B#bbbbbb#bbbbbb"
-	icon_state = "/obj/item/clothing/under/imperialskirtvest/bs"
+	icon_state = "/obj/item/clothing/under/imperialskirtvest/blueshield"
 	flags_1 = NONE
 	armor_type = /datum/armor/clothing_under/rank_blueshield
 
@@ -159,14 +159,14 @@
 
 /obj/item/clothing/under/imperial/nanotrasen_consultant
 	name = "nanotrasen consultant's naval uniform"
-	desc = "An upper level uniform granted to consultants and representatives alike, representing CentCom's grand naval fleet."
+	desc = "An upper level uniform granted to consultants and representatives alike, representing SectCom's grand naval fleet." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "An upper level uniform granted to consultants and representatives alike, representing CentCom's grand naval fleet."
 	icon_state = "/obj/item/clothing/under/imperial/nanotrasen_consultant"
 	greyscale_colors = "#54a57e#54a57e#47464e#373741#ffce5b#ffce5b#f2b050"
 	flags_1 = NONE
 
 /obj/item/clothing/under/imperialskirt/nanotrasen_consultant
 	name = "nanotrasen consultant's naval skirt"
-	desc = "An upper level uniform granted to consultants and representatives alike, representing CentCom's grand naval fleet."
+	desc = "An upper level uniform granted to consultants and representatives alike, representing SectCom's grand naval fleet." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "An upper level uniform granted to consultants and representatives alike, representing CentCom's grand naval fleet."
 	greyscale_colors = "#54a57e#47464e#373741#ffce5b#ffce5b#f2b050"
 	icon_state = "/obj/item/clothing/under/imperialskirt/nanotrasen_consultant"
 	flags_1 = NONE
