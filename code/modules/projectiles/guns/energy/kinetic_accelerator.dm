@@ -692,7 +692,7 @@
 /obj/item/borg/upgrade/modkit/blank/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	var/static/list/anomaly_kit_types = list(
-
+		/obj/effect/anomaly/grav = /obj/item/borg/upgrade/modkit/cooldown/gravity,
 	)
 
 	if(istype(tool, /obj/item/assembly/signaler/anomaly))
@@ -703,6 +703,25 @@
 		qdel(src)
 		qdel(anomaly)
 		return ITEM_INTERACT_SUCCESS
+
+/obj/item/borg/upgrade/modkit/cooldown/gravity
+	name = "gravitic pulverizer"
+	desc = "A specialized PK anomaly modkit. This one vastly increases the weapon's damage at the cost of cooldown, as well as allowing it to knock targets back."
+	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
+	icon_state = "anomalykit"
+	modifier = -10
+	cost = 30
+
+/obj/item/borg/upgrade/modkit/cooldown/gravity/modify_projectile(obj/projectile/kinetic/K)
+	K.damage -= modifier * 5
+
+/obj/item/borg/upgrade/modkit/cooldown/gravity/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
+	var/relative_direction = get_cardinal_dir(src, target)
+	var/atom/throw_target = get_edge_target_turf(target, relative_direction)
+	. = ..()
+	if(!QDELETED(target))
+		var/whack_speed = (2)
+		target.throw_at(throw_target, 2, whack_speed, K, gentle = TRUE)
 
 //OCULIS EDIT ADDITION END
 
