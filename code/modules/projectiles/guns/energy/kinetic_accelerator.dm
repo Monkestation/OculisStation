@@ -693,6 +693,7 @@
 	. = ..()
 	var/static/list/anomaly_kit_types = list(
 		/obj/effect/anomaly/grav = /obj/item/borg/upgrade/modkit/cooldown/gravity,
+		/obj/effect/anomaly/weather = /obj/item/borg/upgrade/modkit/weather,
 	)
 
 	if(istype(tool, /obj/item/assembly/signaler/anomaly))
@@ -724,6 +725,38 @@
 	if(!QDELETED(target))
 		var/whack_speed = (2)
 		target.throw_at(throw_target, 2, whack_speed, K, gentle = TRUE)
+
+/obj/item/borg/upgrade/modkit/weather
+	name = "storm capacitor"
+	desc = "A specialized PK anomaly modkit. This one allows the weapon to call lightning."
+	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
+	icon_state = "anomalykit"
+	cost = 40
+
+/obj/item/borg/upgrade/modkit/weather/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
+	new /obj/effect/temp_visual/telegraphing/thunderbolt(target_turf)
+	addtimer(CALLBACK(src, PROC_REF(shock_turf), target_turf), 2 SECONDS)
+
+/obj/item/borg/upgrade/modkit/weather/proc/shock_turf(turf/target)
+	playsound(target, 'sound/effects/magic/lightningbolt.ogg', 66, TRUE)
+	new /obj/effect/temp_visual/thunderbolt(target)
+	for(var/turf/open/adjacent_turf in oview(1, target))
+		new /obj/effect/temp_visual/electricity(adjacent_turf)
+
+	for(var/mob/living/hit_mob in target)
+		to_chat(hit_mob, span_userdanger("You've been struck by lightning!"))
+		hit_mob.electrocute_act(30, src, flags = SHOCK_TESLA|SHOCK_NOSTUN)
+		hit_mob.Knockdown(1 SECONDS, 5 SECONDS)
+
+	for(var/mob/living/nearby_target in oview(1, target))
+		to_chat(nearby_target, span_userdanger("You've been struck by an arc of lightning!"))
+		nearby_target.electrocute_act(10, src, flags = SHOCK_TESLA|SHOCK_NOSTUN)
+
+	for(var/obj/hit_thing in target)
+		hit_thing.take_damage(20, BURN, ENERGY, FALSE)
+
+	for(var/obj/nearby_thing in oview(1, target))
+		nearby_thing.take_damage(5, BURN, ENERGY, FALSE)
 
 //OCULIS EDIT ADDITION END
 
