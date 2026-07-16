@@ -9,16 +9,11 @@
 	w_class = WEIGHT_CLASS_SMALL
 	color = COLOR_THEME_CLOCKWORK
 
-/obj/item/ear_trumpet/Initialize(mapload)
-	. = ..()
-	RegisterSignal(parent, COMSIG_ITEM_POST_EQUIPPED, PROC_REF(on_equip))
-	RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(on_drop))
-
 /obj/item/ear_trumpet/attack_self(mob/user, modifiers)
 	. = ..()
 	user.visible_message(span_notice("[user] holds [src] up to their ears."), span_notice("You hold [src] up to your ears."))
 	ADD_TRAIT(user, TRAIT_GOOD_HEARING, "eartrumpet")
-	while(do_after(user, 1 SECOND, target = src, timed_action_flags = IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE, hidden = TRUE))
+	while(do_after(user, 1 SECONDS, target = src, timed_action_flags = IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE, hidden = TRUE))
 	REMOVE_TRAIT(user, TRAIT_GOOD_HEARING, "eartrumpet")
 
 /datum/design/ear_trumpet
