@@ -698,6 +698,8 @@
 	if(istype(tool, /obj/item/assembly/signaler/anomaly))
 		var/obj/item/assembly/signaler/anomaly/anomaly = tool
 		var/anomkit_path = is_path_in_list(anomaly.anomaly_type, anomaly_kit_types, TRUE)
+		if(!anomkit_path)
+			anomkit_path = /obj/item/borg/upgrade/modkit/cooldown/gravity //If an anomaly is inserted without a specifically coded modifier, give the gravity one so that the player isn't unrewarded
 		to_chat(user, span_notice("You insert [anomaly] into the modkit, and it gently hums to life."))
 		new anomkit_path(get_turf(src))
 		qdel(src)
