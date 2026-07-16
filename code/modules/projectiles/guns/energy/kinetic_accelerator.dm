@@ -722,7 +722,7 @@
 	var/relative_direction = get_cardinal_dir(src, target)
 	var/atom/throw_target = get_edge_target_turf(target, relative_direction)
 	. = ..()
-	if(!QDELETED(target))
+	if(!QDELETED(target) && istype(target, /mob))
 		var/whack_speed = (2)
 		target.throw_at(throw_target, 2, whack_speed, K, gentle = TRUE)
 
