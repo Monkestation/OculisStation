@@ -695,6 +695,7 @@
 		/obj/effect/anomaly/grav = /obj/item/borg/upgrade/modkit/cooldown/gravity,
 		/obj/effect/anomaly/weather = /obj/item/borg/upgrade/modkit/weather,
 		/obj/effect/anomaly/ectoplasm = /obj/item/borg/upgrade/modkit/ectoplasm,
+		/obj/effect/anomaly/bluespace = /obj/item/borg/upgrade/modkit/cooldown/bluespace,
 	)
 
 	if(istype(tool, /obj/item/assembly/signaler/anomaly))
@@ -775,6 +776,17 @@
 		playsound(target_turf,'sound/effects/hallucinations/veryfar_noise.ogg', 50, TRUE)
 		haunt_outburst(epicenter = target_turf, range = 4, haunt_chance = 100, duration = 6 SECONDS)
 
+/obj/item/borg/upgrade/modkit/cooldown/bluespace
+	name = "bluespace aberrator"
+	desc = "A specialized PK anomaly modkit. This one allows the weapon to chaotically teleport targets, alongside increased cooling rates."
+	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
+	icon_state = "anomalykit"
+	cost = 35
+	modifier = 5
+
+/obj/item/borg/upgrade/modkit/cooldown/bluespace/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
+	if(!QDELETED(target) && istype(target, /mob))
+		do_teleport(target, target_turf, 1, asoundin = 'sound/effects/phasein.ogg', channel = TELEPORT_CHANNEL_BLUESPACE)
 //OCULIS EDIT ADDITION END
 
 //Cosmetic
