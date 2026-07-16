@@ -689,6 +689,21 @@
 	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
 	icon_state = "anomalykitempty"
 
+/obj/item/borg/upgrade/modkit/blank/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	. = ..()
+	var/static/list/anomaly_kit_types = list(
+
+	)
+
+	if(istype(tool, /obj/item/assembly/signaler/anomaly))
+		var/obj/item/assembly/signaler/anomaly/anomaly = tool
+		var/anomkit_path = is_path_in_list(anomaly.anomaly_type, anomaly_kit_types, TRUE)
+		to_chat(user, span_notice("You insert [anomaly] into the modkit, and it gently hums to life."))
+		new anomkit_path(get_turf(src))
+		qdel(src)
+		qdel(anomaly)
+		return ITEM_INTERACT_SUCCESS
+
 //OCULIS EDIT ADDITION END
 
 //Cosmetic
