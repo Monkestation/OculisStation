@@ -832,7 +832,7 @@
 
 /obj/item/borg/upgrade/modkit/cooldown/dimensional/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
 	if(!QDELETED(target) && istype(target, /mob) && prob(20))
-		var/new_theme_path = pick(subtypesof(/datum/dimension_theme))
+		var/new_theme_path = pick(subtypesof(/datum/armour_dimensional_theme/safe))
 		var/datum/dimension_theme/theme = SSmaterials.dimensional_themes[new_theme_path]
 		for(var/turf/turf as anything in RANGE_TURFS(1, target_turf))
 			theme.apply_theme(turf, show_effect = TRUE)
