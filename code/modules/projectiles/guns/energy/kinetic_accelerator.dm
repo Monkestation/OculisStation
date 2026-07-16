@@ -714,7 +714,7 @@
 	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
 	icon_state = "anomalykit"
 	modifier = -10
-	cost = 30
+	cost = 35
 
 /obj/item/borg/upgrade/modkit/cooldown/gravity/modify_projectile(obj/projectile/kinetic/K)
 	K.damage -= modifier * 5
@@ -732,7 +732,7 @@
 	desc = "A specialized PK anomaly modkit. This one allows the weapon to call lightning."
 	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
 	icon_state = "anomalykit"
-	cost = 40
+	cost = 35
 
 /obj/item/borg/upgrade/modkit/weather/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
 	new /obj/effect/temp_visual/telegraphing/thunderbolt(target_turf)
