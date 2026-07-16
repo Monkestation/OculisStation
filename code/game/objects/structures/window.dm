@@ -18,6 +18,7 @@
 	flags_ricochet = RICOCHET_HARD
 	receive_ricochet_chance_mod = 0.5
 	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT)
+	tacmap_color = TACMAP_WINDOW
 	var/state = WINDOW_OUT_OF_FRAME
 	var/reinf = FALSE
 	var/heat_resistance = 800
@@ -70,6 +71,9 @@
 	RegisterSignal(src, COMSIG_OBJ_PAINTED, PROC_REF(on_painted))
 	AddElement(/datum/element/atmos_sensitive, mapload)
 	AddElement(/datum/element/simple_rotation, ROTATION_NEEDS_ROOM, post_rotation_proccall = PROC_REF(post_rotation))
+	// OCULIS EDIT START
+	AddElement(/datum/element/wall_pin)
+	// OCULIS EDIT END
 
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_EXIT = PROC_REF(on_exit),

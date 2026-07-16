@@ -44,10 +44,6 @@ You can also ask for custom rituals through prayers, but it's not guaranteed som
 		quirk_holder.mind.teach_crafting_recipe(crafting_recipe_type)
 
 
-// I hope this works
-//#define CAT_MAGIC "Magic"
-// it didn't
-
 //~~~~~~~~~~~~~~~~~~~~~~~~\\
 //       THE EXTRACTS
 //~~~~~~~~~~~~~~~~~~~~~~~~\\
@@ -274,6 +270,7 @@ It is technically capable of raising the dead... but not animating them."
 	result = /obj/item/food/grown/mushroom/glowshroom/shadowshroom
 	time = 40
 	reqs = list(/obj/item/extract/mutandis = 1, /obj/item/extract/shadow = 1, /obj/item/food/grown/mushroom = 1)
+	unit_test_spawn_extras = list(/obj/item/food/grown/mushroom/amanita = 1)
 	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 

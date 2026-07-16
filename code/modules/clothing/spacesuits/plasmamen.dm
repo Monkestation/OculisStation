@@ -449,8 +449,8 @@
 	acid = 75
 
 /obj/item/clothing/head/helmet/space/plasmaman/centcom_commander
-	name = "CentCom commander plasma envirosuit helmet"
-	desc = "A special containment helmet designed for the Higher Central Command Staff. Not many of these exist, as CentCom does not usually employ plasmamen to higher staff positions due to their complications."
+	name = "SectCom commander plasma envirosuit helmet" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom commander plasma envirosuit helmet"
+	desc = "A special containment helmet designed for the Higher Sectorial Command Staff. Not many of these exist, as CentCom does not usually employ plasmamen to higher staff positions due to their complications." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A special containment helmet designed for the Higher Central Command Staff. Not many of these exist, as CentCom does not usually employ plasmamen to higher staff positions due to their complications."
 	icon_state = "commander_envirohelm"
 	inhand_icon_state = null
 	armor_type = /datum/armor/hats_centhat/plasmaman
@@ -461,14 +461,14 @@
 	acid = 75
 
 /obj/item/clothing/head/helmet/space/plasmaman/centcom_official
-	name = "CentCom official plasma envirosuit helmet"
-	desc = "A special containment helmet designed for CentCom Staff. They sure do love their green."
+	name = "SectCom official plasma envirosuit helmet" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom official plasma envirosuit helmet"
+	desc = "A special containment helmet designed for SectCom Staff. They sure do love their green." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A special containment helmet designed for CentCom Staff. They sure do love their green."
 	icon_state = "official_envirohelm"
 	inhand_icon_state = null
 
 /obj/item/clothing/head/helmet/space/plasmaman/centcom_intern
-	name = "CentCom intern plasma envirosuit helmet"
-	desc = "A special containment helmet designed for CentCom Staff. You know, so any coffee spills don't kill the poor sod."
+	name = "SectCom intern plasma envirosuit helmet" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom intern plasma envirosuit helmet"
+	desc = "A special containment helmet designed for SectCom Staff. You know, so any coffee spills don't kill the poor sod." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A special containment helmet designed for CentCom Staff. You know, so any coffee spills don't kill the poor sod."
 	icon_state = "intern_envirohelm"
 	inhand_icon_state = null
 

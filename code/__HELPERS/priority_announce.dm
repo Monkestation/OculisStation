@@ -217,6 +217,11 @@
 		if(target.client?.prefs.read_preference(/datum/preference/toggle/sound_announcements))
 			SEND_SOUND(target, sound(sound_to_play))
 	*/
+
+	// OCULIS EDIT ADDITION START
+	if(REDACTION_FILTER_CHECK(announcement))
+		announcement = SSredaction.redact_sentence(announcement, usr)
+	// OCULIS EDIT ADDITION END
 	if(!sound_override)
 		sound_override = SSstation.announcer.get_rand_alert_sound()
 	else if(SSstation.announcer.event_sounds[sound_override])

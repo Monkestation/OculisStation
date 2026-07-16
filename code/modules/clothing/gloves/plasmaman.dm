@@ -104,17 +104,17 @@
 	greyscale_colors = "#64008a"
 
 /obj/item/clothing/gloves/color/plasmaman/centcom_commander
-	name = "CentCom commander envirogloves"
+	name = "SectCom commander envirogloves" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom commander envirogloves"
 	icon_state = "commanderplasma"
 	greyscale_colors = "#009100"
 
 /obj/item/clothing/gloves/color/plasmaman/centcom_official
-	name = "CentCom official envirogloves"
+	name = "SectCom official envirogloves" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom official envirogloves"
 	icon_state = "officialplasma"
 	greyscale_colors = "#10af77"
 
 /obj/item/clothing/gloves/color/plasmaman/centcom_intern
-	name = "CentCom intern envirogloves"
+	name = "SectCom intern envirogloves" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom intern envirogloves"
 	icon_state = "internplasma"
 	greyscale_colors = "#00974b"
 

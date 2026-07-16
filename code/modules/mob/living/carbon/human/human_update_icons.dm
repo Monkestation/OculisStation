@@ -64,7 +64,6 @@ There are several things that need to be remembered:
 	update_pockets()
 	update_worn_neck()
 	update_transform()
-	update_mutations_overlay()
 	update_damage_overlays()
 	// These are done via parent call update_body(), keeping them here for clarity
 	// update_hair()
@@ -1336,7 +1335,23 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	if(isnull(offset_type))
 		if(islist(raw_applied))
 			for(var/image/applied_appearance in raw_applied)
-				apply_height_filters(applied_appearance)
+				// NOVA EDIT ADDITION - fix hair clipping PR#7002
+				// ORIGINAL: apply_height_filters(applied_appearance)
+				// For overlay lists (e.g. bodypart overlays), check if the individual image's layer
+				// has a defined offset type. This prevents clipping of hair/ears at the top of the
+				// sprite when the displacement filter would push their pixels out of bounds.
+				var/sub_offset_type = GLOB.layers_to_offset[num2text(-applied_appearance.layer)]
+				if(isnull(sub_offset_type))
+					if(findtext(applied_appearance.icon_state, "horns_", 3, 9) || findtext(applied_appearance.icon_state, "ears_", 3, 8))
+						sub_offset_type = UPPER_BODY
+				// We check again just in case it was populated BEFORE this block,
+				// or if it was successfully populated BY the block above.
+				if(sub_offset_type)
+					applied_appearance.pixel_z = initial(applied_appearance.pixel_z)
+					apply_height_offsets(applied_appearance, sub_offset_type)
+				else
+					apply_height_filters(applied_appearance)
+				// NOVA EDIT END
 		else if(isimage(raw_applied))
 			apply_height_filters(raw_applied)
 	else
@@ -1378,6 +1393,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	var/static/icon/lenghten_torso_mask = icon('icons/effects/cut.dmi', "Cut3")
 	var/static/icon/lenghten_legs_mask = icon('icons/effects/cut.dmi', "Cut4")
 */ // IRIS EDIT REMOVAL END
+	var/static/icon/lenghten_arms_mask = icon('icons/effects/cut.dmi', "Cut5")
 
 	// IRIS EDIT ADDITION START - Height-based displacement masks.
 	var/static/list/screamed_icons
@@ -1425,6 +1441,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 		"Lenghten_Ankles", // IRIS ADDITION
 		"Lenghten_Legs",
 		"Lenghten_Torso",
+		"Lenghten_Arms",
 		"Gnome_Cut_Torso",
 		"Gnome_Cut_Legs",
 		"Monkey_Torso",
@@ -1527,9 +1544,14 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 					"params" = displacement_map_filter(lenghten_torso_mask, x = 0, y = adjust_y, size = 1), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 				),
 				list(
+					"name" = "Lenghten_Arms",
+					"priority" = 1,
+					"params" = displacement_map_filter(lenghten_arms_mask, x = 0, y = 0, size = 1),
+				),
+				list(
 					"name" = "Lenghten_Legs",
 					"priority" = 1,
-					"params" = displacement_map_filter(lenghten_legs_mask, x = 0, y = adjust_y, size = 1), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`, `size = 2` -> `size = 1`
+					"params" = displacement_map_filter(lenghten_legs_mask, x = 0, y = adjust_y, size = 1), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`, `size = 1`
 				),
 				// IRIS EDIT ADDITION START - add Lengthen_Ankles filter
 				list(

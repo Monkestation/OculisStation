@@ -1,5 +1,5 @@
 /obj/item/clothing/head/helmet/space/beret
-	name = "\improper CentCom officer's beret"
+	name = "\improper SectCom officer's beret" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom officer's beret"
 	desc = "An armored beret commonly used by special operations officers. Uses advanced force field technology to protect the head from space."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/helmet/space/beret"
@@ -31,7 +31,7 @@
 	wound = 15
 
 /obj/item/clothing/suit/space/officer
-	name = "\improper CentCom officer's coat"
+	name = "\improper SectCom officer's coat" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom officer's coat"
 	desc = "An armored, space-proof coat used in special operations."
 	icon_state = "centcom_coat"
 	icon = 'icons/obj/clothing/suits/jacket.dmi'

@@ -29,7 +29,7 @@
 	id = "derelictferry"
 	suffix = "derelictferry.dmm"
 	name = "Space-Ruin Derelict Ferry"
-	description = "Clearly once a ferry fielded by Central Command to send their staff to nearby stations, this ship's seen better days."
+	description = "Clearly once a ferry fielded by Sectorial Command to send their staff to nearby stations, this ship's seen better days." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Clearly once a ferry fielded by Central Command to send their staff to nearby stations, this ship's seen better days."
 
 /datum/map_template/ruin/space/nova/posterpandamonium
 	id = "posterpandamonium"
@@ -84,6 +84,8 @@
 	suffix = "blackmarket.dmm"
 	name = "Space-Ruin Shady Market"
 	description = "Whaddya buyin'?"
+	always_place = TRUE // OCULIS EDIT CHANGE - ORIGINAL: always_place = FALSE
+	cost = 0 // OCULIS EDIT CHANGE - ORIGINAL: cost = 1
 
 /datum/map_template/ruin/space/nova/shuttle8532
 	id = "shuttle8532"

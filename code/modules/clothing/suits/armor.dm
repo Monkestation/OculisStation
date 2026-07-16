@@ -658,8 +658,8 @@
 	wound = 15
 
 /obj/item/clothing/suit/armor/centcom_formal
-	name = "\improper CentCom formal coat"
-	desc = "A stylish coat given to CentCom Commanders. Perfect for sending ERTs to suicide missions with style!"
+	name = "\improper SectCom formal coat" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom formal coat"
+	desc = "A stylish coat given to SectCom Commanders. Perfect for sending ERTs to suicide missions with style!" // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A stylish coat given to CentCom Commanders. Perfect for sending ERTs to suicide missions with style!"
 	icon_state = "centcom_formal"
 	inhand_icon_state = "centcom"
 	body_parts_covered = CHEST|GROIN|ARMS
