@@ -696,6 +696,7 @@
 		/obj/effect/anomaly/weather = /obj/item/borg/upgrade/modkit/weather,
 		/obj/effect/anomaly/ectoplasm = /obj/item/borg/upgrade/modkit/ectoplasm,
 		/obj/effect/anomaly/bluespace = /obj/item/borg/upgrade/modkit/cooldown/bluespace,
+		/obj/effect/anomaly/bhole = /obj/item/borg/upgrade/modkit/vortex,
 	)
 
 	if(istype(tool, /obj/item/assembly/signaler/anomaly))
@@ -787,6 +788,22 @@
 /obj/item/borg/upgrade/modkit/cooldown/bluespace/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
 	if(!QDELETED(target) && istype(target, /mob))
 		do_teleport(target, target_turf, 1, asoundin = 'sound/effects/phasein.ogg', channel = TELEPORT_CHANNEL_BLUESPACE)
+
+/obj/item/borg/upgrade/modkit/vortex
+	name = "vortex attractor"
+	desc = "A specialized PK anomaly modkit. This one allows the weapon to pull enemies in, along with a slight increase to force output."
+	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
+	icon_state = "anomalykit"
+	modifier = 5
+	cost = 35
+
+/obj/item/borg/upgrade/modkit/vortex/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
+	var/relative_direction = get_cardinal_dir(target, src)
+	var/atom/throw_target = get_edge_target_turf(target, relative_direction)
+	. = ..()
+	if(!QDELETED(target) && istype(target, /mob))
+		var/whack_speed = (2)
+		target.throw_at(throw_target, 2, whack_speed, K, gentle = TRUE)
 //OCULIS EDIT ADDITION END
 
 //Cosmetic
