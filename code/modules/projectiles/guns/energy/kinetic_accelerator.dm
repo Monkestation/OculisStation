@@ -761,7 +761,7 @@
 
 /obj/item/borg/upgrade/modkit/ectoplasm
 	name = "geist projector"
-	desc = "A specialized PK anomaly modkit. This one allows the weapon to create bubbles of kinetic possession, in addition to greatly increasing its range."
+	desc = "A specialized PK anomaly modkit. This one allows the weapon to create bubbles of object possession, in addition to greatly increasing its range."
 	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
 	icon_state = "anomalykit"
 	cost = 35
