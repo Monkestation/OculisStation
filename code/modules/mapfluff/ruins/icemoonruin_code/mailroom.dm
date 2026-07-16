@@ -26,7 +26,7 @@
 
 /obj/item/paper/crumpled/muddy/fluff/instructions
 	name = "worn-down note"
-	default_raw_text = "<b>I'll make this short because we both know what's on the line here.</b><i>Your remote planitary outpost is, somehow, a central artery for all of centcom's paycheck divison processing. It's also, all handled in cash! So that means that everyone's payday cash goes through you. Axe your coworker and make off with the paychecks. You'll be compensated fairly for your work. Return to syndicate HQ for more instructions.</i>"
+	default_raw_text = "<b>I'll make this short because we both know what's on the line here.</b><i>Your remote planitary outpost is, somehow, a central artery for all of SectCom's paycheck divison processing. It's also, all handled in cash! So that means that everyone's payday cash goes through you. Axe your coworker and make off with the paychecks. You'll be compensated fairly for your work. Return to syndicate HQ for more instructions.</i>" // OCULIS EDIT, SectCommening 2, ORIGINAL: default_raw_text = "<b>I'll make this short because we both know what's on the line here.</b><i>Your remote planitary outpost is, somehow, a central artery for all of centcom's paycheck divison processing. It's also, all handled in cash! So that means that everyone's payday cash goes through you. Axe your coworker and make off with the paychecks. You'll be compensated fairly for your work. Return to syndicate HQ for more instructions.</i>"
 
 /obj/item/paper/crumpled/fluff/poem
 	name = "discarded note"

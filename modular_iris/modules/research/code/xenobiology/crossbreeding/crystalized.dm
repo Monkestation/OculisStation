@@ -409,10 +409,13 @@
 /obj/structure/slime_crystal/cerulean/proc/spawn_crystal()
 	if(crystals >= 3)
 		return
-	for(var/turf/T as() in RANGE_TURFS(2,src))
-		if(T.is_blocked_turf() || isspaceturf(T)  || T == get_turf(src) || prob(50))
+	var/turf/center = get_turf(src)
+	if(!center)
+		return
+	for(var/turf/T as anything in RANGE_TURFS(2, center) - center)
+		if(T.is_blocked_turf() || isspaceturf(T) || prob(50))
 			continue
-		var/obj/structure/cerulean_slime_crystal/CSC = locate() in range(1,T)
+		var/obj/structure/cerulean_slime_crystal/CSC = locate() in range(1, T)
 		if(CSC)
 			continue
 		new /obj/structure/cerulean_slime_crystal(T, src)
@@ -524,7 +527,10 @@
 		"#FFB6C1",
 		"#008B8B",
 	)
-	for(var/turf/T as() in RANGE_TURFS(4,src))
+	var/turf/center = get_turf(src)
+	if(!center)
+		return
+	for(var/turf/T as anything in RANGE_TURFS(4, center))
 		T.add_atom_colour(pick(color_list), FIXED_COLOUR_PRIORITY)
 
 	addtimer(CALLBACK(src,PROC_REF(change_colour)),rand(0.75 SECONDS,1.25 SECONDS))

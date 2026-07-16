@@ -154,13 +154,13 @@ ADMIN_VERB(borg_panel, R_ADMIN, "Show Borg Panel", ADMIN_VERB_NO_DESCRIPTION, AD
 					borg.radio.channels -= channel
 					if (channel == RADIO_CHANNEL_SYNDICATE)
 						borg.radio.special_channels &= ~RADIO_SPECIAL_SYNDIE
-					else if (channel == "CentCom")
+					else if (channel == "SectCom") // OCULIS EDIT, SectCommening 2, ORIGINAL: else if (channel == "CentCom")
 						borg.radio.special_channels &= ~RADIO_SPECIAL_CENTCOM
 				else
 					borg.radio.keyslot.channels -= channel
 					if (channel == RADIO_CHANNEL_SYNDICATE)
 						borg.radio.keyslot.special_channels &= ~RADIO_SPECIAL_SYNDIE
-					else if (channel == "CentCom")
+					else if (channel == "SectCom") // OCULIS EDIT, SectCommening 2, ORIGINAL: else if (channel == "CentCom")
 						borg.radio.keyslot.special_channels &= ~RADIO_SPECIAL_CENTCOM
 				message_admins("[key_name_admin(user)] removed the [channel] radio channel from [ADMIN_LOOKUPFLW(borg)].")
 				log_silicon("[key_name(user)] removed the [channel] radio channel from [key_name(borg)].")
@@ -170,7 +170,7 @@ ADMIN_VERB(borg_panel, R_ADMIN, "Show Borg Panel", ADMIN_VERB_NO_DESCRIPTION, AD
 				borg.radio.keyslot.channels[channel] = 1
 				if (channel == RADIO_CHANNEL_SYNDICATE)
 					borg.radio.keyslot.special_channels |= RADIO_SPECIAL_SYNDIE
-				else if (channel == "CentCom")
+				else if (channel == "SectCom") // OCULIS EDIT, SectCommening 2, ORIGINAL: else if (channel == "CentCom")
 					borg.radio.keyslot.special_channels |= RADIO_SPECIAL_CENTCOM
 				message_admins("[key_name_admin(user)] added the [channel] radio channel to [ADMIN_LOOKUPFLW(borg)].")
 				log_silicon("[key_name(user)] added the [channel] radio channel to [key_name(borg)].")
