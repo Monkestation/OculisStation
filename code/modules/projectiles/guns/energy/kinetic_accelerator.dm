@@ -697,6 +697,7 @@
 		/obj/effect/anomaly/ectoplasm = /obj/item/borg/upgrade/modkit/ectoplasm,
 		/obj/effect/anomaly/bluespace = /obj/item/borg/upgrade/modkit/cooldown/bluespace,
 		/obj/effect/anomaly/bhole = /obj/item/borg/upgrade/modkit/vortex,
+		/obj/effect/anomaly/flux = /obj/item/borg/upgrade/modkit/flux,
 	)
 
 	if(istype(tool, /obj/item/assembly/signaler/anomaly))
@@ -804,6 +805,19 @@
 	if(!QDELETED(target) && istype(target, /mob))
 		var/whack_speed = (2)
 		target.throw_at(throw_target, 2, whack_speed, K, gentle = TRUE)
+
+/obj/item/borg/upgrade/modkit/flux
+	name = "flux charger"
+	desc = "A specialized PK anomaly modkit. This one gives the weapon a slight damage and range increase at no modularity cost. Push the limit."
+	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
+	icon_state = "anomalykit"
+	modifier = 10
+	cost = 0
+
+/obj/item/borg/upgrade/modkit/flux/modify_projectile(obj/projectile/kinetic/K)
+	K.damage += modifier
+	K.range += 1
+
 //OCULIS EDIT ADDITION END
 
 //Cosmetic
