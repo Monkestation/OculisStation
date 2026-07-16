@@ -694,6 +694,7 @@
 	var/static/list/anomaly_kit_types = list(
 		/obj/effect/anomaly/grav = /obj/item/borg/upgrade/modkit/cooldown/gravity,
 		/obj/effect/anomaly/weather = /obj/item/borg/upgrade/modkit/weather,
+		/obj/effect/anomaly/ectoplasm = /obj/item/borg/upgrade/modkit/ectoplasm,
 	)
 
 	if(istype(tool, /obj/item/assembly/signaler/anomaly))
@@ -757,6 +758,22 @@
 
 	for(var/obj/nearby_thing in oview(1, target))
 		nearby_thing.take_damage(5, BURN, ENERGY, FALSE)
+
+/obj/item/borg/upgrade/modkit/ectoplasm
+	name = "geist projector"
+	desc = "A specialized PK anomaly modkit. This one allows the weapon to create bubbles of kinetic possession, in addition to greatly increasing its range."
+	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
+	icon_state = "anomalykit"
+	cost = 35
+	modifier = 5
+
+/obj/item/borg/upgrade/modkit/ectoplasm/modify_projectile(obj/projectile/kinetic/K)
+	K.range += modifier
+
+/obj/item/borg/upgrade/modkit/ectoplasm/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
+	if(!QDELETED(target) && istype(target, /mob))
+		playsound(target_turf,'sound/effects/hallucinations/veryfar_noise.ogg', 50, TRUE)
+		haunt_outburst(epicenter = target_turf, range = 4, haunt_chance = 100, duration = 6 SECONDS)
 
 //OCULIS EDIT ADDITION END
 
