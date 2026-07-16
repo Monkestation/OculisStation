@@ -713,6 +713,25 @@
 		qdel(anomaly)
 		return ITEM_INTERACT_SUCCESS
 
+/datum/design/anomaly_mod
+	name = "Kinetic Accelerator Blank Anomaly Mod"
+	desc = "Ask Research to slot an anomaly core into this for a specialized proto-kinetic accelerator upgrade."
+	id = "anomalymod"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(
+		/datum/material/iron =SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/glass =SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/silver =SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/gold =SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/uranium =SHEET_MATERIAL_AMOUNT,
+		/datum/material/diamond =SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/borg/upgrade/modkit/blank
+	category = list(
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_PKA_MODS
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_CARGO
+
 /obj/item/borg/upgrade/modkit/cooldown/gravity
 	name = "gravitic pulverizer"
 	desc = "A specialized PK anomaly modkit. This one vastly increases the weapon's damage at the cost of cooldown, as well as allowing it to knock targets back."
