@@ -730,7 +730,7 @@
 
 /obj/item/borg/upgrade/modkit/weather
 	name = "storm capacitor"
-	desc = "A specialized PK anomaly modkit. This one allows the weapon to call lightning."
+	desc = "A specialized PK anomaly modkit. This one allows the weapon to call lightning from above, electrocuting targets."
 	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
 	icon_state = "anomalykit"
 	cost = 35
