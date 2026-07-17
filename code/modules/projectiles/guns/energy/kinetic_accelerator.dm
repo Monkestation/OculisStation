@@ -783,8 +783,8 @@
 		nearby_thing.take_damage(10, BURN, ENERGY, FALSE)
 
 /obj/item/borg/upgrade/modkit/ectoplasm
-	name = "geist projector"
-	desc = "A specialized PK anomaly modkit. This one allows the weapon to create bubbles of object possession, in addition to greatly increasing its range."
+	name = "poltergeist projector"
+	desc = "A specialized PK anomaly modkit. This one grants the weapon a chance to haunt nearby objects, throwing them at the target. Comes with a large range increase."
 	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
 	icon_state = "anomalykit"
 	cost = 35
@@ -795,8 +795,13 @@
 
 /obj/item/borg/upgrade/modkit/ectoplasm/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
 	if(!QDELETED(target) && istype(target, /mob))
-		playsound(target_turf,'sound/effects/hallucinations/veryfar_noise.ogg', 50, TRUE)
-		haunt_outburst(epicenter = target_turf, range = 4, haunt_chance = 100, duration = 6 SECONDS)
+		for(var/obj/item/throwable in view(modifier, target))
+			if(prob(30))
+				playsound(target_turf,'sound/effects/hallucinations/veryfar_noise.ogg', 50, TRUE)
+				var/relative_direction = get_cardinal_dir(throwable, target)
+				var/atom/throw_target = get_edge_target_turf(target, relative_direction)
+				var/whack_speed = (2)
+				throwable.throw_at(throw_target, modifier, whack_speed, K, gentle = TRUE)
 
 /obj/item/borg/upgrade/modkit/cooldown/bluespace
 	name = "bluespace aberrator"
