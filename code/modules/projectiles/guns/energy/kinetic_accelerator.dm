@@ -698,7 +698,6 @@
 		/obj/effect/anomaly/bluespace = /obj/item/borg/upgrade/modkit/cooldown/bluespace,
 		/obj/effect/anomaly/bhole = /obj/item/borg/upgrade/modkit/vortex,
 		/obj/effect/anomaly/flux = /obj/item/borg/upgrade/modkit/flux,
-		/obj/effect/anomaly/dimensional = /obj/item/borg/upgrade/modkit/cooldown/dimensional,
 		/obj/effect/anomaly/bioscrambler = /obj/item/borg/upgrade/modkit/bioscrambler,
 	)
 
@@ -841,24 +840,6 @@
 /obj/item/borg/upgrade/modkit/flux/modify_projectile(obj/projectile/kinetic/K)
 	K.damage += modifier
 	K.range += 1
-
-/obj/item/borg/upgrade/modkit/cooldown/dimensional
-	name = "rift cleaver"
-	desc = "A specialized PK anomaly modkit. This one vastly increases the weapon's range at the cost of cooldown, as well as giving it a chance to shift dimensions in a small radius when striking."
-	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
-	icon_state = "anomalykit"
-	modifier = -5
-	cost = 35
-
-/obj/item/borg/upgrade/modkit/cooldown/dimensional/modify_projectile(obj/projectile/kinetic/K)
-	K.range -= modifier * 2
-
-/obj/item/borg/upgrade/modkit/cooldown/dimensional/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
-	if(!QDELETED(target) && istype(target, /mob) && prob(modifier * -4))
-		playsound(target, 'sound/items/weapons/zapbang.ogg', 100, TRUE)
-		var/datum/armour_dimensional_theme/theme = new()
-		theme.apply_random(target_turf, dangerous = FALSE)
-		qdel(theme)
 
 /obj/item/borg/upgrade/modkit/bioscrambler
 	name = "genetic inducer"
