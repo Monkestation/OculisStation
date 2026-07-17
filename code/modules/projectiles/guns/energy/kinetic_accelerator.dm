@@ -781,7 +781,7 @@
 		hit_thing.take_damage(20, BURN, ENERGY, FALSE)
 
 	for(var/obj/nearby_thing in oview(1, target))
-		nearby_thing.take_damage(5, BURN, ENERGY, FALSE)
+		nearby_thing.take_damage(10, BURN, ENERGY, FALSE)
 
 /obj/item/borg/upgrade/modkit/ectoplasm
 	name = "geist projector"
@@ -789,7 +789,7 @@
 	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
 	icon_state = "anomalykit"
 	cost = 35
-	modifier = 5
+	modifier = 3
 
 /obj/item/borg/upgrade/modkit/ectoplasm/modify_projectile(obj/projectile/kinetic/K)
 	K.range += modifier
@@ -805,7 +805,7 @@
 	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
 	icon_state = "anomalykit"
 	cost = 35
-	modifier = 5
+	modifier = 4
 
 /obj/item/borg/upgrade/modkit/cooldown/bluespace/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
 	if(!QDELETED(target) && istype(target, /mob))
@@ -813,11 +813,14 @@
 
 /obj/item/borg/upgrade/modkit/vortex
 	name = "vortex attractor"
-	desc = "A specialized PK anomaly modkit. This one allows the weapon to pull enemies in, along with a slight increase to force output."
+	desc = "A specialized PK anomaly modkit. This one allows the weapon to pull enemies in, along with an increase to force output."
 	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
 	icon_state = "anomalykit"
-	modifier = 5
+	modifier = 10
 	cost = 35
+
+/obj/item/borg/upgrade/modkit/vortex/modify_projectile(obj/projectile/kinetic/K)
+	K.damage += modifier
 
 /obj/item/borg/upgrade/modkit/vortex/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
 	var/relative_direction = get_cardinal_dir(target, src)
