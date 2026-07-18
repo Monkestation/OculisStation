@@ -1,6 +1,7 @@
 /obj/item/organ/cyberimp/arm/wristwatch
 	name = "internal chronometer"
 	desc = "This relatively simple implant consists of a microchip and small flexible display embedded into the wrist, allowing the user to easily tell the date and time anywhere."
+	special_desc = "These things are not made for telling the time. They are <i>very good clocks</i>, of course, but you don't get one because you're habitually late to meetings. One installs an internal, cybernetic, wrist-formed, digital clock as visible testament to the fact that they value their time high enough (and more importantly, yours <i>low</i> enough) to turn their timekeeping device into a permanent fixture of their body. Makes a great statement if you're talking to the type who's intimidated by that kind of sordid banality."
 	zone = BODY_ZONE_R_ARM
 	slot = ORGAN_SLOT_WRISTWATCH_R
 	valid_zones = list(
@@ -72,4 +73,41 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS / 2)
 	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_MEDICAL, RADIO_CHANNEL_SCIENCE)
 
-/obj/item/organ/cyberimp/arm/toolkit/autoiv
+/obj/item/organ/cyberimp/arm/slap
+	name = "subdermal ligature attachment package"
+	desc = "This palm-implanted cybernetic device uses programmatically controlled nanomechanical bindings to reduce hand injuries by increasing the rigidity and durability of the skin on detection of applied force."
+	special_desc = "Such that when you, say, <b>bitch-slap some asshole</b>, it hurts. <b>Badly.</b> The manufacturers would never <i>admit</i> this, of course, because this is a <i>perfectly harmless occupational aid</i> (they say) for cooks and warehouse techs and tradesmen, not people who get assault charges. This somewhat unmarketable fact remains a known selling point nontheless, as such things tend to in cybernetics circles."
+	zone = BODY_ZONE_R_ARM
+	slot = ORGAN_SLOT_WRISTWATCH_R
+	valid_zones = list(
+		BODY_ZONE_R_ARM = ORGAN_SLOT_PALM_R,
+		BODY_ZONE_L_ARM = ORGAN_SLOT_PALM_L,
+	)
+
+/datum/design/slapcybernetic
+	name = "S.L.A.P."
+	desc = "Palm-implanted dermal reinforcement ligatures to increase the durability of the hands."
+	id = "ci-wristwatch"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 6 SECONDS
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT*8,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT*8,
+		/datum/material/silver =SMALL_MATERIAL_AMOUNT * 3,
+	)
+	build_path = /obj/item/organ/cyberimp/arm/wristwatch
+	category = list(
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_MISC
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/techweb_node/wristwatch
+	id = TECHWEB_NODE_WRISTWATCH
+	display_name = "Biomorphological Tempotechnics"
+	description = "Timetelling in the age of cybernetic enhancement."
+	prereq_ids = list(TECHWEB_NODE_CYBER_IMPLANTS, TECHWEB_NODE_HOLOGRAPHICS)
+	design_ids = list(
+		"ci-wristwatch"
+	)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS / 2)
+	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_MEDICAL, RADIO_CHANNEL_SCIENCE)

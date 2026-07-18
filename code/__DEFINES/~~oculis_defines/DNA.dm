@@ -3,3 +3,5 @@
 #define ORGAN_SLOT_TASTEBOOSTER "organ_slot_tastebooster"
 #define ORGAN_SLOT_WRISTWATCH_R "organ_slot_wristwatch_r"
 #define ORGAN_SLOT_WRISTWATCH_L "organ_slot_wristwatch_l"
+#define ORGAN_SLOT_PALM_R "organ_slot_palm_r"
+#define ORGAN_SLOT_PALM_L "organ_slot_palm_l"

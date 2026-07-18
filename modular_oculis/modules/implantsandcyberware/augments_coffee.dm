@@ -1,6 +1,7 @@
 /obj/item/organ/cyberimp/caffinator
 	name = "\improper NT-CFFE Caffinator"
-	desc = "This coffee-maker integrates into the thigh and uses classified technology to produce delicious coffee from bloodstream nutrients. Refill cup dispenser by activating implant while holding cardboard or empty cups."
+	desc = "This coffee-maker integrates into the thigh and uses confidental convertotronological methods to produce delicious coffee from bloodstream nutrients. Refill cup dispenser by activating implant while holding cardboard or empty cups."
+	special_desc = "Genuinely, what does convertotronology even mean? That's <b>definitely</b> a neologism and not a real word. It's not even a well-constructed neologism. Who would <b>MANUFACTURE THIS?</b> Question two: who would <b>BUY THIS?</b>"
 	icon_state = "nutriment_implant"
 	zone = BODY_ZONE_R_LEG
 	valid_zones = list(
