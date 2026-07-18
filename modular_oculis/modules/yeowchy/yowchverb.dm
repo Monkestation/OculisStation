@@ -7,7 +7,11 @@
 	if(prob(0.1))
 		unfunnyjoke = "In 1998, The Undertaker"
 	var/damagetype = tgui_input_list(src, "Select a damage type:", unfunnyjoke, list("Brute", "Burn", "Toxin", "Oxygen", "Stamina", "Blood"))
+	if(!damagetype)
+		return
 	var/damageamount = tgui_input_number(src, "How much damage should you take:", "Quantify Ouches", 0, INFINITY, 0)
+	if(!damageamount)
+		return
 	var/tobodyzone = FALSE
 	if(damagetype in list("Brute", "Burn"))
 		tobodyzone = (tgui_alert(src, "Would you like this damage to be to your selected bodyzone?", "Oughghhghghghghhhh", list("Yes", "No")) == "Yes")
