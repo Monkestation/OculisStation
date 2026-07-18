@@ -230,10 +230,10 @@
 				return TRUE
 		if("request")
 			if(!COOLDOWN_FINISHED(src, request_cooldown))
-				to_chat(usr, span_warning("CentCom is still processing last authorization request!"))
+				to_chat(usr, span_warning("SectCom is still processing last authorization request!")) // OCULIS EDIT, SectCommening 2, ORIGINAL: to_chat(usr, span_warning("CentCom is still processing last authorization request!"))
 				return
 			COOLDOWN_START(src, request_cooldown, 1 MINUTES)
-			to_chat(usr, span_notice("Your request has been received by CentCom."))
+			to_chat(usr, span_notice("Your request has been received by SectCom.")) // OCULIS EDIT, SectCommening 2, ORIGINAL: to_chat(usr, span_notice("Your request has been received by CentCom."))
 			to_chat(GLOB.admins, "<b>SHUTTLE: <font color='#3d5bc3'>[ADMIN_LOOKUPFLW(usr)] (<A href='byond://?_src_=holder;[HrefToken()];move_shuttle=[shuttleId]'>Move Shuttle</a>)(<A href='byond://?_src_=holder;[HrefToken()];unlock_shuttle=[REF(src)]'>Lock/Unlock Shuttle</a>)</b> is requesting to move or unlock the shuttle.</font>")
 			return TRUE
 

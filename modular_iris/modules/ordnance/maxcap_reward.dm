@@ -1,5 +1,5 @@
 /datum/techweb
- var/maxcap_reward_gained = FALSE
+	var/maxcap_reward_gained = FALSE
 
 /obj/machinery/doppler_array
 	/// Reference to the techweb.

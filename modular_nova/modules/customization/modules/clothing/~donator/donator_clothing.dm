@@ -824,7 +824,7 @@
 
 /obj/item/clothing/head/hooded/cloakhood/zuliecloak
 	name = "NT special issue"
-	desc = "This hat is unquestionably the best one, bluespaced to and from CentCom. It smells of Fish and Tea with a hint of antagonism"
+	desc = "This hat is unquestionably the best one, bluespaced to and from SectCom. It smells of Fish and Tea with a hint of antagonism" // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "This hat is unquestionably the best one, bluespaced to and from CentCom. It smells of Fish and Tea with a hint of antagonism"
 	icon_state = "zuliecap"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
@@ -1276,7 +1276,7 @@
 
 //Donation reward for Hacker T.Dog
 /obj/item/clothing/head/nanotrasen_consultant/hubert
-	name = "CC ensign's cap"
+	name = "SC ensign's cap" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CC ensign's cap"
 	desc = "A tailor made peaked cap, denoting the rank of Ensign."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
@@ -1284,7 +1284,7 @@
 
 //Donation reward for Hacker T.Dog
 /obj/item/clothing/suit/armor/vest/nanotrasen_consultant/hubert
-	name = "CC ensign's armoured vest"
+	name = "SC ensign's armoured vest" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CC ensign's armoured vest"
 	desc = "A tailor made Ensign's armoured vest, providing the same protection - but in a more stylish fashion."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
@@ -1292,7 +1292,7 @@
 
 //Donation reward for Hacker T.Dog
 /obj/item/clothing/under/rank/nanotrasen_consultant/hubert
-	name = "CC ensign's uniform"
+	name = "SC ensign's uniform" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CC ensign's uniform"
 	desc = "A tailor-made Ensign's uniform, various medals and chains hang down from it."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
@@ -2114,6 +2114,27 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "bwake_uniform"
 	can_adjust = FALSE
 
+/obj/item/clothing/under/ig_harness
+	name = "body harness"
+	desc = "An overly complicated network of securing straps and buckles. There remains plenty of slack and clips to fit any size."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	worn_icon_taur_snake = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	icon_state = "ig_harness"
+	body_parts_covered = NONE
+	attachment_slot_override = CHEST
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+	can_adjust = FALSE
+	slot_flags = ITEM_SLOT_ICLOTHING | ITEM_SLOT_OCLOTHING
+
+/obj/item/clothing/neck/ig_cloak
+	name = "\improper Kiara's cloak"
+	desc = "A form fitting cloak that seems exceptional at insulating the wearer."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
+	icon_state = "ig_cloak"
+
 // Donator reward for Latinfishy
 /obj/item/clothing/under/syndicate/tacticool/skirt/long
 	name = "long tacticool skirtleneck"
@@ -2581,6 +2602,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	heat_protection = CHEST|ARM_LEFT
 	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
 	armor_type = /obj/item/clothing/suit/armor/vest/capcarapace::armor_type
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 //Towa's Donor Items
 /obj/item/clothing/head/helmet/donator/stachelm
@@ -2597,6 +2619,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	actions_types = list(/datum/action/item_action/toggle_helmet_light)
 	armor_type = /obj/item/clothing/head/hats/caphat::armor_type
 	resistance_flags = FIRE_PROOF
+	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_range = 4
 	light_power = 1

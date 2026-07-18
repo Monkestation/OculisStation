@@ -302,7 +302,7 @@ Potential future ideas:
 	greyscale_colors = "#FFFFFF#CCCED1"
 
 /obj/item/clothing/accessory/nova/acc_medal/neckpin/centcom
-	name = "\improper Central Command neckpin"
+	name = "\improper Sectorial Command neckpin" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper Central Command neckpin"
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/neckpin/centcom"
 	post_init_icon_state = "ccpin"
 

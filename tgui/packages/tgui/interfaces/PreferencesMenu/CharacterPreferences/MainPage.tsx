@@ -610,7 +610,7 @@ export function MainPage(props: MainPageProps) {
                 }}
                 setGender={createSetPreference(act, 'gender')}
                 showGender={
-                  currentSpeciesData ? !!currentSpeciesData.sexes : true
+                  true // OCULIS EDIT, don't force people to have or not have a gender, ORIGINAL: currentSpeciesData ? !!currentSpeciesData.sexes : true
                 }
                 // NOVA EDIT ADDITION START
                 handleFood={() => {

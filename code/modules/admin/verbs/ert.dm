@@ -100,7 +100,7 @@
 	var/list/pref_return = present_pref_like_picker(usr, "Customize ERT", "Customize ERT", width = 600, timeout = 0, settings = settings)
 
 	if (isnull(pref_return) || pref_return["button"] != 1)
-		message_admins("[key_name_admin(owner)] changed [owner.p_their()] mind and didn't create a CentCom response team.")
+		message_admins("[key_name_admin(owner)] changed [owner.p_their()] mind and didn't create a SectCom response team.") // OCULIS EDIT, SectCommening 2, ORIGINAL: message_admins("[key_name_admin(owner)] changed [owner.p_their()] mind and didn't create a CentCom response team.")
 		return FALSE
 
 	var/list/prefs = settings["mainsettings"]
@@ -129,7 +129,7 @@
 	var/list/mob/dead/observer/candidates = SSpolling.poll_ghost_candidates("Do you wish to be considered for [span_notice(ertemplate.polldesc)]?", check_jobban = "deathsquad", alert_pic = /obj/item/card/id/advanced/centcom/ert/commander, role_name_text = "emergency response team")
 
 	if(!length(candidates))
-		message_admins("[key_name_admin(owner)] tried to create a CentCom response team but [owner.p_they()] didn't find any candidates.")
+		message_admins("[key_name_admin(owner)] tried to create a SectCom response team but [owner.p_they()] didn't find any candidates.") // OCULIS EDIT, SectCommening 2, ORIGINAL: message_admins("[key_name_admin(owner)] tried to create a CentCom response team but [owner.p_they()] didn't find any candidates.")
 		return FALSE
 
 	// This list will take priority over spawn_points if not empty
@@ -261,20 +261,20 @@
 			door.open()
 			CHECK_TICK
 
-	message_admins("[key_name_admin(owner)] created a CentCom response team.")
+	message_admins("[key_name_admin(owner)] created a SectCom response team.") // OCULIS EDIT, SectCommening 2, ORIGINAL: message_admins("[key_name_admin(owner)] created a CentCom response team.")
 	message_admins("[capitalize(ertemplate.polldesc)] has spawned with the mission: [ertemplate.mission]")
 	// NOVA EDIT ADDITION BEGIN
 	if(ertemplate.notify_players)
-		priority_announce("Central command has responded to your request for a CODE [uppertext(ertemplate.code)] Emergency Response Team and have confirmed one to be enroute.", "ERT Request", ANNOUNCER_ERTYES)
+		priority_announce("Sectorial Command has responded to your request for a CODE [uppertext(ertemplate.code)] Emergency Response Team and have confirmed one to be enroute.", "ERT Request", ANNOUNCER_ERTYES) // OCULIS EDIT, SectCommening 2, ORIGINAL: priority_announce("Central command has responded to your request for a CODE [uppertext(ertemplate.code)] Emergency Response Team and have confirmed one to be enroute.", "ERT Request", ANNOUNCER_ERTYES)
 	// NOVA EDIT END
 	return TRUE
 
 ADMIN_VERB(summon_ert, R_FUN, "Summon ERT", "Summons an emergency response team.", ADMIN_CATEGORY_FUN)
-	message_admins("[key_name_admin(user)] is creating a CentCom response team...")
+	message_admins("[key_name_admin(user)] is creating a SectCom response team...") // OCULIS EDIT, SectCommening 2, ORIGINAL: message_admins("[key_name_admin(user)] is creating a CentCom response team...")
 	if(user.holder?.make_emergency_response_team())
-		log_admin("[key_name(user)] created a CentCom response team.")
+		log_admin("[key_name(user)] created a SectCom response team.") // OCULIS EDIT, SectCommening 2, ORIGINAL: log_admin("[key_name(user)] created a CentCom response team.")
 	else
-		log_admin("[key_name(user)] failed to create a CentCom response team.")
+		log_admin("[key_name(user)] failed to create a SectCom response team.") // OCULIS EDIT, SectCommening 2, ORIGINAL: log_admin("[key_name(user)] failed to create a CentCom response team.")
 
 #undef ERT_EXPERIENCED_LEADER_CHOOSE_TOP
 #undef DUMMY_HUMAN_SLOT_ADMIN

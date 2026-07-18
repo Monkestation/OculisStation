@@ -273,17 +273,25 @@
 		hands += I.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
 	return hands
 
+/mob/living/carbon/proc/get_fire_icon_state(stacks, on_fire)
+	return "[dna?.species.fire_overlay || "human"]_[stacks > MOB_BIG_FIRE_STACK_THRESHOLD ? "big_fire" : "small_fire"]"
+
 /mob/living/carbon/get_fire_overlay(stacks, on_fire)
-	var/fire_icon = "[dna?.species.fire_overlay || "human"]_[stacks > MOB_BIG_FIRE_STACK_THRESHOLD ? "big_fire" : "small_fire"]"
+	var/fire_icon = get_fire_icon_state(stacks, on_fire)
+	var/list/overrides = list()
+	SEND_SIGNAL(src, COMSIG_CARBON_GET_FIRE_OVERLAY, stacks, on_fire, fire_icon, overrides)
+	if (length(overrides))
+		return overrides[1]
 
-	if(!GLOB.fire_appearances[fire_icon])
-		GLOB.fire_appearances[fire_icon] = mutable_appearance(
-			'icons/mob/effects/onfire.dmi',
-			fire_icon,
-			-HIGHEST_LAYER,
-			appearance_flags = RESET_COLOR|KEEP_APART,
-		)
+	if(GLOB.fire_appearances[fire_icon])
+		return GLOB.fire_appearances[fire_icon]
 
+	GLOB.fire_appearances[fire_icon] = mutable_appearance(
+		'icons/mob/effects/onfire.dmi',
+		fire_icon,
+		-HIGHEST_LAYER,
+		appearance_flags = RESET_COLOR|KEEP_APART,
+	)
 	return GLOB.fire_appearances[fire_icon]
 
 /mob/living/carbon/update_damage_overlays()
@@ -379,10 +387,13 @@
 /mob/living/carbon/update_worn_legcuffs()
 	remove_overlay(LEGCUFF_LAYER)
 	clear_alert("legcuffed")
-	if(legcuffed)
-		overlays_standing[LEGCUFF_LAYER] = mutable_appearance('icons/mob/simple/mob.dmi', "legcuff1", -LEGCUFF_LAYER)
-		apply_overlay(LEGCUFF_LAYER)
-		throw_alert("legcuffed", /atom/movable/screen/alert/restrained/legcuffed, new_master = src.legcuffed)
+	if(!legcuffed)
+		return
+	if(astype(legcuffed, /obj/item/restraints/legcuffs)?.legcuff_state)
+		var/obj/item/restraints/legcuffs/cuffs = legcuffed
+		overlays_standing[LEGCUFF_LAYER] = mutable_appearance('icons/mob/simple/mob.dmi', cuffs.legcuff_state, -LEGCUFF_LAYER)
+	apply_overlay(LEGCUFF_LAYER)
+	throw_alert("legcuffed", /atom/movable/screen/alert/restrained/legcuffed, new_master = src.legcuffed)
 
 /mob/living/carbon/update_worn_head()
 	remove_overlay(HEAD_LAYER)
@@ -549,7 +560,7 @@
 	for(var/datum/bodypart_overlay/overlay as anything in bodypart_overlays)
 		if(!overlay.can_draw_on_bodypart(src, owner, is_husked))
 			continue
-		. += overlay.generate_icon_cache()
+		. += overlay.generate_icon_cache(src)
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
 		. += "[human_owner.mob_height]"
@@ -578,7 +589,7 @@
 	for(var/datum/bodypart_overlay/overlay as anything in bodypart_overlays)
 		if(!overlay.can_draw_on_bodypart(src, owner, TRUE))
 			continue
-		. += overlay.generate_icon_cache()
+		. += overlay.generate_icon_cache(src)
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
 		. += "[human_owner.mob_height]"

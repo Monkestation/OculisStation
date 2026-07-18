@@ -5,11 +5,11 @@ import {
   type FeatureChoiced,
   type FeatureChoicedServerData,
   FeatureColorInput,
+  FeatureLongTextInput,
   FeatureNumberInput,
   type FeatureNumeric,
   FeatureShortTextInput,
   FeatureSliderInput,
-  FeatureTextInput,
   type FeatureToggle,
   FeatureTriBoolInput,
   FeatureTriColorInput,
@@ -39,20 +39,21 @@ export const flavor_text: Feature<string> = {
   name: 'Flavor Text',
   description:
     "Appears when your character is examined (but only if they're identifiable - try a gas mask).",
-  component: FeatureTextInput,
+  component: FeatureLongTextInput,
 };
 
 export const silicon_flavor_text: Feature<string> = {
   name: 'Flavor Text (Silicon)',
-  description: "Only appears if you're playing as a borg/AI.",
-  component: FeatureTextInput,
+  description:
+    "Only appears if you're playing as a borg/AI.",
+  component: FeatureLongTextInput,
 };
 
 export const ooc_notes: Feature<string> = {
   name: 'OOC Notes',
   description:
     'Anything you want other players to know about you goes here, such as antag information, OOC triggers, etc.',
-  component: FeatureTextInput,
+  component: FeatureLongTextInput,
 };
 
 export const custom_species: Feature<string> = {
@@ -65,14 +66,15 @@ export const custom_species: Feature<string> = {
 export const custom_species_lore: Feature<string> = {
   name: 'Custom Species Lore',
   description: "Won't show up if there's no custom species.",
-  component: FeatureTextInput,
+  component: FeatureLongTextInput,
 };
+
 export const general_record: Feature<string> = {
   name: 'Records - General',
   description:
     'Viewable with any records access. \
     For general viewing-things like employment, qualifications, etc.',
-  component: FeatureTextInput,
+  component: FeatureLongTextInput,
 };
 
 export const security_record: Feature<string> = {
@@ -80,7 +82,7 @@ export const security_record: Feature<string> = {
   description:
     'Viewable with security access. \
   For criminal records, arrest history, things like that.',
-  component: FeatureTextInput,
+  component: FeatureLongTextInput,
 };
 
 export const medical_record: Feature<string> = {
@@ -88,7 +90,7 @@ export const medical_record: Feature<string> = {
   description:
     'Viewable with medical access. \
   For things like medical history, prescriptions, DNR orders, etc.',
-  component: FeatureTextInput,
+  component: FeatureLongTextInput,
 };
 
 export const exploitable_info: Feature<string> = {
@@ -97,14 +99,14 @@ export const exploitable_info: Feature<string> = {
     'Can be IC or OOC. Viewable by certain antagonists/OPFOR users, as well as ghosts. Generally contains \
   things like weaknesses, strengths, important background, trigger words, etc. It ALSO may contain things like \
   antagonist preferences, e.g. if you want to be antagonized, by whom, with what, etc.',
-  component: FeatureTextInput,
+  component: FeatureLongTextInput,
 };
 
 export const background_info: Feature<string> = {
   name: 'Records - Background',
   description:
     'Only viewable by yourself and ghosts. You can have whatever you want in here - it may be valuable as a way to orient yourself to what your character is.',
-  component: FeatureTextInput,
+  component: FeatureLongTextInput,
 };
 
 export const pda_ringer: Feature<string> = {

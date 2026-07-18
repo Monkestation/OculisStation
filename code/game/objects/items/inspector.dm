@@ -8,7 +8,8 @@
  */
 /obj/item/inspector
 	name = "\improper N-spect scanner"
-	desc = "Central Command standard issue inspection device. \
+	// OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "Central Command standard issue inspection device.
+	desc = "Sectorial Command standard issue inspection device. \
 		Used for precision scans to determine if an item contains, or is itself, contraband."
 	icon = 'icons/obj/devices/scanner.dmi'
 	icon_state = "inspector"
@@ -77,7 +78,6 @@
 
 /obj/item/inspector/examine(mob/user)
 	. = ..()
-	. += span_info("Use in-hand to scan the local area, creating an encrypted security inspection.")
 	. += span_info("Use on an item to scan if it contains, or is, contraband.")
 	if(!cell_cover_open)
 		. += span_notice("Its cell cover is closed. It looks like it could be <strong>pried</strong> out, but doing so would require an appropriate tool.")
