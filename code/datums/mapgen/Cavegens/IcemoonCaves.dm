@@ -35,6 +35,7 @@
 		/obj/structure/ore_vent/boss/icebox = 1,
 	)
 
+//OCULIS EDIT, custom plants for terrain generator
 /datum/map_generator/cave_generator/icemoon/surface
 	weighted_open_turf_types = list(/turf/open/misc/asteroid/snow/icemoon = 1)
 	flora_spawn_chance = 60
@@ -55,6 +56,7 @@
 		/obj/structure/flora/ash/chilly = 2,
 		/obj/structure/flora/grass/both/style_random = 20,
 		/obj/structure/flora/tree/pine/style_random = 2,
+		/obj/structure/flora/lunar_plant/snundra = 1,
 	)
 
 /// Surface snow generator variant for forested station trait, WITH FORESTSSSS
@@ -71,6 +73,7 @@
 		/obj/structure/flora/grass/both/style_random = 50,
 		/obj/structure/flora/bush/flowers_pp/style_random = 25,
 		/obj/structure/flora/ash/chilly = 1,
+		/obj/structure/flora/lunar_plant/snundra = 1,
 	)
 
 	mob_spawn_chance = 0.2
