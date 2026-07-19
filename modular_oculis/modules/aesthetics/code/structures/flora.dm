@@ -10,6 +10,7 @@
 /obj/structure/flora/lunar_plant/snundra/Initialize(mapload)
 	. = ..()
 	icon_state = "lunar_plant[rand(1,3)]"
+
 /obj/structure/flora/lunar_plant/snundra/style_1
 	icon_state = "lunar_plant1"
 
