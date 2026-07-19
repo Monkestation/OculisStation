@@ -72818,6 +72818,7 @@
 /obj/effect/turf_decal/caution/white{
 	color = "#D381C9"
 	},
+/obj/structure/chair/office/light,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/science/robotics/lab)
 "tAi" = (
@@ -90503,6 +90504,9 @@
 	dir = 10
 	},
 /obj/machinery/posialert/directional/west,
+/obj/machinery/computer/records/medical{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 4
 	},
@@ -91102,6 +91106,12 @@
 /obj/machinery/door/window/brigdoor/left/directional/north{
 	req_access = list("robotics");
 	name = "Robotics Desk"
+	},
+/obj/item/folder{
+	pixel_x = -6
+	},
+/obj/item/pen{
+	pixel_x = -5
 	},
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/science/robotics/lab)

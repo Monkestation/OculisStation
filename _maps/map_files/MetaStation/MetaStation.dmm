@@ -5507,6 +5507,11 @@
 	},
 /obj/structure/fireaxecabinet/mechremoval/directional/east,
 /obj/machinery/light/small/directional/north,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
 "bUt" = (
@@ -27309,15 +27314,19 @@
 /turf/open/floor/iron/white,
 /area/station/science/lab)
 "jtS" = (
-/obj/structure/table/reinforced,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/glass/fifty,
-/obj/item/circuitboard/mecha/ripley/main,
-/obj/item/circuitboard/mecha/ripley/peripherals,
+/obj/structure/table/reinforced,
+/obj/machinery/cell_charger,
+/obj/item/stock_parts/power_store/cell/high,
+/obj/item/stock_parts/power_store/cell/high{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/item/stock_parts/power_store/cell/high{
+	pixel_x = -8;
+	pixel_y = 9
+	},
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
 "juf" = (
@@ -40973,7 +40982,6 @@
 /area/station/commons/lounge)
 "nZC" = (
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/vending/wardrobe/robo_wardrobe,
 /obj/machinery/button/door/directional/north{
 	id = "roboticsprivacy";
 	name = "Robotics Privacy Control";
@@ -40981,6 +40989,7 @@
 	req_access = list("robotics")
 	},
 /obj/effect/mapping_helpers/airalarm/surgery,
+/obj/machinery/computer/records/medical,
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
 "nZH" = (
@@ -56216,17 +56225,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
 "tjc" = (
-/obj/structure/table/reinforced,
-/obj/item/stock_parts/power_store/cell/high{
-	pixel_x = 4;
-	pixel_y = 5
-	},
-/obj/item/stock_parts/power_store/cell/high{
-	pixel_x = -8;
-	pixel_y = 9
-	},
-/obj/item/stock_parts/power_store/cell/high,
-/obj/machinery/cell_charger,
+/obj/machinery/vending/wardrobe/robo_wardrobe,
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
 "tjf" = (
@@ -62408,6 +62407,8 @@
 	pixel_x = -3;
 	pixel_y = -4
 	},
+/obj/item/circuitboard/mecha/ripley/peripherals,
+/obj/item/circuitboard/mecha/ripley/main,
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
 "vlZ" = (
