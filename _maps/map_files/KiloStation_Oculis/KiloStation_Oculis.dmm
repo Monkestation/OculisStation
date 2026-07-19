@@ -19129,7 +19129,6 @@
 /obj/effect/landmark/start/hangover,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/item/pillow/random,
-/obj/machinery/light/small/directional/west,
 /obj/effect/spawner/random/bedsheet{
 	dir = 4
 	},
@@ -38136,6 +38135,10 @@
 /obj/effect/landmark/start/hangover,
 /obj/item/pillow/random,
 /obj/effect/spawner/random/bedsheet,
+/obj/item/flashlight/lamp{
+	pixel_y = 10;
+	pixel_x = -13
+	},
 /turf/open/floor/wood,
 /area/station/commons/fitness/recreation)
 "lvZ" = (
@@ -45168,7 +45171,6 @@
 /obj/effect/landmark/start/hangover,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/item/pillow/random,
-/obj/machinery/light/small/directional/west,
 /obj/effect/spawner/random/bedsheet{
 	dir = 4
 	},
@@ -58484,7 +58486,6 @@
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/effect/landmark/start/hangover,
 /obj/effect/mapping_helpers/broken_floor,
-/obj/machinery/light/small/directional/west,
 /turf/open/floor/wood,
 /area/station/commons/fitness/recreation)
 "rFc" = (
@@ -60375,6 +60376,23 @@
 /obj/effect/turf_decal/tile/purple/half/contrasted,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/ordnance)
+"shQ" = (
+/obj/machinery/button/door/directional/north{
+	id = "Cabin_1";
+	name = "Cabin 1 Privacy Lock";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/structure/table/wood,
+/obj/item/lighter,
+/obj/item/folder/red,
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/item/flashlight/lamp{
+	pixel_y = 12;
+	pixel_x = -7
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation)
 "shS" = (
 /obj/effect/turf_decal/siding/thinplating/dark/end{
 	dir = 4
@@ -70513,6 +70531,9 @@
 	icon_state = "radio";
 	name = "old radio"
 	},
+/obj/item/flashlight/lamp{
+	pixel_y = 12
+	},
 /turf/open/floor/wood,
 /area/station/commons/fitness/recreation)
 "voY" = (
@@ -71808,7 +71829,6 @@
 "vGA" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/effect/landmark/start/hangover,
-/obj/machinery/light/small/directional/west,
 /turf/open/floor/wood,
 /area/station/commons/fitness/recreation)
 "vGO" = (
@@ -77720,6 +77740,10 @@
 /obj/item/lighter,
 /obj/item/folder/red,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/item/flashlight/lamp{
+	pixel_x = 7;
+	pixel_y = 13
+	},
 /turf/open/floor/wood,
 /area/station/commons/fitness/recreation)
 "xtk" = (
@@ -101325,7 +101349,7 @@ bXE
 jZu
 xZq
 uvA
-xtd
+shQ
 jXn
 sWs
 mCi
