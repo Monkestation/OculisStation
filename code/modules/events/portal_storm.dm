@@ -32,21 +32,6 @@
 	)
 
 // OCULIS EDIT ADDITION START - MORE_PORTAL_STORMS
-/datum/round_event_control/portal_storm_xenomorph
-	name = "Portal Storm: Aliens"
-	typepath = /datum/round_event/portal_storm/xenomorph
-	weight = 1
-	min_players = 20
-	earliest_start = 30 MINUTES
-	category = EVENT_CATEGORY_ENTITIES
-	description = "Xenomorphs pour out of portals."
-
-/datum/round_event/portal_storm/xenomorph
-	boss_types = list(/mob/living/basic/alien/queen = 1)
-	hostile_types = list(
-		/mob/living/basic/alien = 7,
-		/mob/living/basic/alien/drone = 5,
-	)
 
 /datum/round_event_control/portal_storm_netherworld
 	name = "Portal Storm: Netherworld"
