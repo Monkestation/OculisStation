@@ -55,6 +55,7 @@
 	icon_state = "anomalykit"
 	modifier = -10
 	cost = 35
+	maximum_of_type = 1
 
 /obj/item/borg/upgrade/modkit/cooldown/gravity/modify_projectile(obj/projectile/kinetic/K)
 	K.damage -= modifier * 5
@@ -73,6 +74,7 @@
 	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
 	icon_state = "anomalykit"
 	cost = 35
+	maximum_of_type = 1
 
 /obj/item/borg/upgrade/modkit/weather/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
 	new /obj/effect/temp_visual/telegraphing/thunderbolt(target_turf)
@@ -106,6 +108,7 @@
 	icon_state = "anomalykit"
 	cost = 35
 	modifier = 3
+	maximum_of_type = 1
 
 /obj/item/borg/upgrade/modkit/ectoplasm/modify_projectile(obj/projectile/kinetic/K)
 	K.range += modifier
@@ -139,6 +142,7 @@
 	icon_state = "anomalykit"
 	modifier = 10
 	cost = 35
+	maximum_of_type = 1
 
 /obj/item/borg/upgrade/modkit/vortex/modify_projectile(obj/projectile/kinetic/K)
 	K.damage += modifier
@@ -158,6 +162,7 @@
 	icon_state = "anomalykit"
 	modifier = 10
 	cost = 0
+	maximum_of_type = 1
 
 /obj/item/borg/upgrade/modkit/flux/modify_projectile(obj/projectile/kinetic/K)
 	K.damage += modifier
@@ -170,6 +175,7 @@
 	icon_state = "anomalykit"
 	modifier = 20
 	cost = 35
+	maximum_of_type = 1
 
 /obj/item/borg/upgrade/modkit/bioscrambler/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
 	if(!QDELETED(target) && istype(target, /mob) && prob(modifier))
