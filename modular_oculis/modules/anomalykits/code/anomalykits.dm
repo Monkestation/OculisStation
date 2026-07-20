@@ -63,8 +63,9 @@
 /obj/item/borg/upgrade/modkit/cooldown/gravity/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
 	var/relative_direction = get_cardinal_dir(src, target)
 	var/atom/throw_target = get_edge_target_turf(target, relative_direction)
-	var/whack_speed = (2)
-	target.throw_at(throw_target, 2, whack_speed, K, gentle = TRUE)
+	if(!istype(target, /turf) && !target.anchored)
+		var/whack_speed = (2)
+		target.throw_at(throw_target, 2, whack_speed, K, gentle = TRUE)
 
 /obj/item/borg/upgrade/modkit/weather
 	name = "storm capacitor"
@@ -148,8 +149,9 @@
 /obj/item/borg/upgrade/modkit/vortex/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
 	var/relative_direction = get_cardinal_dir(target, src)
 	var/atom/throw_target = get_edge_target_turf(target, relative_direction)
-	var/whack_speed = (2)
-	target.throw_at(throw_target, 2, whack_speed, K, gentle = TRUE)
+	if(!istype(target, /turf) && !target.anchored)
+		var/whack_speed = (2)
+		target.throw_at(throw_target, 2, whack_speed, K, gentle = TRUE)
 
 /obj/item/borg/upgrade/modkit/flux
 	name = "flux charger"
