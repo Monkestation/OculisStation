@@ -111,14 +111,13 @@
 	K.range += modifier
 
 /obj/item/borg/upgrade/modkit/ectoplasm/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
-	if(istype(target, /mob))
-		for(var/obj/item/throwable in view(modifier, target))
-			if(prob(30))
-				playsound(target_turf,'sound/effects/hallucinations/veryfar_noise.ogg', 50, TRUE)
-				var/relative_direction = get_cardinal_dir(throwable, target)
-				var/atom/throw_target = get_edge_target_turf(target, relative_direction)
-				var/whack_speed = (2)
-				throwable.throw_at(throw_target, modifier, whack_speed, K, gentle = TRUE)
+	for(var/obj/item/throwable in view(modifier, target))
+		if(prob(30))
+			playsound(target_turf,'sound/effects/hallucinations/veryfar_noise.ogg', 50, TRUE)
+			var/relative_direction = get_cardinal_dir(throwable, target)
+			var/atom/throw_target = get_edge_target_turf(target, relative_direction)
+			var/whack_speed = (2)
+			throwable.throw_at(throw_target, modifier, whack_speed, K, gentle = TRUE)
 
 /obj/item/borg/upgrade/modkit/cooldown/bluespace
 	name = "bluespace aberrator"
