@@ -65,9 +65,7 @@
 		"borg_upgrade_rangemod",
 		"borg_upgrade_cooldownmod",
 		"borg_upgrade_hypermod",
-		//OCULIS EDIT ADDITION START - ANOMALY_KITS
-		"anomalymod",
-		//OCULIS EDIT ADDITION END
+		"anomalymod", //OCULIS EDIT ADDITION - ANOMALY_KITS
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SUPPLY)
