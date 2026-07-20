@@ -679,6 +679,7 @@
 	KA.trigger_guard = TRIGGER_GUARD_NORMAL
 	..()
 
+
 //Cosmetic
 
 /obj/item/borg/upgrade/modkit/chassis_mod
