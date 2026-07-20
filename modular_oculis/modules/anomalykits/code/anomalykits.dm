@@ -64,7 +64,7 @@
 	var/relative_direction = get_cardinal_dir(src, target)
 	var/atom/throw_target = get_edge_target_turf(target, relative_direction)
 	. = ..()
-	if(!QDELETED(target) && istype(target, /mob))
+	if(istype(target, /mob))
 		var/whack_speed = (2)
 		target.throw_at(throw_target, 2, whack_speed, K, gentle = TRUE)
 
@@ -114,7 +114,7 @@
 	K.range += modifier
 
 /obj/item/borg/upgrade/modkit/ectoplasm/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
-	if(!QDELETED(target) && istype(target, /mob))
+	if(istype(target, /mob))
 		for(var/obj/item/throwable in view(modifier, target))
 			if(prob(30))
 				playsound(target_turf,'sound/effects/hallucinations/veryfar_noise.ogg', 50, TRUE)
@@ -132,7 +132,7 @@
 	modifier = 4
 
 /obj/item/borg/upgrade/modkit/cooldown/bluespace/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
-	if(!QDELETED(target) && istype(target, /mob))
+	if(istype(target, /mob))
 		do_teleport(target, target_turf, 1, asoundin = 'sound/effects/phasein.ogg', channel = TELEPORT_CHANNEL_BLUESPACE)
 
 /obj/item/borg/upgrade/modkit/vortex
@@ -151,7 +151,7 @@
 	var/relative_direction = get_cardinal_dir(target, src)
 	var/atom/throw_target = get_edge_target_turf(target, relative_direction)
 	. = ..()
-	if(!QDELETED(target) && istype(target, /mob))
+	if(istype(target, /mob))
 		var/whack_speed = (2)
 		target.throw_at(throw_target, 2, whack_speed, K, gentle = TRUE)
 
@@ -178,7 +178,7 @@
 	maximum_of_type = 1
 
 /obj/item/borg/upgrade/modkit/bioscrambler/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
-	if(!QDELETED(target) && istype(target, /mob) && prob(modifier))
+	if(istype(target, /mob) && prob(modifier))
 		playsound(target, 'sound/items/weapons/zapbang.ogg', 100, TRUE)
 		if(target.uses_integrity)
 			target.take_damage(60, BRUTE, ENERGY, FALSE)
