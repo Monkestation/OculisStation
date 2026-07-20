@@ -128,7 +128,7 @@
 	modifier = 4
 
 /obj/item/borg/upgrade/modkit/cooldown/bluespace/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/movable/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
-	if(istype(target, /mob))
+	if(!istype(target, /turf) && !target.anchored)
 		do_teleport(target, target_turf, 1, asoundin = 'sound/effects/phasein.ogg', channel = TELEPORT_CHANNEL_BLUESPACE)
 
 /obj/item/borg/upgrade/modkit/vortex
