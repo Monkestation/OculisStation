@@ -74,6 +74,7 @@
 	icon_state = "anomalykit"
 	cost = 35
 	maximum_of_type = 1
+	modifier = 1
 
 /obj/item/borg/upgrade/modkit/weather/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
 	new /obj/effect/temp_visual/telegraphing/thunderbolt(target_turf)
@@ -88,7 +89,7 @@
 	for(var/mob/living/hit_mob in target)
 		to_chat(hit_mob, span_userdanger("You've been struck by lightning!"))
 		hit_mob.electrocute_act(30, src, flags = SHOCK_TESLA|SHOCK_NOSTUN)
-		hit_mob.Knockdown(1 SECONDS, 5 SECONDS)
+		hit_mob.Knockdown(modifier SECONDS, 5 SECONDS)
 		if(hit_mob.uses_integrity)
 			hit_mob.take_damage(20, BURN, ENERGY, FALSE)
 
@@ -104,7 +105,7 @@
 	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
 	icon_state = "anomalykit"
 	cost = 35
-	modifier = 3
+	modifier = 4
 	maximum_of_type = 1
 
 /obj/item/borg/upgrade/modkit/ectoplasm/modify_projectile(obj/projectile/kinetic/K)
@@ -116,7 +117,7 @@
 			playsound(target_turf,'sound/effects/hallucinations/veryfar_noise.ogg', 50, TRUE)
 			var/relative_direction = get_cardinal_dir(throwable, target)
 			var/atom/throw_target = get_edge_target_turf(target, relative_direction)
-			var/whack_speed = (2)
+			var/whack_speed = (modifier / 2)
 			throwable.throw_at(throw_target, modifier, whack_speed, K, gentle = TRUE)
 
 /obj/item/borg/upgrade/modkit/cooldown/bluespace
@@ -147,7 +148,7 @@
 	var/relative_direction = get_cardinal_dir(target, src)
 	var/atom/throw_target = get_edge_target_turf(target, relative_direction)
 	if(!istype(target, /turf) && !target.anchored)
-		var/whack_speed = (2)
+		var/whack_speed = (modifier / 5)
 		target.throw_at(throw_target, 2, whack_speed, K, gentle = TRUE)
 
 /obj/item/borg/upgrade/modkit/flux
@@ -161,7 +162,7 @@
 
 /obj/item/borg/upgrade/modkit/flux/modify_projectile(obj/projectile/kinetic/K)
 	K.damage += modifier
-	K.range += 1
+	K.range += modifier / 5
 
 /obj/item/borg/upgrade/modkit/bioscrambler
 	name = "genetic inducer"
