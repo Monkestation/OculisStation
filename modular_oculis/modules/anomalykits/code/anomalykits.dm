@@ -89,15 +89,14 @@
 	for(var/mob/living/hit_mob in target)
 		to_chat(hit_mob, span_userdanger("You've been struck by lightning!"))
 		hit_mob.electrocute_act(30, src, flags = SHOCK_TESLA|SHOCK_NOSTUN)
-		hit_mob.Knockdown(modifier SECONDS, 5 SECONDS)
-		if(hit_mob.uses_integrity)
-			hit_mob.take_damage(20, BURN, ENERGY, FALSE)
+		var/limb_to_hit = hit_mob.get_bodypart(hit_mob.get_random_valid_zone(even_weights = TRUE))
+		hit_mob.apply_damage(10, BURN, limb_to_hit, wound_bonus=CANT_WOUND)
 
 	for(var/mob/living/nearby_target in oview(1, target))
 		to_chat(nearby_target, span_userdanger("You've been struck by an arc of lightning!"))
 		nearby_target.electrocute_act(10, src, flags = SHOCK_TESLA|SHOCK_NOSTUN)
-		if(nearby_target.uses_integrity)
-			nearby_target.take_damage(10, BURN, ENERGY, FALSE)
+		var/limb_to_hit = nearby_target.get_bodypart(nearby_target.get_random_valid_zone(even_weights = TRUE))
+			nearby_target.apply_damage(10, BURN, limb_to_hit, wound_bonus=CANT_WOUND)
 
 /obj/item/borg/upgrade/modkit/ectoplasm
 	name = "poltergeist projector"
