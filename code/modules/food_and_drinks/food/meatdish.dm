@@ -610,9 +610,8 @@
 	)
 	tastes = list("meat" = 1)
 	foodtypes = MEAT | RAW
-	//IRIS EDIT CHANGE BEGIN - SUSSY_CONTENT_REMOVAL
-	eatverbs = list("bite", "chew", "nibble", "gobble", "chomp")
-	//IRIS EDIT CHANGE END
+	foodtypes_added_when_cooked = BREAKFAST
+	eatverbs = list("bite", "chew", "nibble", "gobble", "chomp") // OCULIS EDIT, ORIGINAL: eatverbs = list("bite", "chew", "nibble", "deep throat", "gobble", "chomp")
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_1
 	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)

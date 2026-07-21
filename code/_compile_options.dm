@@ -121,18 +121,12 @@
 // #define PROFILE_MAPLOAD_INIT_ATOM
 
 /// If uncommented, Dreamluau will be fully disabled.
-// #define DISABLE_DREAMLUAU
+#define DISABLE_DREAMLUAU
 
 // OpenDream currently doesn't support byondapi, so automatically disable it on OD,
 // unless CIBUILDING is defined - we still want to lint dreamluau-related code.
 // Get rid of this whenever it does have support.
 #ifdef OPENDREAM_REAL
-#define DISABLE_DREAMLUAU
-#endif
-
-// Since 0.2.0, dreamluau depends on breaking changes made to byondapi in 1674.
-// Get rid of this when BYOND_MINOR is >= 1674 AND we don't have any alternate tests on <1674.
-#if DM_BUILD < 1674
 #define DISABLE_DREAMLUAU
 #endif
 
@@ -187,6 +181,11 @@
 #define DO_NOT_DEFER_ASSETS
 //Test at full capacity, the extra cost doesn't matter
 #define TIMER_DEBUG
+
+// Checks if unit tests are being run locally or well, not
+#if !defined(CIBUILDING) && !defined(SPACEMAN_DMM) && !defined(OPENDREAM)
+#define RUNNING_LOCAL_TESTS
+#endif
 #endif
 
 #ifdef TGS
@@ -220,3 +219,4 @@
 /// IconForge is 250x times faster but requires storing the icons in tmp/ and may result in higher asset transport.
 /// Note that the builtin GAGS editor still uses the 'legacy' generation to allow for debugging.
 #define USE_RUSTG_ICONFORGE_GAGS
+

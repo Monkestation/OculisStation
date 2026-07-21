@@ -328,9 +328,8 @@
 		send_message("ERROR - POWER SYSTEMS FAILURE - [failure_reason]", HEV_COLOR_RED)
 		return FALSE
 
-	var/obj/item/clothing/head/helmet/space/hev_suit/helmet = current_user.head
-
-	if(!helmet || !istype(helmet))
+	var/helmet = current_user.get_item_by_slot(ITEM_SLOT_HEAD)
+	if(!istype(helmet, /obj/item/clothing/head/helmet/space/hev_suit))
 		send_message("ERROR - SUIT HELMET NOT PRESENT", HEV_COLOR_RED)
 		return FALSE
 

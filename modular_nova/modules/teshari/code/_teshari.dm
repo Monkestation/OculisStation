@@ -11,6 +11,7 @@
 		TRAIT_CAN_STRIP,
 		TRAIT_LITERATE,
 		TRAIT_MUTANT_COLORS,
+		TRAIT_PASSTABLE,
 	)
 	digitigrade_customization = DIGITIGRADE_NEVER
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
@@ -77,11 +78,11 @@
 
 /datum/species/teshari/on_species_gain(mob/living/carbon/human/new_teshari, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
-	passtable_on(new_teshari, SPECIES_TRAIT)
+	ADD_TRAIT(new_teshari, TRAIT_PASSTABLE, SPECIES_TRAIT)
 
 /datum/species/teshari/on_species_loss(mob/living/carbon/C, datum/species/new_species, pref_load)
 	. = ..()
-	passtable_off(C, SPECIES_TRAIT)
+	REMOVE_TRAIT(C, TRAIT_PASSTABLE, SPECIES_TRAIT)
 
 /datum/species/teshari/get_species_lore()
 	return list(placeholder_lore)

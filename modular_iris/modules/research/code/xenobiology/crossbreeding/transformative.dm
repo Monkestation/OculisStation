@@ -64,12 +64,12 @@
 
 		if(SLIME_TYPE_DARK_PURPLE)
 			var/datum/gas_mixture/environment = loc.return_air()
-			if(environment.gases[/datum/gas/plasma])
+			if(environment.moles[/datum/gas/plasma])
 				var/amount = (life_stage == SLIME_LIFE_STAGE_ADULT ? 20 : 10)
-				if(environment.gases[/datum/gas/plasma][MOLES] >= amount)
-					environment.gases[/datum/gas/plasma][MOLES] -= amount
+				if(environment.moles[/datum/gas/plasma] >= amount)
+					environment.moles[/datum/gas/plasma] -= amount
 					environment.assert_gas(/datum/gas/oxygen)
-					environment.gases[/datum/gas/oxygen][MOLES] += amount
+					environment.moles[/datum/gas/oxygen] += amount
 					adjust_brute_loss(-amount * 0.1) // Technically better than purple, technically.
 					environment.garbage_collect()
 

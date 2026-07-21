@@ -4,6 +4,8 @@
 #define JOB_UNAVAILABLE_LANGUAGE (JOB_UNAVAILABLE_SPECIES + 1)
 #define JOB_UNAVAILABLE_FLAVOUR (JOB_UNAVAILABLE_LANGUAGE + 1)
 #define JOB_UNAVAILABLE_AUGMENT (JOB_UNAVAILABLE_FLAVOUR + 1)
+#define JOB_UNAVAILABLE_MEDREC (JOB_UNAVAILABLE_AUGMENT + 1)
+#define JOB_UNAVAILABLE_SECREC (JOB_UNAVAILABLE_MEDREC + 1)
 
 #define SEC_RESTRICTED_QUIRKS "Blind" = TRUE, "Brain Tumor" = TRUE, "Deaf" = TRUE, "Paraplegic" = TRUE, "Hemiplegic" = TRUE, "Foreigner" = TRUE, "Pacifist" = TRUE, "No Guns" = TRUE, "Illiterate" = TRUE, "Nerve Stapled" = TRUE, "Underworld Connections" = TRUE, "Stowaway" = TRUE, "Paroled Convict" = TRUE  //IRIS EDIT - Adds Stowaway, removes Mute
 #define HEAD_RESTRICTED_QUIRKS "Blind" = TRUE, "Deaf" = TRUE, "Mute" = TRUE, "Foreigner" = TRUE, "Brain Tumor" = TRUE, "Illiterate" = TRUE, "Underworld Connections" = TRUE, "Stowaway" = TRUE, "Stowaway" = TRUE, "Paroled Convict" = TRUE   //IRIS EDIT - Adds Stowaway and Convict
