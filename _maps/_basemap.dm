@@ -32,7 +32,6 @@
 		// NOVA EDIT ADDITION END
 		// OCULIS EDIT START
 		#include "map_files\oceanpubby\oceanpubby.dmm"
-		#include "map_files\Wawastation\wawastation.dmm"
 		// OCULIS EDIT END
 	#endif
 	#ifdef ALL_TEMPLATES
