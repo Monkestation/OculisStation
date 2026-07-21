@@ -11459,7 +11459,7 @@
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/underground/explored)
 "dhL" = (
-/obj/machinery/computer/upload/ai{
+/obj/machinery/computer/upload/ai/no_lock{
 	dir = 1
 	},
 /obj/machinery/flasher/directional/south{
@@ -14513,7 +14513,7 @@
 /area/station/hallway/primary/central)
 "ebL" = (
 /obj/effect/turf_decal/bot_white/right,
-/obj/structure/closet/crate/goldcrate,
+/obj/structure/closet/crate/goldcrate/stocked,
 /obj/machinery/newscaster/directional/west,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
@@ -30030,8 +30030,8 @@
 /area/station/maintenance/port/fore)
 "iBi" = (
 /obj/structure/table,
-/obj/item/food/grown/carrot,
-/obj/item/food/grown/carrot{
+/obj/item/food/grown/carrotlike/carrot,
+/obj/item/food/grown/carrotlike/carrot{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -58270,7 +58270,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
 "qvx" = (
-/obj/item/food/grown/carrot,
+/obj/item/food/grown/carrotlike/carrot,
 /turf/open/misc/asteroid/snow/standard_air,
 /area/station/science/cytology)
 "qvE" = (
@@ -60408,7 +60408,7 @@
 /area/station/medical/chemistry)
 "qZg" = (
 /obj/structure/table/wood,
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/effect/spawner/holiday/bar_keg,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /turf/open/floor/iron/grimy,
@@ -63478,7 +63478,7 @@
 /turf/open/floor/glass/reinforced,
 /area/station/engineering/lobby)
 "rSN" = (
-/obj/machinery/computer/upload/borg{
+/obj/machinery/computer/upload/borg/no_lock{
 	dir = 1
 	},
 /obj/item/radio/intercom/directional/south{
@@ -65004,6 +65004,7 @@
 	pixel_y = 2
 	},
 /obj/effect/turf_decal/trimline/green/filled/corner,
+/obj/item/storage/pill_bottle/sepsisillin,
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
 "soE" = (
@@ -65525,6 +65526,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
+"suT" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/security/brig/upper)
 "suV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -249844,7 +249854,7 @@ krp
 jAc
 oKK
 dAp
-tDk
+suT
 hdk
 pVL
 bOs
