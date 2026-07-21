@@ -7396,7 +7396,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/command)
 "bMI" = (
-/obj/structure/closet/crate/goldcrate,
+/obj/structure/closet/crate/goldcrate/stocked,
 /obj/machinery/airalarm/directional/south,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
@@ -9966,10 +9966,7 @@
 /area/station/command/corporate_showroom)
 "csD" = (
 /obj/structure/chair/office,
-/obj/item/radio/intercom/directional/north{
-	frequency = 1423;
-	name = "Interrogation Intercom"
-	},
+/obj/item/radio/intercom/interrogation/outside/directional/north,
 /obj/effect/turf_decal/siding/dark_red{
 	dir = 4
 	},
@@ -23372,6 +23369,10 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
+/obj/item/storage/pill_bottle/sepsisillin{
+	pixel_x = -6;
+	pixel_y = 2
+	},
 /obj/item/storage/box/syringes,
 /turf/open/floor/iron,
 /area/station/medical/virology)
@@ -25384,7 +25385,7 @@
 /turf/open/floor/iron,
 /area/station/security/checkpoint/escape)
 "gjl" = (
-/obj/machinery/computer/upload/borg{
+/obj/machinery/computer/upload/borg/no_lock{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -51931,7 +51932,7 @@
 /turf/open/floor/iron/dark,
 /area/station/service/abandoned_gambling_den)
 "mMd" = (
-/obj/machinery/computer/upload/ai{
+/obj/machinery/computer/upload/ai/no_lock{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -78213,12 +78214,7 @@
 	c_tag = "Security - Interrogation";
 	network = list("ss13","interrogation")
 	},
-/obj/item/radio/intercom/directional/south{
-	broadcasting = 1;
-	frequency = 1423;
-	listening = 0;
-	name = "Interrogation Intercom"
-	},
+/obj/item/radio/intercom/interrogation/inside/directional/south,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/security/interrogation)
@@ -89169,7 +89165,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos/storage/gas)
 "vXK" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/effect/spawner/holiday/bar_keg,
 /turf/open/floor/iron/checker,
 /area/station/service/bar/backroom)
 "vXP" = (
