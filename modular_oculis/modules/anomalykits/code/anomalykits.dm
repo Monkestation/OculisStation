@@ -96,7 +96,7 @@
 		to_chat(nearby_target, span_userdanger("You've been struck by an arc of lightning!"))
 		nearby_target.electrocute_act(10, src, flags = SHOCK_TESLA|SHOCK_NOSTUN)
 		var/limb_to_hit = nearby_target.get_bodypart(nearby_target.get_random_valid_zone(even_weights = TRUE))
-			nearby_target.apply_damage(10, BURN, limb_to_hit, wound_bonus=CANT_WOUND)
+		nearby_target.apply_damage(10, BURN, limb_to_hit, wound_bonus=CANT_WOUND)
 
 /obj/item/borg/upgrade/modkit/ectoplasm
 	name = "poltergeist projector"
