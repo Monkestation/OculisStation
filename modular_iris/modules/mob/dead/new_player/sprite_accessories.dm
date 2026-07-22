@@ -268,7 +268,6 @@
 
 /datum/sprite_accessory/ears/mutant/iris
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ears.dmi'
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER, BACK_LAYER)
 
 /datum/sprite_accessory/ears/mutant/iris/large
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ears_big.dmi'
@@ -332,7 +331,6 @@
 
 /datum/sprite_accessory/horns/iris
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/horns.dmi'
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER, BACK_LAYER)
 
 /datum/sprite_accessory/horns/iris/messenger
 	name = "Winged Messenger"
@@ -381,7 +379,6 @@
 
 /datum/sprite_accessory/wings/mammal/iris
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/wings.dmi'
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER, BACK_LAYER)
 
 /datum/sprite_accessory/wings/mammal/iris/pinioned
 	name = "Pinioned Wings"

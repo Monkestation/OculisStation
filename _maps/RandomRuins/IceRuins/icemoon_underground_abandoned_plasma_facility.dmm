@@ -204,7 +204,7 @@
 /turf/open/floor/iron,
 /area/ruin/plasma_facility/operations)
 "dB" = (
-/mob/living/simple_animal/hostile/asteroid/polarbear{
+/mob/living/basic/mining/polarbear{
 	name = "Baloo"
 	},
 /turf/open/misc/asteroid/snow/icemoon,
@@ -388,20 +388,6 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/ruin/plasma_facility/operations)
-"gD" = (
-/obj/structure/bed{
-	dir = 4
-	},
-/obj/item/bedsheet/black{
-	dir = 4
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small/empty/directional/north,
-/turf/open/floor/carpet/grimey,
-/area/ruin/plasma_facility/commons)
 "gH" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1288,6 +1274,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/operations)
+"uB" = (
+/obj/structure/dresser,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/glasses/thermal/eyepatch{
+	pixel_y = 8
+	},
+/turf/open/floor/carpet/grimey,
+/area/ruin/plasma_facility/commons)
 "uH" = (
 /obj/machinery/atmospherics/components/binary/pump/off/general{
 	name = "Mining to Feed"
@@ -1411,21 +1405,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating/icemoon,
 /area/ruin/plasma_facility/commons)
-"yp" = (
-/obj/structure/closet/secure_closet/freezer/fridge/open,
-/obj/item/knife/kitchen,
-/obj/item/food/grown/carrot,
-/obj/item/food/grown/potato,
-/obj/item/food/meat/slab/human/mutant/zombie,
-/obj/item/food/meat/slab/human/mutant/zombie,
-/obj/item/food/grown/mushroom/plumphelmet,
-/obj/item/food/grown/mushroom/plumphelmet,
-/obj/item/food/grown/eggplant,
-/obj/item/food/grown/eggplant,
-/obj/item/food/grown/tomato,
-/obj/effect/decal/cleanable/food/flour,
-/turf/open/floor/stone,
-/area/ruin/plasma_facility/commons)
 "yv" = (
 /obj/machinery/light_switch/directional/south,
 /obj/effect/turf_decal/tile/brown/half,
@@ -1521,6 +1500,17 @@
 	dir = 1
 	},
 /turf/open/floor/iron/edge,
+/area/ruin/plasma_facility/commons)
+"AB" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mob_spawn/corpse/human/miner/explorer,
+/obj/machinery/light/small/blacklight/directional/south,
+/turf/open/floor/carpet/grimey,
 /area/ruin/plasma_facility/commons)
 "AG" = (
 /turf/open/genturf,
@@ -2006,17 +1996,6 @@
 "Kd" = (
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/ruin/plasma_facility/operations)
-"Kf" = (
-/obj/structure/bed,
-/obj/item/bedsheet/black,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/mob_spawn/corpse/human/miner/explorer,
-/obj/machinery/light/small/blacklight/directional/south,
-/turf/open/floor/carpet/grimey,
-/area/ruin/plasma_facility/commons)
 "Kj" = (
 /obj/structure/flora/rock/icy/style_random,
 /obj/structure/sign/warning/directional/north,
@@ -2408,14 +2387,6 @@
 	dir = 1
 	},
 /area/ruin/plasma_facility/commons)
-"PP" = (
-/obj/structure/dresser,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/glasses/thermal/eyepatch{
-	pixel_y = 8
-	},
-/turf/open/floor/carpet/grimey,
-/area/ruin/plasma_facility/commons)
 "PQ" = (
 /obj/structure/flora/tree/dead/style_random,
 /turf/open/misc/asteroid/snow/icemoon,
@@ -2461,6 +2432,20 @@
 	},
 /turf/open/lava/plasma/ice_moon,
 /area/icemoon/underground/explored)
+"Qz" = (
+/obj/structure/bed{
+	dir = 4
+	},
+/obj/item/bedsheet/black{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/empty/directional/north,
+/turf/open/floor/carpet/grimey,
+/area/ruin/plasma_facility/commons)
 "QA" = (
 /obj/item/plate/oven_tray{
 	color = "#858585";
@@ -2484,10 +2469,6 @@
 	},
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/underground/explored)
-"QQ" = (
-/obj/structure/dresser,
-/turf/open/floor/carpet/grimey,
-/area/ruin/plasma_facility/commons)
 "QY" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating/icemoon,
@@ -2540,6 +2521,21 @@
 /obj/item/shard,
 /turf/open/floor/plating/icemoon,
 /area/icemoon/underground/explored)
+"RO" = (
+/obj/structure/closet/secure_closet/freezer/fridge/open,
+/obj/item/knife/kitchen,
+/obj/item/food/grown/carrotlike/carrot,
+/obj/item/food/grown/potato,
+/obj/item/food/meat/slab/human/mutant/zombie,
+/obj/item/food/meat/slab/human/mutant/zombie,
+/obj/item/food/grown/mushroom/plumphelmet,
+/obj/item/food/grown/mushroom/plumphelmet,
+/obj/item/food/grown/eggplant,
+/obj/item/food/grown/eggplant,
+/obj/item/food/grown/tomato,
+/obj/effect/decal/cleanable/food/flour,
+/turf/open/floor/stone,
+/area/ruin/plasma_facility/commons)
 "Sd" = (
 /obj/structure/railing{
 	dir = 8
@@ -2706,6 +2702,10 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/grille,
 /turf/open/floor/plating/icemoon,
+/area/ruin/plasma_facility/commons)
+"Wr" = (
+/obj/structure/dresser,
+/turf/open/floor/carpet/grimey,
 /area/ruin/plasma_facility/commons)
 "Wu" = (
 /turf/open/floor/wood/large,
@@ -3384,11 +3384,11 @@ AG
 ms
 vY
 qW
-PP
-Kf
+uB
+AB
 qW
-gD
-QQ
+Qz
+Wr
 qW
 pw
 Tr
@@ -3666,7 +3666,7 @@ qW
 eT
 wQ
 TD
-yp
+RO
 qW
 XS
 On

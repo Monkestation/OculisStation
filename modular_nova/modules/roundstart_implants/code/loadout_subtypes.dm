@@ -13,6 +13,7 @@
 /obj/item/organ/cyberimp/arm/toolkit/power_cord/left_arm
 	zone = BODY_ZONE_L_ARM
 	slot = ORGAN_SLOT_LEFT_ARM_AUG
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)  // OCULIS EDIT ADDITION
 
 /obj/item/organ/cyberimp/arm/toolkit/power_cord/right_arm
 	zone = BODY_ZONE_R_ARM

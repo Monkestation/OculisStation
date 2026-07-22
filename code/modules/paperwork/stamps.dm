@@ -111,7 +111,7 @@
 	dye_color = DYE_CHAP
 
 /obj/item/stamp/centcom
-	name = "CentCom rubber stamp"
+	name = "SectCom rubber stamp" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom rubber stamp"
 	icon_state = "stamp-centcom"
 	dye_color = DYE_CENTCOM
 

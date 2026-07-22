@@ -282,9 +282,11 @@
  */
 /mob/living/carbon/human/proc/update_mob_height()
 	var/old_height = mob_height
-	mob_height = dna?.species?.update_species_heights(src) || base_mob_height
+	var/obj/item/bodypart/chest/chest = get_bodypart(BODY_ZONE_CHEST)
+	mob_height = chest?.update_mob_heights(src) || base_mob_height
 	if(old_height != mob_height)
 		regenerate_icons()
+		readjust_atom_huds()
 	SEND_SIGNAL(src, COMSIG_HUMAN_HEIGHT_UPDATED, old_height)
 
 /**
@@ -340,6 +342,13 @@
 		fitness_modifier /= 1.5
 	if (HAS_TRAIT(src, TRAIT_GRABWEAKNESS))
 		fitness_modifier /= 1.5
+
+	// OCULIS EDIT ADDITION START
+	if (HAS_TRAIT(src, TRAIT_HEAVYSET))
+		fitness_modifier *= 2
+	if (HAS_TRAIT(src, TRAIT_OVERSIZED))
+		fitness_modifier *= 2.5
+	// OCULIS EDIT ADDITION END
 
 	var/athletics_level = mind?.get_skill_level(/datum/skill/athletics) || 1
 

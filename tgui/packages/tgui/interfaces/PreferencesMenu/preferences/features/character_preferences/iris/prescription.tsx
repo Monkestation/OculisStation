@@ -1,6 +1,6 @@
 import {
-  Feature,
-  FeatureChoiced,
+  type Feature,
+  type FeatureChoiced,
   FeatureNumberInput,
   FeatureShortTextInput,
 } from '../../base';

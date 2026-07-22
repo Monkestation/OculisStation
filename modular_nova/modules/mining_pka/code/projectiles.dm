@@ -14,17 +14,13 @@
 
 /obj/item/ammo_casing/energy/kinetic/glock
 	projectile_type = /obj/projectile/kinetic/glock
-
+/* // OCULIS EDIT REMOVAL START - SALTMINING (Due to being a defunct version of the shockwave's ammo casing, this is being commented out and is now in the SaltMining Module)
 /obj/item/ammo_casing/energy/kinetic/shockwave
 	projectile_type = /obj/projectile/kinetic/shockwave
 	pellets = 8
 	variance = 360
 	fire_sound = 'sound/items/weapons/gun/general/cannon.ogg'
-
-/obj/item/ammo_casing/energy/kinetic/m79
-	projectile_type = /obj/projectile/bullet/mining_bomb
-	e_cost = LASER_SHOTS(2, STANDARD_CELL_CHARGE * 0.5)
-	fire_sound = 'sound/items/weapons/gun/general/grenade_launch.ogg'
+ */ //OCULIS EDIT REMOVAL END
 
 //Accelerator Projectiles
 

@@ -6,7 +6,7 @@
 
 /datum/bounty/item/botany/New()
 	..()
-	description = "Central Command's head chef is looking to prepare a fine [foodtype] with [name]. [bonus_desc]"
+	description = "Sectorial Command's head chef is looking to prepare a fine [foodtype] with [name]. [bonus_desc]" // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Central Command's head chef is looking to prepare a fine [foodtype] with [name]. [bonus_desc]"
 	reward += multiplier * (CARGO_CRATE_VALUE * 2)
 	required_count = rand(5, 10)
 
@@ -149,12 +149,12 @@
 
 /datum/bounty/item/botany/watermelon
 	name = "Watermelons"
-	wanted_types = list(/obj/item/food/grown/watermelon = TRUE)
+	wanted_types = list(/obj/item/food/grown/melonlike/watermelon = TRUE)
 	foodtype = "dessert"
 
 /datum/bounty/item/botany/watermelon_holy
 	name = "Holy Melons"
-	wanted_types = list(/obj/item/food/grown/holymelon = TRUE)
+	wanted_types = list(/obj/item/food/grown/melonlike/holymelon = TRUE)
 	multiplier = 2
 	foodtype = "dessert"
 
@@ -213,7 +213,7 @@
 
 /datum/bounty/item/botany/bonfire
 	name = "Lit Bonfire"
-	description = "Our space heaters are malfunctioning and the cargo crew of Central Command is starting to feel cold. Grow some logs and ship a lit bonfire to warm them up."
+	description = "Our space heaters are malfunctioning and the cargo crew of Sectorial Command is starting to feel cold. Grow some logs and ship a lit bonfire to warm them up." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Our space heaters are malfunctioning and the cargo crew of Central Command is starting to feel cold. Grow some logs and ship a lit bonfire to warm them up."
 	wanted_types = list(/obj/structure/bonfire = TRUE)
 
 /datum/bounty/item/botany/bonfire/applies_to(obj/O)

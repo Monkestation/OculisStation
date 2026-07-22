@@ -1,7 +1,6 @@
 /datum/job/detective
 	title = JOB_DETECTIVE
-	description = "Investigate crimes, gather evidence, perform interrogations, \
-		look badass, smoke cigarettes."
+	description = "Investigate crimes, gather evidence, perform interrogations." // OCULIS EDIT, ORIGINAL: description = "Investigate crimes, gather evidence, perform interrogations, look badass, smoke cigarettes."
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_STATION
 	total_positions = 1
@@ -28,7 +27,7 @@
 	display_order = JOB_DISPLAY_ORDER_DETECTIVE
 
 	mail_goodies = list(
-		/obj/item/storage/fancy/cigarettes = 25,
+		// /obj/item/storage/fancy/cigarettes = 25, OCULIS EDIT REMOVAL
 		/obj/item/ammo_box/speedloader/c38 = 20,
 		/obj/item/ammo_box/speedloader/c38/dumdum = 5,
 		/obj/item/ammo_box/speedloader/c38/hotshot = 5,
@@ -64,7 +63,7 @@
 	ears = /obj/item/radio/headset/headset_sec/alt
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/fedora/det_hat
-	mask = /obj/item/cigarette
+	// mask = /obj/item/cigarette // OCULIS EDIT REMOVAL
 	neck = /obj/item/clothing/neck/tie/detective
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	l_pocket = /obj/item/toy/crayon/white
@@ -81,7 +80,7 @@
 /datum/outfit/job/detective/pre_equip(mob/living/carbon/human/human, visuals_only = FALSE)
 	. = ..()
 	if (human.age < AGE_MINOR)
-		mask = /obj/item/cigarette/candy
+		// mask = /obj/item/cigarette/candy // OCULIS EDIT REMOVAL
 		head = /obj/item/clothing/head/fedora/det_hat/minor
 
 /datum/outfit/job/detective/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)

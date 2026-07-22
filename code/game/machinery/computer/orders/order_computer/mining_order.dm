@@ -16,12 +16,14 @@
 	35% cheaper than express delivery."}
 	express_tooltip = @{"Sends your purchases instantly."}
 	credit_type = MONEY_MINING_SYMBOL
+	generate_map_preview = FALSE
 
 	order_categories = list(
 		CATEGORY_MINING,
 		CATEGORY_CONSUMABLES,
 		CATEGORY_TOYS_DRONE,
 		CATEGORY_PKA,
+		CATEGORY_WASTELAND_GUNS, //OCULIS EDIT - ADDITION // Uses a custom category because there are so many guns. Check saltmining for the contents of this category.
 	)
 	blackbox_key = "mining"
 	announcement_line = "A shaft miner has ordered equipment which will arrive on the cargo shuttle! Please make sure it gets to them as soon as possible!"
@@ -102,17 +104,17 @@
 	. = ..()
 	. += span_notice("There's [points] point\s on the card.")
 
-/obj/item/card/mining_point_card/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(!isidcard(attacking_item))
-		return ..()
-	var/obj/item/card/id/attacking_id = attacking_item
+/obj/item/card/mining_point_card/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!isidcard(tool))
+		return NONE
+	var/obj/item/card/id/attacking_id = tool
 	balloon_alert(user, "starting transfer")
 	var/point_movement = tgui_alert(user, "To ID (from card) or to card (from ID)?", "Mining Points Transfer", list(TO_USER_ID, TO_POINT_CARD))
 	if(!point_movement)
-		return
+		return ITEM_INTERACT_BLOCKING
 	var/amount = tgui_input_number(user, "How much do you want to transfer? ID Balance: [attacking_id.registered_account.mining_points], Card Balance: [points]", "Transfer Points", min_value = 0, round_value = 1)
 	if(!amount)
-		return
+		return ITEM_INTERACT_BLOCKING
 	switch(point_movement)
 		if(TO_USER_ID)
 			if(amount > points)
@@ -120,12 +122,15 @@
 			attacking_id.registered_account.mining_points += amount
 			points -= amount
 			to_chat(user, span_notice("You transfer [amount] mining points from [src] to [attacking_id]."))
+			return ITEM_INTERACT_SUCCESS
 		if(TO_POINT_CARD)
 			if(amount > attacking_id.registered_account.mining_points)
 				amount = attacking_id.registered_account.mining_points
 			attacking_id.registered_account.mining_points -= amount
 			points += amount
 			to_chat(user, span_notice("You transfer [amount] mining points from [attacking_id] to [src]."))
+			return ITEM_INTERACT_SUCCESS
+	return NONE
 
 #undef TO_POINT_CARD
 #undef TO_USER_ID

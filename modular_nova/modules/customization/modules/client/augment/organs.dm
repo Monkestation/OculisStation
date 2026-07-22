@@ -34,9 +34,6 @@
 	abstract_type = /datum/augment_item/organ/brain
 	slot = AUGMENT_SLOT_BRAIN
 	icon = FA_ICON_BRAIN
-#ifndef SPECIES_PROTEAN // TODO - REMOVE THIS
-	#define SPECIES_protean "protean"
-#endif // For testmerge purposes only
 	species_blacklist = list(SPECIES_PROTEAN = 1)
 
 /datum/augment_item/organ/brain/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
@@ -73,6 +70,7 @@
 	abstract_type = /datum/augment_item/organ/heart
 	slot = AUGMENT_SLOT_HEART
 	icon = "tg-znova-heart-organ"
+	species_blacklist = list(SPECIES_HEMOPHAGE = 1)
 
 /datum/augment_item/organ/heart/normal
 	name = "Organic heart"
@@ -91,6 +89,11 @@
 	abstract_type = /datum/augment_item/organ/lungs
 	slot = AUGMENT_SLOT_LUNGS
 	icon = FA_ICON_LUNGS
+	species_blacklist = list(
+		SPECIES_VOX = 1,
+		SPECIES_VOX_PRIMALIS = 1,
+		SPECIES_PLASMA = 1,
+	)
 
 //IRIS EDIT: /datum/augment_item/organ/lungs/normal moved to modular_iris/modules/customization/modules/client/augment/organs.dm to preserve the organization
 //IRIS EDIT: /datum/augment_item/organ/lungs/cybernetic moved to modular_iris/modules/customization/modules/client/augment/organs.dm to preserve the organization
@@ -145,6 +148,17 @@
 	abstract_type = /datum/augment_item/organ/eyes
 	slot = AUGMENT_SLOT_EYES
 	icon = FA_ICON_EYE
+
+// OCULIS EDIT ADDITION START - /datum/augment_item/organ/eyes/apply - don't copy organ actions for the eyes ONLY
+/datum/augment_item/organ/eyes/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	if(character_setup && !is_visible)
+		return
+
+	var/obj/item/organ/organ_path = path // cast this to an organ so we can get the slot from it using initial()
+	var/obj/item/organ/new_organ = new path()
+	new_organ.copy_traits_from(human_holder.get_organ_slot(initial(organ_path.slot)), FALSE)
+	new_organ.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+// OCULIS EDIT END
 
 /datum/augment_item/organ/eyes/normal
 	name = "Organic eyes"

@@ -51,6 +51,23 @@
 	contains = list(/mob/living/basic/pet/cat/fennec = 2)
 	crate_name = "fennec crate"
 
+/datum/supply_pack/critter/pitbull/pimpy
+	name = "Pedigree Stud Pitbull Crate"
+	desc = "Contains three pitbulls. Verified at the top of Mount Bullmore to be Pedigree Studs.."
+	cost = CARGO_CRATE_VALUE * 9
+	contains = list(
+		/mob/living/basic/pet/dog/pitbull = 3,
+	)
+	crate_name = "pedigree stud pitbull crate"
+
+/datum/supply_pack/critter/redpanda
+	name = "Red Panda Crate"
+	desc = "Your station needs a little more Wah? Some more red tails? Order this. You'll never escape your sadness."
+	cost = CARGO_CRATE_VALUE * 4
+	contains = list(
+		/mob/living/basic/pet/fox/redpanda = 2,)
+	crate_name = "wah crate"
+
 /*
 *	MEDICAL
 */
@@ -447,6 +464,17 @@
 		/obj/item/reagent_containers/cup/bottle/capsaicin,
 	)
 	crate_name = "fiesta crate"
+	
+/datum/supply_pack/organic/ration
+	name = "Emergency Rations Box"
+	desc = "Is the station starving because there isn't a chef? Are the lizardpeople among the crew puking up the pizza? This box contains 8 surplus emergency rations, designed to be nutritious, filling, and to be edible across a wide range of crew species. \
+		Each ration comes with two randomly selected mains, two randomly selected sides, a cracker, and a peanut butter packet."
+	cost = CARGO_CRATE_VALUE * 3
+	contains = list(
+		/obj/item/storage/box/ration = 8,
+	)
+	crate_name = "emergency rations box"
+	crate_type = /obj/structure/closet/crate/cardboard
 
 /datum/supply_pack/organic/fakemeat
 	name = "Meat Crate 'Synthetic'"

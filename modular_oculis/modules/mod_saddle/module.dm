@@ -8,6 +8,7 @@
 	required_slots = ITEM_SLOT_BACK
 	overlay_icon_file = 'modular_nova/modules/customization/modules/taur_mechanics/icons/saddles.dmi'
 	overlay_state_active = "saddle_blue"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.25, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/mod/module/saddle/proc/determine_elligible(mob/living/carbon/human/target)
 	if(!istype(target))

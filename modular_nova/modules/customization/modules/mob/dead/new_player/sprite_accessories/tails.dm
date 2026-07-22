@@ -2,13 +2,13 @@
 	key = FEATURE_TAIL
 	organ_type = /obj/item/organ/tail
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
+	use_custom_mod_icon = TRUE
 	/// Can we use this tail for the fluffy tail turf emote?
 	var/fluffy = FALSE
 
-/datum/sprite_accessory/tails/is_hidden(mob/living/carbon/human/wearer)
-	if(wearer.owned_turf?.name == "tail")
+/datum/sprite_accessory/tails/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
 	// Emote exception
+	if(wearer.owned_turf?.name == FEATURE_TAIL)
 		return TRUE
 
 	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
@@ -159,7 +159,7 @@
 		SPECIES_GHOUL = 1,
 	)
 
-/datum/sprite_accessory/tails/mammal/wagging/big
+/datum/sprite_accessory/tails/mammal/big // OCULIS EDIT, ORIGINAL: /datum/sprite_accessory/tails/mammal/wagging/big
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails_big.dmi'
 	dimension_x = 64
 	center = TRUE
@@ -395,7 +395,7 @@
 	name = "Servelyn"
 	icon_state = "tiger2"
 
-/datum/sprite_accessory/tails/mammal/wagging/big/shade
+/datum/sprite_accessory/tails/mammal/big/shade // OCULIS EDIT, ORIGINAL: /datum/sprite_accessory/tails/mammal/wagging/big/shade
 	name = "Shade"
 	icon_state = "shadekin_large"
 	color_src = USE_MATRIXED_COLORS
@@ -408,15 +408,15 @@
 		SPECIES_GHOUL = 1,
 	)
 
-/datum/sprite_accessory/tails/mammal/wagging/big/shade/long
+/datum/sprite_accessory/tails/mammal/big/shade/long // OCULIS EDIT, ORIGINAL: /datum/sprite_accessory/tails/mammal/wagging/big/shade/long
 	name = "Shadekin (Long)"
 	icon_state = "shadekinlong_large"
 
-/datum/sprite_accessory/tails/mammal/wagging/big/shade/striped
+/datum/sprite_accessory/tails/mammal/big/shade/striped // OCULIS EDIT, ORIGINAL: /datum/sprite_accessory/tails/mammal/wagging/big/shade/striped
 	name = "Shadekin (Striped)"
 	icon_state = "shadekinlongstriped_large"
 
-/datum/sprite_accessory/tails/mammal/wagging/big/shade/fluffy
+/datum/sprite_accessory/tails/mammal/big/shade/fluffy // OCULIS EDIT, ORIGINAL: /datum/sprite_accessory/tails/mammal/wagging/big/shade/fluffy
 	name = "Shadekin (Fluffy)"
 	icon_state = "bigandfluffy"
 	color_src = USE_MATRIXED_COLORS
@@ -429,7 +429,7 @@
 	name = "Shadekin Short"
 	icon_state = "shadekinshort"
 
-/datum/sprite_accessory/tails/mammal/wagging/big/ringtail
+/datum/sprite_accessory/tails/mammal/big/ringtail // OCULIS EDIT, ORIGINAL: /datum/sprite_accessory/tails/mammal/wagging/big/ringtail
 	name = "Ring Tail (Long)"
 	icon_state = "bigring_large"
 	color_src = USE_MATRIXED_COLORS
@@ -556,6 +556,11 @@
 /datum/sprite_accessory/tails/mammal/wagging/tiger
 	name = "Tiger"
 	icon_state = "tiger"
+
+/datum/sprite_accessory/tails/mammal/experiment
+	name = "Experiment"
+	icon_state = "exptail"
+	fluffy = TRUE
 
 /datum/sprite_accessory/tails/mammal/wagging/wolf
 	name = "Wolf"

@@ -1,5 +1,6 @@
 /obj/item/reagent_containers/blood/nabber
 	blood_type = BLOOD_TYPE_NABBER
+	custom_materials = list(/datum/material/biomass = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/reagent_containers/blood/nabber/examine()
 	. = ..()
@@ -18,6 +19,7 @@
 
 /obj/item/reagent_containers/blood/vox
 	blood_type = BLOOD_TYPE_VOX
+	custom_materials = list(/datum/material/biomass = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/reagent_containers/blood/vox/examine()
 	. = ..()
@@ -36,6 +38,7 @@
 
 /obj/item/reagent_containers/blood/insect
 	blood_type = BLOOD_TYPE_INSECT
+	custom_materials = list(/datum/material/biomass = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/reagent_containers/blood/insect/examine()
 	. = ..()
@@ -54,6 +57,7 @@
 
 /obj/item/reagent_containers/blood/skrell
 	blood_type = BLOOD_TYPE_SKRELL
+	custom_materials = list(/datum/material/biomass = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/reagent_containers/blood/skrell/examine()
 	. = ..()

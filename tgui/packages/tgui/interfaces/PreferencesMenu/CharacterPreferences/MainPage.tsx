@@ -8,6 +8,7 @@ import {
   Button,
   Floating,
   Input,
+  Icon, // NOVA EDIT ADDITION
   LabeledList,
   Section,
   Stack,
@@ -523,15 +524,25 @@ export function MainPage(props: MainPageProps) {
     delete nonContextualPreferences.random_name;
   }
   // NOVA EDIT ADDITION BEGIN: SWAPPABLE PREF MENUS
+  const erpPreferences = {
+    ...data.character_preferences.erp,
+  };
+
   enum PrefPage {
     Visual, // The visual parts
     Profile, // Flavor Text, Age, Records, PDA ringtone, etc
+    ERP, // ERP Prefs
   }
 
   const [currentPrefPage, setCurrentPrefPage] = useState(PrefPage.Visual);
+  const erpEnabled = !!data.erp_pref;
+  const filteredCurrentPrefPage =
+    currentPrefPage === PrefPage.ERP && !erpEnabled
+      ? PrefPage.Visual
+      : currentPrefPage;
 
   let prefPageContents;
-  switch (currentPrefPage) {
+  switch (filteredCurrentPrefPage) {
     case PrefPage.Visual:
       prefPageContents = (
         <PreferenceList
@@ -558,8 +569,21 @@ export function MainPage(props: MainPageProps) {
         />
       );
       break;
+    case PrefPage.ERP:
+    prefPageContents = (
+      <PreferenceList
+        randomizations={getRandomization(
+          erpPreferences,
+          serverData,
+          randomBodyEnabled,
+        )}
+        preferences={erpPreferences}
+        maxHeight="auto"
+      />
+    );
+    break;
     default:
-      exhaustiveCheck(currentPrefPage);
+      exhaustiveCheck(filteredCurrentPrefPage);
   }
   // NOVA EDIT ADDITION END
 
@@ -610,7 +634,7 @@ export function MainPage(props: MainPageProps) {
                 }}
                 setGender={createSetPreference(act, 'gender')}
                 showGender={
-                  currentSpeciesData ? !!currentSpeciesData.sexes : true
+                  true // OCULIS EDIT, don't force people to have or not have a gender, ORIGINAL: currentSpeciesData ? !!currentSpeciesData.sexes : true
                 }
                 // NOVA EDIT ADDITION START
                 handleFood={() => {
@@ -752,6 +776,17 @@ export function MainPage(props: MainPageProps) {
                   Character Lore
                 </PageButton>
               </Stack.Item>
+             {erpEnabled && (
+              <Stack.Item grow={0.5}>
+                <PageButton
+                  currentPage={currentPrefPage}
+                  page={PrefPage.ERP}
+                  setPage={setCurrentPrefPage}
+                >
+                <Icon name="heart" />
+                </PageButton>
+              </Stack.Item>
+            )}
             </Stack>
             {prefPageContents}
           </Stack>

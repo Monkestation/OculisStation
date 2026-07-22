@@ -77,6 +77,12 @@
 		to_chat(user, span_warning("You don't want to harm other living beings!"))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 
+	// OCULIS EDIT START
+	if (HAS_TRAIT(user, TRAIT_IMMOBILIZED) || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
+		to_chat(user, span_warning("You don't have the mobility for this!"))
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+	// OCULIS EDIT END
+
 	if (victim.has_status_effect(/datum/status_effect/neck_slice))
 		return
 
@@ -309,6 +315,7 @@
 /datum/component/butchering/proc/create_replacement_limb(obj/item/bodypart/target, drop_loc)
 	var/drop_type = target.butcher_replacement
 	var/obj/item/bodypart/replacement = new drop_type(drop_loc)
+	replacement.bodyshape = target.bodyshape
 	replacement.set_initial_damage(target.brute_dam, target.burn_dam)
 	if (IS_ORGANIC_LIMB(replacement) && target.owner)
 		replacement.blood_dna_info = target.owner.get_blood_dna_list()
@@ -317,6 +324,7 @@
 		wound.remove_wound()
 		wound.apply_wound(replacement, silent = TRUE)
 
+	SEND_SIGNAL(target, COMSIG_BODYPART_BUTCHERED, replacement)
 	return replacement
 
 /datum/component/butchering/proc/start_butcher(obj/item/source, mob/living/target, mob/living/user)

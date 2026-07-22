@@ -12,7 +12,7 @@
 	var/deconstruction_state = SHOWCASE_CONSTRUCTED
 
 /obj/structure/showcase/fakeid
-	name = "\improper CentCom identification console"
+	name = "\improper SectCom identification console" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom identification console"
 	desc = "You can use this to change ID's."
 	icon = 'icons/obj/machines/computer.dmi'
 	icon_state = "computer"
@@ -23,7 +23,7 @@
 	add_overlay("id_key")
 
 /obj/structure/showcase/fakesec
-	name = "\improper CentCom security records"
+	name = "\improper SectCom security records" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom security records"
 	desc = "Used to view and edit personnel's security records."
 	icon = 'icons/obj/machines/computer.dmi'
 	icon_state = "computer"

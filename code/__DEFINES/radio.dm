@@ -58,7 +58,7 @@
 #define RADIO_TOKEN_SYNDICATE ":t"
 #define RADIO_COLOR_SYNDICATE "#8f4a4b"
 
-#define RADIO_CHANNEL_CENTCOM "CentCom"
+#define RADIO_CHANNEL_CENTCOM "SectCom" // OCULIS EDIT, SectCommening 2, ORIGINAL: #define RADIO_CHANNEL_CENTCOM "CentCom"
 #define RADIO_KEY_CENTCOM "y"
 #define RADIO_TOKEN_CENTCOM ":y"
 #define RADIO_COLOR_CENTCOM "#2681a5"
@@ -169,3 +169,7 @@
 #define RADIO_SPECIAL_CENTCOM (1<<1)
 ///Bitflag for if a headset can use the binary radio channel
 #define RADIO_SPECIAL_BINARY (1<<2)
+
+/// Past this amount of compression, the resulting gibberish will actually
+/// replace characters, making it even harder to understand.
+#define COMPRESSION_REPLACE_CHARACTER_THRESHOLD 30
