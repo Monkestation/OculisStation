@@ -89,6 +89,11 @@
 	abstract_type = /datum/augment_item/organ/lungs
 	slot = AUGMENT_SLOT_LUNGS
 	icon = FA_ICON_LUNGS
+	species_blacklist = list(
+		SPECIES_VOX = 1,
+		SPECIES_VOX_PRIMALIS = 1,
+		SPECIES_PLASMA = 1,
+	)
 
 //IRIS EDIT: /datum/augment_item/organ/lungs/normal moved to modular_iris/modules/customization/modules/client/augment/organs.dm to preserve the organization
 //IRIS EDIT: /datum/augment_item/organ/lungs/cybernetic moved to modular_iris/modules/customization/modules/client/augment/organs.dm to preserve the organization

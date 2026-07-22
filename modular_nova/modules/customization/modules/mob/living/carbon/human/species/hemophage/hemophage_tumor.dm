@@ -110,7 +110,7 @@
 //OCULIS EDIT END
 //IRIS EDIT END
 
-/obj/item/organ/heart/hemophage/get_status_text(advanced, add_tooltips, colored = TRUE)
+/obj/item/organ/heart/hemophage/get_status_text(scanpower, add_tooltips, colored = TRUE)
 	if(organ_flags & ORGAN_FAILING)
 		return conditional_tooltip("<font color='#cc3333'>Non-Functional</font>", "Repair surgically. Do not remove under any circumstances.", add_tooltips)
 	return ..()

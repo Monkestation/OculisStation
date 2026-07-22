@@ -97,6 +97,7 @@
 				/obj/item/clothing/under/dress/nova/giant_scarf = 5,
 				/obj/item/clothing/under/pants/nova/shorted_overall = 5,
 				/obj/item/clothing/under/misc/nova/gear_harness = 5,
+				/obj/item/clothing/under/misc/nova/modskin = 5,
 				/obj/item/clothing/under/shorts/nova/shortershorts = 5,
 				/obj/item/clothing/under/camo/gags = 5,
 			),
@@ -215,7 +216,6 @@
 				/obj/item/storage/backpack/tinypaka = 5,
 				/obj/item/storage/backpack/tinypakb = 5,
 				/obj/item/storage/backpack/tinypakc = 5,
-				/obj/item/toy/pillow/torapillow = 5,
 			)
 		)
 	)

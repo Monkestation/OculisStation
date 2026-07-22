@@ -5,6 +5,7 @@
 * Please contact Golden if you want your plushie(s) usable on maps.
 */
 
+/* // OCULIS EDIT REMOVAL START
 
 // Donation reward for tobjv
 /obj/item/toy/plush/nova/donator/tesh
@@ -50,12 +51,6 @@
 	name = "commanding fox plush"
 	desc = "A large stuffed fox which radiates confidence and vigor from their emerald eyes."
 	icon_state = "plushie_chiara"
-
-// Donation reward for Superlagg
-/obj/item/toy/plush/nova/donator/plushie_dan
-	name = "comfy fox plush"
-	desc = "A stuffed fox with an aura of endearment leaking from their soft exterior."
-	icon_state = "plushie_dan"
 
 //Donation reward for KLB100
 /obj/item/toy/plush/nova/donator/plushie_jeanne
@@ -961,3 +956,4 @@
 	squeak_override = list(
 		'modular_nova/modules/emotes/sound/voice/slime_pop.ogg' = 1,
 	)
+*/ // OCULIS EDIT REMOVAL END

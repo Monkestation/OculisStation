@@ -16,27 +16,6 @@
 		"pummel",
 	)
 
-
-// Donation reward for bonkaitheroris
-/obj/item/toy/plush/nova/donator/commandant
-	name = "commandant plushie"
-	desc = "From Cenion's Marketing Team: a cute plushie! A Plushie! Plooshi? Jamlet? Creature!"
-	icon = 'modular_nova/master_files/icons/obj/plushes.dmi'
-	icon_state = "plushie_commandant"
-	inhand_icon_state = "plushie_commandant"
-	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
-	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
-	attack_verb_continuous = list(
-		"hugs",
-		"squishes",
-		"baps",
-	)
-	attack_verb_simple = list(
-		"hug",
-		"squish",
-		"bap",
-	)
-
 // NORMAL PLUSHIES
 
 // Added by Some1s

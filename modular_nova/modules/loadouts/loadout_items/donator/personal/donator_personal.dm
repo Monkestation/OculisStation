@@ -459,12 +459,12 @@
 	name = "Foam Force SWAT Mask"
 	item_path = /obj/item/clothing/mask/gas/larpswat
 	ckeywhitelist = list("erdinyobarboza")
-*/ // OCULIS EDIT REMOVAL END
+
 /datum/loadout_item/toys/plush/zappplush
 	name = "Lil' Zapp Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/zapp
 	// donator_only = TRUE // OCULIS EDIT CHANGE
-/* // OCULIS EDIT REMOVAL START
+
 /datum/loadout_item/pocket_items/tacticalbrush
 	name = "Tactical Brush"
 	item_path = /obj/item/hairbrush/tactical
@@ -506,7 +506,6 @@
 	name = "Jade Badge"
 	item_path = /obj/item/clothing/accessory/badge/holo/jade
 	ckeywhitelist = list("konstyantyn")
-*/ // OCULIS EDIT REMOVAL END
 /datum/loadout_item/toys/plush/plushe_winrow
 	name = "Dark and Brooding Lizard Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/plushie_winrow
@@ -514,7 +513,7 @@
 /datum/loadout_item/toys/plush/plushie_star
 	name = "Star Angel Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/plushie_star
-/* // OCULIS EDIT REMOVAL START
+
 /datum/loadout_item/suit/rainbowcoat
 	name = "Rainbow Coat"
 	item_path = /obj/item/clothing/suit/toggle/rainbowcoat
@@ -545,9 +544,8 @@
 	item_path = /obj/item/clothing/under/nt_idol_skirt
 	ckeywhitelist = list("tetrako")
 	restricted_roles = list(JOB_NT_REP)
-*/ // OCULIS EDIT REMOVAL END
-//Chunko Fops were donated by SlippyJoe, who requested they are usable by everyone
 
+//Chunko Fops were donated by SlippyJoe, who requested they are usable by everyone
 /datum/loadout_item/toys/plush/CFBonnie
 	name = "Chunko Fop: Blue Bunny Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/chunko/bonnie
@@ -559,7 +557,7 @@
 /datum/loadout_item/toys/plush/CFInessa
 	name = "Chunko Fop: Medical Bear Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/chunko/inessa
-/* // OCULIS EDIT REMOVAL START
+
 /datum/loadout_item/toys/plush/plushie_chiara
 	name = "Commanding Fox Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/plushie_chiara
@@ -626,12 +624,12 @@
 	name = "Dwarf Shark Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/plushie_razurath/second
 	ckeywhitelist = list("razurath")
-*/ // OCULIS EDIT REMOVAL END
+
 /datum/loadout_item/toys/plush/plushie_elofy
 	name = "Bumbling Wolfgirl Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/plushie_elofy
 	//ckeywhitelist = list("october23") // Asked it to be public.
-/* // OCULIS EDIT REMOVAL START
+
 /datum/loadout_item/suit/elofy
 	name = "Solar Admiral Coat"
 	item_path = /obj/item/clothing/suit/armor/hos/elofy
@@ -663,7 +661,6 @@
 	name = "Purple and Gold Aviators"
 	item_path = /obj/item/clothing/glasses/gold_aviators
 	ckeywhitelist = list("nikohyena")
-
 
 /datum/loadout_item/under/jumpsuit/goldenkimono
 	name = "Short-Sleeved Kimono"
@@ -795,11 +792,11 @@
 	name = "Theurgic Stone"
 	item_path = /obj/item/organ/cyberimp/arm/toolkit/shard/donator/theurgic_crystal
 	ckeywhitelist = list("sciamach")
-*/ // OCULIS EDIT REMOVAL END
+
 /datum/loadout_item/toys/plush/delphic_synth
 	name = "Surgery Synth Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/delphic_synth
-/* // OCULIS EDIT REMOVAL START
+
 /datum/loadout_item/under/miscellaneous/rem
 	name = "M.I.A. Limiter"
 	item_path = /obj/item/clothing/under/rem
@@ -896,12 +893,12 @@
 	name = "Worn Corporate Cloak"
 	item_path = /obj/item/clothing/neck/tattered
 	ckeywhitelist = list("jaklz")
-*/ // OCULIS EDIT REMOVAL END
+
 /datum/loadout_item/toys/plush/commandant
 	name = "Commandant Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/commandant
 // ckeywhitelist = list("bonkaitheroris") // Asked it to be public
-/* // OCULIS EDIT REMOVAL START
+
 /datum/loadout_item/neck/noble_cloak
 	name = "Noble Cloak"
 	item_path = /obj/item/clothing/neck/noble_mantle
@@ -1039,7 +1036,7 @@
 	name = "Jumper Conversation Kit Box"
 	item_path = /obj/item/mod/skin_applier/jumper
 	ckeywhitelist = list("bonkaitheroris")
-*/ // OCULIS EDIT REMOVAL END
+
 /datum/loadout_item/toys/plush/plushe_vethonk
 	name = "Veteran Clown Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/vethonk
@@ -1048,7 +1045,6 @@
 	name = "Dr. Percival Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/percy
 
-/* // OCULIS EDIT REMOVAL START
 /datum/loadout_item/toys/plush/plushie_bon
 	name = "Bon Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/bon
@@ -1089,5 +1085,4 @@
 	name = "Viper Suit"
 	item_path = /obj/item/clothing/under/rank/civilian/viper_suit
 	ckeywhitelist = list("ghostof93")
-
 */ // OCULIS EDIT REMOVAL END

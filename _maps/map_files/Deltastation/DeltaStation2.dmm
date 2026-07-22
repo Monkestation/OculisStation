@@ -7618,6 +7618,15 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/lobby)
+"bQs" = (
+/obj/structure/table/reinforced,
+/obj/item/paper_bin,
+/obj/item/pen,
+/obj/effect/turf_decal/tile/red/anticorner/contrasted{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/security/holding_cell)
 "bQw" = (
 /obj/effect/landmark/start/hangover,
 /obj/effect/turf_decal/stripes/line{
@@ -9958,17 +9967,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/command/corporate_showroom)
-"csD" = (
-/obj/structure/chair/office,
-/obj/item/radio/intercom/directional/north{
-	frequency = 1423;
-	name = "Interrogation Intercom"
-	},
-/obj/effect/turf_decal/siding/dark_red{
-	dir = 4
-	},
-/turf/open/floor/iron/checker,
-/area/station/security/interrogation)
 "csE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -17415,6 +17413,17 @@
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit)
+"epf" = (
+/obj/structure/table/reinforced,
+/obj/item/flashlight/lamp,
+/obj/machinery/camera/directional/south{
+	c_tag = "Security - Interrogation";
+	network = list("ss13","interrogation")
+	},
+/obj/item/radio/intercom/interrogation/inside/directional/south,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/station/security/interrogation)
 "epm" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 10
@@ -22570,6 +22579,12 @@
 /obj/structure/sign/nanotrasen/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/entry)
+"fBW" = (
+/obj/structure/closet/crate/goldcrate/stocked,
+/obj/machinery/airalarm/directional/south,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/station/command/vault)
 "fCd" = (
 /obj/machinery/holopad/secure,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -23356,19 +23371,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/pharmacy)
-"fLV" = (
-/obj/structure/table/glass,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/structure/cable,
-/obj/item/storage/box/beakers{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/syringes,
-/turf/open/floor/iron,
-/area/station/medical/virology)
 "fMb" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -28771,6 +28773,10 @@
 /obj/structure/cable,
 /turf/closed/wall/r_wall,
 /area/station/maintenance/port)
+"gXC" = (
+/obj/effect/spawner/holiday/bar_keg,
+/turf/open/floor/iron/checker,
+/area/station/service/bar/backroom)
 "gXS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/railing/corner{
@@ -34245,14 +34251,6 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/iron,
 /area/station/maintenance/port/fore)
-"ity" = (
-/obj/machinery/computer/upload/ai/no_lock{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
-/area/station/ai/upload/chamber)
 "itF" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
 	dir = 6
@@ -38685,12 +38683,6 @@
 /obj/item/radio/intercom/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/funeral)
-"jyn" = (
-/obj/structure/table/wood,
-/obj/item/folder/red,
-/obj/item/book/manual/wiki/security_space_law,
-/turf/open/floor/wood,
-/area/station/command/meeting_room/council)
 "jyp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -55397,12 +55389,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/cargo/sorting)
-"nIe" = (
-/obj/structure/closet/crate/goldcrate/stocked,
-/obj/machinery/airalarm/directional/south,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
-/area/station/command/vault)
 "nIg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -72803,6 +72789,23 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/supermatter/room)
+"rVJ" = (
+/obj/structure/table/glass,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/item/storage/box/beakers{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/storage/pill_bottle/sepsisillin{
+	pixel_x = -6;
+	pixel_y = 2
+	},
+/obj/item/storage/box/syringes,
+/turf/open/floor/iron,
+/area/station/medical/virology)
 "rVK" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 9
@@ -78198,22 +78201,6 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron,
 /area/station/maintenance/port)
-"toC" = (
-/obj/structure/table/reinforced,
-/obj/item/flashlight/lamp,
-/obj/machinery/camera/directional/south{
-	c_tag = "Security - Interrogation";
-	network = list("ss13","interrogation")
-	},
-/obj/item/radio/intercom/directional/south{
-	broadcasting = 1;
-	frequency = 1423;
-	listening = 0;
-	name = "Interrogation Intercom"
-	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
-/area/station/security/interrogation)
 "toI" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -84911,6 +84898,14 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
+"uQS" = (
+/obj/machinery/computer/upload/borg/no_lock{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/station/ai/upload/chamber)
 "uQY" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -85549,10 +85544,6 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/service/theater/abandoned)
-"val" = (
-/obj/effect/spawner/holiday/bar_keg,
-/turf/open/floor/iron/checker,
-/area/station/service/bar/backroom)
 "vat" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -87817,6 +87808,12 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/station/engineering/main)
+"vEv" = (
+/obj/structure/table/wood,
+/obj/item/folder/red,
+/obj/item/book/manual/wiki/security_space_law,
+/turf/open/floor/wood,
+/area/station/command/meeting_room/council)
 "vEV" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -88312,15 +88309,6 @@
 	dir = 5
 	},
 /area/station/service/chapel)
-"vLk" = (
-/obj/structure/table/reinforced,
-/obj/item/paper_bin,
-/obj/item/pen,
-/obj/effect/turf_decal/tile/red/anticorner/contrasted{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/station/security/holding_cell)
 "vLl" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
@@ -88687,6 +88675,14 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/service/bar)
+"vQQ" = (
+/obj/structure/chair/office,
+/obj/item/radio/intercom/interrogation/outside/directional/north,
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 4
+	},
+/turf/open/floor/iron/checker,
+/area/station/security/interrogation)
 "vQU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/table/reinforced,
@@ -96987,14 +96983,6 @@
 	dir = 1
 	},
 /area/station/science/lobby)
-"xVj" = (
-/obj/machinery/computer/upload/borg/no_lock{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
-/area/station/ai/upload/chamber)
 "xVm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -97320,6 +97308,14 @@
 /obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/carpet/blue,
 /area/station/commons/vacant_room/office)
+"xZc" = (
+/obj/machinery/computer/upload/ai/no_lock{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/station/ai/upload/chamber)
 "xZh" = (
 /obj/structure/table/wood,
 /obj/item/paper{
@@ -106419,7 +106415,7 @@ bPC
 hmU
 hmU
 sdK
-ity
+xZc
 hmU
 cfu
 ptq
@@ -106933,7 +106929,7 @@ bPC
 apT
 hmU
 sdK
-xVj
+uQS
 hmU
 cfu
 asO
@@ -133225,7 +133221,7 @@ jyT
 wjV
 sFR
 wOz
-fLV
+rVJ
 gqm
 qYo
 qYo
@@ -133394,7 +133390,7 @@ awc
 kRr
 nHc
 mBU
-jyn
+vEv
 kPM
 pRS
 pqo
@@ -136193,7 +136189,7 @@ szy
 szy
 ssy
 rHa
-val
+gXC
 vnU
 oZb
 jSy
@@ -143409,7 +143405,7 @@ fAB
 qKc
 uYm
 sJr
-nIe
+fBW
 lhY
 aaa
 mjz
@@ -147538,7 +147534,7 @@ awj
 vMj
 lmK
 gBs
-vLk
+bQs
 dth
 ddC
 ajq
@@ -148278,12 +148274,12 @@ iCo
 xzJ
 hXi
 vgQ
-csD
+vQQ
 nJu
 nup
 mTT
 hgS
-toC
+epf
 rJt
 mXD
 lwh

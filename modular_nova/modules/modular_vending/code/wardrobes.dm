@@ -113,6 +113,7 @@
 		/obj/item/storage/backpack/messenger/science/robo = 2,
 		/obj/item/clothing/neck/tie/bunnytie/roboticist = 2,
 		/obj/item/clothing/suit/toggle/labcoat/roboticist/doctor_tailcoat = 2,
+		/obj/item/toy/plush/nova/robotics_shark = 1,
 	)
 
 	contraband_nova = list(

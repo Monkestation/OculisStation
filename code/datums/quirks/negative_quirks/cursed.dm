@@ -19,6 +19,7 @@
 		on_death = CALLBACK(src, PROC_REF(on_death)), \
 	)
 
+
 /datum/quirk/cursed/proc/on_death(datum/component/omen/omen)
 	return // OCULIS EDIT ADDITION
 /* // OCULIS EDIT REMOVAL START
