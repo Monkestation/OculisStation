@@ -8064,19 +8064,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
-"ccr" = (
-/obj/structure/window/reinforced/spawner/directional/south,
-/obj/structure/window/reinforced/spawner/directional/west,
-/obj/structure/window/reinforced/spawner/directional/north,
-/obj/machinery/computer/upload/ai{
-	dir = 4
-	},
-/obj/machinery/door/window/left/directional/east{
-	name = "AI Upload Console Window";
-	req_access = list("ai_upload")
-	},
-/turf/open/floor/circuit/green,
-/area/station/ai/upload/chamber)
 "ccs" = (
 /obj/effect/spawner/random/trash/cigbutt,
 /turf/open/floor/plating,
@@ -16735,10 +16722,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/warden)
-"etm" = (
-/obj/structure/table/reinforced,
-/turf/open/floor/glass/reinforced,
-/area/station/command/vault)
 "etp" = (
 /obj/effect/turf_decal/stripes{
 	dir = 1
@@ -18289,11 +18272,6 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/central)
-"eQC" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/reagent_dispensers/beerkeg,
-/turf/open/floor/iron/cafeteria,
-/area/station/maintenance/starboard)
 "eQF" = (
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
@@ -26602,6 +26580,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/freezer,
 /area/station/command/heads_quarters/captain/private)
+"gZs" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/food_or_drink/keg,
+/turf/open/floor/iron/cafeteria,
+/area/station/maintenance/starboard)
 "gZu" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
@@ -32833,6 +32816,19 @@
 	},
 /turf/open/floor/glass/reinforced,
 /area/station/security/brig)
+"iHc" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/machinery/computer/upload/ai/no_lock{
+	dir = 4
+	},
+/obj/machinery/door/window/left/directional/east{
+	name = "AI Upload Console Window";
+	req_access = list("ai_upload")
+	},
+/turf/open/floor/circuit/green,
+/area/station/ai/upload/chamber)
 "iHi" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/disposalpipe/segment,
@@ -34408,19 +34404,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
-"jfi" = (
-/obj/structure/window/reinforced/spawner/directional/north,
-/obj/structure/window/reinforced/spawner/directional/west,
-/obj/structure/window/reinforced/spawner/directional/south,
-/obj/machinery/door/window/left/directional/east{
-	name = "Cyborg Upload Console Window";
-	req_access = list("ai_upload")
-	},
-/obj/machinery/computer/upload/borg{
-	dir = 4
-	},
-/turf/open/floor/circuit/green,
-/area/station/ai/upload/chamber)
 "jfl" = (
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/machinery/atmospherics/components/binary/pump/off{
@@ -46767,10 +46750,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/ai/satellite/maintenance/storage)
-"mtC" = (
-/obj/structure/closet/crate/goldcrate,
-/turf/open/floor/glass/reinforced,
-/area/station/command/vault)
 "mtM" = (
 /obj/effect/landmark/start/atmospheric_technician,
 /obj/machinery/holopad,
@@ -52569,6 +52548,10 @@
 /obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron/dark/textured,
 /area/station/science/xenobiology)
+"nXd" = (
+/obj/structure/closet/crate/goldcrate/stocked,
+/turf/open/floor/glass/reinforced,
+/area/station/command/vault)
 "nXh" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -58150,6 +58133,17 @@
 /obj/structure/fluff/paper/corner,
 /turf/open/floor/wood,
 /area/station/maintenance/aft)
+"pxi" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/structure/crate,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/iron,
+/area/station/maintenance/starboard)
 "pxv" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/wood,
@@ -63391,12 +63385,6 @@
 /obj/effect/mapping_helpers/engraving,
 /turf/closed/wall,
 /area/station/service/abandoned_gambling_den)
-"qRa" = (
-/obj/structure/table/wood,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/wood,
-/area/station/service/abandoned_gambling_den)
 "qRg" = (
 /obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/visible/layer2{
 	dir = 4
@@ -65822,6 +65810,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/eighties,
 /area/station/maintenance/hallway/abandoned_recreation)
+"rzX" = (
+/obj/structure/table/wood,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/wood,
+/area/station/service/abandoned_gambling_den)
 "rAa" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
@@ -70047,6 +70041,27 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/station/commons/vacant_room/office)
+"sIX" = (
+/obj/effect/spawner/holiday/bar_keg,
+/obj/structure/table/wood,
+/obj/item/stack/package_wrap{
+	pixel_x = -2;
+	pixel_y = -13
+	},
+/obj/item/stack/package_wrap{
+	pixel_x = -2;
+	pixel_y = -13
+	},
+/obj/item/holosign_creator/robot_seat/bar{
+	pixel_y = -20
+	},
+/obj/machinery/airalarm/directional/west,
+/obj/machinery/camera/autoname/directional/west,
+/obj/effect/turf_decal/tile/dark_green{
+	dir = 4
+	},
+/turf/open/floor/iron/checker,
+/area/station/service/bar/backroom)
 "sJt" = (
 /obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/glass,
@@ -73503,6 +73518,19 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
+"tDX" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/machinery/door/window/left/directional/east{
+	name = "Cyborg Upload Console Window";
+	req_access = list("ai_upload")
+	},
+/obj/machinery/computer/upload/borg/no_lock{
+	dir = 4
+	},
+/turf/open/floor/circuit/green,
+/area/station/ai/upload/chamber)
 "tDY" = (
 /turf/closed/wall,
 /area/station/science/lobby)
@@ -79639,27 +79667,6 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/station/construction/storage_wing)
-"vhl" = (
-/obj/structure/reagent_dispensers/beerkeg,
-/obj/structure/table/wood,
-/obj/item/stack/package_wrap{
-	pixel_x = -2;
-	pixel_y = -13
-	},
-/obj/item/stack/package_wrap{
-	pixel_x = -2;
-	pixel_y = -13
-	},
-/obj/item/holosign_creator/robot_seat/bar{
-	pixel_y = -20
-	},
-/obj/machinery/airalarm/directional/west,
-/obj/machinery/camera/autoname/directional/west,
-/obj/effect/turf_decal/tile/dark_green{
-	dir = 4
-	},
-/turf/open/floor/iron/checker,
-/area/station/service/bar/backroom)
 "vhv" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -84650,6 +84657,10 @@
 	},
 /turf/open/floor/wood,
 /area/station/maintenance/aft)
+"wwp" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/glass/reinforced,
+/area/station/command/vault)
 "wwt" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 10
@@ -85067,18 +85078,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/commons/dorms)
-"wBZ" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random/structure/crate,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment,
-/obj/structure/disposalpipe/segment{
-	dir = 6
-	},
-/turf/open/floor/iron,
-/area/station/maintenance/starboard)
 "wCa" = (
 /obj/effect/turf_decal/arrows/white{
 	color = "#F7F707";
@@ -112002,7 +112001,7 @@ bNt
 jWg
 lHp
 vJe
-qRa
+rzX
 mLN
 xut
 rba
@@ -115083,7 +115082,7 @@ lBh
 pMT
 tAM
 mUR
-vhl
+sIX
 imL
 skR
 mUR
@@ -121827,8 +121826,8 @@ nKs
 fQp
 pLG
 mvq
-ccr
-jfi
+iHc
+tDX
 mvq
 pLG
 fQp
@@ -135170,7 +135169,7 @@ hIA
 ltF
 pAd
 rsm
-eQC
+gZs
 meY
 uAp
 vFf
@@ -135197,7 +135196,7 @@ jaT
 rsg
 jxX
 gsd
-wBZ
+pxi
 oeq
 tEr
 oeq
@@ -191396,9 +191395,9 @@ hWF
 fMH
 dDL
 jph
-etm
+wwp
 ghb
-mtC
+nXd
 jph
 dDL
 pRO

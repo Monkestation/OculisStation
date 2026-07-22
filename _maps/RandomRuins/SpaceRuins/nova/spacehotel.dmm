@@ -573,6 +573,23 @@
 /obj/item/cutting_board,
 /turf/open/floor/iron/cafeteria,
 /area/ruin/space/has_grav/hotel/bar)
+"dY" = (
+/obj/structure/table/wood,
+/obj/item/stamp/granted{
+	pixel_x = 7;
+	pixel_y = 9
+	},
+/obj/item/stamp/denied{
+	pixel_x = 7;
+	pixel_y = 4
+	},
+/obj/item/clipboard{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/structure/extinguisher_cabinet/directional/west,
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/hotel/workroom)
 "ea" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -733,12 +750,6 @@
 	},
 /turf/open/floor/carpet/black,
 /area/ruin/space/has_grav/hotel/dock)
-"eI" = (
-/obj/structure/closet,
-/obj/item/storage/medkit/regular,
-/obj/item/wrench,
-/turf/open/floor/carpet/neon/simple/teal/nodots,
-/area/ruin/space/has_grav/hotel/guestroom/room_3)
 "eJ" = (
 /obj/machinery/door/airlock/external/glass,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
@@ -3200,23 +3211,6 @@
 /obj/structure/window/reinforced/tinted/spawner/directional/south,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/space/has_grav/hotel/pool)
-"pW" = (
-/obj/structure/table/wood,
-/obj/item/stamp/granted{
-	pixel_x = 7;
-	pixel_y = 9
-	},
-/obj/item/stamp/denied{
-	pixel_x = 7;
-	pixel_y = 4
-	},
-/obj/item/clipboard{
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/obj/structure/extinguisher_cabinet/directional/west,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/hotel/workroom)
 "pX" = (
 /obj/effect/turf_decal/siding/dark_green{
 	dir = 8
@@ -3490,6 +3484,12 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/hotel/bar)
+"rK" = (
+/obj/structure/closet,
+/obj/item/storage/medkit/regular,
+/obj/item/wrench,
+/turf/open/floor/carpet/neon/simple/teal/nodots,
+/area/ruin/space/has_grav/hotel/guestroom/room_3)
 "rL" = (
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal/bin,
@@ -5584,6 +5584,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/hotel/power)
+"Gr" = (
+/obj/effect/spawner/random/food_or_drink/keg,
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/hotel/bar)
 "Gv" = (
 /obj/effect/turf_decal/trimline/dark_blue/filled/line{
 	dir = 4
@@ -6355,10 +6359,6 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/hotel/guestroom/room_5)
-"Lp" = (
-/obj/structure/reagent_dispensers/beerkeg,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/hotel/bar)
 "Lq" = (
 /obj/structure/window/reinforced/tinted/spawner/directional/east,
 /obj/structure/dresser,
@@ -9016,7 +9016,7 @@ Lc
 fi
 mY
 UK
-Lp
+Gr
 Yw
 cj
 hw
@@ -9628,7 +9628,7 @@ yE
 nf
 di
 rT
-pW
+dY
 wH
 Bu
 di
@@ -9828,7 +9828,7 @@ yX
 jM
 pE
 dx
-eI
+rK
 hT
 Jx
 rB

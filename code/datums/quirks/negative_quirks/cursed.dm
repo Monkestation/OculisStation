@@ -10,10 +10,29 @@
 	hardcore_value = 8
 
 /datum/quirk/cursed/add(client/client_source)
-	quirk_holder.AddComponent(/datum/component/omen/quirk)
+	quirk_holder.AddComponent( \
+		/datum/component/omen, \
+		incidents_left = INFINITY, \
+		luck_mod = 0.3, \
+		damage_mod = 0.25, \
+		bless_fixable = FALSE, \
+		on_death = CALLBACK(src, PROC_REF(on_death)), \
+	)
 
-//IRIS EDIT ADDITION BEGIN - COGNOMERGE_EVENT - Prevents people from becoming permanently cursed if the extreme cognomerge event rolls it
-/datum/quirk/cursed/remove(client/client_source)
-	var/datum/component/omen/quirk/omen_to_destroy = quirk_holder.GetExactComponent(/datum/component/omen/quirk)
-	omen_to_destroy.Destroy()
-//IRIS EDIT ADDITION END
+/datum/quirk/cursed/proc/on_death(datum/component/omen/omen)
+	return // OCULIS EDIT ADDITION
+/* // OCULIS EDIT REMOVAL START
+
+	var/mob/living/carbon/cursed = omen.parent
+	if(!iscarbon(cursed))
+		cursed.gib(DROP_ALL_REMAINS)
+		return
+
+	// Don't explode if buckled to a stasis bed
+	if(istype(cursed.buckled, /obj/machinery/stasis))
+		return
+
+	omen.death_explode(cursed)
+	cursed.spread_bodyparts()
+	cursed.spawn_gibs()
+*/ // OCULIS EDIT REMOVAL END
