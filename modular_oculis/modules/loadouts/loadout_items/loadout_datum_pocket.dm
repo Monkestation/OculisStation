@@ -1,4 +1,3 @@
-
 /datum/loadout_item/pocket_items/wheelchair
 	name = "Wheelchair"
 	item_path = /obj/item/wheelchair
