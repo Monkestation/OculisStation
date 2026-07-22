@@ -10,6 +10,7 @@
 	supports_variations_flags = NONE
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/rank/security/detective/cowboy/armorless //Donator variant, just uses the sprite.
 	armor_type = /datum/armor/clothing_under
@@ -48,13 +49,13 @@
 /// PRISONER
 /obj/item/clothing/under/rank/prisoner/protcust
 	name = "protective custody prisoner jumpsuit"
-	desc = "A mustard coloured prison jumpsuit, often worn by former Security members, informants and former CentCom employees. Its suit sensors are stuck in the \"Fully On\" position."
+	desc = "A mustard coloured prison jumpsuit, often worn by former Security members, informants and former SectCom employees. Its suit sensors are stuck in the \"Fully On\" position." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A mustard coloured prison jumpsuit, often worn by former Security members, informants and former CentCom employees. Its suit sensors are stuck in the \"Fully On\" position."
 	icon_state = "/obj/item/clothing/under/rank/prisoner/protcust"
 	greyscale_colors = "#FFB600"
 
 /obj/item/clothing/under/rank/prisoner/skirt/protcust
 	name = "protective custody prisoner jumpskirt"
-	desc = "A mustard coloured prison jumpskirt, often worn by former Security members, informants and former CentCom employees. Its suit sensors are stuck in the \"Fully On\" position."
+	desc = "A mustard coloured prison jumpskirt, often worn by former Security members, informants and former SectCom employees. Its suit sensors are stuck in the \"Fully On\" position." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A mustard coloured prison jumpskirt, often worn by former Security members, informants and former CentCom employees. Its suit sensors are stuck in the \"Fully On\" position."
 	icon_state = "/obj/item/clothing/under/rank/prisoner/skirt/protcust"
 	greyscale_colors = "#FFB600"
 	supports_variations_flags = NONE

@@ -7,10 +7,6 @@
 	name = "Harbinger Plushie"
 	item_path = /obj/item/toy/plush/iris/donator/harbinger
 
-/datum/loadout_item/toys/plush/commandant // Donator item for Bonkai. Public for all. Originally from Nova.
-	name = "Commandant Plushie"
-	item_path = /obj/item/toy/plush/nova/donator/commandant
-
 /datum/loadout_item/inhand/dirtbag
 	name = "Dirt Bag"
 	item_path = /obj/item/storage/backpack/duffelbag/donator/dirt

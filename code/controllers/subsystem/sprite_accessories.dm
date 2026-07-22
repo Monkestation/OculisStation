@@ -51,6 +51,14 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	// NOVA EDIT ADDITION START - Customization
 	var/list/sprite_accessories = list()
 	var/list/cached_mutant_icon_files = list()
+	var/list/all_layer_postfixes = list(
+		EXTERNAL_FRONT,
+		EXTERNAL_ADJACENT,
+		EXTERNAL_BEHIND,
+		EXTERNAL_FRONT_UNDER_CLOTHES,
+		EXTERNAL_FRONT_OVER,
+		EXTERNAL_FRONT_ABOVE_HAIR,
+	)
 	// NOVA EDIT ADDITION END
 
 /datum/controller/subsystem/accessories/PreInit() // this stuff NEEDS to be set up before GLOB for preferences and stuff to work so this must go here. sorry
@@ -109,6 +117,11 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	feature_list[FEATURE_HORNS_ETHEREAL] = INIT_ACCESSORY(/datum/sprite_accessory/ethereal_horns)
 	// OCULIS EDIT ADDITION END
 
+	// OCULIS EDIT ADDITION START - Arachnid Features
+	feature_list[FEATURE_ARACHNID_APPENDAGES] = INIT_ACCESSORY(/datum/sprite_accessory/arachnid_appendages)
+	feature_list[FEATURE_ARACHNID_CHELICERAE] = INIT_ACCESSORY(/datum/sprite_accessory/arachnid_chelicerae)
+	// OCULIS EDIT ADDITION END
+
 	// moths
 	feature_list[FEATURE_MOTH_WINGS] = INIT_ACCESSORY(/datum/sprite_accessory/moth_wings)
 	feature_list[FEATURE_MOTH_ANTENNAE] = INIT_ACCESSORY(/datum/sprite_accessory/moth_antennae)
@@ -151,11 +164,12 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	)
 
 	for(var/path in subtypesof(prototype))
-		var/datum/sprite_accessory/accessory = new path
 		// NOVA EDIT ADDITION START - Don't put organizational types (e.g. sprite_accessory/ears/big) in the list
-		if(!accessory.name)
+		var/datum/sprite_accessory/datum_path = path
+		if(isnull(datum_path::name))
 			continue
 		// NOVA EDIT ADDITION END
+		var/datum/sprite_accessory/accessory = new path
 
 		if(accessory.icon_state)
 			returnable_list[DEFAULT_SPRITE_LIST][accessory.name] = accessory

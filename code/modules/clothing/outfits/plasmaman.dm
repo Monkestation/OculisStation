@@ -231,7 +231,7 @@
 	head = /obj/item/clothing/head/helmet/space/plasmaman/research_director
 
 /datum/outfit/plasmaman/centcom_commander
-	name = "CentCom Command Plasmaman"
+	name = "SectCom Command Plasmaman" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Command Plasmaman"
 
 	uniform = /obj/item/clothing/under/plasmaman/centcom_commander
 	gloves = /obj/item/clothing/gloves/color/plasmaman/centcom_commander
@@ -239,14 +239,14 @@
 	mask = /obj/item/clothing/mask/gas/sechailer/plasmaman
 
 /datum/outfit/plasmaman/centcom_official
-	name = "CentCom Official Plasmaman"
+	name = "SectCom Official Plasmaman" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Official Plasmaman"
 
 	uniform = /obj/item/clothing/under/plasmaman/centcom_official
 	gloves = /obj/item/clothing/gloves/color/plasmaman/centcom_official
 	head = /obj/item/clothing/head/helmet/space/plasmaman/centcom_official
 
 /datum/outfit/plasmaman/centcom_intern
-	name = "CentCom Intern Plasmaman"
+	name = "SectCom Intern Plasmaman" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Intern Plasmaman"
 
 	uniform = /obj/item/clothing/under/plasmaman/centcom_intern
 	gloves = /obj/item/clothing/gloves/color/plasmaman/centcom_intern

@@ -67,7 +67,7 @@
 	desc = "The name couldn't be any more desperate and self-explainatory, by skillchip naming standards."
 	auto_traits = list(TRAIT_ID_APPRAISER)
 	skill_name = "ID Appraisal"
-	skill_description = "Appraise an ID and see if it's issued from centcom, or just a cruddy station-printed one."
+	skill_description = "Appraise an ID and see if it's issued from SectCom, or just a cruddy station-printed one." // OCULIS EDIT, SectCommening 2, ORIGINAL: skill_description = "Appraise an ID and see if it's issued from centcom, or just a cruddy station-printed one."
 	skill_icon = "magnifying-glass"
 	activate_message = span_notice("You feel that you can recognize special, minute details on ID cards.")
 	deactivate_message = span_notice("Was there something special about certain IDs?")
@@ -154,3 +154,13 @@
 /datum/action/cooldown/fishing_tip/Activate(atom/target_atom)
 	. = ..()
 	send_tip_of_the_round(owner, pick(GLOB.fishing_tips), source = "Ancient fishing wisdom")
+
+/obj/item/skillchip/disposals
+	name = "T4RG3T.bin skillchip"
+	desc = "Become a dauntless disposaler, target trash right where it belongs."
+	auto_traits = list(TRAIT_THROWINGARM)
+	skill_name = "Dauntless Disposaler"
+	skill_description = "You have an uncanny ability to perfectly land every toss into disposal units."
+	skill_icon = "trash-can"
+	activate_message = span_notice("You seem laser focused on the nearby disposal unit.")
+	deactivate_message = span_notice("The nearby disposal unit fades into the background of your vision.")

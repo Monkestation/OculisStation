@@ -36,6 +36,13 @@
 	var/list/required_experiments = list()
 	/// If completed, these experiments give a specific point amount discount to the node.
 	var/list/discount_experiments = list()
+	/// Boost quantities from non-experiment sources (i.e., toxins papers).
+	/// Indexed by point type to boost amount (with only one boost per point type).
+	var/list/discount_boosts = list()
+	/// Boolean indicating whether or not this node is boosted by non-experiments.
+	/// This will need to be changed to a list of point types boosted if boosts
+	/// should ever need to vary by point type.
+	var/discount_boosted = FALSE
 	/// When this node is completed, allows these experiments to be performed.
 	var/list/experiments_to_unlock = list()
 	/// Whether or not this node should show on the wiki
@@ -52,7 +59,7 @@
 /datum/techweb_node/error_node
 	id = "ERROR"
 	display_name = "ERROR"
-	description = "This usually means something in the database has corrupted. If it doesn't go away automatically, inform Central Command for their techs to fix it ASAP(tm)"
+	description = "This usually means something in the database has corrupted. If it doesn't go away automatically, inform Sectorial Command for their techs to fix it ASAP(tm)" // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "This usually means something in the database has corrupted. If it doesn't go away automatically, inform Central Command for their techs to fix it ASAP(tm)"
 	show_on_wiki = FALSE
 
 /datum/techweb_node/proc/Initialize()
@@ -92,11 +99,10 @@
 			if(host.completed_experiments[experiment_type]) //do we have this discount_experiment unlocked?
 				actual_costs[cost_type] -= discount_experiments[experiment_type]
 
-	if(host.boosted_nodes[id]) // Boosts should be subservient to experiments.
-		var/list/boostlist = host.boosted_nodes[id]
-		for(var/booster in boostlist)
+	if(discount_boosts && discount_boosted) // Boosts should be subservient to experiments.
+		for(var/booster in discount_boosts)
 			if(actual_costs[booster])
-				actual_costs[booster] = max(actual_costs[booster] - boostlist[booster], 0)
+				actual_costs[booster] = max(actual_costs[booster] - discount_boosts[booster], 0)
 
 	return actual_costs
 

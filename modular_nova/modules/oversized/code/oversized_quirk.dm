@@ -34,7 +34,7 @@
 	human_holder.physiology.hunger_mod *= OVERSIZED_HUNGER_MOD //50% hungrier
 	human_holder.add_movespeed_modifier(/datum/movespeed_modifier/oversized)
 
-	human_holder.dna.species.gain_oversized_organs(human_holder, src) // handles the addition of oversized organs (species default is a plain oversized stomach)
+	// human_holder.dna.species.gain_oversized_organs(human_holder, src) // handles the addition of oversized organs (species default is a plain oversized stomach) // OCULIS EDIT REMOVAL
 
 /datum/quirk/oversized/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder

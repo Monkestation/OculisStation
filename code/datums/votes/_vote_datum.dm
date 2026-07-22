@@ -23,6 +23,8 @@
 	var/winner_method = VOTE_WINNER_METHOD_SIMPLE
 	/// Should we show details about the number of votes submitted for each option?
 	var/display_statistics = TRUE
+	/// only applicable if `display_statistics` is false, this will let the final vote tally be printed to chat even if it couldn't be seen during the vote
+	var/print_results = TRUE
 
 	// Internal values used when tracking ongoing votes.
 	// Don't mess with these, change the above values / override procs for subtypes.
@@ -110,7 +112,7 @@
 	started_time = world.time
 	time_remaining = round(duration / 10)
 
-	return "[contains_vote_in_name ? "[capitalize(name)]" : "[capitalize(name)] vote"] started by [initiator || "Central Command"]."
+	return "[contains_vote_in_name ? "[capitalize(name)]" : "[capitalize(name)] vote"] started by [initiator || "Sectorial Command"]." // OCULIS EDIT, SectCommening 2, ORIGINAL: return "[contains_vote_in_name ? "[capitalize(name)]" : "[capitalize(name)] vote"] started by [initiator || "Central Command"]."
 
 /**
  * Gets the result of the vote.
@@ -193,7 +195,7 @@
 	if(total_votes <= 0)
 		return span_bold("Vote Result: Inconclusive - No Votes!")
 
-	if (display_statistics)
+	if (display_statistics || print_results)
 		returned_text += "\nResults:"
 		for(var/option in choices)
 			returned_text += "\n"
