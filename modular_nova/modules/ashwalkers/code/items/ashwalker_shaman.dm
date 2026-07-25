@@ -9,6 +9,8 @@
 	icon_state = "staffofanimation"
 	inhand_icon_state = "staffofanimation"
 
+	///If the world.time is above this, it wont work. Charging requires whacking the necropolis nest
+	var/staff_time = 0
 
 /obj/item/ash_staff/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!user.mind.has_antag_datum(/datum/antagonist/ashwalker))
@@ -31,6 +33,10 @@
 		to_chat(user, span_notice("[src] sparks, corrupting the area too far!"))
 		return
 
+	if(world.time > staff_time)
+		to_chat(user, span_warning("[src] has had its permission expire from the necropolis!"))
+		return ITEM_INTERACT_BLOCKING
+
 	if(!do_after(user, 2 SECONDS, target = target_turf))
 		to_chat(user, span_warning("[src] had their casting cut short!"))
 		return ITEM_INTERACT_BLOCKING
@@ -38,6 +44,13 @@
 	target_turf.ChangeTurf(/turf/open/misc/asteroid/basalt/lava_land_surface)
 	return ITEM_INTERACT_SUCCESS
 
+/obj/structure/lavaland/ash_walker/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/ash_staff) && user.mind.has_antag_datum(/datum/antagonist/ashwalker))
+		var/obj/item/ash_staff/target_staff = tool
+		target_staff.staff_time = world.time + 5 MINUTES
+		playsound(src, 'sound/effects/magic/demon_consume.ogg', 50, TRUE)
+		to_chat(user, span_notice("The tendril permits you to have more time to corrupt the world with ashes."))
+		return ITEM_INTERACT_SUCCESS
 
 //generic ash item recipe
 /datum/crafting_recipe/ash_recipe

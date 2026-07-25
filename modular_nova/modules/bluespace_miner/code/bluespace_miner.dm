@@ -5,7 +5,8 @@
 
 /obj/machinery/bluespace_miner
 	name = "bluespace miner"
-	desc = "Through the power of bluespace, it is capable of producing materials."
+	desc = "Through the power of bluespace, it is capable of producing materials if provided a proper operational enviorment. \
+	There is a sticker on the side that has the operational environment guidelines printed on it." //OCULIS EDIT - Original desc - "Through the power of bluespace, it is capable of producing materials." - Expanded desc to be a little nicer
 	icon = 'modular_nova/modules/bluespace_miner/icons/bluespace_miner.dmi'
 	icon_state = "miner"
 
@@ -41,6 +42,8 @@
 	var/focused_item
 
 	COOLDOWN_DECLARE(process_speed)
+
+	var/focus_display = "Nothing" // OCULIS EDIT ADDITION - used to show what the current focused ore is
 
 /obj/machinery/bluespace_miner/RefreshParts()
 	. = ..()
@@ -83,6 +86,9 @@
 
 /obj/machinery/bluespace_miner/examine(mob/user)
 	. = ..()
+
+	. += span_notice("\nThe miner's focus mode is currently set to : <b>[focus_display]</b>.")	// OCULIS EDIT ADDITION - Shows what the focus mode is currently set to!
+
 	if(obj_flags & EMAGGED)
 		. += span_warning("The safeties are turned off!")
 
@@ -90,16 +96,20 @@
 	if(mining_stat)
 		if(mining_stat & BLUESPACE_MINER_TOO_CLOSE)
 			. += span_warning("[src] is in a suboptimal environment: TOO CLOSE TO ANOTHER BLUESPACE MINER")
+			. += span_warning("\n<b>Miner must NOT be adjacent to other miners.</b>\n") // OCULIS EDIT ADDITION - Tells you what you need exactly to fix it
 			return . // This needs relocation to fix so we won't bother with the rest
 
 		if(mining_stat & BLUESPACE_MINER_TOO_HOT)
 			. += span_warning("[src] is in a suboptimal environment: " + span_boldwarning("TEMPERATURE TOO HIGH!"))
+			. += span_warning("\n<b>Environment temperature must be below 293.15 Kelvin</b>.") // OCULIS EDIT ADDITION - Tells you what you need exactly to fix it
 
 		if(mining_stat & BLUESPACE_MINER_LOW_PRESSURE)
 			. += span_warning("[src] is in a suboptimal environment: " + span_boldwarning("PRESSURE TOO LOW!"))
+			. += span_warning("\n<b>Environment pressure must be between 101.32 kPa to 151.98 kPa</b>.") //OCULIS EDIT ADDITION  - Tells you what you need exactly to fix it
 
 		else if(mining_stat & BLUESPACE_MINER_HIGH_PRESSURE)
 			. += span_warning("[src] is in a suboptimal environment: " + span_boldwarning("PRESSURE TOO HIGH!"))
+			. += span_warning("\n<b>Environment pressure must be between 101.32 kPa to 151.98 kPa</b>.") //OCULIS EDIT ADDITION - Tells you what you need exactly to fix it
 
 
 //we need to make sure we can actually print the ores out
@@ -171,13 +181,23 @@
 	if(focused_item)
 		ore_chance[focused_item] /= 3
 		focused_item = null
+		focus_display = "Nothing" //OCULIS EDIT ADDITION
 		balloon_alert(user, "removed focus mode")
 		return TRUE
-
-	var/choice = tgui_input_list(user, "Which would you like to triple?", "Focus Mode", ore_chance)
+	//OCULIS EDIT ADDITION START
+	var/static/list/ore_names = list()
+	if(!length(ore_names))
+		for(var/ore in ore_chance)
+			ore_names[initial(ore:name)] = ore
+	var/choice = tgui_input_list(user, "Which would you like to triple?", "Focus Mode", ore_names) 
+	// OCULIS EDIT ADDITION END
+	// var/choice = tgui_input_list(user, "Which would you like to triple?", "Focus Mode", ore_chance) // OCULIS EDIT REMOVAL
 	if(isnull(choice))
 		return FALSE
-
+	//OCULIS EDIT ADDITION START
+	focus_display = choice
+	choice = ore_names[choice]
+	//OCULIS EDIT ADDITION END
 	ore_chance[choice] *= 3
 	focused_item = choice
 	balloon_alert(user, "added focus mode")

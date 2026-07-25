@@ -434,15 +434,15 @@
   throwawayuseless:
   - rscadd: Prevent epileptic seizures with anticonvulsants like neurine!
 2026-07-10:
+  Balls2zawall:
+  - rscdel: Removed First Responder, Orange, And Pink medical kits from unrestricted
+      access in cargo.
   Shroopy:
   - admin: Added a debug SAD.
   throwawayuseless:
   - rscadd: Hemophages can slurrrp bloodbags now.
   - rscadd: Limbgrower golem organs now. you dont have to. but you can. i guess. mhm.
       yep. spite PR? What spite PR. I'll have you know no such thing was made.
-  Balls2zawall:
-  - rscdel: Removed First Responder, Orange, And Pink medical kits from unrestricted
-      access in cargo.
   vinylspiders:
   - bugfix: fixes digi curator and barber undersuits having the wrong sprite
 2026-07-11:
@@ -464,17 +464,11 @@
   - balance: Citing a small, but statistically significant budget cut, drifting contractors
       no longer receive a free energy combat shield.
 2026-07-13:
-  ManiacalAnxiety:
-  - balance: Re-adds sensitive hearing to Teshari.
-  Shroopy:
-  - bugfix: Fixed some of the mirrors in the ghost cafe showing you upside-down and
-      backwards.
-  - map: Changed the ghost cafe mirrors to directional types.
   Aliceee2ch:
   - bugfix: Fixed players being able to turn into tendril/dupe necrochests from it
       by turning it into MOB_SPECIAL biotype.
   Drifter7371:
-  - rscadd: 'Expie tail and ears under ''Experiment''.'
+  - rscadd: Expie tail and ears under 'Experiment'.
   FalloutFalcon:
   - refactor: Job sorting is based on department
   - qol: All panels displaying jobs now use a consistent color pallet
@@ -496,6 +490,8 @@
   Jureiia:
   - rscadd: Chimpanzee (Monkey) language is now a round start choice.
   - rscdel: Wormtongue language is no longer a round start choice.
+  ManiacalAnxiety:
+  - balance: Re-adds sensitive hearing to Teshari.
   Melbert:
   - bugfix: Fixed a bug where contractions were treated as rarer words than they should
       be for the sake of partial language understanding
@@ -546,6 +542,10 @@
   QuiteLiterallyAnything:
   - bugfix: Portable gravity generators will no longer become invisible when screwed
       open.
+  Shroopy:
+  - bugfix: Fixed some of the mirrors in the ghost cafe showing you upside-down and
+      backwards.
+  - map: Changed the ghost cafe mirrors to directional types.
   SmArtKar:
   - bugfix: Adult raptors can no longer be picked up
   - qol: Ore vents spawn less rubble and are more consistent at excavating the surrounding
@@ -609,6 +609,8 @@
   Iamgoofball:
   - bugfix: Command jobs now mandate your Security and Medical records be filled out
       before you can qualify for them, as per Server Policy
+  ManiacalAnxiety:
+  - rscadd: Adds titles to HoS, HoP, Warden, Security Officer, and Prisoner.
   MrMelbert:
   - rscadd: Allow you to assign character slots to jobs, to load that slot if you
       end up selected for that job.
@@ -627,6 +629,14 @@
   - bugfix: Fixed Slime Players equipment getting deleted upon death.
   - bugfix: Fixed Slime Players not getting their preferences or quirks upon revival.
   - bugfix: Fixed Slime Players getting removed when gibbed.
+  Shroopy:
+  - bugfix: Fixed blood accumulating as a reagent in the bloodstream.
+  - code_imp: Undid the undocumented removal of the code that removes blood as a reagent
+      from the bloodstream.
+  - rscdel: Removed all spawns of russian revolvers. Soul russian revolvers have been
+      replaced with 4k credits. Russian revolvers no longer replace themselves on
+      mapload.
+  - bugfix: Fixed NebulaStation's Xenobio holding pen not being full of BZ at roundstart.
   SmArtKar:
   - code_imp: Cleaned up generic mech code and moved subtype specific behaviors to
       said subtypes
@@ -643,20 +653,7 @@
   - bugfix: fixes an issue that was preventing a selected new slot from updating properly
   zxaber:
   - bugfix: You can now use experiment scanners on DNA Infusers correctly.
-  ManiacalAnxiety:
-  - rscadd: Adds titles to HoS, HoP, Warden, Security Officer, and Prisoner.
-  Shroopy:
-  - bugfix: Fixed blood accumulating as a reagent in the bloodstream.
-  - code_imp: Undid the undocumented removal of the code that removes blood as a reagent
-      from the bloodstream.
-  - rscdel: Removed all spawns of russian revolvers. Soul russian revolvers have been
-      replaced with 4k credits. Russian revolvers no longer replace themselves on
-      mapload.
-  - bugfix: Fixed NebulaStation's Xenobio holding pen not being full of BZ at roundstart.
 2026-07-15:
-  Lokachop:
-  - rscadd: Added arachnids as a playable species
-  - config: added arachnids to the roundstart species
   Happyowl93:
   - bugfix: opium and heroin should metabolize now
   - bugfix: ammunition should be easily stackable again.
@@ -664,6 +661,9 @@
   - qol: The ghost cafe now has honeysuckle and gelthi seeds lying around, along with
       comically large quantum beakers and a slightly more full BRPED for all your
       machinery-upgrading needs.
+  Lokachop:
+  - rscadd: Added arachnids as a playable species
+  - config: added arachnids to the roundstart species
   Neocloudy:
   - bugfix: '[NOVA] Bitrunning objectives can''t be thrown by explosions.'
   'Sprites: axietheaxolotl Code: VioletN':
@@ -889,8 +889,6 @@
   Skies-Of-Blue:
   - rscdel: Removes Fake Virus from the event pool.
   - rscadd: adds amollin pills to loadout
-  - code_imp: iris_loadout_datum_pocket.dm has been killed, its replacement now lives
-      in modular_oculis/.../loadout_datum_pocket.dm
   Skies-Of-Blue, PiperDoots:
   - rscadd: over fifty new stickers! You can find them through loadout, or in the
       Good Clean Fun library vendor
@@ -901,10 +899,134 @@
   - map: Nanotrasen Safety Associates deemed Wawastation's Research Department too
       dark -- as a result, they have added more lights and inadvertently revamped
       Robotic's surgery room as a result, adding necessary touches to equipment.
+  Happyowl93:
+  - code_imp: Fix fire alarm flaky CI tests
+  OrbisAnima:
+  - qol: Adds a config option that makes all the tech webs that dont need special
+      items to unlock (alien, tarkon, illegal, bepis) start unlocked.
+  sqnztb:
+  - balance: Adds a config option to make touching the supermatter now husk you and
+      teleport you a short distance away instead of dusting.
+  vinylspiders:
+  - bugfix: taur emissives are no longer offset weirdly
+  - bugfix: fixed an issue where donators would not have their ooc color prefs applied
 2026-07-21:
   Salted-Zen:
   - balance: Legions can no longer heal bosses, instead, skulls that attempt to do
       this will just die.
 2026-07-22:
+  Aliceee2ch:
+  - spellcheck: Fixed blastoff misspelling.
+  CabinetOnFire:
+  - refactor: Ruin loading should now be more robust and should spawn less orphaned
+      genturfs
+  - bugfix: Fixes mechs not qdel'ing when destroyed if they spawn a wreck
+  - bugfix: Some looping sounds no longer runtime when stopping/starting
+  FalloutFalcon:
+  - qol: per department sorting for character setup matches latejoin menu
+  - admin: Adding music as an admin rebuilds the list THAT round instead of having
+      to wait for the next
+  Fghj240:
+  - spellcheck: changed "possible cure" to "cure" in healthscans to show they can't
+      be wrong
+  - qol: Health analyzer has hover text for disease curing strategies
+  Hatterhat:
+  - qol: The botanical chemical dispenser (as seen on the lifebringer ship) is now
+      also capable of dispensing Enduro Grow and Liquid Earthquake.
+  PapaMichael:
+  - spellcheck: More verbs match their pronouns
+  QuiteLiterallyAnything:
+  - bugfix: Broken mirrors no longer produce an intact mirror upon deconstruction.
+  SciDragon:
+  - rscadd: katana sheath to "ronin" curator bundle.
+  SmArtKar:
+  - bugfix: Fixed the Four Hands wizard perk
+  - bugfix: Fixed quick tile replacement
+  - bugfix: Removed unnecessary click delay from window placement
+  TheRyeGuyWhoWillNowDie:
+  - bugfix: kilo genetics now has gene disks and a flesh reshaper
+  YesterdaysPromise:
+  - refactor: Podfloors (floors normaly seen in Survival Pods of miners) are now considered
+      a subtype of plastitanium tiles, and thus craftable.
+  - rscadd: To match with plastitanium, pofloors recieved 2 red variants.
+  - rscadd: Plastitanium can now make a new wall-filling item which you can reskin
+      in hand to make regular plastitanium walls, pod walls, as well as added unmarked
+      pod walls ('dark shuttle') and red unmarked pod walls ('dark red shuttle').
+  lelandkemble:
+  - code_imp: converted calls to attackby() to calls to item_interaction()
+  - bugfix: MODsuit drill module manual activation works again
+  - bugfix: RCDing space works again
+  - bugfix: you can put c4s on safes
+  - code_imp: Edible food unit test doesn't check abstract type food, abstract type
+      food doesn't have seeds.
+  - bugfix: Wumborian Fugu floats
+  sqnztb:
+  - rscdel: removed the jitter when you examine someone who has a much higher athletics
+      skill than you.
+  timothymtorres:
+  - rscadd: Add water bottles to booze-o-mat non-alcoholic category
+  vinylspiders:
+  - bugfix: species quirk incompatibilities will now update immediately without the
+      need to add/remove a quirk to force a ui update
+  - code_imp: quirks backend improved, it will no longer send full updates constantly
+      and be faster
+  - bugfix: fixes taur blood overlays being offset incorrectly
+  - bugfix: fixes taur getting blood shoe overlays
+  - bugfix: peeking into a hilberts hotel room while it gets deleted will now kick
+      you out properly
+  - bugfix: fixed an issue where the lights would stay dark after reloading the same
+      hilberts hotel room
+  - bugfix: fixed an issue that would cause preview icons to randomly become corrupt
+      or invisible if they met certain criteria
+  - admin: select equipment now just shows one direction of previews, greatly reducing
+      lag
   ManiacalAnxiety:
   - rscdel: Deletes a rule-breaking line of dialogue from spraytan overdose.
+2026-07-23:
+  Happyowl93:
+  - code_imp: Fix fire alarm flaky CI tests
+  vinylspiders:
+  - bugfix: taur emissives are no longer offset weirdly
+2026-07-24:
+  Happyowl93:
+  - bugfix: you should be able to hit cave spawners with melee items again
+  - bugfix: you can place lattices over ice again.
+  Kashargul:
+  - bugfix: tgui UI testing with more than one test file
+  Melbert:
+  - code_imp: Roughly doubled the performance speed of the crafting UI, report anything
+      broken with it
+  PapaMichael:
+  - bugfix: It no longer looks like you have accessories attached after you've removed
+      them.
+  SmArtKar:
+  - bugfix: Fixed meteor changelings being killed by defense sats
+  - bugfix: Fixed negative moles left by gas scrubbers
+  SyncIt21:
+  - bugfix: monkey powder reaction gives multiple monkeys
+  YesterdaysPromise:
+  - bugfix: Plastitanium wall fillings now fill up the walls correctly at rate of
+      1 per wall, and correctly make survival pod walls.
+  lelandkemble:
+  - bugfix: medbots can no longer be thrown, all bots no longer have AA
+  nPocToDark:
+  - qol: Raptor eggs now floor placeable (even in lava). It's now easier to immerse
+      them in lava to accelerate their growth.
+  vinylspiders:
+  - rscdel: eighties floor is updated to its tg version
+  - bugfix: fixed tails and ears not updating on your dummy when changing the pref
+      until you change species or switch characters
+  Salted-Zen:
+  - qol: Bluespace miner now displays a list of material names instead of type paths
+      for focus mode
+  - qol: Bluespace miner now shows exact values you need to correct the environment
+      to if the miner is failing to function
+  - qol: Bluespace miner now displays what material focus mode is set to
+  curiousbookshelf:
+  - balance: Removed unzipped drone duffelbag slowdown
+  epicgamer545:
+  - spellcheck: Mentions of Terragov, Spinward, and the corporation "owning your soul"
+      has been removed from the shift start reports.
+  throwawayuseless:
+  - rscadd: Inhaler and Inhaler Canister to loadout.
+  - qol: Pills can dissolve in empty containers now.

@@ -56,11 +56,11 @@
 
 	if(!target.is_refillable())
 		return NONE
-
+	/* // OCULIS EDIT REMOVAL START
 	if(target.is_drainable() && !target.reagents.total_volume)
 		to_chat(user, span_warning("[target] is empty! There's nothing to dissolve [src] in."))
 		return ITEM_INTERACT_BLOCKING
-
+	*/ // OCULIS EDIT REMOVAL START
 	if(target.reagents.holder_full())
 		to_chat(user, span_warning("[target] is full."))
 		return ITEM_INTERACT_BLOCKING
