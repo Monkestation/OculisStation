@@ -5,7 +5,7 @@
 	type_to_generate = /datum/loadout_item/pocket_items
 	tab_order = LOADOUT_POCKET_OTHER
 	/// How many pocket items are allowed
-	VAR_PRIVATE/max_allowed = 3 // NOVA EDIT - Expanded loadout framework - ORIGINAL: VAR_PRIVATE/max_allowed = 2
+	VAR_PRIVATE/max_allowed = 8 // OCULIS EDIT, ORIGINAL: VAR_PRIVATE/max_allowed = 3 // NOVA EDIT - Expanded loadout framework - ORIGINAL: VAR_PRIVATE/max_allowed = 2
 
 /datum/loadout_category/pocket/New()
 	. = ..()
