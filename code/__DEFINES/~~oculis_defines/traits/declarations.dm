@@ -7,6 +7,8 @@
 /// When checking who receives mail, people with this trait receive none.
 #define TRAIT_NO_MAIL "trait_no_mail"
 
+/// When changing actionspeed and movespeed based on mood, these characters will not be affected.
+#define TRAIT_NO_MOOD_EFFECTS "trait_no_mood_effects"
 
 /// Used in the ANTIMEMETICS module.
 #define TRAIT_AMNESTICS "trait_amnestics"
