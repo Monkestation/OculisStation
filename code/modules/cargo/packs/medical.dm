@@ -5,8 +5,8 @@
 
 /datum/supply_pack/medical/bloodpacks
 	name = "Blood Pack Variety Crate"
-	desc = "Contains ten different blood packs for reintroducing blood to patients."
-	cost = CARGO_CRATE_VALUE * 7
+	desc = "Contains eleven different blood packs for reintroducing blood to patients." // OCULIS EDIT, ORIGINAL: desc = "Contains ten different blood packs for reintroducing blood to patients."
+	cost = CARGO_CRATE_VALUE * 8 // OCULIS EDIT, proportional price increase for adding insect blood, ORIGINAL: cost = CARGO_CRATE_VALUE * 7
 	contains = list(
 		/obj/item/reagent_containers/blood = 2,
 		/obj/item/reagent_containers/blood/a_plus,
@@ -17,6 +17,7 @@
 		/obj/item/reagent_containers/blood/o_minus,
 		/obj/item/reagent_containers/blood/lizard,
 		/obj/item/reagent_containers/blood/ethereal,
+		/obj/item/reagent_containers/blood/insect, // OCULIS EDIT ADDITION
 		/obj/item/paper/fluff/jobs/medical/blood_types,
 	)
 	crate_name = "blood freezer"
@@ -193,7 +194,7 @@
 
 /datum/supply_pack/medical/arm_implants
 	name = "Strong-Arm Implant Set"
-	desc = "A crate containing two implants, which can be surgically implanted to empower the strength of human arms. Warranty void if exposed to electromagnetic pulses."
+	desc = "A crate containing two implants, which can be surgically implanted to empower the strength of humanoid arms. Warranty void if exposed to electromagnetic pulses."
 	cost = CARGO_CRATE_VALUE * 6
 	contains = list(/obj/item/organ/cyberimp/arm/strongarm = 2)
 	crate_name = "\improper Strong-Arm implant crate"

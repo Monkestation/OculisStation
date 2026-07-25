@@ -15,6 +15,7 @@
 		CATEGORY_TOYS_DRONE,
 		CATEGORY_PKA,
 		CATEGORY_INTERDYNE,
+		CATEGORY_WASTELAND_GUNS, //OCULIUS EDIT - Interdyne is always on lavaland, so they should be allowed to play with these as well
 	)
 
 /obj/machinery/computer/order_console/mining/interdyne/Initialize(mapload)

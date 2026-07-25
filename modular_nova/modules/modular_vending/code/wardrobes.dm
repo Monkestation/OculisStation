@@ -15,6 +15,7 @@
 		/obj/item/clothing/neck/tie/bunnytie/doctor = 3,
 		/obj/item/clothing/neck/tie/bunnytie/paramedic = 3,
 		/obj/item/clothing/suit/jacket/tailcoat/psychologist = 3,
+		/obj/item/clothing/gloves/latex/nitrile/long = 2,
 	)
 
 /obj/machinery/vending/wardrobe/coroner_wardrobe
@@ -53,6 +54,7 @@
 		/obj/item/clothing/neck/tie/bunnytie/atmos_tech = 3,
 		/obj/item/clothing/shoes/workboots/heeled = 3,
 		/obj/item/clothing/suit/utility/fire/atmos_tech_tailcoat = 3,
+		/obj/item/clothing/mask/gas/gags = 3,
 	)
 
 /obj/machinery/vending/wardrobe/cargo_wardrobe
@@ -111,6 +113,7 @@
 		/obj/item/storage/backpack/messenger/science/robo = 2,
 		/obj/item/clothing/neck/tie/bunnytie/roboticist = 2,
 		/obj/item/clothing/suit/toggle/labcoat/roboticist/doctor_tailcoat = 2,
+		/obj/item/toy/plush/nova/robotics_shark = 1,
 	)
 
 	contraband_nova = list(

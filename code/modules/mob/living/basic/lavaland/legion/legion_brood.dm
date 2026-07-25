@@ -63,6 +63,11 @@
 	return
 
 /mob/living/basic/mining/legion_brood/melee_attack(mob/living/target, list/modifiers, ignore_cooldown)
+	if (faction_check(target.get_faction(), FACTION_BOSS)) //OCULIS EDIT START - SKULLS WILL DIE IF THEY ATTEMPT TO HEAL A BOSS, BOSSES ARE STRONG ENTITIES WHO SHOULD NOT RECEIVE HEALING
+		visible_message(span_warning("[src] attempts to melds with [target]'s flesh, but is destroyed by the energy radiating from them!"))
+		death()
+		return
+	//OCULIS EDIT END
 	if (ishuman(target) && target.stat > SOFT_CRIT)
 		infest(target)
 		return
