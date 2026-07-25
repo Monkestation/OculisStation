@@ -4,7 +4,7 @@
 	aas_config_announce(/datum/aas_config_entry/goodycase_destroyed, list(
 		"LOCATION" = get_area_name(src),
 		"OWNER" = buyer_account?.account_holder,
-	), src, list(RADIO_CHANNEL_COMMON), announcement_line)
+	), src, list(RADIO_CHANNEL_SECURITY), announcement_line)
 	log_game("[src] was destroyed in [get_area_name(src)]")
 	return ..()
 

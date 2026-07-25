@@ -15,7 +15,7 @@
 	///What color is your mob set to when crossed?
 	var/team_color = COLOR_WHITE
 	///What radio station is your radio set to when crossed (And human)?
-	var/team_radio = FREQ_COMMON
+	var/team_radio = FREQ_CTF_BLUE
 
 /obj/machinery/teambuilder/Initialize(mapload)
 	. = ..()

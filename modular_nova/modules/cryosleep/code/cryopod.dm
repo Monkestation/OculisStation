@@ -40,7 +40,7 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	var/list/frozen_items
 
 	/// The channel to be broadcast on, works via refactored AAS machinery.
-	var/announcement_channel = RADIO_CHANNEL_COMMON
+	var/announcement_channel = RADIO_CHANNEL_MEDICAL
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 

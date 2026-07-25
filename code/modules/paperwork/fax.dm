@@ -443,7 +443,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 	var/area/current_area = get_area(src)
 	var/area_name = current_area ? current_area.name : "Unknown Area"
 
-	var/channel = RADIO_CHANNEL_COMMON // Default Channel
+	var/channel = RADIO_CHANNEL_COMMAND // Default Channel
 
 	if(istype(current_area, /area/ruin/space/has_grav/nova/des_two) || istype(current_area, /area/ruin/interdyne_planetary_base))
 		channel = RADIO_CHANNEL_INTERDYNE

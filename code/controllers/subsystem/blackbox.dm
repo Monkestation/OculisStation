@@ -129,8 +129,6 @@ SUBSYSTEM_DEF(blackbox)
 	if(sealed)
 		return
 	switch(freq)
-		if(FREQ_COMMON)
-			record_feedback("tally", "radio_usage", 1, "common")
 		if(FREQ_SCIENCE)
 			record_feedback("tally", "radio_usage", 1, "science")
 		if(FREQ_COMMAND)

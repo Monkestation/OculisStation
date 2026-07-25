@@ -4,7 +4,7 @@
 /obj/machinery/telecomms
 	/// The current temporary frequency used to add new filtered frequencies
 	/// options.
-	var/tempfreq = FREQ_COMMON
+	var/tempfreq = FREQ_AI_PRIVATE
 	/// Illegal frequencies that can't be listened to by telecommunication servers.
 	var/list/banned_frequencies = list(
 		FREQ_SYNDICATE,

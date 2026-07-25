@@ -14,7 +14,6 @@
 /datum/outfit/ship_crew/post_equip(mob/living/carbon/human/equipped)
 	var/obj/item/radio/outfit_radio = equipped.ears
 	if(outfit_radio)
-		outfit_radio.set_frequency(FREQ_COMMON)
 		outfit_radio.freqlock = RADIO_FREQENCY_UNLOCKED
 
 	var/obj/item/card/id/outfit_id = equipped.wear_id

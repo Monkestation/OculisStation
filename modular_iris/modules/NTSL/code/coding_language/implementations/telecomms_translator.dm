@@ -95,7 +95,6 @@ GLOBAL_LIST_INIT(allowed_translations, list(
 	// Common server is the one that handles the AI Private Channel, btw.
 	interpreter.SetVar(
 		"channels", new /datum/n_enum(list(
-			"common" = FREQ_COMMON,
 			"science" = FREQ_SCIENCE,
 			"command" = FREQ_COMMAND,
 			"medical" = FREQ_MEDICAL,

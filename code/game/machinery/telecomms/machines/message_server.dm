@@ -183,7 +183,7 @@ GLOBAL_VAR(preset_station_message_server_key)
 
 // Root messaging signal datum
 /datum/signal/subspace/messaging
-	frequency = FREQ_COMMON
+	frequency = FREQ_AI_PRIVATE
 	server_type = /obj/machinery/telecomms/message_server
 
 /datum/signal/subspace/messaging/New(init_source, init_data)

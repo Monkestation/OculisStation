@@ -33,10 +33,6 @@
 			"name" = RADIO_CHANNEL_ENTERTAINMENT,
 			"color" = RADIO_COLOR_ENTERTAIMENT
 		),
-		"[FREQ_COMMON]" = list(
-			"name" = RADIO_CHANNEL_COMMON,
-			"color" = RADIO_COLOR_COMMON
-		),
 		"[FREQ_AI_PRIVATE]" = list(
 			"name" = RADIO_CHANNEL_AI_PRIVATE,
 			"color" = RADIO_COLOR_AI_PRIVATE

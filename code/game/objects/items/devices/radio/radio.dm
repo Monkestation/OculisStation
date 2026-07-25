@@ -25,7 +25,7 @@
 	///if FALSE, broadcasting and listening don't matter and this radio shouldn't do anything
 	VAR_PRIVATE/on = TRUE
 	///the "default" radio frequency this radio is set to, listens and transmits to this frequency by default. wont work if the channel is encrypted
-	VAR_PRIVATE/frequency = FREQ_COMMON
+	VAR_PRIVATE/frequency = MIN_FREQ
 
 	/// Whether the radio will transmit dialogue it hears nearby into its radio channel.
 	VAR_PRIVATE/broadcasting = FALSE
@@ -110,6 +110,7 @@
 	perform_update_icon = FALSE
 	set_listening(listening)
 	set_broadcasting(broadcasting)
+	frequency = return_unused_frequency()
 	set_frequency(sanitize_frequency(frequency, freerange, (special_channels & RADIO_SPECIAL_SYNDIE)))
 	set_on(on)
 	perform_update_icon = TRUE
@@ -182,7 +183,7 @@
 	special_channels = NONE
 
 	if(!freerange && (frequency > MAX_FREQ || frequency < MIN_FREQ))
-		frequency = FREQ_COMMON
+		frequency = return_unused_frequency()
 
 ///goes through all radio channels we should be listening for and readds them to the global list
 /obj/item/radio/proc/readd_listening_radio_channels()
@@ -371,7 +372,7 @@
 	if(isliving(talking_movable))
 		var/mob/living/talking_living = talking_movable
 		var/volume_modifier = (talking_living.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_radio_noise))
-		if(radio_noise && !HAS_TRAIT(talking_living, TRAIT_DEAF) && volume_modifier && signal.frequency != FREQ_COMMON && !LAZYACCESS(message_mods, MODE_SEQUENTIAL) && COOLDOWN_FINISHED(src, audio_cooldown))
+		if(radio_noise && !HAS_TRAIT(talking_living, TRAIT_DEAF) && volume_modifier && !LAZYACCESS(message_mods, MODE_SEQUENTIAL) && COOLDOWN_FINISHED(src, audio_cooldown))
 			COOLDOWN_START(src, audio_cooldown, 0.5 SECONDS)
 			var/sound/radio_noise = sound(sound('sound/items/radio/radio_talk.ogg', volume = volume_modifier))
 			radio_noise.frequency = get_rand_frequency_low_range()

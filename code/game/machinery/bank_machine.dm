@@ -20,7 +20,7 @@
 	///The machine's internal radio, used to broadcast alerts.
 	var/obj/item/radio/radio
 	///The channel we announce a siphon over.
-	var/radio_channel = RADIO_CHANNEL_COMMON
+	var/radio_channel = RADIO_CHANNEL_SECURITY
 
 	///What department to check to link our bank account to.
 	var/account_department = ACCOUNT_CAR

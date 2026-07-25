@@ -16,7 +16,7 @@
 	///Description to be shown in the class selection menu
 	var/class_description = "General purpose combat class. Armed with a laser rifle and backup pistol."
 	///Radio frequency to assign players with this outfit
-	var/team_radio_freq = FREQ_COMMON // they won't be able to use this on the centcom z-level, so ffa players cannot use radio
+	var/team_radio_freq = FREQ_CTF_BLUE // they won't be able to use this on the centcom z-level, so ffa players cannot use radio
 	///Icon file for the class radial menu icons
 	var/icon = 'icons/hud/radial_ctf.dmi'
 	///Icon state for this class

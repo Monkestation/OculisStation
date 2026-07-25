@@ -157,10 +157,6 @@
 
 /obj/machinery/telecomms/server/presets/common/New()
 	. = ..()
-	frequency_infos["[FREQ_COMMON]"] = list(
-		"name" = RADIO_CHANNEL_COMMON,
-		"color" = RADIO_COLOR_COMMON
-	)
 	frequency_infos["[FREQ_AI_PRIVATE]"] = list(
 		"name" = RADIO_CHANNEL_AI_PRIVATE,
 		"color" = RADIO_COLOR_AI_PRIVATE

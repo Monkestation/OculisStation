@@ -681,8 +681,6 @@ SUBSYSTEM_DEF(tts)
 	switch(radio_tts_pref)
 		if(TTS_SOUND_NO_RADIO)
 			return FALSE
-		if(TTS_SOUND_DEPARTMENTAL_RADIO) // don't give them the full common firehose if they turned it off
-			return radio_frequency != FREQ_COMMON
 
 	return TRUE
 

@@ -12,7 +12,6 @@
 	var/radio_channel
 
 /datum/job_department/assistant
-	radio_channel = RADIO_CHANNEL_COMMON
 
 /datum/job_department/service
 	radio_channel = RADIO_CHANNEL_SERVICE

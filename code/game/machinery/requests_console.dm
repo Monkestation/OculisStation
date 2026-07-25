@@ -189,11 +189,13 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 				if(REQ_EMERGENCY_MEDICAL)
 					target_dept = "Medical"
 
+			/*
 			// Check if user can call this emergency (prevent self-calls) RETA
 			var/user_dept = reta_get_user_department(usr)
 			if(user_dept == target_dept && !isAdminGhostAI(usr))
 				to_chat(usr, span_alert("You cannot call your own department for emergency assistance."))
 				return
+			*/
 
 			// Check cooldown RETA
 			if(origin_dept && target_dept && reta_on_cooldown(origin_dept, target_dept))
