@@ -3,11 +3,11 @@
 	category_ui_icon = FA_ICON_USER_SECRET
 	type_to_generate = /datum/loadout_item/suit
 	tab_order = /datum/loadout_category/head::tab_order + 3
-	VAR_PRIVATE/max_allowed = 8 // OCULIS EDIT, ORIGINAL: VAR_PRIVATE/max_allowed = 2
+	// VAR_PRIVATE/max_allowed = 2 // OCULIS EDIT REMOVAL
 
 /datum/loadout_category/suits/New()
 	. = ..()
-	category_info = "([max_allowed] allowed)"
+	// category_info = "([max_allowed] allowed)" // OCULIS EDIT REMOVAL
 
 /datum/loadout_category/suits/handle_duplicate_entires(
 	datum/preference_middleware/loadout/manager,
