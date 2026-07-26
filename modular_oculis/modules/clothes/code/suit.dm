@@ -17,7 +17,6 @@
 	slot_flags = ITEM_SLOT_OCLOTHING
 	toggle_noun = "zipper"
 
-
 /obj/item/clothing/suit/toggle/jacket/pilot_hi_vis/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
 	if(!isinhands)
@@ -26,3 +25,26 @@
 /obj/item/clothing/suit/toggle/jacket/pilot_hi_vis/Initialize(mapload)
 	. = ..()
 	allowed += GLOB.colonist_suit_allowed
+
+//Port of the dusters from Shiptest https://github.com/shiptest-ss13/Shiptest/
+
+/obj/item/clothing/suit/leather_duster
+	name = "leather duster"
+	desc = "A long, utilitarian leather coat. Ideal for protecting its wearer from rain, sun, and dust. Especially popular among the ship crews of the frontier."
+	icon = 'modular_oculis/modules/clothes/icons/obj/suit.dmi'
+	icon_state = "duster"
+	worn_icon = 'modular_oculis/modules/clothes/icons/mob/suit.dmi'
+	heat_protection = CHEST|GROIN|ARMS|LEGS
+	cold_protection = CHEST|GROIN|ARMS|LEGS
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	armor_type = /datum/armor/watermelon_fr
+
+/obj/item/clothing/suit/leather_duster/black
+	name = "black leather duster"
+	icon_state = "duster_black"
+
+/obj/item/clothing/suit/leather_duster/command
+	name = "officer's duster"
+	desc = "A long, supple leather coat. Ideal for protecting its wearer from rain, sun, dust, and paperwork. Especially popular among the ship crews of the frontier."
+	icon_state = "duster_command"
+	armor_type = /datum/armor/barrelmelon_fr
