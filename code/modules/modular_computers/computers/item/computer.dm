@@ -42,6 +42,7 @@
 		/datum/computer_file/program/themeify,
 		/datum/computer_file/program/ntnetdownload,
 		/datum/computer_file/program/filemanager,
+		/datum/computer_file/program/phone_call,
 	)
 
 	///The program currently active on the tablet.
