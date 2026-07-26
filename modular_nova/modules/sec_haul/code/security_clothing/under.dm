@@ -139,7 +139,7 @@
 	name = "pair of guard shorts"
 	desc = "Some \"combat\" shorts. Please don't actually wear these."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/trousers" //OCULIS EDIT CHANGE - ORIGINAL: icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts"
 	post_init_icon_state = "depgag_shorts"
 	greyscale_config = /datum/greyscale_config/depgag_shorts
 	greyscale_config_worn = /datum/greyscale_config/depgag_shorts/worn
