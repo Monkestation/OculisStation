@@ -926,7 +926,7 @@ GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
 /// Layer for most bodyparts, appears above BODYPARTS_LOW_LAYER and below BODYPARTS_HIGH_LAYER
 #define BODYPARTS_LAYER 23
 	/// Layer for bodyparts that should appear behind every other bodypart - Mostly, legs when facing WEST or EAST
-	#define BODYPARTS_LOW_LAYER 23.1
+	#define BODYPARTS_LOW_LAYER 23 //OCULIS EDIT, was 23.1
 	/// Mutantrace features (tail when looking south) that must appear behind the body parts
 	#define BODY_BEHIND_LAYER 23.2
 	/// Mutations layer - Tk headglows, cold resistance glow, etc. Very bottom of the mob
