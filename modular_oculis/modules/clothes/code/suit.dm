@@ -16,6 +16,7 @@
 	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
 	slot_flags = ITEM_SLOT_OCLOTHING
 	toggle_noun = "zipper"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/toggle/jacket/pilot_hi_vis/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
