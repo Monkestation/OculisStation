@@ -2,7 +2,7 @@
 	// IRIS EDIT: Adds a bride officer slot
 	total_positions = 2
 	spawn_positions = 1
-	job_flags = STATION_JOB_FLAGS
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 	outfit = /datum/outfit/job/bridge_assistant
 	plasmaman_outfit = /datum/outfit/job/bridge_assistant/plasmaman
@@ -87,6 +87,7 @@ IRIS EDIT END */
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/neck/bowtie/green

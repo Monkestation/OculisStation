@@ -2,19 +2,19 @@
 #define DEFAULT_ANNOUNCEMENT_SOUND "default_announcement"
 
 /// Preset central command names to chose from for centcom reports.
-#define CENTCOM_PRESET "Central Command"
+#define CENTCOM_PRESET "Sectorial Command" // OCULIS EDIT - Central Command > Sectorial Command
 #define SYNDICATE_PRESET "The Syndicate"
 #define WIZARD_PRESET "The Wizard Federation"
 #define CUSTOM_PRESET "Custom Command Name"
 #define CUSTOM_SOUND_PRESET "Custom Sound"
 
-ADMIN_VERB(change_command_name, R_ADMIN, "Change Command Name", "Change the name of Central Command.", ADMIN_CATEGORY_EVENTS)
-	var/input = input(user, "Please input a new name for Central Command.", "What?", "") as text|null
+ADMIN_VERB(change_command_name, R_ADMIN, "Change Command Name", "Change the name of Sectorial Command.", ADMIN_CATEGORY_EVENTS) // OCULIS EDIT, SectCommening 2, ORIGINAL: ADMIN_VERB(change_command_name, R_ADMIN, "Change Command Name", "Change the name of Central Command.", ADMIN_CATEGORY_EVENTS)
+	var/input = input(user, "Please input a new name for Sectorial Command.", "What?", "") as text|null // OCULIS EDIT, SectCommening 2, ORIGINAL: var/input = input(user, "Please input a new name for Central Command.", "What?", "") as text|null
 	if(!input)
 		return
 	change_command_name(input)
-	message_admins("[key_name_admin(user)] has changed Central Command's name to [input]")
-	log_admin("[key_name(user)] has changed the Central Command name to: [input]")
+	message_admins("[key_name_admin(user)] has changed Sectorial Command's name to [input]") // OCULIS EDIT, SectCommening 2, ORIGINAL: message_admins("[key_name_admin(user)] has changed Central Command's name to [input]")
+	log_admin("[key_name(user)] has changed the Sectorial Command name to: [input]") // OCULIS EDIT, SectCommening 2, ORIGINAL: log_admin("[key_name(user)] has changed the Central Command name to: [input]")
 
 /// Verb to open the create command report window and send command reports.
 ADMIN_VERB(create_command_report, R_ADMIN, "Create Command Report", "Create a command report to be sent to the station.", ADMIN_CATEGORY_EVENTS)
@@ -160,7 +160,7 @@ ADMIN_VERB(create_command_report, R_ADMIN, "Create Command Report", "Create a co
 		priority_announce(command_report_content, subheader == ""? null : subheader, report_sound, has_important_message = TRUE, color_override = chosen_color)
 
 	if(!announce_contents || print_report)
-		print_command_report(command_report_content, "[announce_contents ? "" : "Classified "][command_name] Update", !announce_contents)
+		print_command_report(command_report_content, "[announce_contents ? "" : "Classified "][command_name] Update", !announce_contents, contains_advanced_html = TRUE)
 
 	change_command_name(original_command_name)
 

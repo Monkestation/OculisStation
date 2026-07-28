@@ -41,6 +41,7 @@
 		"synth_construction",
 		"synth_positronic",
 		"power_cord",
+		"synth_diy",
 	)
 
 /datum/techweb_node/android_organs
@@ -50,6 +51,7 @@
 	description = "Internal Mechanisms for Synthetics and IPC's."
 	prereq_ids = list(TECHWEB_NODE_ROBOTICS)
 	design_ids = list(
+		"synth_posi",
 		"synth_eyes",
 		"synth_tongue",
 		"synth_liver",
@@ -101,6 +103,14 @@
 		"smartdartgun",
 		"cone_of_shame",
 		"defibrillator",
+		"medkit",
+	)
+	return ..()
+
+/datum/techweb_node/material_processing/New()
+	design_ids += list(
+		"spaceship_plates",
+		"spaceship_glass",
 	)
 	return ..()
 
@@ -225,6 +235,7 @@
 /datum/techweb_node/riot_supression/New()
 	design_ids += list(
 		"ammobench_gimmick",
+		"pin_standard",
 	)
 	return ..()
 
@@ -295,6 +306,7 @@
 	design_ids += list(
 		"mesons_prescription",
 		"bsc_nt",
+		"lrm_board",
 	)
 	return ..()
 
@@ -341,7 +353,7 @@
 	)
 	return ..()
 
-/////////////////////////Applied Bluespace /////////////////////////
+///////////////////////// Applied Bluespace /////////////////////////
 
 /datum/techweb_node/applied_bluespace/New()
 	design_ids += list(
@@ -349,10 +361,94 @@
 	)
 	return ..()
 
-// modsuit security stuff
+// modsuit stuff
 /datum/techweb_node/mod_security/New()
 	design_ids += list(
 		"mod_plating_security",
 		"mod_tether_grounded",
 	)
 	return ..()
+
+/datum/techweb_node/mod_equip/New()
+	design_ids += list(
+		"mod_retract_plates",
+		"mod_magnetic_deploy",
+	)
+	return ..()
+
+/////// Roundstart Techweb/////////
+
+/datum/techweb_node
+	/// Whether this node starts unlocked if the enable_nova_techweb_starting_nodes config is ENABLED
+	var/nova_starting_node = TRUE
+
+/datum/techweb_node/New()
+	if(nova_starting_node && CONFIG_GET(flag/enable_nova_techweb_starting_nodes))
+		starting_node = TRUE
+	return ..()
+
+// Linter stuff
+/datum/techweb_node/error_node
+	nova_starting_node = FALSE
+
+// Nova stuff
+/datum/techweb_node/adv_vision
+	nova_starting_node = FALSE
+
+/datum/techweb_node/borg_shapeshifter
+	nova_starting_node = FALSE
+
+// bepis stuff
+/datum/techweb_node/light_apps
+	nova_starting_node = FALSE
+
+/datum/techweb_node/extreme_office
+	nova_starting_node = FALSE
+
+/datum/techweb_node/spec_eng
+	nova_starting_node = FALSE
+
+/datum/techweb_node/aus_security
+	nova_starting_node = FALSE
+
+/datum/techweb_node/interrogation
+	nova_starting_node = FALSE
+
+/datum/techweb_node/sticky_advanced
+	nova_starting_node = FALSE
+
+/datum/techweb_node/tackle_advanced
+	nova_starting_node = FALSE
+
+/datum/techweb_node/mod_experimental
+	nova_starting_node = FALSE
+
+/datum/techweb_node/posisphere
+	nova_starting_node = FALSE
+
+/datum/techweb_node/donk_shell
+	nova_starting_node = FALSE
+
+// Alien Stuff
+/datum/techweb_node/alientech
+	nova_starting_node = FALSE
+
+/datum/techweb_node/alien_surgery
+	nova_starting_node = FALSE
+
+/datum/techweb_node/alien_engi
+	nova_starting_node = FALSE
+
+// Ilegal tech
+/datum/techweb_node/syndicate_basic
+	nova_starting_node = FALSE
+
+/datum/techweb_node/unregulated_bluespace
+	nova_starting_node = FALSE
+
+// Tarkon
+/datum/techweb_node/tarkon
+	nova_starting_node = FALSE
+
+/datum/techweb_node/tarkonturret
+	nova_starting_node = FALSE

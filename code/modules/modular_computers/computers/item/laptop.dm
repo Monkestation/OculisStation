@@ -7,6 +7,7 @@
 	icon_state_powered = "laptop"
 	icon_state_unpowered = "laptop-off"
 	icon_state_menu = "menu"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4.3, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 4.5)
 
 	hardware_flag = PROGRAM_LAPTOP
 	max_idle_programs = 3
@@ -72,7 +73,6 @@
 
 /obj/item/modular_computer/laptop/verb/open_computer()
 	set name = "Toggle Open"
-	set category = "Object"
 	set src in view(1)
 
 	try_toggle_open(usr)

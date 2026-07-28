@@ -10,7 +10,7 @@ GLOBAL_LIST_EMPTY(scanned_xenoarch_by_techweb)
 	description = "It is possible to create even more advanced tools for xenoarchaeoloy."
 	required_points = 10
 	required_atoms = list(
-		/obj/item/xenoarch/useless_relic = 1,
+		/obj/item/xenoarch/strange_rock = 1,
 		/obj/item/xenoarch/broken_item = 2,
 	)
 	///Further experiments added to the techweb when this one is completed.
@@ -50,7 +50,7 @@ GLOBAL_LIST_EMPTY(scanned_xenoarch_by_techweb)
 	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_POINTS_5_MINUTES )
 	required_points = 25
 	required_atoms = list(
-		/obj/item/xenoarch/useless_relic = 1,
+		/obj/item/xenoarch/strange_rock = 1,
 		/obj/item/xenoarch/broken_item = 2,
 	)
 	next_experiments = list(/datum/experiment/scanning/points/xenoarch/survey/second)
@@ -61,7 +61,7 @@ GLOBAL_LIST_EMPTY(scanned_xenoarch_by_techweb)
 	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_POINTS_10_MINUTES )
 	required_points = 50
 	required_atoms = list(
-		/obj/item/xenoarch/useless_relic = 1,
+		/obj/item/xenoarch/strange_rock = 1,
 		/obj/item/xenoarch/broken_item = 2,
 	)
 	next_experiments = list(/datum/experiment/scanning/points/xenoarch/survey/third)
@@ -72,7 +72,7 @@ GLOBAL_LIST_EMPTY(scanned_xenoarch_by_techweb)
 	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_POINTS_15_MINUTES )
 	required_points = 100
 	required_atoms = list(
-		/obj/item/xenoarch/useless_relic = 1,
+		/obj/item/xenoarch/strange_rock = 1,
 		/obj/item/xenoarch/broken_item = 2,
 	)
 

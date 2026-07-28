@@ -29,6 +29,18 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
+/datum/design/shotgun_frangible_slug
+	name = "Frangible Slug (Breaching)"
+	desc = "A frangible breaching slug."
+	id = "s12g_br"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,  /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 4 , /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2)
+	build_path = /obj/item/ammo_casing/shotgun/frangible
+	category = list(
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+
 /datum/design/shotgun_dart_pen
 	name = "Penetrating Shotgun Dart (Lethal)"
 	id = "sec_dart_pen"
@@ -36,7 +48,7 @@
 		Can be filled with chemicals, which it injects upon striking a target. Otherwise, very weak. \
 		Much less capacity than a regular shotgun dart, but can penetrate armor."
 	build_type = PROTOLATHE | AWAY_LATHE
-	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3, /datum/material/diamond = SMALL_MATERIAL_AMOUNT * 1,)
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3, /datum/material/diamond = SMALL_MATERIAL_AMOUNT * 1)
 	build_path = /obj/item/ammo_casing/shotgun/dart/piercing
 	category = list(
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO

@@ -163,26 +163,11 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 			log_admin("[key_name(holder)] reset the station name.")
 			message_admins(span_adminnotice("[key_name_admin(holder)] reset the station name."))
 			priority_announce("[command_name()] has renamed the station to \"[new_name]\".")
-		if("night_shift_set")
-			var/val = tgui_alert(holder, "What do you want to set night shift to? This will override the automatic system until set to automatic again.", "Night Shift", list("On", "Off", "Automatic"))
-			switch(val)
-				if("Automatic")
-					if(CONFIG_GET(flag/enable_night_shifts))
-						SSnightshift.can_fire = TRUE
-						SSnightshift.fire()
-					else
-						SSnightshift.update_nightshift(active = FALSE, announce = TRUE, forced = TRUE)
-				if("On")
-					SSnightshift.can_fire = FALSE
-					SSnightshift.update_nightshift(active = TRUE, announce = TRUE, forced = TRUE)
-				if("Off")
-					SSnightshift.can_fire = FALSE
-					SSnightshift.update_nightshift(active = FALSE, announce = TRUE, forced = TRUE)
 		if("moveferry")
-			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Send CentCom Ferry"))
+			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Send SectCom Ferry")) // OCULIS EDIT, SectCommening 2, ORIGINAL: SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Send CentCom Ferry"))
 			if(!SSshuttle.toggleShuttle("ferry","ferry_home","ferry_away"))
-				message_admins("[key_name_admin(holder)] moved the CentCom ferry")
-				log_admin("[key_name(holder)] moved the CentCom ferry")
+				message_admins("[key_name_admin(holder)] moved the SectCom ferry") // OCULIS EDIT, SectCommening 2, ORIGINAL: message_admins("[key_name_admin(holder)] moved the CentCom ferry")
+				log_admin("[key_name(holder)] moved the SectCom ferry") // OCULIS EDIT, SectCommening 2, ORIGINAL: log_admin("[key_name(holder)] moved the CentCom ferry")
 		if("togglearrivals")
 			var/obj/docking_port/mobile/arrivals/A = SSshuttle.arrivals
 			if(A)
@@ -348,17 +333,17 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 					airlock.req_access = list()
 					airlock.req_one_access = list()
 			message_admins("[key_name_admin(holder)] activated Egalitarian Station mode")
-			priority_announce("CentCom airlock control override activated. Please take this time to get acquainted with your coworkers.", null, SSstation.announcer.get_rand_report_sound())
+			priority_announce("SectCom airlock control override activated. Please take this time to get acquainted with your coworkers.", null, SSstation.announcer.get_rand_report_sound()) // OCULIS EDIT, SectCommening 2, ORIGINAL: priority_announce("CentCom airlock control override activated. Please take this time to get acquainted with your coworkers.", null, SSstation.announcer.get_rand_report_sound())
 		if("send_shuttle_back")
 			if (!is_funmin)
 				return
 			if (SSshuttle.emergency.mode != SHUTTLE_ESCAPE)
 				to_chat(usr, span_warning("Emergency shuttle not currently in transit!"), confidential = TRUE)
 				return
-			var/make_announcement = tgui_alert(usr, "Make a CentCom announcement?", "Emergency shuttle return", list("Yes", "Custom Text", "No")) || "No"
+			var/make_announcement = tgui_alert(usr, "Make a SectCom announcement?", "Emergency shuttle return", list("Yes", "Custom Text", "No")) || "No" // OCULIS EDIT, SectCommening 2, ORIGINAL: var/make_announcement = tgui_alert(usr, "Make a CentCom announcement?", "Emergency shuttle return", list("Yes", "Custom Text", "No")) || "No"
 			var/announcement_text = "Emergency shuttle trajectory overriden, rerouting course back to [station_name()]."
 			if (make_announcement == "Custom Text")
-				announcement_text = tgui_input_text(usr, "Custom CentCom announcement", "Emergency shuttle return", multiline = TRUE) || announcement_text
+				announcement_text = tgui_input_text(usr, "Custom SectCom announcement", "Emergency shuttle return", multiline = TRUE) || announcement_text // OCULIS EDIT, SectCommening 2, ORIGINAL: announcement_text = tgui_input_text(usr, "Custom CentCom announcement", "Emergency shuttle return", multiline = TRUE) || announcement_text
 			var/new_timer = tgui_input_number(usr, "How long should the shuttle remain in transit?", "When are we droppin' boys?", 180, 600)
 			if (isnull(new_timer) || SSshuttle.emergency.mode != SHUTTLE_ESCAPE)
 				return
@@ -377,6 +362,18 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 				addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(return_escape_shuttle), make_announcement), new_timer SECONDS)
 			else
 				INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(return_escape_shuttle), make_announcement)
+		if("ore_vents")
+			if(!is_funmin)
+				return
+			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Tap Ore Vents"))
+			var/vent_count = 0
+			for(var/obj/structure/ore_vent/vent as anything in SSore_generation.possible_vents)
+				if(vent.tapped || !COOLDOWN_FINISHED(vent, wave_cooldown) || vent.node) // skip if already tapped or currently being tapped
+					continue
+				vent.initiate_wave_win(forced = TRUE)
+				vent_count++
+			message_admins("[key_name_admin(holder)] tapped [vent_count] ore vents")
+			log_admin("[key_name_admin(holder)] tapped [vent_count] ore vents")
 		if("blackout")
 			if(!is_funmin)
 				return
@@ -690,6 +687,39 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 				S.count_down()
 				return
 			return
+
+		if("meteormode")
+			if(!is_funmin)
+				return
+			if(GLOB.meteor_mode)
+				QDEL_NULL(GLOB.meteor_mode)
+				message_admins("[key_name_admin(holder)] disabled meteor mode.")
+				return TRUE
+
+			GLOB.meteor_mode = new()
+			var/start_when = tgui_input_number(usr, "Meteors will start in (this many seconds):", "Meteor Mode: Start", (5 MINUTES) / 10, (24 HOURS) / 10, 0)
+			var/ramp_speed = tgui_input_number(usr, "Meteors will worsen every (this many seconds):", "Meteor Mode: Intensity", (5 MINUTES) / 10, (24 HOURS) / 10, (30 SECONDS) / 10)
+			if(!is_funmin) // deadminnied?
+				QDEL_NULL(GLOB.meteor_mode)
+				return TRUE
+			GLOB.meteor_mode.meteordelay = world.time + (start_when * 10)
+			GLOB.meteor_mode.rampupdelta = ramp_speed / 60
+			GLOB.meteor_mode.start_meteor()
+			message_admins("[key_name_admin(holder)] enabled meteor mode. \
+				Meteors will start [start_when ? "in [DisplayTimeText(start_when * 10)]" : "immediately"], and will worsen every [DisplayTimeText(ramp_speed * 10)].")
+			return TRUE
+
+		if("fix_gravity")
+			if(!is_funmin)
+				return
+			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("fix_gravity"))
+			message_admins("[key_name_admin(holder)] fixed the gravity generator.")
+
+			for(var/obj/machinery/gravity_generator/main/the_generator as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/gravity_generator/main))
+				if(!is_station_level(the_generator.z))
+					continue
+				the_generator.kickstart()
+				CHECK_TICK
 
 	if(holder)
 		log_admin("[key_name(holder)] used secret: [action].")

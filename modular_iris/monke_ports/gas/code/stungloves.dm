@@ -17,6 +17,7 @@
 	stamina_damage = 70 //Lower.
 	knockdown_time = 2.5 SECONDS //Half
 	clumsy_knockdown_time = 6 SECONDS //Lower power batong
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4.5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 3, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 0.8)
 	var/datum/action/cooldown/toggle_stunners/assistant_killer
 	var/traits_to_give = list(TRAIT_CHUNKYFINGERS_IGNORE_BATON)
 

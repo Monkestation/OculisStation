@@ -21,6 +21,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	aug_icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
 	aug_overlay = "sandy"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/organ/cyberimp/sensory_enhancer/proc/vomit_blood()
 	owner.spray_blood(owner.dir, 2)
@@ -54,15 +55,20 @@
 
 	owner.log_message("triggered their qani-laaca implant in [(injection_amount > 10) ? "overdose" : "normal"] mode", LOG_ATTACK)
 
-	human_owner.reagents.add_reagent(/datum/reagent/drug/twitch, injection_amount)
+	if(human_owner.is_neuroware_compatible())
+		human_owner.reagents.add_reagent(/datum/reagent/drug/twitch/synth, injection_amount)
+		owner.visible_message(span_danger("[owner.name] jolts suddenly as their Qani-Laaca system whirs to life, uploading a program into their computing matrix."), \
+				span_userdanger("You jolt suddenly as your Qani-Laaca system begins uploading a sensory acceleration program into your computing matrix."))
+		playsound(human_owner, 'sound/items/hypospray.ogg', 50, TRUE)
+	else
+		human_owner.reagents.add_reagent(/datum/reagent/drug/twitch, injection_amount)
+		owner.visible_message(span_danger("[owner.name] jolts suddenly as two small glass vials are fired from ports in the implant on their spine, shattering as they land."), \
+				span_userdanger("You jolt suddenly as your Qani-Laaca system ejects two empty glass vials rearward, shattering as they land."))
+		playsound(human_owner, 'sound/items/hypospray.ogg', 50, TRUE)
 
-	owner.visible_message(span_danger("[owner.name] jolts suddenly as two small glass vials are fired from ports in the implant on their spine, shattering as they land."), \
-			span_userdanger("You jolt suddenly as your Qani-Laaca system ejects two empty glass vials rearward, shattering as they land."))
-	playsound(human_owner, 'sound/items/hypospray.ogg', 50, TRUE)
-
-	var/obj/item/telegraph_vial = new /obj/item/qani_laaca_telegraph(get_turf(owner))
-	var/turf/turf_we_throw_at = get_step(owner, REVERSE_DIR(owner.dir))
-	telegraph_vial.throw_at(turf_we_throw_at, 1, 3, gentle = FALSE, quickstart = TRUE)
+		var/obj/item/telegraph_vial = new /obj/item/qani_laaca_telegraph(get_turf(owner))
+		var/turf/turf_we_throw_at = get_step(owner, REVERSE_DIR(owner.dir))
+		telegraph_vial.throw_at(turf_we_throw_at, 1, 3, gentle = FALSE, quickstart = TRUE)
 
 /obj/item/qani_laaca_telegraph
 	name = "spent Qani-Laaca cartridge"
@@ -115,6 +121,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	aug_icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
 	aug_overlay = "hackerman"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2)
 
 /datum/action/cooldown/spell/pointed/hackerman_deck
 	name = "Activate Ranged Hacking"
@@ -209,3 +216,4 @@
 
 #undef HACKERMAN_DECK_TEMPERATURE_INCREASE
 #undef HACKERMAN_DECK_EMP_TEMPERATURE_INCREASE
+#undef HACKING_FORENSICS_SUCCESS_MESSAGE

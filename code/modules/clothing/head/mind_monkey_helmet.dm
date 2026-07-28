@@ -1,6 +1,5 @@
 
 //monkey sentience caps
-/* NOVA EDIT REMOVAL
 /obj/item/clothing/head/helmet/monkey_sentience
 	name = "monkey mind magnification helmet"
 	desc = "A fragile, circuitry embedded helmet for boosting the intelligence of a monkey to a higher level. You see several warning labels..."
@@ -52,7 +51,7 @@
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
 	RegisterSignal(magnification, COMSIG_SPECIES_LOSS, PROC_REF(make_fall_off))
 	polling = TRUE
-	var/mob/chosen_one = SSpolling.poll_ghosts_for_target(check_jobban = ROLE_MONKEY_HELMET, poll_time = 5 SECONDS, checked_target = magnification, ignore_category = POLL_IGNORE_MONKEY_HELMET, alert_pic = magnification, role_name_text = "mind-magnified monkey")
+	var/mob/chosen_one = SSpolling.poll_ghosts_for_target(check_jobban = ROLE_SENTIENCE, poll_time = 5 SECONDS, checked_target = magnification, ignore_category = POLL_IGNORE_MONKEY_HELMET, alert_pic = magnification, role_name_text = "mind-magnified monkey")
 	polling = FALSE
 	if(!magnification)
 		return
@@ -146,4 +145,3 @@
 	if(magnification)
 		visible_message(span_warning("[src] falls off of [magnification]'s head as it changes shape!"))
 		magnification.dropItemToGround(src)
-*/

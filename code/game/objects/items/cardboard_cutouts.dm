@@ -80,12 +80,11 @@
 	pushed_over = FALSE
 	tacticool = AddComponent(/datum/component/tactical)
 
-/obj/item/cardboard_cutout/attackby(obj/item/I, mob/living/user, list/modifiers, list/attack_modifiers)
-	if(istype(I, /obj/item/toy/crayon))
-		change_appearance(I, user)
-		return TRUE
-
-	return ..()
+/obj/item/cardboard_cutout/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/toy/crayon))
+		return NONE
+	change_appearance(tool, user)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/cardboard_cutout/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
 	. = ..()
@@ -326,6 +325,7 @@
 /datum/cardboard_cutout/ash_walker/get_name()
 	return generate_random_name_species_based(species_type = /datum/species/lizard)
 
+/* // OCULIS EDIT REMOVAL START
 /datum/cardboard_cutout/death_squad
 	name = "Deathsquad Officer"
 	applied_name = "deathsquad officer"
@@ -334,6 +334,7 @@
 
 /datum/cardboard_cutout/death_squad/get_name()
 	return pick(GLOB.commando_names)
+*/ // OCULIS EDIT REMOVAL END
 
 /datum/cardboard_cutout/ian
 	name = "Ian"

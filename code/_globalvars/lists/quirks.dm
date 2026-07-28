@@ -9,6 +9,11 @@ GLOBAL_LIST_INIT(nearsighted_glasses, list(
 	"Jamjar" = /obj/item/clothing/glasses/regular/jamjar,
 	"Binoclard" = /obj/item/clothing/glasses/regular/kim,
 	"Modern" = /obj/item/clothing/glasses/regular/modern, // NOVA EDIT ADDITION
+	// OCULIS EDIT ADDITION START
+	"Transparent Glasses" = /obj/item/clothing/glasses/regular/transparent,
+	"Transparent Circle Glasses" = /obj/item/clothing/glasses/regular/circle/transparent,
+	"Transparent Thin Glasses" = /obj/item/clothing/glasses/regular/thin/transparent,
+	// OCULIS EDIT ADDITION END
 
 ))
 
@@ -84,7 +89,9 @@ GLOBAL_LIST_INIT(possible_alcoholic_addictions, list(
 	"Uncle Git's Special Reserve" = list("bottlepath" = /obj/item/reagent_containers/cup/glass/bottle/whiskey, "reagent" = /datum/reagent/consumable/ethanol/whiskey),
 	"Breezy Shoals Coconut Rum" = list("bottlepath" = /obj/item/reagent_containers/cup/glass/bottle/coconut_rum, "reagent" = /datum/reagent/consumable/ethanol/coconut_rum),
 	"Moonlabor Yūyake" = list("bottlepath" = /obj/item/reagent_containers/cup/glass/bottle/yuyake, "reagent" = /datum/reagent/consumable/ethanol/yuyake),
-	"Shu-Kouba Straight Shochu" = list("bottlepath" = /obj/item/reagent_containers/cup/glass/bottle/shochu, "reagent" = /datum/reagent/consumable/ethanol/shochu)
+	"Shu-Kouba Straight Shochu" = list("bottlepath" = /obj/item/reagent_containers/cup/glass/bottle/shochu, "reagent" = /datum/reagent/consumable/ethanol/shochu),
+	"Camillo Aperitivo Rosso" = list("bottlepath" = /obj/item/reagent_containers/cup/glass/bottle/aperitivo, "reagent" = /datum/reagent/consumable/ethanol/aperitivo),
+	"Dalmazia Originale Maraschino Liqueur" = list("bottlepath" = /obj/item/reagent_containers/cup/glass/bottle/maraschino, "reagent" = /datum/reagent/consumable/ethanol/maraschino)
 ))
 
 ///Options for Prosthetic Organ

@@ -72,7 +72,7 @@
 
 /datum/bounty/item/science/ntnet/laptops
 	name = "Modular Laptops"
-	description = "Central command brass need something more powerful than a tablet, but more portable than a console. Help these old fogeys out by shipping us some working laptops. Send them turned on."
+	description = "Sectorial Command brass need something more powerful than a tablet, but more portable than a console. Help these old fogeys out by shipping us some working laptops. Send them turned on." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Central command brass need something more powerful than a tablet, but more portable than a console. Help these old fogeys out by shipping us some working laptops. Send them turned on."
 	reward = CARGO_CRATE_VALUE * 3
 	required_count = 2
 	wanted_types = list(/obj/item/modular_computer/laptop = TRUE)
@@ -139,5 +139,5 @@
 
 /datum/bounty/item/science/ref_anomaly/dimensional
 	name = "Refined Dimensional Core"
-	description = "We're trying to save money on our annual renovations at CentCom. Send us a dimensional core."
+	description = "We're trying to save money on our annual renovations at SectCom. Send us a dimensional core." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "We're trying to save money on our annual renovations at CentCom. Send us a dimensional core."
 	wanted_types = list(/obj/item/assembly/signaler/anomaly/dimensional = TRUE)

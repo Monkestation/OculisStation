@@ -44,16 +44,8 @@
 	. = ..()
 	if(length(contents))
 		. += span_notice("It has <b>[contents[1]]</b> sitting in it.")
-
-// formerly NO_DECONSTRUCTION
-/obj/machinery/arc_furnace/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
-	return NONE
-
-/obj/machinery/arc_furnace/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
-	return NONE
-
-/obj/machinery/arc_furnace/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
-	return NONE
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 /obj/machinery/arc_furnace/on_deconstruction(disassembled)
 	eject_contents()
@@ -70,20 +62,20 @@
 	var/image/furnace_front_overlay = image(icon = icon, icon_state = "[operating ? "[base_icon_state]_overlay_active" : "[base_icon_state]_overlay"]")
 	add_overlay(furnace_front_overlay)
 
-/obj/machinery/arc_furnace/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/machinery/arc_furnace/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(operating)
 		balloon_alert(user, "furnace busy")
-		return TRUE
+		return ITEM_INTERACT_BLOCKING
 
 	if(length(contents))
 		balloon_alert(user, "furnace full")
-		return TRUE
+		return ITEM_INTERACT_BLOCKING
 
-	if(istype(attacking_item, /obj/item/stack/ore))
-		attacking_item.forceMove(src)
+	if(istype(tool, /obj/item/stack/ore))
+		tool.forceMove(src)
 		balloon_alert(user, "ore added")
 		update_appearance()
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
 
 	return ..()
 

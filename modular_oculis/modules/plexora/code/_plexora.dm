@@ -23,7 +23,7 @@ SUBSYSTEM_DEF(plexora)
 	init_stage = INITSTAGE_EARLY
 
 #ifdef UNIT_TESTS
-	flags = SS_NO_INIT | SS_NO_FIRE
+	ss_flags = SS_NO_INIT | SS_NO_FIRE
 #endif
 
 	/// This gets set to TRUE or FALSE during is_plexora_alive, it's just initially null to so logging works properly without spamming
@@ -43,7 +43,7 @@ SUBSYSTEM_DEF(plexora)
 /datum/controller/subsystem/plexora/Initialize()
 	if(!CONFIG_GET(flag/plexora_enabled) && !load_old_plexora_config())
 		enabled = FALSE
-		flags |= SS_NO_FIRE
+		ss_flags |= SS_NO_FIRE
 		return SS_INIT_NO_NEED
 
 	loaded_allowed_ckeys()
@@ -52,7 +52,7 @@ SUBSYSTEM_DEF(plexora)
 	if (!comms_key)
 		stack_trace("SSplexora is enabled BUT there is no configured comms key! Please make sure to set one and update Plexora's server config.")
 		enabled = FALSE
-		flags |= SS_NO_FIRE
+		ss_flags |= SS_NO_FIRE
 		return SS_INIT_FAILURE
 
 	base_url = CONFIG_GET(string/plexora_url)
@@ -74,14 +74,14 @@ SUBSYSTEM_DEF(plexora)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/plexora/Recover()
-	flags |= SS_NO_INIT // Make extra sure we don't initialize twice.
+	ss_flags |= SS_NO_INIT // Make extra sure we don't initialize twice.
 	initialized = SSplexora.initialized
 	plexora_is_alive = SSplexora.plexora_is_alive
 	base_url = SSplexora.base_url
 	enabled = SSplexora.enabled
 	default_headers = SSplexora.default_headers
 	if(initialized && !enabled)
-		flags |= SS_NO_FIRE
+		ss_flags |= SS_NO_FIRE
 
 // compat thing so that it'll load plexora.json if it's still used
 /datum/controller/subsystem/plexora/proc/load_old_plexora_config()

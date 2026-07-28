@@ -489,6 +489,8 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		return FALSE
 	if(SEND_SIGNAL(parent, COMSIG_ATOM_PRE_STORED_ITEM, to_insert, user, force, messages) & BLOCK_STORAGE_INSERT)
 		return FALSE
+	if(SEND_SIGNAL(to_insert, COMSIG_ITEM_PRE_STORAGE_INSERTION, parent, user, force, messages) & BLOCK_STORAGE_INSERT)
+		return FALSE
 
 	SEND_SIGNAL(parent, COMSIG_ATOM_STORED_ITEM, to_insert, user, force)
 	SEND_SIGNAL(src, COMSIG_STORAGE_STORED_ITEM, to_insert, user, force)
@@ -499,7 +501,8 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		to_insert.forceMove(real_location)
 	if(get(real_location, /mob) != user)
 		to_insert.do_pickup_animation(real_location, user)
-	item_insertion_feedback(user, to_insert, override)
+	if (messages)
+		item_insertion_feedback(user, to_insert, override)
 	parent.update_appearance()
 	return TRUE
 
@@ -533,15 +536,15 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
  *
  * Arguments
  * * mob/user - the user who is inserting the items
- * * list/things - the list of items to insert
+ * * list/pick_up_type - type to filter items by
  * * atom/thing_loc - the location of the items (used to make sure an item hasn't moved during pickup)
  * * list/rejections - a list used to make sure we only complain once about an invalid insertion
  * * datum/progressbar/progress - the progressbar used to show the progress of the insertion
+ * * list/success - list with a single element to use as a tracker for the amount of things we picked up
  */
-/datum/storage/proc/handle_mass_pickup(mob/user, list/things, atom/thing_loc, list/rejections, datum/progressbar/progress)
-	for(var/obj/item/thing in things)
-		things -= thing
-		if(thing.loc != thing_loc)
+/datum/storage/proc/handle_mass_pickup(mob/user, pick_up_type, atom/thing_loc, list/rejections, datum/progressbar/progress, list/success)
+	for(var/obj/item/thing in thing_loc)
+		if(!isnull(pick_up_type) && !istype(thing, pick_up_type))
 			continue
 		if(thing.type in rejections) // To limit bag spamming: any given type only complains once
 			continue
@@ -550,12 +553,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 				break
 			rejections += thing.type // therefore full bags are still a little spammy
 			continue
-
+		success[1] += 1
 		if (TICK_CHECK)
-			progress.update(progress.goal - things.len)
+			progress.update(success[1])
 			return TRUE
-
-	progress.update(progress.goal - things.len)
+	progress.update(success[1])
 	return FALSE
 
 /**
@@ -718,9 +720,12 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	SIGNAL_HANDLER
 
 	for(var/mob/user as anything in is_using)
-		user.hud_used?.open_containers -= gone
+		if (user.hud_used?.screen_groups[HUD_GROUP_STORAGE])
+			user.hud_used.screen_groups[HUD_GROUP_STORAGE] -= gone
+
 		if(!user.client)
 			continue
+
 		var/client/cuser = user.client
 		cuser.screen -= gone
 
@@ -774,20 +779,24 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	var/datum/progressbar/progress = new(user, amount, thing.loc)
 	var/list/rejections = list()
+	var/list/success = list(0)
+	INVOKE_ASYNC(src, PROC_REF(collect_on_turf_loop), thing.loc, user, progress, rejections, collection_mode == COLLECT_SAME ? thing.type : null, success)
 
-	while(do_after(user, 1 SECONDS, parent, NONE, FALSE, CALLBACK(src, PROC_REF(handle_mass_pickup), user, pick_up.Copy(), thing.loc, rejections, progress)))
-		stoplag(1)
+/datum/storage/proc/collect_on_turf_loop(atom/holder, mob/user, datum/progressbar/progress, list/rejections, pick_up_type, list/success)
+	if (do_after(user, 1 SECONDS, parent, NONE, FALSE, CALLBACK(src, PROC_REF(handle_mass_pickup), user, pick_up_type, holder, rejections, progress, success)))
+		INVOKE_ASYNC(src, PROC_REF(collect_on_turf_loop), holder, user, progress, rejections, pick_up_type, success)
+		return
 
 	progress.end_progress()
-	// If nothing was actually removed, don't send the pickup message
-	var/list/current_contents = holder.contents.Copy()
-	if(length(pick_up | current_contents) == length(current_contents))
-		return
-	parent.balloon_alert(user, "picked up")
+	if(success[1])
+		parent.balloon_alert(user, "picked up")
 
 /// Signal handler for whenever we drag the storage somewhere.
 /datum/storage/proc/on_mousedrop_onto(datum/source, atom/over_object, mob/user)
 	SIGNAL_HANDLER
+
+	if(SEND_SIGNAL(parent, COMSIG_STORAGE_DUMP_PRE_TRANSFER, src, over_object, user) & CANCEL_STORAGE_DUMP)
+		return COMPONENT_CANCEL_MOUSEDROP_ONTO
 
 	if(ismecha(user.loc) || user.incapacitated || !user.canUseStorage())
 		return NONE
@@ -809,11 +818,6 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(over_object == user)
 		if(!user.can_perform_action(parent, FORBID_TELEKINESIS_REACH | ALLOW_RESTING))
 			return NONE
-
-		if(isliving(parent) && user.pulling == parent)
-			var/mob/living/as_living = parent
-			if(as_living.can_be_held)
-				return
 
 		parent.add_fingerprint(user)
 		INVOKE_ASYNC(src, PROC_REF(open_storage), user)
@@ -1064,10 +1068,10 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(to_show.active_storage != src && (to_show.stat == CONSCIOUS))
 		for(var/obj/item/thing in real_location)
 			if(thing.on_found(to_show))
-				to_show.active_storage.hide_contents(to_show)
+				to_show.active_storage?.hide_contents(to_show)
+				return FALSE
 
-	if(to_show.active_storage)
-		to_show.active_storage.hide_contents(to_show)
+	to_show.active_storage?.hide_contents(to_show)
 
 	to_show.active_storage = src
 
@@ -1086,9 +1090,10 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	LAZYOR(is_using, to_show)
 
-	to_show.hud_used.open_containers |= storage_interfaces[to_show].list_ui_elements()
+	// Don't add to screen_objects as that one gets its contents actually deleted
+	LAZYOR(to_show.hud_used.screen_groups[HUD_GROUP_STORAGE], storage_interfaces[to_show].list_ui_elements())
 	to_show.client.screen |= storage_interfaces[to_show].list_ui_elements()
-	to_show.hud_used.open_containers |= real_location.contents
+	LAZYOR(to_show.hud_used.screen_groups[HUD_GROUP_STORAGE], real_location.contents)
 	to_show.client.screen |= real_location.contents
 
 	return TRUE
@@ -1116,9 +1121,9 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(to_hide.client)
 		to_hide.client.screen -= storage_interfaces[to_hide].list_ui_elements()
 		to_hide.client.screen -= real_location.contents
-	if(to_hide.hud_used)
-		to_hide.hud_used.open_containers -= storage_interfaces[to_hide].list_ui_elements()
-		to_hide.hud_used.open_containers -=  real_location.contents
+	if(to_hide.hud_used.screen_groups[HUD_GROUP_STORAGE])
+		to_hide.hud_used.screen_groups[HUD_GROUP_STORAGE] -= storage_interfaces[to_hide].list_ui_elements()
+		to_hide.hud_used.screen_groups[HUD_GROUP_STORAGE] -= real_location.contents
 	QDEL_NULL(storage_interfaces[to_hide])
 	storage_interfaces -= to_hide
 
@@ -1149,7 +1154,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	var/additional_row = (!(adjusted_contents % screen_max_columns) && adjusted_contents < max_slots)
 
 	var/columns = clamp(max_slots, 1, screen_max_columns)
-	var/rows = clamp(CEILING(adjusted_contents / columns, 1) + additional_row, 1, screen_max_rows)
+	var/rows = clamp(ceil(adjusted_contents / columns) + additional_row, 1, screen_max_rows)
 
 	for (var/mob/ui_user as anything in storage_interfaces)
 		if (isnull(storage_interfaces[ui_user]))

@@ -14,7 +14,7 @@
 /// A sprite accessory is something that we add to a human sprite to make them look different. This is hair, facial hair, underwear, mutant bits, etc.
 SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	name = "Sprite Accessories"
-	flags = SS_NO_FIRE | SS_NO_INIT
+	ss_flags = SS_NO_FIRE | SS_NO_INIT
 
 	// HOLY SHIT COMPACT THIS INTO ASSOCIATED LISTS SO WE STOP ADDING VARIABLES
 	//Hairstyles
@@ -29,12 +29,12 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	var/list/hair_masks_list //! stores /datum/hair_mask indexed by type
 
 	//Underwear
-	var/list/underwear_list //! stores /datum/sprite_accessory/underwear indexed by name
+	var/list/underwear_list //! stores /datum/sprite_accessory/clothing/underwear indexed by name
 	var/list/underwear_m //! stores only underwear name
 	var/list/underwear_f //! stores only underwear name
 
 	//Undershirts
-	var/list/undershirt_list //! stores /datum/sprite_accessory/undershirt indexed by name
+	var/list/undershirt_list //! stores /datum/sprite_accessory/clothing/undershirt indexed by name
 	var/list/undershirt_m //! stores only undershirt name
 	var/list/undershirt_f //! stores only undershirt name
 	// NOVA EDIT ADDITION START - Underwear/bra split
@@ -44,13 +44,21 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	// NOVA EDIT ADDITION END
 
 	//Socks
-	var/list/socks_list //! stores /datum/sprite_accessory/socks indexed by name
+	var/list/socks_list //! stores /datum/sprite_accessory/clothing/socks indexed by name
 
 	//All features, indexed by feature key, then name of the sprite accessory to the datum iteslf
 	var/list/list/feature_list
 	// NOVA EDIT ADDITION START - Customization
 	var/list/sprite_accessories = list()
 	var/list/cached_mutant_icon_files = list()
+	var/list/all_layer_postfixes = list(
+		EXTERNAL_FRONT,
+		EXTERNAL_ADJACENT,
+		EXTERNAL_BEHIND,
+		EXTERNAL_FRONT_UNDER_CLOTHES,
+		EXTERNAL_FRONT_OVER,
+		EXTERNAL_FRONT_ABOVE_HAIR,
+	)
 	// NOVA EDIT ADDITION END
 
 /datum/controller/subsystem/accessories/PreInit() // this stuff NEEDS to be set up before GLOB for preferences and stuff to work so this must go here. sorry
@@ -74,23 +82,23 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	facial_hairstyles_male_list = facial_hair_lists[MALE_SPRITE_LIST]
 	facial_hairstyles_female_list = facial_hair_lists[FEMALE_SPRITE_LIST]
 
-	var/underwear_lists = init_sprite_accessory_subtypes(/datum/sprite_accessory/underwear)
+	var/underwear_lists = init_sprite_accessory_subtypes(/datum/sprite_accessory/clothing/underwear)
 	underwear_list = underwear_lists[DEFAULT_SPRITE_LIST]
 	underwear_m = underwear_lists[MALE_SPRITE_LIST]
 	underwear_f = underwear_lists[FEMALE_SPRITE_LIST]
 
-	var/undershirt_lists = init_sprite_accessory_subtypes(/datum/sprite_accessory/undershirt)
+	var/undershirt_lists = init_sprite_accessory_subtypes(/datum/sprite_accessory/clothing/undershirt)
 	undershirt_list = undershirt_lists[DEFAULT_SPRITE_LIST]
 	undershirt_m = undershirt_lists[MALE_SPRITE_LIST]
 	undershirt_f = undershirt_lists[FEMALE_SPRITE_LIST]
 	// NOVA EDIT ADDITION START - Underwear/bra split
-	var/bra_lists = init_sprite_accessory_subtypes(/datum/sprite_accessory/bra)
+	var/bra_lists = init_sprite_accessory_subtypes(/datum/sprite_accessory/clothing/bra)
 	bra_list = bra_lists[DEFAULT_SPRITE_LIST]
 	bra_m = bra_lists[MALE_SPRITE_LIST]
 	bra_f = bra_lists[FEMALE_SPRITE_LIST]
 	// NOVA EDIT ADDITION END
 
-	socks_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/socks)[DEFAULT_SPRITE_LIST]
+	socks_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/clothing/socks)[DEFAULT_SPRITE_LIST]
 
 	feature_list = list()
 	// felinids
@@ -104,6 +112,16 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	feature_list[FEATURE_SPINES] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/spines)
 	feature_list[FEATURE_TAILSPINES] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tail_spines)
 	feature_list[FEATURE_TAIL_LIZARD] = INIT_ACCESSORY(/datum/sprite_accessory/tails/lizard)
+
+	// OCULIS EDIT ADDITION START - Ethereal Horns
+	feature_list[FEATURE_HORNS_ETHEREAL] = INIT_ACCESSORY(/datum/sprite_accessory/ethereal_horns)
+	// OCULIS EDIT ADDITION END
+
+	// OCULIS EDIT ADDITION START - Arachnid Features
+	feature_list[FEATURE_ARACHNID_APPENDAGES] = INIT_ACCESSORY(/datum/sprite_accessory/arachnid_appendages)
+	feature_list[FEATURE_ARACHNID_CHELICERAE] = INIT_ACCESSORY(/datum/sprite_accessory/arachnid_chelicerae)
+	// OCULIS EDIT ADDITION END
+
 	// moths
 	feature_list[FEATURE_MOTH_WINGS] = INIT_ACCESSORY(/datum/sprite_accessory/moth_wings)
 	feature_list[FEATURE_MOTH_ANTENNAE] = INIT_ACCESSORY(/datum/sprite_accessory/moth_antennae)
@@ -146,11 +164,12 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	)
 
 	for(var/path in subtypesof(prototype))
-		var/datum/sprite_accessory/accessory = new path
 		// NOVA EDIT ADDITION START - Don't put organizational types (e.g. sprite_accessory/ears/big) in the list
-		if(!accessory.name)
+		var/datum/sprite_accessory/datum_path = path
+		if(isnull(datum_path::name))
 			continue
 		// NOVA EDIT ADDITION END
+		var/datum/sprite_accessory/accessory = new path
 
 		if(accessory.icon_state)
 			returnable_list[DEFAULT_SPRITE_LIST][accessory.name] = accessory

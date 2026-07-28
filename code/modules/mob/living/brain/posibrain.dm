@@ -9,6 +9,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	w_class = WEIGHT_CLASS_NORMAL
 	req_access = list(ACCESS_ROBOTICS)
 	braintype = "Android"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.85, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.67, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)
 
 	///Message sent to the user when polling ghosts
 	var/begin_activation_message = span_notice("You carefully locate the manual activation switch and start the positronic brain's boot process.")
@@ -60,7 +61,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	if(!brainmob)
 		set_brainmob(new /mob/living/brain(src))
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SILICONS))
-		to_chat(user, span_warning("Central Command has temporarily outlawed posibrain sentience in this sector..."))
+		to_chat(user, span_warning("Sectorial Command has temporarily outlawed posibrain sentience in this sector...")) // OCULIS EDIT, SectCommening 2, ORIGINAL: to_chat(user, span_warning("Central Command has temporarily outlawed posibrain sentience in this sector..."))
 	if(is_occupied())
 		to_chat(user, span_warning("This [name] is already active!"))
 		return
@@ -230,6 +231,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	icon_state = "spheribrain"
 	base_icon_state = "spheribrain"
 	immobilize = FALSE
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 4.2, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 3.2, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2.5)
 	/// Delay between movements
 	var/move_delay = 0.5 SECONDS
 	/// when can we move again?

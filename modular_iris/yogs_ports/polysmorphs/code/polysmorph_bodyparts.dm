@@ -57,10 +57,12 @@
 /obj/item/bodypart/leg/left/digitigrade/polysmorph
 	icon_greyscale = BODYPART_ICON_POLYSMORPH
 	burn_modifier = POLYSMORPH_BURN_MODIFIER
+	limb_id = SPECIES_POLYSMORPH
 
 /obj/item/bodypart/leg/right/digitigrade/polysmorph
 	icon_greyscale = BODYPART_ICON_POLYSMORPH
 	burn_modifier = POLYSMORPH_BURN_MODIFIER
+	limb_id = SPECIES_POLYSMORPH
 
 #undef BODYPART_ICON_POLYSMORPH
 #undef POLYSMORPH_BURN_MODIFIER

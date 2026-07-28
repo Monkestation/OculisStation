@@ -17,7 +17,7 @@
 		/obj/item/ship_in_a_bottle = 1,
 		/obj/item/clothing/suit/hooded/berserker = 1,
 		/obj/item/jacobs_ladder = 1,
-		/obj/item/guardian_creator/miner = 1,
+		/obj/item/clothing/neck/cloak/wolf_coat  = 1, //OCULIS EDIT - SALT MINING - was originally /obj/item/guardian_creator/miner
 		/obj/item/warp_cube/red = 1,
 		/obj/item/wisp_lantern = 1,
 		/obj/item/immortality_talisman = 1,
@@ -58,7 +58,7 @@
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "modkit"
 	loot = list(
-		/obj/item/borg/upgrade/modkit/aoe/mobs/andturfs = 1,
+		/obj/item/borg/upgrade/modkit/cooldown/aoe/mobs/andturfs = 1,
 		/obj/item/borg/upgrade/modkit/cooldown/repeater = 1,
 		/obj/item/borg/upgrade/modkit/resonator_blasts = 1,
 		/obj/item/borg/upgrade/modkit/bounty = 1,

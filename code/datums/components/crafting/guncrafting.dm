@@ -16,7 +16,7 @@
 	desc = "A prototype modular receiver and trigger assembly for a firearm."
 	icon = 'icons/obj/weapons/improvised.dmi'
 	icon_state = "receiver"
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5.5, /datum/material/cardboard = SHEET_MATERIAL_AMOUNT)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5.55, /datum/material/cardboard = SHEET_MATERIAL_AMOUNT, /datum/material/plastic = SMALL_MATERIAL_AMOUNT)
 
 /obj/item/weaponcrafting/receiver/create_slapcraft_component()
 	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/pipegun)
@@ -29,7 +29,7 @@
 /obj/item/weaponcrafting/stock
 	name = "rifle stock"
 	desc = "A classic rifle stock that doubles as a grip, roughly carved out of wood."
-	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 8)
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 8, /datum/material/plastic = SMALL_MATERIAL_AMOUNT)
 	resistance_flags = FLAMMABLE
 	icon = 'icons/obj/weapons/improvised.dmi'
 	icon_state = "riflestock"
@@ -105,7 +105,7 @@
 
 /obj/item/weaponcrafting/gunkit/beam_rifle
 	name = "\improper Event Horizon anti-existential beam rifle part kit (DOOMSDAY DEVICE, DO NOT CONSTRUCT)"
-	desc = "What fevered minds wrought this terrible construction kit? To create a frame to harness the strange energies that flow through the Cabriole Sector towards such horrible acts of violence?" //IRIS EDIT
+	desc = "What fevered minds wrought this terrible construction kit? To create a frame to harness the strange energies that flow through the Eidolon Sector towards such horrible acts of violence?" // OCULIS EDIT
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
 		/datum/material/glass =SHEET_MATERIAL_AMOUNT * 2.5,

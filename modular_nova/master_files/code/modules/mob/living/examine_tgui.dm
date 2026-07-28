@@ -1,6 +1,6 @@
 /datum/examine_panel
 	/// Mob that the examine panel belongs to.
-	var/mob/living/holder
+	var/mob/living/carbon/holder
 	/// The screen containing the appearance of the mob
 	var/atom/movable/screen/map_view/examine_panel_screen/examine_panel_screen
 
@@ -29,7 +29,16 @@
 		examine_panel_screen.del_on_map_removal = FALSE
 		examine_panel_screen.screen_loc = "[examine_panel_screen.assigned_map]:1,1"
 
-	var/mutable_appearance/current_mob_appearance = new(holder)
+	// Awful snowflake fix for holosynth previews - scanlines mess them up
+	var/mutable_appearance/current_mob_appearance
+	if(isholosynth(holder))
+		holder.remove_filter(HOLOSYNTH_SCANLINE_FILTER_ID)
+		current_mob_appearance = new(holder)
+		var/datum/species/synthetic/holosynth/holo_species = holder.dna.species
+		holo_species.refresh_scanline(holder)
+	else
+		current_mob_appearance = new(holder)
+
 	current_mob_appearance.setDir(SOUTH)
 	current_mob_appearance.transform = matrix() // We reset their rotation, in case they're lying down.
 
@@ -57,17 +66,27 @@
 	var/ooc_notes = ""
 	var/ideal_antag_optin_status
 	var/current_antag_optin_status
+	var/ideal_conflict_optin_status
+	var/current_conflict_optin_status
 	var/headshot = ""
 
 	// OOC notes go first
 	if(preferences)
-		if(!CONFIG_GET(flag/disable_antag_opt_in_preferences))
-			var/antag_prefs = holder.mind?.ideal_opt_in_level
-			var/effective_opt_in_level = holder.mind?.get_effective_opt_in_level()
+/*		if(!CONFIG_GET(flag/disable_antag_opt_in_preferences))
+			var/antag_prefs = holder.mind?.ideal_antag_opt_in_level
+			var/effective_opt_in_level = holder.mind?.get_effective_antag_opt_in_level()
 			if(isnull(antag_prefs))
 				antag_prefs = preferences.read_preference(/datum/preference/choiced/antag_opt_in_status)
 			current_antag_optin_status = GLOB.antag_opt_in_strings[num2text(effective_opt_in_level)]
 			ideal_antag_optin_status = GLOB.antag_opt_in_strings[num2text(antag_prefs)]
+*/
+		if(!CONFIG_GET(flag/disable_conflict_opt_in_preferences))
+			var/conflict_prefs = holder.mind?.ideal_conflict_opt_in_level
+			var/effective_conflict_opt_in_level = holder.mind?.get_effective_conflict_opt_in_level()
+			if(isnull(conflict_prefs))
+				conflict_prefs = preferences.read_preference(/datum/preference/choiced/conflict_opt_in_status)
+			current_conflict_optin_status = GLOB.conflict_opt_in_strings[num2text(effective_conflict_opt_in_level)]
+			ideal_conflict_optin_status = GLOB.conflict_opt_in_strings[num2text(conflict_prefs)]
 
 	// Now we handle silicon and/or human, order doesn't matter as both obviously can't fire.
 	// If other variants of mob/living need to be handled at some point, put them here.
@@ -104,14 +123,17 @@
 		"custom_species" = custom_species,
 		"custom_species_lore" = custom_species_lore,
 		// Antaggery
-		"ideal_antag_optin_status" = ideal_antag_optin_status, // Our opt-in status from prefs when we joined the game
-		"current_antag_optin_status" = current_antag_optin_status, // What it's being forced to if applicable
+		"ideal_antag_optin_status" = ideal_antag_optin_status, // Our Antag Opt-In from prefs when we joined the game
+		"current_antag_optin_status" = current_antag_optin_status, // The current Antag Opt-In, if it was forced to be something different
+		"ideal_conflict_optin_status" = ideal_conflict_optin_status, // Our Conflict Opt-In from prefs when we joined the game
+		"current_conflict_optin_status" = current_conflict_optin_status, // The current Conflict Opt-In, if it was forced to be something different
 	)
 	return data
 
 /datum/examine_panel/ui_static_data(mob/user)
 	var/list/data = list(
-		"opt_in_colors" = GLOB.antag_opt_in_colors,
+		"antag_opt_in_colors" = GLOB.antag_opt_in_colors,
+		"conflict_opt_in_colors" = GLOB.conflict_opt_in_colors,
 	)
 	return data
 

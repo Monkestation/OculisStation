@@ -9,7 +9,7 @@
 
 SUBSYSTEM_DEF(player_ranks)
 	name = "Player Ranks"
-	flags = SS_NO_FIRE
+	ss_flags = SS_NO_FIRE
 	init_stage = INITSTAGE_EARLY
 	dependencies = list(
 		/datum/controller/subsystem/server_maint,
@@ -126,7 +126,7 @@ SUBSYSTEM_DEF(player_ranks)
 	prefs.unlock_content = !!prefs.parent.IsByondMember()
 	prefs.donator_status = is_donator(prefs.parent)
 	if(prefs.unlock_content || prefs.donator_status)
-		prefs.max_save_slots = 50
+		prefs.max_save_slots = MAX_SAVE_SLOTS_SUBSCRIBER
 
 
 /// Handles loading mentors either via SQL or using the legacy system,

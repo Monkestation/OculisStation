@@ -82,6 +82,7 @@
 	icon_state = "airbag_safe"
 	base_icon_state = "airbag"
 	max_integrity = 10
+	custom_materials = list(/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT)
 	/// The time in which we deploy
 	var/detonate_time = 2 SECONDS
 	/// The item we drop on detonation
@@ -157,7 +158,7 @@
 		amount = 1,
 		holder = created_object,
 		location = get_turf(created_object),
-		smoke_type = /obj/effect/particle_effect/fluid/smoke/quick,
+		smoke_type = /datum/effect_system/fluid_spread/smoke/quick,
 		log = FALSE
 	)
 	qdel(src)

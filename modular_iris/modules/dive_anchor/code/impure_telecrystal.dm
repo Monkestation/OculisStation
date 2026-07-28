@@ -13,6 +13,6 @@
 /datum/supply_pack/misc/impure_telecrystal
 	name = "Impure Telecrystal"
 	desc = "Fuel for mobile dive anchors."
-	cost = CARGO_CRATE_VALUE * 25
+	cost = CARGO_CRATE_VALUE * 5
 	contains = list(/obj/item/stack/impure_telecrystal)
 	crate_name = "dive anchor fuel crate"

@@ -51,9 +51,14 @@
 	var/directive = ""
 	/// Short description of what this mob is capable of, for radial menu uses
 	var/menu_description = "Tanky and strong for the defense of the nest and other spiders."
-	/// If true then you shouldn't be told that you're a spider antagonist as soon as you are placed into this mob
-	var/apply_spider_antag = TRUE
-	// IRIS ADDITION - spiders cant attack each other
+	/// Commands you can give this spider once it is tamed
+	var/static/list/tamed_commands = list(
+		/datum/pet_command/idle,
+		/datum/pet_command/free,
+		/datum/pet_command/follow,
+		/datum/pet_command/attack,
+	)
+	// OCULIS ADDITION - spiders cant attack each other
 	var/static/list/typecache_player_spiders = typecacheof(list(/mob/living/basic/spider))
 
 /datum/emote/spider
@@ -87,12 +92,22 @@
 	webbing.Grant(src)
 	ai_controller?.set_blackboard_key(BB_SPIDER_WEB_ACTION, webbing)
 
-	// IRIS EDIT START - Makes player-controlled spiders unable to attack each other.
+	var/static/list/food_types = list(
+		/obj/item/food/meat/slab/human/mutant/lizard,
+		/obj/item/food/meat/slab/human/mutant/fly,
+		/obj/item/food/meat/slab/human/mutant/moth,
+		/obj/item/food/meat/slab/mouse,
+		/obj/item/food/meat/slab/mothroach,
+		/obj/item/food/meat/slab/blood_worm,
+		/obj/item/food/deadmouse,
+	)
+	AddComponent(/datum/component/tameable, food_types = food_types, tame_chance = 20, bonus_tame_chance = 10)
+	// OCULIS EDIT START - Makes player-controlled spiders unable to attack each other.
 	AddElement(/datum/element/prevent_attacking_of_player_types, \
 		typecache_player_spiders, \
 		"Wait! That's your fellow spider!"\
 	)
-	// IRIS EDIT END
+	// OCULIS EDIT END
 
 /mob/living/basic/spider/Login()
 	. = ..()
@@ -101,6 +116,8 @@
 	GLOB.spidermobs[src] = TRUE
 	add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/player_spider_modifier, multiplicative_slowdown = player_speed_modifier)
 
+	AddElement(/datum/element/ridable, /datum/component/riding/creature/spider)
+
 /mob/living/basic/spider/Logout()
 	. = ..()
 	remove_movespeed_modifier(/datum/movespeed_modifier/player_spider_modifier)
@@ -108,6 +125,12 @@
 /mob/living/basic/spider/Destroy()
 	GLOB.spidermobs -= src
 	return ..()
+
+/mob/living/basic/spider/tamed(mob/living/tamer, atom/food, feedback = TRUE)
+	. = ..()
+	new /obj/effect/temp_visual/heart(src.loc)
+	AddElement(/datum/element/ridable, /datum/component/riding/creature/spider)
+	AddComponent(/datum/component/obeys_commands, tamed_commands)
 
 /mob/living/basic/spider/mob_negates_gravity()
 	if(locate(/obj/structure/spider/stickyweb) in loc)
@@ -167,6 +190,12 @@
 	grown.set_name()
 	grown.set_brute_loss(get_brute_loss())
 	grown.set_fire_loss(get_fire_loss())
+
+	if(HAS_TRAIT(src, TRAIT_TAMED))
+		grown.tamed()
+	else if(istype(grown, /mob/living/basic/spider/giant)) // Adults cannot be tamed via snacks
+		qdel(grown.GetComponent(/datum/component/tameable))
+
 	qdel(src)
 
 /**
@@ -179,7 +208,6 @@
 	icon_state = "maint_spider"
 	icon_living = "maint_spider"
 	icon_dead = "maint_spider_dead"
-	can_be_held = TRUE
 	mob_size = MOB_SIZE_TINY
 	held_w_class = WEIGHT_CLASS_TINY
 	worn_slot_flags = ITEM_SLOT_HEAD
@@ -198,7 +226,6 @@
 	response_harm_continuous = "splats"
 	response_harm_simple = "splat"
 	ai_controller = /datum/ai_controller/basic_controller/giant_spider/pest
-	apply_spider_antag = FALSE
 	///list of pet commands we follow
 	var/static/list/pet_commands = list(
 		/datum/pet_command/idle,
@@ -214,3 +241,4 @@
 	AddElement(/datum/element/ai_retaliate)
 	AddComponent(/datum/component/obeys_commands, pet_commands)
 	AddElement(/datum/element/tiny_mob_hunter)
+	AddElement(/datum/element/can_be_held)

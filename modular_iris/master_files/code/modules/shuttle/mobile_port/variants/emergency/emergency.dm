@@ -13,13 +13,13 @@
 
 /obj/docking_port/mobile/emergency/proc/prevent_guns(mob/living/user)
 	SIGNAL_HANDLER
-	to_chat(user, span_warning("You wouldn't violate your oath of non-violence when the shuttle docks at centcom, would you?"))
+	to_chat(user, span_warning("You wouldn't violate your oath of non-violence when the shuttle docks at SectCom, would you?"))
 	return COMPONENT_CANCEL_GUN_FIRE
 
 /obj/docking_port/mobile/emergency/proc/prevent_shoves(mob/living/user, atom/attack_target, proximity, modifiers)
 	SIGNAL_HANDLER
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		to_chat(user, span_warning("You wouldn't violate your oath of non-violence when the shuttle docks at centcom, would you?"))
+		to_chat(user, span_warning("You wouldn't violate your oath of non-violence when the shuttle docks at SectCom, would you?"))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /obj/docking_port/mobile/emergency/proc/prevent_grabs(mob/living/grabber, atom/grabbed_thingy)
@@ -28,7 +28,7 @@
 		return
 
 	if(!grabber.density && grabbed_thingy.density)
-		to_chat(grabber, span_warning("You wouldn't violate your oath of non-violence when the shuttle docks at centcom, would you?"))
+		to_chat(grabber, span_warning("You wouldn't violate your oath of non-violence when the shuttle docks at SectCom, would you?"))
 		return COMSIG_LIVING_CANCEL_PULL
 
 /obj/docking_port/mobile/emergency/proc/punish_bad_batons(mob/living/baton_target, mob/living/baton_user)

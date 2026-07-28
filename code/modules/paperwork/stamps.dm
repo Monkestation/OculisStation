@@ -20,7 +20,7 @@
 	return OXYLOSS
 
 /obj/item/stamp/get_writing_implement_details()
-	var/datum/asset/spritesheet_batched/sheet = get_asset_datum(/datum/asset/spritesheet/simple/paper)
+	var/datum/asset/spritesheet_batched/sheet = get_asset_datum(/datum/asset/spritesheet/simple/stamps)
 	return list(
 		interaction_mode = MODE_STAMPING,
 		stamp_icon_state = icon_state,
@@ -111,7 +111,7 @@
 	dye_color = DYE_CHAP
 
 /obj/item/stamp/centcom
-	name = "CentCom rubber stamp"
+	name = "SectCom rubber stamp" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom rubber stamp"
 	icon_state = "stamp-centcom"
 	dye_color = DYE_CENTCOM
 

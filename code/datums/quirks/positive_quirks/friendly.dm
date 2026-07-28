@@ -10,7 +10,7 @@
 	medical_record_text = "Patient demonstrates low-inhibitions for physical contact and well-developed arms. Requesting another doctor take over this case."
 	mail_goodies = list(/obj/item/storage/box/hug)
 
-/datum/quirk/friendly/add_unique(client/client_source)
+/datum/quirk/friendly/add(client/client_source) // OCULIS EDIT change from add_unique to add
 	var/mob/living/carbon/human/human_quirkholder = quirk_holder
 	var/obj/item/organ/heart/holder_heart = human_quirkholder.get_organ_slot(ORGAN_SLOT_HEART)
 	if(isnull(holder_heart) || isnull(holder_heart.reagents))

@@ -5,6 +5,7 @@
 	description = "Ballistics can be unpredictable in space."
 	design_ids = list(
 		"toy_armblade",
+		"toy_katana",
 		"toygun",
 		"c38_rubber",
 		"c38_rubber_mag",
@@ -16,6 +17,7 @@
 		"sec_dart",
 		"sec_Islug",
 		"sec_rshot",
+		"s12g_br",
 	)
 
 /datum/techweb_node/sec_equip

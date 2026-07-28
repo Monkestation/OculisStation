@@ -1,3 +1,8 @@
+///Unary Operators !
+#define OOP_UNARY 9
+///Parenthesis ()
+#define OOP_GROUP 10
+
 /**
  * Unary Operators
  *
@@ -39,3 +44,6 @@
  */
 /datum/node/expression/expression_operator/unary/group
 	precedence = OOP_GROUP
+
+#undef OOP_UNARY
+#undef OOP_GROUP

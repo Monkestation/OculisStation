@@ -33,12 +33,21 @@
 	var/window_open
 	/// What text was present in the say box the last time save_text was called
 	var/saved_text = ""
+	/// What channel was in use in the say box the last time save_text was called
+	var/saved_channel
+	/// Speech suffuxes used for force_say after "-". Defaults to hurt_phrases
+	var/list/alter_phrases
+	// OCULIS EDIT ADDITION START
+	/// Stores whichever channel the window was opened with
+	/// Ideally this would instead be the window's selected channel but that will require a more involved change
+	var/initial_channel
+	// OCULIS EDIT ADDITION END
 
 /** Creates the new input window to exist in the background. */
 /datum/tgui_say/New(client/client, id)
 	src.client = client
 	window = new(client, id)
-	winset(client, "tgui_say", "size=1,1;is-visible=0;")
+	winset(client, SKIN_TGUISAY, "size=1,1;is-visible=0;")
 	window.subscribe(src, PROC_REF(on_message))
 	window.is_browser = TRUE
 
@@ -65,7 +74,7 @@
 /datum/tgui_say/proc/load()
 	window_open = FALSE
 
-	winset(client, "tgui_say", "pos=848,500;is-visible=0;")
+	winset(client, SKIN_TGUISAY, "pos=848,500;is-visible=0;")
 
 	window.send_message("props", list(
 		"lightMode" = client.prefs?.read_preference(/datum/preference/toggle/tgui_say_light_mode),
@@ -88,7 +97,9 @@
 	if(!payload?["channel"])
 		CRASH("No channel provided to an open TGUI-Say")
 	window_open = TRUE
-	if(payload["channel"] != OOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL && payload["channel"] != LOOC_CHANNEL) // NOVA EDIT CHANGE (Add LOOC_CHANNEL)
+	saved_text = ""
+	if(payload["channel"] != OOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL && payload["channel"] != PRAY_CHANNEL /* && payload["channel"] != LOOC_CHANNEL*/) // OCULIS EDIT, REMOVED LOOC_CHANNEL // NOVA EDIT CHANGE - ORIGINAL: if(payload["channel"] != OOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL && payload["channel"] != PRAY_CHANNEL)
+		initial_channel = payload["channel"] // OCULIS EDIT ADDITION
 		start_thinking()
 	if(!client.typing_indicators)
 		log_speech_indicators("[key_name(client)] started typing at [loc_name(client.mob)], indicators DISABLED.")
@@ -103,6 +114,7 @@
 	stop_thinking()
 	if(!client.typing_indicators)
 		log_speech_indicators("[key_name(client)] stopped typing at [loc_name(client.mob)], indicators DISABLED.")
+	initial_channel = null // OCULIS EDIT ADDITION
 
 /**
  * The equivalent of ui_act, this waits on messages from the window

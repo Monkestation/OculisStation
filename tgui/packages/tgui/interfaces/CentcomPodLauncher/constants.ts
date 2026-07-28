@@ -192,6 +192,14 @@ export const EFFECTS_NORMAL: PodEffect[] = [
     soloSelected: 'effectTarget',
     title: 'Specific Target',
   },
+  // OCULIS EDIT ADDITION START - moved from harmful effects, renamed, icon changed
+  {
+    act: 'effectStun',
+    icon: 'lock',
+    soloSelected: 'effectStun',
+    title: 'Stunlock Target',
+  },
+  // OCULIS EDIT ADDITION END
   {
     act: 'effectBluespace',
     choiceNumber: 0,
@@ -290,12 +298,14 @@ export const EFFECTS_HARM: PodEffect[] = [
     soloSelected: 'effectShrapnel',
     title: 'Projectile Cloud',
   },
+  /* // OCULIS EDIT REMOVAL START - moved to normal effects
   {
     act: 'effectStun',
     icon: 'sun',
     soloSelected: 'effectStun',
     title: 'Stun',
   },
+  */ // OCULIS EDIT REMOVAL END
   {
     act: 'effectLimb',
     icon: 'socks',

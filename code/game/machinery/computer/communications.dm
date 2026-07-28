@@ -17,6 +17,7 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 /obj/machinery/computer/communications
 	name = "communications console"
 	desc = "A console used for high-priority announcements and emergencies."
+	icon_state = MAP_SWITCH("computer", "/obj/machinery/computer/communications")
 	icon_screen = "comm"
 	icon_keyboard = "tech_key"
 	req_access = list(ACCESS_COMMAND)
@@ -66,6 +67,7 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 	var/last_toggled
 
 /obj/machinery/computer/communications/syndicate
+	icon_state = MAP_SWITCH("computer", "/obj/machinery/computer/communications/syndicate")
 	icon_screen = "commsyndie"
 	circuit = /obj/item/circuitboard/computer/communications/syndicate
 	req_access = list(ACCESS_SYNDICATE_LEADER)
@@ -117,11 +119,11 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 		return TRUE
 	return authenticated
 
-/obj/machinery/computer/communications/attackby(obj/I, mob/user, list/modifiers, list/attack_modifiers)
-	if(isidcard(I))
-		attack_hand(user)
-	else
-		return ..()
+/obj/machinery/computer/communications/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!isidcard(tool))
+		return NONE
+	attack_hand(user)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/computer/communications/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(istype(emag_card, /obj/item/card/emag/battlecruiser))
@@ -212,7 +214,7 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 			if (new_sec_level < SEC_LEVEL_GREEN || new_sec_level > SEC_LEVEL_AMBER) //NOVA EDIT CHANGE - ALERTS
 				return
 			if (SSsecurity_level.get_current_level_as_number() >= SEC_LEVEL_DELTA)
-				to_chat(user, span_warning("Central Command has placed a lock on the alert level due to a doomsday!"))
+				to_chat(user, span_warning("Sectorial Administration has placed a lock on the alert level due to a doomsday!")) // OCULIS EDIT - Central Command > Sectorial Administration
 				return
 			if (SSsecurity_level.get_current_level_as_number() == new_sec_level)
 				return
@@ -257,9 +259,9 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 				to_chat(user, span_danger("Message transmitted to Syndicate Command."))
 			else
 				message_centcom(message, user)
-				to_chat(user, span_notice("Message transmitted to Central Command."))
+				to_chat(user, span_notice("Message transmitted to Sectorial Command.")) // OCULIS EDIT - Central Command > Sectorial Command
 
-			var/associates = (emagged || syndicate) ? "the Syndicate": "CentCom"
+			var/associates = (emagged || syndicate) ? "the Syndicate": "Sectorial Command" // OCULIS EDIT - CentCom > Sectorial Command
 			user.log_talk(message, LOG_SAY, tag = "message to [associates]")
 			deadchat_broadcast(" has messaged [associates], \"[message]\" at [span_name("[get_area_name(user, TRUE)]")].", span_name("[user.real_name]"), user, message_type = DEADCHAT_ANNOUNCEMENT)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
@@ -309,7 +311,7 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 			var/reason = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
 			nuke_request(reason, user)
 			to_chat(user, span_notice("Request sent."))
-			user.log_message("has requested the nuclear codes from CentCom with reason \"[reason]\"", LOG_SAY)
+			user.log_message("has requested the nuclear codes from SectCom with reason \"[reason]\"", LOG_SAY) // OCULIS EDIT, SectCommening 2, ORIGINAL: user.log_message("has requested the nuclear codes from CentCom with reason \"[reason]\"", LOG_SAY)
 			priority_announce("The codes for the on-station nuclear self-destruct have been requested by [user]. Confirmation or denial of this request will be sent shortly.", "Nuclear Self-Destruct Codes Requested", SSstation.announcer.get_rand_report_sound())
 			playsound(src, 'sound/machines/terminal/terminal_prompt.ogg', 50, FALSE)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)

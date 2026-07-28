@@ -24,27 +24,20 @@
 	name = "clay"
 	desc = "It's clay."
 	color = "#757575"
-	categories = list(
-		MAT_CATEGORY_RIGID = TRUE,
-		MAT_CATEGORY_BASE_RECIPES = TRUE,
-		MAT_CATEGORY_ITEM_MATERIAL = TRUE,
-		MAT_CATEGORY_ITEM_MATERIAL_COMPLEMENTARY = TRUE,
-		)
+	mat_flags = MATERIAL_CLASS_RIGID | MATERIAL_BASIC_RECIPES
+	mat_properties = list(
+		MATERIAL_DENSITY = 4,
+		MATERIAL_HARDNESS = 1,
+		MATERIAL_FLEXIBILITY = 9,
+		MATERIAL_REFLECTIVITY = 2,
+		MATERIAL_ELECTRICAL = 1,
+		MATERIAL_THERMAL = 8,
+		MATERIAL_CHEMICAL = 3,
+	)
 	sheet_type = /obj/item/stack/sheet/mineral/clay
 	value_per_unit = 5 / SHEET_MATERIAL_AMOUNT
-	armor_modifiers = list(MELEE = 0.5, BULLET = 0.5, LASER = 1.25, ENERGY = 0.5, BOMB = 0.5, BIO = 0.25, FIRE = 1.5, ACID = 1.5)
-	beauty_modifier = 0.3
 	turf_sound_override = FOOTSTEP_PLATING
 	texture_layer_icon_state = "brick"
-	fish_weight_modifier = 1.2
-	fishing_difficulty_modifier = 25 // clay fishing rods...
-	fishing_cast_range = -2
-	fishing_experience_multiplier = 0.3
-	fishing_completion_speed = 0.9
-	fishing_bait_speed_mult = 0.8
-	fishing_deceleration_mult = 2.5
-	fishing_bounciness_mult = 0.2
-	fishing_gravity_mult = 0.9
 
 GLOBAL_LIST_INIT(clay_recipes, list ( \
 	new/datum/stack_recipe("clay range", /obj/machinery/primitive_stove/clay, 10, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_MISC), \
@@ -55,45 +48,45 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	. = ..()
 	. += GLOB.clay_recipes
 
-/obj/structure/water_source/puddle/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/stack/ore/glass))
-		var/obj/item/stack/ore/glass/glass_item = attacking_item
+/obj/structure/water_source/puddle/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/stack/ore/glass))
+		var/obj/item/stack/ore/glass/glass_item = tool
 		if(!glass_item.use(1))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		new /obj/item/stack/clay(get_turf(src))
 		user.mind.adjust_experience(/datum/skill/production, 1)
-		return
+		return ITEM_INTERACT_SUCCESS
 
 	return ..()
 
-/turf/open/water/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/stack/ore/glass))
-		var/obj/item/stack/ore/glass/glass_item = attacking_item
+/turf/open/water/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/stack/ore/glass))
+		var/obj/item/stack/ore/glass/glass_item = tool
 		if(!glass_item.use(1))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		new /obj/item/stack/clay(src)
 		user.mind.adjust_experience(/datum/skill/production, 1)
-		return
+		return ITEM_INTERACT_SUCCESS
 
 	return ..()
 
-/obj/structure/sink/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/stack/ore/glass))
+/obj/structure/sink/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/stack/ore/glass))
 		if(dispensedreagent != /datum/reagent/water)
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		if(reagents.total_volume <= 0)
-			return
+			return ITEM_INTERACT_BLOCKING
 
-		var/obj/item/stack/ore/glass/glass_item = attacking_item
+		var/obj/item/stack/ore/glass/glass_item = tool
 		if(!glass_item.use(1))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		new /obj/item/stack/clay(get_turf(src))
 		user.mind.adjust_experience(/datum/skill/production, 1)
-		return
+		return ITEM_INTERACT_SUCCESS
 
 	return ..()
 
@@ -101,15 +94,15 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
 	var/forge_item
 
-/obj/item/ceramic/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/toy/crayon))
-		var/obj/item/toy/crayon/crayon_item = attacking_item
+/obj/item/ceramic/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/toy/crayon))
+		var/obj/item/toy/crayon/crayon_item = tool
 		if(!forge_item || !crayon_item.paint_color)
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		color = crayon_item.paint_color
 		to_chat(user, span_notice("You color [src] with [crayon_item]..."))
-		return
+		return ITEM_INTERACT_SUCCESS
 
 	return ..()
 
@@ -287,18 +280,18 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 		"You stop the throwing wheel, admiring your new creation...",
 	)
 
-/obj/structure/throwing_wheel/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/stack/clay))
+/obj/structure/throwing_wheel/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/stack/clay))
 		if(has_clay)
-			return
+			return ITEM_INTERACT_BLOCKING
 
-		var/obj/item/stack/stack_item = attacking_item
+		var/obj/item/stack/stack_item = tool
 		if(!stack_item.use(1))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		has_clay = TRUE
 		icon_state = "throw_wheel_full"
-		return
+		return ITEM_INTERACT_SUCCESS
 
 	return ..()
 

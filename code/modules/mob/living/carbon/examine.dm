@@ -6,7 +6,7 @@
 	return null
 
 /mob/living/carbon/examine(mob/user)
-	if(HAS_TRAIT(src, TRAIT_UNKNOWN_APPEARANCE))
+	if(HAS_TRAIT(src, TRAIT_UNKNOWN_APPEARANCE) && !isobserver(user))
 		return list(span_warning("You're struggling to make out any details..."))
 
 	var/t_He = p_They()
@@ -50,22 +50,35 @@
 		. += span_deadsay("It appears that [t_his] brain is missing...")
 
 	var/list/disabled = list()
-	for(var/obj/item/bodypart/body_part as anything in bodyparts)
+	for(var/obj/item/bodypart/body_part as anything in get_bodyparts())
 		if(body_part.bodypart_disabled)
 			disabled += body_part
+
+		var/treatment_distance = isliving(user) && get_dist(src, user) <= CARBON_EXAMINE_EMBEDDING_MAX_DIST
 		for(var/obj/item/embedded as anything in body_part.embedded_objects)
 			if(embedded.get_embed().stealthy_embed)
 				continue
 			var/harmless = embedded.get_embed().is_harmless()
 			var/stuck_wordage = harmless ? "stuck to" : "embedded in"
 			var/embed_line = "\a [embedded]"
-			if (get_dist(src, user) <= CARBON_EXAMINE_EMBEDDING_MAX_DIST)
+			if (treatment_distance)
 				embed_line = "<a href='byond://?src=[REF(src)];embedded_object=[REF(embedded)];embedded_limb=[REF(body_part)]'>\a [embedded]</a>"
 			var/embed_text = "[t_He] [t_has] [icon2html(embedded, user)] [embed_line] [stuck_wordage] [t_his] [body_part.plaintext_zone]!"
 			if (harmless)
 				. += span_italics(span_notice(embed_text))
 			else
 				. += span_boldwarning(embed_text)
+
+		var/obj/item/tourniquet/current_tourniquet = LAZYACCESS(body_part.applied_items, LIMB_ITEM_TOURNIQUET)
+		if(current_tourniquet)
+			var/tourniquet_href = "\a [current_tourniquet]"
+			if(treatment_distance)
+				tourniquet_href = "<a href='byond://?src=[REF(src)];remove_tourniquet=[REF(body_part)]'>[tourniquet_href]</a>"
+			var/tourniquet_msg = "[t_He] [t_has] [icon2html(current_tourniquet, user)] [tourniquet_href] tightly secured around [t_his] [body_part.body_zone == BODY_ZONE_HEAD ? "neck" : body_part.plaintext_zone]."
+			if(body_part.body_zone == BODY_ZONE_HEAD)
+				. += span_boldwarning(tourniquet_msg)
+			else
+				. += span_notice(tourniquet_msg)
 
 		for(var/datum/wound/iter_wound as anything in body_part.wounds)
 			. += span_danger(iter_wound.get_examine_description(user))
@@ -165,7 +178,7 @@
 		var/list/obj/item/bodypart/bleeding_limbs = list()
 		var/list/obj/item/bodypart/grasped_limbs = list()
 
-		for(var/obj/item/bodypart/body_part as anything in bodyparts)
+		for(var/obj/item/bodypart/body_part as anything in get_bodyparts())
 			if(body_part.cached_bleed_rate)
 				bleeding_limbs += body_part.plaintext_zone
 			if(body_part.grasped_by)
@@ -224,7 +237,7 @@
 		var/obj/item/organ/brain/brain = get_organ_by_type(/obj/item/organ/brain)
 		if(brain && isnull(ai_controller))
 			var/npc_message = ""
-			if(HAS_TRAIT(brain, TRAIT_GHOSTROLE_ON_REVIVE))
+			if(HAS_TRAIT(brain, TRAIT_GHOSTROLE_ON_REVIVE) || HAS_TRAIT(src, TRAIT_GHOSTROLE_ON_REVIVE))
 				npc_message = "Soul is pending..."
 			else if(!key)
 				npc_message = "[t_He] [t_is] totally catatonic. The stresses of life in deep-space must have been too much for [t_him]. Any recovery is unlikely."
@@ -292,6 +305,8 @@
 	/// The first 1-FLAVOR_PREVIEW_LIMIT characters in the mob's "flavor_text" DNA feature. FLAVOR_PREVIEW_LIMIT is defined in flavor_defines.dm.
 	var/preview_text = copytext_char((dna.features["flavor_text"]), 1, FLAVOR_PREVIEW_LIMIT)
 	// What examine_tgui.dm uses to determine if flavor text appears as "Obscured".
+	var/obj/item/clothing/mask/wear_mask = get_item_by_slot(ITEM_SLOT_MASK)
+	var/obj/item/clothing/head/head = get_item_by_slot(ITEM_SLOT_HEAD)
 	var/face_obscured = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 
 	if (!(face_obscured))
@@ -304,17 +319,17 @@
 	//Temporary flavor text addition:
 	if(temporary_flavor_text)
 		if(length_char(temporary_flavor_text) < TEMPORARY_FLAVOR_PREVIEW_LIMIT)
-			. += span_revennotice("<br>They look different than usual: [temporary_flavor_text]")
+			. += span_revennotice("<br>[t_He] look[p_s()] different than usual: [temporary_flavor_text]")
 		else
-			. += span_revennotice("<br>They look different than usual: [copytext_char(temporary_flavor_text, 1, TEMPORARY_FLAVOR_PREVIEW_LIMIT)]... <a href='byond://?src=[REF(src)];temporary_flavor=1'>More...</a>")
+			. += span_revennotice("<br>[t_He] look[p_s()] look different than usual: [copytext_char(temporary_flavor_text, 1, TEMPORARY_FLAVOR_PREVIEW_LIMIT)]... <a href='byond://?src=[REF(src)];temporary_flavor=1'>More...</a>")
 
 	. += EXAMINE_SECTION_BREAK
 
-	if (!CONFIG_GET(flag/disable_antag_opt_in_preferences))
-		var/opt_in_status = mind?.get_effective_opt_in_level()
-		if (!isnull(opt_in_status))
-			var/stringified_optin = GLOB.antag_opt_in_strings["[opt_in_status]"]
-			. += span_info("Antag Opt-in Status: <b><font color='[GLOB.antag_opt_in_colors[stringified_optin]]'>[stringified_optin]</font></b>")
+	if (!CONFIG_GET(flag/disable_conflict_opt_in_preferences))
+		var/conflict_opt_in_status = mind?.get_effective_conflict_opt_in_level()
+		if (!isnull(conflict_opt_in_status))
+			var/stringified_optin = GLOB.conflict_opt_in_strings["[conflict_opt_in_status]"]
+			. += span_info("Conflict Opt-In: <b><font color='[GLOB.conflict_opt_in_colors[stringified_optin]]'>[stringified_optin]</font></b>")
 	// NOVA EDIT ADDITION END
 
 	SEND_SIGNAL(src, COMSIG_ATOM_EXAMINE, user, .)
@@ -357,8 +372,8 @@
 	var/t_is = p_are()
 	//This checks to see if the body is revivable
 	var/obj/item/organ/brain = get_organ_by_type(/obj/item/organ/brain)
-	if(brain && HAS_TRAIT(brain, TRAIT_GHOSTROLE_ON_REVIVE))
-		return span_deadsay("[t_He] [t_is] limp and unresponsive; but [t_his] soul might yet come back...")
+	if((brain && HAS_TRAIT(brain, TRAIT_GHOSTROLE_ON_REVIVE)) || HAS_TRAIT(src, TRAIT_GHOSTROLE_ON_REVIVE))
+		return span_deadsay("[t_He] [t_is] limp and unresponsive; there are no signs of life, but another soul may take [t_his] place...")
 	var/client_like = client || HAS_TRAIT(src, TRAIT_MIND_TEMPORARILY_GONE)
 	var/valid_ghost = ghost?.can_reenter_corpse && ghost?.client
 	var/valid_soul = brain || !HAS_TRAIT(src, TRAIT_FAKE_SOULLESS)
@@ -371,7 +386,7 @@
 	var/list/seen_damage = list() // This looks like: ({Damage type} = list({Damage description for that damage type} = {number of times it has appeared}, ...), ...)
 	var/list/most_seen_damage = list() // This looks like: ({Damage type} = {Frequency of the most common description}, ...)
 	var/list/final_descriptions = list() // This looks like: ({Damage type} = {Most common damage description for that type}, ...)
-	for(var/obj/item/bodypart/part as anything in bodyparts)
+	for(var/obj/item/bodypart/part as anything in get_bodyparts())
 		for(var/damage_type in part.damage_examines)
 			var/damage_desc = part.damage_examines[damage_type]
 			if(!seen_damage[damage_type])
@@ -395,55 +410,26 @@
 	var/t_his = p_their()
 	var/t_has = p_have()
 	var/t_is = p_are()
-	//head
-	if(head && !(obscured_slots & HIDEHEADGEAR) && !HAS_TRAIT(head, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_is] wearing [head.examine_title(user)] on [t_his] head."
-	//back
-	if(back && !HAS_TRAIT(back, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_has] [back.examine_title(user)] on [t_his] back."
 	//Hands
 	for(var/obj/item/held_thing in held_items)
 		if((held_thing.item_flags & (ABSTRACT|HAND_ITEM)) || HAS_TRAIT(held_thing, TRAIT_EXAMINE_SKIP))
 			continue
 		. += "[t_He] [t_is] holding [held_thing.examine_title(user)] in [t_his] [get_held_index_name(get_held_index_of_item(held_thing))]."
-	for(var/obj/item/bodypart/arm/part in bodyparts)
+	for(var/obj/item/bodypart/arm/part in get_bodyparts())
 		if(!(part.bodypart_flags & BODYPART_PSEUDOPART))
 			continue
 		var/obj/item/corresponding_item = get_item_for_held_index(part.held_index) || part
 		. += "[t_He] [t_has] a [corresponding_item.examine_title(user)] in place of [t_his] [initial(part.plaintext_zone)]."
-	//gloves
-	if(gloves && !(obscured_slots & HIDEGLOVES) && !HAS_TRAIT(gloves, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_has] [gloves.examine_title(user)] on [t_his] hands."
-	else if(GET_ATOM_BLOOD_DECAL_LENGTH(src) && num_hands)
-		var/list/blood_stains = GET_ATOM_BLOOD_DECALS(src)
-		var/datum/blood_type/blood_type = blood_stains[blood_stains[length(blood_stains)]]
-		var/blood_descriptior = "blood"
-		if(istype(blood_type))
-			blood_descriptior = LOWER_TEXT(blood_type.get_blood_name())
-		. += span_warning("[t_He] [t_has] [num_hands > 1 ? "" : "a "][blood_descriptior]-stained hand[num_hands > 1 ? "s" : ""]!")
 	//handcuffed?
 	if(handcuffed)
 		var/cables_or_cuffs = istype(handcuffed, /obj/item/restraints/handcuffs/cable) ? "restrained with cable" : "handcuffed"
 		. += span_warning("[t_He] [t_is] [icon2html(handcuffed, user)] [cables_or_cuffs]!")
-	//shoes
-	if(shoes && !(obscured_slots & HIDESHOES)  && !HAS_TRAIT(shoes, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_is] wearing [shoes.examine_title(user)] on [t_his] feet."
-	//mask
-	if(wear_mask && !(obscured_slots & HIDEMASK)  && !HAS_TRAIT(wear_mask, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_has] [wear_mask.examine_title(user)] on [t_his] face."
-	if(wear_neck && !(obscured_slots & HIDENECK)  && !HAS_TRAIT(wear_neck, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_is] wearing [wear_neck.examine_title(user)] around [t_his] neck."
 	//eyes
 	if(!(obscured_slots & HIDEEYES))
-		if(glasses  && !HAS_TRAIT(glasses, TRAIT_EXAMINE_SKIP))
-			. += "[t_He] [t_has] [glasses.examine_title(user)] covering [t_his] eyes."
-		else if(HAS_TRAIT(src, TRAIT_UNNATURAL_RED_GLOWY_EYES))
+		if(HAS_TRAIT(src, TRAIT_UNNATURAL_RED_GLOWY_EYES))
 			. += span_warning("<B>[t_His] eyes are glowing with an unnatural red aura!</B>")
 		else if(HAS_TRAIT(src, TRAIT_BLOODSHOT_EYES))
 			. += span_warning("<B>[t_His] eyes are bloodshot!</B>")
-	//ears
-	if(ears && !(obscured_slots & HIDEEARS) && !HAS_TRAIT(ears, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_has] [ears.examine_title(user)] on [t_his] ears."
 
 // Yes there's a lot of copypasta here, we can improve this later when carbons are less dumb in general
 /mob/living/carbon/human/get_clothing_examine_info(mob/living/user)
@@ -508,7 +494,7 @@
 		if((held_thing.item_flags & (ABSTRACT|HAND_ITEM)) || HAS_TRAIT(held_thing, TRAIT_EXAMINE_SKIP))
 			continue
 		. += "[t_He] [t_is] holding [held_thing.examine_title(user)] in [t_his] [get_held_index_name(get_held_index_of_item(held_thing))]."
-	for(var/obj/item/bodypart/arm/part in bodyparts)
+	for(var/obj/item/bodypart/arm/part in get_bodyparts())
 		if(!(part.bodypart_flags & BODYPART_PSEUDOPART))
 			continue
 		var/obj/item/corresponding_item = get_item_for_held_index(part.held_index) || part
@@ -516,9 +502,15 @@
 	//gloves
 	if(gloves && !(obscured_slots & HIDEGLOVES) && !HAS_TRAIT(gloves, TRAIT_EXAMINE_SKIP))
 		. += "[t_He] [t_has] [gloves.examine_title(user)] on [t_his] hands."
-	else if(GET_ATOM_BLOOD_DECAL_LENGTH(src) || blood_in_hands)
-		if(num_hands)
-			. += span_warning("[t_He] [t_has] [num_hands > 1 ? "" : "a "]blood-stained hand[num_hands > 1 ? "s" : ""]!")
+	else if(GET_ATOM_BLOOD_DECAL_LENGTH(src) && num_hands)
+		var/list/blood_stains = GET_ATOM_BLOOD_DECALS(src)
+		var/datum/blood_type/blood_type = blood_stains[blood_stains[length(blood_stains)]]
+		var/blood_descriptior = "blood"
+		if(istype(blood_type))
+			blood_descriptior = LOWER_TEXT(blood_type.get_blood_name())
+		. += span_warning("[t_He] [t_has] [num_hands > 1 ? "" : "a "][blood_descriptior]-stained hand[num_hands > 1 ? "s" : ""]!")
+	else if (blood_in_hands && num_hands)
+		. += span_warning("[t_He] [t_has] [num_hands > 1 ? "" : "a "]blood-stained hand[num_hands > 1 ? "s" : ""]!")
 	//handcuffed?
 	if(handcuffed)
 		var/cables_or_cuffs = istype(handcuffed, /obj/item/restraints/handcuffs/cable) ? "restrained with cable" : "handcuffed"
@@ -623,7 +615,7 @@
 		if(undershirt.has_sensor == BROKEN_SENSORS)
 			. += list(span_notice("\The [undershirt]'s medical sensors are sparking."))
 
-	if(HAS_TRAIT(src, TRAIT_UNKNOWN_APPEARANCE) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN))
+	if((HAS_TRAIT(src, TRAIT_UNKNOWN_APPEARANCE) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN)) && !isobserver(user))
 		return
 
 	var/limbs_text = get_mismatched_limb_text()
@@ -638,7 +630,7 @@
 /mob/living/carbon/human/proc/get_mismatched_limb_text()
 	var/list/covered = get_covered_body_zones()
 	var/list/texts = list()
-	for(var/obj/item/bodypart/part as anything in bodyparts)
+	for(var/obj/item/bodypart/part as anything in get_bodyparts())
 		var/part_id = part.limb_id
 		var/obj/item/bodypart/expected_part = dna?.species?.bodypart_overrides[part.body_zone]
 		var/expected_id = initial(expected_part?.limb_id)

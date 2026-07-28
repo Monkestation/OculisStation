@@ -16,9 +16,9 @@
 	desc = "The HoS took your gun and your badge? No problem! Just pay the absurd taxation fee and you too can be reunited with the lethal power of a .38!"
 	cost = CARGO_CRATE_VALUE * 2.5
 	auto_name = FALSE
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
 	order_flags = ORDER_COMPANY
 	contains = list(/obj/item/gun/ballistic/revolver/c38/detective)
 
@@ -27,9 +27,9 @@
 	desc = "Lost your beloved bunny to a demonic invasion? Clown broke in and stole your beloved gun? No worries! Get a new gun as long as you can pay the absurd fees."
 	cost = CARGO_CRATE_VALUE * 2
 	auto_name = FALSE
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
 	order_flags = ORDER_COMPANY
 	contains = list(/obj/item/gun/ballistic/shotgun/doublebarrel)
 
@@ -46,19 +46,38 @@
 		/obj/item/crafting_conversion_kit/c38_speedloader_plus,
 	)
 	auto_name = FALSE
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
 	order_flags = ORDER_COMPANY
+
+/datum/supply_pack/companies/ballistics/nt/c96
+	name = "NT M-96"
+	desc = "Hot off the assembly line and right into your holster, this modern reproduction of the classic C96 is chambered in 9mm."
+	cost = CARGO_CRATE_VALUE * 4
+	contains = list(/obj/item/gun/ballistic/rifle/c96)
+	auto_name = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
+	order_flags = ORDER_COMPANY
+
+// Aethon and HHI Weapons
+
+/datum/supply_pack/companies/ballistics/atheon/rapier
+	name = "M94 'Rapier' Submachinegun"
+	desc = "Big and mean, spits hot lead and fills halls with casings. Perfect for when collateral damage is on the table. Chambered in 4.6mm."
+	cost = CARGO_CRATE_VALUE * 4
+	contains = list(/obj/item/gun/ballistic/automatic/rapier)
 
 // Sol Fed Weapons
 /datum/supply_pack/companies/ballistics/sol_fed
 
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm
 	cost = CARGO_CRATE_VALUE * 2
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
 	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm/eland
@@ -78,6 +97,10 @@
 	contains = list(/obj/item/gun/ballistic/revolver/takbok)
 	cost = CARGO_CRATE_VALUE * 3
 
+/datum/supply_pack/companies/ballistics/sol_fed/sidearm/alacran_civil
+	contains = list(/obj/item/gun/ballistic/automatic/sol_pdw/civil)
+	cost = CARGO_CRATE_VALUE * 2.5
+
 /datum/supply_pack/companies/ballistics/sol_fed/longarm
 	cost = CARGO_CRATE_VALUE * 3
 
@@ -87,9 +110,9 @@
 	cost = CARGO_CRATE_VALUE * 3 // 600 cr at time of writing, 1200 cr total
 	contains = list(/obj/item/crafting_conversion_kit/riot_sol_super)
 	auto_name = FALSE
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/doublebarrel_super_kit
 	name = "Archon Systems \"LAMMERGEIER\" Double-Barrel Shotgun Conversion Kit"
@@ -97,15 +120,19 @@
 	cost = CARGO_CRATE_VALUE * 3 // 600 cr at time of writing, 1000 cr total
 	contains = list(/obj/item/crafting_conversion_kit/doublebarrel_super)
 	auto_name = FALSE
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/renoster
 	contains = list(/obj/item/gun/ballistic/shotgun/riot/sol)
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/sindano
 	contains = list(/obj/item/gun/ballistic/automatic/sol_smg)
+
+/datum/supply_pack/companies/ballistics/sol_fed/longarm/alacran
+	contains = list(/obj/item/gun/ballistic/automatic/sol_pdw)
+	cost = CARGO_CRATE_VALUE * 4
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/type213
 	contains = list(/obj/item/gun/ballistic/automatic/type213)
@@ -147,16 +174,16 @@
 
 /datum/supply_pack/companies/ballistics/hc_surplus/shotgun_revolver
 	contains = list(/obj/item/gun/ballistic/revolver/shotgun_revolver)
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
 	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/ballistics/hc_surplus/zashch
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/zashch)
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
 	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/ballistics/hc_surplus/miecz
@@ -219,3 +246,6 @@
 /datum/supply_pack/companies/ballistics/blacksteel/longbow
 	contains = list(/obj/item/gun/ballistic/bow/longbow)
 	cost = CARGO_CRATE_VALUE * 1.5
+	access = FALSE
+	access_view = FALSE
+	express_lock = FALSE

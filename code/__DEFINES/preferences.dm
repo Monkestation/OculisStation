@@ -47,6 +47,7 @@
 #define PARALLAX_HIGH "High"
 #define PARALLAX_MED "Medium"
 #define PARALLAX_LOW "Low"
+#define PARALLAX_BOOMER "Old"
 #define PARALLAX_DISABLE "Disabled"
 
 #define SCALING_METHOD_NORMAL "normal"
@@ -66,7 +67,7 @@
 // Playtime tracking system, see jobs_exp.dm
 #define EXP_TYPE_LIVING "Living"
 #define EXP_TYPE_CREW "Crew"
-#define EXP_TYPE_CENTRAL_COMMAND "Central Command" // NOVA EDIT ADD
+#define EXP_TYPE_CENTRAL_COMMAND "Sectorial Command" // NOVA EDIT ADD // OCULIS EDIT, SectCommening 2, ORIGINAL: #define EXP_TYPE_CENTRAL_COMMAND "Central Command"
 #define EXP_TYPE_COMMAND "Command"
 #define EXP_TYPE_ENGINEERING "Engineering"
 #define EXP_TYPE_MEDICAL "Medical"

@@ -65,7 +65,7 @@
 	)
 
 /obj/machinery/modular_computer/preset/id/centcom
-	desc = "A stationary computer. This one comes preloaded with CentCom identification modification programs."
+	desc = "A stationary computer. This one comes preloaded with SectCom identification modification programs." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A stationary computer. This one comes preloaded with CentCom identification modification programs."
 
 /obj/machinery/modular_computer/preset/id/centcom/Initialize(mapload)
 	. = ..()

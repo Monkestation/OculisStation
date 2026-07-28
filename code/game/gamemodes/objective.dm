@@ -597,7 +597,7 @@ GLOBAL_LIST_EMPTY(objectives) //NOVA EDIT ADDITION
 
 /datum/objective/exile
 	name = "exile"
-	explanation_text = "Stay alive off station. Do not go to CentCom."
+	explanation_text = "Stay alive off station. Do not go to Castor Station." // OCULIS EDIT - CentCom > Castor Station
 
 /datum/objective/exile/check_completion()
 	var/list/owners = get_owners()

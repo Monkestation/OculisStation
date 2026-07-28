@@ -67,11 +67,11 @@
 	tail_spines_overlay.tail_spine_key = tail_spine_key
 	// NOVA EDIT ADDITION START
 	if(!bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES])
-		bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES] = bodypart.owner.dna.species.build_mutant_part(SPRITE_ACCESSORY_NONE, list("#886600", "#886600", "#886600"))
+		bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES] = build_mutant_part(SPRITE_ACCESSORY_NONE, list("#886600", "#886600", "#886600"))
 	// NOVA EDIT ADDITION END
 	var/datum/mutant_bodypart/mutant_bodypart = bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES]
 	var/feature_name = mutant_bodypart.name // NOVA EDIT CHANGE - ORIGINAL: var/feature_name = bodypart.owner.dna.features[FEATURE_SPINES] //tail spines don't live in DNA, but share feature names with regular spines
-	tail_spines_overlay.set_appearance_from_dna(bodypart.owner.dna, feature_name, feature_key = FEATURE_SPINES) // NOVA EDIT CHANGE - ORIGINAL: tail_spines_overlay.set_appearance_from_name(feature_name)
+	tail_spines_overlay.set_appearance_from_dna(bodypart.owner.dna, feature_name, feature_key = FEATURE_SPINES, limb = bodypart_owner) // NOVA EDIT CHANGE - ORIGINAL: tail_spines_overlay.set_appearance_from_name(feature_name)
 	bodypart.add_bodypart_overlay(tail_spines_overlay)
 
 /// If we have a tail spines overlay, delete it
@@ -145,15 +145,21 @@
 
 ///Tail parent type, with wagging functionality
 /datum/bodypart_overlay/mutant/tail
-	layers = EXTERNAL_FRONT|EXTERNAL_BEHIND
+	layers = list(
+		EXTERNAL_FRONT = BODY_FRONT_LAYER,
+		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
+	)
 	dyable = TRUE
+	offset_location = ENTIRE_BODY
 	var/wagging = FALSE
 
 /datum/bodypart_overlay/mutant/tail/get_base_icon_state()
 	return "[wagging ? "wagging_" : ""][sprite_datum.icon_state]" //add the wagging tag if we be wagging
 
-/datum/bodypart_overlay/mutant/tail/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
-	return !(bodypart_owner.owner?.obscured_slots & HIDEJUMPSUIT)
+/* // NOVA EDIT REMOVAL START - No.
+/datum/bodypart_overlay/mutant/tail/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
+	return ..() && !(bodypart_owner.owner?.obscured_slots & HIDEJUMPSUIT)
+*/ // NOVA EDIT REMOVAL END
 
 /obj/item/organ/tail/cat
 	name = "tail"
@@ -221,6 +227,7 @@
 /datum/bodypart_overlay/mutant/tail/xeno
 	color_source = NONE
 	feature_key = FEATURE_TAIL // NOVA EDIT CHANGE - CUSTOMIZATION - ORIGINAL: feature_key = FEATURE_TAIL_XENO
+	draw_on_husks = HUSK_OVERLAY_GRAYSCALE
 	imprint_on_next_insertion = FALSE
 	/// We don't want to bother writing this in DNA, just use this appearance
 	var/default_appearance = "Xeno"
@@ -247,6 +254,7 @@
 ///Lizard tail bodypart overlay datum
 /datum/bodypart_overlay/mutant/tail/lizard
 	feature_key = FEATURE_TAIL // NOVA EDIT - Customization - ORIGINAL: feature_key = FEATURE_TAIL_LIZARD
+	draw_on_husks = HUSK_OVERLAY_GRAYSCALE
 
 /obj/item/organ/tail/lizard/fake
 	name = "fabricated lizard tail"
@@ -254,8 +262,13 @@
 
 ///Bodypart overlay for tail spines. Handled by the tail - has no actual organ associated.
 /datum/bodypart_overlay/mutant/tail_spines
-	layers = EXTERNAL_ADJACENT|EXTERNAL_BEHIND
+	layers = list(
+		EXTERNAL_ADJACENT = BODY_ADJ_LAYER,
+		EXTERNAL_BEHIND = BODY_BEHIND_LAYER
+	)
 	feature_key = FEATURE_TAILSPINES
+	draw_on_husks = HUSK_OVERLAY_GRAYSCALE
+	offset_location = ENTIRE_BODY
 	///Spines wag when the tail does
 	var/wagging = FALSE
 	/// Key for tail spine states, depends on the shape of the tail. Defined in the tail sprite datum.
@@ -264,8 +277,8 @@
 /datum/bodypart_overlay/mutant/tail_spines/get_base_icon_state()
 	return (!isnull(tail_spine_key) ? "[tail_spine_key]_" : "") + (wagging ? "wagging_" : "") + sprite_datum.icon_state // Select the wagging state if appropriate
 
-/datum/bodypart_overlay/mutant/tail_spines/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
-	return !(bodypart_owner.owner?.obscured_slots & HIDEJUMPSUIT)
+/datum/bodypart_overlay/mutant/tail_spines/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
+	return ..() && !(bodypart_owner.owner?.obscured_slots & HIDEJUMPSUIT)
 
 /datum/bodypart_overlay/mutant/tail_spines/set_dye_color(new_color, obj/item/organ/organ)
 	dye_color = new_color //no update_body_parts() call, tail/set_dye_color will do it.

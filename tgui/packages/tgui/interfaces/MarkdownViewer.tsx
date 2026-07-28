@@ -31,11 +31,16 @@ export const MarkdownRenderer = (props: MarkdownRendererProps) => {
 
   content = marked(content, { async: false });
   if (sanitize) {
-    const sanitized = sanitizeText(content, /* advHtml = */ false);
-    content =
-      typeof sanitized === 'object' && sanitized !== null
-        ? sanitized.sanitized
-        : sanitized;
+    // content = sanitizeText(content, /* advHtml = */ false); // OCULIS EDIT REMOVAL
+    // OCULIS EDIT ADDITION START
+    const result = sanitizeText(content, /* advHtml = */ false);
+    if (typeof result === 'object' && result !== null) {
+      content = result.sanitized
+    }
+    else {
+      content = result
+    }
+    // OCULIS EDIT ADDITION END
   }
 
   return <div dangerouslySetInnerHTML={{ __html: content }} />;

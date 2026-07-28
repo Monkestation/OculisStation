@@ -5,7 +5,8 @@
 		/obj/item/food/spaghetti/copypasta = 1
 	)
 	result = /obj/item/food/spaghetti/triple
-	category = CAT_SPAGHETTI
+	dish_category = DISH_NOODLES
+	cuisine_category = CUISINE_ITALIAN
 
 /datum/crafting_recipe/food/pasta_tower
 	name = "Pasta tower"
@@ -14,7 +15,8 @@
 		/obj/item/food/spaghetti/triple = 1
 	)
 	result = /obj/item/food/spaghetti/tower
-	category = CAT_SPAGHETTI
+	dish_category = DISH_NOODLES
+	cuisine_category = CUISINE_ITALIAN
 
 /datum/crafting_recipe/food/pasta_spire
 	name = "InSPIREd pasta"
@@ -23,7 +25,8 @@
 		/obj/item/food/spaghetti/tower = 1
 	)
 	result = /obj/item/food/spaghetti/spire
-	category = CAT_SPAGHETTI
+	dish_category = DISH_NOODLES
+	cuisine_category = CUISINE_ITALIAN
 
 /datum/crafting_recipe/food/pasta_babel
 	name = "Babel pasta"
@@ -32,7 +35,8 @@
 		/obj/item/food/spaghetti/spire = 1
 	)
 	result = /obj/item/food/spaghetti/babel
-	category = CAT_SPAGHETTI
+	dish_category = DISH_NOODLES
+	cuisine_category = CUISINE_ITALIAN
 
 /datum/crafting_recipe/food/pasta_singularity
 	name = "Singularity pasta"
@@ -40,7 +44,8 @@
 		/obj/item/food/spaghetti/pastatomato = 10
 	)
 	result = /obj/item/food/spaghetti/singularity
-	category = CAT_SPAGHETTI
+	dish_category = DISH_NOODLES
+	cuisine_category = CUISINE_ITALIAN
 
 /datum/crafting_recipe/food/expand_pasta_singularity
 	name = "Expand singularity pasta"
@@ -49,4 +54,5 @@
 		/obj/item/food/spaghetti/singularity = 1
 	)
 	result = /obj/item/food/spaghetti/singularity
-	category = CAT_SPAGHETTI
+	dish_category = DISH_NOODLES
+	cuisine_category = CUISINE_ITALIAN

@@ -22,6 +22,7 @@ again.
 	name = "window spawner"
 	spawn_list = list(/obj/structure/grille, /obj/structure/window/fulltile)
 	dir = SOUTH
+	density = TRUE
 
 /obj/effect/spawner/structure/window/Initialize(mapload)
 	. = ..()

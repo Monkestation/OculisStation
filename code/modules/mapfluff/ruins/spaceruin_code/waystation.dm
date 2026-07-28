@@ -20,13 +20,14 @@
 /obj/item/disk/holodisk/ruin/waystation
 	name = "Ops NUCLEUS - Briefing"
 	preset_image_type = /datum/preset_holoimage/syndicatebattlecruisercaptain
+	// OCULIS EDIT START
 	preset_record_text = {"
 	NAME Raymond Johnson
 	SAY All right boys, The mission is simple.
 	DELAY 20
 	SAY You will be breaching an distant waystation on the fringe of Nanotrasen territory.
 	DELAY 25
-	SAY Your main objective is to secure highly classified documents about recent Nanotrasen expansion in the Cabriole sector.
+	SAY Your main objective is to secure highly classified documents about recent Nanotrasen expansion in the Eidolon sector.
 	DELAY 20
 	SAY The documents are located in the secure storage room.
 	DELAY 25
@@ -38,6 +39,7 @@
 	DELAY 10
 	SAY This should be a cakewalk, I have the utmost confidence that you will succeed with your objectives. Good luck.
 	DELAY 25"}
+	// OCULIS EDIT END
 
 // Outfits
 /datum/outfit/waystation/

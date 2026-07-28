@@ -12,7 +12,7 @@
 /datum/antagonist/on_removal()
 	. = ..()
 	for(var/recipe_datum in antag_recipes)
-		owner.unteach_crafting_recipe(recipe_datum)
+		owner.forget_crafting_recipe(recipe_datum)
 
 /datum/antagonist/ashwalker
 	antag_recipes = list(
@@ -55,6 +55,9 @@
 /datum/antagonist/traitor
 	view_exploitables = TRUE
 	give_objectives = FALSE
+
+/datum/antagonist/nightmare
+	view_exploitables = TRUE
 
 /datum/antagonist/pirate
 	view_exploitables = TRUE // pirates are flexible antags, not strictly bound by their objective. i could see this working

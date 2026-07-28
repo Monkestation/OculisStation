@@ -162,6 +162,11 @@
 	if(!length(limbs_to_heal))
 		to_chat(H, span_notice("You feel intact enough as it is."))
 		return
+	// OCULIS EDIT ADDITION START
+	if(HAS_TRAIT(H, TRAIT_SLIME_HYDROPHOBIA))
+		to_chat(H, span_warning("Your membrane is too viscous to regenerate your limbs!"))
+		return
+	// OCULIS EDIT ADDITION END
 	to_chat(H, span_notice("You focus intently on your missing [length(limbs_to_heal) >= 2 ? "limbs" : "limb"]..."))
 	if(H.get_blood_volume() >= blood_per_limb * length(limbs_to_heal) + BLOOD_VOLUME_OKAY)
 		H.regenerate_limbs()
@@ -189,7 +194,7 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 	mutanteyes = /obj/item/organ/eyes
 	var/datum/action/innate/split_body/slime_split
-	var/list/mob/living/carbon/bodies
+	/* var/list/mob/living/carbon/bodies */ // OCULIS EDIT REMOVAL
 	var/datum/action/innate/swap_body/swap_body
 
 	bodypart_overrides = list(
@@ -211,11 +216,16 @@
 		slime_split.Remove(C)
 	if(swap_body)
 		swap_body.Remove(C)
+	/* // OCULIS EDIT REMOVAL BEGIN
 	bodies -= C // This means that the other bodies maintain a link
 	// so if someone mindswapped into them, they'd still be shared.
 	bodies = null
+	*/ // OCULIS EDIT REMOVAL END
 	C.set_blood_volume(C.get_blood_volume(), maximum = BLOOD_VOLUME_NORMAL)
-	UnregisterSignal(C, COMSIG_LIVING_DEATH)
+	UnregisterSignal(C, list(
+		COMSIG_LIVING_DEATH,
+		COMSIG_LIVING_LIFE,
+	))
 	..()
 
 /datum/species/jelly/slime/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load, regenerate_icons)
@@ -226,13 +236,17 @@
 		swap_body = new
 		swap_body.Grant(C)
 
+		/* // OCULIS EDIT REMOVAL BEGIN
 		if(!bodies || !length(bodies))
 			bodies = list(C)
 		else
 			bodies |= C
+		*/ // oculis edit removal end
 
 	RegisterSignal(C, COMSIG_LIVING_DEATH, PROC_REF(on_death_move_body))
+	// RegisterSignal(C, COMSIG_LIVING_LIFE, PROC_REF(on_life)) // NOVA EDIT REMOVAL - Handled by the base type
 
+/* // OCULIS EDIT REMOVAL BEGIN - MOVED TO modular_oculis/modules/oozelings/code/slimepeople/slimeperson.dm
 /datum/species/jelly/slime/proc/on_death_move_body(mob/living/carbon/human/source, gibbed)
 	SIGNAL_HANDLER
 
@@ -255,16 +269,18 @@
 /datum/species/jelly/slime/copy_properties_from(datum/species/jelly/slime/old_species)
 	bodies = old_species.bodies
 
-/datum/species/jelly/slime/spec_life(mob/living/carbon/human/H, seconds_per_tick)
-	. = ..()
-	if(H.get_blood_volume() >= BLOOD_VOLUME_SLIME_SPLIT)
-		if(SPT_PROB(2.5, seconds_per_tick))
-			to_chat(H, span_notice("You feel very bloated!"))
+*/ // OCULIS EDIT REMOVAL END
 
-	else if(H.nutrition >= NUTRITION_LEVEL_WELL_FED)
-		H.adjust_blood_volume(1.5 * seconds_per_tick)
-		if(H.get_blood_volume() <= BLOOD_VOLUME_LOSE_NUTRITION)
-			H.adjust_nutrition(-1.25 * seconds_per_tick)
+/datum/species/jelly/slime/on_life(mob/living/carbon/human/source, seconds_per_tick) // NOVA EDIT CHANGE - Original: /datum/species/jelly/slime/proc/on_life(mob/living/carbon/human/source, seconds_per_tick) - Remove /proc to make this an override
+	. = ..() // NOVA EDIT CHANGE - ORIGINAL: SIGNAL_HANDLER
+	if(source.get_blood_volume() >= BLOOD_VOLUME_SLIME_SPLIT)
+		if(SPT_PROB(2.5, seconds_per_tick))
+			to_chat(source, span_notice("You feel very bloated!"))
+
+	else if(source.nutrition >= NUTRITION_LEVEL_WELL_FED)
+		source.adjust_blood_volume(1.5 * seconds_per_tick)
+		if(source.get_blood_volume() <= BLOOD_VOLUME_LOSE_NUTRITION)
+			source.adjust_nutrition(-1.25 * seconds_per_tick)
 
 /datum/action/innate/split_body
 	name = "Split Body"
@@ -324,10 +340,21 @@
 	REMOVE_TRAIT(H, TRAIT_NO_TRANSFORM, REF(src))
 
 	var/datum/species/jelly/slime/origin_datum = H.dna.species
-	origin_datum.bodies |= spare
+	origin_datum.manager.add_body(spare) // OCULIS EDIT CHANGE - ORIGINAL: origin_datum.bodies |= spare
 
+	/* // OCULIS EDIT REMOVAL BEGIN
 	var/datum/species/jelly/slime/spare_datum = spare.dna.species
 	spare_datum.bodies = origin_datum.bodies
+	*/ // OCULIS EDIT REMOVAL END
+
+	// OCULIS EDIT ADDITION BEGIN
+	if(H.blooper_id)
+		spare.set_blooper(H.blooper_id)
+		spare.blooper_pitch = H.blooper_pitch
+		spare.blooper_pitch_range = H.blooper_pitch_range
+		spare.blooper_volume = H.blooper_volume
+		spare.blooper_speed = H.blooper_speed
+	// OCULIS EDIT ADDITION END
 
 	H.transfer_quirk_datums(spare)
 	H.mind.transfer_to(spare)
@@ -337,6 +364,7 @@
 	)
 
 
+/* // OCULIS EDIT REMOVAL START
 /datum/action/innate/swap_body
 	name = "Swap Body"
 	check_flags = NONE
@@ -477,7 +505,7 @@
 	M.current.transfer_quirk_datums(dupe)
 	M.transfer_to(dupe)
 	dupe.visible_message(span_notice("[dupe] blinks and looks around."), span_notice("...and move this one instead."))
-
+*/ // OCULIS EDIT REMOVAL END
 
 ///////////////////////////////////LUMINESCENTS//////////////////////////////////////////
 
@@ -694,6 +722,7 @@
 		/datum/component/mind_linker/active_linking, \
 		network_name = "Slime Link", \
 		signals_which_destroy_us = list(COMSIG_SPECIES_LOSS), \
+		show_balloon_alert = TRUE, \
 		linker_action_path = /datum/action/innate/link_minds, \
 	)
 

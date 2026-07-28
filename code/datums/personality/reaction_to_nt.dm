@@ -26,7 +26,7 @@
 /datum/personality/nt/loyalist
 	savefile_key = "loyalist"
 	name = "Loyal"
-	desc = "I believe in the station and in Central Command, till the very end!"
+	desc = "I believe in the station and in Sectorial Command, till the very end!" // OCULIS EDIT - Central Command > Sectorial Command
 	pos_gameplay_desc = "Likes company posters and signs"
 	mood_event_type = /datum/mood_event/nt_loyalist
 

@@ -4,7 +4,7 @@
 /datum/species/hemophage
 	name = "Hemophage"
 	id = SPECIES_HEMOPHAGE
-	// IRIS EDIT: Hemophages now use mutant color instead of skin tone
+	// OCULIS EDIT: Hemophages now use mutant color instead of skin tone
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
@@ -85,11 +85,10 @@
 
 
 /datum/species/hemophage/prepare_human_for_preview(mob/living/carbon/human/human)
-	human.dna.features["mcolor"] = "#fff4e6" // IRIS EDIT: Hemophages now use mutant color instead of skin tone. Original CODE: human.skin_tone = "albino"
-	human.hair_color = "#1d1d1d"
-	human.hairstyle = "Pompadour (Big)"
-	regenerate_organs(human, src, visual_only = TRUE)
-	human.update_body(TRUE)
+	human.dna.features["mcolor"] = "#fff4e6" // OCULIS EDIT: Hemophages now use mutant color instead of skin tone. Original CODE: human.skin_tone = "albino"
+	human.set_haircolor("#1d1d1d", update = FALSE)
+	human.set_hairstyle("Pompadour (Big)", update = FALSE)
+	human.update_body_parts(TRUE)
 
 
 /datum/species/hemophage/create_pref_unique_perks()

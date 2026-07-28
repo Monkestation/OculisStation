@@ -52,23 +52,31 @@
 	// NOVA EDIT ADDITION START - AESTHETICS
 	if(icon_state in modular_states)
 		icon = 'modular_nova/modules/aesthetics/plants/icons/plants.dmi'
+	// OCULIS ADDITION START
+	else if(icon_state == "iris")
+		icon = 'modular_oculis/master_files/icons/obj/plants.dmi'
+	// OCULIS ADDITION END
 	else
 		icon = 'icons/obj/fluff/flora/plants.dmi'
 	// NOVA EDIT ADDITION END
 
-/obj/item/kirbyplants/attackby(obj/item/I, mob/living/user, list/modifiers, list/attack_modifiers)
-	. = ..()
-	if(!dead && trimmable && HAS_TRAIT(user,TRAIT_BONSAI) && isturf(loc) && I.get_sharpness())
+/obj/item/kirbyplants/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!dead && trimmable && HAS_TRAIT(user, TRAIT_BONSAI) && isturf(loc) && tool.get_sharpness())
 		to_chat(user,span_notice("You start trimming [src]."))
-		if(do_after(user,3 SECONDS,target=src))
-			to_chat(user,span_notice("You finish trimming [src]."))
-			change_visual()
-	if(dead && istype(I, /obj/item/seeds))
+		if(!do_after(user, 3 SECONDS, target = src))
+			return ITEM_INTERACT_BLOCKING
+		to_chat(user,span_notice("You finish trimming [src]."))
+		change_visual()
+
+	if(dead && istype(tool, /obj/item/seeds))
 		to_chat(user,span_notice("You start planting a new seed into the pot."))
-		if(do_after(user,3 SECONDS,target=src))
-			qdel(I)
-			dead = FALSE
-			update_appearance()
+		if(!do_after(user, 3 SECONDS, target = src))
+			return ITEM_INTERACT_BLOCKING
+		qdel(tool)
+		dead = FALSE
+		update_appearance()
+
+	return NONE
 
 /// Cycle basic plant visuals
 /obj/item/kirbyplants/proc/change_visual()
@@ -90,6 +98,7 @@
 		plant_states += "plant-[number]"
 	plant_states += "applebush"
 	plant_states += modular_states // NOVA EDIT ADDITION - AESTHETICS - SEE modular_nova\modules\aesthetics\plants\plants.dm
+	plant_states += "iris" // OCULIS ADDITION
 
 	return plant_states
 

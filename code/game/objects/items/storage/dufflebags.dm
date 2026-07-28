@@ -216,6 +216,7 @@
 	icon_state = "duffel-drone"
 	inhand_icon_state = "duffel-drone"
 	resistance_flags = FIRE_PROOF
+	zip_slowdown = 0
 
 /obj/item/storage/backpack/duffelbag/drone/PopulateContents()
 	new /obj/item/screwdriver(src)
@@ -288,7 +289,7 @@
 	new /obj/item/bonesetter(src)
 	new /obj/item/blood_filter(src)
 	new /obj/item/stack/medical/bone_gel(src)
-	new /obj/item/stack/sticky_tape/surgical(src)
+	new /obj/item/stack/medical/wrap/sticky_tape/surgical(src)
 	new /obj/item/emergency_bed(src)
 	new /obj/item/clothing/suit/jacket/straight_jacket(src)
 	new /obj/item/clothing/mask/muzzle(src)

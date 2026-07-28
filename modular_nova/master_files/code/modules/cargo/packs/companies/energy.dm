@@ -11,9 +11,9 @@
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_weapons
 	cost = CARGO_CRATE_VALUE * 1.25
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
 	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_weapons/disabler
@@ -46,9 +46,9 @@
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/laser
 	contains = list(/obj/item/gun/energy/laser)
 	cost = CARGO_CRATE_VALUE * 1.25
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
 	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/laser/soul
@@ -65,17 +65,17 @@
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/egun
 	contains = list(/obj/item/gun/energy/e_gun)
 	cost = CARGO_CRATE_VALUE * 2
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
 	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/mod_laser_small
 	contains = list(/obj/item/gun/energy/modular_laser_rifle/carbine)
 	cost = CARGO_CRATE_VALUE * 2.5
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
 	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/mod_laser_large
@@ -96,17 +96,17 @@
 
 /datum/supply_pack/companies/energy/hc_surplus/plasma_marksman
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/plasma_marksman)
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
 	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/energy/hc_surplus/crank_taser
 	contains = list(/obj/item/gun/energy/taser/crank)
 	cost = CARGO_CRATE_VALUE * 2
-	access = FALSE
-	access_view = FALSE
-	express_lock = FALSE
+	// access = FALSE // OCULIS EDIT
+	// access_view = FALSE // OCULIS EDIT
+	// express_lock = FALSE // OCULIS EDIT
 	order_flags = ORDER_COMPANY
 
 /datum/supply_pack/companies/energy/hc_surplus/stun_gun //Not a gun but it's only fair to place similar items close to each other

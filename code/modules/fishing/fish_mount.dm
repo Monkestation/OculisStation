@@ -73,7 +73,7 @@
 	var/obj/item/fish/fish_path = pick(valid_picks)
 	if(fish_path.fish_id_redirect_path)
 		fish_path = fish_path.fish_id_redirect_path
-	var/fluff_name = pick("John Trasen III", "a nameless intern", "Pun Pun", AQUARIUM_COMPANY, "Unknown", "Central Command")
+	var/fluff_name = pick("John Trasen III", "a nameless intern", "Pun Pun", AQUARIUM_COMPANY, "Unknown", "Sectorial Command") // OCULIS EDIT, SectCommening 2, ORIGINAL: var/fluff_name = pick("John Trasen III", "a nameless intern", "Pun Pun", AQUARIUM_COMPANY, "Unknown", "Central Command")
 	add_fish(new fish_path(loc), from_persistence = TRUE, catcher = fluff_name)
 	mounted_fish.randomize_size_and_weight()
 	mounted_fish.set_status(FISH_DEAD)
@@ -140,7 +140,7 @@
 	var/beauty = 100 + mounted_fish.beauty * 1.2
 	var/datum/material/main_material = mounted_fish.get_master_material()
 	if(main_material)
-		beauty += main_material.beauty_modifier * mounted_fish.weight
+		beauty += main_material.get_property(MATERIAL_BEAUTY) * mounted_fish.weight
 	return round(beauty)
 
 /obj/structure/fish_mount/proc/on_fish_attack_hand(datum/source, mob/living/user)

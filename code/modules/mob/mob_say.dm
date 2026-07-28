@@ -2,9 +2,7 @@
 
 ///what clients use to speak. when you type a message into the chat bar in say mode, this is the first thing that goes off serverside.
 /mob/verb/say_verb(message as text)
-	set name = "Say"
-	set category = "IC"
-	set instant = TRUE
+	set name = VERB_SAY
 
 	if(GLOB.say_disabled) //This is here to try to identify lag problems
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
@@ -17,9 +15,7 @@
 
 ///Whisper verb
 /mob/verb/whisper_verb(message as text)
-	set name = "Whisper"
-	set category = "IC"
-	set instant = TRUE
+	set name = VERB_WHISPER
 
 	if(GLOB.say_disabled) //This is here to try to identify lag problems
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
@@ -40,9 +36,7 @@
 
 ///The me emote verb
 /mob/verb/me_verb(message as text)
-	set name = "Me"
-	set category = "IC"
-	set desc = "Perform a custom emote. Leave blank to pick between an audible or a visible emote (Defaults to visible)."
+	set name = VERB_ME
 
 	if(GLOB.say_disabled) //This is here to try to identify lag problems
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
@@ -52,7 +46,7 @@
 
 	QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, TYPE_PROC_REF(/mob, emote), "me", NONE, message, TRUE), SSspeech_controller)
 
-/mob/try_speak(message, ignore_spam = FALSE, forced = null, filterproof = FALSE)
+/mob/try_speak(message, ignore_spam = FALSE, forced = null, filterproof = FALSE, mute_bypass = FALSE) // OCULIS EDIT, ORIGINAL: /mob/try_speak(message, ignore_spam = FALSE, forced = null, filterproof = FALSE)
 	var/list/filter_result
 	var/list/soft_filter_result
 	if(client && !forced && !filterproof)
@@ -93,7 +87,7 @@
 	if(sigreturn & COMPONENT_CANNOT_SPEAK)
 		return FALSE
 
-	if(!..()) // the can_speak check
+	if(!..() && !mute_bypass) // the can_speak check + OCULIS EDIT: adds mute_bypass check for the Do command
 		if(HAS_MIND_TRAIT(src, TRAIT_MIMING))
 			to_chat(src, span_green("Your vow of silence prevents you from speaking!"))
 		else
@@ -170,15 +164,7 @@
 	var/displayed_key = key
 	if(client?.holder?.fakekey)
 		displayed_key = null
-	deadchat_broadcast(rendered, source, follow_target = src, speaker_key = displayed_key, original_message = message) //NOVA EDIT - Original: deadchat_broadcast(rendered, source, follow_target = src, speaker_key = displayed_key)
-
-	//IRIS ADDITION START
-	for(var/mob/M in GLOB.player_list)
-		if(!isdead(M))
-			continue
-		if (M.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
-			M.create_chat_message(src, /datum/language/common, message)
-	//IRIS ADDITION END
+	deadchat_broadcast(rendered, source, follow_target = src, speaker_key = displayed_key, original_message = message)
 
 ///Check if this message is an emote
 /mob/proc/check_emote(message, forced)
@@ -191,7 +177,7 @@
 	return FALSE
 
 ///The amount of items we are looking for in the message
-#define MESSAGE_MODS_LENGTH 6
+#define MESSAGE_MODS_LENGTH 7
 
 /mob/proc/check_for_custom_say_emote(message, list/mods)
 	var/customsaypos = findtext(message, "*")

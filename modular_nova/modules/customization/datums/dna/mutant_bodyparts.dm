@@ -2,6 +2,7 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 
 /**
  * Returns a cached emissive boolean list for mutant bodyparts.
+ * You should NEVER modify these lists, always use Copy() if you have to.
  *
  * This proc takes exactly three boolean-like values (0 or 1) representing
  * whether the primary, secondary, and tertiary color channels are emissive.
@@ -27,9 +28,16 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 	if(length(args) != 3)
 		CRASH("Emissive_list should take 3 args of 1's and 0's.")
 
+	for(var/arg in args)
+		if(arg != 0 && arg != 1)
+			CRASH("emissive_tri_bool_list got non-boolean arg: [isnull(arg) ? "null" : arg]")
+
 	// Build a canonical string key
 	// "1,0,1" etc
 	var/key = jointext(args, ",")
+
+	if(isnull(GLOB.emissive_list_cache))
+		GLOB.emissive_list_cache = list()
 
 	var/list/cached = GLOB.emissive_list_cache[key]
 	if(cached)
@@ -60,7 +68,7 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 			src.name = name
 	if(colors)
 		set_colors(colors)
-	if(emissive_list && length(emissive_list == 3))
+	if(emissive_list && length(emissive_list) == 3)
 		set_emissive_tri_bool_list(emissive_list[1], emissive_list[2], emissive_list[3])
 
 /**
@@ -89,7 +97,7 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
  */
 /datum/mutant_bodypart/proc/set_colors(new_colors)
 	if(!length(new_colors))
-		CRASH("set_colors passed an empty list!")
+		CRASH("set_colors passed an invalid arg! It should be a color  string or list of color strings.")
 
 	if(istext(new_colors))
 		new_colors = list(new_colors, new_colors, new_colors)
@@ -109,6 +117,22 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 	return colors?[1] || COLOR_WHITE
 
 /**
+ * Sets the primary color for this mutant bodypart.
+ *
+ * Arguments:
+ * - new_color: a hex color string
+ */
+/datum/mutant_bodypart/proc/set_primary_color(new_color)
+	if(!istext(new_color))
+		CRASH("set_primary_color needs to be passed a color hex string!")
+
+	if(!length(colors))
+		colors = list(new_color, new_color, new_color)
+		return
+
+	colors[1] = new_color
+
+/**
  * Returns the secondary (second) color of this mutant bodypart.
  *
  * Returns:
@@ -118,6 +142,22 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 	return colors?[2] || COLOR_WHITE
 
 /**
+ * Sets the secondary color for this mutant bodypart.
+ *
+ * Arguments:
+ * - new_color: a hex color string
+ */
+/datum/mutant_bodypart/proc/set_secondary_color(new_color)
+	if(!istext(new_color))
+		CRASH("set_secondary_color needs to be passed a color hex string!")
+
+	if(!length(colors))
+		colors = list(new_color, new_color, new_color)
+		return
+
+	colors[2] = new_color
+
+/**
  * Returns the tertiary (third) color of this mutant bodypart.
  *
  * Returns:
@@ -125,6 +165,22 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
  */
 /datum/mutant_bodypart/proc/get_tertiary_color()
 	return colors?[3] || COLOR_WHITE
+
+/**
+ * Sets the tertiary color for this mutant bodypart.
+ *
+ * Arguments:
+ * - new_color: a hex color string
+ */
+/datum/mutant_bodypart/proc/set_tertiary_color(new_color)
+	if(!istext(new_color))
+		CRASH("set_tertiary_color needs to be passed a color hex string!")
+
+	if(!length(colors))
+		colors = list(new_color, new_color, new_color)
+		return
+
+	colors[3] = new_color
 
 /**
  * Sets the emissive tri-boolean list for this mutant bodypart.
@@ -162,7 +218,7 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
  * Returns:
  * - /datum/mutant_bodypart: A newly created mutant bodypart datum.
  */
-/datum/species/proc/build_mutant_part(name, colors, emissive_list)
+/proc/build_mutant_part(name, colors, emissive_list)
 	return new /datum/mutant_bodypart(name, colors, emissive_list)
 
 // Immutable species blueprint, used for default species parts. These are what get stored in GLOB.default_mutant_parts
@@ -177,19 +233,24 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 	src.is_randomizable = is_randomizable
 	src.is_feature = is_feature
 
-/datum/mutant_bodypart/get_colors()
+	if(colors)
+		src.colors = istext(colors) ? list(colors, colors, colors) : colors
+	if(emissive_list && length(emissive_list) == 3)
+		src.emissive_list = emissive_tri_bool_list(emissive_list[1], emissive_list[2], emissive_list[3])
+
+/datum/mutant_bodypart/species_blueprint/get_colors()
 	return colors // Should be explicit here and either return a color list or null (no defaults)
 
 /datum/mutant_bodypart/species_blueprint/set_colors(list/new_colors)
 	return // Don't let these get changed ever
 
-/datum/mutant_bodypart/get_primary_color()
+/datum/mutant_bodypart/species_blueprint/get_primary_color()
 	return colors?[1]
 
-/datum/mutant_bodypart/get_secondary_color()
+/datum/mutant_bodypart/species_blueprint/get_secondary_color()
 	return colors?[2]
 
-/datum/mutant_bodypart/get_tertiary_color()
+/datum/mutant_bodypart/species_blueprint/get_tertiary_color()
 	return colors?[3]
 
 /datum/mutant_bodypart/species_blueprint/set_emissive_tri_bool_list(...)

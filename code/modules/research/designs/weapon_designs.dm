@@ -290,12 +290,15 @@
 	desc = "This safety firing pin allows firearms to be operated within proximity to a firing range."
 	id = "pin_testing"
 	build_type = PROTOLATHE | AWAY_LATHE
-	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =SMALL_MATERIAL_AMOUNT * 3)
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5, /datum/material/glass =SMALL_MATERIAL_AMOUNT * 3)
 	build_path = /obj/item/firing_pin/test_range
 	category = list(
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_FIRING_PINS
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+
+/obj/item/firing_pin/test_range
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 3)
 
 /datum/design/pin_mindshield
 	name = "Mindshield Firing Pin"
@@ -562,6 +565,28 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
+/datum/design/tear_gas_40mm
+	name = "40mm Tear Gas Grenade Shell (Less Lethal)"
+	desc = "Looking to stop a riot or put down those damn space hippies in their beat up space caravan? We've got the grenade for you!"
+	id = "tear_gas_shell"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3, /datum/material/plasma = SMALL_MATERIAL_AMOUNT * 2)
+	build_path = /obj/item/ammo_casing/a40mm/tear_gas
+	category = list(
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+	)
+
+/datum/design/rubber_40mm
+	name = "40mm Rubber Shell (Less Lethal)"
+	desc = "Launch a rubber puck straight into an assistant's head at high velocities today!"
+	id = "rubber_puck_shell"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3, /datum/material/plastic = SMALL_MATERIAL_AMOUNT * 2)
+	build_path = /obj/item/ammo_casing/a40mm/rubber
+	category = list(
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+	)
+
 /datum/design/suppressor
 	name = "Suppressor"
 	desc = "A reverse-engineered suppressor that fits on most small arms with threaded barrels."
@@ -604,7 +629,7 @@
 	desc = "A mace fit for a cleric. Useful for bypassing plate armor, but too bulky for much else."
 	id = "cleric_mace"
 	build_type = AUTOLATHE
-	materials = list(MAT_CATEGORY_ITEM_MATERIAL = SHEET_MATERIAL_AMOUNT * 4.5, MAT_CATEGORY_ITEM_MATERIAL_COMPLEMENTARY = SHEET_MATERIAL_AMOUNT * 1.5)
+	materials = list(/datum/material_slot/weapon_head = SHEET_MATERIAL_AMOUNT * 4.5, /datum/material_slot/handle = SHEET_MATERIAL_AMOUNT * 1.5)
 	build_path = /obj/item/melee/cleric_mace
 	category = list(RND_CATEGORY_IMPORTED)
 
@@ -613,8 +638,8 @@
 	desc = "A dirt cheap 3D printed gun. Only holds one bullet, and is infamous for sometimes exploding on it's user."
 	id = "liberator_gun"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 15)
-	build_path = /obj/item/gun/ballistic/automatic/pistol/doorhickey
+	materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5)
+	build_path = /obj/item/gun/ballistic/automatic/pistol/doohickey
 	category = list(RND_CATEGORY_IMPORTED)
 
 /datum/design/stun_boomerang

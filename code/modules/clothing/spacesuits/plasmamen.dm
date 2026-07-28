@@ -75,7 +75,7 @@
 	desc = "A special containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment. It is space-worthy, and may be worn in tandem with other EVA gear."
 	icon = 'icons/obj/clothing/head/plasmaman_hats.dmi'
 	worn_icon = 'icons/mob/clothing/head/plasmaman_head.dmi'
-	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | STACKABLE_HELMET_EXEMPT | PLASMAMAN_PREVENT_IGNITION | HEADINTERNALS
+	clothing_flags = parent_type::clothing_flags | PLASMAMAN_PREVENT_IGNITION
 	icon_state = "plasmaman-helm"
 	inhand_icon_state = "plasmaman-helm"
 	strip_delay = 8 SECONDS
@@ -90,10 +90,9 @@
 	light_on = FALSE
 	fishing_modifier = 0
 	actions_types = list(/datum/action/item_action/toggle_helmet_light, /datum/action/item_action/toggle_welding_screen)
-	visor_vars_to_toggle = VISOR_FLASHPROTECT | VISOR_TINT
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
-	flags_cover = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF
-	visor_flags_inv = HIDEEYES|HIDEFACE
+	visor_flags = NONE
+	visor_flags_inv = HIDEEYES|HIDEFACE|HIDESNOUT
+	visor_flags_cover = NONE
 	visor_dirt = null
 	var/helmet_on = FALSE
 	var/smile = FALSE
@@ -141,7 +140,6 @@
 		to_chat(user, span_notice("Your helmet's torch can't pass through your welding visor!"))
 		set_light_on(FALSE)
 		helmet_on = FALSE
-	playsound(src, up ? SFX_VISOR_UP : SFX_VISOR_DOWN, 50, TRUE)
 	update_appearance()
 
 /obj/item/clothing/head/helmet/space/plasmaman/update_icon_state()
@@ -178,12 +176,12 @@
 	return ITEM_INTERACT_SUCCESS
 
 ///By the by, helmets have the update_icon_updates_onmob element, so we don't have to call mob.update_worn_head()
-/obj/item/clothing/head/helmet/space/plasmaman/worn_overlays(mutable_appearance/standing, isinhands)
+/obj/item/clothing/head/helmet/space/plasmaman/worn_overlays(mutable_appearance/standing, isinhands, icon_file, bodyshape = NONE)
 	. = ..()
 	if(!isinhands && !up)
 		. += mutable_appearance('icons/mob/clothing/head/plasmaman_head.dmi', visor_icon)
 
-/obj/item/clothing/head/helmet/space/plasmaman/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, mutant_styles) // NOVA EDIT CHANGE - ORIGINAL: separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
+/obj/item/clothing/head/helmet/space/plasmaman/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, bodyshape = NONE)
 	. = ..()
 	if(!isinhands && smile)
 		var/mutable_appearance/smiley = mutable_appearance('icons/mob/clothing/head/plasmaman_head.dmi', smile_state)
@@ -451,8 +449,8 @@
 	acid = 75
 
 /obj/item/clothing/head/helmet/space/plasmaman/centcom_commander
-	name = "CentCom commander plasma envirosuit helmet"
-	desc = "A special containment helmet designed for the Higher Central Command Staff. Not many of these exist, as CentCom does not usually employ plasmamen to higher staff positions due to their complications."
+	name = "SectCom commander plasma envirosuit helmet" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom commander plasma envirosuit helmet"
+	desc = "A special containment helmet designed for the Higher Sectorial Command Staff. Not many of these exist, as CentCom does not usually employ plasmamen to higher staff positions due to their complications." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A special containment helmet designed for the Higher Central Command Staff. Not many of these exist, as CentCom does not usually employ plasmamen to higher staff positions due to their complications."
 	icon_state = "commander_envirohelm"
 	inhand_icon_state = null
 	armor_type = /datum/armor/hats_centhat/plasmaman
@@ -463,14 +461,14 @@
 	acid = 75
 
 /obj/item/clothing/head/helmet/space/plasmaman/centcom_official
-	name = "CentCom official plasma envirosuit helmet"
-	desc = "A special containment helmet designed for CentCom Staff. They sure do love their green."
+	name = "SectCom official plasma envirosuit helmet" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom official plasma envirosuit helmet"
+	desc = "A special containment helmet designed for SectCom Staff. They sure do love their green." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A special containment helmet designed for CentCom Staff. They sure do love their green."
 	icon_state = "official_envirohelm"
 	inhand_icon_state = null
 
 /obj/item/clothing/head/helmet/space/plasmaman/centcom_intern
-	name = "CentCom intern plasma envirosuit helmet"
-	desc = "A special containment helmet designed for CentCom Staff. You know, so any coffee spills don't kill the poor sod."
+	name = "SectCom intern plasma envirosuit helmet" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom intern plasma envirosuit helmet"
+	desc = "A special containment helmet designed for SectCom Staff. You know, so any coffee spills don't kill the poor sod." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A special containment helmet designed for CentCom Staff. You know, so any coffee spills don't kill the poor sod."
 	icon_state = "intern_envirohelm"
 	inhand_icon_state = null
 

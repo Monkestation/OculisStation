@@ -90,7 +90,6 @@
 #define FEATURE_SYNTH_HEAD "synth_head"
 #define FEATURE_SYNTH_HAIR "synth_hair"
 
-
 #define MANDATORY_FEATURE_LIST list(\
 	FEATURE_MUTANT_COLOR = "#FFFFBB",\
 	FEATURE_MUTANT_COLOR_TWO = "#FFFFBB",\
@@ -129,7 +128,9 @@
 #define SPECIES_KOBOLD "kobold"
 #define SPECIES_KOBOLD_PRIMITIVE "lizard_monkey"
 #define SPECIES_RAMATAE "ramatan"
+#define SPECIES_SHADEKIN "shadekin"
 #define SPECIES_INSECTOID "insectoid"
+#define SPECIES_HOLOSYNTH "holosynth"
 
 #define SPECIES_MUTANT "mutant"
 #define SPECIES_MUTANT_INFECTIOUS "infectious_mutant"

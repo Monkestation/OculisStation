@@ -107,7 +107,7 @@
 		if(!same_id || (text2num(href_list["examine_time"]) + viable_time) < world.time)
 			to_chat(viewer, span_notice("You don't have that good of a memory. Examine [p_them()] again."))
 			return
-		if(HAS_TRAIT(src, TRAIT_UNKNOWN_APPEARANCE))
+		if(!isobserver(viewer) && HAS_TRAIT(src, TRAIT_UNKNOWN_APPEARANCE))
 			to_chat(viewer, span_notice("You can't make out that ID anymore."))
 			return
 		if(!isobserver(viewer) && get_dist(viewer, src) > ID_EXAMINE_DISTANCE + 1) // leeway, ignored if the viewer is a ghost
@@ -194,8 +194,7 @@
 				var/status = ""
 				if(get_brute_loss())
 					to_chat(human_user, "<b>Physical trauma analysis:</b>")
-					for(var/X in bodyparts)
-						var/obj/item/bodypart/BP = X
+					for(var/obj/item/bodypart/BP as anything in get_bodyparts())
 						var/brutedamage = BP.brute_dam
 						if(brutedamage > 0)
 							status = "received minor physical injuries."
@@ -210,8 +209,7 @@
 							to_chat(human_user, "<span class='[span]'>[BP] appears to have [status]</span>")
 				if(get_fire_loss())
 					to_chat(human_user, "<b>Analysis of skin burns:</b>")
-					for(var/X in bodyparts)
-						var/obj/item/bodypart/BP = X
+					for(var/obj/item/bodypart/BP as anything in get_bodyparts())
 						var/burndamage = BP.burn_dam
 						if(burndamage > 0)
 							status = "signs of minor burns."
@@ -260,9 +258,9 @@
 					to_chat(usr,  "<span class='notice ml-1'>No physiological traits found.</span>")
 			//NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
 			if(href_list["medrecords"])
-				to_chat(usr, "<b>Medical Record:</b> [target_record.past_medical_records]")
+				to_chat(usr, fieldset_block("Medical Record", span_info(target_record.past_medical_records), "boxed_message"), type = MESSAGE_TYPE_INFO)
 			if(href_list["genrecords"])
-				to_chat(usr, "<b>General Record:</b> [target_record.past_general_records]")
+				to_chat(usr, fieldset_block("General Record", span_info(target_record.past_general_records), "boxed_message"), type = MESSAGE_TYPE_INFO)
 			//NOVA EDIT END
 			return //Medical HUD ends here.
 
@@ -345,7 +343,7 @@
 						return
 				else if(!isobserver(usr))
 					return
-				to_chat(usr, "<b>General Record:</b> [target_record.past_general_records]")
+				to_chat(usr, fieldset_block("General Record", span_info(target_record.past_general_records), "boxed_message"), type = MESSAGE_TYPE_INFO)
 			if(href_list["secrecords"])
 				if(ishuman(usr))
 					var/mob/living/carbon/human/human_user = usr
@@ -355,7 +353,7 @@
 						return
 				else if(!isobserver(usr))
 					return
-				to_chat(usr, "<b>Security Record:</b> [target_record.past_security_records]")
+				to_chat(usr, fieldset_block("Security Record", span_info(target_record.past_security_records), "boxed_message"), type = MESSAGE_TYPE_INFO)
 			// NOVA EDIT ADDITION END - EXAMINE RECORDS
 			if(ishuman(human_or_ghost_user))
 				var/mob/living/carbon/human/human_user = human_or_ghost_user
@@ -402,16 +400,16 @@
 		if(isobserver(usr) || usr.mind.can_see_exploitables || usr.mind.has_exploitables_override)
 			var/examined_name = get_face_name(get_id_name(""))
 			var/datum/record/crew/target_record = find_record(examined_name)
-			to_chat(usr, "<b>Background information:</b> [target_record.background_information]")
+			to_chat(usr, fieldset_block("Background Information", span_info(target_record.background_information), "boxed_message"), type = MESSAGE_TYPE_INFO)
 	if(href_list["exprecords"])
 		if(isobserver(usr) || usr.mind.can_see_exploitables || usr.mind.has_exploitables_override)
 			var/examined_name = get_face_name(get_id_name("")) //Named as such because this is the name we see when we examine
 			var/datum/record/crew/target_record = find_record(examined_name)
-			to_chat(usr, "<b>Exploitable information:</b> [target_record.exploitable_information]")
+			to_chat(usr, fieldset_block("Exploitable Information", span_info(target_record.exploitable_information), "boxed_message"), type = MESSAGE_TYPE_INFO)
 	if(href_list["medrecords"])
 		var/examined_name = get_face_name(get_id_name("")) //Named as such because this is the name we see when we examine
 		var/datum/record/crew/target_record = find_record(examined_name)
-		to_chat(usr, "<b>Medical Record:</b> [target_record.past_medical_records]")
+		to_chat(usr, fieldset_block("Medical Record", span_info(target_record.past_medical_records), "boxed_message"), type = MESSAGE_TYPE_INFO)
 	//NOVA EDIT ADDITION END
 
 	..() //end of this massive fucking chain. TODO: make the hud chain not spooky. - Yeah, great job doing that.
@@ -568,30 +566,30 @@
 			balloon_alert(src, "[target.p_they()] [target.p_are()] dead!")
 			return FALSE
 
+		var/can_breathe = TRUE // OCULIS EDIT ADDITION - If FALSE, then chest compressions are the only option
+
 		if (is_mouth_covered())
 			balloon_alert(src, "remove your mask first!")
-			return FALSE
+			can_breathe = FALSE // OCULIS EDIT, ORIGINAL: return FALSE
 
 		if (target.is_mouth_covered())
 			balloon_alert(src, "remove [target.p_their()] mask first!")
-			return FALSE
+			can_breathe = FALSE // OCULIS EDIT, ORIGINAL: return FALSE
 
 		if(HAS_TRAIT_FROM(src, TRAIT_NOBREATH, DISEASE_TRAIT))
 			to_chat(src, span_warning("you can't breathe!"))
-			return FALSE
+			can_breathe = FALSE // OCULIS EDIT, ORIGINAL: return FALSE
 
 		var/obj/item/organ/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
-		/* NOVA EDIT REMOVAL BEGIN - Allow CPR without lungs
-		if(isnull(human_lungs))
+		if(isnull(human_lungs) || istype(human_lungs, /obj/item/organ/lungs/synth)) // OCULIS EDIT, ORIGINAL: if(isnull(human_lungs))
 			balloon_alert(src, "you don't have lungs!")
-			return FALSE
+			can_breathe = FALSE // OCULIS EDIT, ORIGINAL: return FALSE
 		if(human_lungs.organ_flags & ORGAN_FAILING)
 			balloon_alert(src, "your lungs are too damaged!")
-			return FALSE
-		*/// NOVA EDIT REMOVAL END
+			can_breathe = FALSE // OCULIS EDIT, ORIGINAL: return FALSE
 
 		visible_message(span_notice("[src] is trying to perform CPR on [target.name]!"), \
-						span_notice("You try to perform CPR on [target.name]... Hold still!"))
+						can_breathe ? span_notice("You try to perform CPR on [target.name]... Hold still!"):span_notice("You try to perform CPR on [target.name] without mouth-to-mouth... Hold still!")) // OCULIS EDIT, ORIGINAL: span_notice("You try to perform CPR on [target.name]... Hold still!"))
 
 		if (!do_after(src, delay = panicking ? CPR_PANIC_SPEED : (3 SECONDS), target = target))
 			balloon_alert(src, "you fail to perform CPR!")
@@ -614,9 +612,11 @@
 			to_chat(target, span_unconscious("You feel a breath of fresh air... but you don't feel any better..."))
 		*/// NOVA EDIT REMOVAL END
 		// NOVA EDIT ADDTION BEGIN - Allow CPR without lungs
+		/* // OCULIS EDIT REMOVAL START
 		var/can_breathe = TRUE // If FALSE, then chest compressions are the only option
 		if(isnull(human_lungs) || istype(human_lungs, /obj/item/organ/lungs/synth) || (human_lungs.organ_flags & ORGAN_FAILING))
 			can_breathe = FALSE
+		*/ // OCULIS EDIT REMOVAL END
 		if(issynthetic(target)) // Synthetic humanoids don't benefit from CPR
 			to_chat(target, span_unconscious("You feel someone pushing down onto your chest, but you don't feel any better..."))
 		else if(!can_breathe || (HAS_TRAIT(target, TRAIT_NOBREATH) || !target.get_organ_slot(ORGAN_SLOT_LUNGS)))
@@ -700,10 +700,8 @@
 	// If we have a species, we need to handle mutant parts and stuff
 	if(dna?.species)
 		add_atom_colour(COLOR_BLACK, TEMPORARY_COLOUR_PRIORITY)
-		var/static/mutable_appearance/shock_animation_dna
-		if(!shock_animation_dna)
-			shock_animation_dna = mutable_appearance(icon, "electrocuted_base")
-			shock_animation_dna.appearance_flags |= RESET_COLOR|KEEP_APART
+		var/mutable_appearance/shock_animation_dna = mutable_appearance(icon, "electrocuted_base", appearance_flags = RESET_COLOR|KEEP_APART)
+		apply_height(shock_animation_dna, ENTIRE_BODY)
 		zap_appearance = shock_animation_dna
 
 	// Otherwise do a generic animation
@@ -762,13 +760,13 @@
 	. = ..()
 	// Handles changing limb colors and stuff
 	if(!(living_flags & STOP_OVERLAY_UPDATE_BODY_PARTS))
-		hud_used.healthdoll?.update_appearance()
+		hud_used.screen_objects[HUD_MOB_HEALTHDOLL]?.update_appearance()
 
 /mob/living/carbon/human/fully_heal(heal_flags = HEAL_ALL)
 	if(heal_flags & HEAL_NEGATIVE_MUTATIONS)
 		for(var/datum/mutation/existing_mutation in dna.mutations)
 			if(existing_mutation.quality != POSITIVE && existing_mutation.remove_on_aheal)
-				dna.remove_mutation(existing_mutation, list(MUTATION_SOURCE_ACTIVATED, MUTATION_SOURCE_MUTATOR, MUTATION_SOURCE_TIMED_INJECTOR))
+				dna.remove_mutation(existing_mutation, GLOB.standard_mutation_sources)
 
 	if(heal_flags & HEAL_TEMP)
 		set_coretemperature(get_body_temp_normal(apply_change = FALSE))
@@ -805,7 +803,7 @@
 
 /mob/living/carbon/human/vv_get_dropdown()
 	. = ..()
-	VV_DROPDOWN_OPTION("", "---------")
+	VV_DROPDOWN_OPTION("", "--- /human ---")
 	VV_DROPDOWN_OPTION(VV_HK_COPY_OUTFIT, "Copy Outfit")
 	VV_DROPDOWN_OPTION(VV_HK_MOD_MUTATIONS, "Add/Remove Mutation")
 	VV_DROPDOWN_OPTION(VV_HK_MOD_QUIRKS, "Add/Remove Quirks")
@@ -828,48 +826,56 @@
 	if(href_list[VV_HK_MOD_MUTATIONS])
 		if(!check_rights(R_SPAWN))
 			return
-		var/list/options = list("Clear"="Clear")
-		for(var/x in subtypesof(/datum/mutation))
+		var/list/options = list("Clear" = "Clear")
+		for(var/x in sort_list(subtypesof(/datum/mutation), GLOBAL_PROC_REF(cmp_typepaths_asc)))
 			var/datum/mutation/mut = x
 			var/name = initial(mut.name)
 			options[dna.check_mutation(mut) ? "[name] (Remove)" : "[name] (Add)"] = mut
-		var/result = input(usr, "Choose mutation to add/remove","Mutation Mod") as null|anything in sort_list(options)
-		if(result)
-			if(result == "Clear")
-				for(var/datum/mutation/mutation as anything in dna.mutations)
-					dna.remove_mutation(mutation, mutation.sources)
-			else
-				var/mut = options[result]
-				if(dna.check_mutation(mut))
-					var/datum/mutation/mutation = dna.get_mutation(mut)
-					dna.remove_mutation(mut, mutation.sources)
-				else
-					dna.add_mutation(mut, MUTATION_SOURCE_VV)
+
+		var/result = tgui_input_list(usr, "Choose mutation to add/remove", "Mutation Mod", options)
+		if(!result)
+			return
+
+		if(result == "Clear")
+			for(var/datum/mutation/mutation as anything in dna.mutations)
+				dna.remove_mutation(mutation, mutation.sources)
+			return
+
+		var/mut = options[result]
+		if(dna.check_mutation(mut))
+			var/datum/mutation/mutation = dna.get_mutation(mut)
+			dna.remove_mutation(mut, mutation.sources)
+		else
+			dna.add_mutation(mut, MUTATION_SOURCE_VV)
 
 	if(href_list[VV_HK_MOD_QUIRKS])
 		if(!check_rights(R_SPAWN))
 			return
-		var/list/options = list("Clear"="Clear")
-		for(var/type in valid_subtypesof(/datum/quirk))
+		var/list/options = list("Clear" = "Clear")
+		for(var/type in sort_list(valid_subtypesof(/datum/quirk), GLOBAL_PROC_REF(cmp_typepaths_asc)))
 			var/datum/quirk/quirk_type = type
 			var/qname = initial(quirk_type.name)
 			options[has_quirk(quirk_type) ? "[qname] (Remove)" : "[qname] (Add)"] = quirk_type
-		var/result = input(usr, "Choose quirk to add/remove","Quirk Mod") as null|anything in sort_list(options)
-		if(result)
-			if(result == "Clear")
-				for(var/datum/quirk/q in quirks)
-					remove_quirk(q.type)
-			else
-				var/T = options[result]
-				if(has_quirk(T))
-					remove_quirk(T)
-				else
-					add_quirk(T)
+
+		var/result = tgui_input_list(usr, "Choose quirk to add/remove", "Quirk Mod", options)
+		if(!result)
+			return
+
+		if(result == "Clear")
+			for(var/datum/quirk/quirk in quirks)
+				remove_quirk(quirk.type)
+			return
+
+		var/selected = options[result]
+		if(has_quirk(selected))
+			remove_quirk(selected)
+		else
+			add_quirk(selected)
 
 	if(href_list[VV_HK_SET_SPECIES])
 		if(!check_rights(R_SPAWN))
 			return
-		var/result = input(usr, "Please choose a new species","Species") as null|anything in sortTim(GLOB.species_list, GLOBAL_PROC_REF(cmp_text_asc))
+		var/result = tgui_input_list(usr, "Please choose a new species", "Species", sortTim(GLOB.species_list, GLOBAL_PROC_REF(cmp_text_asc)))
 		if(result)
 			var/newtype = GLOB.species_list[result]
 			admin_ticket_log("[key_name_admin(usr)] has modified the bodyparts of [src] to [result]")
@@ -877,9 +883,6 @@
 
 	if(href_list[VV_HK_PURRBATION])
 		if(!check_rights(R_SPAWN))
-			return
-		if(!ishuman(src))
-			to_chat(usr, "This can only be done to human species at the moment.")
 			return
 		var/success = purrbation_toggle(src)
 		if(success)
@@ -957,7 +960,7 @@
 
 //src is the user that will be carrying, target is the mob to be carried
 /mob/living/carbon/human/proc/can_piggyback(mob/living/carbon/target)
-	return (istype(target) && target.stat == CONSCIOUS)
+	return (istype(target) && target.stat == CONSCIOUS && !HAS_TRAIT(target, TRAIT_PINNED)) // OCULIS EDIT, ORIGINAL: return (istype(target) && target.stat == CONSCIOUS)
 
 /mob/living/carbon/human/proc/can_be_firemanned(mob/living/carbon/target)
 	return ishuman(target) && target.body_position == LYING_DOWN
@@ -990,6 +993,7 @@
 		skills_space = " very quickly"
 	else if(carrydelay <= 4 SECONDS)
 		skills_space = " quickly"
+	/* // OCULIS EDIT REMOVAL START
 	// NOVA EDIT ADDITION START
 	if((HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED)) && !istype(potential_spine))
 		visible_message(span_warning("[src] tries to carry [target], but they are too heavy!"))
@@ -1001,6 +1005,13 @@
 		carrydelay = 5 SECONDS
 		skills_space = " strenuously"
 	// NOVA EDIT ADDITION END
+	*/ // OCULIS EDIT REMOVAL END
+	// OCULIS EDIT ADDITION START
+	if(((HAS_TRAIT(target, TRAIT_OVERSIZED) && HAS_TRAIT(src, TRAIT_OVERSIZED)) || istype(potential_spine)) || ((HAS_TRAIT(target, TRAIT_HEAVYSET) && HAS_TRAIT(src, TRAIT_HEAVYSET))))
+		carrydelay = 5 SECONDS
+		skills_space = " strenuously"
+	// OCULIS EDIT ADDITION END
+
 	visible_message(span_notice("[src] starts[skills_space] lifting [target] onto [p_their()] back..."),
 		span_notice("You[skills_space] start to lift [target] onto your back..."))
 	if(!do_after(src, carrydelay, target))
@@ -1011,6 +1022,31 @@
 	if(!can_be_firemanned(target) || INCAPACITATED_IGNORING(src, INCAPABLE_GRAB) || target.buckled)
 		visible_message(span_warning("[src] fails to fireman carry [target]!"))
 		return
+
+	// OCULIS EDIT ADDITION START
+	if(((HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED)) && !istype(potential_spine)) || ((HAS_TRAIT(target, TRAIT_HEAVYSET) && !HAS_TRAIT(src, TRAIT_HEAVYSET)) && !istype(potential_spine)))
+		if((fitness_level < SKILL_LEVEL_EXPERT) && !istype(potential_spine))
+			target.visible_message(span_warning("[target] is too heavy for [src] to carry!"))
+			var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+			var/obj/item/bodypart/affecting = get_bodypart(ran_zone(dam_zone))
+			var/wound_bon = 0
+			if(!affecting) //If one leg is missing, then it might break. Snap their spine instead
+				affecting = get_bodypart(BODY_ZONE_CHEST)
+			if(prob(oversized_piggywound_chance	))
+				wound_bon = 100
+				to_chat(src, span_danger("You are crushed under the weight of [target]!"))
+				to_chat(target, span_danger("You accidentally crush [src]!"))
+			else
+				to_chat(src, span_danger("You hurt your [affecting.name] while trying to endure the weight of [target]!"))
+			apply_damage(oversized_piggydam, BRUTE, affecting, wound_bonus=wound_bon)
+			playsound(src, 'sound/effects/splat.ogg', 50, TRUE)
+			AddElement(/datum/element/squish, 20 SECONDS) // Totally not stolen from a vending machine code
+			Knockdown(oversized_piggyknock) // Knocking down the unlucky guy
+			target.Knockdown(1) // simply make the oversized one fall
+			if(get_turf(target) != get_turf(src))
+				target.throw_at(get_turf(src), 1, 1, spin=FALSE, quickstart=FALSE)
+			return
+	// OCULIS EDIT ADDITION END
 
 	mind?.adjust_experience(/datum/skill/athletics, round(experience_reward/(fitness_level || 1), 1)) //Get a bit fitter every time we fireman carry successfully. Deadlift your friends for gains!
 
@@ -1081,12 +1117,12 @@
 /mob/living/carbon/human/proc/add_eye_color_left(color, color_priority, update_body = TRUE)
 	LAZYSET(eye_color_left_overrides, "[color_priority]", color)
 	if (update_body)
-		update_body()
+		update_eyes()
 
 /mob/living/carbon/human/proc/add_eye_color_right(color, color_priority, update_body = TRUE)
 	LAZYSET(eye_color_right_overrides, "[color_priority]", color)
 	if (update_body)
-		update_body()
+		update_eyes()
 
 /mob/living/carbon/human/proc/add_eye_color(color, color_priority, update_body = TRUE)
 	add_eye_color_left(color, color_priority, update_body = FALSE)
@@ -1096,9 +1132,12 @@
 	LAZYREMOVE(eye_color_left_overrides, "[color_priority]")
 	LAZYREMOVE(eye_color_right_overrides, "[color_priority]")
 	if (update_body)
-		update_body()
+		update_eyes()
 
-/mob/living/carbon/human/proc/get_right_eye_color()
+/mob/living/carbon/proc/get_right_eye_color()
+	return
+
+/mob/living/carbon/human/get_right_eye_color()
 	if (!LAZYLEN(eye_color_right_overrides))
 		return eye_color_right
 
@@ -1111,7 +1150,10 @@
 			eye_color = eye_color_right_overrides[override_priority]
 	return eye_color
 
-/mob/living/carbon/human/proc/get_left_eye_color()
+/mob/living/carbon/proc/get_left_eye_color()
+	return
+
+/mob/living/carbon/human/get_left_eye_color()
 	if (!LAZYLEN(eye_color_left_overrides))
 		return eye_color_left
 
@@ -1140,7 +1182,7 @@
 /mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, list/override_features, list/override_mutantparts, list/override_markings) // NOVA EDIT CHANGE - Customization. ORIGINAL: /mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update, pref_load, replace_missing)
 	. = ..()
 	if(use_random_name)
-		fully_replace_character_name(real_name, generate_random_mob_name())
+		fully_replace_character_name(newname = generate_random_mob_name())
 
 ///Proc used to make monkey roles able to function like crew, but not be able to shift into humans easily.
 /mob/living/carbon/human/proc/crewlike_monkify()
@@ -1169,6 +1211,35 @@
 	if (!hands_covered && check_hands)
 		return FALSE
 	return head_covered || HAS_TRAIT(src, TRAIT_HEAD_ATMOS_SEALED)
+
+/mob/living/carbon/human/should_electrocute(power_source)
+	if (gloves?.siemens_coefficient == 0)
+		return FALSE
+	return ..()
+
+/mob/living/carbon/human/can_touch_acid(atom/acided_atom, acid_power, acid_volume)
+	if(gloves?.resistance_flags & (UNACIDABLE | ACID_PROOF))
+		return TRUE
+	return ..()
+
+/mob/living/carbon/human/can_touch_burning(atom/burning_atom, acid_power, acid_volume)
+	if(gloves?.max_heat_protection_temperature >= BURNING_ITEM_MINIMUM_TEMPERATURE)
+		return TRUE
+	return ..()
+
+/mob/living/carbon/human/get_sight_and_cutoffs()
+	. = ..()
+	if(!istype(glasses))
+		return
+	. |= glasses.vision_flags
+	if(glasses.invis_override)
+		set_invis_see(glasses.invis_override)
+	else
+		set_invis_see(min(glasses.invis_view, see_invisible))
+	if(!isnull(glasses.lighting_cutoff))
+		lighting_cutoff = max(lighting_cutoff, glasses.lighting_cutoff)
+	if(length(glasses.color_cutoffs))
+		lighting_color_cutoffs = blend_cutoff_colors(lighting_color_cutoffs, glasses.color_cutoffs)
 
 /mob/living/carbon/human/species/abductor
 	race = /datum/species/abductor
@@ -1209,8 +1280,11 @@
 /mob/living/carbon/human/species/lizard/silverscale
 	race = /datum/species/lizard/silverscale
 
+/mob/living/carbon/human/species/spirit
+	race = /datum/species/spirit
+
 /mob/living/carbon/human/species/ghost
-	race = /datum/species/ghost
+	race = /datum/species/spirit/ghost
 
 /mob/living/carbon/human/species/ethereal
 	race = /datum/species/ethereal

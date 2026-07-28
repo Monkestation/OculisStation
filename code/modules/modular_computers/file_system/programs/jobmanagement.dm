@@ -98,7 +98,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 				if(length(SSjob.prioritized_jobs) < 5)
 					SSjob.prioritized_jobs += j
 				else
-					computer.say("Error: CentCom employment protocols restrict prioritising more than 5 jobs.")
+					computer.say("Error: SectCom employment protocols restrict prioritising more than 5 jobs.") // OCULIS EDIT, SectCommening 2, ORIGINAL: computer.say("Error: CentCom employment protocols restrict prioritising more than 5 jobs.")
 			playsound(computer, 'sound/machines/terminal/terminal_prompt_confirm.ogg', 50, FALSE)
 			return TRUE
 

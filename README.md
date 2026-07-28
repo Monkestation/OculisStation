@@ -7,16 +7,16 @@
 
 [![resentment](.github/images/badges/built-with-resentment.svg)](.github/images/comics/131-bug-free.png) [![technical debt](.github/images/badges/contains-technical-debt.svg)](.github/images/comics/106-tech-debt-modified.png) [![forinfinityandbyond](.github/images/badges/made-in-byond.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
-| Website                 | Link                                                                                                                                   |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Git / GitHub cheatsheet | [https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833](https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833) |
-| Guide to Modularization | [./modular_nova/readme.md](./modular_nova/readme.md)                                                                                   |
-| Guide to Mirroring      | [./modular_nova/mirroring_guide.md](./modular_nova/mirroring_guide.md)                                                                 |
-| Code                    | [https://github.com/NovaSector/NovaSector](https://github.com/NovaSector/NovaSector)                                                   |
-| Wiki                    | [https://wiki.irisstation.lol/](https://wiki.irisstation.lol/)                                                                         |
-| Codedocs                | [https://NovaSector.github.io/NovaSector/](https://NovaSector.github.io/NovaSector/)                                                   |
-| Iris Station's Discord  | [https://discord.gg/azps5ydx2F](https://discord.gg/azps5ydx2F)                                                                         |
-| Coderbus Discord        | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)                                                                               |
+| Website                  | Link                                                                                                                                   |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Git / GitHub cheatsheet  | [https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833](https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833) |
+| Guide to Modularization  | [./modular_oculis/readme.md](./modular_oculis/readme.md)                                                                               |
+| Guide to Mirroring       | [./modular_oculis/mirroring_guide.md](./modular_oculis/mirroring_guide.md)                                                             |
+| Code                     | [https://github.com/Monkestation/OculisStation](https://github.com/Monkestation/OculisStation)                                         |
+| Wiki                     | [https://oculis.miraheze.org/wiki/Main_Page](https://oculis.miraheze.org/wiki/Main_Page)                                               |
+| Nova's Codedocs          | [https://NovaSector.github.io/NovaSector/](https://NovaSector.github.io/NovaSector/)                                                   |
+| Oculis Station's Discord | [https://discord.gg/h77rMj2Eb8](https://discord.gg/h77rMj2Eb8)                                                                         |
+| Coderbus Discord         | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)                                                                               |
 
 This is Oculis' [Iris' downstream](https://github.com/IrisSS13/IrisStation/) fork of [Nova Sector](https://github.com/NovaSector/NovaSector/), which in turn is a downstream fork of [/tg/station](https://github.com/tgstation/tgstation) created in BYOND.
 
@@ -32,7 +32,7 @@ You are responsible for the testing of your content and providing proof of such 
 
 Please follow the modularisation guide, it makes it much easier for us to keep up to date with upstreams.
 
-[Modularisation Guide](./modular_nova/readme.md)
+[Modularisation Guide](./modular_oculis/readme.md)
 
 ## DOWNLOADING
 
@@ -61,7 +61,7 @@ For getting started (dev env, compilation) see the HackMD document [here](https:
 
 For overall design documentation see [HackMD](https://hackmd.io/@tgstation).
 
-For TG lore, [see Common Core](https://github.com/tgstation/common_core). Iris doesn't have official lore at this time, and is subject to changes.
+Oculis lore is currently under development and will be released on [wiki](https://oculis.miraheze.org/wiki/Lore).
 
 ## LICENSE
 

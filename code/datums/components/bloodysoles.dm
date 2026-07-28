@@ -56,7 +56,7 @@
 	if(!(equipped_slot & ITEM_SLOT_ICLOTHING))
 		return FALSE
 
-	return !isnull(wielder.shoes)
+	return !isnull(wielder.get_item_by_slot(ITEM_SLOT_FEET))
 
 /**
  * Run to update the icon of the parent
@@ -312,7 +312,12 @@
 		return
 
 	wielder.remove_overlay(SHOES_LAYER)
-	if(!total_bloodiness || is_obscured())
+	//if(!total_bloodiness || is_obscured()) // NOVA EDIT REMOVAL - See below
+	// NOVA EDIT ADDITION START
+	var/mob/living/carbon/human/human_wielder = wielder
+	// Taurs (and anything else that hides its shoes) have nothing to smear shoeblood onto
+	if(!total_bloodiness || is_obscured() || (human_wielder.bodyshape & BODYSHAPE_HIDE_SHOES))
+	// NOVA EDIT ADDITION END
 		wielder.update_worn_shoes()
 		return
 
@@ -326,12 +331,12 @@
 		return
 
 	// Find any leg of our human and add that to the footprint, instead of the default which is to just add the human type
-	for(var/obj/item/bodypart/leg/affecting in wielder.bodyparts)
+	for(var/obj/item/bodypart/leg/affecting in wielder.get_bodyparts())
 		if(!affecting.bodypart_disabled)
 			LAZYSET(footprint.species_types, affecting.limb_id, TRUE)
 
 /datum/component/bloodysoles/feet/is_under_feet_covered()
-	return !isnull(wielder.shoes)
+	return !isnull(wielder.get_item_by_slot(ITEM_SLOT_FEET))
 
 /datum/component/bloodysoles/feet/on_moved(datum/source, OldLoc, Dir, Forced)
 	if(wielder.num_legs >= 2)

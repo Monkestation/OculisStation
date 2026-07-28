@@ -1,6 +1,6 @@
 /datum/supply_pack/companies/medical
 	group = "★ Medical Supplies"
-	express_lock = TRUE
+	express_lock = FALSE // OCULIS EDIT, ORIGINAL: express_lock = TRUE
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 // Precompiled first aid kits, ready to go if you don't want to bother getting individual items
@@ -31,17 +31,8 @@
 	contains = list(/obj/item/storage/medkit/robotic_repair/preemo/stocked)
 	cost = CARGO_CRATE_VALUE * 4
 
-/datum/supply_pack/companies/medical/first_aid_kit/first_responder
-	contains = list(/obj/item/storage/backpack/duffelbag/deforest_surgical/stocked)
-	cost = CARGO_CRATE_VALUE * 5.25
 
-/datum/supply_pack/companies/medical/first_aid_kit/orange_satchel
-	contains = list(/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked)
-	cost = CARGO_CRATE_VALUE * 4.75
 
-/datum/supply_pack/companies/medical/first_aid_kit/technician_satchel
-	contains = list(/obj/item/storage/backpack/duffelbag/deforest_paramedic/stocked)
-	cost = CARGO_CRATE_VALUE * 8
 
 // Basic first aid supplies like gauze, sutures, mesh, so on
 /datum/supply_pack/companies/medical/first_aid
@@ -75,7 +66,7 @@
 	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/medical/first_aid/sterile_gauze
-	contains = list(/obj/item/stack/medical/gauze/sterilized)
+	contains = list(/obj/item/stack/medical/wrap/gauze/sterilized)
 	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/medical/first_aid/amollin
@@ -178,6 +169,9 @@
 
 /datum/supply_pack/companies/medical/medpens_stim
 	cost = CARGO_CRATE_VALUE
+	// OCULIS EDIT ADDITION START
+	express_lock = TRUE // No stocking up these super quickly because they're for fighting, but not otherwise restricted
+	// OCULIS EDIT ADDITION END
 
 /datum/supply_pack/companies/medical/medpens_stim/adrenaline
 	contains = list(/obj/item/reagent_containers/hypospray/medipen/deforest/adrenaline)
@@ -253,10 +247,6 @@
 	contains = list(/obj/item/device/custom_kit/deluxe_hypo2)
 	cost = CARGO_CRATE_VALUE
 
-/datum/supply_pack/companies/medical/equipment/afad
-	contains = list(/obj/item/gun/medbeam/afad)
-	cost = CARGO_CRATE_VALUE * 2.5
-
 /datum/supply_pack/companies/medical/equipment/medstation
 	contains = list(/obj/item/wallframe/frontier_medstation)
 	cost = CARGO_CRATE_VALUE * 2.5
@@ -268,6 +258,7 @@
 // Advanced implants, some of these can be printed but this is a way to get them before tech if you REALLY wanted
 /datum/supply_pack/companies/medical/cyber_implants
 	cost = CARGO_CRATE_VALUE * 1.5
+	express_lock = TRUE // OCULIS EDIT ADDITION
 
 /datum/supply_pack/companies/medical/cyber_implants/razorwire
 	name = "Razorwire Spool Implant"
@@ -281,6 +272,16 @@
 	name = "Qani-Laaca Sensory Computer Implant"
 	contains = list(/obj/item/organ/cyberimp/sensory_enhancer)
 	cost = CARGO_CRATE_VALUE * 2.5
+
+/datum/supply_pack/companies/medical/cyber_implants/twitch_neuroware
+	name = "Speedster.exe Neuroware Chip"
+	contains = list(/obj/item/disk/neuroware/twitch)
+	cost = CARGO_CRATE_VALUE * 0.375
+	// OCULIS EDIT ADDITION START
+	express_lock = TRUE // No stocking up on it super quickly because it lets you dodge bullets, but it's not otherwise restricted since you can just get it from a vendor
+	access = FALSE
+	access_view = FALSE
+	// OCULIS EDIT ADDITION END
 
 // Donk
 /datum/supply_pack/companies/medical/donk

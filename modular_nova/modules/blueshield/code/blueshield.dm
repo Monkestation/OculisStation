@@ -5,7 +5,7 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Central Command and the Nanotrasen Consultant"
+	supervisors = "Sectorial Administration and the Nanotrasen Consultant" // OCULIS EDIT - Central Command > Sectorial Administration
 	minimal_player_age = 7
 	exp_requirements = 2400
 	exp_required_type = EXP_TYPE_CREW
@@ -94,7 +94,7 @@
 	name = "streamlined hellfire laser carbine"
 	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'
 	icon_state = "bshg"
-	desc = parent_type::desc + " This one has been tinkered with by Central Command technicians to add blue-tinted furniture and squeeze out a few extra shots before running dry."
+	desc = parent_type::desc + " This one has been tinkered with by Sectorial Command technicians to add blue-tinted furniture and squeeze out a few extra shots before running dry." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = parent_type::desc + " This one has been tinkered with by Central Command technicians to add blue-tinted furniture and squeeze out a few extra shots before running dry."
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire/blueshield)
 
 /obj/item/choice_beacon/blueshield

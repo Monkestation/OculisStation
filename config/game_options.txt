@@ -93,8 +93,11 @@ ROUNDSTART_BLUE_ALERT 1
 
 ## GAME MODES ###
 
-## Uncomment to not send a roundstart intercept report. Gamemodes may override this.
+## Uncomment to not send a roundstart intercept report.
 #NO_INTERCEPT_REPORT
+
+## Uncomment to exclude dynamic info in the roundstart report.
+#NO_DYNAMIC_REPORT
 
 ## Percent weight reductions for three of the most recent modes
 
@@ -290,6 +293,7 @@ RANDOM_LAWS corporate
 #RANDOM_LAWS ten_commandments
 #RANDOM_LAWS yesman
 #RANDOM_LAWS thinkermov
+#RANDOM_LAWS godcomplex # OCULIS EDIT ADDITION
 
 ## Bad idea laws. Probably shouldn't enable these
 #RANDOM_LAWS syndie
@@ -301,7 +305,7 @@ RANDOM_LAWS corporate
 #RANDOM_LAWS buildawall
 ## NOVA EDIT ADDITION BEGIN - Nova Laws
 #RANDOM_LAWS armadyne_safeguard
-#RANDOM_LAWS dagothbot
+# #RANDOM_LAWS dagothbot ## OCULIS COMMENT: removed by us
 #RANDOM_LAWS texas
 ## NOVA EDIT ADDITION END
 
@@ -316,7 +320,7 @@ LAW_WEIGHT custom,0
 ## Unique AI station trait uses weights so we don't want asimov
 #NOVA EDIT ADDITION BEGIN
 LAW_WEIGHT armadyne_safeguard,40
-LAW_WEIGHT dagothbot,8
+# LAW_WEIGHT dagothbot,8 ## OCULIS EDIT REMOVAL # removed by us
 #NOVA EDIT ADDITION END
 LAW_WEIGHT asimov,0
 LAW_WEIGHT asimovpp,5
@@ -339,6 +343,7 @@ LAW_WEIGHT overlord,3
 LAW_WEIGHT painter,3
 LAW_WEIGHT dungeon_master,3
 LAW_WEIGHT thinkermov,3
+LAW_WEIGHT godcomplex,3 # OCULIS EDIT ADDITION
 
 ## Bad idea laws. Probably shouldn't enable these
 LAW_WEIGHT syndie,0
@@ -423,12 +428,18 @@ ROUNDSTART_RACES abductorweak
 ROUNDSTART_RACES golemweak
 ROUNDSTART_RACES dullahan
 ROUNDSTART_RACES kobold
+ROUNDSTART_RACES protean
+ROUNDSTART_RACES shadekin
+ROUNDSTART_RACES holosynth
 
 ## IRIS RACES
 ROUNDSTART_RACES nabber
 ROUNDSTART_RACES aquamorph
 ROUNDSTART_RACES polysmorph
-ROUNDSTART_RACES holosynth
+
+## OCULIS EDIT BEGIN - Arachnid Species
+ROUNDSTART_RACES arachnid
+## OCULIS EDIT END
 
 ##-------------------------------------------------------------------------------------------
 
@@ -533,15 +544,6 @@ ROUNDSTART_TRAITS
 ## Enable night shifts
 #ENABLE_NIGHT_SHIFTS
 
-## The shift start hour in 24-hour (0-23) notation
-SHIFT_TIME_START_HOUR 7
-
-## Sets shift time to server time at roundstart. Overrides SHIFT_TIME_START_HOUR
-#SHIFT_TIME_REALTIME
-
-## Enable randomized shift start times. Overrides SHIFT_TIME_REALTIME and SHIFT_TIME_START_HOUR
-#RANDOMIZE_SHIFT_TIME
-
 ## A cap on how many monkeys may be created via monkey cubes
 MONKEYCAP 64
 
@@ -633,3 +635,6 @@ SPY_EASY_REWARD_TC_THRESHOLD 5
 ## Hard bounties grant uplink rewards that cost this much TC (or higher).
 ## Also functions as the upper end for medium bounties.
 SPY_HARD_REWARD_TC_THRESHOLD 15
+
+## Minimum time before a heretic can ascend, in minutes
+# MINIMUM_ASCENSION_TIME 3

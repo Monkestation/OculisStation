@@ -105,7 +105,7 @@
 		return COMPONENT_ITEM_ACTION_SLOT_INVALID
 
 /// Apply an overlay while the item is not deployed
-/datum/component/toggle_attached_clothing/proc/on_checked_overlays(obj/item/source, list/overlays, mutable_appearance/standing, isinhands, icon_file)
+/datum/component/toggle_attached_clothing/proc/on_checked_overlays(obj/item/source, list/overlays, mutable_appearance/standing, isinhands, icon_file, bodyshape)
 	SIGNAL_HANDLER
 	if (isinhands || currently_deployed)
 		return
@@ -213,3 +213,4 @@
 		return
 	var/mob/living/carbon/human/wearer = deployable.loc
 	wearer.transferItemToLoc(deployable, parent, force = TRUE, silent = TRUE)
+	wearer.update_body_parts() // OCULIS EDIT ADDITION - fix issue with ears and such not properly rendering when toggling a hood down

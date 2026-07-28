@@ -26,7 +26,7 @@
 	/// A weakref to the mind of our heretic.
 	var/datum/mind/heretic_mind
 	/// Lazylist of minds that we won't pick as targets.
-	var/list/datum/mind/target_blacklist
+	var/static/list/datum/mind/target_blacklist
 	/// An assoc list of [ref] to [timers] - a list of all the timers of people in the shadow realm currently
 	var/list/return_timers
 	/// Evil organs we can put in people
@@ -42,7 +42,6 @@
 
 /datum/heretic_knowledge/hunt_and_sacrifice/Destroy(force)
 	heretic_mind = null
-	LAZYCLEARLIST(target_blacklist)
 	return ..()
 
 /datum/heretic_knowledge/hunt_and_sacrifice/on_research(mob/user, datum/antagonist/heretic/our_heretic)
@@ -166,12 +165,12 @@
 
 	// NOVA CHANGE START - ORIGINAL -- Antag Opt In (Only sec and command may be targetted if config is set as 0)
 	// Third target, someone in their department.
-	if(CONFIG_GET(flag/disable_antag_opt_in_preferences))
-		for(var/datum/mind/department_mind as anything in shuffle(valid_targets))
-			if(department_mind.assigned_role?.departments_bitflags & user.mind.assigned_role?.departments_bitflags)
-				final_targets += department_mind
-				valid_targets -= department_mind
-				break
+	/* if(CONFIG_GET(flag/disable_antag_opt_in_preferences)) */ // OCULIS EDIT REMOVAL - use the actual antag opt-in settings dammit
+	for(var/datum/mind/department_mind as anything in shuffle(valid_targets))
+		if(department_mind.assigned_role?.departments_bitflags & user.mind.assigned_role?.departments_bitflags)
+			final_targets += department_mind
+			valid_targets -= department_mind
+			break
 	// NOVA EDIT CHANGE END
 
 	// Now grab completely random targets until we'll full
@@ -209,8 +208,8 @@
 
 	if(sacrifice.mind)
 		LAZYADD(target_blacklist, sacrifice.mind)
-	heretic_datum.remove_sacrifice_target(sacrifice)
-
+	for(var/datum/antagonist/heretic/all_heretic in GLOB.antagonists)
+		all_heretic.remove_sacrifice_target(sacrifice)
 
 	var/feedback = "Your patrons accept your offer"
 	var/sac_job_flag = sacrifice.mind?.assigned_role?.job_flags | sacrifice.last_mind?.assigned_role?.job_flags

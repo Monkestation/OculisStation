@@ -15,6 +15,9 @@
 #define PRIDE_MIRROR_OPTIONS list(CHANGE_HAIR, CHANGE_BEARD, CHANGE_RACE, CHANGE_SEX, CHANGE_EYES)
 #define MAGIC_MIRROR_OPTIONS list(CHANGE_HAIR, CHANGE_BEARD, CHANGE_RACE, CHANGE_SEX, CHANGE_EYES, CHANGE_NAME)
 
+// Chance for the mirror to be haunted at creation
+#define ROUNDSTART_CURSED_CHANCE 0.2
+
 /obj/structure/mirror
 	name = "mirror"
 	desc = "Mirror mirror on the wall, who's the most robust of them all?"
@@ -29,7 +32,8 @@
 	///Can this mirror be removed from walls with tools?
 	var/deconstructable = TRUE
 	var/list/mirror_options = INERT_MIRROR_OPTIONS
-
+	// Can a revenant be imprisoned in this mirror?
+	var/cursable = TRUE
 	///Flags this race must have to be selectable with this type of mirror.
 	var/race_flags = MIRROR_MAGIC
 	///List of all Races that can be chosen, decided by its Initialize.
@@ -57,14 +61,16 @@
 	)
 	if(mapload)
 		find_and_mount_on_atom()
+		if(prob(ROUNDSTART_CURSED_CHANCE) && cursable)
+			AddComponent(/datum/component/revenant_prison, create_on_release = TRUE)
 	update_choices()
 	register_context()
 
 /obj/structure/mirror/proc/can_reflect(atom/movable/target)
-	///I'm doing it this way too, because the signal is sent before the broken variable is set to TRUE.
-	if(atom_integrity <= integrity_failure * max_integrity)
+	// I'm doing it this way too, because the signal is sent before the broken variable is set to TRUE.
+	if(atom_integrity <= integrity_failure * max_integrity || broken)
 		return FALSE
-	if(broken || !isliving(target) || HAS_TRAIT(target, TRAIT_NO_MIRROR_REFLECTION))
+	if(!isliving(target) || HAS_TRAIT(target, TRAIT_NO_MIRROR_REFLECTION))
 		return FALSE
 	return TRUE
 
@@ -72,10 +78,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror, 28)
 
 /obj/structure/mirror/broken
 	icon_state = "mirror_broke"
+	cursable = FALSE
+	broken = TRUE
+	desc = "Oh no, seven years of bad luck!"
 
 /obj/structure/mirror/broken/Initialize(mapload)
 	. = ..()
-	atom_break(null, mapload)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 
@@ -99,9 +107,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 		deconstruct()
 		return ITEM_INTERACT_SUCCESS
 	return ITEM_INTERACT_BLOCKING
-
-/obj/structure/mirror/atom_deconstruct()
-	new /obj/item/wallframe/mirror(loc, 1)
 
 /obj/structure/mirror/proc/display_radial_menu(mob/living/carbon/human/user)
 	if(!can_use_mirror(user))
@@ -217,7 +222,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 				to_chat(race_changer, span_notice("Invalid color. Your color is not bright enough."))
 
 	race_changer.update_body(is_creating = TRUE)
-	race_changer.update_mutations_overlay() // no hulk lizard
 
 /// Hook for mirrors to do stuff on species change
 /obj/structure/mirror/proc/on_species_change(mob/living/carbon/human/race_changer, datum/species/newrace)
@@ -253,7 +257,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 
 	sexy.dna.update_ui_block(/datum/dna_block/identity/gender)
 	sexy.update_body(is_creating = TRUE) // or else physique won't change properly
-	sexy.update_mutations_overlay() //(hulk male/female)
 	sexy.update_clothing(ITEM_SLOT_ICLOTHING) // update gender shaped clothing
 
 /obj/structure/mirror/proc/change_eyes(mob/living/carbon/human/user)
@@ -262,7 +265,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 		return
 	user.set_eye_color(sanitize_hexcolor(new_eye_color))
 	user.dna.update_ui_block(/datum/dna_block/identity/eye_colors)
-	user.update_body()
+	user.update_eyes()
 	to_chat(user, span_notice("You gaze at your new eyes with your new eyes. Perfect!"))
 
 /obj/structure/mirror/examine(mob/user)
@@ -302,13 +305,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 		to_chat(unlucky_dude, span_warning("A chill runs down your spine as [src] shatters..."))
 		unlucky_dude.AddComponent(/datum/component/omen, incidents_left = 7)
 
-/obj/structure/mirror/atom_break(damage_flag, mapload)
+/obj/structure/mirror/atom_break(damage_flag)
 	. = ..()
 	if(broken)
 		return
 	icon_state = "mirror_broke"
-	if(!mapload)
-		playsound(src, SFX_SHATTER, 70, TRUE)
+	playsound(src, SFX_SHATTER, 70, TRUE)
 	if(desc == initial(desc))
 		desc = "Oh no, seven years of bad luck!"
 	broken = TRUE
@@ -316,6 +318,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 /obj/structure/mirror/atom_deconstruct(disassembled = TRUE)
 	if(!disassembled)
 		new /obj/item/shard(loc)
+	else if(broken)
+		new /obj/item/wallframe/mirror/broken(loc)
 	else
 		new /obj/item/wallframe/mirror(loc)
 
@@ -348,12 +352,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 
 /obj/item/wallframe/mirror
 	name = "mirror"
-	desc = "An unmounted mirror. Attach it to a wall to use."
+	desc = "An unmounted mirror. Attach it to a wall for use."
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "mirror"
 	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 5, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 2)
 	result_path = /obj/structure/mirror
 	pixel_shift = 28
+
+/obj/item/wallframe/mirror/broken
+	name = "broken mirror"
+	desc = "An unmounted and broken mirror. Attach it to a wall for decor."
+	icon_state = "mirror_broke"
+	result_path = /obj/structure/mirror/broken
 
 /obj/structure/mirror/magic
 	name = "magic mirror"
@@ -361,6 +371,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 	icon_state = "magic_mirror"
 	mirror_options = MAGIC_MIRROR_OPTIONS
 	deconstructable = FALSE
+	cursable = FALSE
 
 /obj/structure/mirror/magic/Initialize(mapload)
 	. = ..()
@@ -463,3 +474,5 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 #undef INERT_MIRROR_OPTIONS
 #undef PRIDE_MIRROR_OPTIONS
 #undef MAGIC_MIRROR_OPTIONS
+
+#undef ROUNDSTART_CURSED_CHANCE

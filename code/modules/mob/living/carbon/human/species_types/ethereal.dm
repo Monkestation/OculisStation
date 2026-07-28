@@ -13,7 +13,7 @@
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 		TRAIT_FIXED_MUTANT_COLORS,
-		TRAIT_AGENDER,
+		// TRAIT_AGENDER, // OCULIS EDIT REMOVAL, don't force people to have or not have a gender
 	)
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 	species_cookie = /obj/item/food/energybar
@@ -67,7 +67,7 @@
 	var/obj/item/organ/heart/ethereal/ethereal_heart = new_ethereal.get_organ_slot(ORGAN_SLOT_HEART)
 	ethereal_heart.ethereal_color = default_color
 
-	for(var/obj/item/bodypart/limb as anything in new_ethereal.bodyparts)
+	for(var/obj/item/bodypart/limb as anything in new_ethereal.get_bodyparts())
 		if(limb.limb_id == SPECIES_ETHEREAL)
 			limb.update_limb(is_creating = TRUE)
 
@@ -112,16 +112,32 @@
 				currently_flickered = FALSE
 			ethereal_light.set_light_on(TRUE)
 		fixed_mut_color = current_color
-		ethereal.update_body()
+		// OCULIS EDIT ADDITION START
+		if(ethereal.organs_slot["horns"])
+			var/obj/item/organ/horms = ethereal.organs_slot["horns"]
+			horms.bodypart_overlay.draw_color = list(current_color)
+		// OCULIS EDIT ADDITION END
 		ethereal.set_facial_haircolor(current_color, override = TRUE, update = FALSE)
-		ethereal.set_haircolor(current_color, override = TRUE,  update = TRUE)
+		ethereal.set_haircolor(current_color, override = TRUE, update = FALSE)
+		ethereal.update_body()
 	else
 		ethereal_light.set_light_on(FALSE)
-		var/dead_color = rgb(128,128,128)
+		// OCULIS EDIT REMOVAL START
+		// var/dead_color = rgb(128,128,128)
+		// OCULIS EDIT REMOVAL END
+		// OCULIS EDIT ADDITION START
+		var/dead_color = rgb(230, 230, 230)
+		// OCULIS EDIT ADDITION END
 		fixed_mut_color = dead_color
-		ethereal.update_body()
+		// OCULIS EDIT ADDITION START
+		if(ethereal.organs_slot["horns"])
+			var/obj/item/organ/horms = ethereal.organs_slot["horns"]
+			horms.bodypart_overlay.draw_color = list(dead_color)
+		current_color = dead_color //Ethereal limbs directly get the color of the ethereal's current_color and not fixed_mut_color.
+		// OCULIS EDIT ADDITION END
 		ethereal.set_facial_haircolor(dead_color, override = TRUE, update = FALSE)
-		ethereal.set_haircolor(dead_color, override = TRUE, update = TRUE)
+		ethereal.set_haircolor(dead_color, override = TRUE, update = FALSE)
+		ethereal.update_body()
 
 /datum/species/ethereal/proc/on_emp_act(mob/living/carbon/human/source, severity, protection)
 	SIGNAL_HANDLER
@@ -302,7 +318,7 @@
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 		TRAIT_FIXED_MUTANT_COLORS,
-		TRAIT_AGENDER,
+		// TRAIT_AGENDER, // OCULIS EDIT REMOVAL, don't force people to have or not have a gender
 		TRAIT_NOBREATH,
 		TRAIT_RESISTHIGHPRESSURE,
 		TRAIT_RESISTLOWPRESSURE,

@@ -28,6 +28,7 @@
 	armour_penetration = 15
 	item_flags = NEEDS_PERMIT //Beepers gets angry if you get caught with this.
 	hitsound = 'modular_nova/master_files/sound/weapons/bloodyslice.ogg'
+	wound_bonus = -10 // OCULIS EDIT ADDITION - This thing already is sharp and double-attacks, calm down.
 
 /obj/item/melee/implantarmblade/attack(mob/living/M, mob/living/user)
 	. = ..()
@@ -45,6 +46,7 @@
 /obj/item/organ/cyberimp/arm/toolkit/armblade
 	zone = BODY_ZONE_R_ARM
 	slot = ORGAN_SLOT_RIGHT_ARM_AUG
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/organ/cyberimp/arm/toolkit/armblade/l
 	zone = BODY_ZONE_L_ARM
@@ -53,9 +55,13 @@
 /obj/item/melee/implantarmblade/early
 	name = "early armblade implant"
 	desc = "A long, sharp, mantis-like blade implanted into someones arm. This is an early, outdated model with a ceramic blade, it isn't as effective as steel versions, but easier to smuggle past metal detectors."
-	force = 12 // More then the claws(but doesn't double as wire cutters), less then the razorwire and 10 less then real armblades, about equal to a survival knife, 24 with two
-	armour_penetration = 5
+	force = 7 // OCULIS EDIT CHANGE - ORIGINAL: force = 12 // More then the claws(but doesn't double as wire cutters), less then the razorwire and 10 less then real armblades, about equal to a survival knife, 24 with two
+	armour_penetration = 0 // OCULIS EDIT CHANGE - ORIGINAL: armour_penetration = 5
 	icon_state = "mantis_blade_early"
+	// OCULIS EDIT ADDITION START
+	wound_bonus = -20
+	demolition_mod = 1.8
+	// OCULIS EDIT ADDITION END
 
 /obj/item/melee/implantarmblade/energy
 	name = "energy arm blade"
@@ -64,6 +70,7 @@
 	force = 20 // Two can attack at the same time, so read this as 40 force total.
 	armour_penetration = 25 //Energy isn't as good at going through armor as it is through flesh alone.
 	hitsound = 'sound/items/weapons/blade1.ogg'
+	wound_bonus = /obj/item/melee::wound_bonus // OCULIS EDIT ADDITION (default wound bonus instead of the reduced one)
 
 /obj/item/organ/cyberimp/arm/toolkit/armblade
 	name = "arm blade implant"
@@ -144,8 +151,8 @@
 		attack_verb_continuous = KNIFE_ATTACK_VERB_CONTINUOUS
 		attack_verb_simple = KNIFE_ATTACK_VERB_SIMPLE
 
-/obj/item/knife/razor_claws/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(!istype(attacking_item, /obj/item/scratching_stone))
+/obj/item/knife/razor_claws/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/scratching_stone))
 		return ..()
 
 	knife_force = ENHANCED_KNIFE_FORCE
@@ -159,9 +166,9 @@
 
 	name = "enhanced razor claws"
 	desc += span_warning("\n\nThese have undergone a special honing process; they'll kill people even faster than they used to.")
-	user.visible_message(span_warning("[user] sharpens [src], [attacking_item] disintegrating!"), span_warning("You sharpen [src], making it much more deadly than before, but [attacking_item] disintegrates under the stress."))
+	user.visible_message(span_warning("[user] sharpens [src], [tool] disintegrating!"), span_warning("You sharpen [src], making it much more deadly than before, but [tool] disintegrates under the stress."))
 	playsound(src, 'sound/items/unsheath.ogg', 25, TRUE)
-	qdel(attacking_item)
+	qdel(tool)
 	return ..()
 
 /obj/item/organ/cyberimp/arm/toolkit/razor_claws
@@ -173,6 +180,7 @@
 	icon_state = "wolverine"
 	extend_sound = 'sound/items/unsheath.ogg'
 	retract_sound = 'sound/items/sheath.ogg'
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/organ/cyberimp/arm/toolkit/razor_claws/emp_act(severity)
 	. = ..()
@@ -221,6 +229,7 @@
 	aug_icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
 	aug_overlay = "steel"
 	hand_state = FALSE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/organ/cyberimp/arm/toolkit/mining_drill/emp_act(severity)
 	. = ..()
@@ -295,6 +304,7 @@
 	icon_state = "diamond"
 	items_to_create = list(/obj/item/pickaxe/drill/implant/diamond)
 	aug_overlay = "toolkit"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/diamond = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/pickaxe/drill/implant/diamond
 	name = "integrated diamond mining drill"
@@ -320,6 +330,7 @@
 	desc = "A rather simple arm implant containing tools used in gardening and botanical research."
 	items_to_create = list(/obj/item/cultivator, /obj/item/shovel/spade, /obj/item/hatchet, /obj/item/gun/energy/floragun, /obj/item/plant_analyzer, /obj/item/geneshears, /obj/item/secateurs, /obj/item/storage/bag/plants, /obj/item/storage/bag/plants/portaseeder)
 	aug_overlay = "toolkit"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/implant_mounted_chainsaw
 	name = "integrated chainsaw"
@@ -359,6 +370,7 @@
 	desc = "A set of janitorial tools on the user's arm."
 	items_to_create = list(/obj/item/lightreplacer, /obj/item/holosign_creator, /obj/item/soap/nanotrasen, /obj/item/reagent_containers/spray/cyborg_drying, /obj/item/mop/advanced, /obj/item/paint/paint_remover, /obj/item/reagent_containers/cup/beaker/large, /obj/item/reagent_containers/spray/cleaner) //Beaker if for refilling sprays
 	aug_overlay = "toolkit"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/organ/cyberimp/arm/toolkit/janitor/emag_act()
 	if(obj_flags & EMAGGED)
@@ -374,6 +386,7 @@
 	desc = "A... implanted lighter. Incredibly useless."
 	items_to_create = list(/obj/item/lighter/greyscale) //Hilariously useless.
 	aug_overlay = "toolkit"
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/organ/cyberimp/arm/toolkit/lighter/emag_act()
 	if(obj_flags & EMAGGED)
@@ -441,6 +454,7 @@
 	items_to_create = list(/obj/item/melee/razorwire)
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "razorwire"
+	custom_materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/organ/cyberimp/arm/toolkit/razorwire
 	zone = BODY_ZONE_R_ARM
@@ -524,6 +538,7 @@
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "shell_cannon"
 	aug_overlay = "toolkit"
+	custom_materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/autosurgeon/syndicate/shell_launcher
 	name = "shell launcher autosurgeon"

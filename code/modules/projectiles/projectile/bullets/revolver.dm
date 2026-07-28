@@ -136,7 +136,7 @@
 
 /obj/projectile/bullet/c357
 	name = ".357 bullet"
-	damage = 60
+	damage = 60 //OCULIS EDIT, damage value edited in modular_oculis/modules/gun_related_things
 	wound_bonus = -30
 
 /obj/projectile/bullet/c357/phasic
@@ -149,7 +149,7 @@
 /obj/projectile/bullet/c357/heartseeker
 	name = ".357 heartseeker bullet"
 	icon_state = "gauss"
-	damage = 50
+	damage = 50 //OCULIS EDIT, damage value edited in modular_oculis/modules/gun_related_things
 	homing_turn_speed = 120
 
 // admin only really, for ocelot memes

@@ -102,7 +102,7 @@
 	/// If objects are below this layer, we pass through them
 	var/hit_threshhold = PROJECTILE_HIT_THRESHHOLD_LAYER
 
-	/// How many tiles we pass in a single SSprojectiles tick
+	/// How many tiles we pass in a single SSprojectiles tick - increased by 25% for bullets and beams on init in projectile_speed.dm // OCULIS COMMENT EDIT
 	var/speed = 1.25
 
 	/// The current angle of the projectile. Initially null, so if the arg is missing from [/fire()], we can calculate it from firer and target as fallback.
@@ -272,6 +272,8 @@
 	/// If true directly targeted turfs can be hit
 	var/can_hit_turfs = FALSE
 
+	var/lavafauna_mod = 1 //OCULIS EDIT - This essentially lets your adjust a projectiles damage multiplier vs LAVALAND fauna. By default shouldn't change damage at all for anything else if left at 1.
+
 /obj/projectile/Initialize(mapload)
 	. = ..()
 	maximum_range = range
@@ -397,11 +399,18 @@
 	if((blocked >= 100 || (damage && damage_type != BRUTE)) && impact_effect_type && !hitscan)
 		new impact_effect_type(target_turf, impact_x, impact_y)
 
+
 	var/mob/living/living_target = target
 	get_embed()?.try_embed_projectile(src, target, hit_limb_zone, blocked, pierce_hit)
 	var/reagent_note
 	if(reagents?.reagent_list)
 		reagent_note = "REAGENTS: [pretty_string_from_reagent_list(reagents.reagent_list)]"
+
+	//OCULIS EDIT START - Essentially multiplies damage by fauna mod if its a lavaland fauna
+	var/targetfaction = living_target.get_faction()
+	if(faction_check(targetfaction, list(FACTION_MINING, FACTION_BOSS)))
+		damage *= lavafauna_mod
+	//OCULIS EDIT END - Used to allow wasteland guns to do damage to fauna without obliterating people
 
 	if(ismob(firer) && !do_not_log)
 		log_combat(firer, living_target, "shot", src, reagent_note)
@@ -825,7 +834,7 @@
 		START_PROCESSING(SSprojectiles, src)
 	// move it now to avoid potentially hitting yourself with firer-hitting projectiles
 	if (!deletion_queued && !hitscan)
-		process_movement(max(FLOOR(speed, 1), 1), tile_limit = TRUE)
+		process_movement(max(floor(speed)), tile_limit = TRUE)
 
 /// Makes projectile home onto the passed target with minor inaccuracy
 /obj/projectile/proc/set_homing_target(atom/target)
@@ -915,7 +924,7 @@
 		pixels_to_move = SSprojectiles.max_pixels_per_tick
 
 	overrun += MODULUS(pixels_to_move, 1)
-	pixels_to_move = FLOOR(pixels_to_move, 1)
+	pixels_to_move = floor(pixels_to_move)
 	SEND_SIGNAL(src, COMSIG_PROJECTILE_BEFORE_MOVE)
 
 	// Registering turf entries is done here instead of a connect_loc because else it could be called multiple times per tick and waste performance
@@ -986,8 +995,8 @@
 			distance_to_move = SSprojectiles.pixels_per_decisecond
 
 		// Figure out if we move to the next turf and if so, what its positioning relatively to us is
-		var/x_shift = distance_to_move >= x_to_border ? SIGN(movement_vector.pixel_x) : 0
-		var/y_shift = distance_to_move >= y_to_border ? SIGN(movement_vector.pixel_y) : 0
+		var/x_shift = distance_to_move >= x_to_border ? sign(movement_vector.pixel_x) : 0
+		var/y_shift = distance_to_move >= y_to_border ? sign(movement_vector.pixel_y) : 0
 		var/moving_turfs = x_shift || y_shift
 		// Calculate where in the turf we will be when we cross the edge.
 		// This is a projectile variable because its also used in hit VFX
@@ -1259,8 +1268,8 @@
 	free_hitscan_forceMove = TRUE
 	forceMove(source_loc)
 	starting = source_loc
-	pixel_x = source.pixel_x
-	pixel_y = source.pixel_y
+	pixel_x = source.pixel_x - source.base_pixel_x
+	pixel_y = source.pixel_y - source.base_pixel_y
 	original = target
 
 	// Trim off excess pixel_x/y by converting them into turf offset

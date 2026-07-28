@@ -13,6 +13,17 @@
 /obj/machinery/digital_clock/directional/north,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/film_studio/dorms)
+"ax" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/catwalk_floor/airless,
+/area/ruin/space)
 "aA" = (
 /obj/effect/spawner/structure/window,
 /obj/structure/curtain/cloth,
@@ -28,23 +39,11 @@
 	},
 /turf/open/floor/iron/large,
 /area/ruin/space/has_grav/film_studio/stage)
-"aG" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space/nearstation)
 "aI" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/curtain/cloth/fancy,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/stage)
-"aL" = (
-/obj/effect/turf_decal/tile/blue/opposingcorners{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/blue/corner,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/iron/cafeteria,
-/area/ruin/space/has_grav/film_studio/dorms)
 "aO" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -67,6 +66,12 @@
 /turf/open/floor/iron/half{
 	dir = 8
 	},
+/area/ruin/space/has_grav/film_studio/starboard)
+"bi" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/item/modular_computer/laptop/preset/civilian,
+/turf/open/floor/mineral/plastitanium/pod/light,
 /area/ruin/space/has_grav/film_studio/starboard)
 "bs" = (
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -106,14 +111,6 @@
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/film_studio/dorms)
-"bG" = (
-/obj/structure/chair/office{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/film_studio/starboard)
 "bH" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/chair/sofa/bench{
@@ -121,28 +118,36 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/stage)
-"bT" = (
-/obj/machinery/door/airlock/glass{
-	name = "Shooting Room"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/film_studio/stage)
-"cd" = (
-/obj/effect/turf_decal/bot,
-/obj/machinery/power/port_gen/pacman/pre_loaded,
-/obj/structure/cable/layer1,
-/turf/open/floor/plating,
+"cj" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/effect/mapping_helpers/apc/unlocked,
+/turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/film_studio)
 "ck" = (
 /obj/structure/fake_stairs/wood/directional/north,
 /obj/machinery/light/dim/directional/east,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/stage)
-"cC" = (
-/obj/machinery/door/window/right/directional/west,
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/film_studio/starboard)
+"cy" = (
+/obj/machinery/door/airlock/external{
+	name = "Solar Maintenance"
+	},
+/obj/effect/mapping_helpers/airlock/unres,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/solars)
+"cB" = (
+/obj/structure/chair/comfy/black{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/film_studio/director)
 "cG" = (
 /obj/effect/spawner/random/trash,
 /obj/effect/mapping_helpers/broken_floor,
@@ -192,9 +197,15 @@
 /obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/director)
-"dd" = (
-/turf/open/space/basic,
-/area/space/nearstation)
+"de" = (
+/obj/machinery/door/airlock/material{
+	name = "Cabin 1"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/film_studio/dorms)
 "dg" = (
 /turf/closed/wall,
 /area/ruin/space/has_grav/film_studio/starboard)
@@ -204,6 +215,20 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/film_studio/dorms)
+"dl" = (
+/obj/machinery/photocopier/prebuilt,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/film_studio/director)
+"dq" = (
+/obj/structure/urinal/directional/east,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/freezer,
+/area/ruin/space/has_grav/film_studio/dorms)
+"du" = (
+/obj/machinery/door/window/left/directional/west,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/film_studio/starboard)
 "dv" = (
 /obj/structure/fake_stairs/directional/north,
 /turf/open/floor/plating,
@@ -214,6 +239,22 @@
 	dir = 8
 	},
 /area/ruin/space/has_grav/film_studio/stage)
+"dC" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/papersack,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/film_studio/starboard)
+"dG" = (
+/obj/structure/chair/stool/bar/directional/east{
+	pixel_x = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/film_studio/dorms)
 "dI" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/rack,
@@ -249,6 +290,23 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/stage)
+"eb" = (
+/obj/effect/turf_decal/tile/blue/opposingcorners{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/blue{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/cafeteria,
+/area/ruin/space/has_grav/film_studio/dorms)
+"ed" = (
+/obj/machinery/door/airlock/public/glass{
+	name = "Lobby"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/film_studio/starboard)
 "ef" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -264,13 +322,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
-"eu" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/airalarm/directional/north,
-/obj/effect/mapping_helpers/airalarm/all_access,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/freezer,
-/area/ruin/space/has_grav/film_studio/dorms)
+"ey" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/structure/closet,
+/obj/item/storage/box/lights/tubes,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/solars)
 "eA" = (
 /obj/machinery/vending/autodrobe,
 /turf/open/floor/wood,
@@ -294,6 +351,11 @@
 	},
 /turf/open/floor/iron/white/textured,
 /area/ruin/space/has_grav/film_studio/starboard)
+"eX" = (
+/obj/structure/table,
+/obj/structure/showcase/machinery/microwave,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/film_studio/dorms)
 "fa" = (
 /obj/structure/cable,
 /obj/machinery/power/smes/full,
@@ -303,38 +365,18 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/film_studio/dorms)
-"fs" = (
-/obj/structure/table,
-/obj/structure/showcase/machinery/microwave,
-/turf/open/floor/iron/smooth,
-/area/ruin/space/has_grav/film_studio/dorms)
 "ft" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/stage)
-"fu" = (
-/obj/item/surgery_tray/full,
-/obj/structure/table/glass,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/white/textured,
-/area/ruin/space/has_grav/film_studio/starboard)
 "fB" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/corner{
 	dir = 8
 	},
 /area/ruin/space/has_grav/film_studio/starboard)
-"fF" = (
-/obj/effect/turf_decal/bot,
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/west,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio)
 "fG" = (
 /obj/structure/table,
 /obj/item/reagent_containers/cup/soda_cans/cola{
@@ -344,6 +386,24 @@
 /obj/item/pai_card,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
+"fM" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/machinery/light/floor,
+/obj/item/paper_bin,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/film_studio/starboard)
+"fS" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/film_studio/dorms)
+"fV" = (
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/airless,
+/area/ruin/space)
 "fY" = (
 /obj/structure/reagent_dispensers/fueltank/large,
 /obj/effect/turf_decal/bot,
@@ -357,16 +417,6 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/stage)
-"gg" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/airlock/glass{
-	name = "Shooting Room"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/film_studio/stage)
 "gl" = (
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron,
@@ -379,28 +429,6 @@
 /obj/structure/curtain/cloth/fancy,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/stage)
-"gA" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Auxillary Solars"
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/solars)
-"gH" = (
-/obj/machinery/door/window/survival_pod/left/directional/north,
-/obj/effect/turf_decal/trimline/dark_blue/arrow_ccw{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/dark_blue/arrow_ccw{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/white/textured,
-/area/ruin/space/has_grav/film_studio/starboard)
 "gT" = (
 /obj/structure/chair/sofa/left/maroon{
 	dir = 8
@@ -438,15 +466,15 @@
 "hn" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/stage)
-"hw" = (
-/obj/machinery/door/airlock/external/glass/ruin,
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/starboard)
-"hA" = (
+"hD" = (
+/obj/machinery/door/airlock/material{
+	name = "Cabin 2"
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood,
-/area/ruin/space/has_grav/film_studio/director)
+/area/ruin/space/has_grav/film_studio/dorms)
 "hL" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron,
@@ -458,25 +486,11 @@
 /obj/structure/curtain,
 /turf/open/floor/iron/white/textured,
 /area/ruin/space/has_grav/film_studio/starboard)
-"hY" = (
-/obj/machinery/door/airlock/external{
-	name = "Solar Maintenance"
-	},
-/obj/effect/mapping_helpers/airlock/unres,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+"hW" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/light/dim/directional/north,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
-"hZ" = (
-/obj/effect/turf_decal/siding/thinplating_new/terracotta{
-	dir = 1
-	},
-/obj/machinery/airalarm/directional/west,
-/obj/effect/mapping_helpers/airalarm/all_access,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/film_studio/director)
 "ia" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 1
@@ -484,26 +498,31 @@
 /obj/effect/spawner/random/trash/mess,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
-"ib" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/solars)
-"ig" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Director Room"
+"im" = (
+/obj/structure/chair/office/light{
+	dir = 1
 	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/turf/open/floor/wood,
+/turf/open/floor/carpet/grimey,
 /area/ruin/space/has_grav/film_studio/director)
 "is" = (
 /obj/structure/chair/sofa/right/maroon{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/film_studio/dorms)
+"iv" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/film_studio/dorms)
+"iy" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/dorms)
 "iB" = (
 /obj/structure/window/spawner/directional/west,
@@ -541,11 +560,23 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/stage)
+"jh" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Custodial Closet"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/dorms)
 "jt" = (
 /turf/open/floor/iron/half{
 	dir = 8
 	},
 /area/ruin/space/has_grav/film_studio/starboard)
+"jx" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/teal,
+/turf/open/space/basic,
+/area/ruin/space)
 "jN" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/door/poddoor/shutters/preopen/deconstructed{
@@ -587,12 +618,6 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/space/has_grav/film_studio/dorms)
-"km" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/film_studio/starboard)
 "ko" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
@@ -600,16 +625,23 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio)
-"kq" = (
-/obj/structure/railing{
+"kt" = (
+/obj/structure/railing/corner/end{
 	dir = 8
 	},
-/obj/structure/railing{
+/obj/effect/turf_decal/siding/thinplating/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/loading_area{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/turf/open/floor/catwalk_floor/airless,
-/area/ruin/space)
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/stage)
 "ku" = (
 /obj/structure/rack,
 /obj/item/clothing/suit/caution{
@@ -633,10 +665,39 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/film_studio/dorms)
+"kx" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/solars)
+"kz" = (
+/obj/structure/chair/office{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/film_studio/starboard)
+"kD" = (
+/obj/effect/turf_decal/tile/dark/full,
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/film_studio/dorms)
 "kI" = (
 /obj/structure/bookcase/random/fiction,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/director)
+"kJ" = (
+/obj/machinery/power/solar_control{
+	name = "Starboard Bow Solar Control"
+	},
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/effect/mapping_helpers/apc/unlocked,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/solars)
 "kL" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -681,28 +742,49 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/solars)
+"lA" = (
+/obj/machinery/door/airlock/glass{
+	name = "Canteen"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/film_studio/dorms)
+"lG" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/power/port_gen/pacman/pre_loaded,
+/obj/structure/cable/layer1,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio)
 "lJ" = (
 /turf/open/floor/carpet,
 /area/ruin/space/has_grav/film_studio/backstage)
-"lL" = (
-/obj/structure/chair/stool/directional/south,
-/obj/machinery/light/small/directional/south,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/film_studio/dorms)
+"lT" = (
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_y = 2
+	},
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/film_studio/director)
+"lW" = (
+/obj/effect/turf_decal/siding/thinplating_new/terracotta{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/structure/bed{
+	dir = 8
+	},
+/obj/effect/mob_spawn/ghost_role/human/director{
+	dir = 8
+	},
+/obj/effect/spawner/random/bedsheet,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/film_studio/director)
 "mc" = (
 /obj/machinery/vending/boozeomat,
 /turf/closed/wall,
-/area/ruin/space/has_grav/film_studio/dorms)
-"mf" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
-/turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/dorms)
 "ml" = (
 /obj/structure/cable,
@@ -711,10 +793,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/film_studio/starboard)
-"mr" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/carpet,
-/area/ruin/space/has_grav/film_studio/backstage)
 "mF" = (
 /obj/structure/table/wood,
 /obj/structure/mirror/directional/west,
@@ -759,12 +837,9 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio)
-"nj" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
-/turf/open/floor/carpet,
-/area/ruin/space/has_grav/film_studio/backstage)
+"nO" = (
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/film_studio/starboard)
 "nQ" = (
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/film_studio)
@@ -783,26 +858,27 @@
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/stage)
-"ob" = (
-/obj/machinery/door/airlock/engineering,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio)
-"od" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/wood,
+"of" = (
+/obj/machinery/door/airlock/material{
+	name = "Unit 1"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/film_studio/dorms)
-"ok" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/stage)
-"or" = (
-/obj/machinery/power/terminal{
+"oy" = (
+/obj/structure/urinal/directional/east,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/freezer,
+/area/ruin/space/has_grav/film_studio/dorms)
+"oF" = (
+/obj/effect/turf_decal/box,
+/obj/machinery/light/dim/directional/east,
+/obj/machinery/atmospherics/components/unary/portables_connector/layer4{
 	dir = 8
 	},
-/obj/structure/cable/multilayer/connected,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio)
 "oI" = (
@@ -857,6 +933,38 @@
 "pq" = (
 /turf/open/floor/iron/textured_half,
 /area/ruin/space/has_grav/film_studio)
+"ps" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/public/glass{
+	name = "Lobby"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/catwalk_floor/iron,
+/area/ruin/space/has_grav/film_studio/starboard)
+"pv" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/dorms)
+"pw" = (
+/obj/structure/closet/crate/wooden/toy,
+/obj/item/clothing/head/wig/natural,
+/obj/item/clothing/head/wig/natural{
+	pixel_x = 8
+	},
+/obj/item/clothing/head/wig/natural{
+	pixel_x = -6
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/film_studio/backstage)
 "pA" = (
 /obj/structure/table,
 /obj/item/reagent_containers/cup/glass/coffee/no_lid{
@@ -888,10 +996,27 @@
 /obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/backstage)
+"pN" = (
+/obj/machinery/door/airlock/glass{
+	name = "Shooting Room"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/film_studio/dorms)
 "pQ" = (
 /obj/structure/broken_flooring/side/directional/east,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
+"pR" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/airless,
+/area/ruin/space)
 "pV" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/wood,
@@ -907,6 +1032,13 @@
 /obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/stage)
+"qb" = (
+/obj/structure/filingcabinet/white,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/film_studio/starboard)
 "qn" = (
 /obj/structure/chair{
 	dir = 1
@@ -916,19 +1048,17 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/stage)
-"qz" = (
+"qt" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/effect/turf_decal/siding/dark_green{
-	dir = 4
+	dir = 6
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/dorms)
-"qA" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced/spawner/directional/south,
-/obj/item/storage/box/papersack,
-/obj/structure/window/reinforced/spawner/directional/east,
-/turf/open/floor/pod/light,
+"qB" = (
+/obj/structure/filingcabinet/white,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/mineral/plastitanium/pod/light,
 /area/ruin/space/has_grav/film_studio/starboard)
 "qE" = (
 /obj/item/storage/medkit/ancient,
@@ -941,16 +1071,18 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/film_studio/dorms)
+"qK" = (
+/obj/effect/turf_decal/tile/blue/opposingcorners{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/blue/corner,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/iron/cafeteria,
+/area/ruin/space/has_grav/film_studio/dorms)
 "qL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/film_studio/dorms)
-"qM" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/film_studio/starboard)
 "qN" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -961,11 +1093,13 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/ruin/space/has_grav/film_studio/starboard)
-"qW" = (
-/obj/structure/filingcabinet/chestdrawer{
-	pixel_y = 2
+"rb" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Director Quarters"
 	},
-/turf/open/floor/carpet/grimey,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/director)
 "rh" = (
 /obj/structure/rack,
@@ -977,16 +1111,48 @@
 /obj/item/pipe_dispenser,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio)
+"rp" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/starboard)
 "rw" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/film_studio/starboard)
+"rx" = (
+/obj/structure/table/reinforced,
+/obj/item/clipboard{
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/paper{
+	pixel_y = 3;
+	pixel_x = 2
+	},
+/obj/item/reagent_containers/cup/glass/mug/coco{
+	pixel_x = -10;
+	pixel_y = -2
+	},
+/obj/machinery/door/window/elevator/right/directional/east,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/film_studio/starboard)
 "rK" = (
 /obj/machinery/light/floor,
 /turf/open/floor/iron/large,
 /area/ruin/space/has_grav/film_studio/starboard)
+"rR" = (
+/obj/machinery/door/airlock/engineering,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio)
 "rZ" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -1010,31 +1176,17 @@
 	dir = 8
 	},
 /area/ruin/space/has_grav/film_studio/starboard)
-"se" = (
-/obj/machinery/airalarm/directional/west,
-/obj/effect/mapping_helpers/airalarm/all_access,
-/turf/open/floor/iron/half{
-	dir = 8
-	},
-/area/ruin/space/has_grav/film_studio/starboard)
 "sf" = (
 /obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
-"sj" = (
-/obj/machinery/computer/old,
-/obj/structure/window/reinforced/spawner/directional/north,
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/film_studio/starboard)
-"sm" = (
-/obj/machinery/door/airlock/material{
-	name = "Cabin 1"
+"sn" = (
+/obj/machinery/door/airlock/glass{
+	name = "Shooting Room"
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/away,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/film_studio/dorms)
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/film_studio/stage)
 "sp" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
@@ -1043,12 +1195,24 @@
 /obj/effect/turf_decal/stripes,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/stage)
-"sJ" = (
-/obj/structure/chair/office{
-	dir = 1
+"su" = (
+/obj/machinery/door/airlock/glass{
+	name = "Backstage"
 	},
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/film_studio/starboard)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/backstage)
+"sw" = (
+/obj/machinery/door/airlock/material{
+	name = "Cabin 3"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/film_studio/dorms)
 "sK" = (
 /obj/structure/table,
 /obj/item/reagent_containers/cup/soda_cans/cola{
@@ -1088,15 +1252,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
-"sZ" = (
-/obj/structure/chair/stool/bar/directional/east{
-	pixel_x = 8
-	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
-/turf/open/floor/iron/smooth,
-/area/ruin/space/has_grav/film_studio/dorms)
 "ta" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -1118,23 +1273,22 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/stage)
-"tc" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/solars)
 "te" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio)
-"tl" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
-/turf/open/floor/carpet/stellar,
+"tj" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet,
+/area/ruin/space/has_grav/film_studio/backstage)
+"to" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/film_studio/starboard)
 "tq" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
@@ -1145,22 +1299,22 @@
 /obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/dorms)
-"tr" = (
-/obj/machinery/door/airlock/material{
-	name = "Unit 1"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/turf/open/floor/iron/freezer,
-/area/ruin/space/has_grav/film_studio/dorms)
 "tA" = (
 /obj/effect/turf_decal/siding/dark_blue/corner,
 /turf/open/floor/iron/large,
 /area/ruin/space/has_grav/film_studio/starboard)
-"tD" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/teal,
-/turf/open/space/basic,
-/area/ruin/space)
+"tF" = (
+/obj/structure/table,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/effect/turf_decal/siding/dark_green{
+	dir = 10
+	},
+/obj/item/toy/cards/deck{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/film_studio/dorms)
 "tG" = (
 /obj/structure/railing{
 	dir = 6
@@ -1170,25 +1324,22 @@
 	dir = 1
 	},
 /area/ruin/space/has_grav/film_studio/stage)
-"tN" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
-/turf/open/floor/iron/smooth,
-/area/ruin/space/has_grav/film_studio/dorms)
-"tT" = (
-/obj/effect/turf_decal/tile/bar/opposingcorners,
-/obj/effect/turf_decal/siding/dark_green{
-	dir = 6
-	},
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/film_studio/dorms)
 "tY" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/solars)
+"ua" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/clipboard,
+/obj/item/paper/fluff/ruins/djstation,
+/obj/item/pen,
+/obj/structure/sign/poster/random/directional/south,
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 4
+	},
+/area/ruin/space/has_grav/film_studio/starboard)
 "uc" = (
 /obj/machinery/power/terminal,
 /obj/structure/cable,
@@ -1208,10 +1359,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/dorms)
-"uw" = (
-/obj/machinery/door/airlock/centcom,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/starboard)
 "uC" = (
 /obj/structure/chair/sofa/bench/left{
 	dir = 1
@@ -1221,6 +1368,23 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/stage)
+"uJ" = (
+/obj/machinery/door/airlock/material{
+	name = "Washroom 1"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/turf/open/floor/iron/showroomfloor,
+/area/ruin/space/has_grav/film_studio/dorms)
+"uL" = (
+/obj/machinery/door/airlock/glass{
+	name = "Shooting Room"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/catwalk_floor/iron,
+/area/ruin/space/has_grav/film_studio/dorms)
 "uN" = (
 /obj/structure/sign/warning/yes_smoking/circle/directional/east,
 /obj/effect/turf_decal/tile/dark/full,
@@ -1233,15 +1397,39 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
-"vh" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/machinery/light/dim/directional/north,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/solars)
-"vi" = (
+"uS" = (
+/obj/structure/sign/poster/random/directional/east,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/film_studio/dorms)
+"uU" = (
 /obj/structure/cable,
-/turf/open/floor/catwalk_floor/airless,
-/area/ruin/space)
+/obj/machinery/door/airlock/maintenance{
+	name = "Generator Room"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/turf/open/floor/catwalk_floor/iron,
+/area/ruin/space/has_grav/film_studio)
+"vb" = (
+/obj/machinery/door/airlock/material{
+	name = "Unit 2"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/turf/open/floor/iron/freezer,
+/area/ruin/space/has_grav/film_studio/dorms)
+"vt" = (
+/obj/structure/table/wood,
+/obj/effect/turf_decal/siding/thinplating_new/terracotta{
+	dir = 1
+	},
+/obj/machinery/computer/libraryconsole,
+/obj/machinery/light/directional/east,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/film_studio/director)
+"vu" = (
+/obj/machinery/door/airlock/centcom,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/starboard)
 "vD" = (
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/film_studio/dorms)
@@ -1256,26 +1444,6 @@
 /obj/structure/sign/poster/random/directional/north,
 /turf/open/floor/iron/half,
 /area/ruin/space/has_grav/film_studio/starboard)
-"vL" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/solars)
-"vN" = (
-/obj/structure/table/wood,
-/obj/item/folder,
-/obj/item/pen{
-	pixel_x = -6;
-	pixel_y = 5
-	},
-/obj/effect/turf_decal/siding/thinplating_new/terracotta{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/film_studio/director)
 "vR" = (
 /obj/effect/turf_decal/siding/dark_blue,
 /turf/open/floor/iron/corner{
@@ -1300,14 +1468,12 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/stage)
-"wt" = (
-/obj/machinery/door/airlock/material{
-	name = "Cabin 3"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+"wu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/wood,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/film_studio/dorms)
 "wv" = (
 /obj/structure/chair/stool/directional/north,
@@ -1316,13 +1482,18 @@
 	},
 /turf/open/floor/iron/large,
 /area/ruin/space/has_grav/film_studio/stage)
-"wz" = (
-/obj/machinery/door/airlock/glass{
-	name = "Shooting Room"
+"wE" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
 	},
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/film_studio/dorms)
+/turf/open/floor/carpet/stellar,
+/area/ruin/space/has_grav/film_studio/starboard)
+"wO" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/film_studio/starboard)
 "wU" = (
 /obj/machinery/door/poddoor/shutters/preopen/deconstructed{
 	id = "stage_one"
@@ -1354,6 +1525,20 @@
 "xi" = (
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/stage)
+"xp" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/iron,
+/area/ruin/space/has_grav/film_studio)
+"xq" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Auxillary Solars"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/solars)
 "xs" = (
 /obj/effect/turf_decal/siding/thinplating/light{
 	dir = 4
@@ -1371,15 +1556,6 @@
 "xw" = (
 /turf/open/floor/iron/large,
 /area/ruin/space/has_grav/film_studio/starboard)
-"xy" = (
-/obj/structure/table/reinforced,
-/obj/item/flashlight/lamp{
-	pixel_x = -5;
-	pixel_y = 6
-	},
-/obj/structure/window/reinforced/spawner/directional/east,
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/film_studio/starboard)
 "xz" = (
 /obj/machinery/fax{
 	fax_name = "Radio Station";
@@ -1390,6 +1566,10 @@
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
+/area/ruin/space/has_grav/film_studio/starboard)
+"xG" = (
+/obj/machinery/door/window/right/directional/west,
+/turf/open/floor/mineral/plastitanium/pod/light,
 /area/ruin/space/has_grav/film_studio/starboard)
 "ya" = (
 /obj/structure/table/wood,
@@ -1407,23 +1587,28 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/film_studio/dorms)
-"yd" = (
-/obj/machinery/door/airlock/public/glass{
-	name = "Lobby"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/film_studio/starboard)
-"yf" = (
-/obj/machinery/computer/terminal{
-	dir = 8
-	},
-/obj/structure/window/reinforced/spawner/directional/east,
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/film_studio/starboard)
 "yr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/carpet/stellar,
+/area/ruin/space/has_grav/film_studio/starboard)
+"yt" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/film_studio/starboard)
+"yu" = (
+/obj/structure/urinal/directional/east,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/small/directional/west,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/freezer,
+/area/ruin/space/has_grav/film_studio/dorms)
+"yw" = (
+/obj/item/surgery_tray/full,
+/obj/structure/table/glass,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/white/textured,
 /area/ruin/space/has_grav/film_studio/starboard)
 "yz" = (
 /obj/effect/turf_decal/box,
@@ -1431,6 +1616,15 @@
 /obj/effect/turf_decal/tile/dark/full,
 /turf/open/floor/iron/white/smooth_large,
 /area/ruin/space/has_grav/film_studio/stage)
+"yC" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio)
 "yE" = (
 /obj/structure/mannequin/plastic,
 /turf/open/floor/wood,
@@ -1448,6 +1642,14 @@
 /obj/effect/mapping_helpers/apc/unlocked,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/starboard)
+"za" = (
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/stage)
 "zc" = (
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/ruin/space/has_grav/film_studio/starboard)
@@ -1458,41 +1660,25 @@
 "zk" = (
 /turf/open/floor/carpet/stellar,
 /area/ruin/space/has_grav/film_studio/starboard)
-"zl" = (
-/obj/effect/turf_decal/stripes/corner{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/solars)
-"zB" = (
-/obj/machinery/door/airlock/glass{
-	name = "Backstage"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/backstage)
-"zG" = (
-/obj/effect/turf_decal/trimline/dark_blue/arrow_ccw{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/dark_blue/arrow_ccw{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/white/textured,
-/area/ruin/space/has_grav/film_studio/starboard)
-"zH" = (
+"zn" = (
 /obj/structure/table/reinforced,
-/obj/structure/window/reinforced/spawner/directional/north,
-/obj/structure/window/reinforced/spawner/directional/east,
-/turf/open/floor/pod/light,
+/obj/machinery/door/window/left/directional/east,
+/turf/open/floor/mineral/plastitanium/pod/light,
 /area/ruin/space/has_grav/film_studio/starboard)
+"zp" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/film_studio/director)
 "zL" = (
 /turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/film_studio/starboard)
+"zQ" = (
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/iron/half{
+	dir = 8
+	},
 /area/ruin/space/has_grav/film_studio/starboard)
 "zU" = (
 /obj/effect/spawner/random/trash,
@@ -1534,10 +1720,6 @@
 /obj/machinery/washing_machine,
 /turf/open/floor/iron/cafeteria,
 /area/ruin/space/has_grav/film_studio/dorms)
-"Av" = (
-/obj/machinery/door/window/left/directional/west,
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/film_studio/starboard)
 "AB" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
@@ -1549,6 +1731,12 @@
 /obj/structure/curtain/cloth/fancy,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/stage)
+"AI" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/carpet/stellar,
+/area/ruin/space/has_grav/film_studio/starboard)
 "AR" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 1
@@ -1558,6 +1746,10 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/stage)
+"Bc" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/film_studio/dorms)
 "Bg" = (
 /obj/machinery/vending/coffee,
 /turf/open/floor/plating,
@@ -1571,6 +1763,12 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
+"BO" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/carpet,
+/area/ruin/space/has_grav/film_studio/backstage)
 "BP" = (
 /obj/structure/table,
 /obj/effect/turf_decal/stripes/line{
@@ -1619,6 +1817,11 @@
 /obj/machinery/vending/snack,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/film_studio/dorms)
+"Cc" = (
+/obj/machinery/computer/old,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/film_studio/starboard)
 "Cd" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1628,12 +1831,6 @@
 /obj/effect/turf_decal/siding/dark_blue,
 /turf/open/floor/iron/large,
 /area/ruin/space/has_grav/film_studio/starboard)
-"Cf" = (
-/obj/structure/chair/office/light{
-	dir = 1
-	},
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/film_studio/director)
 "Cj" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/corner{
@@ -1652,12 +1849,6 @@
 "Cp" = (
 /turf/closed/wall,
 /area/ruin/space/has_grav/film_studio/solars)
-"Cq" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
-/turf/open/floor/carpet/stellar,
-/area/ruin/space/has_grav/film_studio/starboard)
 "Cs" = (
 /obj/machinery/button/door/directional/north{
 	pixel_x = -10;
@@ -1682,28 +1873,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/film_studio/dorms)
-"CI" = (
-/obj/structure/table/wood,
-/obj/effect/turf_decal/siding/thinplating_new/terracotta{
-	dir = 1
-	},
-/obj/machinery/computer/libraryconsole,
-/obj/machinery/light/directional/east,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/film_studio/director)
-"CJ" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/dorms)
-"CS" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/solars)
 "CT" = (
 /obj/effect/turf_decal/stripes{
 	dir = 4
@@ -1722,10 +1891,12 @@
 /obj/structure/curtain/cloth/fancy,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/stage)
-"CY" = (
+"Db" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/freezer,
-/area/ruin/space/has_grav/film_studio/dorms)
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/catwalk_floor/iron,
+/area/ruin/space/has_grav/film_studio)
 "Dd" = (
 /obj/structure/dresser,
 /obj/structure/sign/poster/random/directional/north,
@@ -1749,20 +1920,20 @@
 	dir = 1
 	},
 /area/ruin/space/has_grav/film_studio/stage)
-"Dk" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/structure/closet,
-/obj/item/storage/box/lights/tubes,
+"Dm" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
-"Dv" = (
-/turf/open/floor/iron/freezer,
-/area/ruin/space/has_grav/film_studio/dorms)
-"DA" = (
-/obj/machinery/door/airlock/material{
-	name = "Unit 2"
+"Dp" = (
+/obj/machinery/computer/terminal{
+	dir = 8
 	},
-/obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/structure/window/reinforced/spawner/directional/east,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/film_studio/starboard)
+"Dv" = (
 /turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/film_studio/dorms)
 "DB" = (
@@ -1771,6 +1942,14 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/dorms)
+"DJ" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Canned Audience Closet"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/backstage)
 "DO" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
@@ -1804,14 +1983,11 @@
 "Eb" = (
 /turf/open/floor/iron/white/smooth_half,
 /area/ruin/space/has_grav/film_studio/stage)
-"Ed" = (
-/obj/structure/urinal/directional/east,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/freezer,
-/area/ruin/space/has_grav/film_studio/dorms)
+"Ec" = (
+/obj/machinery/door/airlock/external/glass/ruin,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/starboard)
 "Eh" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1822,29 +1998,6 @@
 /obj/machinery/power/smes/full,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
-"Ej" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
-	pixel_x = 9;
-	pixel_y = -4
-	},
-/obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
-	pixel_y = 8;
-	pixel_x = -9
-	},
-/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
-	pixel_x = -9;
-	pixel_y = -4
-	},
-/obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
-	pixel_y = 8;
-	pixel_x = 1
-	},
-/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
-	pixel_y = -4
-	},
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/film_studio/director)
 "Ek" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating/airless,
@@ -1855,14 +2008,6 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/film_studio/director)
-"Eo" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/starboard)
 "Ex" = (
 /obj/effect/turf_decal/siding/dark_blue{
 	dir = 8
@@ -1875,15 +2020,13 @@
 /obj/structure/chair/office/light,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/director)
-"EU" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/airlock/public/glass{
-	name = "Lobby"
+"ER" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/effect/turf_decal/siding/dark_green{
+	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/film_studio/starboard)
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/film_studio/dorms)
 "EV" = (
 /obj/structure/broken_flooring/side/directional/east{
 	dir = 1
@@ -1897,12 +2040,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/dorms)
-"Fk" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced/spawner/directional/south,
-/obj/item/modular_computer/laptop/preset/civilian,
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/film_studio/starboard)
 "Fo" = (
 /obj/structure/closet/crate{
 	name = "set building crate"
@@ -1920,23 +2057,6 @@
 /obj/structure/bookcase/random/fiction,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/film_studio/director)
-"Ft" = (
-/obj/structure/railing/corner/end{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/thinplating/corner{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/thinplating/corner{
-	dir = 1
-	},
-/obj/effect/turf_decal/loading_area{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/stage)
 "Fv" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -1954,53 +2074,41 @@
 /obj/structure/hedge,
 /turf/open/floor/iron/half,
 /area/ruin/space/has_grav/film_studio/starboard)
-"FH" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 8
+"FL" = (
+/obj/structure/table/wood,
+/obj/item/folder,
+/obj/item/pen{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/effect/turf_decal/siding/thinplating_new/terracotta{
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/film_studio/director)
+"FM" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Director Room"
+	},
 /obj/structure/cable,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/stage)
-"FO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/airalarm/directional/north,
-/obj/effect/mapping_helpers/airalarm/all_access,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/film_studio)
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/film_studio/director)
 "FS" = (
 /obj/structure/chair/sofa/bench/left{
 	dir = 1
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
-"FU" = (
+"FT" = (
 /obj/structure/table/reinforced,
-/obj/item/clipboard{
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/obj/item/paper{
-	pixel_y = 3;
-	pixel_x = 2
-	},
-/obj/item/reagent_containers/cup/glass/mug/coco{
-	pixel_x = -10;
-	pixel_y = -2
-	},
-/obj/machinery/door/window/elevator/right/directional/east,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/pod/light,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/item/storage/box/papersack,
+/obj/structure/window/reinforced/spawner/directional/east,
+/turf/open/floor/mineral/plastitanium/pod/light,
 /area/ruin/space/has_grav/film_studio/starboard)
-"FY" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Canned Audience Closet"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/backstage)
 "Ga" = (
 /turf/open/floor/iron/corner{
 	dir = 4
@@ -2027,16 +2135,12 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/corner,
 /area/ruin/space/has_grav/film_studio/starboard)
-"Gy" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/catwalk_floor/airless,
-/area/ruin/space)
+"GB" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/solars)
 "GL" = (
 /obj/effect/turf_decal/siding/dark_green,
 /turf/open/floor/iron/smooth,
@@ -2049,13 +2153,14 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/solars)
-"Hg" = (
-/obj/structure/urinal/directional/east,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/light/small/directional/west,
+"Hn" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Radio Room"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/away,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/freezer,
-/area/ruin/space/has_grav/film_studio/dorms)
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/film_studio/starboard)
 "Ho" = (
 /obj/structure/table,
 /obj/effect/turf_decal/stripes/line{
@@ -2071,6 +2176,21 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/stage)
+"Hy" = (
+/obj/structure/table/glass,
+/obj/item/storage/box/masks{
+	pixel_y = 6
+	},
+/obj/item/storage/box/gloves,
+/obj/item/stack/medical/bone_gel{
+	pixel_x = 10;
+	pixel_y = 2
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/iron/white/textured,
+/area/ruin/space/has_grav/film_studio/starboard)
 "HF" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 8
@@ -2089,10 +2209,6 @@
 /obj/machinery/power/smes/full,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio)
-"HN" = (
-/obj/item/kirbyplants/random,
-/turf/open/floor/iron/smooth,
-/area/ruin/space/has_grav/film_studio/dorms)
 "HT" = (
 /obj/structure/table,
 /obj/item/modular_computer/laptop,
@@ -2101,18 +2217,12 @@
 "HV" = (
 /turf/open/floor/iron/white/smooth_large,
 /area/ruin/space/has_grav/film_studio/stage)
-"Ik" = (
-/obj/machinery/door/airlock/material{
-	name = "Cabin 2"
+"HY" = (
+/obj/machinery/power/terminal{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/film_studio/dorms)
-"IA" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/catwalk_floor/iron,
+/obj/structure/cable/multilayer/connected,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio)
 "IE" = (
 /obj/structure/cable,
@@ -2143,6 +2253,16 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/stage)
+"IR" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/airless,
+/area/ruin/space)
 "Jd" = (
 /obj/effect/turf_decal/siding/brown{
 	dir = 8
@@ -2151,20 +2271,9 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/backstage)
-"Jj" = (
-/obj/machinery/door/airlock/material{
-	name = "Washroom 1"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/turf/open/floor/iron/showroomfloor,
-/area/ruin/space/has_grav/film_studio/dorms)
-"Jl" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/light/directional/north,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/film_studio/starboard)
+"Jx" = (
+/turf/open/space/basic,
+/area/space/nearstation)
 "JE" = (
 /obj/structure/broken_flooring/singular{
 	dir = 4
@@ -2173,25 +2282,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
-"JG" = (
-/obj/structure/sign/poster/random/directional/east,
-/turf/open/floor/iron/smooth,
-/area/ruin/space/has_grav/film_studio/dorms)
 "JM" = (
 /obj/item/light/tube{
 	pixel_x = 13
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/solars)
-"JN" = (
-/obj/structure/cable/layer1,
-/obj/effect/spawner/structure/window,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio)
-"JS" = (
-/obj/structure/cable/layer1,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/film_studio)
 "JU" = (
 /obj/effect/turf_decal/siding/thinplating_new/terracotta/corner,
 /obj/structure/bookcase/random/fiction,
@@ -2213,6 +2309,10 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/film_studio/director)
+"Kr" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/ruin/space)
 "Kt" = (
 /obj/structure/table,
 /obj/structure/noticeboard/directional/north,
@@ -2221,27 +2321,22 @@
 /obj/item/storage/box/donkpockets,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/film_studio/dorms)
+"Kv" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/turf/open/space/basic,
+/area/ruin/space)
 "Kw" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
 /area/ruin/space/has_grav/film_studio/starboard)
-"Kx" = (
-/obj/machinery/atmospherics/components/tank/air/layer4,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio)
 "KH" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/film_studio)
-"KP" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/film_studio/starboard)
 "KV" = (
 /turf/closed/wall,
 /area/ruin/space/has_grav/film_studio)
@@ -2283,6 +2378,18 @@
 	dir = 8
 	},
 /area/ruin/space/has_grav/film_studio)
+"Lu" = (
+/obj/machinery/door/window/survival_pod/left/directional/north,
+/obj/effect/turf_decal/trimline/dark_blue/arrow_ccw{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark_blue/arrow_ccw{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/white/textured,
+/area/ruin/space/has_grav/film_studio/starboard)
 "Lx" = (
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/starboard)
@@ -2290,13 +2397,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_edge,
-/area/ruin/space/has_grav/film_studio/starboard)
-"LB" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/box/papersack,
-/obj/structure/window/reinforced/spawner/directional/west,
-/obj/structure/window/reinforced/spawner/directional/north,
-/turf/open/floor/pod/light,
 /area/ruin/space/has_grav/film_studio/starboard)
 "LD" = (
 /turf/open/floor/iron/white/smooth_half{
@@ -2315,6 +2415,10 @@
 /obj/structure/dresser,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/dorms)
+"LV" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/film_studio/director)
 "LY" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -2354,11 +2458,19 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/stage)
-"Mt" = (
-/obj/structure/lattice,
-/obj/effect/spawner/random/structure/grille,
-/turf/open/space/basic,
-/area/ruin/space)
+"Mn" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/external{
+	name = "Solar Maintenance"
+	},
+/obj/effect/mapping_helpers/airlock/unres,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/solars)
 "MB" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/rack,
@@ -2366,6 +2478,11 @@
 /obj/item/camera,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/backstage)
+"MD" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/solars)
 "MG" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2405,19 +2522,28 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
+"MV" = (
+/obj/structure/lattice,
+/obj/effect/spawner/random/structure/grille,
+/turf/open/space/basic,
+/area/ruin/space)
 "MZ" = (
 /obj/structure/cable,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/solars)
-"No" = (
-/obj/structure/chair/comfy/black{
+"Nc" = (
+/obj/effect/turf_decal/trimline/dark_blue/arrow_ccw{
 	dir = 8
 	},
+/obj/effect/turf_decal/trimline/dark_blue/arrow_ccw{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/film_studio/director)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/white/textured,
+/area/ruin/space/has_grav/film_studio/starboard)
 "Np" = (
 /obj/structure/table,
 /obj/item/reagent_containers/cup/soda_cans/cola{
@@ -2425,13 +2551,11 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
-"Ny" = (
-/obj/structure/filingcabinet/white,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/window/reinforced/spawner/directional/west,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/film_studio/starboard)
+"NA" = (
+/obj/machinery/light/floor,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/solars)
 "NB" = (
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/dorms)
@@ -2471,6 +2595,14 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/film_studio/dorms)
+"NY" = (
+/obj/structure/chair/stool/directional/south,
+/obj/machinery/light/small/directional/south,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/film_studio/dorms)
 "Oa" = (
 /obj/structure/cable,
 /turf/open/floor/iron/textured_half,
@@ -2492,20 +2624,14 @@
 /obj/effect/mapping_helpers/apc/unlocked,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/dorms)
+"Ou" = (
+/obj/structure/cable/layer1,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/film_studio)
 "Ov" = (
 /obj/structure/cable/layer1,
 /turf/closed/wall,
 /area/ruin/space/has_grav/film_studio)
-"OC" = (
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/clipboard,
-/obj/item/paper/fluff/ruins/djstation,
-/obj/item/pen,
-/obj/structure/sign/poster/random/directional/south,
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 4
-	},
-/area/ruin/space/has_grav/film_studio/starboard)
 "OF" = (
 /obj/effect/spawner/random/trash,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2542,15 +2668,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/film_studio/director)
-"OY" = (
-/obj/item/megaphone{
-	pixel_x = -8;
-	pixel_y = 2
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/stage)
 "OZ" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 8
@@ -2568,18 +2685,6 @@
 /obj/machinery/light/dim/directional/south,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
-"Pe" = (
-/obj/structure/table/reinforced/rglass,
-/obj/item/phone{
-	desc = "Supposedly a direct line to Nanotrasen Central Command. It's not even plugged in.";
-	pixel_x = 6;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/cup/glass/mug/britcup{
-	pixel_x = -5
-	},
-/turf/open/floor/iron/white,
-/area/ruin/space/has_grav/film_studio/stage)
 "Pf" = (
 /obj/structure/railing{
 	dir = 10
@@ -2601,24 +2706,15 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/backstage)
-"Pw" = (
-/obj/effect/turf_decal/tile/blue/opposingcorners{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/blue{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/cafeteria,
-/area/ruin/space/has_grav/film_studio/dorms)
 "PF" = (
 /obj/structure/broken_flooring/side/directional/east,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
-"PS" = (
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/film_studio/starboard)
+"PY" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/freezer,
+/area/ruin/space/has_grav/film_studio/dorms)
 "Qe" = (
 /obj/structure/table,
 /turf/open/floor/iron/dark,
@@ -2635,6 +2731,29 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
+"Qj" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
+	pixel_y = 8;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_x = -9;
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
+	pixel_y = 8;
+	pixel_x = 1
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_y = -4
+	},
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/film_studio/director)
 "Qn" = (
 /obj/effect/turf_decal/box,
 /obj/effect/turf_decal/board_number/two{
@@ -2642,6 +2761,16 @@
 	pixel_x = -1
 	},
 /turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/stage)
+"Qw" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/glass{
+	name = "Shooting Room"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/catwalk_floor/iron,
 /area/ruin/space/has_grav/film_studio/stage)
 "QA" = (
 /obj/effect/turf_decal/box,
@@ -2655,6 +2784,14 @@
 /obj/item/lipstick,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/backstage)
+"QF" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/film_studio/dorms)
 "QH" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/structure/rack,
@@ -2662,25 +2799,15 @@
 /obj/item/clothing/mask/breath/medical,
 /turf/open/floor/iron/white/textured,
 /area/ruin/space/has_grav/film_studio/starboard)
-"QU" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced/spawner/directional/south,
-/obj/machinery/light/floor,
-/obj/item/paper_bin,
-/obj/structure/window/reinforced/spawner/directional/west,
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/film_studio/starboard)
-"QW" = (
-/obj/structure/railing{
-	dir = 4
+"QP" = (
+/obj/item/megaphone{
+	pixel_x = -8;
+	pixel_y = 2
 	},
-/obj/structure/railing{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/catwalk_floor/airless,
-/area/ruin/space)
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/stage)
 "Rf" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -2693,6 +2820,12 @@
 /obj/effect/turf_decal/tile/dark/full,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/film_studio/dorms)
+"Ro" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/film_studio/starboard)
 "Rp" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
@@ -2718,15 +2851,6 @@
 /obj/item/stack/sheet/glass/fifty,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/backstage)
-"RO" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/film_studio/director)
-"Sb" = (
-/obj/machinery/light/floor,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/solars)
 "Sd" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 1
@@ -2743,18 +2867,6 @@
 "Su" = (
 /turf/closed/wall,
 /area/ruin/space/has_grav/film_studio/stage)
-"Sv" = (
-/obj/effect/turf_decal/tile/dark/full,
-/obj/machinery/light/directional/east,
-/turf/open/floor/iron/smooth,
-/area/ruin/space/has_grav/film_studio/dorms)
-"SC" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Custodial Closet"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/dorms)
 "SD" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2771,28 +2883,25 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/film_studio/starboard)
+"SI" = (
+/obj/machinery/atmospherics/components/tank/air/layer4,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio)
+"SP" = (
+/obj/structure/table/reinforced/rglass,
+/obj/item/phone{
+	desc = "Supposedly a direct line to Nanotrasen Sectorial Command. It's not even plugged in.";
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/cup/glass/mug/britcup{
+	pixel_x = -5
+	},
+/turf/open/floor/iron/white,
+/area/ruin/space/has_grav/film_studio/stage)
 "ST" = (
 /obj/structure/chair/office/light,
 /turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/film_studio/starboard)
-"SY" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/turf/open/space/basic,
-/area/ruin/space)
-"Ta" = (
-/obj/machinery/door/airlock{
-	name = "Restrooms"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/film_studio/dorms)
-"Te" = (
-/obj/structure/filingcabinet/white,
-/obj/structure/window/reinforced/spawner/directional/west,
-/turf/open/floor/pod/light,
 /area/ruin/space/has_grav/film_studio/starboard)
 "Ti" = (
 /obj/structure/table/reinforced,
@@ -2819,15 +2928,6 @@
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/ruin/space/has_grav/film_studio/stage)
-"To" = (
-/obj/structure/table/wood,
-/obj/item/flashlight/lamp{
-	pixel_x = -5;
-	pixel_y = 2
-	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/film_studio/dorms)
 "TI" = (
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
@@ -2852,35 +2952,25 @@
 	dir = 4
 	},
 /area/ruin/space/has_grav/film_studio/starboard)
-"Ua" = (
-/obj/structure/cable,
-/obj/machinery/door/airlock/maintenance{
-	name = "Generator Room"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/film_studio)
-"Uo" = (
-/obj/machinery/power/solar_control{
-	name = "Starboard Bow Solar Control"
-	},
-/obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/west,
-/obj/effect/mapping_helpers/apc/unlocked,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/solars)
-"Us" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/effect/mapping_helpers/apc/unlocked,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/film_studio)
+"Uj" = (
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/film_studio/backstage)
 "Uz" = (
 /obj/structure/chair/stool/directional/north,
 /turf/open/floor/iron/large,
 /area/ruin/space/has_grav/film_studio/stage)
+"UA" = (
+/obj/effect/turf_decal/siding/thinplating_new/terracotta{
+	dir = 1
+	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/carpet/grimey,
+/area/ruin/space/has_grav/film_studio/director)
+"UG" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
 "UH" = (
 /obj/structure/sink/directional/east,
 /obj/structure/mirror/directional/west,
@@ -2909,16 +2999,18 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/film_studio/dorms)
-"Vo" = (
-/obj/machinery/door/airlock/glass{
-	name = "Shooting Room"
+"Vm" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
 	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/catwalk_floor/iron,
-/area/ruin/space/has_grav/film_studio/dorms)
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/solars)
+"Vw" = (
+/obj/structure/cable/layer1,
+/obj/effect/spawner/structure/window,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio)
 "VH" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/chair/sofa/bench/left{
@@ -2949,27 +3041,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/film_studio/dorms)
-"VU" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/window/left/directional/east,
-/turf/open/floor/pod/light,
-/area/ruin/space/has_grav/film_studio/starboard)
-"We" = (
-/obj/effect/turf_decal/siding/thinplating_new/terracotta{
-	dir = 1
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
-/obj/structure/bed{
-	dir = 8
-	},
-/obj/effect/mob_spawn/ghost_role/human/director{
-	dir = 8
-	},
-/obj/effect/spawner/random/bedsheet,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/film_studio/director)
 "Wf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3000,20 +3071,14 @@
 /obj/structure/sign/poster/random/directional/north,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/ruin/space/has_grav/film_studio/starboard)
-"Wy" = (
-/obj/structure/table/glass,
-/obj/item/storage/box/masks{
+"Ws" = (
+/obj/structure/table/reinforced,
+/obj/item/flashlight/lamp{
+	pixel_x = -5;
 	pixel_y = 6
 	},
-/obj/item/storage/box/gloves,
-/obj/item/stack/medical/bone_gel{
-	pixel_x = 10;
-	pixel_y = 2
-	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
-/turf/open/floor/iron/white/textured,
+/obj/structure/window/reinforced/spawner/directional/east,
+/turf/open/floor/mineral/plastitanium/pod/light,
 /area/ruin/space/has_grav/film_studio/starboard)
 "WC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3021,6 +3086,12 @@
 /turf/open/floor/iron/half{
 	dir = 8
 	},
+/area/ruin/space/has_grav/film_studio/starboard)
+"WD" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/starboard)
 "WG" = (
 /obj/structure/chair/sofa/bench/right{
@@ -3033,21 +3104,12 @@
 /obj/item/flashlight/lamp,
 /turf/open/floor/iron/white/smooth_half,
 /area/ruin/space/has_grav/film_studio/stage)
-"WM" = (
-/obj/structure/closet/crate/wooden/toy,
-/obj/item/clothing/head/wig/natural,
-/obj/item/clothing/head/wig/natural{
-	pixel_x = 8
-	},
-/obj/item/clothing/head/wig/natural{
-	pixel_x = -6
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
-/obj/effect/turf_decal/bot,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/film_studio/backstage)
+"WK" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/ruin/space/has_grav/film_studio/starboard)
 "Xa" = (
 /obj/effect/turf_decal/siding/brown{
 	dir = 8
@@ -3055,10 +3117,6 @@
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/backstage)
-"Xk" = (
-/obj/machinery/photocopier/prebuilt,
-/turf/open/floor/carpet/grimey,
-/area/ruin/space/has_grav/film_studio/director)
 "Xl" = (
 /obj/structure/rack,
 /obj/item/mop{
@@ -3071,17 +3129,6 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/dorms)
-"Xm" = (
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/film_studio/backstage)
-"Xn" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Director Quarters"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/film_studio/director)
 "Xr" = (
 /obj/structure/table,
 /obj/effect/turf_decal/stripes/end{
@@ -3113,19 +3160,6 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/white/smooth_half,
 /area/ruin/space/has_grav/film_studio/stage)
-"Xx" = (
-/obj/structure/cable,
-/obj/machinery/door/airlock/external{
-	name = "Solar Maintenance"
-	},
-/obj/effect/mapping_helpers/airlock/unres,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio/solars)
 "XB" = (
 /obj/structure/table,
 /obj/item/reagent_containers/cup/glass/mug/nanotrasen{
@@ -3154,18 +3188,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/dorms)
-"XY" = (
-/obj/structure/table,
-/obj/effect/turf_decal/tile/bar/opposingcorners,
-/obj/effect/turf_decal/siding/dark_green{
-	dir = 10
-	},
-/obj/item/toy/cards/deck{
-	pixel_x = -5;
-	pixel_y = 3
-	},
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/film_studio/dorms)
 "Ya" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/effect/turf_decal/siding/dark_green{
@@ -3174,14 +3196,6 @@
 /obj/structure/sink/kitchen/directional/south,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/film_studio/dorms)
-"Yc" = (
-/obj/effect/turf_decal/box,
-/obj/machinery/light/dim/directional/east,
-/obj/machinery/atmospherics/components/unary/portables_connector/layer4{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/film_studio)
 "Yi" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
@@ -3209,37 +3223,14 @@
 	dir = 1
 	},
 /area/ruin/space/has_grav/film_studio/starboard)
-"Yo" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Radio Room"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/film_studio/starboard)
-"Yp" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/film_studio/director)
 "Yq" = (
 /turf/closed/wall,
 /area/ruin/space/has_grav/film_studio/backstage)
-"Yu" = (
-/obj/structure/urinal/directional/east,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/freezer,
-/area/ruin/space/has_grav/film_studio/dorms)
 "Yv" = (
 /obj/structure/chair/sofa/corp/left,
 /obj/effect/turf_decal/tile/dark/full,
 /turf/open/floor/iron/white/smooth_half,
 /area/ruin/space/has_grav/film_studio/stage)
-"YG" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/ruin/space)
 "YK" = (
 /obj/structure/toilet{
 	pixel_y = 8;
@@ -3258,6 +3249,11 @@
 /obj/item/paper/fluff/ruins/film_studio/director_note,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/film_studio/director)
+"Zb" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/film_studio/stage)
 "Zd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3287,21 +3283,25 @@
 	dir = 8
 	},
 /area/ruin/space/has_grav/film_studio/stage)
+"Zu" = (
+/obj/machinery/door/airlock{
+	name = "Restrooms"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/away,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/film_studio/dorms)
+"Zv" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/ruin/space/has_grav/film_studio/director)
 "Zw" = (
 /obj/structure/table/wood/poker,
 /obj/item/toy/cards/deck/syndicate,
 /obj/effect/spawner/random/entertainment/money_medium,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/film_studio/solars)
-"ZJ" = (
-/obj/machinery/door/airlock/glass{
-	name = "Canteen"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/away,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/smooth,
-/area/ruin/space/has_grav/film_studio/dorms)
 "ZR" = (
 /obj/structure/closet/firecloset/full,
 /obj/effect/turf_decal/siding/dark_blue/corner{
@@ -3313,134 +3313,134 @@
 /area/ruin/space/has_grav/film_studio/starboard)
 
 (1,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (2,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (3,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 XK
 XK
 XK
@@ -3464,45 +3464,45 @@ XK
 XK
 XK
 XK
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (4,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 XK
 LT
-mf
+QF
 XK
 LT
-mf
+QF
 XK
 LT
-mf
+QF
 XK
 ku
 uu
@@ -3517,109 +3517,109 @@ YK
 XK
 YK
 XK
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (5,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 XK
-To
-lL
+iv
+NY
 XK
-To
-lL
+iv
+NY
 XK
-To
-lL
+iv
+NY
 XK
 Xl
 Fg
-SC
+jh
 Rp
-aL
-Pw
+qK
+eb
 BS
 lp
 XK
-DA
+vb
 XK
-tr
-XK
-XK
+of
 XK
 XK
 XK
-dd
-dd
+XK
+XK
+Jx
+Jx
 "}
 (6,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 XK
 OM
-od
+iy
 XK
 OM
-od
+iy
 XK
 OM
-od
+iy
 XK
 XK
 XK
 XK
 XK
 XK
-eu
+wu
 Bs
-Yu
-Hg
-Ed
+dq
+yu
+oy
 qL
 vI
 XK
@@ -3627,41 +3627,41 @@ QA
 QA
 QA
 XK
-dd
-dd
+Jx
+Jx
 "}
 (7,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 XK
 XK
 XK
-wt
+sw
 XK
 XK
-Ik
+hD
 XK
 XK
-sm
+de
 XK
 VT
 HT
@@ -3675,36 +3675,36 @@ XK
 XK
 XK
 fh
-Jj
+uJ
 IJ
 JX
 kj
 XK
-dd
-dd
+Jx
+Jx
 "}
 (8,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 XK
 bA
 NB
@@ -3720,9 +3720,9 @@ NB
 XW
 nV
 Eh
-Ta
+Zu
 Bs
-CY
+PY
 sO
 NU
 UH
@@ -3733,31 +3733,31 @@ mH
 mH
 mH
 XK
-dd
-dd
+Jx
+Jx
 "}
 (9,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 XK
 dk
 qJ
@@ -3786,38 +3786,38 @@ KV
 KV
 XK
 XK
-dd
-dd
+Jx
+Jx
 "}
 (10,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 XK
 XK
-CJ
+pv
 XK
 XK
 XK
-ZJ
+lA
 XK
 aA
 aA
@@ -3836,27 +3836,27 @@ nQ
 BR
 nQ
 KV
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (11,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 Cp
 Cp
 Cp
@@ -3865,11 +3865,11 @@ Cp
 Cp
 Cp
 Cp
-zl
+Vm
 Qf
 XK
-fs
-HN
+eX
+Bc
 Vf
 vD
 GL
@@ -3878,38 +3878,38 @@ wb
 aA
 qJ
 Me
-Ua
+uU
 KH
 te
-or
-or
-or
-ob
+HY
+HY
+HY
+rR
 Oa
 Ad
 pq
 KV
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (12,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 Cp
 sp
 iO
@@ -3924,7 +3924,7 @@ XK
 Kt
 yb
 kv
-tN
+fS
 GL
 Qe
 Ss
@@ -3934,35 +3934,35 @@ gl
 RG
 KH
 Fo
-cd
-cd
-cd
-JN
-JS
+lG
+lG
+lG
+Vw
+Ou
 Lt
 nQ
 KV
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (13,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 Cp
 ef
 tY
@@ -3976,7 +3976,7 @@ Qf
 XK
 au
 US
-sZ
+dG
 vD
 GL
 is
@@ -3985,37 +3985,37 @@ aA
 qJ
 NB
 KV
-Us
+cj
 Ti
 DO
-fF
+yC
 KV
 KV
 KV
 KV
 KV
 KV
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (14,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 Cp
 lt
 II
@@ -4029,7 +4029,7 @@ Qf
 XK
 tq
 bu
-XY
+tF
 vD
 LG
 LG
@@ -4038,37 +4038,37 @@ XK
 qJ
 DB
 KV
-FO
-IA
-IA
-IA
-IA
-Kx
-Kx
+Db
+xp
+xp
+xp
+xp
+SI
+SI
 KV
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (15,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 Cp
 Cd
 II
@@ -4081,10 +4081,10 @@ uR
 Qf
 XK
 Ya
-qz
-tT
-JG
-Sv
+ER
+qt
+uS
+kD
 uN
 Rk
 XK
@@ -4093,35 +4093,35 @@ NB
 KV
 ni
 iT
-Yc
+oF
 rh
 em
-Kx
-Kx
+SI
+SI
 KV
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (16,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 Cp
 PF
 pQ
@@ -4141,8 +4141,8 @@ XK
 XK
 XK
 XK
-Vo
-wz
+uL
+pN
 KV
 KV
 KV
@@ -4152,29 +4152,29 @@ KV
 KV
 KV
 KV
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (17,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 Cp
 OF
 JE
@@ -4205,29 +4205,29 @@ hf
 mF
 QC
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (18,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 Cp
 ep
 iO
@@ -4258,29 +4258,29 @@ lJ
 Oi
 ya
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (19,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 Cp
 Cp
 Cp
@@ -4290,7 +4290,7 @@ Cp
 Cp
 Cp
 Cp
-vh
+hW
 Qf
 Su
 XB
@@ -4308,38 +4308,38 @@ pA
 Yq
 Dd
 lJ
-nj
+BO
 sM
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (20,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-YG
-YG
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Kr
+Jx
+Jx
+Jx
+Jx
+Jx
 Cp
 Qh
 WG
@@ -4364,35 +4364,35 @@ lJ
 lJ
 Df
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (21,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-Mt
-Mt
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+MV
+MV
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 Ek
 BW
 FS
@@ -4401,7 +4401,7 @@ aO
 Su
 WJ
 Wn
-Pe
+SP
 bx
 tG
 xs
@@ -4417,35 +4417,35 @@ lJ
 lJ
 RN
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (22,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-Mt
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+MV
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 Ek
 sK
 nS
@@ -4466,39 +4466,39 @@ nf
 sa
 Yq
 pK
-mr
-mr
-WM
+tj
+tj
+pw
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (23,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 Ek
 fG
 nS
@@ -4513,45 +4513,45 @@ Wl
 DY
 aE
 Mk
-OY
-ok
-Ft
-FH
-zB
+QP
+Zb
+kt
+za
+su
 Pu
 Pu
-Xm
+Uj
 pV
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (24,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-YG
-Mt
-Mt
-Mt
-YG
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+MV
+MV
+MV
+Kr
+Jx
+Jx
+Jx
+Jx
 Ek
 Np
 ia
@@ -4576,35 +4576,35 @@ Pu
 BY
 Yq
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (25,1,1) = {"
-dd
-dd
-dd
-Mt
-Mt
-Mt
-Mt
-Mt
-YG
-YG
-YG
-YG
-dd
-YG
-dd
-YG
-YG
-YG
-YG
-YG
+Jx
+Jx
+Jx
+MV
+MV
+MV
+MV
+MV
+Kr
+Kr
+Kr
+Kr
+Jx
+Kr
+Jx
+Kr
+Kr
+Kr
+Kr
+Kr
 Cp
 HF
 Yl
@@ -4628,36 +4628,36 @@ Jd
 Jd
 Xa
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (26,1,1) = {"
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 Cp
 Ek
 Cp
@@ -4681,38 +4681,38 @@ eV
 MB
 Yq
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (27,1,1) = {"
-dd
-dd
-Mt
-YG
-dd
-dd
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-dd
-dd
-dd
-YG
-dd
+Jx
+Jx
+MV
+Kr
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Jx
 Cp
 dI
 aO
@@ -4733,39 +4733,39 @@ Yq
 Zi
 cR
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (28,1,1) = {"
-dd
-dd
-Mt
-dd
-dd
-dd
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-dd
-dd
-dd
-YG
-dd
+Jx
+Jx
+MV
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Jx
 Cp
 Cp
 hk
@@ -4783,42 +4783,42 @@ hn
 Xr
 BP
 Yq
-FY
+DJ
 Yq
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (29,1,1) = {"
-dd
-dd
-Mt
-dd
-dd
-dd
-dd
-dd
-dd
-YG
-dd
-dd
+Jx
+Jx
+MV
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
 OI
-vi
+fV
 OI
-dd
-dd
-dd
-dd
-dd
-YG
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Jx
 Ek
 ln
 aO
@@ -4839,41 +4839,41 @@ Yq
 Rw
 gZ
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (30,1,1) = {"
-dd
-dd
-Mt
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+MV
+Jx
+Jx
+Jx
+Jx
+Jx
 OI
-vi
+fV
 OI
-dd
+Jx
 OI
-vi
+fV
 OI
-dd
-dd
-dd
-dd
-dd
-YG
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Jx
 Ek
-Dk
+ey
 Qf
 Su
 xi
@@ -4892,39 +4892,39 @@ Yq
 jU
 gZ
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (31,1,1) = {"
-dd
-dd
-Mt
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+MV
+Jx
+Jx
+Jx
+Jx
+Jx
 OI
-vi
+fV
 OI
-dd
+Jx
 OI
-vi
+fV
 OI
-dd
-dd
-dd
-dd
-dd
-YG
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Jx
 Ek
 sf
 aO
@@ -4945,36 +4945,36 @@ Yq
 BZ
 gZ
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (32,1,1) = {"
-dd
-dd
-Mt
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+MV
+Jx
+Jx
+Jx
+Jx
+Jx
 OI
-vi
+fV
 OI
-dd
+Jx
 OI
-vi
+fV
 OI
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
 Cp
 Cp
 Cp
@@ -4989,8 +4989,8 @@ Su
 Su
 Su
 Su
-gg
-bT
+Qw
+sn
 Su
 Su
 Su
@@ -4998,40 +4998,40 @@ Yq
 Yq
 Yq
 Yq
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (33,1,1) = {"
-dd
-dd
-YG
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Kr
+Jx
+Jx
+Jx
+Jx
+Jx
 OI
-vi
+fV
 OI
-dd
+Jx
 OI
-vi
+fV
 OI
-dd
-dd
+Jx
+Jx
 BK
 BK
 BK
-Uo
-tc
-Sb
+kJ
+Dm
+NA
 Cp
 Qf
 Cp
@@ -5049,93 +5049,93 @@ SE
 TI
 xz
 bs
-OC
+ua
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (34,1,1) = {"
-dd
-dd
-Mt
-YG
-YG
-YG
+Jx
+Jx
+MV
+Kr
+Kr
+Kr
 Cy
-kq
-Gy
-vi
-Gy
-Gy
-Gy
-vi
-Gy
-Gy
-QW
-hY
+IR
+pR
+fV
+pR
+pR
+pR
+fV
+pR
+pR
+ax
+cy
 YP
-Xx
+Mn
 qN
-ib
+GB
 aO
-gA
+xq
 Qf
-CS
+MD
 iO
 Pa
 kV
 Zf
-No
+cB
 Kk
 kV
 rw
-KP
+WD
 dg
 DP
 jT
-km
+yt
 ST
 Ym
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (35,1,1) = {"
-dd
-dd
-Mt
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+MV
+Jx
+Jx
+Jx
+Jx
+Jx
 OI
-vi
+fV
 OI
-dd
+Jx
 OI
-vi
+fV
 OI
-dd
+Jx
 dL
 BK
 BK
 BK
-vL
+kx
 uc
 Ei
 Cp
@@ -5145,48 +5145,48 @@ UT
 Zw
 kV
 El
-hA
-We
+Zv
+lW
 kV
 rw
 Lx
 dg
 qU
 jT
-qM
+wO
 zL
 ph
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (36,1,1) = {"
-dd
-dd
-Mt
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+MV
+Jx
+Jx
+Jx
+Jx
+Jx
 OI
-vi
+fV
 OI
-dd
+Jx
 OI
-vi
+fV
 OI
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
 Cp
 Cp
 Cp
@@ -5198,7 +5198,7 @@ kV
 kV
 kV
 kV
-Xn
+rb
 kV
 kV
 MG
@@ -5207,105 +5207,105 @@ dg
 Wo
 jT
 dg
-uw
+vu
 dg
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (37,1,1) = {"
-dd
-dd
-Mt
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+MV
+Jx
+Jx
+Jx
+Jx
+Jx
 OI
-vi
+fV
 OI
-dd
+Jx
 OI
-vi
+fV
 OI
-dd
-dd
-dd
-dd
-aG
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+UG
+Jx
+Jx
+Jx
 Ek
 aO
 kV
 kI
 cY
 YV
-hZ
-RO
-Xk
+UA
+LV
+dl
 kV
-Jl
+to
 Wf
-Yo
+Hn
 Ly
 jT
 Rf
 zc
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (38,1,1) = {"
-dd
-dd
-Mt
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+MV
+Jx
+Jx
+Jx
+Jx
+Jx
 OI
-vi
+fV
 OI
-dd
+Jx
 OI
-vi
+fV
 OI
-dd
-dd
-dd
-dd
-aG
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+UG
+Jx
+Jx
+Jx
 Ek
 xt
 kV
 kI
-Yp
-hA
-vN
-RO
-Ej
+zp
+Zv
+FL
+LV
+Qj
 kV
 rw
 Lx
@@ -5315,50 +5315,50 @@ Kw
 Rf
 Lf
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (39,1,1) = {"
-dd
-dd
-Mt
-dd
-dd
-dd
-dd
-dd
-dd
-YG
-dd
-dd
+Jx
+Jx
+MV
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
 OI
-vi
+fV
 OI
-dd
-dd
-dd
-dd
-aG
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+UG
+Jx
+Jx
+Jx
 Cp
 Qf
 kV
 kI
-Yp
+zp
 EJ
-CI
-Cf
-qW
+vt
+im
+lT
 kV
 rw
 la
@@ -5368,46 +5368,46 @@ dg
 dg
 dg
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (40,1,1) = {"
-dd
-dd
-Mt
-dd
-dd
-dd
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-dd
-dd
-aG
-dd
-dd
+Jx
+Jx
+MV
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
+Jx
+Jx
+Jx
+UG
+Jx
+Jx
 dg
 dg
-Eo
+rp
 kV
 kV
-ig
+FM
 kV
 kV
 kV
@@ -5416,45 +5416,45 @@ kV
 rw
 Lx
 VL
-fu
-Wy
+yw
+Hy
 qE
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (41,1,1) = {"
-dd
-dd
-Mt
-dd
-dd
-dd
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-dd
-dd
-aG
-dd
-dd
+Jx
+Jx
+MV
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
+Jx
+Jx
+Jx
+UG
+Jx
+Jx
 dg
 UW
 rw
@@ -5468,46 +5468,46 @@ ml
 rw
 rw
 Wf
-gH
-zG
+Lu
+Nc
 eW
 Tj
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (42,1,1) = {"
-dd
-dd
-YG
-YG
-dd
-dd
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-YG
-dd
-dd
-dd
-dd
-dd
-aG
-dd
-dd
+Jx
+Jx
+Kr
+Kr
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
+Jx
+Kr
+Jx
+Jx
+Jx
+Jx
+Jx
+UG
+Jx
+Jx
 dg
 OK
 Lx
@@ -5526,41 +5526,41 @@ hQ
 Fw
 dg
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (43,1,1) = {"
-dd
-dd
-dd
-YG
-YG
-Mt
-Mt
-Mt
-Mt
-Mt
-YG
-YG
-YG
-Mt
-Mt
-Mt
-YG
-YG
-YG
-YG
-YG
-YG
+Jx
+Jx
+Jx
+Kr
+Kr
+MV
+MV
+MV
+MV
+MV
+Kr
+Kr
+Kr
+MV
+MV
+MV
+Kr
+Kr
+Kr
+Kr
+Kr
+Kr
 dg
 dg
 dg
@@ -5569,8 +5569,8 @@ dg
 dg
 dg
 dg
-yd
-EU
+ed
+ps
 dg
 dg
 dg
@@ -5578,48 +5578,48 @@ dg
 dg
 dg
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (44,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 dg
 Gr
 jt
-se
+zQ
 jt
 jt
 jt
@@ -5630,204 +5630,204 @@ jt
 jt
 TR
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (45,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 jY
 FA
 xw
 xw
-LB
-Av
-Te
-Ny
-cC
-QU
+dC
+du
+qB
+qb
+xG
+fM
 xw
 xw
 FA
 jY
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (46,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 jY
 FA
 xw
 rK
-sj
-sJ
-PS
-bG
-PS
-Fk
+Cc
+Ro
+nO
+kz
+nO
+bi
 rK
 xw
 FA
 jY
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (47,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 dg
 fB
 Ga
 tA
-zH
-xy
-VU
-FU
-yf
-qA
+WK
+Ws
+zn
+rx
+Dp
+FT
 MH
 vW
 Cj
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (48,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 dg
 dg
 vJ
@@ -5842,99 +5842,99 @@ Lk
 Po
 dg
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (49,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 dg
 kf
 vR
-tl
+AI
 zk
-Cq
+wE
 zk
 zk
-tl
+AI
 HG
 Sd
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (50,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 dg
 dg
 sc
@@ -5947,283 +5947,283 @@ Ex
 ZR
 dg
 dg
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (51,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-YG
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
 dg
 dg
-hw
+Ec
 dg
 jY
 jY
 dg
-hw
+Ec
 dg
 dg
-YG
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Kr
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (52,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-YG
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Kr
+Jx
 dg
 Rh
 dg
-dd
-dd
+Jx
+Jx
 dg
 Rh
 dg
-dd
-YG
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Kr
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (53,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-tD
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+jx
+Jx
 dg
-hw
+Ec
 dg
-dd
-dd
+Jx
+Jx
 dg
-hw
+Ec
 dg
-dd
-SY
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Kv
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (54,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}
 (55,1,1) = {"
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
-dd
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
+Jx
 "}

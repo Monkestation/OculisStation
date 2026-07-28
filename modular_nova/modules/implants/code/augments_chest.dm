@@ -9,6 +9,7 @@
 	icon_state = "internal_HA"
 	actions_types = list(/datum/action/item_action/organ_action/use/internal_analyzer)
 	w_class = WEIGHT_CLASS_SMALL
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 3, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)
 	/// Whether or not we have the chemical scan feature
 	var/has_chem_scan = TRUE
 	var/advanced_scan_allowed = TRUE
@@ -18,6 +19,8 @@
 
 /datum/action/item_action/organ_action/use/internal_analyzer/Trigger(trigger_flags)
 	. = ..()
+	if(!.)
+		return
 	var/obj/item/organ/cyberimp/chest/scanner/our_scanner = target
 	if(our_scanner.organ_flags & ORGAN_FAILING)
 		to_chat(owner, span_warning("Your health analyzer relays an error! It can't interface with your body in its current condition!"))
@@ -25,9 +28,9 @@
 	if(our_scanner.has_chem_scan && (trigger_flags & TRIGGER_SECONDARY_ACTION))
 		chemscan(owner, owner)
 	if(our_scanner.advanced_scan_allowed)
-		healthscan(owner, owner, SCANNER_VERBOSE, TRUE)
+		healthscan(owner, owner, mode = SCANNER_VERBOSE, scanpower = SCANPOWER_ADVANCED)
 	else
-		healthscan(owner, owner, SCANNER_CONDENSED, TRUE)
+		healthscan(owner, owner, mode = SCANNER_CONDENSED, scanpower = SCANPOWER_ADVANCED)
 
 
 /obj/item/organ/cyberimp/chest/scanner/lite
@@ -77,7 +80,7 @@
 		RegisterSignal(owner, COMSIG_LIVING_MOB_BUMP, PROC_REF(unstealth))
 	RegisterSignal(owner, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_unarmed_attack))
 	RegisterSignal(owner, COMSIG_ATOM_BULLET_ACT, PROC_REF(on_bullet_act))
-	RegisterSignals(owner, 
+	RegisterSignals(owner,
 		list(
 			COMSIG_MOB_ITEM_ATTACK,
 			COMSIG_ATOM_ATTACKBY,

@@ -65,7 +65,7 @@
 	/// We get stunned whenever we ram into a closed turf
 	var/stunned = FALSE
 	/// Chance to block damage entirely on phases 1 and 4
-	var/block_chance = 50
+	var/block_chance = 15 //OCULIS CHANGE - ORIGINAL: 50 WHY IS IT 50 WHAT THE HELL - I WOULD MAKE THIS ZERO BUT LETS JUST SEE HOW THIS LOOKS FIRST.
 	/// This mob will not attack mobs randomly if not in anger, the time doubles as a check for anger
 	var/anger_timer_id = null
 	/// The cooldown between intros so we don't just spam it
@@ -388,7 +388,7 @@
 	animate(src, color = initial(color), 0.5 SECONDS)
 	move_to_delay += CHARGE_MODIFIER
 	update_phase()
-	sleep(CEILING(MARKED_ONE_STUN_DURATION * modifier, 1))
+	sleep(ceil(MARKED_ONE_STUN_DURATION * modifier))
 	stunned = FALSE
 
 /// Teleport makes him teleport. woah.

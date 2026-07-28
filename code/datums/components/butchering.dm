@@ -77,6 +77,12 @@
 		to_chat(user, span_warning("You don't want to harm other living beings!"))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 
+	// OCULIS EDIT START
+	if (HAS_TRAIT(user, TRAIT_IMMOBILIZED) || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
+		to_chat(user, span_warning("You don't have the mobility for this!"))
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+	// OCULIS EDIT END
+
 	if (victim.has_status_effect(/datum/status_effect/neck_slice))
 		return
 
@@ -167,7 +173,7 @@
 
 	if (target.body_zone == BODY_ZONE_CHEST && target.owner)
 		// Cannot butcher the chest until we hack off all the other limbs
-		for (var/obj/item/bodypart/limb as anything in target.owner.bodyparts)
+		for (var/obj/item/bodypart/limb as anything in target.owner.get_bodyparts())
 			if (limb != target && limb.butcher_drops && limb.butcher_replacement)
 				to_chat(user, span_warning("You need to butcher all other limbs first!"))
 				return
@@ -249,7 +255,7 @@
 		for(var/obj/item/result as anything in results)
 			if (reagents_in_produced)
 				if (target.owner.reagents)
-					target.owner.reagents.trans_to(result, target.owner.reagents.total_volume / reagents_in_produced / length(target.owner.bodyparts), remove_blacklisted = TRUE)
+					target.owner.reagents.trans_to(result, target.owner.reagents.total_volume / reagents_in_produced / length(target.owner.get_bodyparts()), remove_blacklisted = TRUE)
 				result.reagents?.add_reagent(/datum/reagent/consumable/nutriment/fat, target.owner.nutrition / /datum/reagent/consumable/nutriment/fat::nutriment_factor / reagents_in_produced)
 
 			if(LAZYLEN(diseases))
@@ -266,7 +272,7 @@
 
 		for (var/obj/item/food/meat/meat in results)
 			meat.name = "[target.owner.real_name]'s [meat.name]"
-			meat.set_custom_materials(list(GET_MATERIAL_REF(/datum/material/meat/mob_meat, target.owner) = 4 * SHEET_MATERIAL_AMOUNT))
+			meat.set_custom_materials(list(SSmaterials.get_material(/datum/material/meat/mob_meat, target.owner) = 4 * SHEET_MATERIAL_AMOUNT))
 			meat.subjectname = target.owner.real_name
 			meat.subjectjob = target.owner.job
 
@@ -309,6 +315,7 @@
 /datum/component/butchering/proc/create_replacement_limb(obj/item/bodypart/target, drop_loc)
 	var/drop_type = target.butcher_replacement
 	var/obj/item/bodypart/replacement = new drop_type(drop_loc)
+	replacement.bodyshape = target.bodyshape
 	replacement.set_initial_damage(target.brute_dam, target.burn_dam)
 	if (IS_ORGANIC_LIMB(replacement) && target.owner)
 		replacement.blood_dna_info = target.owner.get_blood_dna_list()
@@ -317,6 +324,7 @@
 		wound.remove_wound()
 		wound.apply_wound(replacement, silent = TRUE)
 
+	SEND_SIGNAL(target, COMSIG_BODYPART_BUTCHERED, replacement)
 	return replacement
 
 /datum/component/butchering/proc/start_butcher(obj/item/source, mob/living/target, mob/living/user)
@@ -449,7 +457,7 @@
 		var/list/meat_mats = carrion.has_material_type(/datum/material/meat)
 		if (!length(meat_mats))
 			continue
-		carrion.set_custom_materials((carrion.custom_materials - meat_mats) + list(GET_MATERIAL_REF(/datum/material/meat/mob_meat, target) = counterlist_sum(meat_mats)))
+		carrion.set_custom_materials((carrion.custom_materials - meat_mats) + list(SSmaterials.get_material(/datum/material/meat/mob_meat, target) = counterlist_sum(meat_mats)))
 
 	// Transfer delicious reagents to meat
 	if (target.reagents)

@@ -20,7 +20,7 @@
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 	use_power = NO_POWER_USE
 	interaction_flags_mouse_drop = NEED_HANDS
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.1, /datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.2)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.2)
 
 	/// Information and effects about where the IV drip is attached to
 	var/datum/iv_drip_attachment/attachment
@@ -324,7 +324,6 @@
 	return use_internal_storage ? reagents : reagent_container?.reagents
 
 /obj/machinery/iv_drip/verb/eject_beaker()
-	set category = "Object"
 	set name = "Remove IV Container"
 	set src in view(1)
 
@@ -344,7 +343,6 @@
 		update_appearance(UPDATE_ICON)
 
 /obj/machinery/iv_drip/verb/toggle_mode()
-	set category = "Object"
 	set name = "Toggle Mode"
 	set src in view(1)
 
@@ -454,7 +452,7 @@
 /atom/movable/screen/alert/iv_connected
 	name = "IV Connected"
 	desc = "You have an IV connected to your arm. Remember to remove it or drag the IV stand with you before moving, or else it will rip out!"
-	use_user_hud_icon = TRUE
+	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "iv_connected"
 
 #undef MIN_IV_TRANSFER_RATE

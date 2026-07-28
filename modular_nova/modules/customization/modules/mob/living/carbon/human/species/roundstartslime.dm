@@ -14,17 +14,21 @@
 	mutantstomach = /obj/item/organ/stomach/slime
 	mutantbrain = /obj/item/organ/brain/slime
 	mutantears = /obj/item/organ/ears/jelly
+	mutantappendix = null // Slimes have no Appendix
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 		TRAIT_TOXINLOVER,
 		TRAIT_EASYDISMEMBER,
+		TRAIT_NOFIRE, // OCULIS EDIT ADDITION - SLIMEPEOPLE
 	)
 	/// Ability to allow them to shapeshift their body around.
 	var/datum/action/innate/alter_form/alter_form
+	/* OCULIS EDIT REMOVAL START - SLIMEPEOPLE
 	/// Ability to allow them to clean themselves and their stuff.
 	var/datum/action/cooldown/spell/slime_washing/slime_washing
 	/// Ability to allow them to resist the effects of water.
 	var/datum/action/cooldown/spell/slime_hydrophobia/slime_hydrophobia
+	*/ // OCULIS EDIT REMOVAL END
 	/// Ability to allow them to turn their core's GPS on or off.
 	var/datum/action/innate/core_signal/core_signal
 
@@ -33,23 +37,29 @@
 	if(ishuman(new_jellyperson))
 		alter_form = new
 		alter_form.Grant(new_jellyperson)
+		/* OCULIS EDIT REMOVAL START - SLIMEPEOPLE
 		slime_washing = new
 		slime_washing.Grant(new_jellyperson)
 		slime_hydrophobia = new
 		slime_hydrophobia.Grant(new_jellyperson)
+		*/ // OCULIS EDIT REMOVAL END
 		core_signal = new
 		core_signal.Grant(new_jellyperson)
+	RegisterSignal(new_jellyperson, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 
 /datum/species/jelly/on_species_loss(mob/living/carbon/former_jellyperson, datum/species/new_species, pref_load)
 	. = ..()
 	if(alter_form)
 		alter_form.Remove(former_jellyperson)
+	/* OCULIS EDIT REMOVAL START - SLIMEPEOPLE
 	if(slime_washing)
 		slime_washing.Remove(former_jellyperson)
 	if(slime_hydrophobia)
 		slime_hydrophobia.Remove(former_jellyperson)
+	*/ // OCULIS EDIT REMOVAL END
 	if(core_signal)
 		core_signal.Remove(former_jellyperson)
+	UnregisterSignal(former_jellyperson, COMSIG_LIVING_LIFE)
 
 /datum/species/jelly/get_default_mutant_bodyparts()
 	return list(
@@ -166,6 +176,7 @@
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
+/* // OCULIS EDIT REMOVAL START - SLIMEPEOPLE - moved to modular_oculis/modules/slimepeople/code/slime_core.dm
 /obj/item/organ/brain/slime
 	name = "core"
 	desc = "The central core of a slimeperson, technically their 'extract.' Where the cytoplasm, membrane, and organelles come from; perhaps this is also a mitochondria?"
@@ -227,7 +238,7 @@
 
 /obj/item/organ/brain/slime/on_mob_remove(mob/living/carbon/organ_owner)
 	. = ..()
-	UnregisterSignal(organ_owner, COMSIG_LIVING_DEATH)
+	UnregisterSignal(organ_owner, list(COMSIG_LIVING_DEATH, COMSIG_MOB_LOGIN))
 
 /**
 * Colors the slime's core (their brain) the same as their first mutant color.
@@ -245,8 +256,7 @@
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
 	if(gibbed)
-		qdel(src)
-		UnregisterSignal(victim, COMSIG_LIVING_DEATH)
+		core_ejection(victim)
 		return
 
 	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // explode them after the current proc chain ends, to avoid weirdness
@@ -259,23 +269,40 @@
 	if(core_ejected)
 		return
 	core_ejected = TRUE
-	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
+
 	var/atom/death_loc = victim.drop_location()
+	if(!death_loc)
+		death_loc = get_turf(victim) // Fallback to avoid the Slime core showing up in Nullspace.
+
+	// Drop their equipment, Brain/Core, and implants to the floor.
 	victim.unequip_everything()
-	if(victim.get_organ_slot(ORGAN_SLOT_BRAIN) == src)
-		Remove(victim)
+	src.Remove(victim, special = TRUE) // Brain/Core
+	for(var/obj/item/implant/implants in victim) // Implants
+		implants.forceMove(death_loc)
+
+	// Move the Brain/Core, and implants to the death location.
 	if(death_loc)
 		forceMove(death_loc)
+
+	// Cleans up spilled organs - When a mob is attacked, it has a chance to spill all its organs on the ground upon death, for slime people we do not need their organs as they regain them when they get revived.
+	for(var/obj/item/organ/spilled_organ in death_loc)
+		if(istype(spilled_organ, /obj/item/organ/brain) || istype(spilled_organ, /obj/item/implant))
+			continue
+		else
+			qdel(spilled_organ)
+
 	src.wash(CLEAN_WASH)
 	new death_melt_type(death_loc, victim.dir)
 
-	do_steam_effects(get_turf(victim))
-	playsound(victim, 'sound/effects/blob/blobattack.ogg', 80, TRUE)
+	do_steam_effects(death_loc)
+	playsound(death_loc, 'sound/effects/blob/blobattack.ogg', 80, TRUE)
 
 	if(gps_active) // adding the gps signal if they have activated the ability
 		AddComponent(/datum/component/gps, "[victim]'s Core")
 
-	qdel(victim)
+	// Message the victim and the surrounding area that they have died.
+	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
+	qdel(victim) // Remove the Body.
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
 /**
@@ -297,29 +324,33 @@
 		span_notice("You start to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its membrane outwards...")
 	)
 	brainmob?.notify_revival("You are being revived!", sound = null, source = src) // no sound since it's a whopping 60 second wait time after this
-	if(!do_after(user, 60 SECONDS, src))
+	if(!do_after(user, 15 SECONDS, src))
 		to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
-		return TRUE
+		return FALSE
 
 	user.visible_message(
 		span_notice("[user] pours the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."),
 		span_notice("You pour the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane.")
 	)
-	item.reagents.clear_reagents() //removes the whole shit
 	if(isnull(brainmob))
 		user.balloon_alert(user, "brain is not a viable candidate for repair!")
-		return TRUE
-
+		return FALSE
 	brainmob.grab_ghost()
 	if(isnull(brainmob.stored_dna))
 		user.balloon_alert(user, "brain does not contain any dna!")
-		return TRUE
+		return FALSE
 	if(isnull(brainmob.client))
 		user.balloon_alert(user, "brain does not contain a mind!")
-		return TRUE
+		return FALSE
+
+	item.reagents.remove_reagent(/datum/reagent/toxin/plasma, 100) // Consumes the plasma
 	regenerate()
 	return TRUE
 
+/**
+* SLIME REVIVE PROC
+* This heals the core/brain, and creates a new body which we move the player/client into.
+*/
 /obj/item/organ/brain/slime/proc/regenerate()
 	//we have the plasma. we can rebuild them.
 	set_organ_damage(-maxHealth) //fully heals the brain
@@ -327,36 +358,62 @@
 		gps_active = FALSE
 		qdel(GetComponent(/datum/component/gps))
 
-	var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(src.loc)
+	// Create a new body and spawn it on the Brain/Core, than register the signal for the player to be inserted into the new body.
+	var/mob/living/carbon/human/body = new(src.drop_location())
+	RegisterSignal(body, COMSIG_MOB_LOGIN, PROC_REF(on_gained_client))
 
-	brainmob.client?.prefs?.safe_transfer_prefs_to(new_body)
-	new_body.underwear = "Nude"
-	new_body.bra = "Nude"
-	new_body.undershirt = "Nude" //Which undershirt the player wants
-	new_body.socks = "Nude" //Which socks the player wants
-	brainmob.stored_dna.copy_dna(new_body.dna, transfer_flags = COPY_DNA_SE|COPY_DNA_SPECIES)
-	new_body.dna.features[FEATURE_MUTANT_COLOR] = new_body.dna.features[FEATURE_MUTANT_COLOR]
-	new_body.dna.update_uf_block(FEATURE_MUTANT_COLOR)
-	new_body.real_name = new_body.dna.real_name
-	new_body.name = new_body.dna.real_name
-	new_body.updateappearance(mutcolor_update=1)
-	new_body.domutcheck()
-	new_body.forceMove(get_turf(src))
-	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
-	SSquirks.AssignQuirks(new_body, brainmob.client)
-	src.replace_into(new_body)
-	for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
-		if(!istype(bodypart, /obj/item/bodypart/chest))
-			bodypart.drop_limb()
-			continue
-	new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
+	// Move the brain/core back into the body.
+	src.replace_into(body)
+
+	// Notify the player that their body has been rebuilt
+	body.visible_message(span_warning("[body]'s torso \"forms\" from [body.p_their()] core, yet to form the rest."))
 	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
 	return TRUE
 
+
+/**
+* APPLY PREFRENCES & QUIRKS AND OTHER EDITS
+* When we gain a client, apply the prefrences, and apply quirks without spawning items.
+* In addition Remove their underwear, their non-chest limbs, and give them some extra blood for slime limb regen.
+*/
+/obj/item/organ/brain/slime/proc/on_gained_client(mob/living/source)
+	SIGNAL_HANDLER
+	if(!source.client)
+		return
+
+	// Handle Prefrences & Quirks.
+	var/datum/preferences/prefs = source.client.prefs || source.mind?.current?.client.prefs
+	if(prefs)
+		prefs.apply_prefs_to(source)
+		// Handle Quirks without spawning items.
+		for(var/quirks in prefs.all_quirks)
+			var/datum/quirk/quirk_path = SSquirks.quirks[quirks]
+			if(quirk_path)
+				source.add_quirk(quirk_path, add_unique = FALSE)
+
+	var/mob/living/carbon/human/body = source
+	// Ensure they appear fully nude when revived, since slimes don't regrow clothes.
+	body.underwear = "Nude"
+	body.bra = "Nude"
+	body.undershirt = "Nude"
+	body.socks = "Nude"
+
+	// Handle Blood, We give them extra blood so they can regenerate their limbs as soon as they are revived.
+	body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
+
+	// Remove non-chest limbs, they can use their regenerate ability to regain their limbs.
+	for(var/obj/item/bodypart/part in body.bodyparts)
+		if(part.body_zone == BODY_ZONE_CHEST)
+			continue
+		part.drop_limb(TRUE)
+
+	UnregisterSignal(source, COMSIG_MOB_LOGIN)
+*/ // OCULIS EDIT REMOVAL END
+
 // HEALING SECTION
 // Handles passive healing and water damage for slimes and water-breathing variants.
-/datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick)
-	. = ..()
+/datum/species/jelly/proc/on_life(mob/living/carbon/human/slime, seconds_per_tick)
+	SIGNAL_HANDLER
 
 	// Skip if unconscious
 	if(slime.stat != CONSCIOUS)
@@ -415,9 +472,10 @@
 		need_mob_update += slime.adjust_oxy_loss(-1 * seconds_per_tick, updating_health = FALSE)
 		if(need_mob_update)
 			slime.updatehealth()
-		if(slime.health < slime.maxHealth)
-			new /obj/effect/temp_visual/heal(get_turf(slime), COLOR_EFFECT_HEAL_RED)
+			/* if(slime.health < slime.maxHealth) */ // OCULIS EDIT REMOVAL - this should be under need_mob_update anyways
+			new /obj/effect/temp_visual/heal(get_turf(slime), slime.dna.features[FEATURE_MUTANT_COLOR] || COLOR_EFFECT_HEAL_RED) // OCULIS EDIT CHANGE - use mutcolor for this - ORIGINAL: new /obj/effect/temp_visual/heal(get_turf(slime), COLOR_EFFECT_HEAL_RED)
 
+/* OCULIS EDIT REMOVAL START - moved to SLIMEPEOPLE module: modular_oculis/modules/slimepeople/code/slime_bodyparts.dm: modular_oculis/modules/slimepeople/code/slime_bodyparts.dm
 /**
 * SLIME CLEANING ABILITY -
 * When toggled, slimes clean themselves and their equipment.
@@ -474,7 +532,9 @@
 
 /datum/status_effect/slime_washing/get_examine_text()
 	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of [owner.p_their()] body and vanishing.")
+*/ // OCULIS EDIT REMOVAL END
 
+/* OCULIS EDIT REMOVAL START - moved to SLIMEPEOPLE module: modular_oculis/modules/slimepeople/code/abilities/hydrophobia.dm
 /*
 * HYDROPHOBIA SPELL
 * Makes it so that slimes are waterproof, but slower, and they don't regenerate.
@@ -528,6 +588,7 @@
 
 /datum/status_effect/slime_hydrophobia/get_examine_text()
 	return span_notice("[owner.p_They()] is oozing out an oily coating onto [owner.p_their()] outer membrane, water rolling right off.")
+*/ // OCULIS EDIT REMOVAL END
 
 /datum/species/jelly/get_species_description()
 	return placeholder_description
@@ -601,6 +662,20 @@
 			SPECIES_PERK_NAME = "Shapeshifter",
 			SPECIES_PERK_DESC = "Slimes can alter their size and general shape.",
 		),
+		// OCULIS EDIT ADDITION START
+		list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "burn",
+			SPECIES_PERK_NAME = "Incombustible",
+			SPECIES_PERK_DESC = "Slimes cannot be set aflame.",
+		),
+		list(
+			SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
+			SPECIES_PERK_ICON = "wind",
+			SPECIES_PERK_NAME = "Anaerobic Lineage",
+			SPECIES_PERK_DESC = "Slimes don't require much oxygen to live."
+		),
+		// OCULIS EDIT ADDITION END
 	)
 
 	return to_add
@@ -839,14 +914,14 @@
 		switch(hair_reset)
 			if("Hair")
 				alterer.hair_color = sanitize_hexcolor(new_mutant_colour)
-				alterer.update_body_parts()
+				alterer.update_hair()
 			if("Facial Hair")
 				alterer.facial_hair_color = sanitize_hexcolor(new_mutant_colour)
-				alterer.update_body_parts()
+				alterer.update_hair()
 			if("Both")
 				alterer.hair_color = sanitize_hexcolor(new_mutant_colour)
 				alterer.facial_hair_color = sanitize_hexcolor(new_mutant_colour)
-				alterer.update_body_parts()
+				alterer.update_hair()
 
 	alterer.update_body(is_creating = TRUE)
 
@@ -1002,9 +1077,8 @@
 
 			var/obj/item/organ/replacement_organ = SSwardrobe.provide_type(selected_sprite_accessory.organ_type)
 			replacement_organ.sprite_accessory_flags = selected_sprite_accessory.flags_for_organ
-			replacement_organ.relevant_layers = selected_sprite_accessory.relevent_layers
 
-			var/datum/mutant_bodypart/new_mutant_bodypart = alterer.dna.species.build_mutant_part(
+			var/datum/mutant_bodypart/new_mutant_bodypart = build_mutant_part(
 				selected_sprite_accessory.name,
 				selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
 			)
@@ -1015,7 +1089,7 @@
 			replacement_organ.build_from_dna(alterer.dna, chosen_key)
 			replacement_organ.Insert(alterer, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		else
-			var/datum/mutant_bodypart/new_mutant_bodypart = alterer.dna.species.build_mutant_part(
+			var/datum/mutant_bodypart/new_mutant_bodypart = build_mutant_part(
 				selected_sprite_accessory.name,
 				selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
 			)

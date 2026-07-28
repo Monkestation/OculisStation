@@ -113,7 +113,7 @@
 		"admin_ckey" = admin_ckey,
 		"admin_key_name" = key_name(usr),
 		"round_id" = GLOB.round_id,
-		"round_timer" = ROUND_TIME(),
+		"round_timer" = round_timestamp(),
 		"world_time" = world.time,
 	)
 

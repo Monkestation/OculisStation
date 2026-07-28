@@ -19,6 +19,7 @@
 
 /turf/open/floor/fake_iron_sand
 	desc = "Wait a minute. This martian soil is just painted on!"
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "ironsand1"
 	base_icon_state = "ironsand1"
 	footstep = FOOTSTEP_SAND
