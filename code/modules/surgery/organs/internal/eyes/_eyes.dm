@@ -42,7 +42,7 @@
 	/// The icon state of that eyes as its applied to the mob
 	var/eye_icon_state = "eyes"
 	/// Do these eyes have blinking animations
-	var/blink_animation = FALSE //IRIS EDIT - DISABLING blinking
+	var/blink_animation = TRUE
 	/// Icon state for iris overlays
 	var/iris_overlay = "eyes_iris"
 	/// Should our blinking be synchronized or can separate eyes have (slightly) separate blinking times
