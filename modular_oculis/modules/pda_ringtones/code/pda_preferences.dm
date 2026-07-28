@@ -125,3 +125,40 @@ GLOBAL_LIST_INIT(pda_ringtone_sounds, list(
 // Returning false here because this pref is handled a little differently, due to its dependency on the existence of a PDA.
 /datum/preference/choiced/pda_ringtone_sound/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
+
+#undef PDA_RINGTONE_ALERT1
+#undef PDA_RINGTONE_ALERT2
+#undef PDA_RINGTONE_ALERT3
+#undef PDA_RINGTONE_ALERT4
+#undef PDA_RINGTONE_BELL
+// #undef PDA_RINGTONE_BEEP
+#undef PDA_RINGTONE_BUZZ
+#undef PDA_RINGTONE_BYONDPAGER
+#undef PDA_RINGTONE_BYONDPAGERDOWN
+#undef PDA_RINGTONE_BIKEHORN
+#undef PDA_RINGTONE_CHIME
+#undef PDA_RINGTONE_CHORD1
+#undef PDA_RINGTONE_CHORD2
+#undef PDA_RINGTONE_CHORD3
+#undef PDA_RINGTONE_CODEC
+#undef PDA_RINGTONE_DING
+#undef PDA_RINGTONE_HORN
+#undef PDA_RINGTONE_MAUS
+#undef PDA_RINGTONE_MEOW1
+#undef PDA_RINGTONE_MEOW2
+#undef PDA_RINGTONE_MEOW3
+#undef PDA_RINGTONE_MEOW4
+#undef PDA_RINGTONE_MEOW_ELECTRIC
+#undef PDA_RINGTONE_MORSE
+#undef PDA_RINGTONE_OHHIMARK
+#undef PDA_RINGTONE_JINGLE
+#undef PDA_RINGTONE_NORMALIZE
+#undef PDA_RINGTONE_NOT_ALPHYS
+#undef PDA_RINGTONE_PHONE_CHIME
+#undef PDA_RINGTONE_PIANO
+#undef PDA_RINGTONE_PING
+#undef PDA_RINGTONE_SPEAKING
+#undef PDA_RINGTONE_SPLAT
+#undef PDA_RINGTONE_TARGET
+#undef PDA_RINGTONE_TERMINAL_NOTIF1
+#undef PDA_RINGTONE_WEH
