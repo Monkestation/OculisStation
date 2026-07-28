@@ -5,8 +5,8 @@
 */
 // and of course, add CHANNEL_RINGTONES to code/game/sound/sound_channels.dm
 
-// To add sounds to the PDA, all you need to do is add the following define ex:
-// #define PDA_RINGTONE_WOOF "Woof"
+// To add sounds to the PDA, all you need to do is add the following define ex (with a hashtag before define because linter):
+// define PDA_RINGTONE_WOOF "Woof"
 // Then Add the PDA_RINGTONE_WOOF to the global list pda_ringtone_sounds, with its associative sound path
 /// List of available ringtone sounds
 #define PDA_RINGTONE_ALERT1 "Alert 1"
