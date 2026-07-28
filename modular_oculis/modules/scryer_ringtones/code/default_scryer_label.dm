@@ -3,7 +3,7 @@
 	savefile_key = "default_scryer_label"
 	savefile_identifier = PREFERENCE_CHARACTER
 	maximum_value_length = MAX_NAME_LEN
-	var/should_update_preview = FALSE // hi. i know what you're here for. go ahead, remove var/
+	should_update_preview = FALSE
 
 /datum/preference/text/default_scryer_label/is_valid(value)
 	if(!value)

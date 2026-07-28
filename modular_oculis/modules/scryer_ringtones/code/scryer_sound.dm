@@ -10,7 +10,7 @@
 /datum/looping_sound/call_ringtone/stop(null_parent)
 	. = ..()
 	// TODO: , mixer_channel = CHANNEL_RINGTONES
-	playsound(get_turf(parent), sound(null), vol = SOUND_AUDIBLE_VOLUME_MIN, channel = CHANNEL_RINGTONES)
+	playsound(get_turf(parent), sound(null), vol = 0, channel = CHANNEL_RINGTONES)
 
 /datum/looping_sound/call_ringtone/proc/set_ringtone(ringtone = CALL_RINGTONE_SOUND_DEFAULT)
 	var/list/ringtone_set = GLOB.call_ringtones[ringtone]
