@@ -116,7 +116,8 @@
 )
 	var/list/datum/loadout_item/loudout_list = list()
 	for(var/datum/loadout_item/loadout_thing in all_loadout_items)
-		loudout_list += loadout_thing
+		if(loadout_thing.category == added_item.category)
+			loudout_list += loadout_thing
 
 	if(length(loudout_list) >= max_allowed)
 		// We only need to deselect something if we're above the limit
