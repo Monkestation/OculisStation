@@ -9,6 +9,8 @@
 		BODY_ZONE_L_ARM = ORGAN_SLOT_WRISTWATCH_L,
 	)
 	actions_types = list(/datum/action/item_action/organ_action/use)
+	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
+	icon_state = 'internalchronometer'
 
 /obj/item/organ/cyberimp/arm/wristwatch/ui_action_click(mob/user, actiontype)
 	if(organ_flags & ORGAN_FAILING)
@@ -39,11 +41,11 @@
 	extra_info = "Tells the time."
 	cost = 2
 	path = /obj/item/organ/cyberimp/arm/wristwatch
-	slot = AUGMENT_SLOT_R_ARM_IMPLANT
+	slot = AUGMENT_SLOT_R_ARM
 
 /datum/augment_item/implant/wristwatch/left
 	path = /obj/item/organ/cyberimp/arm/wristwatch/left
-	slot = AUGMENT_SLOT_L_ARM_IMPLANT
+	slot = AUGMENT_SLOT_L_ARM
 
 /datum/design/wristwatch
 	name = "internal chronometer"
@@ -83,17 +85,19 @@
 		BODY_ZONE_R_ARM = ORGAN_SLOT_PALM_R,
 		BODY_ZONE_L_ARM = ORGAN_SLOT_PALM_L,
 	)
+	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
+	icon_state = 'subdermalligatureattachmentpackage'
 
 /datum/design/slapcybernetic
 	name = "S.L.A.P."
 	desc = "Palm-implanted dermal reinforcement ligatures to increase the durability of the hands."
-	id = "ci-wristwatch"
+	id = "ci-slap"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 6 SECONDS
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT*8,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT*8,
-		/datum/material/silver =SMALL_MATERIAL_AMOUNT * 3,
+		/datum/material/titanium =SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/organ/cyberimp/arm/wristwatch
 	category = list(
@@ -101,13 +105,28 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
-/datum/techweb_node/wristwatch
-	id = TECHWEB_NODE_WRISTWATCH
-	display_name = "Biomorphological Tempotechnics"
-	description = "Timetelling in the age of cybernetic enhancement."
-	prereq_ids = list(TECHWEB_NODE_CYBER_IMPLANTS, TECHWEB_NODE_HOLOGRAPHICS)
+/datum/techweb_node/slapbooster
+	id = TECHWEB_NODE_SLAPBOOSTER
+	display_name = "Nanomechatronic Bioligatures"
+	description = "Peace through Power. Power through really fancy tiny zipties."
+	prereq_ids = list(TECHWEB_NODE_CYBER_IMPLANTS, TECHWEB_NODE_BIO_SCAN, TECHWEB_NODE_SEC_EQUIP)
 	design_ids = list(
-		"ci-wristwatch"
+		"ci-slap"
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS / 2)
 	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_MEDICAL, RADIO_CHANNEL_SCIENCE)
+
+/datum/augment_item/implant/slapbooster
+	name = "subdermal ligature attachment package"
+	extra_info = "Makes slapping with the respective hand into a nonlethal weapon."
+	cost = 6
+	path = /obj/item/organ/cyberimp/arm/slap
+	slot = AUGMENT_SLOT_R_ARM
+
+/datum/augment_item/implant/slapbooster/left
+	path = /obj/item/organ/cyberimp/arm/slap/left
+	slot = AUGMENT_SLOT_L_ARM
+
+/obj/item/organ/cyberimp/arm/slap/left
+	zone = BODY_ZONE_L_ARM
+	slot = ORGAN_SLOT_PALM_L

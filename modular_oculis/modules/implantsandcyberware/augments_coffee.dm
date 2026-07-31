@@ -10,6 +10,8 @@
 	)
 	slot = ORGAN_SLOT_CAFFINATOR_R
 	actions_types = list(/datum/action/item_action/organ_action/use)
+	icon_state = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
+	icon= 'ntcffecaffinator'
 	var/numberofcups = 10
 	COOLDOWN_DECLARE(dispense_cooldown)
 	var/dispensedreagent = /datum/reagent/consumable/coffee

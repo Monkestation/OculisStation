@@ -291,7 +291,7 @@
 		if(istype(thing, /obj/item/organ/cyberimp/arm/slap))
 			slapimplant = TRUE
 	if(slapimplant)
-		slapped.adjust_stamina_loss(20)
+		slapped.adjust_stamina_loss(10)
 		slapped.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, 10 SECONDS)
 //oculis edit end
 	playsound(slapped, 'sound/items/weapons/slap.ogg', slap_volume, TRUE, -1)
