@@ -214,7 +214,7 @@
 	is_tied = TRUE
 
 /obj/item/clothing/neck/tie/bunnytie/centcom
-	name = "centcom bowtie collar"
+	name = "SectCom bowtie collar" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "centcom bowtie collar"
 	desc = "A fancy gold tie that includes a collar. Looking in charge!"
 	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
 	icon_state = "bowtie_collar_centcom_tied"

@@ -8,7 +8,7 @@
 	extended_desc = "Links to a nearby landline telephone to receive incoming call notifications on your PDA."
 	size = 5
 	power_cell_use = NONE
-	program_flags = PROGRAM_RUNS_WITHOUT_POWER | PROGRAM_CIRCUITS_RUN_WHEN_CLOSED
+	program_flags = PROGRAM_CIRCUITS_RUN_WHEN_CLOSED
 	can_run_on_flags = PROGRAM_PDA
 	tgui_id = "PhoneMonitor"
 	program_icon = "phone"

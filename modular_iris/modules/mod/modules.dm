@@ -2,7 +2,12 @@
 /obj/item/mod/module/storage/bluespace/nerfed
 	icon_state = "storage_bluespace"
 	storage_type = /datum/storage/mod_storage/bs_nerfed
-
+	custom_materials = list(
+		/datum/material/uranium = SHEET_MATERIAL_AMOUNT * 2.5,
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 1.5,
+		/datum/material/diamond = SHEET_MATERIAL_AMOUNT * 1.5,
+		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT * 1.5,
+		)
 
 /datum/storage/mod_storage/bs_nerfed
 	max_specific_storage = WEIGHT_CLASS_GIGANTIC
@@ -26,6 +31,7 @@
 	/// Double the delay.
 	charge_increment_delay = 2 SECONDS
 	shield_icon = "shield-old"
+	custom_materials = list(/datum/material/diamond = SHEET_MATERIAL_AMOUNT * 4, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 3.5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 3.5, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2)
 
 // Same as nukie version but has double the complexity and triple the power cost.
 /obj/item/mod/module/medbeam/nanotrasen
@@ -36,6 +42,7 @@
 	active_power_cost = DEFAULT_CHARGE_DRAIN * 3
 	device = /obj/item/gun/medbeam/afad/mod
 	cooldown_time = 1
+	custom_materials = list(/datum/material/bluespace = SHEET_MATERIAL_AMOUNT * 3.5, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3, /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2)
 
 // Automated First Aid Device version with half the range.
 /obj/item/gun/medbeam/afad/mod

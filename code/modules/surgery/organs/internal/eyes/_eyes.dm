@@ -280,11 +280,11 @@
 #define OFFSET_Y 2
 
 /// Similar to get_status_text, but appends the text after the damage report, for additional status info
-/obj/item/organ/eyes/get_status_appendix(advanced, add_tooltips)
+/obj/item/organ/eyes/get_status_appendix(scanpower, add_tooltips)
 	if(owner.stat == DEAD || HAS_TRAIT(owner, TRAIT_KNOCKEDOUT))
 		return
 	if(owner.is_blind())
-		if(advanced)
+		if(scanpower >= SCANPOWER_ADVANCED)
 			if(owner.is_blind_from(QUIRK_TRAIT))
 				return conditional_tooltip("Subject is permanently blind.", "Irreparable under normal circumstances.", add_tooltips)
 			if(owner.is_blind_from(EYE_SCARRING_TRAIT))
@@ -297,7 +297,7 @@
 				return conditional_tooltip("Subject is blind from eye damage.", "Repair surgically, use medication such as [/datum/reagent/medicine/oculine::name], or protect eyes with a blindfold.", add_tooltips)
 		return "Subject is blind."
 	if(owner.is_nearsighted())
-		if(advanced)
+		if(scanpower >= SCANPOWER_ADVANCED)
 			if(owner.is_nearsighted_from(QUIRK_TRAIT))
 				return conditional_tooltip("Subject is permanently nearsighted.", "Irreparable under normal circumstances. Prescription glasses will assuage the effects.", add_tooltips)
 			if(owner.is_nearsighted_from(TRAIT_RIGHT_EYE_SCAR) || owner.is_nearsighted_from(TRAIT_LEFT_EYE_SCAR))
@@ -307,16 +307,17 @@
 			if(owner.is_nearsighted_from(EYE_DAMAGE))
 				return conditional_tooltip("Subject is nearsighted from eye damage.", "Repair surgically or use medication such as [/datum/reagent/medicine/oculine::name]. Prescription glasses will assuage the effects.", add_tooltips)
 		return "Subject is nearsighted."
-// IRIS ADDITION: Ports Farsighted from Orbstation
+// OCULIS EDIT ADDITION START - Ports Farsighted from Orbstation
 // Done with Traits bc my ass isn't going to bother changing it to a status effect
 	if(HAS_TRAIT(owner, TRAIT_FARSIGHT))
-		if(advanced)
+		if(scanpower >= SCANPOWER_ADVANCED)
 			if(HAS_TRAIT_FROM(owner, TRAIT_FARSIGHT, QUIRK_TRAIT))
 				return conditional_tooltip("Subject is permanently farsighted.", "Irreparable under normal circumstances. Prescription glasses will assuage the effects.", add_tooltips)
 			if(HAS_TRAIT_FROM(owner, TRAIT_FARSIGHT, GENETIC_MUTATION))
 				return conditional_tooltip("Subject is genetically farsighted.", "Use medication such as [/datum/reagent/medicine/mutadone::name]. Prescription glasses will assuage the effects.", add_tooltips)
 		return "Subject is farsighted."
 	return ""
+// OCULIS EDIT ADDITION END
 
 /obj/item/organ/eyes/show_on_condensed_scans()
 	// Always show if we have an appendix
@@ -339,8 +340,8 @@
 		overlays += get_emissive_overlays(eye_left, eye_right, my_head)
 
 	if(my_head.head_flags & HEAD_EYECOLOR)
-		eye_right.color = eye_color_right || my_head.owner?.get_right_eye_color()
-		eye_left.color = eye_color_left || my_head.owner?.get_left_eye_color()
+		eye_right.color = my_head.owner?.get_right_eye_color() || eye_color_right
+		eye_left.color = my_head.owner?.get_left_eye_color() || eye_color_left
 		var/list/eyelids = get_eyelid_overlays(eye_left, eye_right, my_head)
 		if (LAZYLEN(eyelids))
 			overlays += eyelids
@@ -365,8 +366,8 @@
 		eye_right.alpha = 0
 
 	if (is_emissive) // Because it was done all weird up there.
-		var/mutable_appearance/emissive_left = emissive_appearance_copy(eye_left, owner)
-		var/mutable_appearance/emissive_right = emissive_appearance_copy(eye_right, owner)
+		var/mutable_appearance/emissive_left = emissive_appearance(eye_left.icon, eye_left.icon_state, offset_spokesman = my_head, layer = eye_left.layer)
+		var/mutable_appearance/emissive_right = emissive_appearance(eye_right.icon, eye_right.icon_state, offset_spokesman = my_head, layer = eye_right.layer)
 		emissive_left.appearance_flags &= ~RESET_TRANSFORM
 		emissive_right.appearance_flags &= ~RESET_TRANSFORM
 
@@ -466,6 +467,8 @@
 	. = ..()
 	eye_color_left = initial(eye_color_left)
 	eye_color_right = initial(eye_color_right)
+	fix_scar(LEFT_EYE_SCAR)
+	fix_scar(RIGHT_EYE_SCAR)
 
 /obj/item/organ/eyes/on_low_damage_received()
 	if(damage >= high_threshold)
@@ -570,6 +573,8 @@
 			animate(time = wait_time)
 
 /obj/item/organ/eyes/proc/blink(duration = BLINK_DURATION, restart_animation = TRUE)
+	if(!blink_animation)
+		return
 	var/left_delayed = prob(50)
 	// Storing blink delay so mistimed blinks of lizards don't get cut short
 	var/sync_blinking = synchronized_blinking && (owner.get_organ_loss(ORGAN_SLOT_BRAIN) < BRAIN_DAMAGE_ASYNC_BLINKING)

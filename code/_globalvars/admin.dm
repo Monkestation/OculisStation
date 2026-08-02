@@ -60,7 +60,7 @@ GLOBAL_LIST_INIT(spanname_to_formatting, list(
 	"Bold Warning" = "boldwarning",
 	"Big Bold" = "big bold",
 	"Captain-Cast" = "captaincast",
-	"Centcom Radio" = "centcomradio",
+	"SectCom Radio" = "centcomradio", // OCULIS EDIT, SectCommening 2, ORIGINAL: "Centcom Radio" = "centcomradio",
 	"Changeling" = "changeling",
 	"Clown" = "clown",
 	"Colossus" = "colossus",

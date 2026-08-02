@@ -761,7 +761,7 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 		basemod *= 0.8
 	if(HAS_TRAIT(patient, TRAIT_ANALGESIA))
 		basemod *= 0.8
-		to_chat(surgeon, span_notice("You are able to work faster due to the patient's calm attitude!")) // NOVA EDIT ADDITION - Better feedback for the use of analgesia
+		to_chat(surgeon, span_tinynoticeital(span_grey("You are able to work faster due to the patient's calm attitude!"))) // NOVA EDIT ADDITION - Better feedback for the use of analgesia // OCULIS EDIT, NOVA ORIGINAL: to_chat(surgeon, span_notice("You are able to work faster due to the patient's calm attitude!"))
 	return basemod
 
 /// Returns a time modifier based on the surgeon's status
@@ -787,7 +787,7 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 			break
 	if(quiet_environment)
 		basemod *= 0.8
-		to_chat(surgeon, span_notice("You are able to work faster due to the quiet environment!"))
+		to_chat(surgeon, span_tinynoticeital(span_grey("You are able to work faster due to the quiet environment!"))) // OCULIS EDIT, NOVA(?) ORIGINAL: to_chat(surgeon, span_notice("You are able to work faster due to the quiet environment!"))
 	// NOVA EDIT ADDITION END
 
 	return basemod

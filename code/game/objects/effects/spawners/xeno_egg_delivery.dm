@@ -18,7 +18,7 @@
 	var/datum/command_footnote/footnote = new()
 	footnote.message = "We have entrusted your crew with a research specimen in [get_area(src)]. \
 		Remember to follow all safety precautions when dealing with the specimen."
-	footnote.signature = "Central Command"
+	footnote.signature = "Sectorial Command" // OCULIS EDIT, SectCommening 2, ORIGINAL: footnote.signature = "Central Command"
 
 	GLOB.communications_controller.command_report_footnotes += footnote
 

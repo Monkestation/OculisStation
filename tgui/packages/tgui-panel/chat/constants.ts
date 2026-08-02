@@ -66,7 +66,7 @@ export const MESSAGE_TYPES: MessageType[] = [
     type: MESSAGE_TYPE_LOCALCHAT,
     name: 'Local',
     description: 'In-character local messages (say, emote, etc)',
-    selector: '.say, .emote, .looc',
+    selector: '.say, .emote, .looc, .do', // OCULIS EDIT, ORIGINAL: selector: '.say, .emote, .looc',
   },
   {
     type: MESSAGE_TYPE_RADIO,

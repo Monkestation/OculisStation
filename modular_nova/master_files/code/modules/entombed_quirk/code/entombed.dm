@@ -51,6 +51,12 @@
 				human_holder.balloon_alert(human_holder, "suit life support restored!")
 				human_holder.adjust_jitter(-(life_support_failure_threshold / 2)) // clear half of it, wow, that was unpleasant
 
+/// Proteans already have their own built-in modsuit, so they cannot take the entombed quirk.
+/datum/quirk/equipping/entombed/is_species_appropriate(datum/species/mob_species)
+	if(ispath(mob_species, /datum/species/protean))
+		return FALSE
+	return ..()
+
 /datum/quirk/equipping/entombed/proc/life_support_failure()
 	// Warn the player and begin the gradual dying process.
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -172,6 +178,7 @@
 	var/modsuit_desc = client_source?.prefs.read_preference(/datum/preference/text/entombed_mod_desc)
 	if (modsuit_desc)
 		modsuit.desc = modsuit_desc
+		ADD_TRAIT(modsuit, TRAIT_WAS_RENAMED, "Loadout")  //OCULIS ADDITION: adds examine hyperlink to the controller
 
 	var/modsuit_skin_prefix = client_source?.prefs.read_preference(/datum/preference/text/entombed_mod_prefix)
 	if (modsuit_skin_prefix)

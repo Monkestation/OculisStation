@@ -44,7 +44,7 @@
 	AddComponent(/datum/component/glasses_stats_thief)
 
 /obj/item/clothing/glasses/techno_visor/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/techno_visor)
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/techno_visor, infinite = TRUE) // OCULIS EDIT, ORIGINAL: AddComponent(/datum/component/reskinable_item, /datum/atom_skin/techno_visor)
 
 /obj/item/clothing/glasses/techno_visor/change_glass_color(new_color_type)
 	if(glass_colour_type)

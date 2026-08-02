@@ -7,7 +7,7 @@
 	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = null
 	/// How much damage?
-	var/total_damage = 0
+	var/total_damage = 100000 //OCULIS EDIT - SALTMINING - MAKES IT SO A SINGLE CRUSHER TAP GURANTEES CRUSHER LOOT, BECAUSE WHY THE HELL NOT. HELPS ENCOURAGE CO-OP WITH NON CRUSHER SHAFT MINER COMPANIONS AS CRUSHER USERS WONT BE SCREWED OUT OF THEIR TROPHY
 
 /datum/status_effect/crusher_damage/on_apply()
 	RegisterSignal(owner, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(damage_taken))
@@ -214,6 +214,8 @@
 	var/list/possible_takers
 	/// The actual item being offered
 	var/obj/item/offered_item
+	///If we should bypass active_hand checks.
+	var/bypass_active_hand = FALSE
 	/// The type of alert given to people when offered, in case you need to override some behavior (like for high-fives)
 	var/give_alert_type = /atom/movable/screen/alert/give
 
