@@ -6263,11 +6263,10 @@
 /turf/open/floor/iron/white,
 /area/centcom/castor/evacuation)
 "coB" = (
-/obj/machinery/door/window/survival_pod/left/directional/north{
-	name = "Air Traffic Control";
-	dir = 2
-	},
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/door/window/survival_pod/left/directional/south{
+	name = "Air Traffic Control"
+	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/central_command_areas/supply)
 "coS" = (
@@ -8450,6 +8449,10 @@
 	},
 /turf/open/floor/carpet/red,
 /area/centcom/holding/cafedorms)
+"ehM" = (
+/mob/living/basic/bot/repairbot,
+/turf/open/floor/iron/pattern_1,
+/area/centcom/castor/hallway_four)
 "ehX" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -13968,6 +13971,7 @@
 /area/centcom/interlink)
 "iWp" = (
 /obj/structure/sign/warning/no_smoking/circle/directional/north,
+/mob/living/basic/bot/medbot/stationary,
 /turf/open/floor/iron/showroomfloor,
 /area/centcom/castor/evacuation)
 "iWu" = (
@@ -17144,7 +17148,7 @@
 "lJv" = (
 /obj/effect/turf_decal/tile/dark/diagonal_centre,
 /obj/machinery/door/airlock/public{
-	name = "Changing room"
+	name = "Changing Room"
 	},
 /turf/open/floor/iron/white/diagonal,
 /area/centcom/interlink)
@@ -18130,6 +18134,11 @@
 /obj/effect/spawner/structure/window/reinforced/indestructible,
 /turf/open/floor/plating,
 /area/centcom/castor/customs)
+"mBF" = (
+/obj/effect/turf_decal/trimline/white/filled/warning,
+/mob/living/basic/bot/medbot/autopatrol,
+/turf/open/floor/iron/half,
+/area/centcom/castor/hallway_four)
 "mBM" = (
 /obj/structure/table/rolling,
 /obj/item/hhmirror{
@@ -19303,6 +19312,10 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
+"nyw" = (
+/mob/living/basic/bot/cleanbot/autopatrol,
+/turf/open/floor/iron/dark/smooth_large,
+/area/centcom/castor/arrivals)
 "nzn" = (
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/misc/dirt/planet,
@@ -20131,6 +20144,11 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/centcom/holding/cafepark)
+"ojj" = (
+/obj/structure/disposalpipe/segment,
+/mob/living/basic/bot/cleanbot/autopatrol,
+/turf/open/floor/iron/large,
+/area/centcom/castor/hallway_two)
 "ojk" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
@@ -22599,6 +22617,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+/mob/living/basic/bot/cleanbot/autopatrol,
 /turf/open/floor/iron/large,
 /area/centcom/castor/hallway_two)
 "qkT" = (
@@ -24101,7 +24120,6 @@
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
 "rAs" = (
-/obj/machinery/vending/sovietsoda,
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 6
 	},
@@ -24109,6 +24127,7 @@
 /obj/effect/turf_decal/trimline/white/filled/mid_joiner{
 	dir = 4
 	},
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/hallway_one)
 "rAK" = (
@@ -24214,9 +24233,9 @@
 /obj/structure/stairs/south{
 	color = "#3d3e42"
 	},
-/obj/machinery/door/poddoor/shutters/indestructible{
-	id = "castor-cargo-offices";
-	name = "Logistics Offices Staircase"
+/obj/machinery/door/poddoor/shutters{
+	name = "Logistics Offices Staircase";
+	id = "castor-cargo-offices"
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supply)
@@ -25076,9 +25095,9 @@
 /obj/structure/stairs/south{
 	color = "#3d3e42"
 	},
-/obj/machinery/door/poddoor/shutters/indestructible{
-	id = "castor-cargo-offices";
-	name = "Logistics Offices Staircase"
+/obj/machinery/door/poddoor/shutters{
+	name = "Logistics Offices Staircase";
+	id = "castor-cargo-offices"
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supply)
@@ -25819,6 +25838,11 @@
 /obj/effect/turf_decal/siding/wideplating/dark,
 /turf/open/floor/iron/pattern_2,
 /area/centcom/castor/sectorial_internal_affairs_administrator)
+"sQE" = (
+/obj/structure/cable,
+/mob/living/basic/bot/medbot/autopatrol,
+/turf/open/floor/iron/large,
+/area/centcom/castor/hallway_two)
 "sQR" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
@@ -27970,6 +27994,11 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/security_office_one)
+"uJg" = (
+/obj/structure/disposalpipe/segment,
+/mob/living/basic/bot/medbot/autopatrol,
+/turf/open/floor/iron/dark/smooth_large,
+/area/centcom/castor/hallway_one)
 "uJC" = (
 /obj/structure/flora/tree/palm,
 /obj/item/toy/plush/beeplushie{
@@ -28769,13 +28798,9 @@
 	},
 /area/centcom/castor/hallway_two)
 "vlA" = (
-/obj/structure/chair/wood,
-/obj/structure/chair/wood,
-/obj/effect/turf_decal/siding/wood{
-	dir = 5
-	},
-/turf/open/floor/wood/parquet,
-/area/centcom/interlink)
+/mob/living/basic/bot/cleanbot/autopatrol,
+/turf/open/floor/iron/pattern_1,
+/area/centcom/castor/hallway_four)
 "vlU" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
@@ -30204,6 +30229,14 @@
 /obj/machinery/portable_atmospherics/canister/nitrous_oxide,
 /turf/open/floor/engine/n2o,
 /area/centcom/castor/engineering/atmospherics)
+"wAu" = (
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/mob/living/basic/bot/cleanbot/autopatrol,
+/turf/open/floor/iron/dark/smooth_large,
+/area/centcom/castor/hallway_one)
 "wAE" = (
 /obj/effect/turf_decal/trimline/white/filled/warning{
 	dir = 1
@@ -31266,6 +31299,7 @@
 	dir = 5
 	},
 /obj/structure/cable,
+/mob/living/basic/bot/medbot/autopatrol,
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/hallway_one)
 "xuk" = (
@@ -32069,7 +32103,6 @@
 /area/centcom/central_command_areas/supply)
 "ycy" = (
 /obj/machinery/light/directional/south,
-/obj/machinery/vending/hotdog,
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 6
 	},
@@ -32077,6 +32110,7 @@
 /obj/effect/turf_decal/trimline/white/filled/mid_joiner{
 	dir = 4
 	},
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/castor/hallway_one)
 "ycB" = (
@@ -42202,7 +42236,7 @@ pqB
 rPd
 rPd
 rPd
-rPd
+nyw
 rPd
 rPd
 rPd
@@ -44774,7 +44808,7 @@ gcx
 xIG
 qhp
 uzq
-aRm
+wAu
 tTh
 enM
 qaU
@@ -45820,7 +45854,7 @@ rOE
 yiM
 eZO
 eZO
-vlA
+jbg
 cbW
 cTX
 hIf
@@ -46058,7 +46092,7 @@ vHD
 aoS
 vNz
 vNz
-vNz
+uJg
 mBp
 vNz
 vNz
@@ -48857,7 +48891,7 @@ hqU
 hqU
 hqU
 hqU
-hqU
+ojj
 hqU
 hqU
 hqU
@@ -49106,7 +49140,7 @@ wbt
 wbt
 wbt
 wbt
-wbt
+sQE
 wbt
 wbt
 kFR
@@ -49157,7 +49191,7 @@ lFp
 uLp
 evr
 evr
-evr
+ehM
 evr
 bKP
 gFG
@@ -49417,11 +49451,11 @@ evr
 evr
 evr
 evr
-gFG
+mBF
 unz
 uLp
 evr
-evr
+vlA
 evr
 gFG
 sQR
