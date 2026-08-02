@@ -9,6 +9,7 @@
 		/mob/proc/emote_flip,
 		/mob/proc/emote_spin,
 		/mob/proc/emote_rolld20,
+		/mob/proc/emote_roll2d6, // OCULIS EDIT ADDITION
 	)
 	all_emotes += mob_emotes
 
