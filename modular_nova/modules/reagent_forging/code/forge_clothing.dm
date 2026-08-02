@@ -53,7 +53,9 @@
 	body_parts_covered = GROIN|CHEST
 	armor_type = /datum/armor/armor_forging_hard
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
-	item_flags = UNIQUE_RENAME
+	//oculis edit start
+	obj_flags = UNIQUE_RENAME
+	//oculis edit end
 
 /obj/item/clothing/suit/armor/forging_plate_armor/Initialize(mapload)
 	. = ..()
@@ -76,7 +78,9 @@
 	body_parts_covered = GROIN|CHEST
 	armor_type = /datum/armor/armor_forging_medium
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
-	item_flags = UNIQUE_RENAME
+	//oculis edit start
+	obj_flags = UNIQUE_RENAME
+	//oculis edit end
 
 /obj/item/clothing/suit/armor/forging_chain_shirt/Initialize(mapload)
 	. = ..()
@@ -101,7 +105,9 @@
 	armor_type = /datum/armor/armor_forging_light
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
 	body_parts_covered = HANDS|ARMS
-	item_flags = UNIQUE_RENAME
+	//oculis edit start
+	obj_flags = UNIQUE_RENAME
+	//oculis edit end
 
 /obj/item/clothing/gloves/forging_plate_gloves/Initialize(mapload)
 	. = ..()
@@ -125,7 +131,9 @@
 	obj_flags_nova = ANVIL_REPAIR
 	armor_type = /datum/armor/armor_forging_medium
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
-	item_flags = UNIQUE_RENAME
+	//oculis edit start
+	obj_flags = UNIQUE_RENAME
+	//oculis edit end
 
 /obj/item/clothing/head/helmet/forging_plate_helmet/Initialize(mapload)
 	. = ..()
@@ -150,7 +158,9 @@
 	obj_flags_nova = ANVIL_REPAIR
 	fastening_type = SHOES_SLIPON
 	body_parts_covered = FEET|LEGS
-	item_flags = UNIQUE_RENAME
+	//oculis edit start
+	obj_flags = UNIQUE_RENAME
+	//oculis edit end
 
 /obj/item/clothing/shoes/forging_plate_boots/Initialize(mapload)
 	. = ..()
@@ -167,7 +177,10 @@
 	inhand_icon_state = "ringsilver"
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
 	obj_flags_nova = ANVIL_REPAIR
-	item_flags = UNIQUE_RENAME
+	//oculis edit start
+	obj_flags = UNIQUE_RENAME
+	//oculis edit end
+
 
 /obj/item/clothing/gloves/ring/reagent_clothing/Initialize(mapload)
 	. = ..()
@@ -179,7 +192,10 @@
 	desc = "A pair of handcuffs that are ready to keep someone captive."
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
 	obj_flags_nova = ANVIL_REPAIR
-	item_flags = UNIQUE_RENAME
+	//oculis edit start
+	obj_flags = UNIQUE_RENAME
+	//oculis edit end
+
 
 /obj/item/restraints/handcuffs/reagent_clothing/Initialize(mapload)
 	. = ..()

@@ -217,7 +217,9 @@
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
 	shield_break_sound = 'sound/effects/bang.ogg'
 	shield_break_leftover = /obj/item/forging/complete/plate
-	item_flags = UNIQUE_RENAME
+	//oculis edit start
+	obj_flags = UNIQUE_RENAME
+	//oculis edit end
 
 /obj/item/shield/buckler/reagent_weapon/Initialize(mapload)
 	. = ..()
@@ -259,7 +261,9 @@
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = ITEM_SLOT_BACK
 	max_integrity = 300
-	item_flags = UNIQUE_RENAME
+	//oculis edit start
+	obj_flags = UNIQUE_RENAME
+	//oculis edit end
 	var/wielded = FALSE
 	var/unwielded_block_chance = 45
 	var/wielded_block_chance = 65
