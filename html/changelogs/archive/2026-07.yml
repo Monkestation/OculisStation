@@ -853,6 +853,11 @@
   - code_imp: Improved the modularization comments in alt_job_titles.dm and moved
       the explorer alt titles to the modular explorer.dm file.
 2026-07-20:
+  Happyowl93:
+  - code_imp: Fix fire alarm flaky CI tests
+  OrbisAnima:
+  - qol: Adds a config option that makes all the tech webs that dont need special
+      items to unlock (alien, tarkon, illegal, bepis) start unlocked.
   Salted-Zen:
   - rscadd: 1 New PKA (Shockwave, a mostly mining focused PKA)
   - rscadd: 9 Brand New "Wasteland Guns" (Limited Ammo Guns for use on lavaland)
@@ -899,11 +904,6 @@
   - map: Nanotrasen Safety Associates deemed Wawastation's Research Department too
       dark -- as a result, they have added more lights and inadvertently revamped
       Robotic's surgery room as a result, adding necessary touches to equipment.
-  Happyowl93:
-  - code_imp: Fix fire alarm flaky CI tests
-  OrbisAnima:
-  - qol: Adds a config option that makes all the tech webs that dont need special
-      items to unlock (alien, tarkon, illegal, bepis) start unlocked.
   sqnztb:
   - balance: Adds a config option to make touching the supermatter now husk you and
       teleport you a short distance away instead of dusting.
@@ -933,6 +933,8 @@
   Hatterhat:
   - qol: The botanical chemical dispenser (as seen on the lifebringer ship) is now
       also capable of dispensing Enduro Grow and Liquid Earthquake.
+  ManiacalAnxiety:
+  - rscdel: Deletes a rule-breaking line of dialogue from spraytan overdose.
   PapaMichael:
   - spellcheck: More verbs match their pronouns
   QuiteLiterallyAnything:
@@ -980,8 +982,6 @@
       or invisible if they met certain criteria
   - admin: select equipment now just shows one direction of previews, greatly reducing
       lag
-  ManiacalAnxiety:
-  - rscdel: Deletes a rule-breaking line of dialogue from spraytan overdose.
 2026-07-23:
   Happyowl93:
   - code_imp: Fix fire alarm flaky CI tests
@@ -999,6 +999,12 @@
   PapaMichael:
   - bugfix: It no longer looks like you have accessories attached after you've removed
       them.
+  Salted-Zen:
+  - qol: Bluespace miner now displays a list of material names instead of type paths
+      for focus mode
+  - qol: Bluespace miner now shows exact values you need to correct the environment
+      to if the miner is failing to function
+  - qol: Bluespace miner now displays what material focus mode is set to
   SmArtKar:
   - bugfix: Fixed meteor changelings being killed by defense sats
   - bugfix: Fixed negative moles left by gas scrubbers
@@ -1007,26 +1013,33 @@
   YesterdaysPromise:
   - bugfix: Plastitanium wall fillings now fill up the walls correctly at rate of
       1 per wall, and correctly make survival pod walls.
-  lelandkemble:
-  - bugfix: medbots can no longer be thrown, all bots no longer have AA
-  nPocToDark:
-  - qol: Raptor eggs now floor placeable (even in lava). It's now easier to immerse
-      them in lava to accelerate their growth.
-  vinylspiders:
-  - rscdel: eighties floor is updated to its tg version
-  - bugfix: fixed tails and ears not updating on your dummy when changing the pref
-      until you change species or switch characters
-  Salted-Zen:
-  - qol: Bluespace miner now displays a list of material names instead of type paths
-      for focus mode
-  - qol: Bluespace miner now shows exact values you need to correct the environment
-      to if the miner is failing to function
-  - qol: Bluespace miner now displays what material focus mode is set to
   curiousbookshelf:
   - balance: Removed unzipped drone duffelbag slowdown
   epicgamer545:
   - spellcheck: Mentions of Terragov, Spinward, and the corporation "owning your soul"
       has been removed from the shift start reports.
+  lelandkemble:
+  - bugfix: medbots can no longer be thrown, all bots no longer have AA
+  nPocToDark:
+  - qol: Raptor eggs now floor placeable (even in lava). It's now easier to immerse
+      them in lava to accelerate their growth.
   throwawayuseless:
   - rscadd: Inhaler and Inhaler Canister to loadout.
   - qol: Pills can dissolve in empty containers now.
+  vinylspiders:
+  - rscdel: eighties floor is updated to its tg version
+  - bugfix: fixed tails and ears not updating on your dummy when changing the pref
+      until you change species or switch characters
+2026-07-26:
+  Paxilmaniac, sergeirocks100:
+  - rscadd: There is now an emergency ration single pack for sale at cargo.
+  - rscadd: Two new sides have been added to the pool of sides for the emergency ration;
+      a pumpkin toaster pastry, and some eggplant jerky.
+  epicgamer545:
+  - spellcheck: In round-start reports, Nanotrasen will no longer call ocean planets
+      a "ice moon".
+2026-07-28:
+  KnigTheThrasher:
+  - map: fixed roundstart active turfs
+  Shroopy:
+  - rscadd: 'Added a new emote: *roll2d6. It outputs "[user] rolls 2d6 and gets [roll1]+[roll2]=[result]."'
