@@ -18,6 +18,7 @@
 		ACCESS_MINING,
 		ACCESS_MINING_STATION,
 		ACCESS_SHIPPING,
+		ACCESS_BIT_DEN, // OCULIS ADDITION
 		)
 	template_access = list(
 		ACCESS_CAPTAIN,
@@ -59,6 +60,15 @@
 		/obj/item/tank/internals/emergency_oxygen/engi = 5,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 3,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants = 3
+	)
+	alt_titles = list(
+		"Explorer",
+		"Surveyor",
+		"Pioneer",
+		"Navigator",
+		"Frontiersperson",
+		"Apprentice Explorer",
+		"Union Explorer",
 	)
 
 /datum/outfit/job/explorer
@@ -200,4 +210,3 @@
 	mask_type = /obj/item/clothing/mask/gas/atmos/frontier_colonist
 	mod_type = /obj/item/mod/control/pre_equipped/frontier_colonist
 	storage_type = /obj/item/tank/jetpack
-

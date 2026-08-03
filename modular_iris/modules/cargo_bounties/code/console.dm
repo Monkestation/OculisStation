@@ -25,7 +25,7 @@
 	var/printer_ready = 0 //cooldown var
 	var/static/datum/bank_account/cargocash
 
-/obj/machinery/computer/bounty/Initialize()
+/obj/machinery/computer/bounty/Initialize(mapload)
 	. = ..()
 	printer_ready = world.time + PRINTER_TIMEOUT
 	cargocash = SSeconomy.get_dep_account(ACCOUNT_CAR)

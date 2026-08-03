@@ -9,6 +9,11 @@ GLOBAL_LIST_INIT(nearsighted_glasses, list(
 	"Jamjar" = /obj/item/clothing/glasses/regular/jamjar,
 	"Binoclard" = /obj/item/clothing/glasses/regular/kim,
 	"Modern" = /obj/item/clothing/glasses/regular/modern, // NOVA EDIT ADDITION
+	// OCULIS EDIT ADDITION START
+	"Transparent Glasses" = /obj/item/clothing/glasses/regular/transparent,
+	"Transparent Circle Glasses" = /obj/item/clothing/glasses/regular/circle/transparent,
+	"Transparent Thin Glasses" = /obj/item/clothing/glasses/regular/thin/transparent,
+	// OCULIS EDIT ADDITION END
 
 ))
 

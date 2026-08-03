@@ -6,11 +6,11 @@
 	rating = 5
 	energy_rating = 20
 	custom_materials = list(
-		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 1.1,
-		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.9,
-		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 0.7,
-		/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 0.5,
-	)
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3.3,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2.7,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 2.1,
+		/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 1.5,
+		)
 
 /datum/stock_part/capacitor/tier5
 	tier = 5
@@ -24,11 +24,11 @@
 	rating = 5
 	energy_rating = 20
 	custom_materials = list(
-		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 1.1,
-		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.9,
-		/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 0.3,
-		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 0.3,
-	)
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3.3,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2.7,
+		/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 0.9,
+		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 0.9,
+		)
 
 /datum/stock_part/scanning_module/tier5
 	tier = 5
@@ -42,10 +42,10 @@
 	rating = 5
 	energy_rating = 20
 	custom_materials = list(
-		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.9,
-		/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 0.1,
-		/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 0.1,
-		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 0.1,
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2.7,
+		/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 0.3,
+		/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 0.3,
+		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 0.3,
 	)
 
 /datum/stock_part/servo/tier5
@@ -60,10 +60,10 @@
 	rating = 5
 	energy_rating = 20
 	custom_materials = list(
-		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.9,
-		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.9,
-		/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 0.5,
-		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 0.5,
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2.7,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2.7,
+		/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 1.5,
+		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 1.5,
 	)
 
 /datum/stock_part/micro_laser/tier5
@@ -78,9 +78,9 @@
 	rating = 5
 	energy_rating = 20
 	custom_materials = list(
-		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 1.1,
-		/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 0.5,
-		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 0.7,
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3.3,
+		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 2.1,
+		/datum/material/diamond  = SMALL_MATERIAL_AMOUNT * 1.5,
 	)
 
 /datum/stock_part/matter_bin/tier5
@@ -94,12 +94,12 @@
 	icon_state = "quantum_cell"
 	maxcharge = STANDARD_CELL_CHARGE * 50
 	custom_materials = list(
-		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
-		/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 1.8,
-		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT,
-	)
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 9,
+		/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 5.4,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5,
+		/datum/material/diamond = SHEET_MATERIAL_AMOUNT * 1.5,
+		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT * 1.5,
+		)
 	chargerate = STANDARD_CELL_RATE * 3
 
 /obj/item/stock_parts/power_store/cell/quantum/empty

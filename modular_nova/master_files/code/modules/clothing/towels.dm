@@ -196,10 +196,10 @@
 	change_towel_shape(user, LOWER_TEXT(choice))
 
 
-/obj/item/towel/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/towel/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 
-	if(!(attacking_item.tool_behaviour == TOOL_WIRECUTTER || attacking_item.get_sharpness()))
+	if(!(tool.tool_behaviour == TOOL_WIRECUTTER || tool.get_sharpness()))
 		return
 
 	if(flags_1 & HOLOGRAM_1) // Just in case there's ever holographic towels.
@@ -213,6 +213,7 @@
 
 	to_chat(user, span_notice("You tear [src] up into cloth."))
 	qdel(src)
+	return ITEM_INTERACT_SUCCESS
 
 
 /obj/item/towel/pre_attack_secondary(atom/target, mob/living/user, params)
@@ -514,3 +515,16 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	return TRUE
 
+#undef TOWEL_FOLDED
+#undef TOWEL_FULL
+#undef TOWEL_WAIST
+#undef TOWEL_HEAD
+#undef TOWEL_USED
+#undef TOWEL_OBJ_ICON
+#undef TOWEL_WORN_ICON
+#undef TOWEL_WORN_ICON_DIGI
+#undef TOWEL_LEFTHAND_ICON
+#undef TOWEL_RIGHTHAND_ICON
+#undef TOWEL_CLOTH_AMOUNT
+#undef TOWEL_WRING_LOSS_FACTOR
+#undef TOWEL_WRING_AMOUNT

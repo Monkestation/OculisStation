@@ -498,7 +498,7 @@
 	flags_inv = null
 
 /obj/item/clothing/suit/jacket/tailcoat/centcom
-	name = "centcom tailcoat"
+	name = "SectCom tailcoat" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "centcom tailcoat"
 	desc = "An official coat usually worn by bunny themed executives. The inside is lined with comfortable yet tasteful bunny fluff."
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
 	icon_state = "tailcoat_centcom"

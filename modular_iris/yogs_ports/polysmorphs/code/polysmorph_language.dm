@@ -1,7 +1,7 @@
 /datum/language/polysmorph
 	name = "polysmorph"
 	desc = "The common tongue of the polysmorphs."
-	key = "x"
+	key = "X"
 	syllables = list("sss","sSs","SSS")
 	default_priority = 50
 	icon_state = "xeno"

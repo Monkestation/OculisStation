@@ -61,8 +61,8 @@ ADMIN_VERB(cmd_admin_check_player_exp, R_ADMIN, "Player Playtime", "View player 
 	if(!SSshuttle.centcom_recall(usr, SSshuttle.emergency.timer, message)) // feedback handled within
 		return
 
-	message_admins("[key_name_admin(usr)] triggered a CentCom recall, with the admiral message of: [message]")
-	usr.log_message("triggered a CentCom recall, with the message of: [message]", LOG_GAME)
+	message_admins("[key_name_admin(usr)] triggered a SectCom recall, with the admiral message of: [message]") // OCULIS EDIT, SectCommening 2, ORIGINAL: message_admins("[key_name_admin(usr)] triggered a CentCom recall, with the admiral message of: [message]")
+	usr.log_message("triggered a SectCom recall, with the message of: [message]", LOG_GAME) // OCULIS EDIT, SectCommening 2, ORIGINAL: usr.log_message("triggered a CentCom recall, with the message of: [message]", LOG_GAME)
 
 
 /datum/admins/proc/cmd_show_exp_panel(client/client_to_check)

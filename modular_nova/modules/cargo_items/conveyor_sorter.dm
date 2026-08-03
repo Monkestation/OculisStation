@@ -3,6 +3,7 @@
 	desc = "A tool that is used to not only create the conveyor sorters, but give lists to the conveyor sorters."
 	icon = 'modular_nova/modules/cargo_items/icons/conveyor_sorter.dmi'
 	icon_state = "lister"
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT)
 	///the list of conveyor sorters spawned by
 	var/list/spawned_sorters = list()
 	///the list of things that are currently within the sorting list
@@ -110,15 +111,15 @@
 	visible_message("[src] pings, updating its sorting direction!")
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
 
-/obj/effect/decal/conveyor_sorter/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/conveyor_sorter))
-		var/obj/item/conveyor_sorter/cs_item = attacking_item
-		sorting_list = cs_item.current_sort
-		visible_message("[src] pings, updating its sorting list!")
-		playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
-		return
-	else
+/obj/effect/decal/conveyor_sorter/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/conveyor_sorter))
 		return ..()
+
+	var/obj/item/conveyor_sorter/cs_item = tool
+	sorting_list = cs_item.current_sort
+	visible_message("[src] pings, updating its sorting list!")
+	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/effect/decal/conveyor_sorter/click_alt(mob/user)
 	visible_message("[src] pings, resetting its sorting list!")
@@ -160,6 +161,7 @@
 	max_sorters = 8
 	max_items = 10
 	conveyor_type = /obj/effect/decal/conveyor_sorter/improved
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/effect/decal/conveyor_sorter/improved
 	name = "improved conveyor sorter"

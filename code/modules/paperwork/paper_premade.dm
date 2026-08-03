@@ -454,11 +454,11 @@
 	default_raw_text = "GET DAT FUKKEN DISK"
 
 /obj/item/paper/fluff/stations/centcom/broken_evac
-	default_raw_text = "Due to circumstances beyond our control, your Emergency Evacuation Shuttle is out of service.<br><br>We apologize for the inconvenience this may cause you.<br><br>Please enjoy the use of this complementary book.<br><br>Sincerely,<br>CentCom Operations Demolitions Examination Retribution Bugfixing Underlining Services"
+	default_raw_text = "Due to circumstances beyond our control, your Emergency Evacuation Shuttle is out of service.<br><br>We apologize for the inconvenience this may cause you.<br><br>Please enjoy the use of this complementary book.<br><br>Sincerely,<br>SectCom Operations Demolitions Examination Retribution Bugfixing Underlining Services" // OCULIS EDIT, SectCommening 2, ORIGINAL: default_raw_text = "Due to circumstances beyond our control, your Emergency Evacuation Shuttle is out of service.<br><br>We apologize for the inconvenience this may cause you.<br><br>Please enjoy the use of this complementary book.<br><br>Sincerely,<br>CentCom Operations Demolitions Examination Retribution Bugfixing Underlining Services"
 
 /obj/item/paper/fluff/stations/centcom/bulletin
 	name = "paper- 'Official Bulletin'"
-	default_raw_text = "<BR>CentCom Security<BR>Port Division<BR>Official Bulletin<BR><BR>Inspector,<BR>There is an emergency shuttle arriving today.<BR><BR>Approval is restricted to Nanotrasen employees only. Deny all other entrants.<BR><BR>CentCom Port Commissioner"
+	default_raw_text = "<BR>SectCom Security<BR>Port Division<BR>Official Bulletin<BR><BR>Inspector,<BR>There is an emergency shuttle arriving today.<BR><BR>Approval is restricted to Nanotrasen employees only. Deny all other entrants.<BR><BR>CentCom Port Commissioner" // OCULIS EDIT, SectCommening 2, ORIGINAL: default_raw_text = "<BR>CentCom Security<BR>Port Division<BR>Official Bulletin<BR><BR>Inspector,<BR>There is an emergency shuttle arriving today.<BR><BR>Approval is restricted to Nanotrasen employees only. Deny all other entrants.<BR><BR>CentCom Port Commissioner"
 
 
 /////////// Lavaland

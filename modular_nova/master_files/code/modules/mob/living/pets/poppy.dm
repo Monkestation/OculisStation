@@ -75,7 +75,7 @@
 		var/list/sm_chamber = get_area_turfs(/area/station/engineering/supermatter)
 		if(src.loc in sm_chamber)
 			safety_inspection = FALSE
-			priority_announce("This is a generated message due to an automated signal regarding the safety standards of the engineering department onboard [station_name()]. Due to the station engineers failing to meet the standard set by Central Command, each of them are now at risk of being forcefully enrolled in a re-evaluation program at later notice...", "Concerning the results of a safety inspection", type = "Priority")
+			priority_announce("This is a generated message due to an automated signal regarding the safety standards of the engineering department onboard [station_name()]. Due to the station engineers failing to meet the standard set by Sectorial Command, each of them are now at risk of being forcefully enrolled in a re-evaluation program at later notice...", "Concerning the results of a safety inspection", type = "Priority") // OCULIS EDIT, SectCommening 2, ORIGINAL: priority_announce("This is a generated message due to an automated signal regarding the safety standards of the engineering department onboard [station_name()]. Due to the station engineers failing to meet the standard set by Central Command, each of them are now at risk of being forcefully enrolled in a re-evaluation program at later notice...", "Concerning the results of a safety inspection", type = "Priority")
 			// It's just flavor, no tangible punishment
 	return ..()
 

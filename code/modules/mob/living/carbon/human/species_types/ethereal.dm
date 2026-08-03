@@ -13,7 +13,7 @@
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 		TRAIT_FIXED_MUTANT_COLORS,
-		TRAIT_AGENDER,
+		// TRAIT_AGENDER, // OCULIS EDIT REMOVAL, don't force people to have or not have a gender
 	)
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 	species_cookie = /obj/item/food/energybar
@@ -318,7 +318,7 @@
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 		TRAIT_FIXED_MUTANT_COLORS,
-		TRAIT_AGENDER,
+		// TRAIT_AGENDER, // OCULIS EDIT REMOVAL, don't force people to have or not have a gender
 		TRAIT_NOBREATH,
 		TRAIT_RESISTHIGHPRESSURE,
 		TRAIT_RESISTLOWPRESSURE,

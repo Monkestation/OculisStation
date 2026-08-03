@@ -155,7 +155,7 @@
 	new /obj/item/card/id/advanced/chameleon(src)
 
 /datum/opposing_force_equipment/clothing_sol/impostor
-	name = "CentCom Impostor"
+	name = "SectCom Impostor" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Impostor"
 	description = "Don't ask us how we got this. Comes with special agent ID pre-equipped with COMMAND access."
 	item_type = /obj/item/storage/backpack/duffelbag/syndie/impostor
 

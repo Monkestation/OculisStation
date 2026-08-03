@@ -78,6 +78,20 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/ferry)
+"fu" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/centcom{
+	name = "SectCom Security"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/access/all/admin/general,
+/turf/open/floor/iron,
+/area/centcom/central_command_areas/ferry)
 "fv" = (
 /obj/machinery/light/directional/north,
 /obj/effect/turf_decal/stripes/line{
@@ -191,20 +205,6 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/ferry)
-"oW" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/centcom{
-	name = "CentCom Security"
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/airlock/access/all/admin/general,
-/turf/open/floor/iron,
-/area/centcom/central_command_areas/ferry)
 "pT" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -297,20 +297,6 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/ferry)
-"BT" = (
-/obj/docking_port/stationary{
-	dheight = 3;
-	dir = 8;
-	dwidth = 8;
-	height = 11;
-	shuttle_id = "ferry_away";
-	json_key = null;
-	name = "CentCom Ferry Dock";
-	roundstart_template = /datum/map_template/shuttle/ferry;
-	width = 20
-	},
-/turf/open/space/basic,
-/area/space)
 "EK" = (
 /obj/effect/turf_decal/delivery,
 /obj/structure/fans/tiny,
@@ -340,6 +326,16 @@
 "Hv" = (
 /turf/closed/indestructible/riveted,
 /area/centcom/central_command_areas/briefing)
+"HE" = (
+/obj/machinery/door/airlock/centcom{
+	name = "SectCom Supply"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/access/all/admin/general,
+/turf/open/floor/iron,
+/area/centcom/central_command_areas/ferry)
 "HU" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 1
@@ -429,16 +425,6 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/ferry)
-"SP" = (
-/obj/machinery/door/airlock/centcom{
-	name = "CentCom Supply"
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/airlock/access/all/admin/general,
-/turf/open/floor/iron,
-/area/centcom/central_command_areas/ferry)
 "Th" = (
 /obj/structure/closet/emcloset,
 /obj/item/tank/internals/emergency_oxygen/engi,
@@ -466,6 +452,20 @@
 	},
 /turf/open/floor/plating,
 /area/centcom/central_command_areas/ferry)
+"Wm" = (
+/obj/docking_port/stationary{
+	dheight = 3;
+	dir = 8;
+	dwidth = 8;
+	height = 11;
+	shuttle_id = "ferry_away";
+	json_key = null;
+	name = "SectCom Ferry Dock";
+	roundstart_template = /datum/map_template/shuttle/ferry/nova;
+	width = 20
+	},
+/turf/open/space/basic,
+/area/space)
 "Wv" = (
 /obj/item/clipboard,
 /obj/item/folder/red,
@@ -473,9 +473,11 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/stamp,
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/item/stamp/granted{
+	pixel_x = 5
+	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/ferry)
 "Yy" = (
@@ -494,7 +496,7 @@ MC
 MC
 MC
 MC
-BT
+Wm
 MC
 MC
 MC
@@ -671,13 +673,13 @@ iE
 iE
 iE
 iE
-SP
+HE
 iE
 iE
 iE
-oW
+fu
 md
-oW
+fu
 iE
 Hv
 "}

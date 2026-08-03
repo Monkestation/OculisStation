@@ -79,6 +79,14 @@
 /obj/item/chair,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/science/rnd)
+"az" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/trinary/mixer/airmix/flipped{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/ks13/engineering/atmos)
 "aD" = (
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 8
@@ -175,6 +183,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/hallway/aft)
+"bL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
+/turf/open/floor/iron/airless,
+/area/ruin/space/ks13/engineering/atmos)
 "bM" = (
 /obj/item/stack/rods,
 /turf/template_noop,
@@ -251,6 +263,23 @@
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/security/cell)
+"cq" = (
+/obj/machinery/light/small/directional/south,
+/obj/structure/table_frame,
+/obj/effect/spawner/random/engineering/tool,
+/obj/effect/spawner/random/engineering/flashlight{
+	pixel_y = 5
+	},
+/obj/effect/spawner/random/maintenance,
+/obj/item/wallframe/airalarm{
+	pixel_y = 5
+	},
+/obj/item/wallframe/airalarm,
+/obj/item/wallframe/airalarm{
+	pixel_y = -5
+	},
+/turf/open/floor/iron/airless,
+/area/ruin/space/ks13/engineering/atmos)
 "cr" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/blood/drip{
@@ -286,6 +315,12 @@
 /obj/structure/grille,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/engineering/supermatter)
+"cG" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/ks13/engineering/atmos)
 "cI" = (
 /obj/structure/table_frame,
 /turf/open/floor/plating/airless,
@@ -430,6 +465,10 @@
 /obj/structure/cable,
 /turf/open/floor/engine/airless,
 /area/ruin/space/ks13/engineering/supermatter)
+"dX" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored,
+/turf/open/floor/engine/o2,
+/area/ruin/space/ks13/engineering/atmos)
 "dY" = (
 /obj/machinery/door/window/left/directional/south{
 	name = "Bridge Access"
@@ -467,6 +506,12 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/ks13/ai/corridor)
+"eC" = (
+/obj/machinery/air_sensor{
+	chamber_id = "ks13-2"
+	},
+/turf/open/floor/engine/n2,
+/area/ruin/space/ks13/engineering/atmos)
 "eE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/kirbyplants/random/dead,
@@ -524,6 +569,11 @@
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/ruin/space/solars/ks13/sb_bow_solars)
+"fc" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/atmospherics/components/tank/air,
+/turf/open/floor/iron/airless,
+/area/ruin/space/ks13/engineering/atmos)
 "fe" = (
 /obj/item/circuitboard/computer/solar_control,
 /turf/open/floor/iron,
@@ -577,12 +627,6 @@
 "fO" = (
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/service/cafe)
-"fQ" = (
-/obj/effect/spawner/structure/window/hollow/reinforced/end{
-	dir = 4
-	},
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "fU" = (
 /turf/open/floor/iron,
 /area/ruin/space/ks13/ai/corridor)
@@ -647,6 +691,23 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/ruin/space/ks13/security/court)
+"gX" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored,
+/turf/open/floor/engine/o2,
+/area/ruin/space/ks13/engineering/atmos)
+"hb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/tank/air,
+/turf/open/floor/plating/airless,
+/area/ruin/space/ks13/engineering/atmos)
+"hc" = (
+/obj/machinery/computer/atmos_control/noreconnect{
+	dir = 1;
+	atmos_chambers = list("ks13-3"="Plasma Supply")
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/ks13/engineering/atmos)
 "hm" = (
 /obj/machinery/vending/hydroseeds,
 /obj/effect/mapping_helpers/broken_floor,
@@ -656,6 +717,17 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/hallway/central)
+"hB" = (
+/obj/structure/rack,
+/obj/item/circuitboard/machine/autolathe{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/circuitboard/machine/protolathe/offstation,
+/obj/item/circuitboard/computer/borgupload/no_lock,
+/obj/item/circuitboard/computer/aiupload/no_lock,
+/turf/open/floor/circuit/red/off,
+/area/ruin/space/ks13/ai/corridor)
 "hD" = (
 /obj/item/stack/ore/slag,
 /obj/structure/lattice,
@@ -664,11 +736,6 @@
 "hK" = (
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/engineering/aft_solars_control)
-"hQ" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible,
-/obj/effect/spawner/structure/window/hollow/reinforced/middle,
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "hT" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/decal/cleanable/dirt,
@@ -823,10 +890,33 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/engineering/supermatter)
+"jD" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/ks13/engineering/atmos)
+"jG" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/ks13/engineering/atmos)
+"jU" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/ks13/engineering/atmos)
 "jV" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/middle,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/hallway/aft)
+"jZ" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored,
+/turf/open/floor/engine/n2,
+/area/ruin/space/ks13/engineering/atmos)
 "kc" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/decal/cleanable/dirt,
@@ -864,6 +954,12 @@
 	},
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/engineering/secure_storage)
+"kD" = (
+/obj/machinery/air_sensor{
+	chamber_id = "ks13-3"
+	},
+/turf/open/floor/engine/plasma,
+/area/ruin/space/ks13/engineering/atmos)
 "kE" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
@@ -932,6 +1028,10 @@
 "lg" = (
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/engineering/grav_gen)
+"lh" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/iron/airless,
+/area/ruin/space/ks13/engineering/atmos)
 "lk" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "AI Upload Access"
@@ -1005,9 +1105,6 @@
 /obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/engineering/aux_storage)
-"mb" = (
-/turf/open/floor/engine/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "mc" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless{
@@ -1054,6 +1151,10 @@
 /obj/structure/frame/machine,
 /turf/template_noop,
 /area/ruin/space/ks13/service/kitchen)
+"mP" = (
+/obj/machinery/atmospherics/miner/nitrogen,
+/turf/open/floor/engine/n2,
+/area/ruin/space/ks13/engineering/atmos)
 "mQ" = (
 /obj/structure/girder,
 /turf/open/floor/plating/airless,
@@ -1346,17 +1447,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/science/rnd)
-"pm" = (
-/obj/machinery/light/small/directional/west,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/auto_name/directional/west,
-/obj/effect/mapping_helpers/apc/no_charge,
-/obj/structure/cable,
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "pn" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/dirt,
@@ -1805,12 +1895,6 @@
 "rM" = (
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/science/ordnance_hall)
-"rN" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored,
-/turf/open/floor/engine/air{
-	initial_gas_mix = "o2=20000;n2=80000;TEMP=293.15"
-	},
-/area/ruin/space/ks13/engineering/atmos)
 "rO" = (
 /obj/effect/turf_decal/plaque{
 	icon_state = "derelict11"
@@ -1868,7 +1952,6 @@
 "sa" = (
 /obj/structure/table/wood,
 /obj/item/clothing/head/hats/caphat{
-	armor = null;
 	desc = "A worn captains hat. This probably won't protect your noggin too well.";
 	pixel_x = 7;
 	pixel_y = 9
@@ -2299,11 +2382,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white/airless,
 /area/ruin/space/ks13/medical/medbay)
-"um" = (
-/obj/effect/decal/cleanable/glass,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "un" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Atmospherics Gas Storage"
@@ -2530,6 +2608,12 @@
 "vN" = (
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/hallway/aft)
+"vO" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored{
+	dir = 1
+	},
+/turf/open/floor/engine/plasma,
+/area/ruin/space/ks13/engineering/atmos)
 "vP" = (
 /obj/item/shard{
 	icon_state = "medium";
@@ -2689,21 +2773,9 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/white/airless,
 /area/ruin/space/ks13/medical/medbay)
-"wG" = (
-/obj/structure/table_frame,
-/obj/effect/spawner/random/engineering/flashlight{
-	pixel_y = 5
-	},
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "wH" = (
 /turf/closed/wall,
 /area/ruin/space/ks13/service/jani)
-"wI" = (
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
-/obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "wJ" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/middle,
 /turf/open/floor/plating,
@@ -2824,14 +2896,6 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/white/airless,
 /area/ruin/space/ks13/medical/medbay)
-"xo" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/broken_floor,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "xp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -3119,6 +3183,14 @@
 /obj/item/shard,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/science/ordnance_hall)
+"yL" = (
+/obj/machinery/computer/atmos_control/noreconnect{
+	atmos_chambers = list("ks13-2"="Nitrogen Supply")
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/ks13/engineering/atmos)
 "yM" = (
 /obj/item/shard{
 	icon_state = "small"
@@ -3222,17 +3294,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/hallway/central)
-"zk" = (
-/obj/item/shard{
-	icon_state = "small";
-	pixel_x = 6;
-	pixel_y = -4
-	},
-/obj/machinery/atmospherics/components/unary/portables_connector/visible{
-	dir = 1
-	},
-/turf/open/floor/iron/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "zm" = (
 /obj/machinery/door/airlock/external/ruin{
 	name = "Escape Airlock"
@@ -3332,11 +3393,6 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
 /area/space/nearstation)
-"zO" = (
-/obj/effect/spawner/structure/window/hollow/reinforced/middle,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "zP" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/structure/table,
@@ -3388,12 +3444,6 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/ks13/command/bridge)
-"Af" = (
-/obj/machinery/light/small/directional/south,
-/obj/structure/table_frame,
-/obj/effect/spawner/random/engineering/tool,
-/turf/open/floor/iron/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "Ag" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -3479,13 +3529,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/science/rnd)
-"Az" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible,
-/obj/machinery/computer/atmos_control/noreconnect{
-	atmos_chambers = list("ks13"="Primary Air Supply")
-	},
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "AC" = (
 /obj/item/stack/rods,
 /obj/structure/lattice,
@@ -3586,11 +3629,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/ruin/space/ks13/medical/morgue)
-"AZ" = (
-/obj/structure/table_frame,
-/obj/effect/spawner/random/maintenance,
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "Bb" = (
 /obj/effect/decal/cleanable/glass,
 /obj/effect/mapping_helpers/burnt_floor,
@@ -3719,6 +3757,12 @@
 /obj/structure/girder/reinforced,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
+"BL" = (
+/obj/machinery/air_sensor{
+	chamber_id = "ks13"
+	},
+/turf/open/floor/engine/o2,
+/area/ruin/space/ks13/engineering/atmos)
 "BM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/broken_floor,
@@ -3844,13 +3888,6 @@
 "Cy" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/ks13/science/rnd)
-"CC" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/burnt_floor,
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "CH" = (
 /obj/machinery/door/airlock/external/ruin{
 	name = "External Engineering"
@@ -3859,10 +3896,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/engineering/supermatter)
-"CI" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible,
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "CJ" = (
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
@@ -3955,15 +3988,6 @@
 	},
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
-"Di" = (
-/obj/machinery/pipedispenser,
-/turf/open/floor/iron/airless,
-/area/ruin/space/ks13/engineering/atmos)
-"Dl" = (
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
-/obj/effect/mapping_helpers/burnt_floor,
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "Dm" = (
 /obj/structure/cable,
 /obj/effect/spawner/structure/window/hollow/reinforced/end{
@@ -4183,12 +4207,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/service/kitchen)
-"Eo" = (
-/obj/machinery/air_sensor{
-	chamber_id = "ks13-2"
-	},
-/turf/open/floor/engine/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "Eq" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/effect/decal/cleanable/dirt,
@@ -4290,12 +4308,6 @@
 /obj/effect/spawner/random/engineering/atmospherics_portable,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/airless,
-/area/ruin/space/ks13/engineering/atmos)
-"EP" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/turf/open/floor/engine/air{
-	initial_gas_mix = "o2=20000;n2=80000;TEMP=293.15"
-	},
 /area/ruin/space/ks13/engineering/atmos)
 "EQ" = (
 /obj/structure/table,
@@ -4490,12 +4502,6 @@
 /obj/machinery/vending/sovietsoda,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/service/cafe)
-"FS" = (
-/obj/machinery/atmospherics/components/trinary/mixer/airmix/flipped/inverse,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "FT" = (
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/glass,
@@ -4562,9 +4568,10 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/medical/medbay)
-"Gk" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/airless,
+"Gi" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/turf/open/floor/plating/airless,
 /area/ruin/space/ks13/engineering/atmos)
 "Gl" = (
 /obj/effect/mapping_helpers/burnt_floor,
@@ -4585,6 +4592,11 @@
 /obj/structure/cable,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/tool_storage)
+"Gp" = (
+/obj/effect/spawner/structure/window/hollow/reinforced/middle,
+/obj/machinery/atmospherics/pipe/layer_manifold/general,
+/turf/open/floor/plating/airless,
+/area/ruin/space/ks13/engineering/atmos)
 "Gq" = (
 /obj/structure/table,
 /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty{
@@ -4662,12 +4674,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/service/bar)
-"GM" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible{
-	dir = 1
-	},
-/turf/open/floor/iron/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "GN" = (
 /obj/item/shard,
 /obj/effect/decal/cleanable/glass,
@@ -4870,6 +4876,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/service/cafe)
+"HF" = (
+/obj/machinery/atmospherics/miner/oxygen,
+/turf/open/floor/engine/o2,
+/area/ruin/space/ks13/engineering/atmos)
 "HH" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/ks13/service/jani)
@@ -4911,10 +4921,6 @@
 	},
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/science/genetics)
-"HU" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored,
-/turf/open/floor/engine/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "HV" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/cable,
@@ -5083,6 +5089,12 @@
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/engineering/supermatter)
+"Ja" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/tank/air,
+/turf/open/floor/iron/airless,
+/area/ruin/space/ks13/engineering/atmos)
 "Jc" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/mapping_helpers/broken_floor,
@@ -5202,12 +5214,6 @@
 "JD" = (
 /turf/closed/wall,
 /area/ruin/space/ks13/service/kitchen)
-"JE" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible,
-/obj/effect/mapping_helpers/burnt_floor,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "JF" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/airless,
@@ -5498,6 +5504,11 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/service/hydro)
+"Ll" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/obj/machinery/pipedispenser,
+/turf/open/floor/plating/airless,
+/area/ruin/space/ks13/engineering/atmos)
 "Lm" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -5587,15 +5598,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/service/kitchen)
-"LL" = (
-/obj/structure/rack,
-/obj/item/circuitboard/machine/autolathe{
-	pixel_x = -6;
-	pixel_y = 6
-	},
-/obj/item/circuitboard/machine/protolathe/offstation,
-/turf/open/floor/circuit/red/off,
-/area/ruin/space/ks13/ai/corridor)
 "LM" = (
 /obj/machinery/light/small/directional/north,
 /obj/structure/cable,
@@ -5855,12 +5857,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
-"Nf" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored,
-/turf/open/floor/engine/air{
-	initial_gas_mix = "o2=20000;n2=80000;TEMP=293.15"
-	},
-/area/ruin/space/ks13/engineering/atmos)
 "Nh" = (
 /obj/structure/table,
 /obj/item/stock_parts/servo{
@@ -6057,6 +6053,10 @@
 /obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/science/rnd)
+"Og" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored,
+/turf/open/floor/engine/n2,
+/area/ruin/space/ks13/engineering/atmos)
 "Oh" = (
 /obj/machinery/vending/cigarette,
 /turf/open/floor/iron/airless,
@@ -6090,10 +6090,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron,
 /area/ruin/space/ks13/hallway/starboard_bow)
-"Op" = (
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
-/turf/open/floor/iron/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "Oq" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/middle,
 /turf/open/floor/plating,
@@ -6495,10 +6491,6 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/service/cafe)
-"Qq" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored,
-/turf/open/floor/engine/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "Qr" = (
 /obj/structure/girder/reinforced,
 /turf/open/floor/plating/airless,
@@ -6507,6 +6499,12 @@
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plating/airless,
+/area/ruin/space/ks13/engineering/atmos)
+"Qt" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored{
+	dir = 1
+	},
+/turf/open/floor/engine/plasma,
 /area/ruin/space/ks13/engineering/atmos)
 "Qu" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6592,14 +6590,6 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/plating,
 /area/ruin/space/ks13/service/chapel_office)
-"QY" = (
-/obj/structure/grille/broken,
-/obj/effect/decal/cleanable/glass,
-/obj/item/shard{
-	pixel_x = 5
-	},
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "QZ" = (
 /obj/structure/frame/machine{
 	anchored = 1
@@ -6692,6 +6682,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/security/sec)
+"RB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/airless,
+/area/ruin/space/ks13/engineering/atmos)
 "RC" = (
 /obj/machinery/light/small/directional/east,
 /obj/effect/decal/cleanable/dirt,
@@ -6756,14 +6751,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white/airless,
 /area/ruin/space/ks13/science/genetics)
-"RO" = (
-/obj/machinery/computer/atmos_control/noreconnect{
-	atmos_chambers = list("ks13-2"="Secondary Chamber")
-	},
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "RP" = (
 /obj/effect/decal/cleanable/glass,
 /obj/effect/mapping_helpers/broken_floor,
@@ -6901,14 +6888,6 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron,
 /area/ruin/space/ks13/science/ordnance)
-"Sy" = (
-/obj/machinery/air_sensor{
-	chamber_id = "ks13"
-	},
-/turf/open/floor/engine/air{
-	initial_gas_mix = "o2=20000;n2=80000;TEMP=293.15"
-	},
-/area/ruin/space/ks13/engineering/atmos)
 "Sz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -7121,17 +7100,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/command/teleporter,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/dorms)
-"Tl" = (
-/obj/structure/table,
-/obj/item/wallframe/airalarm{
-	pixel_y = 5
-	},
-/obj/item/wallframe/airalarm,
-/obj/item/wallframe/airalarm{
-	pixel_y = -5
-	},
-/turf/open/floor/plating/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "Tn" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/end{
 	dir = 4
@@ -7273,6 +7241,14 @@
 "TZ" = (
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/tool_storage)
+"Ud" = (
+/obj/machinery/light/small/directional/west,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/effect/mapping_helpers/apc/no_charge,
+/obj/structure/cable,
+/turf/open/floor/plating/airless,
+/area/ruin/space/ks13/engineering/atmos)
 "Uf" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
@@ -7489,11 +7465,6 @@
 /obj/item/clothing/head/helmet/space/eva,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/ai/vault)
-"Ve" = (
-/obj/effect/mapping_helpers/broken_floor,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/airless,
-/area/ruin/space/ks13/engineering/atmos)
 "Vh" = (
 /obj/structure/door_assembly/door_assembly_eng,
 /turf/open/floor/engine/airless,
@@ -7597,6 +7568,13 @@
 	},
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/hallway/central)
+"VI" = (
+/obj/machinery/computer/atmos_control/noreconnect{
+	atmos_chambers = list("ks13"="Oxygen Supply")
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/ks13/engineering/atmos)
 "VJ" = (
 /obj/item/stack/cable_coil/cut,
 /turf/open/floor/iron/airless,
@@ -7990,6 +7968,10 @@
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/service/cafe)
+"XS" = (
+/obj/machinery/atmospherics/miner/plasma,
+/turf/open/floor/engine/plasma,
+/area/ruin/space/ks13/engineering/atmos)
 "XU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -12152,7 +12134,7 @@ tY
 tY
 tY
 vk
-vk
+uO
 uO
 ZK
 wq
@@ -12251,21 +12233,21 @@ GO
 yl
 pT
 tY
-mb
-Qq
-hQ
-CI
-JE
+mP
+Og
+Gp
+jD
+HJ
 YP
-pm
-Op
-GM
-QY
-um
-YP
-vJ
-AZ
+Ud
+ON
+bL
+hc
+Gp
+vO
+XS
 tY
+aa
 aa
 ZK
 kk
@@ -12364,21 +12346,21 @@ yR
 yR
 pT
 tY
-Eo
-HU
-zO
-RO
-Dl
-wI
-FS
-wI
-zk
-RY
-Di
-Gk
-YP
-Tl
+eC
+jZ
+ve
+yL
+sl
+yA
+AS
+yA
+ON
+Ll
+ve
+Qt
+kD
 tY
+aa
 aa
 ZK
 mv
@@ -12482,16 +12464,16 @@ tY
 tY
 DB
 RT
-sl
+Gi
 HD
-CC
-RT
-fQ
-ON
-YP
-Gk
-wG
-de
+jU
+sl
+sl
+tY
+tY
+tY
+tY
+tY
 tY
 od
 xk
@@ -12590,22 +12572,22 @@ DM
 yl
 Uw
 tY
-EP
-Nf
-hQ
-Az
-CI
-Rg
+HF
+dX
+Gp
+VI
+jD
+az
 eM
 Re
 sl
+lh
 un
 RT
 rj
-rj
-YP
+RB
 vq
-Af
+cq
 od
 Yn
 ZG
@@ -12703,20 +12685,20 @@ Hk
 yl
 Uw
 tY
-Sy
-rN
+BL
+gX
 ve
 WI
 yA
-HJ
+cG
 FG
 FP
 RT
+ON
 Iv
 pJ
 EO
 vq
-YP
 bd
 Jl
 od
@@ -12824,10 +12806,10 @@ HJ
 UL
 AS
 Pd
+RT
 Hf
 LQ
 LQ
-re
 re
 re
 LQ
@@ -12939,8 +12921,8 @@ vC
 Xw
 TH
 Ih
-sl
 Ke
+YP
 YP
 YP
 JR
@@ -13052,9 +13034,9 @@ rj
 rS
 YP
 JH
-HJ
 Iv
-vq
+hb
+fc
 YP
 eH
 eH
@@ -13162,12 +13144,12 @@ tP
 Rg
 Rg
 RT
-xo
+jG
 YP
 BF
-Ve
 RY
-Ve
+hb
+Ja
 vy
 tY
 tY
@@ -13278,9 +13260,9 @@ TE
 vJ
 RT
 Pd
-Ve
 RY
-Ve
+hb
+Ja
 Kv
 tY
 aa
@@ -13333,7 +13315,7 @@ Rm
 lq
 lq
 Yc
-LL
+hB
 Yc
 aa
 aa
