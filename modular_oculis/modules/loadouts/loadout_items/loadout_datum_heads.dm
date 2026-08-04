@@ -43,7 +43,7 @@
 	group = "Job-Locked"
 
 /datum/loadout_item/head/warden
-	name = "warden's hat"
+	name = "warden's police hat"
 	item_path = /obj/item/clothing/head/hats/warden
 	restricted_roles = list(JOB_WARDEN)
 	group = "Job-Locked"

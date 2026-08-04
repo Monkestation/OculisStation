@@ -23,7 +23,7 @@
 /obj/item/clothing/mask/gas/gags
 	flags_inv = NONE
 	icon = 'icons/map_icons/clothing/mask.dmi'
-	icon_state = "/obj/item/clothing/mask/gasmask"
+	icon_state = "/obj/item/clothing/mask/gas/gags" //OCULIS EDIT - ORIGINAL: icon_state = "/obj/item/clothing/mask/gasmask"
 	post_init_icon_state = "gasmask"
 	greyscale_config = /datum/greyscale_config/gasmask
 	greyscale_config_worn = /datum/greyscale_config/gasmask/worn
