@@ -37,7 +37,7 @@
 	slot = ORGAN_SLOT_WRISTWATCH_L
 
 /datum/augment_item/implant/wristwatch
-	name = "internal chronometer"
+	name = "Internal Chronometer"
 	extra_info = "Tells the time."
 	cost = 2
 	path = /obj/item/organ/cyberimp/arm/wristwatch
@@ -48,7 +48,7 @@
 	slot = AUGMENT_SLOT_L_ARM
 
 /datum/design/wristwatch
-	name = "internal chronometer"
+	name = "Internal Chronometer"
 	desc = "Simple cybernetic that turns your wrist itself into a wristwatch, so that you can tell the time anywhere, anytime."
 	id = "ci-wristwatch"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
@@ -118,7 +118,7 @@
 	discount_experiments = list(/datum/experiment/physical/slap_someone = TECHWEB_TIER_1_POINTS/2)
 
 /datum/augment_item/implant/slapbooster
-	name = "subdermal ligature attachment package"
+	name = "Subdermal Ligature Attachment Package"
 	extra_info = "Makes slapping with the respective hand into a nonlethal weapon."
 	cost = 6
 	path = /obj/item/organ/cyberimp/arm/slap

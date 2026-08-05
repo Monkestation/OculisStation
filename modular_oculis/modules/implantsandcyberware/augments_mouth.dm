@@ -41,7 +41,7 @@
 	path = /obj/item/organ/cyberimp/mouth/tastebooster
 
 /datum/design/tastebooster
-	name = "gustatory hypersensitizer"
+	name = "Gustatory Hypersensitizer"
 	desc = "This cybernetic implant greatly increases the taste sensitivity of the implantee."
 	id = "ci-tastebooster"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
