@@ -10,7 +10,7 @@
 	)
 	actions_types = list(/datum/action/item_action/organ_action/use)
 	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
-	icon_state = 'internalchronometer'
+	icon_state = "internalchronometer"
 
 /obj/item/organ/cyberimp/arm/wristwatch/ui_action_click(mob/user, actiontype)
 	if(organ_flags & ORGAN_FAILING)
@@ -86,7 +86,7 @@
 		BODY_ZONE_L_ARM = ORGAN_SLOT_PALM_L,
 	)
 	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
-	icon_state = 'subdermalligatureattachmentpackage'
+	icon_state = "subdermalligatureattachmentpackage"
 
 /datum/design/slapcybernetic
 	name = "S.L.A.P."
@@ -99,7 +99,7 @@
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT*8,
 		/datum/material/titanium =SMALL_MATERIAL_AMOUNT * 3,
 	)
-	build_path = /obj/item/organ/cyberimp/arm/wristwatch
+	build_path = /obj/item/organ/cyberimp/arm/slap
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_MISC
 	)
@@ -115,6 +115,7 @@
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS / 2)
 	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_MEDICAL, RADIO_CHANNEL_SCIENCE)
+	discount_experiments = list(/datum/experiment/physical/slap_someone = TECHWEB_TIER_1_POINTS/2)
 
 /datum/augment_item/implant/slapbooster
 	name = "subdermal ligature attachment package"

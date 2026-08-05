@@ -10,8 +10,8 @@
 	)
 	slot = ORGAN_SLOT_CAFFINATOR_R
 	actions_types = list(/datum/action/item_action/organ_action/use)
-	icon_state = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
-	icon= 'ntcffecaffinator'
+	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
+	icon_state = "ntcffecaffinator"
 	var/numberofcups = 10
 	COOLDOWN_DECLARE(dispense_cooldown)
 	var/dispensedreagent = /datum/reagent/consumable/coffee
@@ -99,7 +99,7 @@
 
 /datum/design/caffinator
 	name = "NT-CFFE Caffinator"
-	desc = "This thigh-implanted cybernetic utilizes the very real science of hemosuccoric convertotronology to transmute bloodborne nutrients into tasty and energizing coffee! Contains integrated cup dispenser and cardboard recycler."
+	desc = "This thigh-implanted cybernetic utilizes the very real science of hemosuccoric convertotronology to transmute bloodborne nutrients into tasty and energizing coffee! Contains integrated cup dispenser and cardboard recycler. (Cardboard not included.)"
 	id = "ci-caffinator"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 6 SECONDS

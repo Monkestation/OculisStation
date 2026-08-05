@@ -5,7 +5,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	slot = ORGAN_SLOT_TASTEBOOSTER
 	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
-	icon_state = 'gustatoryhypersensitizer'
+	icon_state = "gustatoryhypersensitizer"
 
 /obj/item/organ/cyberimp/mouth/tastebooster/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
@@ -76,7 +76,7 @@
 	slot = ORGAN_SLOT_MUSICSYNTH
 	actions_types = list(/datum/action/item_action/organ_action/musicsynth)
 	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
-	icon_state = 'respiratoryharmonitron'
+	icon_state = "respiratoryharmonitron"
 
 
 /datum/augment_item/organ/mouth/musicsynth
@@ -85,7 +85,6 @@
 	cost = 2
 	path = /obj/item/organ/cyberimp/mouth/musicsynth
 
-//yes this is just sing tones as an organ action rather than a species one shoot me.
 /datum/action/item_action/organ_action/musicsynth
 	name = "Internal Synth"
 	desc = "Use your internal synthesizer to play music."
@@ -103,3 +102,31 @@
 /datum/action/item_action/organ_action/musicsynth/Grant(mob/grant_to)
 	..()
 	song = new(grant_to, SSinstruments.synthesizer_instrument_ids, 15)
+
+/datum/design/musicsynth
+	name = "Respiratory Harmonitron"
+	desc = "This tracheal synthesizer system accepts neural commands, allowing for users to \"sing\" their own backing instrumentation!"
+	id = "ci-harmonitron"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 6 SECONDS
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT*8,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT*8,
+		/datum/material/uranium =SMALL_MATERIAL_AMOUNT * 3,
+	)
+	build_path = /obj/item/organ/cyberimp/mouth/musicsynth
+	category = list(
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_MISC
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/techweb_node/musicsynth
+	id = TECHWEB_NODE_MUSICSYNTH
+	display_name = "Neurosynchronous Harmonisation"
+	description = ""
+	prereq_ids = list(TECHWEB_NODE_GAS_COMPRESSION, TECHWEB_NODE_CYBER_IMPLANTS)
+	design_ids = list(
+		"ci-harmonitron"
+	)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS / 2)
+	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_MEDICAL, RADIO_CHANNEL_SCIENCE)

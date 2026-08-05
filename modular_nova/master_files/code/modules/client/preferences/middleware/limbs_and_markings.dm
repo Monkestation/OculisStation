@@ -119,10 +119,6 @@
 		AUGMENT_SLOT_EYES,
 		AUGMENT_SLOT_TONGUE,
 		AUGMENT_SLOT_MOUTH_IMPLANT,
-//oculis edit start
-		AUGMENT_SLOT_R_ARM_IMPLANT,
-		AUGMENT_SLOT_L_ARM_IMPLANT
-//oculis edit end
 	)
 
 	// Bodypart augment slots
