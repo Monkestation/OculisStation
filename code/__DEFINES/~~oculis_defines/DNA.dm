@@ -6,3 +6,6 @@
 #define ORGAN_SLOT_PALM_R "organ_slot_palm_r"
 #define ORGAN_SLOT_PALM_L "organ_slot_palm_l"
 #define ORGAN_SLOT_MUSICSYNTH "organ_slot_musicsynth"
+#define SPECIES_ARACHNID "arachnid"
+#define FEATURE_ARACHNID_APPENDAGES "arachnid_appendages"
+#define FEATURE_ARACHNID_CHELICERAE "arachnid_chelicerae"

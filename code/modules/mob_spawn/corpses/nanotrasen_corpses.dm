@@ -50,7 +50,7 @@
 	id_trim = /datum/id_trim/centcom/corpse/private_security
 
 /obj/effect/mob_spawn/corpse/human/intern //this is specifically the comms intern from the event
-	name = "CentCom Intern"
+	name = "SectCom Intern" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Intern"
 	outfit = /datum/outfit/centcom/centcom_intern/unarmed
 	mob_name = "Nameless Intern"
 

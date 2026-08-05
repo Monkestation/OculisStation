@@ -164,10 +164,10 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 			message_admins(span_adminnotice("[key_name_admin(holder)] reset the station name."))
 			priority_announce("[command_name()] has renamed the station to \"[new_name]\".")
 		if("moveferry")
-			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Send CentCom Ferry"))
+			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Send SectCom Ferry")) // OCULIS EDIT, SectCommening 2, ORIGINAL: SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Send CentCom Ferry"))
 			if(!SSshuttle.toggleShuttle("ferry","ferry_home","ferry_away"))
-				message_admins("[key_name_admin(holder)] moved the CentCom ferry")
-				log_admin("[key_name(holder)] moved the CentCom ferry")
+				message_admins("[key_name_admin(holder)] moved the SectCom ferry") // OCULIS EDIT, SectCommening 2, ORIGINAL: message_admins("[key_name_admin(holder)] moved the CentCom ferry")
+				log_admin("[key_name(holder)] moved the SectCom ferry") // OCULIS EDIT, SectCommening 2, ORIGINAL: log_admin("[key_name(holder)] moved the CentCom ferry")
 		if("togglearrivals")
 			var/obj/docking_port/mobile/arrivals/A = SSshuttle.arrivals
 			if(A)
@@ -333,17 +333,17 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 					airlock.req_access = list()
 					airlock.req_one_access = list()
 			message_admins("[key_name_admin(holder)] activated Egalitarian Station mode")
-			priority_announce("CentCom airlock control override activated. Please take this time to get acquainted with your coworkers.", null, SSstation.announcer.get_rand_report_sound())
+			priority_announce("SectCom airlock control override activated. Please take this time to get acquainted with your coworkers.", null, SSstation.announcer.get_rand_report_sound()) // OCULIS EDIT, SectCommening 2, ORIGINAL: priority_announce("CentCom airlock control override activated. Please take this time to get acquainted with your coworkers.", null, SSstation.announcer.get_rand_report_sound())
 		if("send_shuttle_back")
 			if (!is_funmin)
 				return
 			if (SSshuttle.emergency.mode != SHUTTLE_ESCAPE)
 				to_chat(usr, span_warning("Emergency shuttle not currently in transit!"), confidential = TRUE)
 				return
-			var/make_announcement = tgui_alert(usr, "Make a CentCom announcement?", "Emergency shuttle return", list("Yes", "Custom Text", "No")) || "No"
+			var/make_announcement = tgui_alert(usr, "Make a SectCom announcement?", "Emergency shuttle return", list("Yes", "Custom Text", "No")) || "No" // OCULIS EDIT, SectCommening 2, ORIGINAL: var/make_announcement = tgui_alert(usr, "Make a CentCom announcement?", "Emergency shuttle return", list("Yes", "Custom Text", "No")) || "No"
 			var/announcement_text = "Emergency shuttle trajectory overriden, rerouting course back to [station_name()]."
 			if (make_announcement == "Custom Text")
-				announcement_text = tgui_input_text(usr, "Custom CentCom announcement", "Emergency shuttle return", multiline = TRUE) || announcement_text
+				announcement_text = tgui_input_text(usr, "Custom SectCom announcement", "Emergency shuttle return", multiline = TRUE) || announcement_text // OCULIS EDIT, SectCommening 2, ORIGINAL: announcement_text = tgui_input_text(usr, "Custom CentCom announcement", "Emergency shuttle return", multiline = TRUE) || announcement_text
 			var/new_timer = tgui_input_number(usr, "How long should the shuttle remain in transit?", "When are we droppin' boys?", 180, 600)
 			if (isnull(new_timer) || SSshuttle.emergency.mode != SHUTTLE_ESCAPE)
 				return

@@ -156,6 +156,7 @@
 /obj/item/disk/data
 	name = "\improper DNA data disk"
 	icon_state = "datadisk0" //Gosh I hope syndies don't mistake them for the nuke disk.
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3, /datum/material/glass = SMALL_MATERIAL_AMOUNT, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 0.5)
 	var/list/genetic_makeup_buffer = list()
 	var/list/mutations = list()
 	var/max_mutations = 10
@@ -171,7 +172,7 @@
 			blood_type = get_blood_type(blood_type) || random_human_blood_type()
 
 /obj/item/disk/data/debug
-	name = "\improper CentCom DNA disk"
+	name = "\improper SectCom DNA disk" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom DNA disk"
 	desc = "A debug item for genetics"
 	custom_materials = null
 

@@ -36,8 +36,8 @@
 	name = "Marketable [target] plush"
 	if(bind_target)
 		current_owner = target
-		ADD_TRAIT(current_owner, TRAIT_NOBREATH, src)
-		ADD_TRAIT(current_owner, TRAIT_HANDS_BLOCKED, src)
+		ADD_TRAIT(current_owner, TRAIT_NOBREATH, REF(src))
+		ADD_TRAIT(current_owner, TRAIT_HANDS_BLOCKED, REF(src))
 		target.forceMove(src)
 		RegisterSignal(target, COMSIG_QDELETING, PROC_REF(clear_owner))
 
@@ -94,8 +94,8 @@
 /obj/item/toy/plush/living/proc/clear_owner(datum/source)
 	SIGNAL_HANDLER
 	UnregisterSignal(current_owner, COMSIG_QDELETING)
-	REMOVE_TRAIT(current_owner, TRAIT_NOBREATH, src)
-	REMOVE_TRAIT(current_owner, TRAIT_HANDS_BLOCKED, src)
+	REMOVE_TRAIT(current_owner, TRAIT_NOBREATH, REF(src))
+	REMOVE_TRAIT(current_owner, TRAIT_HANDS_BLOCKED, REF(src))
 	current_owner = null
 
 /obj/item/toy/plush/living/attackby(obj/item/I, mob/living/user, list/modifiers, list/attack_modifiers)

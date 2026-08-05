@@ -39,8 +39,8 @@ SUBSYSTEM_DEF(redaction)
 #define REDACTION "█"
 
 /proc/replace_with_redactions(text)
-    . = ""
-    for(var/i = 1 to length_char(text))
-        . += REDACTION
+	. = ""
+	for(var/i = 1 to length_char(text))
+		. += REDACTION
 
 #undef REDACTION

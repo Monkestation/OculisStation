@@ -14,7 +14,7 @@
 	pixel_y = base_pixel_y + rand(-5, 5)
 
 /obj/item/disk/tech_disk/debug
-	name = "\improper CentCom technology disk"
+	name = "\improper SectCom technology disk" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom technology disk"
 	desc = "A debug item for research"
 	custom_materials = null
 

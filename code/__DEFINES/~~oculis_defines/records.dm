@@ -1,0 +1,1 @@
+#define MAX_RECORDS_LEN (MAX_FLAVOR_LEN * 2) // 8192

@@ -15,6 +15,8 @@ on_github = os.getenv("GITHUB_ACTIONS") == "true"
 
 defines_file = "code/__DEFINES/traits/declarations.dm"
 nova_defines_file = "code/__DEFINES/~nova_defines/traits/declarations.dm" # NOVA EDIT ADDITION
+iris_defines_file = "code/__DEFINES/~~iris_defines/traits/declarations.dm" # OCULIS EDIT ADDITION
+oculis_defines_file = "code/__DEFINES/~~oculis_defines/traits/declarations.dm" # OCULIS EDIT ADDITION
 globalvars_file = "code/_globalvars/traits/_traits.dm"
 
 how_to_fix_message = f"Please ensure that all traits in the {defines_file} file are added in the {globalvars_file} file."
@@ -36,6 +38,18 @@ if not os.path.isfile(nova_defines_file):
 	print(red(f"Could not find the nova defines file '{nova_defines_file}'!"))
 	sys.exit(1)
 # NOVA EDIT ADDITION END
+
+# OCULIS EDIT ADDITION START
+if not os.path.isfile(iris_defines_file):
+	print(red(f"Could not find the iris defines file '{iris_defines_file}'!"))
+	sys.exit(1)
+# OCULIS EDIT ADDITION END
+
+# OCULIS EDIT ADDITION START
+if not os.path.isfile(oculis_defines_file):
+	print(red(f"Could not find the oculis defines file '{oculis_defines_file}'!"))
+	sys.exit(1)
+# OCULIS EDIT ADDITION END
 
 if not os.path.isfile(globalvars_file):
 	print(red(f"Could not find the globalvars file '{globalvars_file}'!"))
@@ -95,6 +109,58 @@ for potential_define in scannable_lines:
 	number_of_defines += 1
 	defines_to_search_for.append(match.group(2))
 # NOVA EDIT ADDITION END
+
+# OCULIS EDIT ADDITION START
+scannable_lines = []
+with open(iris_defines_file, 'r') as file:
+	reading = False
+
+	for line in file:
+		line = line.strip()
+
+		if line == "// BEGIN TRAIT DEFINES":
+			reading = True
+			continue
+		elif line == "// END TRAIT DEFINES":
+			break
+		elif not reading:
+			continue
+
+		scannable_lines.append(line)
+
+for potential_define in scannable_lines:
+	match = define_regex.match(potential_define)
+	if not match:
+		continue
+
+	number_of_defines += 1
+	defines_to_search_for.append(match.group(2))
+
+scannable_lines = []
+with open(oculis_defines_file, 'r') as file:
+	reading = False
+
+	for line in file:
+		line = line.strip()
+
+		if line == "// BEGIN TRAIT DEFINES":
+			reading = True
+			continue
+		elif line == "// END TRAIT DEFINES":
+			break
+		elif not reading:
+			continue
+
+		scannable_lines.append(line)
+
+for potential_define in scannable_lines:
+	match = define_regex.match(potential_define)
+	if not match:
+		continue
+
+	number_of_defines += 1
+	defines_to_search_for.append(match.group(2))
+# OCULIS EDIT ADDITION END
 
 if number_of_defines == 0:
 	print(red("No defines found! This is likely an error."))

@@ -177,7 +177,7 @@
 	if (owner.is_blind())
 		check_radius = 1
 
-	for (var/mob/living/friend in view(check_radius, owner))
+	for (var/mob/living/friend in view(check_radius, get_turf(owner))) // OCULIS EDIT, ORIGINAL: for (var/mob/living/friend in view(check_radius, owner))
 		if (friend == owner)
 			continue
 

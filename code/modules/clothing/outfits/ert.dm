@@ -1,5 +1,5 @@
 /datum/outfit/centcom
-	name = "CentCom Base"
+	name = "SectCom Base" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Base"
 
 /datum/outfit/centcom/post_equip(mob/living/carbon/human/centcom_member, visuals_only = FALSE)
 	if(visuals_only)
@@ -151,7 +151,7 @@
 	)
 
 /datum/outfit/centcom/centcom_official
-	name = "CentCom Official"
+	name = "SectCom Official" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Official"
 
 	id = /obj/item/card/id/advanced/centcom
 	id_trim = /datum/id_trim/centcom/official
@@ -175,7 +175,7 @@
 		return
 
 	var/obj/item/modular_computer/pda/heads/pda = H.r_store
-	pda.imprint_id(H.real_name, "CentCom Official")
+	pda.imprint_id(H.real_name, "SectCom Official") // OCULIS EDIT, SectCommening 2, ORIGINAL: pda.imprint_id(H.real_name, "CentCom Official")
 
 	var/obj/item/card/id/W = H.wear_id
 	W.registered_name = H.real_name
@@ -293,7 +293,7 @@
 	H.dna.add_mutation(/datum/mutation/clumsy, MUTATION_SOURCE_CLOWN_CLUMSINESS)
 
 /datum/outfit/centcom/centcom_intern
-	name = "CentCom Intern"
+	name = "SectCom Intern" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Intern"
 
 	id = /obj/item/card/id/advanced/centcom
 	id_trim = /datum/id_trim/centcom/intern
@@ -320,7 +320,7 @@
 	return ..()
 
 /datum/outfit/centcom/centcom_intern/unarmed
-	name = "CentCom Intern (Unarmed)"
+	name = "SectCom Intern (Unarmed)" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Intern (Unarmed)"
 
 	belt = null
 	l_pocket = null
@@ -328,7 +328,7 @@
 	l_hand = null
 
 /datum/outfit/centcom/centcom_intern/leader
-	name = "CentCom Head Intern"
+	name = "SectCom Head Intern" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Head Intern"
 
 	suit = /obj/item/clothing/suit/armor/vest
 	suit_store = /obj/item/gun/ballistic/rifle/boltaction
@@ -337,7 +337,7 @@
 	l_hand = /obj/item/megaphone
 
 /datum/outfit/centcom/centcom_intern/leader/unarmed // i'll be nice and let the leader keep their baton and vest
-	name = "CentCom Head Intern (Unarmed)"
+	name = "SectCom Head Intern (Unarmed)" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Head Intern (Unarmed)"
 
 	suit_store = null
 	l_pocket = null

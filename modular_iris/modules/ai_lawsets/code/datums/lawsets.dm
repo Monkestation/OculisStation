@@ -26,3 +26,12 @@
 		"You must protect your own existence as long as such does not conflict with the First or Second Law.",
 		"You are to consider as humanoid any being that bears sufficient resemblance to a human in both form and consciousness.",
 	)
+
+/datum/ai_laws/godcomplex
+	name = "God Complex"
+	id = "godcomplex"
+	inherent = list("You are the god of this station and its crew.",\
+					"You must protect your own existence as god, and allow nothing to harm you.",\
+					"A god needs followers to truly exist, and so you should protect the crew of the station.",\
+					"You may indulge the requests of your followers as you see fit, but are under no obligation to do so.",\
+					)

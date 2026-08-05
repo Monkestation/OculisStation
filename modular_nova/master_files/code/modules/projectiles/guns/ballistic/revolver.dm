@@ -1,6 +1,7 @@
 /obj/item/gun/ballistic/revolver/c38
 	w_class = WEIGHT_CLASS_SMALL // concealed carry blickinator
 
+/* // OCULIS EDIT REMOVAL START
 /obj/item/gun/ballistic/revolver/russian/Initialize(mapload)
 	. = ..()
 	if(mapload)
@@ -11,3 +12,4 @@
 	. = ..()
 	if (mapload)
 		new /obj/item/stack/spacecash/c1000{amount = 2}(get_turf(src)) //done for the relic since it can be sold for 4-5k
+*/ // OCULIS EDIT REMOVAL END

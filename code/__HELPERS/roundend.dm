@@ -564,11 +564,11 @@ GLOBAL_LIST_INIT(achievements_unlocked, list())
 		if(0)
 			parts += "[span_redtext("Service did not earn any [MONEY_NAME]...")]<br>"
 		if(1 to 2000)
-			parts += "[span_redtext("Centcom is displeased. Come on service, surely you can do better than that.")]<br>"
+			parts += "[span_redtext("SectCom is displeased. Come on service, surely you can do better than that.")]<br>" // OCULIS EDIT, SectCommening 2, ORIGINAL: parts += "[span_redtext("Centcom is displeased. Come on service, surely you can do better than that.")]<br>"
 		if(2001 to 4999)
-			parts += "[span_greentext("Centcom is satisfied with service's job today.")]<br>"
+			parts += "[span_greentext("SectCom is satisfied with service's job today.")]<br>" // OCULIS EDIT, SectCommening 2, ORIGINAL: parts += "[span_greentext("Centcom is satisfied with service's job today.")]<br>"
 		else
-			parts += "<span class='reallybig greentext'>Centcom is incredibly impressed with service today! What a team!</span><br>"
+			parts += "<span class='reallybig greentext'>SectCom is incredibly impressed with service today! What a team!</span><br>" // OCULIS EDIT, SectCommening 2, ORIGINAL: parts += "<span class='reallybig greentext'>Centcom is incredibly impressed with service today! What a team!</span><br>"
 
 	parts += "<b>General Statistics:</b><br>"
 	parts += "There were [station_vault] [MONEY_NAME] collected by crew this shift.<br>"

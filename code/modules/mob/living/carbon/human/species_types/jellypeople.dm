@@ -222,7 +222,10 @@
 	bodies = null
 	*/ // OCULIS EDIT REMOVAL END
 	C.set_blood_volume(C.get_blood_volume(), maximum = BLOOD_VOLUME_NORMAL)
-	UnregisterSignal(C, COMSIG_LIVING_DEATH)
+	UnregisterSignal(C, list(
+		COMSIG_LIVING_DEATH,
+		COMSIG_LIVING_LIFE,
+	))
 	..()
 
 /datum/species/jelly/slime/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load, regenerate_icons)
@@ -241,6 +244,7 @@
 		*/ // oculis edit removal end
 
 	RegisterSignal(C, COMSIG_LIVING_DEATH, PROC_REF(on_death_move_body))
+	// RegisterSignal(C, COMSIG_LIVING_LIFE, PROC_REF(on_life)) // NOVA EDIT REMOVAL - Handled by the base type
 
 /* // OCULIS EDIT REMOVAL BEGIN - MOVED TO modular_oculis/modules/oozelings/code/slimepeople/slimeperson.dm
 /datum/species/jelly/slime/proc/on_death_move_body(mob/living/carbon/human/source, gibbed)
@@ -267,16 +271,16 @@
 
 */ // OCULIS EDIT REMOVAL END
 
-/datum/species/jelly/slime/spec_life(mob/living/carbon/human/H, seconds_per_tick)
-	. = ..()
-	if(H.get_blood_volume() >= BLOOD_VOLUME_SLIME_SPLIT)
+/datum/species/jelly/slime/on_life(mob/living/carbon/human/source, seconds_per_tick) // NOVA EDIT CHANGE - Original: /datum/species/jelly/slime/proc/on_life(mob/living/carbon/human/source, seconds_per_tick) - Remove /proc to make this an override
+	. = ..() // NOVA EDIT CHANGE - ORIGINAL: SIGNAL_HANDLER
+	if(source.get_blood_volume() >= BLOOD_VOLUME_SLIME_SPLIT)
 		if(SPT_PROB(2.5, seconds_per_tick))
-			to_chat(H, span_notice("You feel very bloated!"))
+			to_chat(source, span_notice("You feel very bloated!"))
 
-	else if(H.nutrition >= NUTRITION_LEVEL_WELL_FED)
-		H.adjust_blood_volume(1.5 * seconds_per_tick)
-		if(H.get_blood_volume() <= BLOOD_VOLUME_LOSE_NUTRITION)
-			H.adjust_nutrition(-1.25 * seconds_per_tick)
+	else if(source.nutrition >= NUTRITION_LEVEL_WELL_FED)
+		source.adjust_blood_volume(1.5 * seconds_per_tick)
+		if(source.get_blood_volume() <= BLOOD_VOLUME_LOSE_NUTRITION)
+			source.adjust_nutrition(-1.25 * seconds_per_tick)
 
 /datum/action/innate/split_body
 	name = "Split Body"

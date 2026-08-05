@@ -2,7 +2,7 @@
 /obj/item/mail
 	name = "mail"
 	gender = NEUTER
-	desc = "An officially postmarked, tamper-evident parcel regulated by CentCom and made of high-quality materials."
+	desc = "An officially postmarked, tamper-evident parcel regulated by SectCom and made of high-quality materials." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "An officially postmarked, tamper-evident parcel regulated by CentCom and made of high-quality materials."
 	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "mail_small"
 	inhand_icon_state = "paper"
@@ -100,16 +100,19 @@
 		postmark_image.appearance_flags |= RESET_COLOR|KEEP_APART
 		. += postmark_image
 
-/obj/item/mail/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/mail/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	// Destination tagging
-	if(istype(W, /obj/item/dest_tagger))
-		var/obj/item/dest_tagger/destination_tag = W
+	if(!istype(tool, /obj/item/dest_tagger))
+		return NONE
+	var/obj/item/dest_tagger/destination_tag = tool
 
-		if(sort_tag != destination_tag.currTag)
-			var/tag = uppertext(GLOB.TAGGERLOCATIONS[destination_tag.currTag])
-			to_chat(user, span_notice("*[tag]*"))
-			sort_tag = destination_tag.currTag
-			playsound(loc, 'sound/machines/beep/twobeep_high.ogg', vol = 100, vary = TRUE)
+	if(sort_tag == destination_tag.currTag)
+		return ITEM_INTERACT_BLOCKING
+	var/tag = uppertext(GLOB.TAGGERLOCATIONS[destination_tag.currTag])
+	to_chat(user, span_notice("*[tag]*"))
+	sort_tag = destination_tag.currTag
+	playsound(loc, 'sound/machines/beep/twobeep_high.ogg', vol = 100, vary = TRUE)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/mail/multitool_act(mob/living/user, obj/item/tool)
 	if(user.get_inactive_held_item() == src)
@@ -227,7 +230,7 @@
 
 	var/list/junk_names = list(
 		/obj/item/paper/pamphlet/gateway = "[initial(name)] for [pick(GLOB.adjectives)] adventurers",
-		/obj/item/paper/pamphlet/violent_video_games = "[initial(name)] for the truth about the arcade centcom doesn't want to hear",
+		/obj/item/paper/pamphlet/violent_video_games = "[initial(name)] for the truth about the arcade sectcom doesn't want to hear", // OCULIS EDIT, ORIGINAL: /obj/item/paper/pamphlet/violent_video_games = "[initial(name)] for the truth about the arcade centcom doesn't want to hear",
 		/obj/item/paper/fluff/junkmail_redpill = "[initial(name)] for those feeling [pick(GLOB.adjectives)] working at Nanotrasen",
 		/obj/effect/decal/cleanable/ash = "[initial(name)] with INCREDIBLY IMPORTANT ARTIFACT- DELIVER TO SCIENCE DIVISION. HANDLE WITH CARE.",
 	)
@@ -251,7 +254,7 @@
 /// Crate for mail from CentCom.
 /obj/structure/closet/crate/mail
 	name = "mail crate"
-	desc = "A certified post crate from CentCom."
+	desc = "A certified post crate from SectCom." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A certified post crate from CentCom."
 	icon_state = "mail"
 	base_icon_state = "mail"
 	can_install_electronics = FALSE
@@ -322,7 +325,7 @@
 /// Crate for mail that automatically generates a lot of mail. Usually only normal mail, but on lowpop it may end up just being junk.
 /obj/structure/closet/crate/mail/full
 	name = "brimming mail crate"
-	desc = "A certified post crate from CentCom. Looks stuffed to the gills."
+	desc = "A certified post crate from SectCom. Looks stuffed to the gills." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A certified post crate from CentCom. Looks stuffed to the gills."
 
 /obj/structure/closet/crate/mail/full/Initialize(mapload)
 	. = ..()

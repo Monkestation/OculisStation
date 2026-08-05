@@ -1,7 +1,7 @@
 //base one is setup to IFF on NT & centcom trims for future proofing.
 /obj/item/mecha_parts/mecha_equipment/swarm_rocket_pod
 	name = "Swarm Rocket Pod"
-	desc = "A sealed multi-launch rocket pod mounted to the mecha's chassis. Fires a precision barrage of micro-rockets at nearby targets when activated. Targets lacking Nanotrasen or CentCom ID clearance will be marked for impact."
+	desc = "A sealed multi-launch rocket pod mounted to the mecha's chassis. Fires a precision barrage of micro-rockets at nearby targets when activated. Targets lacking Nanotrasen or SectCom ID clearance will be marked for impact." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A sealed multi-launch rocket pod mounted to the mecha's chassis. Fires a precision barrage of micro-rockets at nearby targets when activated. Targets lacking Nanotrasen or CentCom ID clearance will be marked for impact."
 	icon_state = "mecha_missilerack_six"
 	equipment_slot = MECHA_UTILITY
 	detachable = FALSE
@@ -241,4 +241,4 @@
 	tracker.target = target
 
 	var/drop_delay = 2 SECONDS
-	addtimer(CALLBACK(tracker, /obj/effect/swarm_rocket_tracker/proc/step_or_drop), drop_delay, TIMER_STOPPABLE | TIMER_DELETE_ME)
+	addtimer(CALLBACK(tracker, TYPE_PROC_REF(/obj/effect/swarm_rocket_tracker, step_or_drop)), drop_delay, TIMER_STOPPABLE | TIMER_DELETE_ME)

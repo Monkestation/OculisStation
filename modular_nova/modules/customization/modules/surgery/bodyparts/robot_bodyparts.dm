@@ -35,7 +35,8 @@
 	burn_modifier = 1
 
 /obj/item/bodypart/head/robot
-	head_flags = (HEAD_HAIR|HEAD_FACIAL_HAIR|HEAD_EYESPRITES|HEAD_EYECOLOR) //IRIS EDIT: adds eyecolor flag
+	head_flags = (HEAD_HAIR|HEAD_FACIAL_HAIR|HEAD_EYESPRITES|HEAD_EYECOLOR) // OCULIS EDIT
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 
 // Assorted duplicates created to support greyscaling robotic limbs in the Augments+ tab
 

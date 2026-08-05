@@ -251,7 +251,7 @@
 	greyscale_colors = "#3758c4#3bca5a"
 
 /obj/item/encryptionkey/headset_cent
-	name = "\improper CentCom radio encryption key"
+	name = "\improper SectCom radio encryption key" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom radio encryption key"
 	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_cent"
 	post_init_icon_state = "cypherkey_centcom"

@@ -13,7 +13,7 @@
 /datum/quirk/item_quirk/blindness/noitem
 	name = "Blind (No Item Version)"
 	hidden_quirk = TRUE
-	icon = FA_ICON_PERSON_CANE
+	icon = FA_ICON_PERSON_CHALKBOARD
 
 /datum/quirk/item_quirk/blindness/noitem/add_unique(client/client_source)
 	return
