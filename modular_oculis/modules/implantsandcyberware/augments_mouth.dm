@@ -88,8 +88,8 @@
 /datum/action/item_action/organ_action/musicsynth
 	name = "Internal Synth"
 	desc = "Use your internal synthesizer to play music."
-	button_icon = 'icons/obj/art/musician.dmi'
-	button_icon_state = "xylophone"
+	button_icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
+	button_icon_state = "respiratoryharmonitron"
 	var/datum/song/song
 
 
