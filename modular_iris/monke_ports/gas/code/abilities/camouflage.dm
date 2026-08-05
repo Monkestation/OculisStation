@@ -16,7 +16,7 @@
 		return FALSE
 
 	if(isdead(owner) || owner.incapacitated)
-		owner.balloon_alert(owner, "Incapacitated!")
+		owner.balloon_alert(owner, "incapacitated!")
 		return FALSE
 
 	if(active)
@@ -25,7 +25,7 @@
 
 /* - Disabled until the effect is re-enabled - *
 	if(owner.has_status_effect(/datum/status_effect/nabber_combat))
-		owner.balloon_alert(owner, "Can't now!")
+		owner.balloon_alert(owner, "can't now!")
 		return FALSE
 */
 

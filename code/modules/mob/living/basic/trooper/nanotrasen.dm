@@ -49,7 +49,7 @@
 
 /mob/living/basic/trooper/nanotrasen/ranged/assault
 	name = "Nanotrasen Assault Officer"
-	desc = "Nanotrasen Assault Officer. Contact CentCom if you saw him on your station. Prepare to die, if you've been found near Syndicate property."
+	desc = "Nanotrasen Assault Officer. Contact SectCom if you saw him on your station. Prepare to die, if you've been found near Syndicate property." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "Nanotrasen Assault Officer. Contact CentCom if you saw him on your station. Prepare to die, if you've been found near Syndicate property."
 
 	casingtype = /obj/item/ammo_casing/a223/weak
 	burst_shots = 4
@@ -98,4 +98,4 @@
 	if (!istype(attacker))
 		return
 	for (var/mob/living/basic/trooper/nanotrasen/potential_trooper in oview(src, 7))
-		potential_trooper.ai_controller.insert_blackboard_key_lazylist(BB_BASIC_MOB_RETALIATE_LIST, attacker)
+		potential_trooper.ai_controller.set_blackboard_key_assoc_lazylist(BB_BASIC_MOB_RETALIATE_LIST, attacker, world.time)

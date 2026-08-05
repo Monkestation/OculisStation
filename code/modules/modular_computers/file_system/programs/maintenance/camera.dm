@@ -92,7 +92,7 @@
 		"maxDescLength" = 128,
 		"maxCaptionLength" = 256,
 		"printCost" = 1,
-		"minSize" = 2,
+		"minSize" = 1,
 		"maxSize" = CAMERA_PICTURE_SIZE_HARD_LIMIT
 	)
 

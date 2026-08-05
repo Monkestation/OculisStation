@@ -272,7 +272,7 @@
 
 /datum/supply_pack/costumes_toys/balloons
 	name = "Long Balloons Kit"
-	desc = "This crate contains a box of long balloons, plus a skillchip for non-clowns to join the fun! Extra layer of safety so clowns at CentCom won't get to them."
+	desc = "This crate contains a box of long balloons, plus a skillchip for non-clowns to join the fun! Extra layer of safety so clowns at SectCom won't get to them." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "This crate contains a box of long balloons, plus a skillchip for non-clowns to join the fun! Extra layer of safety so clowns at CentCom won't get to them."
 	cost = CARGO_CRATE_VALUE * 4
 	contains = list(
 		/obj/item/storage/box/balloons,

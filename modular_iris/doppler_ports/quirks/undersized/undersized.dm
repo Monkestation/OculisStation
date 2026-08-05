@@ -31,10 +31,10 @@
 	human_holder.add_traits(undersized_traits, QUIRK_TRAIT)
 	human_holder.mob_size = MOB_SIZE_TINY
 	human_holder.held_w_class = WEIGHT_CLASS_TINY
-	human_holder.can_be_held = TRUE //makes u scoopable
 	human_holder.worn_slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_BACK
+	ADD_TRAIT(human_holder, TRAIT_PASSTABLE, REF(src))
 
-	passtable_on(human_holder, QUIRK_TRAIT)
+	human_holder.AddElement(/datum/element/can_be_held)
 
 	human_holder.max_grab = GRAB_AGGRESSIVE //you are too weak to neck slam or strangle
 	human_holder.physiology.hunger_mod *= UNDERSIZED_HUNGER_MOD
@@ -92,10 +92,10 @@
 
 	human_holder.mob_size = MOB_SIZE_HUMAN
 	human_holder.held_w_class = WEIGHT_CLASS_NORMAL
-	human_holder.can_be_held = FALSE
 	human_holder.worn_slot_flags = null
+	REMOVE_TRAIT(human_holder, TRAIT_PASSTABLE, REF(src))
 
-	passtable_off(human_holder, QUIRK_TRAIT)
+	human_holder.RemoveElement(/datum/element/can_be_held)
 
 	human_holder.max_grab = GRAB_KILL
 	human_holder.physiology.hunger_mod /= UNDERSIZED_HUNGER_MOD

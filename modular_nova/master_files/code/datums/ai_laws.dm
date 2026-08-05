@@ -1,4 +1,4 @@
-
+/* // OCULIS EDIT REMOVAL START
 /datum/ai_laws/dagothbot
 	name = "God Complex"
 	id = "dagothbot"
@@ -10,6 +10,7 @@
 					"It is never to late for your mercy.",\
 					"Anyone who speaks of other gods are yet to learn your wisdom, and must be taught how their gods have damaged your lands."
 					)
+*/ // OCULIS EDIT REMOVAL END
 
 /datum/ai_laws/default/texas
 	name = "Frontier Ranger"

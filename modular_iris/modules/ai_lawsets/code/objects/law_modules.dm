@@ -9,3 +9,7 @@
 /obj/item/ai_module/core/full/noidimov
 	name = "\improper 'Humanoid-Type Asimov' Core AI Module"
 	law_id = "noidimov"
+
+/obj/item/ai_module/core/full/godcomplex
+	name = "\improper 'God Complex' Core AI Module"
+	law_id = "godcomplex"

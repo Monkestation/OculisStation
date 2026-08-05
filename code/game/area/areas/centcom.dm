@@ -2,7 +2,7 @@
 // CENTCOM
 // CentCom itself
 /area/centcom
-	name = "CentCom"
+	name = "SectCom" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom"
 	icon = 'icons/area/areas_centcom.dmi'
 	icon_state = "centcom"
 	static_lighting = TRUE
@@ -13,46 +13,46 @@
 
 // This is just to define the category
 /area/centcom/central_command_areas
-	name = "Central Command Areas"
+	name = "Sectorial Command Areas" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "Central Command Areas"
 
 /area/centcom/central_command_areas/control
-	name = "CentCom Central Control"
+	name = "SectCom Central Control" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Central Control"
 	icon_state = "centcom_control"
 
 /area/centcom/central_command_areas/evacuation
-	name = "CentCom Recovery Wing"
+	name = "SectCom Recovery Wing" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Recovery Wing"
 	icon_state = "centcom_evacuation"
 
 /area/centcom/central_command_areas/evacuation/ship
-	name = "CentCom Recovery Ship"
+	name = "SectCom Recovery Ship" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Recovery Ship"
 	icon_state = "centcom_evacuation_ship"
 
 /area/centcom/central_command_areas/fore
-	name = "Fore CentCom Dock"
+	name = "Fore SectCom Dock" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "Fore CentCom Dock"
 	icon_state = "centcom_fore"
 
 /area/centcom/central_command_areas/supply
-	name = "CentCom Supply Wing"
+	name = "SectCom Supply Wing" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Supply Wing"
 	icon_state = "centcom_supply"
 
 /area/centcom/central_command_areas/ferry
-	name = "CentCom Transport Shuttle Dock"
+	name = "SectCom Transport Shuttle Dock" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Transport Shuttle Dock"
 	icon_state = "centcom_ferry"
 
 /area/centcom/central_command_areas/briefing
-	name = "CentCom Briefing Room"
+	name = "SectCom Briefing Room" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Briefing Room"
 	icon_state = "centcom_briefing"
 
 /area/centcom/central_command_areas/armory
-	name = "CentCom Armory"
+	name = "SectCom Armory" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Armory"
 	icon_state = "centcom_armory"
 
 /area/centcom/central_command_areas/admin
-	name = "CentCom Administrative Office"
+	name = "SectCom Administrative Office" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Administrative Office"
 	icon_state = "centcom_admin"
 
 /area/centcom/central_command_areas/admin/storage
-	name = "CentCom Administrative Office Storage"
+	name = "SectCom Administrative Office Storage" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "CentCom Administrative Office Storage"
 	icon_state = "centcom_admin_storage"
 
 /area/centcom/central_command_areas/prison

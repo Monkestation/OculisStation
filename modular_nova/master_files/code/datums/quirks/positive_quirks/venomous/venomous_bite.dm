@@ -60,12 +60,24 @@
 		owner.balloon_alert(owner, "too far!")
 		return FALSE
 
+	/* // OCULIS EDIT REMOVAL START
 	if (target_atom == owner)
 		owner.balloon_alert(owner, "can't bite yourself!")
 		return FALSE
 
 	owner.visible_message(span_warning("[owner] starts to bite [target_atom]!"), span_warning("You start to bite [target_atom]!"), ignored_mobs = target_atom)
 	to_chat(target_atom, span_userdanger("[owner] starts to bite you!"))
+	*/ // OCULIS EDIT REMOVAL END
+	// OCULIS EDIT ADDITION START
+	if (target_atom != owner)
+		owner.visible_message(span_warning("[owner] starts to bite [target_atom]!"), span_warning("You start to bite [target_atom]!"), ignored_mobs = target_atom)
+		to_chat(target_atom, span_userdanger("[owner] starts to bite you!"))
+	else
+		if(!(owner.zone_selected in GLOB.arm_zones))
+			owner.balloon_alert(owner, "can only bite your arms!")
+			return FALSE
+		owner.visible_message(span_warning("[owner] starts to bite [owner.p_them()]self!"), span_userdanger("You start to bite yourself!"))
+	// OCULIS EDIT ADDITION END
 	owner.balloon_alert_to_viewers("biting...")
 	var/result = do_after(owner, 0.5 SECONDS, target_atom, IGNORE_HELD_ITEM)
 	if (!result)
@@ -85,8 +97,20 @@
 	var/obj/item/bodypart/part = target.get_bodypart(target_zone)
 
 	var/text = "[owner] sinks [owner.p_their()] teeth into [target]'s [target.parse_zone_with_bodypart(target_zone)]!"
+	/* // OCULIS EDIT REMOVAL START
 	var/self_message = "You sink your teeth into [target]'s [target.parse_zone_with_bodypart(target_zone)]!"
 	var/victim_message = "[owner] sinks [owner.p_their()] teeth into your [target.parse_zone_with_bodypart(target_zone)]!"
+	*/ // OCULIS EDIT REMOVAL END
+	// OCULIS EDIT ADDITION START
+	var/self_message
+	var/victim_message
+	if(target != owner)
+		self_message = "You sink your teeth into [target]'s [target.parse_zone_with_bodypart(target_zone)]!"
+		victim_message = "[owner] sinks [owner.p_their()] teeth into your [target.parse_zone_with_bodypart(target_zone)]!"
+	else
+		self_message = null
+		victim_message = "You sink your teeth into your [target.parse_zone_with_bodypart(target_zone)]!"
+	// OCULIS EDIT ADDITION END
 
 	var/covered = FALSE
 	if (ishuman(target))
@@ -96,8 +120,18 @@
 				covered = TRUE
 
 				text = "[owner] tries to bite [target], but breaks [owner.p_their()] teeth on [target]'s clothing! Ouch!"
+				/* // OCULIS EDIT REMOVAL START
 				self_message = "You try to bite [target], but you break your teeth on [target.p_their()] clothing! Ouch!"
 				victim_message = "[owner] tries to bite you, but breaks [owner.p_their()] teeth on your clothing! Ouch!"
+				*/ // OCULIS EDIT REMOVAL END
+				// OCULIS EDIT ADDITION START
+				if(target != owner)
+					self_message = "You try to bite [target], but you break your teeth on [target.p_their()] clothing! Ouch!"
+					victim_message = "[owner] tries to bite you, but breaks [owner.p_their()] teeth on your clothing! Ouch!"
+				else
+					self_message = null
+					victim_message = "You try to bite yourself, but break your teeth on your clothing! Ouch!"
+				// OCULIS EDIT ADDITION END
 
 				owner.emote("scream")
 				if (isliving(owner))

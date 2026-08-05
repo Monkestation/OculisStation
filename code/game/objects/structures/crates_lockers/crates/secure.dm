@@ -80,7 +80,7 @@
 	new /obj/effect/spawner/random/food_or_drink/pizzaparty(src)
 
 /obj/structure/closet/crate/secure/centcom
-	name = "secure centcom crate"
+	name = "secure SectCom crate" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "secure centcom crate"
 	icon_state = "centcom_secure"
 	base_icon_state = "centcom_secure"
 

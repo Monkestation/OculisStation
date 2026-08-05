@@ -47,10 +47,10 @@
 	flags_inv = null
 
 /obj/item/clothing/suit/jacket/tailcoat/centcom
-	name = "Centcom tailcoat"
+	name = "SectCom tailcoat"
 	desc = "An official coat usually worn by executives."
-	icon_state = "TailcoatCentcom"
-	post_init_icon_state = "TailcoatCentcom"
+	icon_state = "TailcoatSectCom"
+	post_init_icon_state = "TailcoatSectCom"
 	armor_type = /datum/armor/armor_centcom_formal_nt_consultant
 	greyscale_config = null
 	greyscale_config_worn = null

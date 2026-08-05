@@ -29,7 +29,7 @@
 	id = "derelictferry"
 	suffix = "derelictferry.dmm"
 	name = "Space-Ruin Derelict Ferry"
-	description = "Clearly once a ferry fielded by Central Command to send their staff to nearby stations, this ship's seen better days."
+	description = "Clearly once a ferry fielded by Sectorial Command to send their staff to nearby stations, this ship's seen better days." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Clearly once a ferry fielded by Central Command to send their staff to nearby stations, this ship's seen better days."
 
 /datum/map_template/ruin/space/nova/posterpandamonium
 	id = "posterpandamonium"

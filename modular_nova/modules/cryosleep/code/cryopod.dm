@@ -21,6 +21,7 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	desc = "An interface between crew and the cryogenic storage oversight systems."
 	icon = 'modular_nova/modules/cryosleep/icons/cryogenics.dmi'
 	icon_state = "cellconsole_1"
+	generate_map_preview = FALSE
 	icon_keyboard = null
 	icon_screen = null
 	use_power = FALSE
@@ -105,7 +106,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 			if(item in frozen_items)
 				item.forceMove(drop_location())
 				ui.user.put_in_hands(item)
-				LAZYREMOVE(frozen_items, item)
+				unfreeze_item(item)
 				visible_message("[src] dispenses \the [item].")
 				message_admins("[item] was retrieved by [ui.user] from cryostorage at [ADMIN_COORDJMP(src)]")
 			else
@@ -145,6 +146,22 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 					"PERSON" = user,
 					"RANK" = rank,
 				), src, list(announcement_channel), "Removing")
+
+/// Adds an item from the frozen items list.
+/// Use this or you will get hard deletes.
+/obj/machinery/computer/cryopod/proc/freeze_item(obj/item/item)
+	if(QDELETED(item))
+		return
+	LAZYADD(frozen_items, item)
+	RegisterSignal(item, COMSIG_QDELETING, PROC_REF(unfreeze_item))
+
+/// Removes an item from the frozen items list.
+/// Use this instead of directly removing it from the `frozen_items` list,
+/// as this also unregisters the qdel signal.
+/obj/machinery/computer/cryopod/proc/unfreeze_item(obj/item/item)
+	SIGNAL_HANDLER
+	UnregisterSignal(item, COMSIG_QDELETING)
+	LAZYREMOVE(frozen_items, item)
 
 // Cryopods themselves.
 /obj/machinery/cryopod
@@ -303,21 +320,27 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 				to_chat(mind.current, "<BR>[span_userdanger("Your target is no longer within reach. Objective removed!")]")
 				mind.announce_objectives()
 		else if(istype(objective.target) && objective.target == mob_occupant.mind)
+			// contractor handling
 			if(!istype(objective, /datum/objective/contract))
 				return
 			var/datum/opposing_force/affected_contractor = objective.owner.opposing_force
 			var/datum/contractor_hub/affected_contractor_hub = affected_contractor.contractor_hub
-			for(var/datum/syndicate_contract/affected_contract as anything in affected_contractor_hub.assigned_contracts)
-				if(!(affected_contract.contract == objective))
+			for(var/datum/syndicate_contract/possible_affected_contract in affected_contractor_hub.assigned_contracts)
+				if(!(possible_affected_contract.contract == objective))
 					continue
+				var/datum/syndicate_contract/affected_contract = possible_affected_contract
 				var/contract_id = affected_contract.id
-				affected_contractor_hub.create_single_contract(objective.owner, affected_contract.payout_type)
-				affected_contractor_hub.assigned_contracts[contract_id].status = CONTRACT_STATUS_ABORTED
-				if (affected_contractor_hub.current_contract == objective)
-					affected_contractor_hub.current_contract = null
-				to_chat(objective.owner.current, "<BR>[span_userdanger("Contract target out of reach. Contract rerolled.")]")
+				affected_contract.status = CONTRACT_STATUS_ABORTED
+				// replace the current one
+				affected_contractor_hub.assigned_contracts[contract_id] = affected_contractor_hub.create_single_contract(objective.owner, affected_contract.payout_type, contract_id)
+				// swap with a new one
+				if (affected_contractor_hub.current_contract == affected_contract)
+					affected_contractor_hub.current_contract = null // clear the old one, if active
+				qdel(affected_contract) // delete the old one
+				to_chat(objective.owner.current, "[span_userdanger("Contract target out of reach. Contract rerolled.")]")
 				break
 		else if(istype(objective.target) && objective.target == mob_occupant.mind)
+			// not contract handling
 			var/old_target = objective.target
 			objective.target = null
 			if(!objective)
@@ -433,8 +456,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 					for(var/datum/computer_file/program/messenger/message_app in computer.stored_files)
 						message_app.invisible = TRUE
 				mob_occupant.transferItemToLoc(item_content, control_computer, force = TRUE, silent = TRUE)
-				item_content.dropped(mob_occupant)
-				LAZYADD(control_computer.frozen_items, item_content)
+				control_computer.freeze_item(item_content)
 			else
 				mob_occupant.transferItemToLoc(item_content, drop_location(), force = TRUE, silent = TRUE)
 
@@ -570,16 +592,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /obj/machinery/cryopod/blob_act()
 	return // Sorta gamey, but we don't really want these to be destroyed.
 
-/obj/machinery/cryopod/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
+/obj/machinery/cryopod/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
-	if(istype(attacking_item, /obj/item/bedsheet))
+	if(istype(tool, /obj/item/bedsheet))
 		if(!occupant || !istype(occupant, /mob/living))
 			return
 		if(tucked)
 			to_chat(user, span_warning("[occupant.name] already looks pretty comfortable!"))
 			return
 		to_chat(user, span_notice("You tuck [occupant.name] into their pod!"))
-		qdel(attacking_item)
+		qdel(tool)
 		user.add_mood_event("tucked", /datum/mood_event/tucked_in, occupant)
 		tucked = TRUE
 

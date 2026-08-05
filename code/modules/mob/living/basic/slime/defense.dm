@@ -35,7 +35,7 @@
 		unique_mutate(SLIME_TYPE_BLACK, /datum/slime_type/unique/darkgrey, attacking_item)
 		return
 
-	if(istype(attacking_item, /obj/item/food/grown/holymelon))
+	if(istype(attacking_item, /obj/item/food/grown/melonlike/holymelon))
 		var/list/turfs = RANGE_TURFS(1, get_turf(src))
 		var/grass_amount = 0
 		var/fairygrass_amount = 0

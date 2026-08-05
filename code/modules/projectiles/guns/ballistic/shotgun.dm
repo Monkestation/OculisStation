@@ -105,7 +105,7 @@
 	desc = "A compact version of the semi automatic combat shotgun. Lower magazine capacity, but more easily carried."
 	icon_state = "cshotgunc"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/com/compact
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL // OCULIS EDIT, ORIGINAL:	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_MEDIUM
 
 //component for seclight attachment
