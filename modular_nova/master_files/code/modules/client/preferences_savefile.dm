@@ -93,7 +93,6 @@
 
 /// Brings a savefile up to date with modular preferences. Called if savefile_needs_update_nova() returned a value higher than 0
 /datum/preferences/proc/update_character_nova(current_version, list/save_data)
-
 	if(current_version < VERSION_SYNTH_REFACTOR)
 		var/old_species = save_data["species"]
 		if(istext(old_species) && (old_species in list("synthhuman", "synthliz", "synthmammal", "ipc")))

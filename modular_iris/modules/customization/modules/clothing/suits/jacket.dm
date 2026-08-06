@@ -20,7 +20,7 @@
 	name = "Hanbok Jeogori"
 	desc = "A blazer jacket."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suits/jacket/iris/jeogori"
+	icon_state = "/obj/item/clothing/suit/iris/jeogori" //OCULIS EDIT CHANGE - ORIGINAL: icon_state = "/obj/item/clothing/suits/jacket/iris/jeogori"
 	post_init_icon_state = "hanbok_jeogori"
 	greyscale_config = /datum/greyscale_config/hanbok_jeogori
 	greyscale_config_worn = /datum/greyscale_config/hanbok_jeogori/worn

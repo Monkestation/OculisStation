@@ -97,6 +97,7 @@
 	if(!payload?["channel"])
 		CRASH("No channel provided to an open TGUI-Say")
 	window_open = TRUE
+	saved_text = ""
 	if(payload["channel"] != OOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL && payload["channel"] != PRAY_CHANNEL /* && payload["channel"] != LOOC_CHANNEL*/) // OCULIS EDIT, REMOVED LOOC_CHANNEL // NOVA EDIT CHANGE - ORIGINAL: if(payload["channel"] != OOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL && payload["channel"] != PRAY_CHANNEL)
 		initial_channel = payload["channel"] // OCULIS EDIT ADDITION
 		start_thinking()

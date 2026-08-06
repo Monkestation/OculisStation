@@ -13,11 +13,11 @@
 	if (flavor_text_link)
 		. += flavor_text_link
 
-	if (!CONFIG_GET(flag/disable_antag_opt_in_preferences))
-		var/opt_in_status = mind?.get_effective_opt_in_level()
-		if (!isnull(opt_in_status))
-			var/stringified_optin = GLOB.antag_opt_in_strings["[opt_in_status]"]
-			. += span_notice("Antag Opt-in Status: <b><font color='[GLOB.antag_opt_in_colors[stringified_optin]]'>[stringified_optin]</font></b>")
+	if (!CONFIG_GET(flag/disable_conflict_opt_in_preferences))
+		var/conflict_opt_in_status = mind?.get_effective_conflict_opt_in_level()
+		if (!isnull(conflict_opt_in_status))
+			var/stringified_optin = GLOB.conflict_opt_in_strings["[conflict_opt_in_status]"]
+			. += span_notice("Conflict Opt-In: <b><font color='[GLOB.conflict_opt_in_colors[stringified_optin]]'>[stringified_optin]</font></b>")
 
 	if(temporary_flavor_text)
 		if(length_char(temporary_flavor_text) <= 40)

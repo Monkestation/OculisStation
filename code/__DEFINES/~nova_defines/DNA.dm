@@ -90,7 +90,6 @@
 #define FEATURE_SYNTH_HEAD "synth_head"
 #define FEATURE_SYNTH_HAIR "synth_hair"
 
-
 #define MANDATORY_FEATURE_LIST list(\
 	FEATURE_MUTANT_COLOR = "#FFFFBB",\
 	FEATURE_MUTANT_COLOR_TWO = "#FFFFBB",\

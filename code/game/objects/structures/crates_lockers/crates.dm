@@ -292,6 +292,7 @@
 	new /obj/item/reagent_containers/blood/o_plus(src)
 	new /obj/item/reagent_containers/blood/lizard(src)
 	new /obj/item/reagent_containers/blood/ethereal(src)
+	new /obj/item/reagent_containers/blood/insect(src) // OCULIS EDIT ADDITION
 	for(var/i in 1 to 3)
 		new /obj/item/reagent_containers/blood/random(src)
 	new /obj/item/paper/fluff/jobs/medical/blood_types(src)
@@ -450,13 +451,13 @@
 	icon_state = "gold"
 	base_icon_state = "gold"
 
-/obj/structure/closet/crate/goldcrate/PopulateContents()
+//subtype that comes with roundstart items.
+/obj/structure/closet/crate/goldcrate/stocked/PopulateContents()
 	..()
 	new /obj/item/storage/belt/champion(src)
 
-/obj/structure/closet/crate/goldcrate/populate_contents_immediate()
+/obj/structure/closet/crate/goldcrate/stocked/populate_contents_immediate()
 	. = ..()
-
 	for(var/i in 1 to 3)
 		new /obj/item/stack/sheet/mineral/gold(src, 1, FALSE)
 
