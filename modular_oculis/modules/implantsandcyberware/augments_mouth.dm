@@ -103,6 +103,9 @@
 	..()
 	song = new(grant_to, SSinstruments.synthesizer_instrument_ids, 15)
 
+/datum/action/item_action/organ_action/musicsynth/Remove(mob/remove_from)
+	..()
+	QDEL_NULL(song)
 /datum/design/musicsynth
 	name = "Respiratory Harmonitron"
 	desc = "This tracheal synthesizer system accepts neural commands, allowing for users to \"sing\" their own backing instrumentation!"
