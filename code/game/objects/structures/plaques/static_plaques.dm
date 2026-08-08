@@ -1,4 +1,4 @@
-//These are static plaques, they are made of gold and start engraved with a title and description.
+d//These are static plaques, they are made of gold and start engraved with a title and description.
 
 /obj/structure/plaque/static_plaque
 	engraved = TRUE
@@ -73,13 +73,9 @@
 /obj/structure/plaque/static_plaque/golden/commission/wawa
 	desc = "Eidolon Sector Station SS-13\n'Wawa' Class Outpost\nCommissioned 11/03/add here\n'Forever Vertical'" // OCULIS EDIT
 
-// North Star: added Apr 13, 2023 (#74371)
-/obj/structure/plaque/static_plaque/golden/commission/northstar
-	desc = "Eidolon Sector Ship SS-13\n'North Star' Class Vessel\nCommissioned 13/04/2563\n'New Opportunities'" // OCULIS EDIT
-
-// Birdshot: added Apr 29, 2023 (#74371)
-/obj/structure/plaque/static_plaque/golden/commission/birdshot
-	desc = "Eidolon Sector Station SS-13\n'Birdshot' Class Outpost\nCommissioned 29/04/2563\n'Shooting for the Stars'" // OCULIS EDIT
+// Kilostation: added Nov 13, 2019 (#46968), removed, readded Jul 7, 2026 (#96447)
+/obj/structure/plaque/static_plaque/golden/commission/kilo
+	desc = "Eidolon Sector Station SS-13\n'Kilo' Class Outpost\nCommissioned 13/11/2559\nDecommissioned\nRecommissioned 7/7/2566'Forever Different'" // OCULIS EDIT
 
 //Removed stations
 
@@ -119,10 +115,6 @@
 /obj/structure/plaque/static_plaque/golden/commission/efficiency
 	desc = "Eidolon Sector Station SS-07\n'Efficiency' Class Outpost\nCommissioned 28/01/2556\nDecommissioned 20/12/2556\n'Work Smarter, Not Harder'" // OCULIS EDIT
 
-// Kilostation: added Nov 13, 2019 (#46968), removed
-/obj/structure/plaque/static_plaque/golden/commission/kilo
-	desc = "Eidolon Sector Station SS-13\n'Kilo' Class Outpost\nCommissioned 13/11/2559\n'Forever Different'" // OCULIS EDIT
-
 // Ministation: added Jan 29, 2014 (7a76e9456b782e6626bf81e27a912d8232c76b18), removed Dec 27, 2016 (#22453)- 2 years, 10 months, 28 days
 /obj/structure/plaque/static_plaque/golden/commission/mini
 	desc = "Eidolon Sector Station SS-08\n'Mini' Class Outpost\nCommissioned 29/01/2554\nDecommissioned 27/12/2556\n'The Littlest Station'" // OCULIS EDIT
@@ -142,6 +134,10 @@
 // Birdshot: added Apr 29, 2023 (#74371), removed Jul 9, 2025 (#92022) — 2 years, 2 months, 10 days
 /obj/structure/plaque/static_plaque/golden/commission/birdshot
 	desc = "Eidolon Sector Station SS-13\n'Birdshot' Class Outpost\nCommissioned 29/04/2563\nDecommissioned 09/07/2565\n'Shooting for the Stars'" // OCULIS EDIT
+
+// Wawastation: added Jun 4, 2024 (#82298), removed Jul 7, 2026 (#96447) - 2 years, 1 month, 3 days
+/obj/structure/plaque/static_plaque/golden/commission/wawa
+	desc = "Spinward Sector Station SS-13\n'Wawa' Class Outpost\nCommissioned 04/06/2564\nDecomissioned 9/07/2565\n'Forever Vertical'"
 
 // Other Stations
 

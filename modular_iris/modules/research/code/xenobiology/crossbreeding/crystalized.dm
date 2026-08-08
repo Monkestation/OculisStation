@@ -279,8 +279,8 @@
 	if(!istype(open_turf))
 		return
 	var/datum/gas_mixture/air = open_turf.return_air()
-	if(air.gases[/datum/gas/plasma] && (air.gases[/datum/gas/plasma][MOLES] > 15))
-		air.gases[/datum/gas/plasma][MOLES] -= 15
+	if(air.moles[/datum/gas/plasma] && (air.moles[/datum/gas/plasma] > 15))
+		air.moles[/datum/gas/plasma] -= 15
 		air.garbage_collect()
 		new /obj/item/stack/sheet/mineral/plasma(open_turf)
 

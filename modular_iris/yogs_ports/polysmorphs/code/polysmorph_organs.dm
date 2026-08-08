@@ -66,15 +66,6 @@
 	name = "Polysmorph Eyes"
 	desc = "These are supposed to be not visible to the outside."
 
-/obj/item/organ/eyes/polysmorph/on_mob_insert(mob/living/carbon/eye_owner)
-	. = ..()
-	ADD_TRAIT(eye_owner, TRAIT_MEDIUM_NIGHT_VISION, ORGAN_TRAIT)
-
-/obj/item/organ/eyes/polysmorph/on_mob_remove(mob/living/carbon/eye_owner)
-	. = ..()
-	REMOVE_TRAIT(eye_owner, TRAIT_MEDIUM_NIGHT_VISION, ORGAN_TRAIT)
-
-
 /obj/item/organ/alien/hivenode_polysmorph
 	name = "Devolved Hive Node"
 	desc = "Looks similar to regular hivenode, but much smaller."

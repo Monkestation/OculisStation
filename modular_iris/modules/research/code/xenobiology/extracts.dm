@@ -82,8 +82,7 @@
 		turf.visible_message(span_notice("The slime extract quietly fizzles."))
 		return ..()
 	var/datum/gas_mixture/gas_mix = turf.return_air()
-	ASSERT_GAS(/datum/gas/oxygen, gas_mix)
-	gas_mix.gases[/datum/gas/oxygen][MOLES] += 4000 // Basically the same as round-start spawned canisters
+	gas_mix.moles[/datum/gas/oxygen] += 4000 // Basically the same as round-start spawned canisters
 	turf.air_update_turf(FALSE, FALSE) // We need to force the turf to update, else we get turfs with invisible gas waiting there
 	turf.visible_message(span_danger("The slime extract quickly bursts outwards with oxygen!"))
 	return ..()
@@ -98,8 +97,7 @@
 		turf.visible_message(span_notice("The slime extract quietly fizzles."))
 		return ..()
 	var/datum/gas_mixture/gas_mix = turf.return_air()
-	ASSERT_GAS(/datum/gas/plasma, gas_mix)
-	gas_mix.gases[/datum/gas/plasma][MOLES] += 4000
+	gas_mix.moles[/datum/gas/plasma] += 4000
 	turf.air_update_turf(FALSE, FALSE)
 	turf.visible_message(span_danger("The slime extract quickly bursts outwards with plasma gas!"))
 	return ..()
@@ -114,8 +112,7 @@
 		turf.visible_message(span_notice("The slime extract quietly fizzles."))
 		return ..()
 	var/datum/gas_mixture/gas_mix = turf.return_air()
-	ASSERT_GAS(/datum/gas/tritium, gas_mix)
-	gas_mix.gases[/datum/gas/tritium][MOLES] += 4000
+	gas_mix.moles[/datum/gas/tritium] += 4000
 	turf.air_update_turf(FALSE, FALSE)
 	turf.visible_message(span_userdanger("The slime extract quickly bursts outwards with tritium, oh god!"))
 	return ..()

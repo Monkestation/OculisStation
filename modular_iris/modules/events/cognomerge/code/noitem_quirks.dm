@@ -35,7 +35,7 @@
 
 /datum/quirk/item_quirk/allergic/noitem/add_unique(client/client_source)
 	//we have to copypasta here
-	var/list/chem_list = subtypesof(/datum/reagent/medicine) - blacklist
+	var/list/chem_list = subtypesof(/datum/reagent/medicine) - GLOB.allergy_reagent_blacklist
 	var/list/allergy_chem_names = list()
 	for(var/i in 0 to 5)
 		var/datum/reagent/medicine/chem_type = pick_n_take(chem_list)
