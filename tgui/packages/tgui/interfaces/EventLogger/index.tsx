@@ -67,7 +67,6 @@ function buildMarks(
               undefined,
               ['style', 'background'],
               undefined,
-              true,
             ),
         data: evts,
       });

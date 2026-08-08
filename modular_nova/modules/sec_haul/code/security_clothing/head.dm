@@ -18,7 +18,8 @@
 /obj/item/clothing/head/security_garrison
 	name = "guard garrison cap"
 	desc = "A robust garrison cap with the nanotrasen insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
-	icon_state = "/obj/item/clothing/head/depgag_cap"
+	icon = 'icons/map_icons/clothing/head/_head.dmi' //OCULIS EDIT ADDITION
+	icon_state = "/obj/item/clothing/head/security_garrison" //OCULIS EDIT CHANGE - ORIGINAL: icon_state = "/obj/item/clothing/head/depgag_cap"
 	post_init_icon_state = "depgag_garrison"
 	greyscale_config = /datum/greyscale_config/depgag_garrison
 	greyscale_config_worn = /datum/greyscale_config/depgag_garrison/worn
@@ -76,7 +77,8 @@
 	name = "guard patrol cap"
 	desc = "A dark colored hat with a silver badge, for the officer interested in style."
 	post_init_icon_state = "depgag_patrol_cap"
-	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol"
+	icon = 'icons/map_icons/clothing/head/_head.dmi' //OCULIS EDIT ADDITION
+	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol" //OCULIS EDIT CHANGE - ORIGINAL: icon_state = "/obj/item/clothing/head/hats/warden/police/patrol"
 	greyscale_config = /datum/greyscale_config/depgag_patrol_cap
 	greyscale_config_worn = /datum/greyscale_config/depgag_patrol_cap/worn
 	greyscale_colors = "#39393F#A52F29"

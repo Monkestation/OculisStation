@@ -17,14 +17,7 @@
 	)
 
 	ai_movement = /datum/ai_movement/complete_stop
-	idle_behavior = null
-	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
-		/datum/ai_planning_subtree/target_retaliate/check_faction,
-		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/use_mob_ability/gaze,
-		/datum/ai_planning_subtree/ranged_skirmish/watcher,
-	)
+	behavior_tree_json = "code/modules/mob/living/basic/lavaland/watcher/watcher.bt.json"
 
 /mob/living/basic/mining/hivelord/cosmic_entity
 	name = "rising hatred"

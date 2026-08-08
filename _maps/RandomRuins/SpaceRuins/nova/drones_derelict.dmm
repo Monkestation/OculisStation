@@ -21,30 +21,25 @@
 /obj/structure/girder,
 /turf/template_noop,
 /area/ruin/space/bb13/engineering/s_solars_control)
-"aq" = (
-/obj/effect/spawner/structure/window/reinforced/plasma,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
-/turf/open/floor/plating/airless,
-/area/ruin/space/bb13/engineering/atmos)
 "ar" = (
 /obj/structure/chair{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/airless,
 /area/ruin/space/bb13/service/chapel)
+"av" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "ax" = (
 /obj/structure/door_assembly/door_assembly_med,
 /obj/item/stack/cable_coil/cut,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/medical)
-"aB" = (
-/obj/effect/mapping_helpers/burnt_floor,
-/obj/structure/frame/computer{
-	anchored = 1;
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
-/turf/open/floor/plating/airless,
+"aA" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored,
+/turf/open/floor/engine/o2,
 /area/ruin/space/bb13/engineering/atmos)
 "aE" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
@@ -138,6 +133,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/engineering/engine)
+"cb" = (
+/obj/structure/grille/broken,
+/obj/item/shard/plasma,
+/obj/item/shard/plasma,
+/obj/machinery/atmospherics/pipe/layer_manifold/general,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "cc" = (
 /obj/structure/cable,
 /obj/machinery/light/small/directional/south,
@@ -148,6 +150,15 @@
 /obj/item/tank/internals/oxygen,
 /turf/template_noop,
 /area/ruin/space/bb13/engineering/engine)
+"cf" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/structure/frame/computer{
+	anchored = 1;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/turf/open/floor/iron/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "cg" = (
 /obj/structure/table_frame,
 /obj/effect/decal/cleanable/dirt,
@@ -168,10 +179,6 @@
 /obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/medical/genetics)
-"cC" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored,
-/turf/open/floor/engine/n2,
-/area/ruin/space/bb13/engineering/atmos)
 "cJ" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
@@ -187,6 +194,17 @@
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/engine)
+"dj" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored{
+	dir = 8
+	},
+/turf/open/floor/engine/plasma,
+/area/ruin/space/bb13/engineering/atmos)
+"dn" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "ds" = (
 /obj/structure/cable,
 /obj/machinery/power/smes,
@@ -214,10 +232,6 @@
 /obj/item/clothing/head/helmet/space/eva,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/n_solars_control)
-"dP" = (
-/obj/machinery/atmospherics/miner/oxygen,
-/turf/open/floor/engine/o2,
-/area/ruin/space/bb13/engineering/atmos)
 "dT" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/airless,
@@ -228,11 +242,6 @@
 	},
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/bridge)
-"dW" = (
-/obj/effect/mapping_helpers/burnt_floor,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
-/turf/open/floor/iron/airless,
-/area/ruin/space/bb13/engineering/atmos)
 "dY" = (
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/service/botany)
@@ -359,22 +368,11 @@
 /obj/structure/girder,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/service/botany)
-"gz" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored{
-	dir = 8
-	},
-/turf/open/floor/engine/plasma,
-/area/ruin/space/bb13/engineering/atmos)
 "gB" = (
 /obj/structure/grille/broken,
 /obj/item/shard,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/bridge)
-"gF" = (
-/obj/effect/mapping_helpers/burnt_floor,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
-/turf/open/floor/plating/airless,
-/area/ruin/space/bb13/engineering/atmos)
 "gK" = (
 /obj/structure/chair{
 	dir = 4
@@ -446,13 +444,6 @@
 /obj/machinery/door/window/right/directional/west,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/service/botany)
-"hY" = (
-/obj/structure/grille/broken,
-/obj/item/shard/plasma,
-/obj/item/shard/plasma,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
-/turf/open/floor/plating/airless,
-/area/ruin/space/bb13/engineering/atmos)
 "hZ" = (
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/engine)
@@ -507,9 +498,12 @@
 	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/medical)
-"iw" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored,
-/turf/open/floor/engine/o2,
+"iu" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/machinery/atmospherics/pipe/layer_manifold/general{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/atmos)
 "iz" = (
 /obj/structure/frame/machine,
@@ -606,15 +600,6 @@
 	},
 /turf/open/floor/engine/airless,
 /area/ruin/space/bb13/engineering/atmos)
-"jh" = (
-/obj/effect/mapping_helpers/broken_floor,
-/obj/structure/frame/computer{
-	anchored = 1;
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
-/turf/open/floor/iron/airless,
-/area/ruin/space/bb13/engineering/atmos)
 "jj" = (
 /obj/structure/table,
 /obj/effect/spawner/random/maintenance,
@@ -672,6 +657,10 @@
 /obj/structure/frame/computer,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/engineering/engine)
+"jQ" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored,
+/turf/open/floor/engine/air,
+/area/ruin/space/bb13/engineering/atmos)
 "jT" = (
 /obj/structure/table_frame,
 /obj/structure/cable,
@@ -705,10 +694,11 @@
 /obj/structure/table_frame,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/service)
-"kq" = (
-/obj/effect/spawner/structure/window/reinforced/plasma,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
-/turf/open/floor/plating/airless,
+"ks" = (
+/obj/machinery/air_sensor{
+	chamber_id = "babylon-plasma"
+	},
+/turf/open/floor/engine/plasma,
 /area/ruin/space/bb13/engineering/atmos)
 "ku" = (
 /obj/machinery/light/small/directional/north,
@@ -735,6 +725,13 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/ruin/space/bb13/security)
+"kO" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/machinery/atmospherics/components/trinary/mixer/airmix/flipped{
+	dir = 8
+	},
+/turf/open/floor/iron/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "kQ" = (
 /obj/structure/frame/computer{
 	anchored = 1;
@@ -846,15 +843,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/research/toxins)
-"ne" = (
-/obj/effect/mapping_helpers/burnt_floor,
-/obj/structure/frame/computer{
-	anchored = 1;
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
-/turf/open/floor/plating/airless,
-/area/ruin/space/bb13/engineering/atmos)
 "ni" = (
 /obj/machinery/door/airlock/external/glass,
 /obj/effect/mapping_helpers/broken_floor,
@@ -905,6 +893,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/template_noop,
 /area/ruin/space/bb13/engineering/engine)
+"nJ" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/structure/frame/computer{
+	anchored = 1;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "nK" = (
 /obj/structure/girder,
 /turf/open/floor/plating/airless,
@@ -1006,17 +1003,19 @@
 /obj/structure/table_frame,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/research/toxins)
-"pG" = (
-/obj/machinery/air_sensor{
-	chamber_id = "babylon-air"
-	},
-/turf/open/floor/engine/air,
-/area/ruin/space/bb13/engineering/atmos)
 "pI" = (
 /obj/structure/lattice,
 /obj/structure/girder/reinforced,
 /turf/template_noop,
 /area/ruin/space/bb13/engineering/sec_eng)
+"pJ" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/computer/atmos_control/noreconnect{
+	atmos_chambers = list("babylon-air"="Air Supply")
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "pK" = (
 /obj/structure/closet/l3closet,
 /obj/machinery/light/small/directional/east,
@@ -1030,15 +1029,6 @@
 "pM" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/bb13/medical/genetics)
-"pO" = (
-/obj/structure/rack,
-/obj/item/circuitboard/machine/circuit_imprinter/offstation{
-	pixel_x = 6;
-	pixel_y = 6
-	},
-/obj/item/ai_module/core/full/drone,
-/turf/open/floor/circuit/red/airless,
-/area/ruin/space/bb13/engineering/sec_eng)
 "pS" = (
 /obj/structure/closet/crate/secure,
 /obj/effect/spawner/random/maintenance/four,
@@ -1168,14 +1158,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/medical/genetics)
-"rx" = (
-/obj/effect/mapping_helpers/broken_floor,
-/obj/machinery/computer/atmos_control/noreconnect{
-	atmos_chambers = list("babylon-air"="Air Supply")
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
-/turf/open/floor/plating/airless,
-/area/ruin/space/bb13/engineering/atmos)
 "ry" = (
 /obj/machinery/power/emitter{
 	dir = 4
@@ -1191,10 +1173,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/medical/genetics)
-"rE" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored,
-/turf/open/floor/engine/o2,
-/area/ruin/space/bb13/engineering/atmos)
 "rF" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/iron/airless,
@@ -1246,6 +1224,11 @@
 /obj/item/stock_parts/servo,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/service)
+"sl" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "ss" = (
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/medical/genetics)
@@ -1295,17 +1278,9 @@
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/s_solars_control)
-"td" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored{
-	dir = 8
-	},
-/turf/open/floor/engine/plasma,
-/area/ruin/space/bb13/engineering/atmos)
-"th" = (
-/obj/machinery/air_sensor{
-	chamber_id = "babylon-plasma"
-	},
-/turf/open/floor/engine/plasma,
+"ta" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored,
+/turf/open/floor/engine/n2,
 /area/ruin/space/bb13/engineering/atmos)
 "tj" = (
 /obj/structure/frame/computer{
@@ -1314,10 +1289,6 @@
 	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/medical/genetics)
-"tu" = (
-/obj/machinery/atmospherics/miner/plasma,
-/turf/open/floor/engine/plasma,
-/area/ruin/space/bb13/engineering/atmos)
 "tw" = (
 /obj/machinery/portable_atmospherics/pump,
 /turf/open/floor/iron/airless,
@@ -1390,6 +1361,9 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/engineering/engine)
+"uy" = (
+/turf/open/floor/engine/air,
+/area/ruin/space/bb13/engineering/atmos)
 "uz" = (
 /obj/machinery/gravity_generator/main,
 /turf/open/floor/plating/airless,
@@ -1474,6 +1448,11 @@
 /obj/structure/girder,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/medical)
+"vM" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/turf/open/floor/iron/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "vS" = (
 /turf/open/floor/circuit/red/airless,
 /area/ruin/space/bb13/security)
@@ -1583,13 +1562,6 @@
 /obj/structure/door_assembly,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/service)
-"xH" = (
-/obj/effect/spawner/structure/window/reinforced/plasma,
-/obj/machinery/atmospherics/pipe/layer_manifold/general{
-	dir = 4
-	},
-/turf/open/floor/plating/airless,
-/area/ruin/space/bb13/engineering/atmos)
 "xI" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/cable,
@@ -1617,16 +1589,15 @@
 	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/service)
+"xU" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored,
+/turf/open/floor/engine/o2,
+/area/ruin/space/bb13/engineering/atmos)
 "yg" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/engineering/engine)
-"yh" = (
-/obj/effect/spawner/structure/window/reinforced/plasma,
-/obj/machinery/atmospherics/pipe/layer_manifold/general,
-/turf/open/floor/plating/airless,
-/area/ruin/space/bb13/engineering/atmos)
 "yv" = (
 /obj/machinery/vending/hydroseeds,
 /turf/open/floor/iron/airless,
@@ -1711,6 +1682,12 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/engine)
+"zQ" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored{
+	dir = 8
+	},
+/turf/open/floor/engine/plasma,
+/area/ruin/space/bb13/engineering/atmos)
 "zU" = (
 /obj/structure/table,
 /obj/item/shard,
@@ -1804,12 +1781,6 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/hallway)
-"Bb" = (
-/obj/machinery/air_sensor{
-	chamber_id = "babylon-n2"
-	},
-/turf/open/floor/engine/n2,
-/area/ruin/space/bb13/engineering/atmos)
 "Bc" = (
 /obj/structure/chair{
 	dir = 4
@@ -1855,21 +1826,10 @@
 /obj/item/stack/cable_coil,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/hallway/central)
-"Bz" = (
-/turf/open/floor/engine/air,
-/area/ruin/space/bb13/engineering/atmos)
 "BB" = (
 /obj/structure/cable,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/engineering/vault)
-"BO" = (
-/obj/effect/mapping_helpers/burnt_floor,
-/obj/machinery/computer/atmos_control/noreconnect{
-	atmos_chambers = list("babylon-n2"="Nitrogen Supply")
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
-/turf/open/floor/plating/airless,
-/area/ruin/space/bb13/engineering/atmos)
 "BP" = (
 /obj/machinery/power/energy_accumulator/grounding_rod/anchored,
 /obj/effect/mapping_helpers/broken_floor,
@@ -1899,6 +1859,10 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/engineering/atmos)
+"Cm" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored,
+/turf/open/floor/engine/air,
+/area/ruin/space/bb13/engineering/atmos)
 "Co" = (
 /obj/machinery/door/airlock/vault,
 /turf/open/floor/iron/airless,
@@ -1914,6 +1878,10 @@
 /obj/structure/girder/reinforced,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/engine)
+"CD" = (
+/obj/machinery/atmospherics/miner/oxygen,
+/turf/open/floor/engine/o2,
+/area/ruin/space/bb13/engineering/atmos)
 "CF" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/airless,
@@ -1948,6 +1916,11 @@
 /obj/structure/cable,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/medical)
+"Dp" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "Ds" = (
 /obj/machinery/button/door/directional/east{
 	id = "derelict_nuke"
@@ -2003,6 +1976,15 @@
 /obj/structure/cable,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/service)
+"Ej" = (
+/obj/structure/rack,
+/obj/item/circuitboard/machine/circuit_imprinter/offstation{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/ai_module/law/core/full/drone,
+/turf/open/floor/circuit/red/airless,
+/area/ruin/space/bb13/engineering/sec_eng)
 "Eo" = (
 /obj/machinery/atmospherics/pipe/smart/simple/dark/visible{
 	dir = 4
@@ -2045,10 +2027,6 @@
 /obj/structure/chair/stool/directional/west,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/service)
-"Fo" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored,
-/turf/open/floor/engine/air,
-/area/ruin/space/bb13/engineering/atmos)
 "Fs" = (
 /obj/structure/chair{
 	dir = 8
@@ -2068,11 +2046,6 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/research)
-"FC" = (
-/obj/effect/mapping_helpers/broken_floor,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
-/turf/open/floor/iron/airless,
-/area/ruin/space/bb13/engineering/atmos)
 "FJ" = (
 /obj/machinery/door/airlock/engineering,
 /obj/effect/mapping_helpers/broken_floor,
@@ -2103,10 +2076,6 @@
 "FX" = (
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/hallway)
-"FY" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored,
-/turf/open/floor/engine/air,
-/area/ruin/space/bb13/engineering/atmos)
 "Gm" = (
 /obj/item/kirbyplants/random/dead,
 /turf/open/floor/wood/airless,
@@ -2209,11 +2178,20 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/engineering/engine)
+"Ho" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/monitored,
+/turf/open/floor/engine/n2,
+/area/ruin/space/bb13/engineering/atmos)
 "Hv" = (
 /obj/structure/closet/crate/bin,
 /obj/item/stack/sheet/glass,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/security)
+"Hw" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/machinery/atmospherics/pipe/layer_manifold/general,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "HR" = (
 /turf/closed/wall,
 /area/ruin/space/bb13/medical/genetics)
@@ -2287,6 +2265,10 @@
 	},
 /turf/open/floor/iron/dark/airless,
 /area/ruin/space/bb13/service/chapel)
+"IT" = (
+/obj/machinery/atmospherics/miner/nitrogen,
+/turf/open/floor/engine/n2,
+/area/ruin/space/bb13/engineering/atmos)
 "IY" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/cable,
@@ -2297,11 +2279,6 @@
 /obj/structure/table_frame,
 /turf/template_noop,
 /area/ruin/space/bb13/medical)
-"Jb" = (
-/obj/effect/mapping_helpers/broken_floor,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
-/turf/open/floor/plating/airless,
-/area/ruin/space/bb13/engineering/atmos)
 "Jd" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/mapping_helpers/broken_floor,
@@ -2365,6 +2342,10 @@
 "JU" = (
 /turf/open/floor/engine/airless,
 /area/ruin/space/bb13/research/toxins)
+"Ka" = (
+/obj/machinery/atmospherics/miner/plasma,
+/turf/open/floor/engine/plasma,
+/area/ruin/space/bb13/engineering/atmos)
 "Kd" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/airless,
@@ -2441,6 +2422,15 @@
 /obj/item/tank/internals/plasma/full,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/engine)
+"LF" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/structure/frame/computer{
+	anchored = 1;
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "LQ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/iron/airless,
@@ -2458,13 +2448,6 @@
 /obj/item/shard,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/sec_eng)
-"Mc" = (
-/obj/structure/grille/broken,
-/obj/item/shard/plasma,
-/obj/item/shard/plasma,
-/obj/machinery/atmospherics/pipe/layer_manifold/general,
-/turf/open/floor/plating/airless,
-/area/ruin/space/bb13/engineering/atmos)
 "Mh" = (
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/plating/airless,
@@ -2505,13 +2488,11 @@
 "ME" = (
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/research/toxins)
-"MN" = (
-/obj/effect/mapping_helpers/broken_floor,
-/obj/machinery/computer/atmos_control/noreconnect{
-	atmos_chambers = list("babylon-o2"="Oxygen Supply")
+"MM" = (
+/obj/machinery/air_sensor{
+	chamber_id = "babylon-o2"
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
-/turf/open/floor/iron/airless,
+/turf/open/floor/engine/o2,
 /area/ruin/space/bb13/engineering/atmos)
 "MO" = (
 /obj/structure/cable,
@@ -2669,6 +2650,12 @@
 "Pc" = (
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/security)
+"Pd" = (
+/obj/machinery/air_sensor{
+	chamber_id = "babylon-air"
+	},
+/turf/open/floor/engine/air,
+/area/ruin/space/bb13/engineering/atmos)
 "Pg" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/iron/airless,
@@ -2705,12 +2692,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/service)
-"PQ" = (
-/obj/structure/grille/broken,
-/obj/item/shard/plasma,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
-/turf/open/floor/plating/airless,
-/area/ruin/space/bb13/engineering/atmos)
 "PV" = (
 /obj/structure/grille/broken,
 /obj/item/shard,
@@ -2740,10 +2721,6 @@
 /obj/item/stack/cable_coil/cut,
 /turf/template_noop,
 /area/ruin/space/bb13/research)
-"Qm" = (
-/obj/machinery/atmospherics/miner/nitrogen,
-/turf/open/floor/engine/n2,
-/area/ruin/space/bb13/engineering/atmos)
 "Qu" = (
 /turf/open/floor/iron/dark/airless,
 /area/ruin/space/bb13/medical)
@@ -2775,11 +2752,12 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/atmos)
-"QW" = (
-/obj/effect/mapping_helpers/burnt_floor,
-/obj/machinery/atmospherics/components/trinary/mixer/airmix/flipped{
-	dir = 8
+"QV" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/computer/atmos_control/noreconnect{
+	atmos_chambers = list("babylon-o2"="Oxygen Supply")
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/engineering/atmos)
 "Rg" = (
@@ -2845,6 +2823,15 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/engine)
+"Sh" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/computer/atmos_control/noreconnect{
+	atmos_chambers = list("babylon-plasma"="Plasma Supply");
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "Sm" = (
 /obj/structure/rack,
 /obj/item/circuitboard/computer/solar_control{
@@ -2867,15 +2854,6 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/hallway/central)
-"SA" = (
-/obj/effect/mapping_helpers/broken_floor,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
-/turf/open/floor/plating/airless,
-/area/ruin/space/bb13/engineering/atmos)
-"SD" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored,
-/turf/open/floor/engine/n2,
-/area/ruin/space/bb13/engineering/atmos)
 "SE" = (
 /turf/closed/wall,
 /area/ruin/space/bb13/engineering/s_solars_control)
@@ -2905,12 +2883,26 @@
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/engineering/s_solars_control)
+"SR" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/machinery/computer/atmos_control/noreconnect{
+	atmos_chambers = list("babylon-n2"="Nitrogen Supply")
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "ST" = (
 /obj/structure/chair{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/security)
+"SU" = (
+/obj/structure/grille/broken,
+/obj/item/shard/plasma,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "Tl" = (
 /obj/structure/rack,
 /obj/item/circuitboard/machine/turbine_compressor{
@@ -3049,6 +3041,13 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space/nearstation)
+"UV" = (
+/obj/structure/grille/broken,
+/obj/item/shard/plasma,
+/obj/item/shard/plasma,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "UW" = (
 /obj/structure/cable,
 /obj/item/paper/fluff/ruins/thederelict/vaultraider,
@@ -3075,14 +3074,10 @@
 "Ve" = (
 /turf/template_noop,
 /area/ruin/space/bb13/security)
-"Vh" = (
-/obj/effect/mapping_helpers/broken_floor,
-/obj/machinery/computer/atmos_control/noreconnect{
-	atmos_chambers = list("babylon-plasma"="Plasma Supply");
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
-/turf/open/floor/plating/airless,
+"Vp" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/turf/open/floor/iron/airless,
 /area/ruin/space/bb13/engineering/atmos)
 "Vs" = (
 /obj/effect/mapping_helpers/burnt_floor,
@@ -3118,12 +3113,6 @@
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/bridge)
-"VW" = (
-/obj/machinery/air_sensor{
-	chamber_id = "babylon-o2"
-	},
-/turf/open/floor/engine/o2,
-/area/ruin/space/bb13/engineering/atmos)
 "Wa" = (
 /obj/structure/lattice,
 /obj/item/shard/plasma,
@@ -3270,6 +3259,12 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating/airless,
 /area/ruin/space/bb13/bridge)
+"XM" = (
+/obj/machinery/air_sensor{
+	chamber_id = "babylon-n2"
+	},
+/turf/open/floor/engine/n2,
+/area/ruin/space/bb13/engineering/atmos)
 "XR" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/bb13/engineering/n_solars_control)
@@ -3392,6 +3387,11 @@
 /obj/item/stack/sheet/iron/five,
 /turf/open/floor/iron/airless,
 /area/ruin/space/bb13/security)
+"ZG" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/turf/open/floor/plating/airless,
+/area/ruin/space/bb13/engineering/atmos)
 "ZN" = (
 /obj/structure/table,
 /obj/effect/spawner/random/maintenance,
@@ -7336,7 +7336,7 @@ yZ
 qE
 ou
 ou
-pO
+Ej
 TW
 Bx
 ou
@@ -7590,10 +7590,10 @@ jA
 yZ
 yZ
 Ks
-Qm
-SD
-aq
-BO
+IT
+Ho
+av
+SR
 nq
 sI
 sI
@@ -7604,7 +7604,7 @@ ug
 sI
 nq
 nq
-yh
+Hw
 eI
 Wa
 Ks
@@ -7673,11 +7673,11 @@ jA
 yZ
 yZ
 Ks
-Bb
-cC
-yh
-gF
-gF
+XM
+ta
+Hw
+Dp
+Dp
 sI
 ZW
 sI
@@ -7686,8 +7686,8 @@ nq
 nq
 ug
 bQ
-ne
-PQ
+nJ
+SU
 Vb
 hc
 Ks
@@ -7839,12 +7839,12 @@ jA
 yZ
 yZ
 Ks
-dP
-iw
-aq
-MN
+CD
+xU
+av
+QV
 ug
-dW
+Vp
 sI
 BW
 sI
@@ -7853,7 +7853,7 @@ sI
 ug
 ug
 ug
-yh
+Hw
 qx
 ZW
 Ks
@@ -7922,12 +7922,12 @@ jA
 yZ
 yZ
 Ks
-VW
-rE
-yh
-FC
+MM
+aA
+Hw
+vM
 ug
-QW
+kO
 ZW
 sI
 nq
@@ -7935,8 +7935,8 @@ Ml
 Ml
 CP
 ug
-jh
-aq
+cf
+av
 Vb
 hc
 ZW
@@ -8088,10 +8088,10 @@ Oj
 VT
 yZ
 Ks
-Bz
-Fo
-kq
-rx
+uy
+Cm
+dn
+pJ
 UD
 Ml
 ug
@@ -8102,7 +8102,7 @@ ug
 sI
 nq
 sI
-Mc
+cb
 qx
 hc
 Ks
@@ -8171,21 +8171,21 @@ jA
 yZ
 Zd
 Ks
-pG
-FY
-yh
-SA
+Pd
+jQ
+Hw
+ZG
 Ml
 Ml
-Jb
+sl
 Ml
 sI
 ug
 ug
 bQ
 ZW
-ne
-aq
+nJ
+av
 CM
 ZW
 Ks
@@ -8259,12 +8259,12 @@ Ks
 Ks
 ug
 Ml
-Vh
-Jb
+Sh
+sl
 QS
 nq
 nq
-aB
+LF
 sI
 uC
 sI
@@ -8342,13 +8342,13 @@ Za
 XR
 EM
 Ks
-aq
-xH
+av
+iu
 Ks
 sI
 mf
-hY
-xH
+UV
+iu
 aj
 bQ
 bQ
@@ -8425,8 +8425,8 @@ fW
 dB
 iM
 Ks
-td
-gz
+zQ
+dj
 Ks
 uo
 Ks
@@ -8508,8 +8508,8 @@ EM
 vj
 cc
 Ks
-tu
-th
+Ka
+ks
 Ks
 fj
 mf

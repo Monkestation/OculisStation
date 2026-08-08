@@ -5756,6 +5756,9 @@
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/carpet/donk,
 /area/ruin/space/has_grav/nova/des_two/bridge/cl)
+"yM" = (
+/turf/open/floor/iron/dark/smooth_large,
+/area/ruin/space/has_grav/nova/des_two/service/dorms)
 "yO" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
@@ -6407,24 +6410,6 @@
 	},
 /obj/structure/sign/flag/syndicate/directional/south,
 /turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/nova/des_two/bridge/admiral)
-"BH" = (
-/obj/structure/fireplace{
-	pixel_x = 0
-	},
-/obj/machinery/button/door/directional/north{
-	desc = "Keep out the riff-raff.";
-	id = "sadmiral";
-	name = "Admiral's room bolt";
-	normaldoorcontrol = 1;
-	req_access = list("syndicate_leader");
-	specialfunctions = 4;
-	pixel_x = -8
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/turf/open/floor/iron/brick,
 /area/ruin/space/has_grav/nova/des_two/bridge/admiral)
 "BJ" = (
 /obj/effect/turf_decal/siding/dark/corner,
@@ -8107,6 +8092,24 @@
 /obj/machinery/light/cold/directional/east,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
+"Iq" = (
+/obj/structure/fireplace{
+	pixel_x = 0
+	},
+/obj/machinery/button/door/directional/north{
+	desc = "Keep out the riff-raff.";
+	id = "sadmiral";
+	name = "Admiral's room bolt";
+	normaldoorcontrol = 1;
+	req_access = list("syndicate_leader");
+	specialfunctions = 4;
+	pixel_x = -8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/iron/brick,
+/area/ruin/space/has_grav/nova/des_two/bridge/admiral)
 "Is" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -9070,28 +9073,6 @@
 /obj/item/disk/surgery/brainwashing,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
-"Mz" = (
-/obj/item/ai_module/reset/purge{
-	pixel_y = -4
-	},
-/obj/item/ai_module/supplied/freeform{
-	pixel_y = 7
-	},
-/obj/item/mmi/posibrain{
-	pixel_x = -4
-	},
-/obj/item/mmi/posibrain{
-	pixel_x = 2;
-	pixel_y = 6
-	},
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/machinery/button/door/directional/north{
-	name = "Mech Bay Access";
-	id = "ds2robotics";
-	req_access = list("syndicate")
-	},
-/turf/open/floor/iron/half,
-/area/ruin/space/has_grav/nova/des_two/research/robotics)
 "MA" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/machinery/atmospherics/pipe/layer_manifold/cyan{
@@ -9330,6 +9311,25 @@
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
+/area/ruin/space/has_grav/nova/des_two/research/robotics)
+"NJ" = (
+/obj/item/ai_module/law/supplied/freeform{
+	pixel_y = 7
+	},
+/obj/item/mmi/posibrain{
+	pixel_x = -4
+	},
+/obj/item/mmi/posibrain{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/machinery/button/door/directional/north{
+	name = "Mech Bay Access";
+	id = "ds2robotics";
+	req_access = list("syndicate")
+	},
+/turf/open/floor/iron/half,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "NL" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
@@ -11739,9 +11739,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
-"Yg" = (
-/turf/open/floor/iron/dark/smooth_large,
-/area/ruin/space/has_grav/nova/des_two/service/dorms)
 "Yn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/green/hidden{
 	dir = 8
@@ -13074,7 +13071,7 @@ Ux
 ZE
 ij
 Mh
-Yg
+yM
 cn
 Tv
 jg
@@ -14184,7 +14181,7 @@ bS
 aQ
 fx
 KR
-BH
+Iq
 ar
 XK
 BF
@@ -14258,7 +14255,7 @@ eT
 pR
 UQ
 Jw
-Mz
+NJ
 ww
 dr
 Mv

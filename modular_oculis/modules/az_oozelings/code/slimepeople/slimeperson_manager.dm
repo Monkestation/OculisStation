@@ -43,7 +43,7 @@ GLOBAL_ALIST_EMPTY(slimeperson_managers)
 
 		var/stat = "error"
 		switch(body.stat)
-			if(CONSCIOUS)
+			if(STABLE)
 				stat = "Conscious"
 			if(SOFT_CRIT to HARD_CRIT) // Also includes UNCONSCIOUS
 				stat = "Unconscious"
@@ -105,7 +105,7 @@ GLOBAL_ALIST_EMPTY(slimeperson_managers)
 		remove_body(dupe)
 		return FALSE
 
-	if(dupe.stat != CONSCIOUS) //Is it awake?
+	if(dupe.stat != STABLE) //Is it awake?
 		return FALSE
 
 	if(dupe.mind?.active) //Is it unoccupied?
@@ -120,7 +120,7 @@ GLOBAL_ALIST_EMPTY(slimeperson_managers)
 	if(!can_swap(dupe)) //sanity check
 		return
 	var/mob/living/current = owner.current
-	if(current.stat == CONSCIOUS)
+	if(current.stat == STABLE)
 		current.visible_message(span_notice("[current] stops moving and starts staring vacantly into space."), span_notice("You stop moving this body..."))
 	else
 		to_chat(current, span_notice("You abandon this body..."))
