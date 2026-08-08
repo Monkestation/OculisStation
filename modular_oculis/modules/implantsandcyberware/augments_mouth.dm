@@ -123,7 +123,7 @@
 /datum/techweb_node/musicsynth
 	id = TECHWEB_NODE_MUSICSYNTH
 	display_name = "Neurosynchronous Harmonisation"
-	description = ""
+	description = "Music from your mind! The wonders of modern technology."
 	prereq_ids = list(TECHWEB_NODE_GAS_COMPRESSION, TECHWEB_NODE_CYBER_IMPLANTS)
 	design_ids = list(
 		"ci-harmonitron"
