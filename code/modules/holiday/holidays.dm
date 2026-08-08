@@ -100,10 +100,15 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 //Fleet Day is celebrated on Jan 19th, the date on which moths were merged (#34498)
 /datum/holiday/fleet_day
-	name = "Fleet Day"
+	name = MOTH_FLEET_DAY
 	begin_month = JANUARY
 	begin_day = 19
 	holiday_hat = /obj/item/clothing/head/mothcap
+	holiday_mail = list(
+		/obj/item/toy/plush/moth = 2,
+		/obj/item/clothing/shoes/clown_shoes/moffers = 1,
+		/obj/item/instrument/musicalmoth = 1,
+	)
 
 /datum/holiday/fleet_day/greet()
 	return "This day commemorates another year of successful survival aboard the Mothic Grand Nomad Fleet. Moths galaxywide are encouraged to eat, drink, and be merry."
@@ -151,7 +156,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	holiday_mail = list(
 		/obj/item/food/bonbon/chocolate_truffle,
 		/obj/item/food/candyheart,
-		/obj/item/food/grown/rose,
+		/obj/item/food/grown/flower/rose,
 		)
 
 /datum/holiday/valentines/get_station_name()
@@ -242,7 +247,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	return pick("Sine","Cosine","Tangent","Secant", "Cosecant", "Cotangent")
 
 /datum/holiday/no_this_is_patrick
-	name = "St. Patrick's Day"
+	name = ST_PATRICK_DAY
 	begin_day = 17
 	begin_month = MARCH
 	holiday_hat = /obj/item/clothing/head/soft/green
@@ -328,7 +333,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	timezones = list(TIMEZONE_TKT, TIMEZONE_TOT, TIMEZONE_NZST, TIMEZONE_NFT, TIMEZONE_LHST, TIMEZONE_AEST, TIMEZONE_ACST, TIMEZONE_ACWST, TIMEZONE_AWST, TIMEZONE_CXT, TIMEZONE_CCT, TIMEZONE_CKT, TIMEZONE_NUT)
 	begin_day = 25
 	begin_month = APRIL
-	holiday_hat = /obj/item/food/grown/poppy
+	holiday_hat = /obj/item/food/grown/flower/poppy
 
 /datum/holiday/anz/get_station_name()
 	return pick("Australian","New Zealand","Poppy", "Southern Cross")
@@ -337,6 +342,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	name = CHERNOBYL_ANNIVERSARY
 	begin_day = 26
 	begin_month = APRIL
+	holiday_mail = list(/obj/item/geiger_counter)
 
 /datum/holiday/chernobyl/get_station_name()
 	if(prob(3))
@@ -362,6 +368,10 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	name = "Draconic Language Day"
 	begin_month = MAY
 	begin_day = 3
+	holiday_mail = list(
+		/obj/item/toy/plush/lizard_plushie/space = 3,
+		/obj/item/language_manual/roundstart_species/draconic = 1,
+	)
 
 /datum/holiday/draconic_day/greet()
 	return "On this day, Lizardkind celebrates their language with literature and other cultural works."
@@ -380,7 +390,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	return pick("Burning","Blazing","Plasma","Fire")
 
 /datum/holiday/bee
-	name = "Bee Day"
+	name = BEE_DAY
 	begin_day = 20
 	begin_month = MAY
 	holiday_mail = list(
@@ -414,9 +424,14 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 //The Festival of Atrakor's Might (Tizira's Moon) is celebrated on June 15th, the date on which the lizard visual revamp was merged (#9808)
 /datum/holiday/atrakor_festival
-	name = "Festival of Atrakor's Might"
+	name = LIZARD_ATRAKOR_DAY
 	begin_month = JUNE
 	begin_day = 15
+	holiday_mail = list(
+		/obj/item/food/tiziran_sausage,
+		/obj/item/food/honey_roll,
+		/obj/item/food/lizard_dumplings,
+	)
 
 /datum/holiday/atrakor_festival/greet()
 	return "On this day, the Lizards traditionally celebrate the Festival of Atrakor's Might, where they honour the moon god with lavishly adorned clothing, large portions of food, and a massive celebration into the night."
@@ -461,7 +476,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 		/obj/item/clothing/under/color/jumpskirt/rainbow,
 		/obj/item/clothing/under/color/rainbow,
 		/obj/item/food/egg/rainbow,
-		/obj/item/food/grown/rainbow_flower,
+		/obj/item/food/grown/flower/rainbow_flower,
 		/obj/item/food/snowcones/rainbow,
 		/obj/item/toy/crayon/rainbow,
 	)
@@ -641,11 +656,14 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	return pick("Ian", "Corgi", "Erro")
 
 /datum/holiday/pirate
-	name = "Talk-Like-a-Pirate Day"
+	name = TALK_LIKE_A_PIRATE_DAY
 	begin_day = 19
 	begin_month = SEPTEMBER
 	holiday_hat = /obj/item/clothing/head/costume/pirate
-	holiday_mail = list(/obj/item/clothing/head/costume/pirate)
+	holiday_mail = list(
+		/obj/item/clothing/head/costume/pirate = 3,
+		/obj/item/language_manual/piratespeak = 1,
+	)
 
 /datum/holiday/pirate/greet()
 	return "Ye be talkin' like a pirate today or else ye'r walkin' tha plank, matey!"
@@ -716,7 +734,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 // NOVEMBER
 
 /datum/holiday/vegan
-	name = "Vegan Day"
+	name = VEGAN_DAY
 	begin_day = 1
 	begin_month = NOVEMBER
 	holiday_mail = list(/obj/item/food/tofu)
@@ -742,10 +760,10 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	name = "Remembrance Day"
 	begin_month = NOVEMBER
 	begin_day = 11
-	holiday_hat = /obj/item/food/grown/poppy
+	holiday_hat = /obj/item/food/grown/flower/poppy
 	holiday_mail = list(
-		/obj/item/food/grown/harebell,
-		/obj/item/food/grown/poppy,
+		/obj/item/food/grown/flower/harebell,
+		/obj/item/food/grown/flower/poppy,
 		/obj/item/storage/fancy/candle_box,
 	)
 
@@ -772,16 +790,16 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	name = "Flowers Day"
 	begin_day = 19
 	begin_month = NOVEMBER
-	holiday_hat = /obj/item/food/grown/moonflower
+	holiday_hat = /obj/item/food/grown/flower/moonflower
 	holiday_mail = list(
-		/obj/item/food/grown/harebell,
-		/obj/item/food/grown/moonflower,
-		/obj/item/food/grown/poppy,
-		/obj/item/food/grown/poppy/geranium,
-		/obj/item/food/grown/poppy/geranium/fraxinella,
-		/obj/item/food/grown/poppy/lily,
-		/obj/item/food/grown/rose,
-		/obj/item/food/grown/sunflower,
+		/obj/item/food/grown/flower/harebell,
+		/obj/item/food/grown/flower/moonflower,
+		/obj/item/food/grown/flower/poppy,
+		/obj/item/food/grown/flower/poppy/geranium,
+		/obj/item/food/grown/flower/poppy/geranium/fraxinella,
+		/obj/item/food/grown/flower/poppy/lily,
+		/obj/item/food/grown/flower/rose,
+		/obj/item/food/grown/flower/sunflower,
 		/obj/item/grown/carbon_rose,
 		/obj/item/grown/novaflower,
 	)
@@ -832,6 +850,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	name = MONKEYDAY
 	begin_day = 14
 	begin_month = DECEMBER
+	holiday_mail = list(/obj/item/toy/plush/monkey)
 
 /datum/holiday/monkey/celebrate()
 	. = ..()

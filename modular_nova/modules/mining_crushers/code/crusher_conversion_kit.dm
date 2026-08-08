@@ -21,6 +21,8 @@
 		/obj/item/kinetic_crusher/spear = "Long, two meter reach. Ideal for spacing. Too large for armor slots. Deals less damage.",
 		/obj/item/kinetic_crusher/hammer = "Heavy hitter. Deals flat damage, but knocks back foes.",
 		/obj/item/kinetic_crusher/claw = "Deadly backstabs. The weakest of the five from any other angle.",
+		/obj/item/kinetic_crusher/pilebunker = "Incredibly clunky. Incredibly slow. Incredibly devestating.", //OCULIS EDIT - ADDED BY SALT MINING MODULE
+		/obj/item/kinetic_crusher/sickle = "A curved blade that inflicts bleed, rewarding constant pressure.", //OCULIS EDIT - ADDED BY SALT MINING MODULE
 	)
 
 /obj/item/crusher_conversion_kit/Initialize(mapload)
@@ -31,6 +33,6 @@
 /obj/item/crusher_conversion_kit/proc/on_crusher_conversion(obj/item/kinetic_crusher/tool, mob/living/picker)
 	if (!tool || !ismob(picker))
 		return
-	
+
 	picker.put_in_hands(tool)
 	tool.on_variant_switch(picker)

@@ -257,9 +257,13 @@
 		return FALSE
 
 	if(isnull(statue))
-		init_statue() // IRIS EDIT: If your statue is destroyed let's generate a new one
-
-	if(owner.stat != CONSCIOUS)
+		init_statue() // OCULIS EDIT ADDITION - If your statue is destroyed let's generate a new one
+		/* // OCULIS EDIT REMOVAL START
+		if(feedback)
+			owner.balloon_alert(owner, "you can't seem to statue-ize!")
+		return FALSE // permanently bricked
+		*/ // OCULIS EDIT REMOVAL END
+	if(IS_UNCONSCIOUS_OR_CRIT(owner))
 		if(feedback)
 			owner.balloon_alert(owner, "you're too weak!")
 		return FALSE
@@ -501,7 +505,7 @@
 
 /obj/item/organ/tongue/zombie/on_life(seconds_per_tick)
 	. = ..()
-	if(owner.stat == CONSCIOUS && SPT_PROB(2, seconds_per_tick))
+	if(!IS_UNCONSCIOUS_OR_CRIT(owner) && SPT_PROB(2, seconds_per_tick))
 		playsound(owner, pick(spooks), 50, TRUE, 10)
 
 /obj/item/organ/tongue/alien

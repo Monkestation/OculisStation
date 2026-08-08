@@ -84,9 +84,16 @@
 ///asteroid comms agent
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms/space
-	you_are_text = "You are a syndicate agent, assigned to a small listening post station situated near your hated enemy's top secret research facility: Space Station 13."
-	flavour_text = "Monitor enemy activity as best you can, and try to keep a low profile. Use the communication equipment to provide support to any field agents, and sow disinformation to throw Nanotrasen off your trail. Do not let the base fall into enemy hands!"
-	important_text = "DO NOT abandon the base."
+// OCULIS EDIT REMOVAL START
+	// you_are_text = "You are a syndicate agent, assigned to a small listening post station situated near your hated enemy's top secret research facility: Space Station 13."
+	// flavour_text = "Monitor enemy activity as best you can, and try to keep a low profile. Use the communication equipment to provide support to any field agents, and sow disinformation to throw Nanotrasen off your trail. Do not let the base fall into enemy hands!"
+	// important_text = "DO NOT abandon the base."
+// OCULIS EDIT REMOVAL END
+// OCULIS EDIT ADDITION START
+	you_are_text = "You have been assigned to a Syndicate communications post by your respective employer: Listen in on Nanotrasen operations and coordinate with your fellow members of the Syndicate."
+	flavour_text = "Monitor Nanotrasen activity within Eidolon as best and serve as a pseudo-coordinator for field operatives."
+	important_text = "Do not abandon the base for a prolonged period of time: When leaving your post, ensure that you stay on Syndicate or Syndicate-Adjacent operations, such as the DS-2 and Interdyne."
+// OCULIS EDIT ADDITION END
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms/space/Initialize(mapload)
 	. = ..()

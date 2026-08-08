@@ -1162,6 +1162,40 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
+"eT" = (
+/obj/structure/table/wood,
+/obj/effect/spawner/random/bureaucracy/folder{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/effect/spawner/random/bureaucracy/folder{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/stamp/granted{
+	pixel_x = -7;
+	pixel_y = 6
+	},
+/obj/item/stamp/denied{
+	pixel_x = -6
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/item/storage/briefcase/secure/white,
+/obj/machinery/button/door/directional/north{
+	desc = "Keep out the paperwork.";
+	id = "scorpliaison";
+	name = "Corporate Liaison's room bolt";
+	normaldoorcontrol = 1;
+	req_access = list("syndicate_leader");
+	specialfunctions = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/turf/open/floor/carpet/donk,
+/area/ruin/space/has_grav/nova/des_two/bridge/cl)
 "eU" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo/storage)
@@ -2167,9 +2201,6 @@
 	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
-"jy" = (
-/turf/open/floor/iron/dark/smooth_large,
-/area/ruin/space/has_grav/nova/des_two/service/dorms)
 "jC" = (
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
 /obj/effect/turf_decal/delivery/red,
@@ -3629,6 +3660,16 @@
 	},
 /turf/open/floor/wood/wood_5,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
+"pv" = (
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/machinery/suit_storage_unit/syndicate/softsuit,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/nova/des_two/security/armory)
 "px" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/dark{
@@ -5715,6 +5756,9 @@
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/carpet/donk,
 /area/ruin/space/has_grav/nova/des_two/bridge/cl)
+"yM" = (
+/turf/open/floor/iron/dark/smooth_large,
+/area/ruin/space/has_grav/nova/des_two/service/dorms)
 "yO" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
@@ -6953,6 +6997,28 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/security/armory)
+"DT" = (
+/obj/item/melee/baton/telescopic{
+	pixel_x = 4;
+	pixel_y = 9
+	},
+/obj/item/melee/baton/telescopic{
+	pixel_x = 10;
+	pixel_y = 9
+	},
+/obj/item/melee/baton/telescopic{
+	pixel_x = -2;
+	pixel_y = 9
+	},
+/obj/item/melee/energy/sword/saber/red,
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/structure/rack/shelf,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/nova/des_two/security/armory)
 "DV" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -8027,7 +8093,7 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "Iq" = (
-/obj/structure/fireplace/nova{
+/obj/structure/fireplace{
 	pixel_x = 0
 	},
 /obj/machinery/button/door/directional/north{
@@ -9007,28 +9073,6 @@
 /obj/item/disk/surgery/brainwashing,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
-"Mz" = (
-/obj/item/ai_module/reset/purge{
-	pixel_y = -4
-	},
-/obj/item/ai_module/supplied/freeform{
-	pixel_y = 7
-	},
-/obj/item/mmi/posibrain{
-	pixel_x = -4
-	},
-/obj/item/mmi/posibrain{
-	pixel_x = 2;
-	pixel_y = 6
-	},
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/machinery/button/door/directional/north{
-	name = "Mech Bay Access";
-	id = "ds2robotics";
-	req_access = list("syndicate")
-	},
-/turf/open/floor/iron/half,
-/area/ruin/space/has_grav/nova/des_two/research/robotics)
 "MA" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/machinery/atmospherics/pipe/layer_manifold/cyan{
@@ -9267,6 +9311,25 @@
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
+/area/ruin/space/has_grav/nova/des_two/research/robotics)
+"NJ" = (
+/obj/item/ai_module/law/supplied/freeform{
+	pixel_y = 7
+	},
+/obj/item/mmi/posibrain{
+	pixel_x = -4
+	},
+/obj/item/mmi/posibrain{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/machinery/button/door/directional/north{
+	name = "Mech Bay Access";
+	id = "ds2robotics";
+	req_access = list("syndicate")
+	},
+/turf/open/floor/iron/half,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "NL" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
@@ -10473,40 +10536,6 @@
 	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/service/diner)
-"SZ" = (
-/obj/structure/table/wood,
-/obj/effect/spawner/random/bureaucracy/folder{
-	pixel_x = 7;
-	pixel_y = 8
-	},
-/obj/effect/spawner/random/bureaucracy/folder{
-	pixel_x = 4;
-	pixel_y = 3
-	},
-/obj/item/stamp/granted{
-	pixel_x = -7;
-	pixel_y = 6
-	},
-/obj/item/stamp/denied{
-	pixel_x = -6
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
-/obj/item/storage/briefcase/secure/white,
-/obj/machinery/button/door/directional/north{
-	desc = "Keep out the paperwork.";
-	id = "scorpliaison";
-	name = "Corporate Liaison's room bolt";
-	normaldoorcontrol = 1;
-	req_access = list("syndicate_leader");
-	specialfunctions = 4
-	},
-/obj/effect/turf_decal/siding/dark{
-	dir = 5
-	},
-/turf/open/floor/carpet/donk,
-/area/ruin/space/has_grav/nova/des_two/bridge/cl)
 "Ta" = (
 /obj/structure/chair/comfy/brown{
 	color = "#596479";
@@ -11310,28 +11339,6 @@
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/halls)
-"Wn" = (
-/obj/item/melee/baton/telescopic{
-	pixel_x = 4;
-	pixel_y = 9
-	},
-/obj/item/melee/baton/telescopic{
-	pixel_x = 10;
-	pixel_y = 9
-	},
-/obj/item/melee/baton/telescopic{
-	pixel_x = -2;
-	pixel_y = 9
-	},
-/obj/item/melee/energy/sword/saber/red,
-/obj/machinery/airalarm/directional/west,
-/obj/effect/mapping_helpers/airalarm/syndicate_access,
-/obj/effect/turf_decal/siding/dark{
-	dir = 4
-	},
-/obj/structure/rack/shelf,
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/nova/des_two/security/armory)
 "Wo" = (
 /obj/structure/chair/comfy/black{
 	dir = 8
@@ -12036,16 +12043,6 @@
 	dir = 4
 	},
 /area/ruin/space/has_grav/nova/des_two/halls)
-"ZQ" = (
-/obj/machinery/power/apc/auto_name/directional/east,
-/obj/effect/mapping_helpers/apc/syndicate_access,
-/obj/structure/cable,
-/obj/effect/turf_decal/siding/dark{
-	dir = 8
-	},
-/obj/machinery/suit_storage_unit/syndicate/softsuit,
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/nova/des_two/security/armory)
 "ZR" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
@@ -12722,7 +12719,7 @@ cR
 tG
 tG
 JW
-Wn
+DT
 gQ
 zs
 xk
@@ -12920,7 +12917,7 @@ zo
 nQ
 If
 Ri
-ZQ
+pv
 yO
 ah
 bB
@@ -13074,7 +13071,7 @@ Ux
 ZE
 ij
 Mh
-jy
+yM
 cn
 Tv
 jg
@@ -14254,11 +14251,11 @@ HC
 Yu
 Hy
 Jw
-SZ
+eT
 pR
 UQ
 Jw
-Mz
+NJ
 ww
 dr
 Mv

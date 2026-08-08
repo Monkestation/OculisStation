@@ -3,7 +3,7 @@
 	desc = "A market uplink. Usable with markets. You probably shouldn't have this!"
 	icon = 'icons/obj/devices/blackmarket.dmi'
 	icon_state = "uplink"
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.65, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 3.3)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.75, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 3.6)
 	// UI variables.
 	/// What category is the current uplink viewing?
 	var/viewing_category
@@ -157,7 +157,7 @@
 	//The original black market uplink
 	accessible_markets = list(/datum/market/blackmarket)
 	custom_premium_price = PAYCHECK_CREW * 2.5
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.69, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 3.4) //IRIS EDIT
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.85, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 3.6, /datum/material/gold = SMALL_MATERIAL_AMOUNT, /datum/material/uranium = SMALL_MATERIAL_AMOUNT) //IRIS EDIT
 
 /obj/item/market_uplink/blackmarket/Initialize(mapload)
 	. = ..()

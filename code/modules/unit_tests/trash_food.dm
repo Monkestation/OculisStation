@@ -21,9 +21,8 @@
 		/obj/item/stack/rods, // kebab
 		/obj/item/paper/paperslip/fortune, // fortune cookie
 		/obj/item/dice/fudge, // /obj/item/food/fudgedice
-		// NOVA EDIT START: unit test compliance
-		/obj/item/trash/vendor_trash, // base type because it's a joke subtype
-		//IRIS EDIT START
+		/obj/item/trash/vendor_trash, // base type because it's a joke subtype // NOVA EDIT ADDITION
+		// OCULIS EDIT ADDITION START
 		/obj/item/stack/sheet/mineral/sandfruitcore,
 		/obj/item/stack/sheet/mineral/uraniberrycore,
 		/obj/item/stack/sheet/mineral/plasmaplumcore,
@@ -35,8 +34,8 @@
 		/obj/item/stack/sheet/mineral/titanitubercore,
 		/obj/item/stack/sheet/mineral/adamapplecore,
 		/obj/item/stack/sheet/mineral/runescoopercore,
-		/obj/item/stack/sheet/mineral/bananiumberrycore
-		// IRIS EDIT END
+		/obj/item/stack/sheet/mineral/bananiumberrycore,
+		// OCULIS EDIT ADDITION END
 	)
 
 	for(var/path in subtypesof(/obj/item/food))

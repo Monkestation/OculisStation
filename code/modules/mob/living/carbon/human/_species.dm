@@ -1,8 +1,3 @@
-// NOVA EDIT ADDITION START
-// Local defines for now, TODO: put these in their own file with the rest of the offset defines
-#define NOVA_UNDERWEAR_UNDERSHIRT_LAYER (UNIFORM_LAYER + 0.01)
-#define NOVA_BRA_SOCKS_LAYER (UNIFORM_LAYER + 0.02)
-// NOVA EDIT ADDITION END
 /// List of roundstart races' their species_id's
 GLOBAL_LIST_EMPTY(roundstart_races)
 ///List of all roundstart languages by path except common
@@ -33,7 +28,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	 */
 	var/plural_form
 
-	///Whether or not the race has sexual characteristics (biological genders). At the moment this is only FALSE for skeletons and shadows
+	/// Whether or not the race has sexual characteristics (biological genders). At the moment this is only FALSE for skeletons and shadows
 	var/sexes = TRUE
 
 	///The maximum number of bodyparts this species can have.
@@ -140,13 +135,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/list/inherent_traits = list()
 	/// List of biotypes the mob belongs to. Used by diseases.
 	var/inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	/// The type of respiration the mob is capable of doing. Used by adjust_oxy_loss.
-	var/inherent_respiration_type = RESPIRATION_OXYGEN
 	///List of factions the mob gain upon gaining this species.
 	var/list/inherent_factions
-
-	///What gas does this species breathe? Used by suffocation screen alerts, most of actual gas breathing is handled by mutantlungs. See [life.dm][code/modules/mob/living/carbon/human/life.dm]
-	var/breathid = GAS_O2
 
 	///What anim to use for gibbing
 	var/gib_anim = "gibbed-h"
@@ -301,35 +291,25 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		var/obj/item/organ/new_organ = get_mutant_organ_type_for_slot(slot)
 		var/old_organ_type = old_species?.get_mutant_organ_type_for_slot(slot)
 
-		// if we have an extra organ that before changing that the species didnt have, remove it
-		if(!new_organ)
-			/* // NOVA EDIT REMOVAL START = Original
-			if(existing_organ && (old_organ_type == existing_organ.type || replace_current))
-				existing_organ.Remove(organ_holder)
-				qdel(existing_organ)
+		/* // NOVA EDIT REMOVAL START
+		if(existing_organ && !existing_organ.get_replaceability(new_organ, old_organ_type, old_species, replace_current)) // NOVA EDIT REMOVAL
 			continue
-			*/ // NOVA EDIT REMOVAL END
-			// NOVA EDIT ADDITION START
+		// if we have an extra organ that before changing that the species didnt have, remove it
+		else if(!new_organ)
+		*/ // NOVA EDIT REMOVAL END
+		// NOVA EDIT ADDITION START
+		if(!new_organ)
 			if(existing_organ)
 				var/existing_organ_feature_key = existing_organ.bodypart_overlay?.feature_key
-				var/keep_in_mutant_bodyparts = existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key]
 				if(old_organ_type == existing_organ.type || replace_current || existing_organ_feature_key)
-					if(keep_in_mutant_bodyparts)
-						existing_organ.Remove(organ_holder, special = TRUE, movement_flags = KEEP_IN_MUTANT_BODYPARTS)
-					else
-						existing_organ.Remove(organ_holder, special = TRUE)
+					var/keep_in_mutant_bodyparts = existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key]
+					existing_organ.Remove(organ_holder, special = TRUE, movement_flags = keep_in_mutant_bodyparts ? KEEP_IN_MUTANT_BODYPARTS : NONE)
 					qdel(existing_organ)
 			continue
-			// NOVA EDIT ADDITION END
 
-		if(existing_organ && allow_customizable_dna_features) // NOVA EDIT CHANGE - Though sometimes we might want to do that. - ORIGINAL: if(existing_organ)
-			// we dont want to remove organs that were not from the old species (such as from freak surgery or prosthetics)
-			if(existing_organ.type != old_organ_type && !replace_current)
-				continue
-
-			// we don't want to remove organs that are the same as the new one
-			if(existing_organ.type == new_organ)
-				continue
+		if(existing_organ && allow_customizable_dna_features && !existing_organ.get_replaceability(new_organ, old_organ_type, old_species, replace_current))
+			continue
+		// NOVA EDIT ADDITION END
 
 		if(visual_only && (!initial(new_organ.bodypart_overlay) && !initial(new_organ.visual)))
 			continue
@@ -396,7 +376,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	// Drop the items the new species can't wear
 	human_who_gained_species.mob_biotypes = inherent_biotypes
-	human_who_gained_species.mob_respiration_type = inherent_respiration_type
 	human_who_gained_species.butcher_results = knife_butcher_results?.Copy()
 
 	//update body zones to match what they are supposed to have
@@ -507,23 +486,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	human.living_flags &= ~STOP_OVERLAY_UPDATE_BODY_PARTS
 
-// This exists so sprite accessories can still be per-layer without having to include that layer's
-// number in their sprite name, which causes issues when those numbers change.
-/datum/species/proc/mutant_bodyparts_layertext(layer)
-	switch(layer)
-		if(BODY_BEHIND_LAYER)
-			return "BEHIND"
-		if(BODY_ADJ_LAYER)
-			return "ADJ"
-		if(BODY_FRONT_LAYER)
-			return "FRONT"
-		//NOVA EDIT ADDITION BEGIN
-		if(UNDER_UNIFORM_LAYER)
-			return "FRONT_UNDER"
-		if(ABOVE_BODY_FRONT_HEAD_LAYER)
-			return "FRONT_OVER"
-		//NOVA EDIT ADDITION END
-
 ///Proc that will randomise the hair, or primary appearance element (i.e. for moths wings) of a species' associated mob
 /datum/species/proc/randomize_main_appearance_element(mob/living/carbon/human/human_mob)
 	human_mob.set_hairstyle(random_hairstyle(human_mob.gender), update = FALSE)
@@ -614,13 +576,13 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(ITEM_SLOT_FEET)
 			if(H.num_legs < 2)
 				return FALSE
-			/* NOVA EDIT REMOVAL
-			if((H.bodyshape & BODYSHAPE_DIGITIGRADE) && !(I.item_flags & IGNORE_DIGITIGRADE))
+			/* // NOVA EDIT REMOVAL START
+			if((H.bodytype & BODYTYPE_DIGITIGRADE) && !(I.item_flags & IGNORE_DIGITIGRADE))
 				if(!(I.supports_variations_flags & DIGITIGRADE_VARIATIONS))
 					if(!disable_warning)
 						to_chat(H, span_warning("The footwear around here isn't compatible with your feet!"))
 					return FALSE
-			*/
+			*/ // NOVA EDIT REMOVAL END
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_BELT)
 			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_CHEST)
@@ -682,7 +644,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(ITEM_SLOT_SUITSTORE)
 			if(HAS_TRAIT(I, TRAIT_NODROP))
 				return FALSE
-			if(!H.wear_suit)
+			var/obj/item/clothing/suit/suit = H.get_item_by_slot(ITEM_SLOT_OCLOTHING)
+			if(!istype(suit))
 				if(!disable_warning)
 					to_chat(H, span_warning("You need a suit before you can attach this [I.name]!"))
 				return FALSE
@@ -693,7 +656,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				if(!disable_warning)
 					to_chat(H, span_warning("\The [I] is too big to attach!")) //should be src?
 				return FALSE
-			if( is_type_in_list(I, H.wear_suit.allowed) )
+			if(is_type_in_list(I, suit.allowed))
 				return TRUE
 			return FALSE
 		if(ITEM_SLOT_HANDCUFFED)
@@ -780,13 +743,17 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	if(SEND_SIGNAL(target, COMSIG_CARBON_PRE_HELP, user, attacker_style) & COMPONENT_BLOCK_HELP_ACT)
 		return TRUE
 
-	if(target.body_position == STANDING_UP || (target.appears_alive() && target.stat != SOFT_CRIT && target.stat != HARD_CRIT))
-		target.help_shake_act(user)
-		if(target != user)
-			log_combat(user, target, "shaken")
+	// if lying down and dead (or faking death) or not stable: cpr
+	// if standing up or stable (and not faking death): shake/hug
+
+	if(target.body_position == LYING_DOWN && (IS_DEAD_OR_FAKING(target) || target.stat != STABLE))
+		user.do_cpr(target)
 		return TRUE
 
-	user.do_cpr(target)
+	target.help_shake_act(user)
+	if(target != user)
+		log_combat(user, target, "shaken")
+	return TRUE
 
 ///This proc handles punching damage. IMPORTANT: Our owner is the TARGET and not the USER in this proc. For whatever reason...
 /datum/species/proc/harm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
@@ -938,16 +905,16 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/kicking = (atk_effect == ATTACK_EFFECT_KICK)
 	var/final_armor_block = armor_block
 	if(kicking || grappled) //kicks and punches when grappling bypass armor slightly.
-		if(damage >= 9)
+		if(damage >= 12 || (damage >= 9 && prob(66)))
 			target.force_say()
 		log_combat(user, target, grappled ? "grapple punched" : "kicked")
 		final_armor_block -= limb_accuracy
 		target.apply_damage(damage, attack_type, affecting, final_armor_block, attack_direction = attack_direction, sharpness = limb_sharpness)
-		target.apply_damage(damage*1.2, STAMINA, affecting, armor_block - limb_accuracy) // NOVA EDIT ADDITION - Adds back some of the stamina damage
+		target.apply_damage(damage * 1.2, STAMINA, affecting, armor_block - limb_accuracy) // NOVA EDIT ADDITION - Adds back some of the stamina damage
 	else // Normal attacks do not gain the benefit of armor penetration.
 		target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction, sharpness = limb_sharpness)
-		target.apply_damage(damage*1.2, STAMINA, affecting, armor_block) // NOVA EDIT ADDITION - Adds back some of the stamina damage
-		if(damage >= 9)
+		target.apply_damage(damage * 1.2, STAMINA, affecting, armor_block) // NOVA EDIT ADDITION - Adds back some of the stamina damage
+		if(damage >= 12 || (damage >= 9 && prob(66)))
 			target.force_say()
 		log_combat(user, target, "punched")
 
@@ -1084,7 +1051,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		return
 
 	// Only stabilise core temp when alive and not in statis
-	if(humi.stat < DEAD && !HAS_TRAIT(humi, TRAIT_STASIS))
+	if(humi.stat != DEAD && !HAS_TRAIT(humi, TRAIT_STASIS))
 		body_temperature_core(humi, seconds_per_tick)
 
 	// These do run in statis
@@ -1263,7 +1230,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		burn_damage = burn_damage * heatmod * humi.physiology.heat_mod * 0.5 * seconds_per_tick
 
 		// 40% for level 3 damage on humans to scream in pain
-		if (humi.stat < UNCONSCIOUS && (prob(burn_damage) * 10) / 4)
+		if (!IS_UNCONSCIOUS(humi) && (prob(burn_damage) * 10) / 4)
 			INVOKE_ASYNC(humi, TYPE_PROC_REF(/mob, emote), "scream")
 
 		// Apply the damage to all body parts
@@ -1395,12 +1362,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	if((suit_flags & STOPSPRESSUREDAMAGE) && (head_flags & STOPSPRESSUREDAMAGE))
 		return
 
-	for(var/gas_id in environment.gases)
-		var/gas_amount = environment.gases[gas_id][MOLES]
-		switch(gas_id)
-			if(/datum/gas/antinoblium) // Antinoblium - irradiates the target.
-				if(gas_amount >= MOLES_GAS_VISIBLE && SPT_PROB(1, gas_amount * seconds_per_tick))
-					SSradiation.irradiate(human)
+	var/antinoblium_moles = environment.moles[/datum/gas/antinoblium]
+	if (antinoblium_moles >= MOLES_GAS_VISIBLE && SPT_PROB(1, antinoblium_moles * seconds_per_tick))
+		SSradiation.irradiate(human)
 
 ////////////
 //  Stun  //
@@ -1955,12 +1919,13 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	var/list/to_add = list()
 
-	if (breathid != GAS_O2)
+	var/breath_id = get_breath_type()
+	if (breath_id && breath_id != GAS_O2)
 		to_add += list(list(
 			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 			SPECIES_PERK_ICON = "wind",
-			SPECIES_PERK_NAME = "[capitalize(breathid)] Breathing",
-			SPECIES_PERK_DESC = "[plural_form] must breathe [breathid] to survive. You receive a tank when you arrive.",
+			SPECIES_PERK_NAME = "[capitalize(breath_id)] Breathing",
+			SPECIES_PERK_DESC = "[plural_form] must breathe [breath_id] to survive. You receive a tank when you arrive.",
 		))
 
 	return to_add
@@ -2113,21 +2078,31 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 /// Remove body markings
 /datum/species/proc/remove_body_markings(mob/living/carbon/human/hooman)
+	var/needs_update = FALSE
 	for(var/obj/item/bodypart/part as anything in hooman.get_bodyparts())
 		for(var/datum/bodypart_overlay/simple/body_marking/marking in part.bodypart_overlays)
-			part.remove_bodypart_overlay(marking)
+			part.remove_bodypart_overlay(marking, update = FALSE)
+			needs_update = TRUE
+
+	if(needs_update && !(hooman.living_flags & STOP_OVERLAY_UPDATE_BODY_PARTS))
+		hooman.update_body_parts()
+	return null
 
 /**
- * Calculates the expected height values for this species
- *
- * Return a height value corresponding to a specific height filter
- * Return null to just use the mob's base height
+ * Returns what type of gas this species breathes
  */
-/datum/species/proc/update_species_heights(mob/living/carbon/human/holder)
-	if(HAS_TRAIT(holder, TRAIT_DWARF))
-		return HUMAN_HEIGHT_DWARF
+/datum/species/proc/get_breath_type()
+	if(isnull(mutantlungs))
+		return null
 
-	if(HAS_TRAIT(holder, TRAIT_TOO_TALL))
-		return HUMAN_HEIGHT_TALLEST
+	if(mutantlungs::safe_plasma_min > 0)
+		return GAS_PLASMA
 
+	if(mutantlungs::safe_oxygen_min > 0)
+		return GAS_O2
+
+	if(mutantlungs::safe_nitro_min > 0)
+		return GAS_N2
+
+	stack_trace("Unsupported breath type for species with [mutantlungs]")
 	return null
