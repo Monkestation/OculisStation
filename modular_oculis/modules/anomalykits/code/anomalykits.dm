@@ -77,7 +77,7 @@
 	modifier = 1
 
 /obj/item/borg/upgrade/modkit/weather/projectile_strike(obj/projectile/kinetic/K, turf/target_turf, atom/target, obj/item/gun/energy/recharge/kinetic_accelerator/KA)
-	new /obj/effect/temp_visual/telegraphing/thunderbolt(target_turf)
+	new /obj/effect/temp_visual/telegraphing/circle(target_turf)
 	addtimer(CALLBACK(src, PROC_REF(shock_turf), target_turf), 1 SECONDS)
 
 /obj/item/borg/upgrade/modkit/weather/proc/shock_turf(turf/target)
