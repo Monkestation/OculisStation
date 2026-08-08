@@ -1,4 +1,4 @@
-/mob/living/carbon/human/verb/ouch()
+GAME_VERB_DESC(/mob/living, ouch_thyself, "Ouch Thyself", "Deal damage to yourself.", "IC")
 	set category = "IC"
 	set name = "Ouch Thyself"
 	set desc = "Allows you to damage yourself. Ough."
