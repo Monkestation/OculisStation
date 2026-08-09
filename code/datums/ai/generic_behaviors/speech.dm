@@ -140,7 +140,7 @@
 	var/obj/item/radio/mob_radio = locate() in victim
 	if (QDELETED(mob_radio))
 		return ..() // No radio, just talk funny
-	mob_radio.talk_into(pawn, pick(radio_speech + remembered_speech), pick(RADIO_CHANNEL_SUPPLY, RADIO_CHANNEL_COMMON))
+	mob_radio.talk_into(pawn, pick(radio_speech + remembered_speech), pick(RADIO_CHANNEL_SUPPLY))
 
 ///Speech behavior that reads from a blackboard to pick what to say. Useful for things with dynamic speech behaviors
 /datum/bt_node/ai_behavior/random_speech_blackboard
