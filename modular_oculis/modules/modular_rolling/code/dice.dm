@@ -19,10 +19,12 @@
 		reason = jointext(split_text, " ")
 
 	// Do we have a modifier?
-	var/modifier
-	var/list/text_without_modifier = splittext(dice_text, regex("\\+\[0-9\]+|-\[0-9\]+", "g"))
-	if(length(text_without_modifier) > 1)
-		modifier = text_without_modifier[2]
+	var/modifier = findtext(dice_text, regex("\\+\[0-9\]+|-\[0-9\]+", "g"))
+	var/list/text_without_modifier
+	if(modifier)
+		text_without_modifier = splittext(dice_text, modifier)
+	else
+		text_without_modifier = list(dice_text)
 
 	// Time to do actual dice calculations.
 	var/list/split_dice_text = splittext(text_without_modifier[1], "d")
