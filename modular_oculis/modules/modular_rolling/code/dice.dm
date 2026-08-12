@@ -19,7 +19,7 @@
 		reason = jointext(split_text, " ")
 
 	// Do we have a modifier?
-	var/modifier = splittext(dice_text, regex("\[+-\]\\d", "g")) // Example: +10
+	var/modifier = splittext(dice_text, regex("\[+-\]\[0-9\]+", "g")) // Example: +10
 	var/list/text_without_modifier
 	if(length(modifier) > 1)
 		text_without_modifier = splittext(dice_text, modifier[1])
