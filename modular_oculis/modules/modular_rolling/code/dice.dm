@@ -4,8 +4,6 @@
 	message = null
 
 /datum/emote/roll/run_emote(mob/user, params, type_override, intentional)
-	. = ..()
-
 	// Check if its a valid dice combination.
 	var/static/regex/compatible_line_regex = regex("\[0-9\]+d\[0-9\]+", "g")
 	if(!findtext(params, compatible_line_regex))
@@ -35,3 +33,5 @@
 	var/answer = roll("[dice_count]d[dice_sides][modifier]")
 
 	user.client?.looc_message("[user] rolls [dice_count]d[dice_sides][modifier] and gets [answer]. [reason ? "Reason: [reason]" : null]")
+	params = null
+	return ..()
