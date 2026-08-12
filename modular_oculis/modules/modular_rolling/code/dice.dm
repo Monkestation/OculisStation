@@ -19,22 +19,18 @@
 		reason = jointext(split_text, " ")
 
 	// Do we have a modifier?
-	var/modifier = splittext(dice_text, regex("\[+-\]\[0-9\]+", "g")) // Example: +10
+	var/modifier = copytext(dice_text, 1, splittext(dice_text, regex("\[+-\]\[0-9\]+", "g"))) // Example: +10
 	var/list/text_without_modifier
-	if(length(modifier) > 1)
-		text_without_modifier = splittext(dice_text, modifier[1])
-		modifier = modifier[1]
+	if(modifier)
+		text_without_modifier = splittext(dice_text, modifier)
 	else
 		text_without_modifier = list(dice_text)
-		modifier = null
 
 	// Time to do actual dice calculations. And sanitization.
 	var/list/split_dice_text = splittext(text_without_modifier[1], "d")
 	// If at this point we ever have anything that isnt a normal number, take the first number and ignore the rest.
-	var/dice_count = splittext(split_dice_text[1], regex("[0-9]+")) // Example: 10
-	dice_count = dice_count[1]
-	var/dice_sides = splittext(split_dice_text[2], regex("[0-9]+")) // Example: 5
-	dice_sides = dice_sides[1]
+	var/dice_count = copytext(split_dice_text[1], 1, splittext(split_dice_text[1], regex("[0-9]+"))) // Example: 10
+	var/dice_sides = copytext(split_dice_text[2], 1, splittext(split_dice_text[2], regex("[0-9]+"))) // Example: 5
 
 	// Roll the dice.
 	var/answer = roll("[dice_count]d[dice_sides][modifier]") // Example: 1d20+5
