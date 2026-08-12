@@ -5,8 +5,7 @@
 
 /datum/emote/roll/run_emote(mob/user, params, type_override, intentional)
 	// Check if its a valid dice combination.
-	var/static/regex/compatible_line_regex = regex("\[0-9\]+d\[0-9\]+", "g") // Example: 1d20
-	if(!findtext(params, compatible_line_regex))
+	if(!findtext(params, regex("\\d+d\\d+", "g"))) // Example: 1d20
 		to_chat(user, span_warning("That's not a valid dice combination! Please use the combination of \[dice amount\]d\[dice sides\] and optionally \[+-number\] or \[reason\]! Like so: 2d20 or 2d20+5 or 2d20+5 reason."))
 		return FALSE
 
@@ -19,8 +18,8 @@
 		reason = jointext(split_text, " ")
 
 	// Do we have a modifier?
-	var/found_modifier = splittext(dice_text, regex("\[+-\]\[0-9\]+", "g"))
-	var/modifier = found_modifier ? copytext(dice_text, 1, found_modifier) : null // Example: +10
+	var/found_modifier = findtext(dice_text, regex("\[+-\]\\d+", "g"))
+	var/modifier = found_modifier ? copytext(dice_text, found_modifier, 0) : null // Example: +10
 	var/list/text_without_modifier
 	if(modifier)
 		text_without_modifier = splittext(dice_text, modifier)
@@ -30,8 +29,8 @@
 	// Time to do actual dice calculations. And sanitization.
 	var/list/split_dice_text = splittext(text_without_modifier[1], "d")
 	// If at this point we ever have anything that isnt a normal number, take the first number and ignore the rest.
-	var/dice_count = copytext(split_dice_text[1], 1, splittext(split_dice_text[1], regex("[0-9]+"))) // Example: 10
-	var/dice_sides = copytext(split_dice_text[2], 1, splittext(split_dice_text[2], regex("[0-9]+"))) // Example: 5
+	var/dice_count = copytext(split_dice_text[1], 1, splittext(split_dice_text[1], regex("\\d+"))) // Example: 10
+	var/dice_sides = copytext(split_dice_text[2], 1, splittext(split_dice_text[2], regex("\\d+"))) // Example: 5
 
 	// Roll the dice.
 	var/answer = roll("[dice_count]d[dice_sides][modifier]") // Example: 1d20+5
