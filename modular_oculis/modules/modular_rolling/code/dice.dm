@@ -15,12 +15,14 @@
 	// Do we have a reason given?
 	var/reason
 	var/list/split_text = splittext(params, " ")
-	if(length(split_text) > 1)
-		reason = split_text[2]
+	var/dice_text = split_text[1]
+	split_text -= dice_text
+	if(length(split_text))
+		reason = jointext(split_text, " ")
 
 	// Do we have a modifier?
 	var/modifier
-	var/list/text_without_modifier = splittext(split_text[1], regex("\\+\[0-9\]+|-\[0-9\]+", "g"))
+	var/list/text_without_modifier = splittext(dice_text, regex("\\+\[0-9\]+|-\[0-9\]+", "g"))
 	if(length(text_without_modifier) > 1)
 		modifier = text_without_modifier[2]
 
