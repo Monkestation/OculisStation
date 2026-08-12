@@ -71,7 +71,7 @@
 /obj/item/organ/cyberimp/mouth/musicsynth
 	name = "respiratory harmonitron"
 	desc = "This cybernetic implant uses the airflow of the trachea to power a generator hooked up to a neurally connected synthesizer and speaker."
-	special_desc = "It's a great way to look like a much better singer than you are."
+	special_desc = "This sort of device is a great way to look like a much better singer than you are."
 	w_class = WEIGHT_CLASS_TINY
 	slot = ORGAN_SLOT_MUSICSYNTH
 	actions_types = list(/datum/action/item_action/organ_action/musicsynth)
@@ -106,6 +106,7 @@
 /datum/action/item_action/organ_action/musicsynth/Remove(mob/remove_from)
 	..()
 	QDEL_NULL(song)
+
 /datum/design/musicsynth
 	name = "Respiratory Harmonitron"
 	desc = "This tracheal synthesizer system accepts neural commands, allowing for users to \"sing\" their own backing instrumentation!"
