@@ -14,10 +14,10 @@
 
 	// Do we have a reason given?
 	var/reason
-	var/list/split_text = splittext(params, " ")
-	var/dice_text = split_text[1]
-	split_text -= dice_text
-	if(length(split_text))
+	var/list/split_text = splittext(params, " ") // This can actually have more than one word in the reason
+	var/dice_text = split_text[1] // so we take the first part (the dice and modifier)
+	split_text -= dice_text // and set it aside
+	if(length(split_text)) // and make the rest the reason.
 		reason = jointext(split_text, " ")
 
 	// Do we have a modifier?
