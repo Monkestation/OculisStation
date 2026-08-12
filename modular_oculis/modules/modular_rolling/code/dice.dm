@@ -31,7 +31,9 @@
 	var/list/split_dice_text = splittext(text_without_modifier[1], "d")
 	// If at this point we ever have anything that isnt a normal number, take the first number and ignore the rest.
 	var/dice_count = splittext(split_dice_text[1], regex("[0-9]+"))
+	dice_count = dice_count[1]
 	var/dice_sides = splittext(split_dice_text[2], regex("[0-9]+"))
+	dice_sides = dice_sides[1]
 
 	// Roll the dice.
 	var/answer = roll("[dice_count]d[dice_sides][modifier]")
