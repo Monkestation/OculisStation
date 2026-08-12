@@ -7,7 +7,7 @@
 	// Check if its a valid dice combination.
 	var/static/regex/compatible_line_regex = regex("\[0-9\]+d\[0-9\]+", "g")
 	if(!findtext(params, compatible_line_regex))
-		to_chat(user, span_warning("That's not a valid dice combination! Please use the combination of \[dice amount\]d\[dice sides\] and optionally \[+-number\]. Like so: 2d20+5 or 2d20"))
+		to_chat(user, span_warning("That's not a valid dice combination! Please use the combination of \[dice amount\]d\[dice sides\] and optionally \[+-number\] or \[reason\]! Like so: 2d20 or 2d20+5 or 2d20+5 reason."))
 		return FALSE
 
 	// Do we have a reason given?
@@ -27,10 +27,11 @@
 	else
 		text_without_modifier = list(dice_text)
 
-	// Time to do actual dice calculations.
+	// Time to do actual dice calculations. And sanitization.
 	var/list/split_dice_text = splittext(text_without_modifier[1], "d")
-	var/dice_count = split_dice_text[1]
-	var/dice_sides = split_dice_text[2]
+	// If at this point we ever have anything that isnt a normal number, take the first number and ignore the rest.
+	var/dice_count = findtext(split_dice_text[1], regex("[0-9]+"))
+	var/dice_sides = findtext(split_dice_text[2], regex("[0-9]+"))
 
 	// Roll the dice.
 	var/answer = roll("[dice_count]d[dice_sides][modifier]")
