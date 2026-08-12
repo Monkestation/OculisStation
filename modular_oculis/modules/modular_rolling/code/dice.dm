@@ -19,7 +19,8 @@
 		reason = jointext(split_text, " ")
 
 	// Do we have a modifier?
-	var/modifier = findtext(dice_text, regex("\\+\[0-9\]+|-\[0-9\]+", "g"))
+	var/modifier = findtext(dice_text, regex("\\+\[0-9\]+|\\-\[0-9\]+", "g"))
+	modifier = modifier ? modifier : null // Purely because findtext proc returns 0 instead of null on finding nothing.
 	var/list/text_without_modifier
 	if(modifier)
 		text_without_modifier = splittext(dice_text, modifier)
@@ -34,6 +35,6 @@
 	// Roll the dice.
 	var/answer = roll("[dice_count]d[dice_sides][modifier]")
 
-	user.client?.looc_message("[user] rolls [dice_count]d[dice_sides][modifier] and gets [answer]. [reason ? "Reason: [reason]" : null]")
+	user.client?.looc_message("[user] rolls [dice_count]d[dice_sides][modifier] and gets [answer].[reason ? " Reason: [reason]" : null]")
 	params = null
 	return ..()
