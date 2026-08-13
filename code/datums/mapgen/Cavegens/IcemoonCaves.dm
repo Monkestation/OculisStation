@@ -55,6 +55,7 @@
 		/obj/structure/flora/ash/chilly = 2,
 		/obj/structure/flora/grass/both/style_random = 20,
 		/obj/structure/flora/tree/pine/style_random = 2,
+		/obj/structure/flora/lunar_plant/snundra = 1, //OCULIS EDIT ADDITION - custom plants for terrain generator
 	)
 
 /// Surface snow generator variant for forested station trait, WITH FORESTSSSS
@@ -71,6 +72,7 @@
 		/obj/structure/flora/grass/both/style_random = 50,
 		/obj/structure/flora/bush/flowers_pp/style_random = 25,
 		/obj/structure/flora/ash/chilly = 1,
+		/obj/structure/flora/lunar_plant/snundra = 1,  //OCULIS EDIT ADDITION - custom plants for terrain generator
 	)
 
 	mob_spawn_chance = 0.2

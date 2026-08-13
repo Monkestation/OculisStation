@@ -4,6 +4,7 @@
 	icon_state = "hoscloak_blue"
 
 /obj/item/clothing/neck/security_cape
+	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi' //OCULIS EDIT ADDITION
 	inhand_icon_state = "" //no unique inhands
 	///Decides the shoulder it lays on, false = RIGHT, TRUE = LEFT
 	var/swapped = FALSE
@@ -12,7 +13,7 @@
 /obj/item/clothing/neck/security_cape/shoulder
 	name = "guard cape"
 	desc = "A fashionable cape worn by guards."
-	icon_state = "/obj/item/clothing/neck/security_cape/shoulder"
+	icon_state = "cape_red" //OCULIS EDIT CHANGE - ORIGINAL: icon_state = "/obj/item/clothing/neck/security_cape/shoulder"
 	post_init_icon_state = "depgag_cape"
 	greyscale_config = /datum/greyscale_config/depgag_cape
 	greyscale_config_worn = /datum/greyscale_config/depgag_cape/worn
@@ -49,7 +50,7 @@
 /obj/item/clothing/neck/security_cape/armplate_caped
 	name = "caped guard gauntlet"
 	desc = "A fashionable full-arm gauntlet worn by guards. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
-	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped"
+	icon_state = "armplate_red" //OCULIS EDIT CHANGE - ORIGINAL: icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped"
 	post_init_icon_state = "depgag_gauntlet"
 	greyscale_config = /datum/greyscale_config/depgag_caped_gauntlet
 	greyscale_config_worn = /datum/greyscale_config/depgag_caped_gauntlet/worn

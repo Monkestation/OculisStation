@@ -44,7 +44,8 @@
 	. = ..()
 	//give em a waistcoat
 	var/obj/item/clothing/under/undersuit = user.w_uniform
-	undersuit.attach_accessory(new /obj/item/clothing/accessory/waistcoat(user))
+	if(istype(undersuit))
+		undersuit.attach_accessory(new /obj/item/clothing/accessory/waistcoat(user))
 IRIS EDIT END */
 
 /datum/outfit/job/bridge_assistant/plasmaman

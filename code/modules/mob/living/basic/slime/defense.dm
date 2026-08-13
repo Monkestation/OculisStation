@@ -23,19 +23,18 @@
 
 	defender_slime.discipline_slime()
 
-/mob/living/basic/slime/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
-
+/mob/living/basic/slime/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	//Lets you feed slimes plasma. Checks before the passthrough force check
-	if(istype(attacking_item, /obj/item/stack/sheet/mineral/plasma) && stat == CONSCIOUS)
-		use_sheet(attacking_item, user)
-		return
+	if(istype(tool, /obj/item/stack/sheet/mineral/plasma) && !IS_UNCONSCIOUS_OR_CRIT(src))
+		use_sheet(tool, user)
+		return ITEM_INTERACT_SUCCESS
 
 	// IRIS ADDITION START -- UNIQUE SLIMES
-	if(istype(attacking_item, /obj/item/crusher_trophy/legion_skull))
-		unique_mutate(SLIME_TYPE_BLACK, /datum/slime_type/unique/darkgrey, attacking_item)
+	if(istype(tool, /obj/item/crusher_trophy/legion_skull))
+		unique_mutate(SLIME_TYPE_BLACK, /datum/slime_type/unique/darkgrey, tool)
 		return
 
-	if(istype(attacking_item, /obj/item/food/grown/melonlike/holymelon))
+	if(istype(tool, /obj/item/food/grown/melonlike/holymelon))
 		var/list/turfs = RANGE_TURFS(1, get_turf(src))
 		var/grass_amount = 0
 		var/fairygrass_amount = 0
@@ -46,19 +45,20 @@
 				grass_amount++
 
 		if(grass_amount > 2 && fairygrass_amount > 2)
-			unique_mutate(SLIME_TYPE_GREEN, /datum/slime_type/unique/lightgreen, attacking_item)
+			unique_mutate(SLIME_TYPE_GREEN, /datum/slime_type/unique/lightgreen, tool)
 		return
 	// IRIS ADDITION END
 	//Checks if the item passes through the slime first. Safe items can be used simply
-	if(check_item_passthrough(attacking_item, user))
-		return
+	if(check_item_passthrough(tool, user))
+		return ITEM_INTERACT_SUCCESS
 
-	try_discipline_slime(attacking_item)
+	try_discipline_slime(tool)
 
-	if(!istype(attacking_item, /obj/item/storage/bag/xeno))
+	if(!istype(tool, /obj/item/storage/bag/xeno))
 		return ..()
 
-	use_xeno_bag(attacking_item, user)
+	use_xeno_bag(tool, user)
+	return ITEM_INTERACT_SUCCESS
 
 
 ///Checks if an item harmlessly passes through the slime
@@ -129,7 +129,7 @@
 /mob/living/basic/slime/proc/discipline_slime()
 	stop_feeding(silent = TRUE)
 	if(life_stage == SLIME_LIFE_STAGE_BABY && prob(80))
-		ai_controller?.clear_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET)
+		ai_controller?.clear_blackboard_key(BB_CURRENT_TARGET)
 		ai_controller?.clear_blackboard_key(BB_CURRENT_HUNTING_TARGET)
 
 	if(prob(10))
