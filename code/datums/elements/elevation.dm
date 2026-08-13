@@ -116,7 +116,11 @@
 	ADD_TRAIT(target, TRAIT_ELEVATED_TURF, ELEVATION_SOURCE(src))
 
 	for(var/mob/living/living in target)
-		register_new_mob(living)
+		// register_new_mob(living) // OCULIS EDIT REMOVAL
+		// OCULIS EDIT ADDITION START
+		if(!living.has_offset(/datum/component/pixel_shift))
+			register_new_mob(living)
+		// OCULIS EDIT ADDITION END
 
 /datum/element/elevation_core/Detach(datum/source)
 	/**

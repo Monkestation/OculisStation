@@ -20,10 +20,8 @@
 		return ..()
 	return FALSE
 
-/mob/proc/emote_roll2d6()
-	set name = "| Roll 2d6 |"
-	set category = "Emotes"
-	usr.emote("roll2d6", intentional = TRUE)
+GAME_VERB_PROC(/mob, emote_roll2d6, "| Roll 2d6 |", "Emotes")
+	src.emote("roll2d6", intentional = TRUE)
 
 /datum/emote/roll2d6
 	key = "roll2d6"

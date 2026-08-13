@@ -1,4 +1,4 @@
-/mob/living/proc/irc_checks(message)
+/mob/proc/irc_checks(message)
 	if(!length(message))
 		return FALSE
 
@@ -13,7 +13,7 @@
 		to_chat(usr, span_warning("^^^----- The preceding message has been DISCARDED for being over the maximum length of [MAX_MESSAGE_LEN]. It has NOT been sent! -----^^^"))
 		return FALSE
 
-	if(usr.stat != CONSCIOUS || usr.incapacitated)
+	if(usr.stat != STABLE || usr.incapacitated)
 		to_chat(usr, span_notice("You cannot use your PDA in your current condition."))
 		return FALSE
 
