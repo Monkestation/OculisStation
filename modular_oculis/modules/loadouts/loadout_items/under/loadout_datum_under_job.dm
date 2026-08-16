@@ -13,8 +13,27 @@
 	item_path = /obj/item/clothing/under/rank/medical/coroner
 	group = "Workwear"
 
+/datum/loadout_item/under/jumpsuit/paramedic_jumpskirt
+	name = "Paramedic Jumpskirt"
+	item_path = /obj/item/clothing/under/rank/medical/paramedic/skirt
+	group = "Workwear"
 
-//HOS 
+/datum/loadout_item/under/jumpsuit/paramedic_jumpsuit
+	name = "Paramedic Jumpsuit"
+	item_path = /obj/item/clothing/under/rank/medical/paramedic
+	group = "Workwear"
+
+/datum/loadout_item/under/jumpsuit/nurse_suit
+	name = "Nurse's Suit"
+	item_path = /obj/item/clothing/under/rank/medical/doctor/nurse
+	group = "Workwear"
+
+/datum/loadout_item/under/jumpsuit/nurse_suit_alt
+	name = "Nurse's Suit (Alt)"
+	item_path = /obj/item/clothing/under/rank/medical/doctor/nurse/seriouser
+	group = "Workwear"
+
+//HOS
 /datum/loadout_item/under/hos_blue
 	name = "Head of Security's Turtleneck"
 	item_path = /obj/item/clothing/under/rank/security/head_of_security/nova/blue
