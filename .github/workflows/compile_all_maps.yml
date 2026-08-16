@@ -61,10 +61,11 @@ jobs:
           source $HOME/BYOND/byond/bin/byondsetup
           tools/build/build.sh --ci dm -DCIBUILDING -DCITESTING -DNOVA_TEMPLATES
 
-  compile_iris_templates:
-    name: Compile Iris Templates
+  # OCULIS EDIT ADDITION START
+  compile_oculis_templates:
+    name: Compile Oculis Templates
     runs-on: ubuntu-24.04
-    timeout-minutes: 10 # OCULIS EDIT CHANGE - ORIGINAL: timeout-minutes: 5
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v6
@@ -75,4 +76,6 @@ jobs:
       - name: Compile All Maps
         run: |
           source $HOME/BYOND/byond/bin/byondsetup
-          tools/build/build.sh --ci dm -DCIBUILDING -DCITESTING -DIRIS_TEMPLATES
+          tools/build/build.sh --ci dm -DCIBUILDING -DCITESTING -DOCULIS_TEMPLATES
+
+# OCULIS EDIT ADDITION END

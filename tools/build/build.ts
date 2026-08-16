@@ -184,25 +184,25 @@ export const DmMapsIncludeTarget = new Juke.Target({
     foldersNova.push(...Juke.glob('_maps/nova/**/*.dmm'));
     // NOVA EDIT ADDITION END
 
-    // IRIS EDIT ADDITION START
-    const isIrisTemplate = (file: string) =>
-      file.startsWith('_maps/iris/') ||
-      file.startsWith('_maps/RandomRuins/SpaceRuins/iris/') ||
-      file.startsWith('_maps/RandomRuins/IceRuins/iris/') ||
-      file.startsWith('_maps/RandomRuins/LavaRuins/iris/') ||
-      file.startsWith('_maps/shuttles/iris/');
+    // OCULIS EDIT ADDITION START
+    const isOculisTemplate = (file: string) =>
+      file.startsWith('_maps/oculis/') ||
+      file.startsWith('_maps/RandomRuins/SpaceRuins/oculis/') ||
+      file.startsWith('_maps/RandomRuins/IceRuins/oculis/') ||
+      file.startsWith('_maps/RandomRuins/LavaRuins/oculis/') ||
+      file.startsWith('_maps/shuttles/oculis/');
 
-    const foldersIris = [];
+    const foldersOculis = [];
     for (let i = folders.length - 1; i >= 0; i--) {
       const file = folders[i];
-      if (isIrisTemplate(file)) {
-        foldersIris.push(file);
+      if (isOculisTemplate(file)) {
+        foldersOculis.push(file);
         folders.splice(i, 1); // remove from folders
       }
     }
 
-    foldersIris.push(...Juke.glob('_maps/iris/**/*.dmm'));
-    // IRIS EDIT ADDITION END
+    foldersOculis.push(...Juke.glob('_maps/oculis/**/*.dmm'));
+    // OCULIS EDIT ADDITION END
 
     const content = `${folders
       .map((file) => file.replace('_maps/', ''))
@@ -216,13 +216,13 @@ export const DmMapsIncludeTarget = new Juke.Target({
       .join('\n')}\n`;
     fs.writeFileSync('_maps/templates_nova.dm', contentNova);
     // NOVA EDIT ADDITION END
-    // IRIS EDIT ADDITION START
-    const contentIris = `${foldersIris
+    // OCULIS EDIT ADDITION START
+    const contentOculis = `${foldersOculis
       .map((file) => file.replace('_maps/', ''))
       .map((file) => `#include "${file}"`)
       .join('\n')}\n`;
-    fs.writeFileSync('_maps/templates_iris.dm', contentIris);
-    // IRIS EDIT ADDITION END
+    fs.writeFileSync('_maps/templates_oculis.dm', contentOculis);
+    // OCULIS EDIT ADDITION END
   },
 });
 
@@ -251,7 +251,7 @@ export const DmTarget = new Juke.Target({
   dependsOn: ({ get }) => [
     get(DefineParameter).includes('ALL_TEMPLATES') && DmMapsIncludeTarget,
     get(DefineParameter).includes('NOVA_TEMPLATES') && DmMapsIncludeTarget, // NOVA EDIT ADDITION
-    get(DefineParameter).includes('IRIS_TEMPLATES') && DmMapsIncludeTarget, // IRIS EDIT ADDITION
+    get(DefineParameter).includes('OCULIS_TEMPLATES') && DmMapsIncludeTarget, // OCULIS EDIT ADDITION
     !get(SkipIconCutter) && IconCutterTarget,
     BehaviorTreeCompilerTarget,
   ],
@@ -339,7 +339,7 @@ export const AutowikiTarget = new Juke.Target({
   ],
   dependsOn: ({ get }) => [
     get(DefineParameter).includes('NOVA_TEMPLATES') && DmMapsIncludeTarget, // NOVA EDIT ADDITION
-    get(DefineParameter).includes('IRIS_TEMPLATES') && DmMapsIncludeTarget, // IRIS EDIT ADDITION
+    get(DefineParameter).includes('OCULIS_TEMPLATES') && DmMapsIncludeTarget, // OCULIS EDIT ADDITION
     IconCutterTarget,
   ],
   outputs: ['data/autowiki_edits.txt'],

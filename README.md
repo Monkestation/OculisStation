@@ -1,4 +1,4 @@
-## Oculis ~~Iris~~ Station 13 (/tg/station Downstream)
+## Oculis Station 13 (/tg/station Downstream)
 
 [![CI Suite](https://github.com/Monkestation/OculisStation/workflows/CI%20Suite/badge.svg)](https://github.com/Monkestation/OculisStation/actions?query=workflow%3A%22CI+Suite%22)
 [![Percentage of issues still open](https://isitmaintained.com/badge/open/Monkestation/OculisStation.svg)](https://isitmaintained.com/project/Monkestation/OculisStation "Percentage of issues still open")
