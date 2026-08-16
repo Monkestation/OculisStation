@@ -22,3 +22,13 @@
 	name = "Inhaler Canister"
 	item_path = /obj/item/reagent_containers/inhaler_canister
 	group = "Gear"
+
+/datum/loadout_item/pocket_items/manual/idc
+	name = " IDC-27"
+	item_path = /obj/item/tgui_book/manual/idc
+	group = "Comfort"
+
+/datum/loadout_item/pocket_items/manual/dsm
+	name = " SDSM-35"
+	item_path = /obj/item/tgui_book/manual/dsm
+	group = "Comfort"
