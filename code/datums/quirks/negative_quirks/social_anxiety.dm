@@ -79,7 +79,7 @@
 			new_message += word
 		message = jointext(new_message, " ")
 
-	if(prob(speech_block_chance)) //IRIS EDIT Original "if(prob(min(50, (0.50 * moodmod))))" | Applies block chance based on preference
+	if((speech_block_chance > 0) && prob(speech_block_chance)) // OCULIS EDIT original: if(prob(speech_block_chance)) | Fixes Social Anxiety block chance
 		if(dumb_thing)
 			to_chat(quirk_holder, span_userdanger("You think of a dumb thing you said a long time ago and scream internally."))
 			dumb_thing = FALSE //only once per life
