@@ -106,6 +106,9 @@
 
 /obj/item/stack/Destroy()
 	mats_per_unit = null
+	if(source)
+		LAZYREMOVE(source.linked_modules, src)
+		source = null
 	return ..()
 
 /obj/item/stack/update_name(updates)
@@ -153,6 +156,11 @@
 			return FALSE
 		other_stack = find_other_stack(already_found, TRUE)
 	return TRUE
+
+/obj/item/stack/apply_material_effects(list/materials)
+	. = ..()
+	if(amount)
+		mats_per_unit = SSmaterials.get_material_set_cache(materials, 1/amount)
 
 /obj/item/stack/blend_requirements(atom/movable/grinder, mob/living/user)
 	if(!is_cyborg)
@@ -583,7 +591,9 @@
 		return FALSE
 	if(is_cyborg)
 		if(source.use_charge(used * cost))
-			update_appearance(UPDATE_NAME)
+			//this will include us
+			for(var/obj/item/stack/modules as anything in source.linked_modules)
+				modules.update_appearance(UPDATE_NAME)
 			return TRUE
 		return FALSE
 	if (amount < used)

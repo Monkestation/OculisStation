@@ -1,16 +1,5 @@
-/mob/verb/irc_verb(message as message)
-	set name = "IRC"
-	set category = "IC"
-	set instant = TRUE
-
-	if(GLOB.say_disabled)
-		to_chat(usr, span_danger("Speech is currently admin-disabled."))
-		return
-
-	if(message)
-		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, TYPE_VERB_REF(/mob/living, irc_actual_verb), message), SSspeech_controller)
-
-/mob/living/verb/irc_actual_verb(message as message)
+GAME_VERB(/mob, irc_verb, "IRC", "IC")
+	VERB_ARG(message, VERB_ARG_TYPE_MESSAGE, VERB_ARG_SOURCE_INPUT)
 	var/obj/item/modular_computer/our_computer = irc_checks(message) // yeah our check returns a modular computer object, so what, HUH???
 	if (!message || !our_computer)
 		return

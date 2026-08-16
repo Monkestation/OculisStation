@@ -45,12 +45,13 @@
 	features[FEATURE_MUTANT_COLOR] = "#e9e9e9"
 	return features
 
-/datum/species/arachnid/get_scream_sound(mob/living/carbon/human/arachnid)
-	return 'modular_oculis/modules/arachnids/sounds/arachnid_scream.ogg'
+/datum/scream_type/arachnid
+	name = "Arachnid Scream"
+	scream_sounds = list('modular_oculis/modules/arachnids/sounds/arachnid_scream.ogg')
 
-/datum/species/arachnid/get_laugh_sound(mob/living/carbon/human/arachnid)
-	return 'modular_oculis/modules/arachnids/sounds/arachnid_laugh.ogg'
-
+/datum/laugh_type/arachnid
+	name = "Arachnid Laugh"
+	laugh_sounds = list('modular_oculis/modules/arachnids/sounds/arachnid_laugh.ogg')
 
 /datum/species/arachnid/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load)
 	. = ..()
