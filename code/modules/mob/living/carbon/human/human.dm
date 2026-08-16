@@ -97,7 +97,6 @@
 		return
 	return ..()
 
-
 /mob/living/carbon/human/Topic(href, href_list)
 
 	if(href_list["see_id"])
@@ -760,7 +759,7 @@
 	if(locked_record)
 		locked_record.name = newname
 
-/mob/living/carbon/human/update_health_hud()
+/mob/living/carbon/human/update_health_hud(healthpercent)
 	if(!client || !hud_used)
 		return
 	// Updates the health bar, also sends signal
@@ -1309,6 +1308,3 @@
 
 /mob/living/carbon/human/species/zombie
 	race = /datum/species/zombie
-
-/mob/living/carbon/human/species/zombie/infectious
-	race = /datum/species/zombie/infectious

@@ -32,28 +32,6 @@
 /// Temperature at which blood loss and regen stops. [/mob/living/carbon/human/proc/handle_blood]
 #define BLOOD_STOP_TEMP 225
 
-// Bloodtype defines
-#define BLOOD_TYPE_A_MINUS "A-"
-#define BLOOD_TYPE_A_PLUS "A+"
-#define BLOOD_TYPE_B_MINUS "B-"
-#define BLOOD_TYPE_B_PLUS "B+"
-#define BLOOD_TYPE_AB_MINUS "AB-"
-#define BLOOD_TYPE_AB_PLUS "AB+"
-#define BLOOD_TYPE_O_MINUS "O-"
-#define BLOOD_TYPE_O_PLUS "O+"
-#define BLOOD_TYPE_UNIVERSAL "U"
-#define BLOOD_TYPE_LIZARD "L"
-#define BLOOD_TYPE_VAMPIRE "V"
-#define BLOOD_TYPE_ANIMAL "Y-"
-#define BLOOD_TYPE_ETHEREAL "LE"
-#define BLOOD_TYPE_TOX "TOX"
-#define BLOOD_TYPE_OIL "Oil"
-#define BLOOD_TYPE_MEAT "MT-"
-#define BLOOD_TYPE_CLOWN "C"
-#define BLOOD_TYPE_XENO "X*"
-#define BLOOD_TYPE_H2O "H2O"
-#define BLOOD_TYPE_SNAIL "S"
-
 // Blood exposure behavior flag defines
 /// Add our DNA to turfs/mobs/items, does not correlate with adding decals/overlays
 /// mob/turf/item flags will add DNA when triggered even if this flag is false
@@ -254,9 +232,6 @@
 #define SPECIES_SNAIL "snail"
 #define SPECIES_VAMPIRE "vampire"
 #define SPECIES_ZOMBIE "zombie"
-#define SPECIES_ZOMBIE_INFECTIOUS "memezombie"
-#define SPECIES_ZOMBIE_INFECTIOUS_MINDLESS "mindless_memezombie"
-#define SPECIES_ZOMBIE_KROKODIL "krokodil_zombie"
 #define SPECIES_VOIDWALKER "voidwalker"
 
 // Like species IDs, but not specifically attached a species.
@@ -577,6 +552,14 @@
 #define EAR_PROTECTION_HEAVY 2
 #define EAR_PROTECTION_VACUUM 3
 #define EAR_PROTECTION_FULL INFINITY
+
+/**
+ * EMP protection
+ * These values are additive to determine your overall emp protection
+ */
+#define EMP_PROTECTION_NONE 0
+#define EMP_PROTECTION_MODERATE 1
+#define EMP_PROTECTION_HIGH 2
 
 /**
  * Soundbang defines
