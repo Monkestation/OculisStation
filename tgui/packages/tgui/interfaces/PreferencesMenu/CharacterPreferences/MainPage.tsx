@@ -529,9 +529,10 @@ export function MainPage(props: MainPageProps) {
   }
 
   const [currentPrefPage, setCurrentPrefPage] = useState(PrefPage.Visual);
-
+  const erpEnabled = !!data.erp_pref;
+  const filteredCurrentPrefPage = currentPrefPage
   let prefPageContents;
-  switch (currentPrefPage) {
+  switch (filteredCurrentPrefPage) {
     case PrefPage.Visual:
       prefPageContents = (
         <PreferenceList
@@ -559,7 +560,7 @@ export function MainPage(props: MainPageProps) {
       );
       break;
     default:
-      exhaustiveCheck(currentPrefPage);
+      exhaustiveCheck(filteredCurrentPrefPage);
   }
   // NOVA EDIT ADDITION END
 

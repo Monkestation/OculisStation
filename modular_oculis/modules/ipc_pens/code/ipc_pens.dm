@@ -91,3 +91,4 @@
 /datum/supply_pack/companies/medical/synthpen/meth
 	contains = list(/obj/item/reagent_containers/hypospray/medipen/synthcare/meth)
 	cost = CARGO_CRATE_VALUE * 1.75
+	express_lock = TRUE // No stocking up these super quickly because they're useful for fighting, but not otherwise restricted

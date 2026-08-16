@@ -9,7 +9,7 @@
 	melee_damage_upper = 30
 	ai_controller = /datum/ai_controller/basic_controller/watcher/cosmic_entity
 	faction = list(FACTION_VIOLET)
-	basic_mob_flags = IMMUNE_TO_FISTS | DEL_ON_DEATH
+	basic_mob_flags = DEL_ON_DEATH
 
 /datum/ai_controller/basic_controller/watcher/cosmic_entity
 	blackboard = list(
@@ -17,20 +17,13 @@
 	)
 
 	ai_movement = /datum/ai_movement/complete_stop
-	idle_behavior = null
-	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
-		/datum/ai_planning_subtree/target_retaliate/check_faction,
-		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/use_mob_ability/gaze,
-		/datum/ai_planning_subtree/ranged_skirmish/watcher,
-	)
+	behavior_tree_json = "code/modules/mob/living/basic/lavaland/watcher/watcher.bt.json"
 
 /mob/living/basic/mining/hivelord/cosmic_entity
 	name = "rising hatred"
 	desc = "A series of strange purple parasitic creatures."
 	faction = list(FACTION_VIOLET)
-	basic_mob_flags = IMMUNE_TO_FISTS | DEL_ON_DEATH
+	basic_mob_flags = DEL_ON_DEATH
 
 /mob/living/basic/mining/hivelord/cosmic_entity/Initialize(mapload)
 	. = ..()

@@ -1,8 +1,8 @@
 /obj/item/clothing/gloves/color/black/security/depgag
 	name = "guard gloves"
 	desc = "These gloves come with microchips that help the user quickly restrain suspects."
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/gloves/color/black/security"
+	icon = 'icons/map_icons/clothing/_clothing.dmi' //OCULIS EDIT CHANGE - ORIGINAL: icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/gloves/color/black/security/depgag" //OCULIS EDIT CHANGE - ORIGINAL: icon_state = "/obj/item/clothing/gloves/color/black/security"
 	post_init_icon_state = "depgag_gloves"
 	greyscale_config = /datum/greyscale_config/depgag_gloves
 	greyscale_config_worn = /datum/greyscale_config/depgag_gloves/worn

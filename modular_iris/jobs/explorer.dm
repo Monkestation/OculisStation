@@ -61,6 +61,15 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 3,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants = 3
 	)
+	alt_titles = list(
+		"Explorer",
+		"Surveyor",
+		"Pioneer",
+		"Navigator",
+		"Frontiersperson",
+		"Apprentice Explorer",
+		"Union Explorer",
+	)
 
 /datum/outfit/job/explorer
 	name = "Explorer"
@@ -201,4 +210,3 @@
 	mask_type = /obj/item/clothing/mask/gas/atmos/frontier_colonist
 	mod_type = /obj/item/mod/control/pre_equipped/frontier_colonist
 	storage_type = /obj/item/tank/jetpack
-

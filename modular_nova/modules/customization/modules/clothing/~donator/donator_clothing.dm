@@ -573,6 +573,7 @@
 	can_adjust = FALSE
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 // Donation reward for TheOOZ
 /obj/item/clothing/mask/animal/wolf
@@ -583,7 +584,9 @@
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
 	inhand_icon_state = "gasmask_captain"
 	animal_type = "wolf"
-	unique_death = 'modular_nova/master_files/sound/effects/wolfhead_curse.ogg'
+	emote_sounds = list(
+		/datum/emote/living/deathgasp::key = 'modular_nova/master_files/sound/effects/wolfhead_curse.ogg',
+	)
 	visor_flags_inv = HIDEFACIALHAIR | HIDESNOUT
 	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
@@ -1106,6 +1109,7 @@
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/uniform_digi.dmi'
 	icon_state = "hos_black"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 
 // Donation reward for DeltaTri
 /obj/item/clothing/suit/jacket/delta
@@ -1179,17 +1183,18 @@
 	. = ..()
 	handle_sight_updating(user)
 
-/obj/item/clothing/glasses/welding/steampunk_goggles/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(!istype(attacking_item, /obj/item/clothing/glasses/welding))
+/obj/item/clothing/glasses/welding/steampunk_goggles/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/clothing/glasses/welding))
 		return ..()
 
 	if(welding_upgraded)
 		to_chat(user, span_warning("\The [src] was already upgraded to have welding protection!"))
-		return
-	qdel(attacking_item)
+		return ITEM_INTERACT_BLOCKING
+	qdel(tool)
 	welding_upgraded = TRUE
 	to_chat(user, span_notice("You upgrade \the [src] with some welding shutters, offering you the ability to toggle welding protection!"))
 	actions += new /datum/action/item_action/toggle_steampunk_goggles_welding_protection(src)
+	return ITEM_INTERACT_SUCCESS
 
 /// Proc that handles the whole toggling the welding protection on and off, with user feedback.
 /obj/item/clothing/glasses/welding/steampunk_goggles/proc/toggle_shutters(mob/user)
@@ -1404,14 +1409,16 @@
 		user.visible_message(span_notice("[user] shows you: [icon2html(src, viewers(user))] [src.name]."), span_notice("You show \the [src.name]."))
 	add_fingerprint(user)
 
-/obj/item/card/fuzzy_license/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/card/fuzzy_license/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(user.ckey != "fuzlet")
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	if(istype(attacking_item, /obj/item/pen) || istype(attacking_item, /obj/item/toy/crayon))
+	if(istype(tool, /obj/item/pen) || istype(tool, /obj/item/toy/crayon))
 		var/choice = input(user, "Select the license type", "License Type Selection") as null|anything in possible_types
 		if(!isnull(choice))
 			name = "license to [choice]"
+			return ITEM_INTERACT_SUCCESS
+	return ITEM_INTERACT_BLOCKING
 
 // Donation reward for 1ceres
 /obj/item/clothing/suit/jacket/gorlex_harness
@@ -1558,6 +1565,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	body_parts_covered = CHEST|GROIN|ARMS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 // Donation reward for BoisterousBeebz
 
@@ -1570,6 +1578,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	body_parts_covered = CHEST|GROIN|ARMS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 // Donation reward for Sweetsoulbrother
 /obj/item/coin/donator/marsoc
@@ -1608,6 +1617,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "bimpcap"
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 // Donation reward for Nikohyena
 /obj/item/clothing/glasses/gold_aviators
@@ -1935,6 +1945,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	body_parts_covered = CHEST|GROIN
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	can_adjust = FALSE
 
 #undef NOBILITY_DRESSCOAT_WASHING_CREDITS_NEEDED
@@ -2307,6 +2318,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "explorer_melon"
 	hoodtype = /obj/item/clothing/head/hooded/explorer/melon
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 	hood_up_affix = ""
 
 /obj/item/clothing/head/hooded/explorer/melon
@@ -2322,6 +2334,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	body_parts_covered = CHEST|GROIN|LEGS|FEET
 	alternate_worn_layer = ABOVE_SHOES_LAYER
 	icon_state = "dagmardress_a"
@@ -2332,6 +2345,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	body_parts_covered = CHEST|GROIN|LEGS|FEET
 	alternate_worn_layer = ABOVE_SHOES_LAYER
 	icon_state = "dagmardress_b"
@@ -2342,6 +2356,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	body_parts_covered = CHEST|GROIN|LEGS|FEET
 	alternate_worn_layer = ABOVE_SHOES_LAYER
 	icon_state = "dagmardress_c"
@@ -2518,6 +2533,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	. = ..()
 	allowed = GLOB.security_vest_allowed
 
+//Pyrite's Espatier Belt (DarkRilo)
 /obj/item/storage/belt/espatier
 	name = "dated Espatier holster"
 	desc = "An old outdated holster used by the Sol Federation Espatiers during the Rimward War \
@@ -2583,8 +2599,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 		/obj/item/petri_dish,
 		/obj/item/food/grown/banana,
 	))
+//End of Pyrite's Espatier Belt
 
-//Ember's Donor Items
+//Ember's Donor Items (DarkRilo)
 /obj/item/clothing/suit/armor/donator/duke_armored_coat
 	name = "Duke's armored coat"
 	desc = "A custom-tailored armored Terran European officer's frock with a sewn-in steel-ceramic carapace. \
@@ -2604,7 +2621,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	armor_type = /obj/item/clothing/suit/armor/vest/capcarapace::armor_type
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-//Towa's Donor Items
+//Towa's Stachelm (DarkRilo)
 /obj/item/clothing/head/helmet/donator/stachelm
 	name = "\improper Stachelm"
 	desc = "The S1N Special Tactics And Combat helmet is a prototype combat helmet made \
@@ -2637,6 +2654,20 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/head/helmet/donator/stachelm/attack_self(mob/living/user)
 	toggle_helmet_light(user)
+//END OF Towa's Stachelm
+
+//Towa's Viper Suit (DarkRilo)
+/obj/item/clothing/under/rank/civilian/viper_suit
+	name = "\improper Viper Suit"
+	desc = "An old PMC uniform that has a small insignia of a Black Viper coiled around a black sword, it has seen better days..."
+	icon_state = "vipersuittowa"
+	inhand_icon_state = null
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	female_sprite_flags = NO_FEMALE_UNIFORM
+
 
 /obj/structure/sign/flag/pride/bon
 	name = "\improper Bon's cape"
@@ -2650,3 +2681,4 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "folded_pride_bon"
 	sign_path = /obj/structure/sign/flag/pride/bon
 	worn_icon_state = "bon"
+

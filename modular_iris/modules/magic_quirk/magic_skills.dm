@@ -223,6 +223,7 @@ It is technically capable of raising the dead... but not animating them."
 	result = /obj/item/extract/plant_life
 	time = 10
 	reqs = list(/obj/item/food/grown/mushroom = 1)
+	unit_test_spawn_extras = list(/obj/item/food/grown/mushroom/amanita = 1)
 	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 	tool_paths = list(/obj/item/extract/cans)

@@ -1,20 +1,22 @@
 /obj/machinery/computer/records/medical
 	name = "medical records console"
 	desc = "This can be used to check medical records."
+	icon_state = MAP_SWITCH("computer", "/obj/machinery/computer/records/medical")
 	icon_screen = "medcomp"
 	icon_keyboard = "med_key"
-	req_one_access = list(ACCESS_MEDICAL, ACCESS_DETECTIVE, ACCESS_GENETICS)
+	req_one_access = list(ACCESS_MEDICAL, ACCESS_DETECTIVE, ACCESS_GENETICS, ACCESS_ROBOTICS)
 	circuit = /obj/item/circuitboard/computer/med_data
 	light_color = LIGHT_COLOR_BLUE
 
 /obj/machinery/computer/records/medical/syndie
+	icon_state = MAP_SWITCH("computer", "/obj/machinery/computer/records/medical/syndie")
 	icon_keyboard = "syndie_key"
 	req_one_access = list(ACCESS_SYNDICATE)
 
 /obj/machinery/computer/records/medical/laptop
 	name = "medical laptop"
 	desc = "A cheap Nanotrasen medical laptop, it functions as a medical records computer. It's bolted to the table."
-	icon_state = "laptop"
+	icon_state = MAP_SWITCH("laptop", "/obj/machinery/computer/records/medical/laptop")
 	icon_screen = "medlaptop"
 	icon_keyboard = "laptop_key"
 	pass_flags = PASSTABLE
@@ -160,7 +162,7 @@
 
 	target.age = 18
 	target.chrono_age = 18 // NOVA EDIT ADDITION - Chronological age
-	target.blood_type = pick(list(BLOOD_TYPE_A_PLUS, BLOOD_TYPE_A_MINUS, BLOOD_TYPE_B_PLUS, BLOOD_TYPE_B_MINUS, BLOOD_TYPE_O_PLUS, BLOOD_TYPE_O_MINUS, BLOOD_TYPE_AB_PLUS, BLOOD_TYPE_AB_MINUS))
+	target.blood_type = pick(subtypesof(/datum/blood_type/human))
 	target.dna_string = "Unknown"
 	target.gender = "Unknown"
 	target.major_disabilities = ""

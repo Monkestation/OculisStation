@@ -890,6 +890,8 @@
 		/datum/reagent/plantnutriment/eznutriment,
 		/datum/reagent/plantnutriment/left4zednutriment,
 		/datum/reagent/plantnutriment/robustharvestnutriment,
+		/datum/reagent/plantnutriment/endurogrow,
+		/datum/reagent/plantnutriment/liquidearthquake,
 		/datum/reagent/water,
 		/datum/reagent/toxin/plantbgone,
 		/datum/reagent/toxin/plantbgone/weedkiller,
@@ -965,7 +967,7 @@
 		/datum/reagent/toxin,
 		/datum/reagent/toxin/plasma,
 		/datum/reagent/uranium,
-		/datum/reagent/consumable/liquidelectricity/enriched,
+		/datum/reagent/consumable/liquidelectricity,
 		/datum/reagent/medicine/c2/synthflesh,
 	)
 	// NOVA EDIT ADDITION START
