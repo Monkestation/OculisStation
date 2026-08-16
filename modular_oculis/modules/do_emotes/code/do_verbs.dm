@@ -28,7 +28,8 @@
 	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(user.mob, TYPE_PROC_REF(/mob, emote), "do_emote"))
 	return TRUE
 
-GAME_VERB(/mob, do_verb, "Do", "IC", message as message)
+GAME_VERB(/mob, do_verb, "Do", "IC")
+	VERB_ARG(message, VERB_ARG_TYPE_MESSAGE, VERB_ARG_SOURCE_INPUT)
 	if(GLOB.say_disabled) // This is here to try to identify lag problems
 		to_chat(src, span_danger("Speech is currently admin-disabled."))
 		return

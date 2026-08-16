@@ -159,7 +159,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		return
 
 	/* // OCULIS EDIT REMOVAL START - Moved to be after radios.
-	if(HAS_TRAIT(src, TRAIT_FORCE_WHISPER))
+	if(HAS_TRAIT(src, TRAIT_FORCE_WHISPER) && !HAS_TRAIT(src, TRAIT_SIGN_LANG)) // NOVA EDIT CHANGE - Soft-spoken signers can go non verbal and speak at full volume - ORIGINAL: if(HAS_TRAIT(src, TRAIT_FORCE_WHISPER))
 		message_mods[WHISPER_MODE] = MODE_WHISPER
 	*/ // OCULIS EDIT REMOVAL END
 

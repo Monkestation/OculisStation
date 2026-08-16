@@ -830,7 +830,7 @@
 		ACCESS_CMO,
 		)
 	job = /datum/job/doctor
-	honorifics = list("Doctor", "Dr.")
+	honorifics = list("Doctor", "Dr.", "Nurse") // OCULIS EDIT ADDITION - NURSE
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/mime
@@ -889,7 +889,7 @@
 		ACCESS_CMO,
 		)
 	job = /datum/job/paramedic
-	honorifics = list("EMT")
+	honorifics = list("EMR", "EMT", "AEMT") // OCULIS EDIT ADDITION - EMR, AEMT
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/prisoner
