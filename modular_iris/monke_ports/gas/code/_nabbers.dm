@@ -30,7 +30,7 @@
 		TRAIT_MUTANT_COLORS,
 		EYE_COLOR,
 		TRAIT_NO_UNDERWEAR,
-		TRAIT_NO_ZOMBIFY, //Breaks things majorly if they get zombified
+		TRAIT_UNHUSKABLE, //Breaks things majorly if they get zombified
 		TRAIT_NO_DNA_COPY //Cannot be cloned, body too big.
 	)
 	digitigrade_customization = DIGITIGRADE_NEVER

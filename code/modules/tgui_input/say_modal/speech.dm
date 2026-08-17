@@ -65,7 +65,7 @@
 		// NOVA EDIT ADDITION END
 		// IRIS EDIT ADDITION START - NTNRC (ported from https://github.com/DopplerShift13/DopplerShift/pull/371)
 		if(IRC_CHANNEL)
-			client.mob.irc_verb(entry)
+			INVOKE_ASYNC(client.mob, TYPE_VERB_REF(/mob, irc_verb), entry)
 		// IRIS EDIT ADDITION END
 	return FALSE
 
@@ -106,7 +106,7 @@
  * * major - If [TRUE], a "major action" triggered the force say, which may have additional side effects
  */
 /mob/living/carbon/human/proc/force_say(list/alter_phrases = null, immediate = FALSE, major = TRUE)
-	if(stat != CONSCIOUS || !client?.tgui_say?.window_open)
+	if(IS_UNCONSCIOUS_OR_CRIT(src) || !client?.tgui_say?.window_open)
 		return FALSE
 	client.tgui_say.force_say(alter_phrases, immediate)
 	if(client.typing_indicators)

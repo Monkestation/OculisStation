@@ -10,7 +10,7 @@
 	var/list/items = ..()
 	if(!(include_flags & INCLUDE_POCKETS))
 		items -= list(l_store, r_store, s_store)
-	if((include_flags & INCLUDE_ACCESSORIES) && w_uniform)
+	if((include_flags & INCLUDE_ACCESSORIES) && istype(w_uniform, /obj/item/clothing/under))
 		var/obj/item/clothing/under/worn_under = w_uniform
 		items += worn_under.attached_accessories
 	return items
@@ -149,9 +149,11 @@
 			if(glasses)
 				return
 			glasses = equipping
-			if(glasses.vision_flags || glasses.invis_override || glasses.invis_view || !isnull(glasses.lighting_cutoff))
+			// OCULIS EDIT ADDITION START
+			var/obj/item/clothing/glasses/gotten_glasses = glasses
+			if(gotten_glasses.vision_flags || gotten_glasses.invis_override || gotten_glasses.invis_view || !isnull(gotten_glasses.lighting_cutoff))
 				REMOVE_TRAIT(src, TRAIT_ILLITERATE, FARSIGHT_TRAIT) //ORBSTATION: remove illiteracy iff it's from the Farsighted quirk
-				update_sight()
+			// OCULIS EDIT ADDITION END
 			update_worn_glasses()
 		if(ITEM_SLOT_GLOVES)
 			if(gloves)
@@ -275,13 +277,12 @@
 			update_worn_gloves()
 	else if(item_dropping == glasses)
 		glasses = null
-		var/obj/item/clothing/glasses/old_glasses = item_dropping
-		if(HAS_TRAIT(src, TRAIT_FARSIGHT)) //ORBSTATION: Farsighted quirk handling
-			ADD_TRAIT(src, TRAIT_ILLITERATE, FARSIGHT_TRAIT)
-		if(old_glasses.vision_flags || old_glasses.invis_override || old_glasses.invis_view || !isnull(old_glasses.lighting_cutoff))
-			update_sight()
 		if(!QDELETED(src))
 			update_worn_glasses()
+			// OCULIS EDIT ADDITION START
+			if(HAS_TRAIT(src, TRAIT_FARSIGHT))
+				ADD_TRAIT(src, TRAIT_ILLITERATE, FARSIGHT_TRAIT)
+			// OCULIS EDIT ADDITION END
 	else if(item_dropping == ears)
 		ears = null
 		if(!QDELETED(src))

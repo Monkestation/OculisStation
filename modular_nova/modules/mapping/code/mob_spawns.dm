@@ -218,7 +218,6 @@
 
 /mob/living/silicon/robot/model/ds2/make_laws()
 	laws = new /datum/ai_laws/syndicate_override_ds2()
-	laws.associate(src)
 
 /obj/effect/mob_spawn/ghost_role/robot/interdyne
 	name = "\improper Interdyne Robotic Storage"
@@ -266,7 +265,6 @@
 
 /mob/living/silicon/robot/model/interdyne/make_laws()
 	laws = new /datum/ai_laws/syndicate_override_interdyne()
-	laws.associate(src)
 
 
 /obj/effect/mob_spawn/ghost_role/human/hotel_staff
