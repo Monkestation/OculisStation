@@ -145,7 +145,7 @@ const HealthStat = (props: HealthStatProps) => {
   );
 };
 
-export const CrewConsole = () => {
+export const CrewConsoleOculis = () => {
   return (
     <Window title="Crew Monitor" width={600} height={600}>
       <Window.Content scrollable>
