@@ -245,6 +245,9 @@ const CrewTable = () => {
       <Table>
         <Table.Row>
           <Table.Cell bold>Name</Table.Cell>
+          <Table.Cell bold collapsing>
+            <Icon name="wrench" color="rgb(255, 255, 255)" size={1} />
+          </Table.Cell>
           <Table.Cell bold collapsing textAlign="center">
             Vitals
           </Table.Cell>
@@ -294,6 +297,9 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
         {name}
         {assignment !== undefined ? ` (${assignment})` : ''}
       </Table.Cell>
+      <Table.Cell>
+        {is_robot ? <Icon name="wrench" color="#9fe1ff" size={1} /> : ''}
+      </Table.Cell>
       <Table.Cell collapsing textAlign="center">
         {oxydam !== undefined ? (
           <Icon
@@ -331,9 +337,6 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
             Dead
           </Box>
         )}
-        {/* NOVA EDIT ADDITION START */}
-        {is_robot ? <Icon name="wrench" color="#B7410E" size={1} /> : ''}
-        {/* NOVA EDIT ADDITION END */}
       </Table.Cell>
       <Table.Cell>
         {area !== '~' && area !== undefined ? (
