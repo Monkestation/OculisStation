@@ -230,7 +230,8 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	//Get which verb is prefixed to the message before radio but after most modifications
 	message_mods[SAY_MOD_VERB] ||= say_mod(message, message_mods)
-	message = autopunct_bare(message) // NOVA EDIT ADDITION START: autopunctuation - ensure EOL punctuation exists and that word-bounded 'i' are capitalized before we do anything else
+	if(client?.prefs?.read_preference(/datum/preference/toggle/autopunctuation)) //IRIS ADDITION: Can be turned off now
+		message = autopunct_bare(message) // NOVA EDIT ADDITION START: autopunctuation - ensure EOL punctuation exists and that word-bounded 'i' are capitalized before we do anything else
 
 	var/identifier = "invalid"
 	var/tts_message_to_use = tts_message || message
