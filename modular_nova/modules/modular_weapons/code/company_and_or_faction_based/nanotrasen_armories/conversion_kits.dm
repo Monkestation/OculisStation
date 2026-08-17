@@ -117,7 +117,7 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 10 SECONDS
 	category = CAT_WEAPON_RANGED
-	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY
+	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY | CRAFT_COLLECT_REQUIREMENTS
 
 /datum/crafting_recipe/c38_speedloader_plus/New()
 	..()
