@@ -11,10 +11,10 @@ import {
 import type { BooleanLike } from 'tgui-core/react';
 import { createSearch } from 'tgui-core/string';
 
-import { useBackend } from '../../../backend';
-import { COLORS } from '../../../constants';
-import { Window } from '../../../layouts';
-import { JOB2ICON } from '../JobToIcon';
+import { useBackend } from '../backend';
+import { COLORS } from '../constants';
+import { Window } from '../layouts';
+import { JOB2ICON } from './common/JobToIcon';
 
 const HEALTH_COLOR_BY_LEVEL = [
   '#17d568',
