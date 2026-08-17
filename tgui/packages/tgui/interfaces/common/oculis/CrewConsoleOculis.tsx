@@ -1,11 +1,20 @@
 import { useState } from 'react';
-import { Box, Button, Icon, Input, Section, Table } from 'tgui-core/components';
+import {
+  Box,
+  Button,
+  Icon,
+  Input,
+  Section,
+  Stack,
+  Table,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { createSearch } from 'tgui-core/string';
 
-import { useBackend } from '../backend';
-import { COLORS } from '../constants';
-import { Window } from '../layouts';
+import { useBackend } from '../../../backend';
+import { COLORS } from '../../../constants';
+import { Window } from '../../../layouts';
+import { JOB2ICON } from '../JobToIcon';
 
 const HEALTH_COLOR_BY_LEVEL = [
   '#17d568',
@@ -19,33 +28,12 @@ const HEALTH_COLOR_BY_LEVEL = [
 const STAT_LIVING = 0;
 const STAT_DEAD = 4;
 
+//const COMPACT_MARGIN = 0;
+const COMFY_MARGIN = 1;
+
 const jobIsHead = (jobId: number) => jobId % 10 === 0;
 
 const SORT_OPTIONS = [
-  {
-    name: 'Job',
-    sort: (a: CrewSensor, b: CrewSensor) => {
-      return a.ijob - b.ijob;
-    }
-  },
-  {
-    name: 'Name',
-    sort: (a: CrewSensor, b: CrewSensor) => {
-      if (a.name > b.name) return 1;
-      if (a.name < b.name) return -1;
-      return 0;
-    }
-  },
-  {
-    name: 'Area',
-    sort: (a: CrewSensor, b: CrewSensor) => {
-      if (a.area === undefined) return 1;
-      if (b.area === undefined) return -1;
-      if (a.area > b.area) return 1;
-      if (a.area < b.area) return -1;
-      return 0;
-    }
-  },
   {
     name: 'Vitals',
     sort: (a: CrewSensor, b: CrewSensor) => {
@@ -59,8 +47,32 @@ const SORT_OPTIONS = [
       if (a.health > b.health) return 1;
 
       return 0;
-    }
-  }
+    },
+  },
+  {
+    name: 'Job',
+    sort: (a: CrewSensor, b: CrewSensor) => {
+      return a.ijob - b.ijob;
+    },
+  },
+  {
+    name: 'Area',
+    sort: (a: CrewSensor, b: CrewSensor) => {
+      if (a.area === undefined) return 1;
+      if (b.area === undefined) return -1;
+      if (a.area > b.area) return 1;
+      if (a.area < b.area) return -1;
+      return 0;
+    },
+  },
+  {
+    name: 'Name',
+    sort: (a: CrewSensor, b: CrewSensor) => {
+      if (a.name > b.name) return 1;
+      if (a.name < b.name) return -1;
+      return 0;
+    },
+  },
 ];
 
 const jobToColor = (jobId: number) => {
@@ -85,7 +97,8 @@ const jobToColor = (jobId: number) => {
   if (jobId >= 60 && jobId < 200) {
     return COLORS.department.service;
   }
-  if (jobId >= 200 && jobId < 240) { // NOVA EDIT CHANGE - ORIGINAL: jobID < if (jobId >= 200 && jobId < 230)
+  if (jobId >= 200 && jobId < 240) {
+    // NOVA EDIT CHANGE - ORIGINAL: jobID < if (jobId >= 200 && jobId < 230)
     return COLORS.department.centcom;
   }
   // NOVA EDIT ADDITION START
@@ -173,47 +186,72 @@ const CrewTable = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [indexOfSortingOption, setIndexOfSortingOption] = useState(0);
 
-  const cycleSortBy = () => {
+  const cycleSortNext = () => {
     setIndexOfSortingOption((indexOfSortingOption + 1) % SORT_OPTIONS.length);
+  };
+  const cycleSortBack = () => {
+    // is it on the first entry?
+    if (indexOfSortingOption === 0) {
+      setIndexOfSortingOption(SORT_OPTIONS.length - 1); // then cycle around to the last
+    } else {
+      setIndexOfSortingOption(indexOfSortingOption - 1); // otherwise just push it back 1
+    }
   };
 
   const nameSearch = createSearch(searchQuery, (crew: CrewSensor) => crew.name);
 
-  const sorted = sensors.filter(nameSearch).sort((a, b) =>
-    sortAsc
-      ? SORT_OPTIONS[indexOfSortingOption].sort(a, b)
-      : SORT_OPTIONS[indexOfSortingOption].sort(b, a)
-  );
+  const sorted = sensors
+    .filter(nameSearch)
+    .sort((a, b) =>
+      sortAsc
+        ? SORT_OPTIONS[indexOfSortingOption].sort(a, b)
+        : SORT_OPTIONS[indexOfSortingOption].sort(b, a),
+    );
 
   return (
     <Section
       title={
-        <>
-          <Button onClick={cycleSortBy}>{SORT_OPTIONS[indexOfSortingOption].name}</Button>
-          <Button onClick={() => setSortAsc(!sortAsc)}>
-            <Icon
-              style={{ marginLeft: '2px' }}
-              name={sortAsc ? 'chevron-up' : 'chevron-down'}
+        <Stack>
+          <Stack.Item>
+            <Button icon="chevron-left" onClick={cycleSortBack} />
+          </Stack.Item>
+          <Stack.Item>
+            <Button onClick={cycleSortNext}>
+              {SORT_OPTIONS[indexOfSortingOption].name}
+            </Button>
+          </Stack.Item>
+          <Stack.Item>
+            <Button icon="chevron-right" onClick={cycleSortNext} />
+          </Stack.Item>
+          <Stack.Item>
+            <Button onClick={() => setSortAsc(!sortAsc)}>
+              <Icon
+                style={{ marginLeft: '2px' }}
+                name={sortAsc ? 'chevron-up' : 'chevron-down'}
+              />
+            </Button>
+          </Stack.Item>
+          <Stack.Item grow>
+            <Input
+              width="100%"
+              placeholder="Search for name..."
+              onChange={setSearchQuery}
+              value={searchQuery}
             />
-          </Button>
-          <Input
-            placeholder="Search for name..."
-            onChange={setSearchQuery}
-            value={searchQuery}
-          />
-        </>
+          </Stack.Item>
+        </Stack>
       }
     >
       <Table>
         <Table.Row>
           <Table.Cell bold>Name</Table.Cell>
-          <Table.Cell bold collapsing />
+          <Table.Cell bold collapsing>
+            <Icon name="wrench" color="rgb(255, 255, 255)" size={1} />
+          </Table.Cell>
           <Table.Cell bold collapsing textAlign="center">
             Vitals
           </Table.Cell>
-          <Table.Cell bold textAlign="center">
-            Position
-          </Table.Cell>
+          <Table.Cell bold>Area</Table.Cell>
           {!!data.link_allowed && (
             <Table.Cell bold collapsing textAlign="center">
               Tracking
@@ -247,20 +285,21 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
     brutedam,
     area,
     is_robot, // NOVA EDIT ADDITION
-    can_track // NOVA EDIT ADDITION
+    can_track, // NOVA EDIT ADDITION
   } = sensor_data;
 
   return (
-    <Table.Row className="candystripe">
+    <Table.Row className="candystripe" m={COMFY_MARGIN}>
       <Table.Cell bold={jobIsHead(ijob)} color={jobToColor(ijob)}>
+        <Box inline width={1.5}>
+          <Icon name={JOB2ICON[sensor_data.assignment || ''] || 'question'} />
+        </Box>
         {name}
         {assignment !== undefined ? ` (${assignment})` : ''}
       </Table.Cell>
-      { /* NOVA EDIT ADDITION START */}
-      <Table.Cell collapsing textAlign="center">
-        {is_robot ? <Icon name="wrench" color="#B7410E" size={1} /> : ''}
+      <Table.Cell>
+        {is_robot ? <Icon name="wrench" color="#9fe1ff" size={1} /> : ''}
       </Table.Cell>
-      { /* NOVA EDIT ADDITION END */}
       <Table.Cell collapsing textAlign="center">
         {oxydam !== undefined ? (
           <Icon
@@ -275,12 +314,10 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
             size={1}
           />
         ) : life_status !== STAT_DEAD ? (
-          <Icon name="heart" color="#17d568" size={1} />
+          <Icon name="heart" color="#718077" size={1} />
         ) : (
-          <Icon name="skull" color="#801308" size={1} />
+          <Icon name="skull" color="#aa1100" size={1} />
         )}
-      </Table.Cell>
-      <Table.Cell collapsing textAlign="center">
         {oxydam !== undefined ? (
           <Box inline>
             <HealthStat type="oxy" value={oxydam} />
@@ -292,9 +329,13 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
             <HealthStat type="brute" value={brutedam} />
           </Box>
         ) : life_status !== STAT_DEAD ? (
-          'Alive'
+          <Box inline ml={1}>
+            Alive
+          </Box>
         ) : (
-          'Dead'
+          <Box inline ml={1}>
+            Dead
+          </Box>
         )}
       </Table.Cell>
       <Table.Cell>
