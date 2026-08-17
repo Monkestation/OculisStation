@@ -539,7 +539,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	if(!tts_message)
 		tts_message = message
 
-	if(capitalize_message)
+	if(capitalize_message && client?.prefs?.read_preference(/datum/preference/toggle/autopunctuation)) // OCULIS EDIT, ORIGINAL: if(capitalize_message)
 		message = capitalize(message)
 		tts_message = capitalize(tts_message)
 
