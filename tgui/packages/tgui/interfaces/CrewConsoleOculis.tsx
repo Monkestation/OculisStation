@@ -216,7 +216,7 @@ const CrewTable = () => {
             <Button icon="chevron-left" onClick={cycleSortBack} />
           </Stack.Item>
           <Stack.Item>
-            <Button onClick={cycleSortNext}>
+            <Button width="55px" onClick={cycleSortNext} textAlign="center">
               {SORT_OPTIONS[indexOfSortingOption].name}
             </Button>
           </Stack.Item>
