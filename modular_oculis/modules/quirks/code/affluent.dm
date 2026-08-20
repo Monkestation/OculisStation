@@ -18,7 +18,7 @@
 /datum/quirk/affluent/proc/on_payday(datum/bank_account/source)
 	SIGNAL_HANDLER
 	var/datum/bank_account/department_account = SSeconomy.get_dep_account(source.account_job.paycheck_department)
-	if(!source.account_balance.transfer_money(department_account, payday_bonus))
-		source.bank_card_talk("ERROR: [event] aborted, departmental funds insufficient.")
+	if(!source.transfer_money(department_account, payday_bonus))
+		source.bank_card_talk("ERROR: Bonus payday aborted, departmental funds insufficient.")
 		return FALSE
 	source.bank_card_talk("Bonus processed, account now holds [source.account_balance] [MONEY_SYMBOL].")
