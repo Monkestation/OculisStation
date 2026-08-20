@@ -1,6 +1,6 @@
 /datum/quirk/affluent
 	name = "Affluent"
-	desc = "You've got a net worth and the extra credits to show for it; every time you get your wage, you get a bonus."
+	desc = "You've managed to negotiate a more favorable contract; every time you get your wage, you get a bonus."
 	value = 4
 	quirk_flags = QUIRK_HIDE_FROM_SCAN | QUIRK_EXCLUDES_GHOSTROLES
 	icon = FA_ICON_MONEY_CHECK_DOLLAR
