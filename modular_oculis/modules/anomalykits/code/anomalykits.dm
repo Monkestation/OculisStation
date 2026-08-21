@@ -5,6 +5,14 @@
 	cost = 10
 	icon = 'modular_oculis/modules/anomalykits/icons/obj/anomalykits.dmi'
 	icon_state = "anomalykitempty"
+	custom_materials = list(
+		/datum/material/iron =SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/glass =SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/silver =SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/gold =SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/uranium =SHEET_MATERIAL_AMOUNT,
+		/datum/material/diamond =SHEET_MATERIAL_AMOUNT
+	)
 
 /obj/item/borg/upgrade/modkit/blank/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
@@ -40,7 +48,7 @@
 		/datum/material/silver =SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/gold =SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/uranium =SHEET_MATERIAL_AMOUNT,
-		/datum/material/diamond =SHEET_MATERIAL_AMOUNT,
+		/datum/material/diamond =SHEET_MATERIAL_AMOUNT
 	)
 	build_path = /obj/item/borg/upgrade/modkit/blank
 	category = list(
