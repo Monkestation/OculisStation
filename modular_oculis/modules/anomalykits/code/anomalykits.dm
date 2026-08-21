@@ -40,7 +40,6 @@
 /datum/design/anomaly_mod
 	name = "Kinetic Accelerator Blank Anomaly Mod"
 	desc = "Ask Research to slot an anomaly core into this for a specialized proto-kinetic accelerator upgrade."
-	id = "anomalymod"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron =SHEET_MATERIAL_AMOUNT * 3,
