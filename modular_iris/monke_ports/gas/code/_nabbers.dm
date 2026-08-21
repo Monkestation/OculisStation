@@ -45,7 +45,7 @@
 	outfit_important_for_life = /datum/outfit/nabber
 	species_language_holder = /datum/language_holder/nabber
 	species_cookie = /obj/item/food/meat/slab
-	exotic_bloodtype = BLOOD_TYPE_NABBER
+	exotic_bloodtype = /datum/blood_type/nabber
 	mutantbrain = /obj/item/organ/brain/nabber
 	mutanteyes = /obj/item/organ/eyes/nabber
 	mutantlungs = /obj/item/organ/lungs/nabber

@@ -3,6 +3,7 @@
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
 	savefile_key = "particle_weather"
 	savefile_identifier = PREFERENCE_PLAYER
+	default_value = FALSE // OCULIS EDIT ADDITION
 
 /datum/preference/toggle/particle_weather/apply_to_client(client/client, value)
 	for(var/atom/movable/screen/plane_master/rendering_plate/particle_weather/plane_master as anything in client.mob?.hud_used?.get_true_plane_masters(RENDER_PLANE_PARTICLE_WEATHER))

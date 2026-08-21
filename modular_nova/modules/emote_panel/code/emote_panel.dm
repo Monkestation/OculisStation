@@ -8,8 +8,6 @@
 	var/static/list/mob_emotes = list(
 		/mob/proc/emote_flip,
 		/mob/proc/emote_spin,
-		/mob/proc/emote_rolld20,
-		/mob/proc/emote_roll2d6, // OCULIS EDIT ADDITION
 	)
 	all_emotes += mob_emotes
 
@@ -282,8 +280,6 @@ GAME_VERB_PROC(/mob, emote_flip, "| Flip |", "Emotes")
 GAME_VERB_PROC(/mob, emote_spin, "| Spin |", "Emotes")
 	src.emote("spin", intentional = TRUE)
 
-GAME_VERB_PROC(/mob, emote_rolld20, "| Roll 20 |", "Emotes")
-	src.emote("rolld20", intentional = TRUE)
 // code\modules\mob\living\emote.dm
 
 GAME_VERB_PROC(/mob/living, emote_blush, "~ Blush", "Emotes")
