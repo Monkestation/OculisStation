@@ -7,9 +7,7 @@ GLOBAL_DATUM(current_anonymous_theme, /datum/anonymous_theme)
 
 	this is the setup, it handles announcing crew and other settings for the mode and then creating the datum singleton
 */
-/client/proc/anon_names()
-	set category = "Admin.Events"
-	set name = "Setup Anonymous Names"
+GAME_VERB_PROC(/client, anon_names, "Setup Anonymous Names", "Admin.Events")
 
 	if(GLOB.current_anonymous_theme)
 		var/response = tgui_alert(usr, "Anon mode is currently enabled. Disable?", "cold feet", list("Disable Anon Names", "Keep it Enabled"))
@@ -31,7 +29,7 @@ GLOBAL_DATUM(current_anonymous_theme, /datum/anonymous_theme)
 	if(SSticker.current_state > GAME_STATE_PREGAME) //before anonnames is done, for asking a sleep
 		if(initial(chosen_theme.extras_enabled))
 			extras_enabled = tgui_alert(usr, extras_enabled, "extras", list("Yes", "No"))
-		alert_players = tgui_alert(usr, "Alert crew? These are IC Themed FROM centcom.", "announcement", list("Yes", "No"))
+		alert_players = tgui_alert(usr, "Alert crew? These are IC Themed FROM SectCom.", "announcement", list("Yes", "No")) // OCULIS EDIT, SectCommening 2, ORIGINAL: alert_players = tgui_alert(usr, "Alert crew? These are IC Themed FROM centcom.", "announcement", list("Yes", "No"))
 	//turns "Yes" and "No" into TRUE and FALSE
 	extras_enabled = extras_enabled == "Yes"
 	alert_players = alert_players == "Yes"
@@ -220,7 +218,7 @@ GLOBAL_DATUM(current_anonymous_theme, /datum/anonymous_theme)
 	set_station_name("[pick(GLOB.first_names)] [pick(GLOB.last_names)]")
 
 /datum/anonymous_theme/station/announce_to_all_players()
-	priority_announce("Confirmed level 9 reality error event near [station_name()]. All personnel must try their best to carry on, as to not trigger more reality events by accident.", "Central Command Higher Dimensional Affairs", 'sound/announcer/notice/notice1.ogg')
+	priority_announce("Confirmed level 9 reality error event near [station_name()]. All personnel must try their best to carry on, as to not trigger more reality events by accident.", "Sectorial Command Higher Dimensional Affairs", 'sound/announcer/notice/notice1.ogg') // OCULIS EDIT, SectCommening 2, ORIGINAL: priority_announce("Confirmed level 9 reality error event near [station_name()]. All personnel must try their best to carry on, as to not trigger more reality events by accident.", "Central Command Higher Dimensional Affairs", 'sound/announcer/notice/notice1.ogg')
 
 /datum/anonymous_theme/station/anonymous_name(mob/target)
 	return new_station_name()

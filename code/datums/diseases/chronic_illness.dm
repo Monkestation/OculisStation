@@ -1,18 +1,21 @@
 /datum/disease/chronic_illness
 	name = "Hereditary Manifold Sickness"
 	max_stages = 5
-	spread_text = "Non-communicable disease"
+	spread_text = "None"
 	spread_flags = DISEASE_SPREAD_NON_CONTAGIOUS
 	disease_flags = CHRONIC
 	infectable_biotypes = MOB_ORGANIC | MOB_MINERAL | MOB_ROBOTIC
 	process_dead = TRUE
-	stage_prob = 0.10 // NOVA EDIT CHANGE = ORIGINAL: stage_prob = 0.25
-	cure_text = "Sansufentanyl"
+	stage_prob = 0.25
+	cure_text = "Abated by " + /datum/reagent/medicine/sansufentanyl::name
 	cures = list(/datum/reagent/medicine/sansufentanyl)
 	infectivity = 0
 	agent = "Quantum Entanglement"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	desc = "A disease discovered in an Interdyne laboratory caused by subjection to timestream correction technology."
+	desc = "A disease discovered in an Interdyne laboratory caused by subjection to timestream correction technology. \
+		It is completely uncurable - though it can be treated to reverse its progression - and non-contagious. \
+		If left untreated the subject will suffer from a variety of symptoms, \
+		including but not limited to dizziness, nausea, heart palpitations, and in the final stages, death."
 	severity = DISEASE_SEVERITY_UNCURABLE
 	bypasses_immunity = TRUE
 
@@ -109,7 +112,7 @@
 					affected_mob.gib(DROP_ALL_REMAINS)
 					update_stage(1)
 				if(5)
-					if(affected_mob.stat == CONSCIOUS)
+					if(!IS_UNCONSCIOUS_OR_CRIT(affected_mob))
 						affected_mob.visible_message(span_danger("[affected_mob] clutches at [affected_mob.p_their()] chest as if [affected_mob.p_their()] heart is stopping!"), \
 					span_userdanger("You feel a horrible pain as your heart is replaced with one from another dimension!"))
 					var/obj/item/organ/heart/cursed/cheart = new /obj/item/organ/heart/cursed()

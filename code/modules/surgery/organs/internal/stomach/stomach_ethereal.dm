@@ -2,7 +2,7 @@
 	name = "biological battery"
 	icon_state = "stomach-p" //Welp. At least it's more unique in functionaliy.
 	desc = "A crystal-like organ that stores the electric charge of ethereals."
-	organ_traits = list(TRAIT_NOHUNGER) // We have our own hunger mechanic.
+	organ_traits = list(TRAIT_NOHUNGER, TRAIT_ETHEREAL_METABOLISM) // We have our own hunger mechanic.
 	/// Where the energy of the stomach is stored.
 	var/obj/item/stock_parts/power_store/cell
 	///used to keep ethereals from spam draining power sources
@@ -25,11 +25,15 @@
 	. = ..()
 	RegisterSignal(stomach_owner, COMSIG_PROCESS_BORGCHARGER_OCCUPANT, PROC_REF(charge))
 	RegisterSignal(stomach_owner, COMSIG_LIVING_ELECTROCUTE_ACT, PROC_REF(on_electrocute))
+	RegisterSignal(stomach_owner, COMSIG_ATOM_TOOL_ACT(TOOL_MULTITOOL), PROC_REF(on_multitool_act))
+	RegisterSignal(stomach_owner, COMSIG_ATOM_EXAMINE, PROC_REF(on_owner_examine)) // OCULIS EDIT ADDITION
 
 /obj/item/organ/stomach/ethereal/on_mob_remove(mob/living/carbon/stomach_owner)
 	. = ..()
 	UnregisterSignal(stomach_owner, COMSIG_PROCESS_BORGCHARGER_OCCUPANT)
 	UnregisterSignal(stomach_owner, COMSIG_LIVING_ELECTROCUTE_ACT)
+	UnregisterSignal(stomach_owner, COMSIG_ATOM_TOOL_ACT(TOOL_MULTITOOL))
+	UnregisterSignal(stomach_owner, COMSIG_ATOM_EXAMINE) // OCULIS EDIT ADDITION
 	stomach_owner.clear_mood_event("charge")
 	stomach_owner.clear_alert(ALERT_ETHEREAL_CHARGE)
 	stomach_owner.clear_alert(ALERT_ETHEREAL_OVERCHARGE)
@@ -50,6 +54,35 @@
 	. = ethereal_shock_absorb(source, shock_damage, shock_source, siemens_coeff = 1, flags = NONE) //NOVA EDIT CHANGE - Ethereal Rework 2024 - This prevents the damage from the shocks.
 	to_chat(owner, span_notice("You absorb some of the shock into your body!"))
 
+/obj/item/organ/stomach/ethereal/proc/on_multitool_act(atom/source, mob/user, obj/item/tool)
+	SIGNAL_HANDLER
+
+	// Checks to ensure we're not doing surgery on a robotic part.
+	if(!owner)
+		return multitool_act(user, tool)
+
+	var/obj/item/bodypart/targeted_part = owner.get_bodypart(user.zone_selected)
+	if(isnull(targeted_part) || targeted_part.bodytype != BODYTYPE_ROBOTIC)
+		return multitool_act(user, tool)
+
+	if(HAS_TRAIT(targeted_part, TRAIT_READY_TO_OPERATE))
+		return
+
+	return multitool_act(user, tool)
+
+/obj/item/organ/stomach/ethereal/multitool_act(mob/living/user, obj/item/tool)
+	. = ..()
+	// Intentionally formatted in the exact same way as multitooling a cable for comedic effect.
+	// It's as if the multitool is mistaking the ethereal/biological battery for a cable.
+	var/power_info
+	if(cell.charge > 0)
+		power_info = span_danger("Total power: [display_power(cell.charge)]\nLoad: [(owner && (owner.stat != DEAD)) ? display_power(ETHEREAL_DISCHARGE_RATE) : 0]\nExcess power: [display_power(max(0, (cell.charge - ETHEREAL_CHARGE_FULL)))]")
+	else
+		power_info = span_danger("The [owner ? owner.name : name] is not powered.")
+
+	to_chat(user, power_info)
+	return ITEM_INTERACT_SUCCESS
+
 /**Changes the energy of the crystal stomach.
 * Args:
 * - amount: The change of the energy, in joules.
@@ -66,25 +99,45 @@
 			carbon.throw_alert(ALERT_ETHEREAL_CHARGE, /atom/movable/screen/alert/emptycell/ethereal)
 			if(carbon.health > 10.5)
 				carbon.apply_damage(0.65, TOX, null, null, carbon)
+			carbon.clear_alert(ALERT_ETHEREAL_OVERCHARGE) // OCULIS EDIT ADDITION
 		if(ETHEREAL_CHARGE_NONE to ETHEREAL_CHARGE_LOWPOWER)
 			carbon.add_mood_event("charge", /datum/mood_event/decharged)
 			carbon.throw_alert(ALERT_ETHEREAL_CHARGE, /atom/movable/screen/alert/lowcell/ethereal, 3)
 			if(carbon.health > 10.5)
 				carbon.apply_damage(0.325 * seconds_per_tick, damagetype = TOX)
+			carbon.clear_alert(ALERT_ETHEREAL_OVERCHARGE) // OCULIS EDIT ADDITION
 		if(ETHEREAL_CHARGE_LOWPOWER to ETHEREAL_CHARGE_NORMAL)
 			carbon.add_mood_event("charge", /datum/mood_event/lowpower)
 			carbon.throw_alert(ALERT_ETHEREAL_CHARGE, /atom/movable/screen/alert/lowcell/ethereal, 2)
+			// OCULIS EDIT ADDITION START
+			carbon.blood_volume = min(carbon.blood_volume + (BLOOD_REGEN_FACTOR * 0.1 * seconds_per_tick), BLOOD_VOLUME_NORMAL) // Worse than a starving human
+			carbon.clear_alert(ALERT_ETHEREAL_OVERCHARGE)
+			// OCULIS EDIT ADDITION END
 		if(ETHEREAL_CHARGE_ALMOSTFULL to ETHEREAL_CHARGE_FULL)
 			carbon.add_mood_event("charge", /datum/mood_event/charged)
 			carbon.adjust_tox_loss(-0.325 * seconds_per_tick) //NOVA EDIT ADDITION - Ethereal Rework 2024 - Your natural reward for no longer being over or under charged, but having it just right.
+			// OCULIS EDIT ADDITION START
+			carbon.blood_volume = min(carbon.blood_volume + (BLOOD_REGEN_FACTOR * 0.9 * seconds_per_tick), BLOOD_VOLUME_NORMAL) // Slightly worse than a human (optimal nutrition+satiety gives 1.25)
+			carbon.clear_alert(ALERT_ETHEREAL_OVERCHARGE)
+			carbon.clear_alert(ALERT_ETHEREAL_CHARGE)
+			// OCULIS EDIT ADDITION END
 		if(ETHEREAL_CHARGE_FULL to ETHEREAL_CHARGE_OVERLOAD)
 			carbon.add_mood_event("charge", /datum/mood_event/overcharged)
 			carbon.throw_alert(ALERT_ETHEREAL_OVERCHARGE, /atom/movable/screen/alert/ethereal_overcharge, 1)
 			//carbon.apply_damage(0.2, TOX, null, null, carbon) //NOVA EDIT REMOVAL- Ethereal Rework 2024 - You should only really be getting that damage when you're actually overcharged.
+			// OCULIS EDIT ADDITION START
+			carbon.clear_alert(ALERT_ETHEREAL_CHARGE)
+			carbon.apply_damage(0.2, TOX, null, null, carbon) //Reverts Nova Edit
+			carbon.blood_volume = min(carbon.blood_volume + (BLOOD_REGEN_FACTOR * 1.6 * seconds_per_tick), BLOOD_VOLUME_NORMAL) // Slightly better than a human, at the cost of toxic damage
+			// OCULIS EDIT ADDITION END
 		if(ETHEREAL_CHARGE_OVERLOAD to ETHEREAL_CHARGE_DANGEROUS)
 			carbon.add_mood_event("charge", /datum/mood_event/supercharged)
 			carbon.throw_alert(ALERT_ETHEREAL_OVERCHARGE, /atom/movable/screen/alert/ethereal_overcharge, 2)
 			carbon.apply_damage(0.325 * seconds_per_tick, damagetype = TOX)
+			// OCULIS EDIT ADDITION START
+			carbon.clear_alert(ALERT_ETHEREAL_CHARGE)
+			carbon.blood_volume = min(carbon.blood_volume + (BLOOD_REGEN_FACTOR * 2.6 * seconds_per_tick), BLOOD_VOLUME_NORMAL) //OCULIS EDIT ADDITION - Significantly better than a human, at the cost of high toxin damage and unsustainability due to discharge
+			// OCULIS EDIT ADDITION END
 			if(SPT_PROB(5, seconds_per_tick)) // 5% each seacond for ethereals to explosively release excess energy if it reaches dangerous levels
 				discharge_process(carbon)
 			// NOVA EDIT ADDITION BEGIN
@@ -119,9 +172,11 @@
 		tesla_zap(source = carbon, zap_range = 2, power = discharged_energy, cutoff = 1 KILO JOULES, zap_flags = ZAP_OBJ_DAMAGE | ZAP_LOW_POWER_GEN | ZAP_ALLOW_DUPLICATES)
 		carbon.visible_message(span_danger("[carbon] violently discharges energy!"), span_warning("You violently discharge energy!"))
 
+		/* OCULIS EDIT REMOVAL START
 		if(prob(10)) //chance of developing heart disease to dissuade overcharging oneself
 			carbon.apply_status_effect(/datum/status_effect/heart_attack)
 			to_chat(carbon, span_userdanger("You're pretty sure you just felt your heart stop for a second there.."))
 			carbon.playsound_local(carbon, 'sound/effects/singlebeat.ogg', 100, 0)
+			OCULIS EDIT REMOVAL END */
 
 		carbon.Paralyze(100)

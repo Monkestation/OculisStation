@@ -6,7 +6,7 @@
 	worn_icon = 'icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 /obj/item/mod/control
-	name = "MOD control unit"
+	name = "\improper MOD control unit"
 	desc = "The control unit of a Modular Outerwear Device, a powered suit that protects against various environments."
 	icon_state = "standard-control"
 	inhand_icon_state = "mod_control"
@@ -387,7 +387,7 @@
 	selected_module?.deactivate(display_message = TRUE)
 	wearer.apply_damage(5 / severity, BURN, spread_damage=TRUE)
 	to_chat(wearer, span_danger("You feel [src] heat up from the EMP, burning you slightly."))
-	if(wearer.stat < UNCONSCIOUS && prob(10))
+	if(!IS_UNCONSCIOUS(wearer) && prob(10))
 		wearer.emote("scream")
 
 /obj/item/mod/control/on_outfit_equip(mob/living/carbon/human/outfit_wearer, visuals_only, item_slot)
@@ -525,7 +525,9 @@
 		module.on_unequip()
 	UnregisterSignal(wearer, list(COMSIG_ATOM_EXITED, COMSIG_SPECIES_GAIN, COMSIG_MOB_CLICKON))
 	SEND_SIGNAL(src, COMSIG_MOD_WEARER_UNSET, wearer)
-	wearer.hud_used?.spacesuit_hud.update_spacesuit_hud_icon()
+	var/atom/movable/screen/spacesuit/spacesuit_hud = wearer.hud_used?.screen_objects[HUD_MOB_SPACESUIT]
+	if (spacesuit_hud)
+		spacesuit_hud.update_spacesuit_hud_icon()
 	wearer = null
 
 /obj/item/mod/control/proc/get_sealed_slots(list/parts)
@@ -726,7 +728,9 @@
 	else
 		state_to_use = core.get_charge_icon_state()
 
-	wearer.hud_used.spacesuit_hud.update_spacesuit_hud_icon(state_to_use || SPACESUIT_NO_ICON)
+	var/atom/movable/screen/spacesuit/spacesuit_hud = wearer.hud_used?.screen_objects[HUD_MOB_SPACESUIT]
+	if (spacesuit_hud)
+		spacesuit_hud.update_spacesuit_hud_icon(state_to_use || SPACESUIT_NO_ICON)
 
 /obj/item/mod/control/proc/update_speed()
 	var/total_slowdown = 0

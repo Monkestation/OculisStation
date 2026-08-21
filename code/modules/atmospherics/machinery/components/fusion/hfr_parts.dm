@@ -31,13 +31,11 @@
 	. = ..()
 	. += span_notice("[src] can be rotated by first opening the panel with a screwdriver and then using a wrench on it.")
 
-/obj/machinery/atmospherics/components/unary/hypertorus/attackby(obj/item/I, mob/user, list/modifiers, list/attack_modifiers)
-	if(!fusion_started)
-		if(default_deconstruction_screwdriver(user, "[base_icon_state]_open", base_icon_state, I))
-			return
-	if(default_change_direction_wrench(user, I))
-		return
-	return ..()
+/obj/machinery/atmospherics/components/unary/hypertorus/screwdriver_act(mob/living/user, obj/item/tool)
+	return fusion_started ? NONE : default_deconstruction_screwdriver(user, tool)
+
+/obj/machinery/atmospherics/components/unary/hypertorus/wrench_act(mob/living/user, obj/item/I)
+	return default_change_direction_wrench(user, I)
 
 /obj/machinery/atmospherics/components/unary/hypertorus/welder_act(mob/living/user, obj/item/tool)
 	if(!cracked)
@@ -114,15 +112,14 @@
 	. = ..()
 	. += span_notice("[src] can be rotated by first opening the panel with a screwdriver and then using a wrench on it.")
 
-/obj/machinery/hypertorus/attackby(obj/item/I, mob/user, list/modifiers, list/attack_modifiers)
-	if(!fusion_started)
-		if(default_deconstruction_screwdriver(user, "[base_icon_state]_open", base_icon_state, I))
-			return
-	if(default_change_direction_wrench(user, I))
-		return
-	if(default_deconstruction_crowbar(I))
-		return
-	return ..()
+/obj/machinery/hypertorus/screwdriver_act(mob/living/user, obj/item/tool)
+	return fusion_started ? NONE : default_deconstruction_screwdriver(user, tool)
+
+/obj/machinery/hypertorus/wrench_act(mob/living/user, obj/item/tool)
+	return default_change_direction_wrench(user, tool)
+
+/obj/machinery/hypertorus/crowbar_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_crowbar(user, tool)
 
 /obj/machinery/hypertorus/update_icon_state()
 	if(panel_open)
@@ -222,14 +219,14 @@
 	//Internal Fusion gases
 	var/list/fusion_gasdata = list()
 	if(connected_core.internal_fusion.total_moles())
-		for(var/gas_type in connected_core.internal_fusion.gases)
+		for(var/gas_type in connected_core.internal_fusion.moles)
 			var/datum/gas/gas = gas_type
 			fusion_gasdata.Add(list(list(
 			"id"= initial(gas.id),
-			"amount" = round(connected_core.internal_fusion.gases[gas][MOLES], 0.01),
+			"amount" = round(connected_core.internal_fusion.moles[gas], 0.01),
 			)))
 	else
-		for(var/gas_type in connected_core.internal_fusion.gases)
+		for(var/gas_type in connected_core.internal_fusion.moles)
 			var/datum/gas/gas = gas_type
 			fusion_gasdata.Add(list(list(
 				"id"= initial(gas.id),
@@ -238,14 +235,14 @@
 	//Moderator gases
 	var/list/moderator_gasdata = list()
 	if(connected_core.moderator_internal.total_moles())
-		for(var/gas_type in connected_core.moderator_internal.gases)
+		for(var/gas_type in connected_core.moderator_internal.moles)
 			var/datum/gas/gas = gas_type
 			moderator_gasdata.Add(list(list(
 			"id"= initial(gas.id),
-			"amount" = round(connected_core.moderator_internal.gases[gas][MOLES], 0.01),
+			"amount" = round(connected_core.moderator_internal.moles[gas], 0.01),
 			)))
 	else
-		for(var/gas_type in connected_core.moderator_internal.gases)
+		for(var/gas_type in connected_core.moderator_internal.moles)
 			var/datum/gas/gas = gas_type
 			moderator_gasdata.Add(list(list(
 				"id"= initial(gas.id),
@@ -291,9 +288,13 @@
 
 	data["waste_remove"] = connected_core.waste_remove
 	data["filter_types"] = list()
-	for(var/path in GLOB.meta_gas_info)
-		var/list/gas = GLOB.meta_gas_info[path]
-		data["filter_types"] += list(list("gas_id" = gas[META_GAS_ID], "gas_name" = gas[META_GAS_NAME], "enabled" = (path in connected_core.moderator_scrubbing)))
+	var/cached_gas_info = GLOB.meta_gas_info
+	for(var/path in cached_gas_info[META_GAS_ID])
+		data["filter_types"] += list(list(
+			"gas_id" = cached_gas_info[META_GAS_ID][path],
+			"gas_name" = cached_gas_info[META_GAS_NAME][path],
+			"enabled" = (path in connected_core.moderator_scrubbing)
+		))
 
 	data["cooling_volume"] = connected_core.airs[1].volume
 	data["mod_filtering_rate"] = connected_core.moderator_filtering_rate

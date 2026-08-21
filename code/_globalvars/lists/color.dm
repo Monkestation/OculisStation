@@ -33,7 +33,9 @@ GLOBAL_LIST_INIT(color_list_ethereal, list(
 	"Burnt Orange" = "#cc4400",
 	"Cyan Blue" = "#00ffff",
 	"Dark Blue" = "#6666ff",
-	"Dark Fuschia" = "#cc0066",
+// OCULIS EDIT REMOVAL START
+//	"Dark Fuschia" = "#cc0066",
+// OCULIS EDIT REMOVAL END
 	"Dark Green" = "#37835b",
 	"Dark Red" = "#9c3030",
 	"Dull Yellow" = "#fbdf56",
@@ -47,6 +49,11 @@ GLOBAL_LIST_INIT(color_list_ethereal, list(
 	"Red" = "#ff4d4d",
 	"Seafoam Green" = "#00fa9a",
 	"White" = "#f2f2f2",
+// OCULIS EDIT ADDITION START
+	"Dark Fuschia" = "#C70064",
+	"Fuschia" = "#FF0066",
+	"Dark Purple" = "#794A7F",
+// OCULIS EDIT REMOVAL END
 ))
 
 /// List of possible lustrous ethereal colours

@@ -62,10 +62,6 @@
 	balloon_alert_to_viewers(anchored ? "secured" : "unsecured")
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-/obj/structure/large_mortar/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(attacking_item.is_refillable())
-		return
-
 /obj/structure/large_mortar/item_interaction(mob/living/user, obj/item/tool, list/modifiers, is_right_clicking)
 	. = ..()
 
@@ -220,7 +216,7 @@
 ///Mixes contained reagents, creating butter/mayo/whipped cream
 /obj/structure/large_mortar/proc/mix(mob/user)
 	//Recipe to make Butter
-	var/butter_amt = FLOOR(reagents.get_reagent_amount(/datum/reagent/consumable/milk) / MILK_TO_BUTTER_COEFF, 1)
+	var/butter_amt = floor(reagents.get_reagent_amount(/datum/reagent/consumable/milk) / MILK_TO_BUTTER_COEFF)
 	var/purity = reagents.get_reagent_purity(/datum/reagent/consumable/milk)
 	reagents.remove_reagent(/datum/reagent/consumable/milk, MILK_TO_BUTTER_COEFF * butter_amt)
 	for(var/i in 1 to butter_amt)

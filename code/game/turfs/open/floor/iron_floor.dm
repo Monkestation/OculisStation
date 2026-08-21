@@ -414,6 +414,7 @@
 	icon_state = "solarpanel"
 	base_icon_state = "solarpanel"
 	floor_tile = /obj/item/stack/tile/iron/solarpanel
+	skip_minimap_rendering = TRUE
 
 /turf/open/floor/iron/solarpanel/airless
 	initial_gas_mix = AIRLESS_ATMOS
@@ -469,14 +470,11 @@
 	base_icon_state = "freezer"
 	floor_tile = /obj/item/stack/tile/iron/freezer
 
-/*
 /turf/open/floor/iron/grimy
 	icon_state = "grimy"
 	base_icon_state = "grimy"
 	tiled_turf = FALSE
 	floor_tile = /obj/item/stack/tile/iron/grimy
-
-*/
 
 /turf/open/floor/iron/vaporwave
 	icon_state = "pinkblack"

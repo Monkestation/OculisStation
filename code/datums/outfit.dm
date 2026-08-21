@@ -125,9 +125,9 @@
 	var/preload = FALSE
 
 	/// Any undershirt. While on humans it is a string, here we use paths to stay consistent with the rest of the equips.
-	var/datum/sprite_accessory/undershirt = null
-	var/datum/sprite_accessory/underwear = null
-	var/datum/sprite_accessory/socks = null
+	var/datum/sprite_accessory/clothing/undershirt = null
+	var/datum/sprite_accessory/clothing/underwear = null
+	var/datum/sprite_accessory/clothing/socks = null
 
 /**
  * Called at the start of the equip proc
@@ -233,7 +233,7 @@
 
 	if(accessory)
 		var/obj/item/clothing/under/U = user.w_uniform
-		if(U)
+		if(istype(U))
 			U.attach_accessory(SSwardrobe.provide_type(accessory, user))
 		else if(!visuals_only)
 			WARNING("Unable to equip accessory [accessory] in outfit [name]. No uniform present!")

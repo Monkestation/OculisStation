@@ -3,11 +3,7 @@
 	desc = "A tool that, with the assistance of a magnifying lens, allows you to view what is small."
 	icon_state = "magnifying_glass"
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT)
-
-/obj/item/glassblowing/magnifying_glass/examine(mob/user)
-	. = ..()
-	if(HAS_TRAIT(user, TRAIT_XENOARCH_QUALIFIED))
-		. += span_notice("You can use [src] on useless relics to realize their full potential!")
+	w_class = WEIGHT_CLASS_SMALL // OCULIS EDIT ADDITION
 
 /datum/crafting_recipe/magnifying_glass
 	name = "Magnifying Glass"

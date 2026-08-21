@@ -14,11 +14,9 @@ SUBSYSTEM_DEF(parallax)
 	var/atom/movable/screen/parallax_layer/random/random_layer
 	/// Weighted list with the parallax layers we could spawn
 	var/random_parallax_weights = list(
-		// OCULIS EDIT START
-		/atom/movable/screen/parallax_layer/random/space_gas = 100,
-		/atom/movable/screen/parallax_layer/random/asteroids = 0,
-		PARALLAX_NONE = 0,
-		// OCULIS EDIT END
+		/atom/movable/screen/parallax_layer/random/space_gas = 35,
+		/atom/movable/screen/parallax_layer/random/asteroids = 35,
+		PARALLAX_NONE = 35,
 	)
 
 //These are cached per client so needs to be done asap so people joining at roundstart do not miss these.

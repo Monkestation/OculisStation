@@ -4,7 +4,7 @@
 /datum/species/hemophage
 	name = "Hemophage"
 	id = SPECIES_HEMOPHAGE
-	// IRIS EDIT: Hemophages now use mutant color instead of skin tone
+	// OCULIS EDIT: Hemophages now use mutant color instead of skin tone
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
@@ -17,7 +17,7 @@
 		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_HUMANOID | MOB_ORGANIC
-	exotic_bloodtype = BLOOD_TYPE_UNIVERSAL
+	exotic_bloodtype = /datum/blood_type/universal
 	mutantheart = /obj/item/organ/heart/hemophage
 	mutantliver = /obj/item/organ/liver/hemophage
 	mutantstomach = /obj/item/organ/stomach/hemophage
@@ -85,11 +85,10 @@
 
 
 /datum/species/hemophage/prepare_human_for_preview(mob/living/carbon/human/human)
-	human.dna.features["mcolor"] = "#fff4e6" // IRIS EDIT: Hemophages now use mutant color instead of skin tone. Original CODE: human.skin_tone = "albino"
-	human.hair_color = "#1d1d1d"
-	human.hairstyle = "Pompadour (Big)"
-	regenerate_organs(human, src, visual_only = TRUE)
-	human.update_body(TRUE)
+	human.dna.features["mcolor"] = "#fff4e6" // OCULIS EDIT: Hemophages now use mutant color instead of skin tone. Original CODE: human.skin_tone = "albino"
+	human.set_haircolor("#1d1d1d", update = FALSE)
+	human.set_hairstyle("Pompadour (Big)", update = FALSE)
+	human.update_body_parts(TRUE)
 
 
 /datum/species/hemophage/create_pref_unique_perks()
@@ -148,10 +147,6 @@
 	)
 
 	return to_add
-
-/datum/species/hemophage/get_cry_sound(mob/living/carbon/human/hemophage)
-	var/datum/species/human/human_species = GLOB.species_prototypes[/datum/species/human]
-	return human_species.get_cry_sound(hemophage)
 
 // We don't need to mention that they're undead, as the perks that come from it are otherwise already explicited, and they might no longer be actually undead from a gameplay perspective, eventually.
 /datum/species/hemophage/create_pref_biotypes_perks()

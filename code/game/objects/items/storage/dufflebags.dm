@@ -216,6 +216,7 @@
 	icon_state = "duffel-drone"
 	inhand_icon_state = "duffel-drone"
 	resistance_flags = FIRE_PROOF
+	zip_slowdown = 0
 
 /obj/item/storage/backpack/duffelbag/drone/PopulateContents()
 	new /obj/item/screwdriver(src)

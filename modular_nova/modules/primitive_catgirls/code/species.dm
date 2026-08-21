@@ -28,7 +28,7 @@
 	bodytemp_cold_damage_limit = 213 // Man up bro it's not even that cold out here
 
 	inherent_traits = list(
-		TRAIT_CATLIKE_GRACE,
+		TRAIT_CATLIKE_INSTINCT,
 		TRAIT_VIRUSIMMUNE,
 		TRAIT_RESISTCOLD,
 		TRAIT_USES_SKINTONES,
@@ -58,13 +58,10 @@
 	human_for_preview.hair_color = "#323442"
 	human_for_preview.skin_tone = "mediterranean"
 
-	human_for_preview.update_body_parts()
-
 	human_for_preview.dna.mutant_bodyparts[FEATURE_TAIL] = build_mutant_part("Cat", list(human_for_preview.hair_color))
 	human_for_preview.dna.mutant_bodyparts[FEATURE_EARS] = build_mutant_part("Cat", list(human_for_preview.hair_color))
 
-	human_for_preview.update_body_parts()
-	human_for_preview.update_body(is_creating = TRUE)
+	human_for_preview.update_body_parts(TRUE)
 
 /datum/species/human/felinid/primitive/get_species_description()
 	return list(

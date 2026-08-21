@@ -22,7 +22,7 @@
 	commendation_message = tgui_input_text(user, "Reason for this commendation? It will be recorded by Nanotrasen.", "Commendation", max_length = 140)
 	return !!commendation_message
 
-/obj/item/clothing/accessory/medal/attach(obj/item/clothing/under/attach_to, mob/living/attacher)
+/obj/item/clothing/accessory/medal/try_attach(obj/item/clothing/under/attach_to, mob/living/attacher)
 	var/mob/living/distinguished = attach_to.loc
 	if(isnull(attacher) || !istype(distinguished) || distinguished == attacher || awarded_to)
 		// You can't be awarded by nothing, you can't award yourself, and you can't be awarded someone else's medal
@@ -110,7 +110,7 @@
 
 /obj/item/clothing/accessory/medal/gold/heroism
 	name = "medal of exceptional heroism"
-	desc = "An extremely rare golden medal awarded only by CentCom. To receive such a medal is the highest honor and as such, very few exist. This medal is almost never awarded to anybody but commanders."
+	desc = "An extremely rare golden medal awarded only by Sectorial Administrators. To receive such a medal is the highest honor and as such, very few exist. This medal is almost never awarded to anybody but commanders." // OCULIS EDIT - CentCom > Sectorial Administrators
 
 /obj/item/clothing/accessory/medal/plasma
 	name = "plasma medal"

@@ -22,18 +22,10 @@
 	. = ..()
 	AddElement(/datum/element/repackable, repacked_type, 1 SECONDS)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 	if(!mapload)
 		flick("fuel_generator_deploy", src)
-
-// formerly NO_DECONSTRUCTION
-/obj/machinery/power/port_gen/pacman/solid_fuel/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
-	return NONE
-
-/obj/machinery/power/port_gen/pacman/solid_fuel/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
-	return NONE
-
-/obj/machinery/power/port_gen/pacman/solid_fuel/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
-	return NONE
 
 // We don't need to worry about the board, this machine doesn't have one!
 /obj/machinery/power/port_gen/pacman/solid_fuel/on_construction(mob/user, from_flatpack)
@@ -53,12 +45,8 @@
 	desc = /obj/machinery/power/port_gen/pacman/solid_fuel::desc
 	icon_state = "fuel_generator_packed"
 	type_to_deploy = /obj/machinery/power/port_gen/pacman/solid_fuel
-	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10,
-		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
-	)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/titanium = SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)
+
 /obj/machinery/power/port_gen/pacman/solid_fuel/Initialize(mapload)
 	. = ..()
 	QDEL_NULL(soundloop)

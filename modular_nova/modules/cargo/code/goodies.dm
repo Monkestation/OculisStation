@@ -69,13 +69,13 @@
 	contains = list(/obj/item/paper_bin)
 
 /datum/supply_pack/goody/xenoarch_intern
-	name = "Xenoarchaeology Intern Skillchip Set"
-	desc = "A skillchip with all the information required to start dabbling in the fine art of interpreting xenoarchaeological finds, \
-			and a magnifying glass for actually analyzing your finds. \
+	name = "Xenoarchaeology Intern Set"
+	desc = "A toolbelt with all the tools required to start dabbling in the fine art of scavenging xenoarchaeological finds, \
+			and a magnifying glass for actually analyzing your finds (Not guaranteed to actually yield any results). \
 			Does not come with actual excavation tools, nor the ability to actually make anyone pay attention to one's \
 			attempts at intellectual posturing, nor any actual job experience as a curator."
-	cost = PAYCHECK_CREW * 15 // 750 credits but you also theoretically print a lot of money if you consistently get/scan relics
-	contains = list(/obj/item/skillchip/xenoarch_magnifier,
+	cost = PAYCHECK_CREW * 15
+	contains = list(/obj/item/storage/belt/utility/xenoarch/full,
 				/obj/item/glassblowing/magnifying_glass,
 			)
 
@@ -85,6 +85,13 @@
 	cost = CARGO_CRATE_VALUE * 4 //800 credits
 	contains = list(/obj/item/scratching_stone)
 	order_flags = ORDER_CONTRABAND
+	
+/datum/supply_pack/goody/ration
+	name = "Emergency Ration Single-Pack"
+	desc = "A single emergency ration, designed to be nutritious, filling, and to be edible across a wide range of crew species. \
+			Each ration comes with two randomly selected mains, two randomly selected sides, a cracker, and a peanut butter packet."
+	cost = CARGO_CRATE_VALUE * 0.375 // Should be around 75 credits?
+	contains = list(/obj/item/storage/box/ration)
 
 /*
 *	CARPET PACKS

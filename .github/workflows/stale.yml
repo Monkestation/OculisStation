@@ -18,11 +18,11 @@ jobs:
 
     steps:
       - name: Mark stale issues and pull requests
-        uses: actions/stale@v10
+        uses: actions/stale@v11
         id: stale
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          stale-pr-message: "This PR has been inactive for long enough to be automatically marked as stale. This means it is at risk of being auto closed in ~14 days. Please address any outstanding review items and ensure your PR is finished - if both are true, and you have auto-staled anyway, you need to actively ask maintainers (by pinging them in the /tg/station Discord) to (re)review or merge your PR. If no maintainer responds to your request, you may wish to close this PR yourself while you seek maintainer comment, as you will later be able to reopen the PR yourself." # NOVA EDIT CHANGE - ORIGINAL: 7 days instead of 14
+          stale-pr-message: "This PR has been inactive for long enough to be automatically marked as stale. This means it is at risk of being auto closed in ~14 days. Please address any outstanding review items and ensure your PR is finished - if both are true, and you have auto-staled anyway, you need to actively ask maintainers (by pinging them in the Oculis Station Discord) to (re)review or merge your PR. If no maintainer responds to your request, you may wish to close this PR yourself while you seek maintainer comment, as you will later be able to reopen the PR yourself." # NOVA EDIT CHANGE - ORIGINAL: 7 days instead of 14 # OCULIS EDIT: changed /tg/station to Oculis Station
           stale-issue-message: "This issue has been marked for cleanup and will be automatically closed in ~14 days. If there is evidence that the issue still occurs, leave a comment with it attached and contact an issue manager or maintainer to have the label removed."
           days-before-stale: 14 # NOVA EDIT CHANGE - ORIGINAL: days-before-stale: 7
           days-before-close: 14 # NOVA EDIT CHANGE - ORIGINAL: days-before-close: 7
@@ -37,26 +37,26 @@ jobs:
           operations-per-run: 300
       - name: Filter staled pull requests for announcement
         id: filter-prs
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
+        env:
+          input: ${{steps.stale.outputs.staled-issues-prs}}
         with:
           script: |
-            const pull_requests = JSON.parse('${{steps.stale.outputs.staled-issues-prs}}')
-                                      .filter(issue => !!issue.pull_request)
-                                      .map(pr => ({
-                                          title: pr.title,
-                                          number: pr.number,
-                                          html_url: pr.pull_request.html_url,
-                                      }));
-
-            return JSON.stringify(pull_requests)
+            return JSON.parse(process.env.input)
+                       .filter(issue => !!issue.pull_request)
+                       .map(pr => ({
+                        title: pr.title,
+                        number: pr.number,
+                        html_url: pr.pull_request.html_url,
+                       }));
 
   announce:
     runs-on: ubuntu-24.04
     needs: stale
     if: ${{ needs.stale.outputs.staled_prs != '[]' }}
     strategy:
-     matrix:
-      pull_request: ${{ fromJSON(needs.stale.outputs.staled_prs) }}
+      matrix:
+        pull_request: ${{ fromJSON(needs.stale.outputs.staled_prs) }}
     steps:
       - name: "Check for DISCORD_WEBHOOK"
         id: secrets_set
@@ -67,7 +67,7 @@ jobs:
           if [ -n "$ENABLER_SECRET" ]; then SECRET_EXISTS=true ; fi
           echo "SECRETS_ENABLED=$SECRET_EXISTS" >> $GITHUB_OUTPUT
       - name: Send Discord notification
-        uses: tgstation/discord-notify@v3
+        uses: tgstation/discord-notify@main
         if: >
           steps.secrets_set.outputs.SECRETS_ENABLED
         with:
@@ -77,5 +77,4 @@ jobs:
           include_image: false
           show_author: false
           avatar_url: https://avatars.githubusercontent.com/u/1363778?s=200&v=4
-          username: GitHub
-          title_url: "${{ matrix.pull_request.html_url }}"
+          title_url: ${{ matrix.pull_request.html_url }}

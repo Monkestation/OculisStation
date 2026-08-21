@@ -136,7 +136,7 @@
 	weight = 5
 	cost = STATION_TRAIT_COST_LOW
 	show_in_report = TRUE
-	report_message = "Our workers accidentally forgot more of their personal belongings in the maintenace areas."
+	report_message = "Our workers accidentally forgot more of their personal belongings in the maintenance areas."
 	blacklist = list(/datum/station_trait/empty_maint)
 	trait_to_give = STATION_TRAIT_FILLED_MAINT
 
@@ -373,7 +373,7 @@
 
 /datum/station_trait/bright_day
 	name = "Bright Day"
-	report_message = "The stars shine bright and the clouds are scarcer than usual. It's a bright day here on the Ice Moon's surface."
+	report_message = "The stars shine bright and the clouds are scarcer than usual. It's a bright day here on the surface."
 	trait_type = STATION_TRAIT_POSITIVE
 	weight = 5
 	show_in_report = TRUE

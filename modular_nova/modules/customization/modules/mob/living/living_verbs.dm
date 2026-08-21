@@ -4,17 +4,13 @@ GLOBAL_DATUM_INIT(temporary_flavor_text_vis, /obj/effect/overlay/indicator/tempo
 	icon = 'modular_nova/modules/indicators/icons/temporary_flavor_text_indicator.dmi'
 	icon_state = "flavor"
 
-/mob/living/verb/set_temporary_flavor()
-	set category = "IC"
-	set name = "Set Temporary Flavor Text"
-	set desc = "Allows you to set a temporary flavor text."
-
-	if(stat != CONSCIOUS)
+GAME_VERB_DESC(/mob/living, set_temporary_flavor, "Set Temporary Flavor Text", "Allows you to set a temporary flavor text.", "IC")
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		to_chat(usr, span_warning("You can't set your temporary flavor text now..."))
 		return
 
-	var/msg = tgui_input_text(usr, "Set the temporary flavor text in your 'examine' verb. This is for describing what people can tell by looking at your character.", "Temporary Flavor Text", temporary_flavor_text, max_length = MAX_FLAVOR_LEN, multiline = TRUE)
-	if(msg == null)
+	var/msg = tgui_input_text(usr, "Set the temporary flavor text in your 'examine' verb. This is for describing what people can tell by looking at your character.", "Temporary Flavor Text", html_decode(temporary_flavor_text), max_length = MAX_FLAVOR_LEN, multiline = TRUE)
+	if(isnull(msg))
 		return
 
 	// Turn empty input into no flavor text

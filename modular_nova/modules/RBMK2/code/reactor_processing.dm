@@ -7,7 +7,7 @@
 		return
 
 	var/datum/gas_mixture/rod_mix = stored_rod.air_contents
-	if(!rod_mix || !rod_mix.gases)
+	if(!rod_mix || !rod_mix.moles)
 		return
 
 	var/rod_mix_pressure = rod_mix.return_pressure()
@@ -31,15 +31,15 @@
 		return
 
 	//Do power generation here.
-	if(consumed_mix.gases && consumed_mix.gases[/datum/gas/tritium])
+	if(consumed_mix.moles && consumed_mix.moles[/datum/gas/tritium])
 		consumed_mix.assert_gas(/datum/gas/tritium)
-		last_tritium_consumption = consumed_mix.gases[/datum/gas/tritium][MOLES]
+		last_tritium_consumption = consumed_mix.moles[/datum/gas/tritium]
 		last_power_generation = last_tritium_consumption * power_efficiency * base_power_generation * (overclocked ? 0.9 : 1) * seconds_per_tick * 0.5 //Overclocked consumes more, but generates less.
 		//This is where the fun begins.
 		// https://www.desmos.com/calculator/ffcsaaftzz
 		last_power_generation *= (1 + max(0, (rod_mix.temperature - T0C)/1500)**1.4)*(0.75 + (amount_to_consume/gas_consumption_base)*0.25) * seconds_per_tick * 0.5
 
-		var/range_cap = CEILING(GAS_REACTION_MAXIMUM_RADIATION_PULSE_RANGE * 0.5, 1)
+		var/range_cap = ceil(GAS_REACTION_MAXIMUM_RADIATION_PULSE_RANGE * 0.5)
 		if(meltdown)
 			last_radiation_pulse = min(last_power_generation*0.002, range_cap) //Double the rads, double the fun.
 		else
@@ -64,7 +64,7 @@
 		if(our_heat_capacity > 0)
 			var/temperature_mod = last_power_generation >= max_power_generation ? 4 : 1
 			consumed_mix.assert_gas(/datum/gas/goblin)
-			consumed_mix.gases[/datum/gas/goblin][MOLES] += last_tritium_consumption*goblin_multiplier * seconds_per_tick * 0.5
+			consumed_mix.moles[/datum/gas/goblin] += last_tritium_consumption*goblin_multiplier * seconds_per_tick * 0.5
 			consumed_mix.temperature += (temperature_mod-rand())*8 + (16000/our_heat_capacity)*(overclocked ? 2 : 1)*power_efficiency*temperature_mod*0.5*(1/(vent_pressure/200))*seconds_per_tick*0.5
 			consumed_mix.temperature = clamp(consumed_mix.temperature, 5, 0xFFFFFF)
 
@@ -128,23 +128,23 @@
 			rod_mix.temperature += (rod_mix.temperature*0.02*rand() + (8000/rod_mix_heat_capacity)*(overclocked ? 2 : 1))*meltdown_multiplier //It's... it's not shutting down!
 			rod_mix.temperature = clamp(rod_mix.temperature, 5, 0xFFFFFF)
 		var/ionize_air_amount = min( (0.5 + rod_mix.temperature/2000) * meltdown_multiplier, 5) //For every 2000 kelvin. Capped at 5 tiles.
-		var/ionize_air_range = CEILING(ionize_air_amount, 1)
+		var/ionize_air_range = ceil(ionize_air_amount)
 		var/total_ion_amount = 0
 		for(var/turf/ion_turf as anything in RANGE_TURFS(ionize_air_range, turf_loc))
 			if(!prob(80)) //Atmos optimization.
 				continue
 			var/datum/gas_mixture/ion_turf_mix = ion_turf.return_air()
-			if(!ion_turf_mix || !ion_turf_mix.gases || !ion_turf_mix.gases[/datum/gas/oxygen] || !ion_turf_mix.gases[/datum/gas/oxygen][MOLES])
+			if(!ion_turf_mix || !ion_turf_mix.moles || !ion_turf_mix.moles[/datum/gas/oxygen] || !ion_turf_mix.moles[/datum/gas/oxygen])
 				continue
 			ion_turf_mix.assert_gas(/datum/gas/oxygen)
-			var/gas_to_convert = max(0, min(ionize_air_amount, ion_turf_mix.gases[/datum/gas/oxygen][MOLES] - rand(20, 30)))
+			var/gas_to_convert = max(0, min(ionize_air_amount, ion_turf_mix.moles[/datum/gas/oxygen] - rand(20, 30)))
 			if(gas_to_convert <= 0)
 				continue
 			var/datum/gas_mixture/oxygen_removed_mix = ion_turf_mix.remove_specific(/datum/gas/oxygen, ionize_air_amount)
-			if(oxygen_removed_mix && oxygen_removed_mix.gases[/datum/gas/oxygen] && oxygen_removed_mix.gases[/datum/gas/oxygen][MOLES] > 0)
-				var/ion_amount = oxygen_removed_mix.gases[/datum/gas/oxygen][MOLES] * 0.25
+			if(oxygen_removed_mix && oxygen_removed_mix.moles[/datum/gas/oxygen] > 0)
+				var/ion_amount = oxygen_removed_mix.moles[/datum/gas/oxygen] * 0.25
 				ion_turf_mix.assert_gas(/datum/gas/tritium)
-				ion_turf_mix.gases[/datum/gas/tritium][MOLES] += ion_amount
+				ion_turf_mix.moles[/datum/gas/tritium] += ion_amount
 				total_ion_amount += ion_amount
 
 		var/ionization_amount_ratio = total_ion_amount/ionize_air_amount

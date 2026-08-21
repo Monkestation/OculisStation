@@ -154,11 +154,13 @@
 /datum/reagent/medicine/cryoxadone/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
 	metabolization_rate = REAGENTS_METABOLISM * (0.00001 * (affected_mob.bodytemperature ** 2) + 0.5)
-	if(affected_mob.bodytemperature >= T0C || !HAS_TRAIT(affected_mob, TRAIT_KNOCKEDOUT))
+	if(affected_mob.bodytemperature >= T0C)
 		return
 	var/power = -0.00003 * (affected_mob.bodytemperature ** 2) + 3
+	if(IS_UNCONSCIOUS(affected_mob)) //Significantly more effective when unconscious
+		power *= 2
 	var/need_mob_update
-	need_mob_update = affected_mob.adjust_oxy_loss(-1.5 * power * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+	need_mob_update = affected_mob.adjust_oxy_loss(-1.5 * power * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
 	need_mob_update += affected_mob.adjust_brute_loss(-0.5 * power * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
 	need_mob_update += affected_mob.adjust_fire_loss(-0.5 * power * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
 	need_mob_update += affected_mob.adjust_tox_loss(-0.5 * power * metabolization_ratio * seconds_per_tick, updating_health = FALSE, forced = TRUE, required_biotype = affected_biotype) //heals TOXINLOVERs
@@ -201,7 +203,7 @@
 		power *= 2
 
 	var/need_mob_update
-	need_mob_update = affected_mob.adjust_oxy_loss(-1 * power * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+	need_mob_update = affected_mob.adjust_oxy_loss(-1 * power * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
 	need_mob_update += affected_mob.adjust_brute_loss(-0.5 * power * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
 	need_mob_update += affected_mob.adjust_fire_loss(-0.75 * power * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
 	need_mob_update += affected_mob.adjust_tox_loss(-0.5 * power * metabolization_ratio * seconds_per_tick, updating_health = FALSE, forced = TRUE, required_biotype = affected_biotype)
@@ -315,14 +317,18 @@
 	/// Add about half this much extra blood regen per second.
 	var/extra_regen = 0.25
 
-	/// Add many extra units of blood per unit of saline.
-	var/dilution_per_unit = 5
-
-	/// Doesn't dilute blood beyond this point.
-	var/dilution_cap = BLOOD_VOLUME_NORMAL
-
 	/// Only supplements blood types that use this restoration chem.
 	var/required_restoration_chem = /datum/reagent/iron
+
+/datum/reagent/medicine/salglu_solution/on_mob_add(mob/living/affected_mob, amount)
+	. = ..()
+	if(affected_mob.get_bloodtype()?.restoration_chem != required_restoration_chem)
+		return
+
+	if(affected_mob.has_status_effect(/datum/status_effect/stacking/saline_glucose_dilution))
+		return
+
+	affected_mob.apply_status_effect(/datum/status_effect/stacking/saline_glucose_dilution)
 
 /datum/reagent/medicine/salglu_solution/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
@@ -422,7 +428,7 @@
 	var/heal = -2 * healing * metabolization_ratio * seconds_per_tick
 	var/need_mob_update
 	need_mob_update = affected_mob.adjust_tox_loss(heal, updating_health = FALSE, required_biotype = affected_biotype)
-	need_mob_update += affected_mob.adjust_oxy_loss(heal, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+	need_mob_update += affected_mob.adjust_oxy_loss(heal, updating_health = FALSE, required_biotype = affected_biotype)
 	need_mob_update += affected_mob.adjust_brute_loss(heal, updating_health = FALSE, required_bodytype = affected_bodytype)
 	need_mob_update += affected_mob.adjust_fire_loss(heal, updating_health = FALSE, required_bodytype = affected_bodytype)
 	if(need_mob_update)
@@ -433,7 +439,7 @@
 	var/hurt = 3 * metabolization_ratio * seconds_per_tick
 	var/need_mob_update
 	need_mob_update = affected_mob.adjust_tox_loss(hurt, updating_health = FALSE, required_biotype = affected_biotype)
-	need_mob_update += affected_mob.adjust_oxy_loss(hurt, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+	need_mob_update += affected_mob.adjust_oxy_loss(hurt, updating_health = FALSE, required_biotype = affected_biotype)
 	need_mob_update += affected_mob.adjust_brute_loss(hurt, updating_health = FALSE, required_bodytype = affected_bodytype)
 	need_mob_update += affected_mob.adjust_fire_loss(hurt, updating_health = FALSE, required_bodytype = affected_bodytype)
 	if(need_mob_update)
@@ -585,13 +591,8 @@
 /datum/reagent/medicine/salbutamol/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
 	var/need_mob_update
-	need_mob_update = affected_mob.adjust_oxy_loss(-6 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
-	if(affected_mob.losebreath >= 4)
-		var/obj/item/organ/lungs/affected_lungs = affected_mob.get_organ_slot(ORGAN_SLOT_LUNGS)
-		var/our_respiration_type = affected_lungs ? affected_lungs.respiration_type : affected_mob.mob_respiration_type // use lungs' respiration type or mob_respiration_type if no lungs
-		if(our_respiration_type & affected_respiration_type)
-			affected_mob.losebreath -= 4 * metabolization_ratio * seconds_per_tick
-			need_mob_update = TRUE
+	need_mob_update = affected_mob.adjust_oxy_loss(-6 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
+	affected_mob.losebreath = max(0, affected_mob.losebreath - (4 * metabolization_ratio * seconds_per_tick))
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
 
@@ -995,13 +996,10 @@
 		need_mob_update = affected_mob.adjust_tox_loss(-4 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
 		need_mob_update += affected_mob.adjust_brute_loss(-4 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
 		need_mob_update += affected_mob.adjust_fire_loss(-4 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
-		need_mob_update += affected_mob.adjust_oxy_loss(-10 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+		need_mob_update += affected_mob.adjust_oxy_loss(-10 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
 		if(need_mob_update)
 			. = UPDATE_MOB_HEALTH
-	var/obj/item/organ/lungs/affected_lungs = affected_mob.get_organ_slot(ORGAN_SLOT_LUNGS)
-	var/our_respiration_type = affected_lungs ? affected_lungs.respiration_type : affected_mob.mob_respiration_type
-	if(our_respiration_type & affected_respiration_type)
-		affected_mob.losebreath = 0
+	affected_mob.losebreath = 0
 	if(SPT_PROB(10, seconds_per_tick))
 		affected_mob.set_dizzy_if_lower(10 SECONDS)
 		affected_mob.set_jitter_if_lower(10 SECONDS)
@@ -1038,16 +1036,8 @@
 		need_mob_update = affected_mob.adjust_tox_loss(heal, updating_health = FALSE, required_biotype = affected_biotype)
 		need_mob_update += affected_mob.adjust_brute_loss(heal, updating_health = FALSE, required_bodytype = affected_bodytype)
 		need_mob_update += affected_mob.adjust_fire_loss(heal, updating_health = FALSE, required_bodytype = affected_bodytype)
-		need_mob_update += affected_mob.adjust_oxy_loss(heal, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
-	if(affected_mob.losebreath >= 4)
-		var/obj/item/organ/lungs/affected_lungs = affected_mob.get_organ_slot(ORGAN_SLOT_LUNGS)
-		var/our_respiration_type = affected_lungs ? affected_lungs.respiration_type : affected_mob.mob_respiration_type
-		if(our_respiration_type & affected_respiration_type)
-			affected_mob.losebreath -= 4 * metabolization_ratio * seconds_per_tick
-			need_mob_update = TRUE
-	if(affected_mob.losebreath < 0)
-		affected_mob.losebreath = 0
-		need_mob_update = TRUE
+		need_mob_update += affected_mob.adjust_oxy_loss(heal, updating_health = FALSE, required_biotype = affected_biotype)
+	affected_mob.losebreath = max(0, affected_mob.losebreath - (4 * metabolization_ratio * seconds_per_tick))
 	need_mob_update += affected_mob.adjust_stamina_loss(-4 * metabolization_ratio * seconds_per_tick, updating_stamina = FALSE)
 	if(SPT_PROB(10, seconds_per_tick))
 		affected_mob.AdjustAllImmobility(-20)
@@ -1068,11 +1058,7 @@
 		var/need_mob_update
 		need_mob_update = affected_mob.adjust_stamina_loss(5 * metabolization_ratio, updating_stamina = FALSE)
 		need_mob_update += affected_mob.adjust_tox_loss(2 * metabolization_ratio, updating_health = FALSE, required_biotype = affected_biotype)
-		var/obj/item/organ/lungs/affected_lungs = affected_mob.get_organ_slot(ORGAN_SLOT_LUNGS)
-		var/our_respiration_type = affected_lungs ? affected_lungs.respiration_type : affected_mob.mob_respiration_type
-		if(our_respiration_type & affected_respiration_type)
-			affected_mob.losebreath++
-			need_mob_update = TRUE
+		affected_mob.losebreath++
 		if(need_mob_update)
 			return UPDATE_MOB_HEALTH
 
@@ -1260,6 +1246,7 @@
 	inverse_chem_val = 0.5
 	inverse_chem = /datum/reagent/inverse/neurine
 	added_traits = list(TRAIT_ANTICONVULSANT)
+	self_consuming = TRUE
 	///brain damage level when we first started taking the chem
 	var/initial_bdamage = 200
 
@@ -1308,7 +1295,7 @@
 	if (ismonkey(human_mob))
 		if (!HAS_TRAIT(human_mob, TRAIT_BORN_MONKEY))
 			//This is the only time mutadone should remove monkeyism
-			human_mob.dna.remove_mutation(/datum/mutation/race, list(MUTATION_SOURCE_ACTIVATED, MUTATION_SOURCE_MUTATOR))
+			human_mob.dna.remove_mutation(/datum/mutation/race, GLOB.standard_mutation_sources)
 	else if (HAS_TRAIT(human_mob, TRAIT_BORN_MONKEY))
 		human_mob.monkeyize()
 
@@ -1380,17 +1367,18 @@
 
 /datum/reagent/medicine/stimulants/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
+	var/need_mob_update
 	if(affected_mob.health < 50 && affected_mob.health > 0)
 		var/heal = -1 * metabolization_ratio * seconds_per_tick
-		var/need_mob_update
-		need_mob_update += affected_mob.adjust_oxy_loss(heal, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+		need_mob_update += affected_mob.adjust_oxy_loss(heal, updating_health = FALSE, required_biotype = affected_biotype)
 		need_mob_update += affected_mob.adjust_tox_loss(heal, updating_health = FALSE, required_biotype = affected_biotype)
 		need_mob_update += affected_mob.adjust_brute_loss(heal, updating_health = FALSE, required_bodytype = affected_bodytype)
 		need_mob_update += affected_mob.adjust_fire_loss(heal, updating_health = FALSE, required_bodytype = affected_bodytype)
-		if(need_mob_update)
-			. = UPDATE_MOB_HEALTH
+
 	affected_mob.AdjustAllImmobility(-60  * metabolization_ratio * seconds_per_tick)
-	affected_mob.adjust_stamina_loss(-12 * metabolization_ratio * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
+	need_mob_update += affected_mob.adjust_stamina_loss(-12 * metabolization_ratio * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
+	if(need_mob_update)
+		return UPDATE_MOB_HEALTH
 
 /datum/reagent/medicine/stimulants/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
@@ -1438,7 +1426,6 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 	affected_biotype = MOB_ORGANIC | MOB_MINERAL | MOB_PLANT // no healing ghosts
-	affected_respiration_type = ALL
 	var/healing = 0.75 // OCULIS ADDITION
 
 /datum/reagent/medicine/regen_jelly/expose_mob(mob/living/exposed_mob, reac_volume)
@@ -1456,7 +1443,7 @@
 	var/need_mob_update
 	need_mob_update = affected_mob.adjust_brute_loss(heal, updating_health = FALSE, required_bodytype = affected_bodytype)
 	need_mob_update += affected_mob.adjust_fire_loss(heal, updating_health = FALSE, required_bodytype = affected_bodytype)
-	need_mob_update += affected_mob.adjust_oxy_loss(heal, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+	need_mob_update += affected_mob.adjust_oxy_loss(heal, updating_health = FALSE, required_biotype = affected_biotype)
 	need_mob_update += affected_mob.adjust_tox_loss(heal, updating_health = FALSE, forced = TRUE, required_biotype = affected_biotype) //heals TOXINLOVERs
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
@@ -1504,14 +1491,14 @@
 	if(current_cycle < 25) //10u has to be processed before u get into THE FUN ZONE
 		need_mob_update = affected_mob.adjust_brute_loss(-0.5 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
 		need_mob_update += affected_mob.adjust_fire_loss(-0.5 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
-		need_mob_update += affected_mob.adjust_oxy_loss(-0.25 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+		need_mob_update += affected_mob.adjust_oxy_loss(-0.25 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
 		need_mob_update += affected_mob.adjust_tox_loss(-0.25 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
 		need_mob_update += affected_mob.adjust_stamina_loss(-1 * metabolization_ratio * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
 		need_mob_update += affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.5 * metabolization_ratio * seconds_per_tick, 150, affected_organ_flags) //This does, after all, come from ambrosia, and the most powerful ambrosia in existence, at that!
 	else
 		need_mob_update = affected_mob.adjust_brute_loss(-2.5 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype) //slow to start, but very quick healing once it gets going
 		need_mob_update += affected_mob.adjust_fire_loss(-2.5 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
-		need_mob_update += affected_mob.adjust_oxy_loss(-1.5 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+		need_mob_update += affected_mob.adjust_oxy_loss(-1.5 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
 		need_mob_update += affected_mob.adjust_tox_loss(-1.5 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
 		need_mob_update += affected_mob.adjust_stamina_loss(-4 * metabolization_ratio * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
 		need_mob_update += affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 1 * metabolization_ratio * seconds_per_tick, 150, affected_organ_flags)
@@ -1698,33 +1685,58 @@
 	/// To track overdose progress
 	var/overdose_progress = 0
 
-// IRIS EDIT - GIVES MODAFINIL A STATIC OVERDOSE UNIT
 /datum/reagent/medicine/modafinil/on_mob_life(mob/living/carbon/metabolizer, seconds_per_tick, metabolization_ratio)
 	. = ..()
-	/* if(overdosed) // We do not want any effects on OD
+	if(overdosed) // We do not want any effects on OD
 		return
-	// overdose_threshold = overdose_threshold + 5 * ((rand(-10, 10) / 10) * metabolization_ratio * seconds_per_tick) // for extra fun
-	*/
+	overdose_threshold = overdose_threshold + 5 * ((rand(-10, 10) / 10) * metabolization_ratio * seconds_per_tick) // for extra fun
 	metabolizer.AdjustAllImmobility(-25 * metabolization_ratio * seconds_per_tick)
 	metabolizer.adjust_stamina_loss(-15 * metabolization_ratio * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
 	metabolizer.set_jitter_if_lower(5 SECONDS * metabolization_ratio * seconds_per_tick)
 	metabolization_rate = 0.005 * REAGENTS_METABOLISM * rand(5, 20) // randomizes metabolism between 0.02 and 0.08 per second
 	return UPDATE_MOB_HEALTH
 
-/* /datum/reagent/medicine/modafinil/overdose_start(mob/living/affected_mob, metabolization_ratio)
+/datum/reagent/medicine/modafinil/overdose_start(mob/living/affected_mob, metabolization_ratio)
 	. = ..()
 	to_chat(affected_mob, span_userdanger("You feel awfully out of breath and jittery!"))
 	metabolization_rate = 0.025 * REAGENTS_METABOLISM // sets metabolism to 0.005 per second on overdose
-*/
 
 /datum/reagent/medicine/modafinil/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
-	affected_mob.adjust_jitter_up_to(2 SECONDS * REM * seconds_per_tick, 20 SECONDS)
-	affected_mob.adjust_stutter_up_to(2 SECONDS * REM * seconds_per_tick, 20 SECONDS)
-	affected_mob.set_dizzy_if_lower(10 SECONDS * REM * seconds_per_tick)
-	affected_mob.losebreath++
-
-// IRIS EDIT END
+	overdose_progress++
+	var/need_mob_update
+	switch(overdose_progress)
+		if(1 to 40)
+			affected_mob.adjust_jitter_up_to(40 SECONDS * metabolization_ratio * seconds_per_tick, 20 SECONDS)
+			affected_mob.adjust_stutter_up_to(40 SECONDS * metabolization_ratio * seconds_per_tick, 20 SECONDS)
+			affected_mob.set_dizzy_if_lower(200 SECONDS * metabolization_ratio * seconds_per_tick)
+			if(SPT_PROB(30, seconds_per_tick))
+				affected_mob.losebreath++
+				need_mob_update = TRUE
+		if(41 to 80)
+			need_mob_update = affected_mob.adjust_oxy_loss(2 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
+			need_mob_update += affected_mob.adjust_stamina_loss(2 * metabolization_ratio * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
+			affected_mob.adjust_jitter_up_to(40 SECONDS * metabolization_ratio * seconds_per_tick, 40 SECONDS)
+			affected_mob.adjust_stutter_up_to(40 SECONDS * metabolization_ratio * seconds_per_tick, 40 SECONDS)
+			affected_mob.set_dizzy_if_lower(400 SECONDS * metabolization_ratio * seconds_per_tick)
+			if(SPT_PROB(30, seconds_per_tick))
+				affected_mob.losebreath++
+				need_mob_update = TRUE
+			if(SPT_PROB(10, seconds_per_tick))
+				to_chat(affected_mob, span_userdanger("You have a sudden fit!"))
+				affected_mob.emote("moan")
+				affected_mob.Paralyze(20) // you should be in a bad spot at this point unless epipen has been used
+		if(81)
+			to_chat(affected_mob, span_userdanger("You feel too exhausted to continue!")) // at this point you will eventually die unless you get charcoal
+			need_mob_update = affected_mob.adjust_oxy_loss(2 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
+			need_mob_update += affected_mob.adjust_stamina_loss(2 * metabolization_ratio * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
+		if(82 to INFINITY)
+			REMOVE_TRAIT(affected_mob, TRAIT_SLEEPIMMUNE, type)
+			affected_mob.Sleeping(200 SECONDS * metabolization_ratio * seconds_per_tick)
+			need_mob_update += affected_mob.adjust_oxy_loss(30 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
+			need_mob_update += affected_mob.adjust_stamina_loss(30 * metabolization_ratio * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
+	if(need_mob_update)
+		return UPDATE_MOB_HEALTH
 
 /datum/reagent/medicine/psicodine
 	name = "Psicodine"
@@ -1827,7 +1839,7 @@
 
 /datum/reagent/medicine/granibitaluri/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
-	var/healamount = max(0.5 - round(0.01 * (affected_mob.get_brute_loss() + affected_mob.get_fire_loss()), 0.1), 0) //base of 0.5 healing per cycle and loses 0.1 healing for every 10 combined brute/burn damage you have
+	var/healamount = max(1.5 - round(0.01 * (affected_mob.get_brute_loss() + affected_mob.get_fire_loss()), 0.2), 0.5) //base of 1.5 healing per cycle and loses 0.2 healing for every 10 combined brute/burn damage you have
 	var/need_mob_update
 	need_mob_update = affected_mob.adjust_brute_loss(-1 * healamount * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
 	need_mob_update += affected_mob.adjust_fire_loss(-1 * healamount * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
@@ -1898,12 +1910,12 @@
 	// NOVA EDIT CHANGE END
 	if(SPT_PROB(7.5, seconds_per_tick))
 		affected_mob.losebreath += rand(2, 4)
-		affected_mob.adjust_oxy_loss(METABOLIZE_FREE_CONSTANT(1) * rand(1, 3) * metabolization_ratio, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+		affected_mob.adjust_oxy_loss(METABOLIZE_FREE_CONSTANT(1) * rand(1, 3) * metabolization_ratio, updating_health = FALSE, required_biotype = affected_biotype)
 		if(prob(30))
 			to_chat(affected_mob, span_danger("You can feel your blood clotting up in your veins!"))
 		else if(prob(10))
 			to_chat(affected_mob, span_userdanger("You feel like your blood has stopped moving!"))
-			affected_mob.adjust_oxy_loss(METABOLIZE_FREE_CONSTANT(0.5) * rand(3, 4) * metabolization_ratio, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+			affected_mob.adjust_oxy_loss(METABOLIZE_FREE_CONSTANT(0.5) * rand(3, 4) * metabolization_ratio, updating_health = FALSE, required_biotype = affected_biotype)
 
 		if(prob(50))
 			var/obj/item/organ/lungs/our_lungs = affected_mob.get_organ_slot(ORGAN_SLOT_LUNGS)

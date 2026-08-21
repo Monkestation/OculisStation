@@ -4,6 +4,7 @@
 /obj/machinery/computer/operating
 	name = "operating computer"
 	desc = "Monitors patient vitals and displays surgery steps. Can be loaded with surgery disks to perform experimental procedures. Automatically syncs to operating tables within its line of sight for surgical tech advancement."
+	icon_state = MAP_SWITCH("computer", "/obj/machinery/computer/crew")
 	icon_screen = "crew"
 	icon_keyboard = "med_key"
 	circuit = /obj/item/circuitboard/computer/operating
@@ -101,7 +102,7 @@
 
 /obj/machinery/computer/operating/ui_status(mob/user, datum/ui_state/state)
 	. = ..()
-	if(isliving(user))
+	if(isliving(user) && !issilicon(user))
 		. = min(., ui_check(user))
 
 /// Checks for special ui state conditions
@@ -113,7 +114,7 @@
 	if(!is_operational)
 		return UI_CLOSE
 	// if you're knocked out, ie anesthetic... definitely a no-go
-	if(user.stat >= UNCONSCIOUS || HAS_TRAIT(user, TRAIT_KNOCKEDOUT))
+	if(IS_UNCONSCIOUS(user))
 		return UI_CLOSE
 	// the patient itself should be blocked from viewing the computer
 	if(user.body_position == LYING_DOWN)
@@ -148,7 +149,7 @@
 	if(!zone_found)
 		return
 
-	var/atom/movable/screen/zone_sel/selector = user.hud_used?.zone_select
+	var/atom/movable/screen/zone_sel/selector = user.hud_used?.screen_objects[HUD_MOB_ZONE_SELECTOR]
 	selector?.set_selected_zone(zone_found, user, FALSE)
 	LAZYREMOVE(zone_on_open, WEAKREF(user))
 	if(!LAZYLEN(zone_on_open))
@@ -169,19 +170,19 @@
 	data["patient"] = list()
 	var/mob/living/patient = table.patient
 
-	switch(patient.stat)
-		if(CONSCIOUS)
-			data["patient"]["stat"] = "Conscious"
-			data["patient"]["statstate"] = "good"
-		if(SOFT_CRIT)
-			data["patient"]["stat"] = "Critical Condition"
-			data["patient"]["statstate"] = "average"
-		if(UNCONSCIOUS, HARD_CRIT)
-			data["patient"]["stat"] = "Unconscious"
-			data["patient"]["statstate"] = "average"
-		if(DEAD)
-			data["patient"]["stat"] = "Dead"
-			data["patient"]["statstate"] = "bad"
+	if(patient.stat == DEAD)
+		data["patient"]["stat"] = "Dead"
+		data["patient"]["statstate"] = "bad"
+	else if (patient.stat == HARD_CRIT || patient.stat == SOFT_CRIT)
+		data["patient"]["stat"] = "Critical"
+		data["patient"]["statstate"] = patient.stat == HARD_CRIT ? "bad" : "average"
+	else if (IS_UNCONSCIOUS(patient))
+		data["patient"]["stat"] = "Unconscious"
+		data["patient"]["statstate"] = "average"
+	else
+		data["patient"]["stat"] = "Stable"
+		data["patient"]["statstate"] = "good"
+
 	data["patient"]["health"] = patient.health
 	data["patient"]["blood_type"] = patient.get_bloodtype()?.name || "UNKNOWN"
 	data["patient"]["maxHealth"] = patient.maxHealth
@@ -257,7 +258,7 @@
 		if("change_zone")
 			if(params["new_zone"] in (GLOB.all_body_zones + GLOB.all_precise_body_zones))
 				target_zone = params["new_zone"]
-				var/atom/movable/screen/zone_sel/selector = ui.user.hud_used?.zone_select
+				var/atom/movable/screen/zone_sel/selector = ui.user.hud_used?.screen_objects[HUD_MOB_ZONE_SELECTOR]
 				selector?.set_selected_zone(params["new_zone"], ui.user, FALSE)
 			update_static_data_for_all_viewers()
 	return TRUE

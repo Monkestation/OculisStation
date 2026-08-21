@@ -35,7 +35,7 @@
 	///What is our honorific name/title combo to be displayed?
 	var/honorific_title
 
-/obj/item/card/suicide_act(mob/living/carbon/user)
+/obj/item/card/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] begins to swipe [user.p_their()] neck with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
 
@@ -68,6 +68,8 @@
 	interaction_flags_click = FORBID_TELEKINESIS_REACH
 	armor_type = /datum/armor/card_id
 	resistance_flags = FIRE_PROOF | ACID_PROOF
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
+	item_flags = parent_type::item_flags | NO_MAT_REDEMPTION // A little clemency to the people who fumble and misclick stuff, even if it's already easy enough to destroy one.
 
 	/// The name registered on the card (for example: Dr Bryan See)
 	var/registered_name = null
@@ -828,7 +830,7 @@
 /obj/item/card/id/click_alt(mob/living/user)
 	if(!alt_click_can_use_id(user))
 		return NONE
-	if (registered_account.being_dumped)
+	if (LAZYLEN(registered_account.being_dumped))
 		registered_account.bank_card_talk(span_warning("内部服务器错误"), TRUE)
 		return CLICK_ACTION_SUCCESS
 	if(registered_account.account_debt)
@@ -899,7 +901,7 @@
 			. += span_notice("Alt-Right-Click the ID to set the linked bank account.")
 
 	if(HAS_TRAIT(user, TRAIT_ID_APPRAISER))
-		. += HAS_TRAIT(src, TRAIT_JOB_FIRST_ID_CARD) ? span_boldnotice("Hmm... yes, this ID was issued from Central Command!") : span_boldnotice("This ID was created in this sector, not by Central Command.")
+		. += HAS_TRAIT(src, TRAIT_JOB_FIRST_ID_CARD) ? span_boldnotice("Hmm... yes, this ID was issued from Sectorial Command!") : span_boldnotice("This ID was created in this sector, not by Sectorial Command.") // OCULIS EDIT - Central Command > Sectorial Command
 		if(HAS_TRAIT(src, TRAIT_TASTEFULLY_THICK_ID_CARD) && (user.is_holding(src) || (IsReachableBy(user) && user.put_in_hands(src, ignore_animation = FALSE))))
 			ADD_TRAIT(src, TRAIT_NODROP, "psycho")
 			. += span_hypnophrase("Look at that subtle coloring... The tasteful thickness of it. Oh my God, it even has a watermark...")
@@ -917,7 +919,7 @@
 	if(user.is_holding(src))
 		user.dropItemToGround(src)
 	for(var/mob/living/carbon/human/viewing_mob in viewers(2, user))
-		if(viewing_mob.stat || viewing_mob == user)
+		if(IS_UNCONSCIOUS_OR_CRIT(viewing_mob) || viewing_mob == user)
 			continue
 		viewing_mob.say("Is something wrong? [first_name(user.name)]... you're sweating.", forced = "psycho")
 		break
@@ -1417,8 +1419,8 @@
 	inherent_assigned_name = "Captain"
 
 /obj/item/card/id/advanced/centcom
-	name = "\improper CentCom ID"
-	desc = "An ID straight from Central Command."
+	name = "\improper SectCom ID" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom ID"
+	desc = "An ID straight from Sectorial Command." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "An ID straight from Central Command."
 	icon_state = "card_centcom"
 	assigned_icon_state = "assigned_centcom"
 	registered_name = JOB_CENTCOM
@@ -1427,7 +1429,7 @@
 	wildcard_slots = WILDCARD_LIMIT_CENTCOM
 
 /obj/item/card/id/advanced/centcom/ert
-	name = "\improper CentCom ID"
+	name = "\improper SectCom ID" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "\improper CentCom ID"
 	desc = "An ERT ID card."
 	registered_age = null
 	registered_name = "Emergency Response Intern"
@@ -1770,7 +1772,7 @@
 	if(ishuman(interacting_with))
 		interacting_with.balloon_alert(user, "scanning ID card...")
 
-		if(!do_after(user, 2 SECONDS, interacting_with, hidden = TRUE))
+		if(!do_after(user, 2 SECONDS, interacting_with, cog_icon = null))
 			interacting_with.balloon_alert(user, "interrupted!")
 			return ITEM_INTERACT_BLOCKING
 

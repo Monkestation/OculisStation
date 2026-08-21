@@ -47,7 +47,7 @@
 /datum/tgui_say/New(client/client, id)
 	src.client = client
 	window = new(client, id)
-	winset(client, "tgui_say", "size=1,1;is-visible=0;")
+	winset(client, SKIN_TGUISAY, "size=1,1;is-visible=0;")
 	window.subscribe(src, PROC_REF(on_message))
 	window.is_browser = TRUE
 
@@ -74,7 +74,7 @@
 /datum/tgui_say/proc/load()
 	window_open = FALSE
 
-	winset(client, "tgui_say", "pos=848,500;is-visible=0;")
+	winset(client, SKIN_TGUISAY, "pos=848,500;is-visible=0;")
 
 	window.send_message("props", list(
 		"lightMode" = client.prefs?.read_preference(/datum/preference/toggle/tgui_say_light_mode),
@@ -97,7 +97,8 @@
 	if(!payload?["channel"])
 		CRASH("No channel provided to an open TGUI-Say")
 	window_open = TRUE
-	if(payload["channel"] != OOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL /* && payload["channel"] != LOOC_CHANNEL */) // NOVA EDIT CHANGE (Add LOOC_CHANNEL) // OCULIS EDIT CHANGE: remove LOOC_CHANNEL check
+	saved_text = ""
+	if(payload["channel"] != OOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL && payload["channel"] != PRAY_CHANNEL /* && payload["channel"] != LOOC_CHANNEL*/) // OCULIS EDIT, REMOVED LOOC_CHANNEL // NOVA EDIT CHANGE - ORIGINAL: if(payload["channel"] != OOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL && payload["channel"] != PRAY_CHANNEL)
 		initial_channel = payload["channel"] // OCULIS EDIT ADDITION
 		start_thinking()
 	if(!client.typing_indicators)

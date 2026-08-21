@@ -16,7 +16,6 @@
 	var/original_sprite_datum
 
 	var/drift_force = MOTH_WING_FORCE
-	var/stabilizer_force = MOTH_WING_FORCE
 
 /obj/item/organ/wings/moth/Initialize(mapload)
 	. = ..()
@@ -24,7 +23,6 @@
 		/datum/component/jetpack, \
 		TRUE, \
 		drift_force, \
-		stabilizer_force, \
 		COMSIG_ORGAN_IMPLANTED, \
 		COMSIG_ORGAN_REMOVED, \
 		null, \
@@ -96,7 +94,10 @@
 ///Moth wing bodypart overlay, including burn functionality!
 /datum/bodypart_overlay/mutant/wings/moth
 	feature_key = FEATURE_WINGS // NOVA EDIT CHANGE - Customization - ORIGINAL: feature_key = FEATURE_MOTH_WINGS
-	layers = EXTERNAL_BEHIND | EXTERNAL_FRONT
+	layers = list(
+		EXTERNAL_FRONT = BODY_FRONT_LAYER,
+		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
+	)
 	slot_blocker = HIDEMUTWINGS
 	///Accessory datum of the burn sprite
 	var/datum/sprite_accessory/burn_datum = /datum/sprite_accessory/moth_wings/burnt_off

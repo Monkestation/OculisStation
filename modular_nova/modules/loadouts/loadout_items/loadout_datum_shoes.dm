@@ -72,6 +72,10 @@
 	name = "Sport Boots"
 	item_path = /obj/item/clothing/shoes/sport_boots
 
+/datum/loadout_item/shoes/highheel_sandals
+	name = "High-Heeled Sandals"
+	item_path = /obj/item/clothing/shoes/fancy_heels/sandals
+
 /*
 *	BOOTS
 */
@@ -233,6 +237,11 @@
 /*
 *	COSTUME
 */
+
+/datum/loadout_item/shoes/roman_sandles
+	name = "Roman Sandles"
+	item_path = /obj/item/clothing/shoes/roman
+	group = "Costumes"
 
 /datum/loadout_item/shoes/christmas
 	name = "Christmas Boots"

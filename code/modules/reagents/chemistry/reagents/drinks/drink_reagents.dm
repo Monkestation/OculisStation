@@ -11,7 +11,7 @@
 /datum/reagent/consumable/orangejuice/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
 	if(affected_mob.get_oxy_loss() && SPT_PROB(16, seconds_per_tick))
-		if(affected_mob.adjust_oxy_loss(-0.5 * metabolization_ratio, FALSE, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type))
+		if(affected_mob.adjust_oxy_loss(-0.5 * metabolization_ratio, FALSE, updating_health = FALSE, required_biotype = affected_biotype))
 			return UPDATE_MOB_HEALTH
 
 /datum/reagent/consumable/tomatojuice
@@ -290,9 +290,7 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 	glass_price = DRINK_PRICE_STOCK
 	metabolized_traits = list(TRAIT_STIMULATED)
-	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
-	addiction_types = list(/datum/addiction/coffee = 5)
-	//IRIS ADDITION END
+	addiction_types = list(/datum/addiction/coffee = 75) //OCULIS EDIT: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
 
 /datum/reagent/consumable/coffee/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
@@ -396,9 +394,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 	metabolized_traits = list(TRAIT_STIMULATED)
-	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
-	addiction_types = list(/datum/addiction/coffee = 5)
-	//IRIS ADDITION END
+	addiction_types = list(/datum/addiction/coffee = 75) //OCULIS EDIT: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
 
 /datum/reagent/consumable/icecoffee/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
@@ -421,9 +417,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 	metabolized_traits = list(TRAIT_STIMULATED)
-	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
-	addiction_types = list(/datum/addiction/coffee = 5)
-	//IRIS ADDITION END
+	addiction_types = list(/datum/addiction/coffee = 75) //OCULIS EDIT: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
 
 /datum/reagent/consumable/hot_ice_coffee/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
@@ -773,9 +767,7 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 	glass_price = DRINK_PRICE_EASY
 	metabolized_traits = list(TRAIT_STIMULATED)
-	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
-	addiction_types = list(/datum/addiction/coffee = 4)
-	//IRIS ADDITION END
+	addiction_types = list(/datum/addiction/coffee = 75) //OCULIS EDIT: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
 
 /datum/reagent/consumable/soy_latte/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
@@ -804,9 +796,7 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 	glass_price = DRINK_PRICE_EASY
 	metabolized_traits = list(TRAIT_STIMULATED)
-	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
-	addiction_types = list(/datum/addiction/coffee = 4)
-	//IRIS ADDITION END
+	addiction_types = list(/datum/addiction/coffee = 75) //OCULIS EDIT: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
 
 /datum/reagent/consumable/cafe_latte/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
@@ -839,7 +829,7 @@
 	need_mob_update = affected_mob.adjust_brute_loss(-0.25 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
 	need_mob_update += affected_mob.adjust_fire_loss(-0.25 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
 	need_mob_update += affected_mob.adjust_tox_loss(-0.25 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
-	need_mob_update += affected_mob.adjust_oxy_loss(-0.25 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+	need_mob_update += affected_mob.adjust_oxy_loss(-0.25 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
 	if(affected_mob.nutrition && (affected_mob.nutrition - 2 > 0))
 		var/obj/item/organ/liver/liver = affected_mob.get_organ_slot(ORGAN_SLOT_LIVER)
 		if(!(HAS_TRAIT(liver, TRAIT_MEDICAL_METABOLISM)))
@@ -948,9 +938,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 	metabolized_traits = list(TRAIT_STIMULATED)
-	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
-	addiction_types = list(/datum/addiction/coffee = 4)
-	//IRIS ADDITION END
+	addiction_types = list(/datum/addiction/coffee = 75) //OCULIS EDIT: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
 
 /datum/reagent/consumable/pumpkin_latte/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
@@ -1237,8 +1225,8 @@
 
 /datum/reagent/consumable/mushroom_tea/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
-	if(islizard(affected_mob))
-		if(affected_mob.adjust_oxy_loss(-0.25 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type))
+	if(HAS_TRAIT(affected_mob, TRAIT_LIZARD_METABOLISM))
+		if(affected_mob.adjust_oxy_loss(-0.25 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
 			return UPDATE_MOB_HEALTH
 
 //Moth Stuff

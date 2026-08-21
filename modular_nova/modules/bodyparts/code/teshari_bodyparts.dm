@@ -8,6 +8,7 @@
 	icon_greyscale = BODYPART_ICON_TESHARI
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
 	limb_id = SPECIES_TESHARI
+	is_dimorphic = FALSE
 	brute_modifier = TESHARI_BRUTE_MODIFIER
 	burn_modifier = TESHARI_BURN_MODIFIER
 	head_flags = HEAD_EYESPRITES|HEAD_EYECOLOR|HEAD_EYEHOLES|HEAD_DEBRAIN|HEAD_HAIR
@@ -37,6 +38,7 @@
 	icon_greyscale = BODYPART_ICON_TESHARI
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
 	limb_id = SPECIES_TESHARI
+	is_dimorphic = FALSE
 	brute_modifier = TESHARI_BRUTE_MODIFIER
 	burn_modifier = TESHARI_BURN_MODIFIER
 	bodypart_traits = list(TRAIT_NO_UNDERWEAR)
@@ -111,7 +113,7 @@
 /obj/item/bodypart/leg/left/digitigrade/teshari
 	icon_greyscale = BODYPART_ICON_TESHARI
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
-	base_limb_id = SPECIES_TESHARI
+	limb_id = SPECIES_TESHARI
 	brute_modifier = TESHARI_BRUTE_MODIFIER
 	burn_modifier = TESHARI_BURN_MODIFIER
 	speed_modifier = -0.1
@@ -119,7 +121,7 @@
 /obj/item/bodypart/leg/right/digitigrade/teshari
 	icon_greyscale = BODYPART_ICON_TESHARI
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
-	base_limb_id = SPECIES_TESHARI
+	limb_id = SPECIES_TESHARI
 	brute_modifier = TESHARI_BRUTE_MODIFIER
 	burn_modifier = TESHARI_BURN_MODIFIER
 	speed_modifier = -0.1

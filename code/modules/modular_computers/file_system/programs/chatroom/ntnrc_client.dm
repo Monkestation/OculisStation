@@ -73,13 +73,17 @@
 					channel.add_client(src)
 					return TRUE
 
+			// OCULIS EDIT START
+			if(REDACTION_FILTER_CHECK(message))
+				message = SSredaction.redact_sentence(message, usr)
+			// OCULIS EDIT END
 			channel.add_message(message, username)
 			var/mob/living/user = usr
 			user.log_talk(message, LOG_CHAT, tag = "as [username] to channel [channel.title]")
 			// IRIS ADDITION BEGIN: notification on NTNRC messages (port from https://github.com/DopplerShift13/DopplerShift/pull/371)
 			var/list/datum/computer_file/program/chatclient/clients_to_ping = list()
 			clients_to_ping += channel.active_clients
-			var/pretty_message = "\[[station_time_timestamp(format = "hh:mm")]\] <i>\[[LOWER_TEXT(channel.title)]\]</i> <b>[username]</b>: [message]"
+			var/pretty_message = "\[[round_timestamp(format = "hh:mm")]\] <i>\[[LOWER_TEXT(channel.title)]\]</i> <b>[username]</b>: [message]"
 			for (var/datum/computer_file/program/chatclient/chatter in clients_to_ping)
 				if (chatter.computer)
 					chatter.computer.alert_call(src, pretty_message, sound = 'modular_iris/doppler_ports/chatroom_soul/sound/irc_chat_alert.ogg', internal = TRUE)
@@ -134,8 +138,8 @@
 		if("PRG_savelog")
 			if(!channel)
 				return
-			var/logname = stripped_input(params["log_name"])
-			if(!logname)
+			var/logname = trim(params["log_name"], MAX_MESSAGE_LEN)
+			if(!length(logname) || !filter_filename_pda(logname))
 				return
 			var/datum/computer_file/data/text/logfile = new()
 			// Now we will generate HTML-compliant file that can actually be viewed/printed.

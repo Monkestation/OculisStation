@@ -25,9 +25,9 @@
 /datum/preference/choiced/junkie/is_accessible(datum/preferences/preferences)
 	if (!..())
 		return FALSE
-	return "Junkie" in preferences.all_quirks
+	return /datum/quirk/item_quirk/addict/junkie::name in preferences.all_quirks
 
-/datum/preference/choiced/junkie/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/junkie/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return
 
 /datum/preference/choiced/smoker
@@ -45,9 +45,9 @@
 /datum/preference/choiced/smoker/is_accessible(datum/preferences/preferences)
 	if (!..())
 		return FALSE
-	return "Smoker" in preferences.all_quirks
+	return /datum/quirk/item_quirk/addict/smoker::name in preferences.all_quirks
 
-/datum/preference/choiced/smoker/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/smoker/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return
 
 /datum/preference/choiced/alcoholic
@@ -65,7 +65,7 @@
 /datum/preference/choiced/alcoholic/is_accessible(datum/preferences/preferences)
 	if (!..())
 		return FALSE
-	return "Alcoholic" in preferences.all_quirks
+	return /datum/quirk/item_quirk/addict/alcoholic::name in preferences.all_quirks
 
-/datum/preference/choiced/alcoholic/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/alcoholic/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return

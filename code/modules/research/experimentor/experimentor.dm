@@ -151,9 +151,9 @@
 		. += span_notice("Malfunction probability reduced by [span_bold("[malfunction_probability_coeff]")].")
 		. += span_notice("Cooldown interval between experiments at [span_bold("[cooldown]")] seconds.")
 
-/obj/machinery/rnd/experimentor/default_deconstruction_crowbar(obj/item/crowbar)
+/obj/machinery/rnd/experimentor/on_deconstruction(disassembled)
+	. = ..()
 	item_eject()
-	return ..()
 
 /obj/machinery/rnd/experimentor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -201,13 +201,13 @@
 		item_data["isRelic"] = istype(loaded_item, /obj/item/relic)
 
 		item_data["associatedNodes"] = list()
-		var/list/unlockable_nodes = techweb_item_unlock_check(loaded_item)
-		for(var/node_id in unlockable_nodes)
-			var/datum/techweb_node/node = SSresearch.techweb_node_by_id(node_id)
+		var/list/unlockable_nodes = SSresearch.techweb_unlock_items[loaded_item.type]
+		for(var/node_path in unlockable_nodes)
+			var/datum/techweb_node/node = SSresearch.techweb_nodes[node_path]
 
 			item_data["associatedNodes"] += list(list(
 				"name" = node.display_name,
-				"isUnlocked" = !(node_id in stored_research.hidden_nodes),
+				"isUnlocked" = !stored_research.hidden_nodes[node_path],
 			))
 
 		data["loadedItem"] = item_data
@@ -264,8 +264,10 @@
 		reaction = match_reaction(loaded_item, reaction)
 
 	if(reaction != FAIL)
-		var/picked_node_id = pick(techweb_item_unlock_check(loaded_item))
-		stored_research.unhide_node(SSresearch.techweb_node_by_id(picked_node_id))
+		var/list/boostable_nodes = SSresearch.techweb_unlock_items[loaded_item.type]
+		if(length(boostable_nodes))
+			var/picked_node_path = pick(boostable_nodes)
+			stored_research.unhide_node(SSresearch.techweb_nodes[picked_node_path])
 
 	run_experiment(reaction)
 	use_energy(750 JOULES)
@@ -362,10 +364,7 @@
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/rnd/experimentor/screwdriver_act_secondary(mob/living/user, obj/item/tool)
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, tool))
-		update_appearance()
-		return ITEM_INTERACT_SUCCESS
-	return NONE
+	return default_deconstruction_screwdriver(user, tool)
 
 /obj/machinery/rnd/experimentor/multitool_act(mob/living/user, obj/item/tool)
 	if(panel_open)

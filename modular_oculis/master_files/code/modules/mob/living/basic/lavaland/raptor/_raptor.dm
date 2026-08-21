@@ -29,5 +29,4 @@
 	. = ..()
 	if(. == SUCCESSFUL_BLOCK)
 		return
-	if(has_status_effect(/datum/status_effect/incapacitating/stun/goliath_tentacled) && prob(50))
-		return SUCCESSFUL_BLOCK
+	// Raptors can no longer be entangled by goliath tentacles

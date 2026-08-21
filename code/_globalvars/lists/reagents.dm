@@ -1,3 +1,6 @@
+///Maximum number of times to register a randomized reaction before giving up when collisions happen
+#define MAX_RANDOMIZED_REACTION_RETRY_ATTEMPTS 5
+
 //Pills & Patches
 /// List of containers the Chem Master machine can print
 GLOBAL_LIST_INIT(reagent_containers, list(
@@ -90,6 +93,13 @@ GLOBAL_LIST_INIT(stacked_metabolization_effect, init_chemical_side_effects())
 
 	return reagent_list
 
+/proc/check_recipe_for_conflicts(datum/chemical_reaction/reaction, list/reaction_lookup)
+	for(var/x in reaction.required_reagents)
+		for(var/datum/chemical_reaction/competitor in reaction_lookup[x])
+			if(chem_recipes_do_conflict(competitor, reaction))
+				return TRUE
+	return FALSE
+
 /**
  * Chemical Reactions - Initialises all /datum/chemical_reaction into a list
  * It is filtered into multiple lists within a list.
@@ -102,9 +112,6 @@ GLOBAL_LIST_INIT(stacked_metabolization_effect, init_chemical_side_effects())
 	if(GLOB.chemical_reactions_list_reactant_index)
 		return
 
-	//Prevent these reactions from appearing in lookup tables (UI code)
-	var/list/blacklist = typecacheof(/datum/chemical_reaction/randomized)
-
 	//Randomized need to go last since they need to check against conflicts with normal recipes
 	var/paths = subtypesof(/datum/chemical_reaction) - typesof(/datum/chemical_reaction/randomized) + subtypesof(/datum/chemical_reaction/randomized)
 	GLOB.chemical_reactions_list = list() //typepath to reaction list
@@ -112,25 +119,53 @@ GLOBAL_LIST_INIT(stacked_metabolization_effect, init_chemical_side_effects())
 	GLOB.chemical_reactions_results_lookup_list = list() //UI glob
 	GLOB.chemical_reactions_list_product_index = list() //product to reaction list
 
-	var/list/datum/chemical_reaction/reactions = list()
-	for(var/path in paths)
-		var/datum/chemical_reaction/reaction = new path()
-		reactions += reaction
+	//Randomized recipes
+	var/json_file = file("data/RandomizedChemRecipes.json")
+	var/json
+	if(fexists(json_file))
+		json = json_decode(file2text(json_file))
 
+	var/list/datum/chemical_reaction/reactions = list()
+	for(var/datum/chemical_reaction/reaction as anything in paths)
+		if(ispath(reaction, /datum/chemical_reaction/randomized))
+			reaction = new reaction(LAZYACCESS(json, "[reaction]"))
+		else
+			reaction = new reaction
+		if(!QDELETED(reaction)) // in case random recipe generation fail
+			reactions += reaction
 	// Ok so we're gonna do a thingTM here
 	// I want to distribute all our reactions such that each reagent id links to as few as possible
 	// I get the feeling there's a canonical way of doing this, but I don't know it
 	// So instead, we're gonna wing it
 	var/list/reagent_to_react_count = list()
 	for(var/datum/chemical_reaction/reaction as anything in reactions)
-		for(var/reagent_id in reaction.required_reagents)
-			reagent_to_react_count[reagent_id] += 1
+		if(!istype(reaction, /datum/chemical_reaction/randomized))
+			for(var/reagent_id in reaction.required_reagents)
+				reagent_to_react_count[reagent_id] += 1
 
 	var/list/reaction_lookup = GLOB.chemical_reactions_list_reactant_index
 	// Create filters based on a random reagent id in the required reagents list - this is used to speed up handle_reactions()
 	// Basically, we only really need to care about ONE reagent, at least when initially filtering, since any others are ignorable
 	// Doing this separately because it relies on the loop above, and this is easier to parse
 	for(var/datum/chemical_reaction/reaction as anything in reactions)
+		//check for collisions
+		if(istype(reaction, /datum/chemical_reaction/randomized))
+			var/datum/chemical_reaction/randomized/random_reaction = reaction
+			var/retry_attempts = 0
+			while(check_recipe_for_conflicts(random_reaction, reaction_lookup))
+				if(retry_attempts >= MAX_RANDOMIZED_REACTION_RETRY_ATTEMPTS || !random_reaction.generate_recipe())
+					reactions -= reaction
+					qdel(reaction)
+					break
+				retry_attempts++
+
+			// log results
+			if(QDELETED(reaction))
+				log_game("Couldn't regenerate [reaction] due to conflicts in [retry_attempts] attempts.")
+				continue
+			else if(retry_attempts > 0)
+				log_game("Regenerated [reaction] due to conflicts in [retry_attempts] attempts.")
+
 		var/preferred_id = null
 		for(var/reagent_id in reaction.required_reagents)
 			if(isnull(preferred_id))
@@ -174,7 +209,7 @@ GLOBAL_LIST_INIT(stacked_metabolization_effect, init_chemical_side_effects())
 		else
 			product_name = product_names[1]
 
-		if(!is_type_in_typecache(reaction.type, blacklist))
+		if(!istype(reaction, /datum/chemical_reaction/randomized))
 			//Master list of ALL reactions that is used in the UI lookup table. This is expensive to make, and we don't want to lag the server by creating it on UI request, so it's cached to send to UIs instantly.
 			GLOB.chemical_reactions_results_lookup_list += list(list(
 				"name" = product_name,
@@ -218,3 +253,5 @@ GLOBAL_LIST_INIT(stacked_metabolization_effect, init_chemical_side_effects())
 
 	for(var/datum/stacked_metabolization_effect/effect as anything in valid_subtypesof(/datum/stacked_metabolization_effect))
 		. += new effect()
+
+#undef MAX_RANDOMIZED_REACTION_RETRY_ATTEMPTS

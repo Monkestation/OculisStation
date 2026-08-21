@@ -1,5 +1,5 @@
 /obj/machinery/vending/access/command
-	name = "\improper Command Outfitting Station"
+	name = "\improper CommanDrobe"
 	desc = "A vending machine for specialised clothing for members of Command."
 	product_ads = "File paperwork in style!;It's red so you can't see the blood!;You have the right to be fashionable!;Now you can be the fashion police you always wanted to be!"
 	icon = 'modular_nova/modules/command_vendor/icons/vending.dmi'
@@ -21,13 +21,15 @@
 	access_lists[ACCESS_CAPTAIN] = list(
 		// CAPTAIN
 		/obj/item/clothing/head/hats/caphat = 1,
-		/obj/item/clothing/head/caphat/beret = 1,
+		/obj/item/clothing/head/caphat/beret/nova = 1,
 		/obj/item/clothing/head/caphat/beret/alt = 1,
 		/obj/item/clothing/head/hats/imperial/cap = 1,
+		/obj/item/clothing/head/hats/caphat/bicorne = 1,
 		/obj/item/clothing/under/rank/captain = 1,
 		/obj/item/clothing/under/rank/captain/skirt = 1,
 		/obj/item/clothing/under/rank/captain/dress = 1,
 		/obj/item/clothing/under/rank/captain/nova/kilt = 1,
+		/obj/item/clothing/under/rank/captain/royal = 1,
 		/obj/item/clothing/under/imperial/captain = 1,
 		/obj/item/clothing/under/imperialskirt/captain = 1,
 		/obj/item/clothing/head/hats/caphat/parade = 1,
@@ -42,6 +44,8 @@
 		/obj/item/storage/backpack/duffelbag/captain = 1,
 		/obj/item/storage/backpack/messenger/cap = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,
+		/obj/item/clothing/suit/armor/vest/capcarapace/tailcoat_captain = 1,
+		/obj/item/clothing/neck/tie/bunnytie/captain = 1,
 
 		// BLUESHIELD
 		/obj/item/clothing/head/beret/blueshield = 1,
@@ -85,6 +89,8 @@
 		/obj/item/storage/backpack/duffelbag/head_of_personnel = 1,
 		/obj/item/storage/backpack/messenger/head_of_personnel = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,
+		/obj/item/clothing/suit/armor/hop_tailcoat = 1,
+		/obj/item/clothing/neck/tie/bunnytie/hop = 1,
 	)
 	access_lists[ACCESS_CMO] = list(
 		/obj/item/clothing/head/beret/medical/cmo = 1,
@@ -98,6 +104,8 @@
 		/obj/item/clothing/neck/cloak/cmo = 1,
 		/obj/item/clothing/neck/mantle/cmomantle = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,
+		/obj/item/clothing/suit/toggle/labcoat/cmo/doctor_tailcoat = 1,
+		/obj/item/clothing/neck/tie/bunnytie/cmo = 1,
 	)
 	access_lists[ACCESS_RD] = list(
 		/obj/item/clothing/head/beret/science/rd = 1,
@@ -114,6 +122,8 @@
 		/obj/item/clothing/neck/mantle/rdmantle = 1,
 		/obj/item/clothing/suit/toggle/labcoat = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,
+		/obj/item/clothing/suit/toggle/labcoat/research_director/tailcoat = 1,
+		/obj/item/clothing/neck/tie/bunnytie/rd = 1,
 	)
 	access_lists[ACCESS_CE] = list(
 		/obj/item/clothing/head/beret/engi/ce = 1,
@@ -125,6 +135,8 @@
 		/obj/item/clothing/neck/cloak/ce = 1,
 		/obj/item/clothing/neck/mantle/cemantle = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,
+		/obj/item/clothing/suit/utility/fire/ce_tailcoat = 1,
+		/obj/item/clothing/neck/tie/bunnytie/ce = 1,
 	)
 	access_lists[ACCESS_HOS] = list(
 		/obj/item/clothing/under/rank/security/head_of_security/skirt = 1,
@@ -157,6 +169,7 @@
 		/obj/item/clothing/under/rank/security/head_of_security/nova/parade/female = 1,
 		/obj/item/clothing/under/rank/security/head_of_security/nova/alt = 1,
 		/obj/item/clothing/under/rank/security/head_of_security/nova/alt/skirt = 1,
+		/obj/item/clothing/suit/armor/hos_tailcoat = 1,
 	)
 	access_lists[ACCESS_QM] = list(
 		/obj/item/clothing/head/beret/cargo/qm = 1,
@@ -177,6 +190,8 @@
 		/obj/item/clothing/under/rank/cargo/qm/nova/formal = 1,
 		/obj/item/clothing/under/rank/cargo/qm/nova/formal/skirt = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,
+		/obj/item/clothing/suit/jacket/tailcoat/quartermaster = 1,
+		/obj/item/clothing/neck/tie/bunnytie/cargo = 1,
 	)
 
 	access_lists[ACCESS_CENT_GENERAL] = list( // CC Rep Shiz
@@ -184,19 +199,38 @@
 		/obj/item/clothing/head/nanotrasen_consultant/beret = 1,
 		/obj/item/clothing/head/beret/centcom_formal/nt_consultant = 1,
 		/obj/item/clothing/head/hats/imperial/nanotrasen_consultant = 1,
+		/obj/item/clothing/head/hats/centcom_cap = 1,
+		/obj/item/clothing/head/hats/centhat = 1,
+		/obj/item/clothing/head/hats/caphat/naval = 1,
+		/obj/item/clothing/head/hats/caphat/naval/fleet_admiral = 1,
+		/obj/item/clothing/head/hats/intern = 1,
 		/obj/item/clothing/under/rank/nanotrasen_consultant = 1,
 		/obj/item/clothing/under/rank/nanotrasen_consultant/skirt = 1,
 		/obj/item/clothing/under/imperial/nanotrasen_consultant = 1,
 		/obj/item/clothing/under/imperialskirt/nanotrasen_consultant = 1,
-		/obj/item/clothing/head/hats/centhat = 1,
-		/obj/item/clothing/suit/armor/centcom_formal/nt_consultant = 1,
-		/obj/item/clothing/gloves/combat/naval/nanotrasen_consultant = 1,
+		/obj/item/clothing/under/rank/centcom/nova/naval = 1,
+		/obj/item/clothing/under/rank/centcom/nova/naval/commander = 1,
+		/obj/item/clothing/under/rank/centcom/nova/naval/admiral = 1,
+		/obj/item/clothing/under/rank/centcom/nova/naval/fleet_admiral = 1,
 		/obj/item/clothing/under/rank/centcom/officer = 1,
 		/obj/item/clothing/under/rank/centcom/officer_skirt = 1,
+		/obj/item/clothing/under/rank/centcom/intern = 1,
+		/obj/item/clothing/suit/armor/centcom_formal/nt_consultant = 1,
+		/obj/item/clothing/suit/armor/vest/nanotrasen_consultant/green = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/centcom/nt_consultant = 1,
+		/obj/item/clothing/gloves/combat/naval/nanotrasen_consultant = 1,
+		/obj/item/clothing/gloves/combat/naval = 1,
+		/obj/item/clothing/gloves/combat/naval/fleet_admiral = 1,
+		/obj/item/clothing/neck/cloak/admiral = 1,
+		/obj/item/clothing/neck/cloak/fleet_admiral = 1,
+		/obj/item/clothing/neck/tie/bunnytie/centcom = 1,
+		/obj/item/clothing/suit/jacket/tailcoat/centcom = 1,
 	)
 
 	access_lists[ACCESS_COMMAND] = list(
 		/obj/item/clothing/head/hats/imperial = 5,
+		/obj/item/clothing/head/hats/caphat/naval/custom = 5,
+		/obj/item/clothing/head/hats/caphat/naval/custom/gold = 5,
 		/obj/item/clothing/under/imperial = 5,
 		/obj/item/clothing/under/imperialskirt = 5,
 	)

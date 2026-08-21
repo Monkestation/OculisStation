@@ -1,5 +1,6 @@
 //Robots
 #define issynthetic(A) (is_species(A,/datum/species/synthetic))
+#define isholosynth(A) (is_species(A,/datum/species/synthetic/holosynth))
 //Actual Species
 #define isvox(A) (is_species(A,/datum/species/vox))
 #define isvoxprimalis(A) (is_species(A,/datum/species/vox_primalis))
@@ -21,7 +22,7 @@
 #define isrogue(A) (is_species(A, /datum/species/abductor/abductorweak))
 #define iskobold(A) (is_species(A, /datum/species/monkey/kobold))
 //Antags
-#define ishorrorling(A) (istype(A, /mob/living/simple_animal/hostile/true_changeling))
+#define ishorrorling(A) (istype(A, /mob/living/basic/true_changeling))
 #define iscorticalborer(A) (istype(A, /mob/living/basic/cortical_borer))
 #define ismutant(A) (is_species(A, /datum/species/mutant))
 //Customisation bases

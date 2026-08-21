@@ -12,6 +12,31 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
+"aq" = (
+/obj/effect/turf_decal/trimline/dark_green/filled/mid_joiner{
+	dir = 4
+	},
+/obj/structure/table/reinforced/rglass,
+/obj/machinery/light/small/directional/west,
+/obj/effect/turf_decal/tile/dark_green/half{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark_green/warning{
+	dir = 1
+	},
+/obj/item/healthanalyzer/advanced{
+	pixel_y = 11;
+	pixel_x = 5
+	},
+/obj/item/stack/medical/bone_gel{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/item/stack/medical/wrap/sticky_tape/surgical{
+	pixel_x = 6
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/med)
 "aA" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
@@ -48,31 +73,6 @@
 "aM" = (
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med/pharm)
-"aR" = (
-/obj/effect/turf_decal/trimline/dark_green/filled/mid_joiner{
-	dir = 4
-	},
-/obj/structure/table/reinforced/rglass,
-/obj/machinery/light/small/directional/west,
-/obj/effect/turf_decal/tile/dark_green/half{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/dark_green/warning{
-	dir = 1
-	},
-/obj/item/healthanalyzer/advanced{
-	pixel_y = 11;
-	pixel_x = 5
-	},
-/obj/item/stack/medical/bone_gel{
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/obj/item/stack/medical/wrap/sticky_tape/surgical{
-	pixel_x = 6
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/med)
 "aS" = (
 /obj/effect/turf_decal/siding/thinplating/corner,
 /obj/machinery/atmospherics/components/trinary/mixer/airmix/flipped{
@@ -477,6 +477,9 @@
 	dir = 4
 	},
 /area/ruin/interdyne_planetary_base/serv/kitchen)
+"dY" = (
+/turf/open/floor/wood/parquet,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "ea" = (
 /obj/structure/table/reinforced,
 /obj/item/defibrillator/loaded{
@@ -2342,6 +2345,15 @@
 	dir = 8
 	},
 /area/ruin/interdyne_planetary_base/main)
+"tM" = (
+/obj/structure/rack/gunrack,
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/computer/bountypad,
+/obj/item/circuitboard/machine/bountypad,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/main/vault)
 "tN" = (
 /obj/machinery/door/airlock/external{
 	name = "External Access"
@@ -3221,26 +3233,6 @@
 "By" = (
 /turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo/deck)
-"Bz" = (
-/obj/machinery/camera/autoname/directional/east{
-	network = list("intd13")
-	},
-/obj/structure/table/reinforced/rglass,
-/obj/item/blood_filter{
-	pixel_y = 9
-	},
-/obj/item/stack/medical/bone_gel{
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/obj/item/stack/medical/wrap/sticky_tape/surgical{
-	pixel_x = 6
-	},
-/obj/effect/turf_decal/trimline/dark_green/filled/line{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/small,
-/area/ruin/interdyne_planetary_base/med)
 "BA" = (
 /turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/morgue)
@@ -3611,6 +3603,26 @@
 "DZ" = (
 /turf/closed/wall/mineral/titanium/shielded,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
+"Ec" = (
+/obj/machinery/camera/autoname/directional/east{
+	network = list("intd13")
+	},
+/obj/structure/table/reinforced/rglass,
+/obj/item/blood_filter{
+	pixel_y = 9
+	},
+/obj/item/stack/medical/bone_gel{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/item/stack/medical/wrap/sticky_tape/surgical{
+	pixel_x = 6
+	},
+/obj/effect/turf_decal/trimline/dark_green/filled/line{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/small,
+/area/ruin/interdyne_planetary_base/med)
 "Ed" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
@@ -3830,15 +3842,6 @@
 	},
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/cargo)
-"Fq" = (
-/obj/structure/closet/xenoarch,
-/obj/effect/turf_decal/tile/dark_green/half{
-	dir = 1
-	},
-/obj/machinery/light_switch/directional/north,
-/obj/item/xenoarch/handheld_recoverer,
-/turf/open/floor/iron/dark/smooth_large,
-/area/ruin/interdyne_planetary_base/science/xeno)
 "Fv" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
@@ -4622,15 +4625,6 @@
 	dir = 1
 	},
 /area/ruin/interdyne_planetary_base/main)
-"Mp" = (
-/obj/structure/rack/gunrack,
-/obj/item/circuitboard/machine/powerator/interdyne,
-/obj/item/circuitboard/machine/powerator/interdyne,
-/obj/item/circuitboard/machine/powerator/interdyne,
-/obj/item/circuitboard/computer/bountypad,
-/obj/item/circuitboard/machine/bountypad,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/interdyne_planetary_base/main/vault)
 "Mv" = (
 /turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/pharm)
@@ -4961,6 +4955,14 @@
 	dir = 1
 	},
 /area/ruin/interdyne_planetary_base/cargo)
+"Pg" = (
+/obj/structure/closet/xenoarch,
+/obj/effect/turf_decal/tile/dark_green/half{
+	dir = 1
+	},
+/obj/machinery/light_switch/directional/north,
+/turf/open/floor/iron/dark/smooth_large,
+/area/ruin/interdyne_planetary_base/science/xeno)
 "Pi" = (
 /obj/structure/curtain,
 /obj/structure/drain,
@@ -6249,9 +6251,6 @@
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base)
-"YE" = (
-/turf/open/floor/wood/parquet,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "YG" = (
 /obj/machinery/door/airlock/external{
 	name = "External Access"
@@ -6917,7 +6916,7 @@ lp
 xN
 zi
 je
-Fq
+Pg
 vB
 vB
 vB
@@ -7110,7 +7109,7 @@ fm
 Pn
 Pn
 wM
-aR
+aq
 eL
 Pn
 Ku
@@ -7519,7 +7518,7 @@ fm
 fm
 Pn
 Yr
-Bz
+Ec
 WR
 bz
 Ap
@@ -7808,7 +7807,7 @@ Iu
 eo
 ta
 LY
-Mp
+tM
 Qd
 pR
 pn
@@ -8197,7 +8196,7 @@ GT
 FX
 bn
 vY
-YE
+dY
 zR
 id
 OJ

@@ -1,9 +1,21 @@
-/area/ruin/space/ancientstation/alpha/hall
-	name = "Alpha Station Main Corridor"
+/area/ruin/space/ancientstation/alpha/hallnorth
+	name = "Alpha Station Northern Tube"
 	icon_state = "oldstation"
 
-/area/ruin/space/ancientstation/alpha/medical
-	name = "Alpha Station Medbay"
+/area/ruin/space/ancientstation/alpha/hallsouth
+	name = "Alpha Station Southern Tube"
+	icon_state = "oldstation"
+
+/area/ruin/space/ancientstation/alpha/arcade
+	name = "Alpha Station Arcade"
+	icon_state = "oldstation"
+
+/area/ruin/space/ancientstation/alpha/dorms
+	name = "Alpha Station Barracks"
+	icon_state = "oldstation"
+
+/area/ruin/space/ancientstation/alpha/shuttle
+	name = "Alpha Station Shuttle Dock"
 	icon_state = "oldstation"
 
 /area/ruin/space/ancientstation/beta/enghall

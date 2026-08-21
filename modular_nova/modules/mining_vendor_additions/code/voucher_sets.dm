@@ -11,3 +11,6 @@
 		/obj/item/crusher_conversion_kit,
 		/obj/item/extinguisher/mini,
 	)
+
+/datum/voucher_set/mining_suit
+	blackbox_key = "suit_voucher_redeemed"

@@ -1,24 +1,5 @@
 GLOBAL_LIST_INIT(crafting_category_food, list(
 	CAT_FOOD,
-	CAT_BREAD,
-	CAT_BURGER,
-	CAT_CAKE,
-	CAT_EGG,
-	CAT_LIZARD,
-	CAT_MEAT,
-	CAT_SEAFOOD,
-	CAT_MARTIAN,
-	CAT_MISCFOOD,
-	CAT_MEXICAN,
-	CAT_MOTH,
-	CAT_PASTRY,
-	CAT_PIE,
-	CAT_PIZZA,
-	CAT_SALAD,
-	CAT_SANDWICH,
-	CAT_SOUP,
-	CAT_SPAGHETTI,
-	CAT_ICE,
 	CAT_DRINK,
 ))
 
@@ -41,7 +22,6 @@ GLOBAL_LIST_INIT(crafting_category, list(
 	CAT_ENTERTAINMENT,
 	CAT_TOOLS,
 	CAT_CULT,
-	// iris edit, defined in modular_iris/modules/magic_quirk/
-	CAT_MAGIC,
-	// iris edit end
+	CAT_CONSTRUCTION,
+	CAT_MAGIC, // OCULIS EDIT ADDITION - Defined in modular_iris/modules/magic_quirk
 ))

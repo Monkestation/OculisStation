@@ -26,6 +26,16 @@
 		shipped_volume = required_volume
 	return TRUE
 
+/datum/bounty/reagent/contribution_amount(obj/shipped)
+	return shipped.reagents.get_reagent_amount(wanted_reagent.type)
+
+/datum/bounty/reagent/get_total()
+	return shipped_volume
+
+/datum/bounty/reagent/get_max()
+	return required_volume
+
+
 /datum/bounty/reagent/simple_drink
 	name = "Simple Drink"
 	reward = CARGO_CRATE_VALUE * 3
@@ -92,7 +102,7 @@
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
-	description = "CentCom is thirsty! Send a shipment of [name] to CentCom to quench the company's thirst."
+	description = "SectCom is thirsty! Send a shipment of [name] to CentCom to quench the company's thirst." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "CentCom is thirsty! Send a shipment of [name] to CentCom to quench the company's thirst."
 	reward += rand(0, 2) * 500
 
 /datum/bounty/reagent/complex_drink
@@ -133,7 +143,7 @@
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
-	description = "CentCom is offering a reward for talented mixologists. Ship a container of [name] to claim the prize."
+	description = "SectCom is offering a reward for talented mixologists. Ship a container of [name] to claim the prize." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "CentCom is offering a reward for talented mixologists. Ship a container of [name] to claim the prize."
 	reward += rand(0, 4) * 500
 
 /datum/bounty/reagent/chemical_simple
@@ -171,7 +181,7 @@
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
-	description = "CentCom is in desperate need of the chemical [name]. Ship a container of it to be rewarded."
+	description = "SectCom is in desperate need of the chemical [name]. Ship a container of it to be rewarded." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "CentCom is in desperate need of the chemical [name]. Ship a container of it to be rewarded."
 	reward += rand(0, 4) * 500 //4000 to 6000 credits
 
 /datum/bounty/reagent/chemical_complex
@@ -203,7 +213,7 @@
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
-	description = "CentCom is paying premium for the chemical [name]. Ship a container of it to be rewarded."
+	description = "SectCom is paying premium for the chemical [name]. Ship a container of it to be rewarded." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "CentCom is paying premium for the chemical [name]. Ship a container of it to be rewarded."
 	reward += rand(0, 5) * 750 //6000 to 9750 credits
 
 /datum/bounty/pill
@@ -263,5 +273,5 @@
 	name = "[wanted_reagent.name] pills"
 	required_ammount += rand(1,60)
 	wanted_vol += rand(1,20)
-	description = "CentCom requires [required_ammount] of [name] containing at least [wanted_vol] each. Ship a container of it to be rewarded."
+	description = "SectCom requires [required_ammount] of [name] containing at least [wanted_vol] each. Ship a container of it to be rewarded." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "CentCom requires [required_ammount] of [name] containing at least [wanted_vol] each. Ship a container of it to be rewarded."
 	reward += rand(1, 5) * (CARGO_CRATE_VALUE * 6)

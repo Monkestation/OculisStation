@@ -116,7 +116,7 @@ GLOBAL_LIST_INIT(nova_cloth_recipes, list(
 	new/datum/stack_recipe("towel", /obj/item/towel, 2, category = CAT_CLOTHING),
 	new/datum/stack_recipe("eyepatch wrap", /obj/item/clothing/glasses/eyepatch/wrap, 2, category = CAT_CLOTHING),
 	new/datum/stack_recipe("eyepatch", /obj/item/clothing/glasses/eyepatch, 2, category = CAT_CLOTHING),
-	new/datum/stack_recipe("xenoarch bag", /obj/item/storage/bag/xenoarch, 4, category = CAT_CONTAINERS),
+	new/datum/stack_recipe("xenoarch bag", /obj/item/storage/bag/xenoarch, 4, crafting_flags = CRAFT_SKIP_MATERIALS_PARITY, category = CAT_CONTAINERS),
 	new/datum/stack_recipe("saddlebags", /obj/item/storage/backpack/saddlebags, 5, category = CAT_CONTAINERS),
 ))
 
@@ -131,7 +131,7 @@ GLOBAL_LIST_INIT(nova_leather_recipes, list(
 ))
 
 GLOBAL_LIST_INIT(nova_leather_belt_recipes, list(
-	new/datum/stack_recipe("xenoarch belt", /obj/item/storage/belt/utility/xenoarch, 4, category = CAT_CONTAINERS),
+	new/datum/stack_recipe("xenoarch belt", /obj/item/storage/belt/utility/xenoarch, 4, crafting_flags = CRAFT_SKIP_MATERIALS_PARITY, category = CAT_CONTAINERS),
 	new/datum/stack_recipe("medical bandolier", /obj/item/storage/belt/medbandolier, 5, category = CAT_CONTAINERS),
 	new/datum/stack_recipe("gear harness", /obj/item/clothing/under/misc/nova/gear_harness, 6, category = CAT_CLOTHING),
 	new/datum/stack_recipe("ammo pouch", /obj/item/storage/pouch/ammo, 4, category = CAT_CONTAINERS),
@@ -150,12 +150,22 @@ GLOBAL_LIST_INIT(nova_leather_belt_recipes, list(
 // Titanium
 
 GLOBAL_LIST_INIT(nova_titanium_recipes, list(
-	new/datum/stack_recipe("spaceship plating", /obj/item/stack/sheet/spaceship, 1, time = 5, category = CAT_MISC),
+	new/datum/stack_recipe("spaceship plating", /obj/item/stack/sheet/spaceship, 1, 1, max_res_amount = 50, category = CAT_MISC),
 ))
 
 /obj/item/stack/sheet/mineral/titanium/get_main_recipes()
 	. = ..()
 	. += GLOB.nova_titanium_recipes
+
+// Titanium Glass
+
+GLOBAL_LIST_INIT(nova_titaniumglass_recipes, list(
+	new/datum/stack_recipe("spaceship glass", /obj/item/stack/sheet/spaceshipglass, 1, 1, max_res_amount = 50, category = CAT_MISC),
+))
+
+/obj/item/stack/sheet/titaniumglass/get_main_recipes()
+	. = ..()
+	. += GLOB.nova_titaniumglass_recipes
 
 // Snow
 

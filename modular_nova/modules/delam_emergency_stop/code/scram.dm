@@ -180,7 +180,7 @@
 	// fight power with power
 	addtimer(CALLBACK(src, PROC_REF(put_on_a_show)), EVAC_WARNING_TIMER)
 	playsound(src, 'sound/announcer/alarm/bloblarm.ogg', 100, FALSE, MACHINE_RUMBLE_SOUND_RANGE, ignore_walls = TRUE, use_reverb = TRUE, falloff_distance = MACHINE_SOUND_FALLOFF_DISTANCE)
-	power_fail((EVAC_WARNING_TIMER / 10) + POWER_CUT_MAX_DURATION_SECONDS, (EVAC_WARNING_TIMER / 10) + POWER_CUT_MAX_DURATION_SECONDS)
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(power_fail), (EVAC_WARNING_TIMER / 10) + POWER_CUT_MAX_DURATION_SECONDS, (EVAC_WARNING_TIMER / 10) + POWER_CUT_MAX_DURATION_SECONDS)
 
 /// Stop the delamination. Let the fireworks begin
 /obj/machinery/atmospherics/components/unary/delam_scram/proc/put_on_a_show()
@@ -254,7 +254,7 @@
 	. = ..()
 	var/datum/gas_mixture/delam_juice = new
 	delam_juice.add_gases(/datum/gas/freon)
-	delam_juice.gases[/datum/gas/freon][MOLES] = SM_COOLING_MIXTURE_MOLES
+	delam_juice.moles[/datum/gas/freon] = SM_COOLING_MIXTURE_MOLES
 	delam_juice.temperature = SM_COOLING_MIXTURE_TEMP
 	airs[1] = delam_juice
 
@@ -412,14 +412,14 @@
 	. = ..()
 	ui_interact(user)
 
-/obj/item/paper/paperslip/corporate/fluff/delam_procedure/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/paper/paperslip/corporate/fluff/delam_procedure/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	// Enable picking paper up by clicking on it with the clipboard or folder
-	if(istype(attacking_item, /obj/item/clipboard) || istype(attacking_item, /obj/item/folder) || istype(attacking_item, /obj/item/paper_bin))
-		attacking_item.attackby(src, user)
-		return
+	if(istype(tool, /obj/item/clipboard) || istype(tool, /obj/item/folder) || istype(tool, /obj/item/paper_bin))
+		tool.base_item_interaction(user, src)
+		return ITEM_INTERACT_SUCCESS
 
 	ui_interact(user)
-	return ..()
+	return NONE
 
 /obj/item/paper/paperslip/corporate/fluff/delam_procedure/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

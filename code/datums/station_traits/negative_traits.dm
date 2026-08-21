@@ -115,7 +115,7 @@
 	weight = 5
 	cost = STATION_TRAIT_COST_LOW //Most of maints is literal trash anyway
 	show_in_report = TRUE
-	report_message = "Our workers cleaned out most of the junk in the maintenace areas."
+	report_message = "Our workers cleaned out most of the junk in the maintenance areas."
 	blacklist = list(/datum/station_trait/filled_maint)
 	trait_to_give = STATION_TRAIT_EMPTY_MAINT
 
@@ -229,7 +229,7 @@
 
 /datum/station_trait/revenge_of_pun_pun/proc/arm_monke()
 	SIGNAL_HANDLER
-	var/mob/living/carbon/human/species/monkey/punpun/punpun = GLOB.the_one_and_only_punpun
+	var/mob/living/punpun = GLOB.the_one_and_only_punpun
 	if(!punpun)
 		return
 	var/weapon_type = pick_weight(weapon_types)

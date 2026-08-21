@@ -44,8 +44,9 @@
 	else
 		set_hud_image_inactive(DNR_HUD)
 
-/mob/living/carbon/human/examine(mob/user)
-	. = ..()
+/// Examine lines warning HUD users that we're not to be revived. Called by /mob/living/carbon/human/examine().
+/mob/living/carbon/human/proc/get_dnr_examine(mob/user)
+	. = list()
 
 	if(stat != DEAD && HAS_TRAIT(src, TRAIT_DNR) && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))
 		. += "\n[span_boldwarning("This individual is unable to be revived, and may be permanently dead if allowed to die!")]"
@@ -73,11 +74,11 @@
 	pcooldown = world.time + pcooldown_time
 	var/mob/living/carbon/human/user = quirk_holder
 	if(user && istype(user))
-		if(user.stat == CONSCIOUS)
+		if(!IS_UNCONSCIOUS_OR_CRIT(user))
 			if(prob(20))
 				user.emote("laugh")
-				addtimer(CALLBACK(user, /mob/proc/emote, "laugh"), 5 SECONDS)
-				addtimer(CALLBACK(user, /mob/proc/emote, "laugh"), 10 SECONDS)
+				addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, emote), "laugh"), 5 SECONDS)
+				addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, emote), "laugh"), 10 SECONDS)
 
 /obj/item/paper/joker
 	name = "disability card"
@@ -198,14 +199,13 @@
 	mob_trait = TRAIT_FELINE
 	icon = FA_ICON_CAT
 
-//IRIS EDIT: Added HATED_BY_DOGS and CATLIKE_GRACE to bring this quirk in-line with the other feline-based species
+//IRIS EDIT: Added HATED_BY_DOGS to bring this quirk in-line with the other feline-based species
 /datum/quirk/feline_aspect/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/tongue/cat/new_tongue = new(get_turf(human_holder))
 
 	ADD_TRAIT(human_holder, TRAIT_WATER_HATER, QUIRK_TRAIT)
 	ADD_TRAIT(human_holder, TRAIT_HATED_BY_DOGS, SPECIES_TRAIT)
-	ADD_TRAIT(human_holder, TRAIT_CATLIKE_GRACE, SPECIES_TRAIT)
 
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -216,7 +216,6 @@
 
 	REMOVE_TRAIT(human_holder, TRAIT_WATER_HATER, QUIRK_TRAIT)
 	REMOVE_TRAIT(human_holder, TRAIT_HATED_BY_DOGS, SPECIES_TRAIT)
-	REMOVE_TRAIT(human_holder, TRAIT_CATLIKE_GRACE, SPECIES_TRAIT)
 
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -335,6 +334,7 @@ GLOBAL_LIST_INIT(possible_snout_sensitivities, list(
 #undef SEVERITY_STUN
 #undef SEVERITY_SNEEZE
 #undef SEVERITY_KNOCKDOWN
+#undef SEVERITY_BLEP
 
 /datum/quirk/overweight
 	name = "Overweight"

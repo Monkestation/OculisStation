@@ -136,9 +136,14 @@
 
 	// Fully clot one wound per use, priotizing the most oozy one.
 	var/datum/wound/chosen_wound
+	//OCULIS EDIT START
+	var/obj/item/organ/heart/hemophage/tumor = carbon_owner.get_organ_slot(ORGAN_SLOT_HEART)
+	if(!tumor || !istype(tumor))
+		return
 	for(var/datum/wound/iter_wound as anything in carbon_owner.all_wounds)
-		if(!(iter_wound.limb.bodytype & BODYTYPE_ORGANIC)) // no healing for robotic limbs
+		if(!(iter_wound.limb.bodytype & tumor.affected_bodytypes)) // no healing for incompatible limbs
 			continue
+	//OCULIS EDIT END
 		if(iter_wound.blood_flow && (iter_wound.blood_flow > chosen_wound?.blood_flow))
 			chosen_wound = iter_wound
 

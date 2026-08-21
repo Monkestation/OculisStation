@@ -187,9 +187,6 @@ SUBSYSTEM_DEF(shuttle)
 
 		supply_packs[pack.id] = pack
 
-	for (var/obj/machinery/computer/cargo/express/console as anything in express_consoles)
-		console.packin_up(TRUE)
-
 	setup_shuttles(stationary_docking_ports)
 	has_purchase_shuttle_access = init_has_purchase_shuttle_access()
 
@@ -335,7 +332,7 @@ SUBSYSTEM_DEF(shuttle)
 
 	switch(emergency.mode)
 		if(SHUTTLE_RECALL)
-			return "The emergency shuttle may not be called while returning to CentCom."
+			return "The emergency shuttle may not be called while returning to Castor Station." // OCULIS EDIT - CentCom > Castor Station
 		if(SHUTTLE_CALL)
 			return "The emergency shuttle is already on its way."
 		if(SHUTTLE_DOCKED)
@@ -345,7 +342,7 @@ SUBSYSTEM_DEF(shuttle)
 		if(SHUTTLE_ESCAPE)
 			return "The emergency shuttle is moving away to a safe distance."
 		if(SHUTTLE_STRANDED)
-			return "The emergency shuttle has been disabled by CentCom."
+			return "The emergency shuttle has been disabled by Sectorial Command." // OCULIS EDIT - CentCom > Sectorial Command
 
 	return TRUE
 
@@ -429,7 +426,7 @@ SUBSYSTEM_DEF(shuttle)
 	if(emergency.timer != old_timer)
 		return FALSE
 
-	if(!cancel_evac(user))
+	if(!cancel_evac(user, hide_origin = TRUE))
 		return FALSE //feedback handled in cancel_evac()
 
 	if(!admiral_message)
@@ -457,14 +454,17 @@ SUBSYSTEM_DEF(shuttle)
 	src.emergency = src.backup_shuttle
 
 /// Actually work on canceling the emergency shuttle recall. Returns TRUE if successful, FALSE otherwise.
-/datum/controller/subsystem/shuttle/proc/cancel_evac(mob/user)
+/// If hide_origin is TRUE, the recaller's area will not be revealed in announcements (used by admin tools)
+/datum/controller/subsystem/shuttle/proc/cancel_evac(mob/user, hide_origin = FALSE)
 	if(!can_recall(user))
 		return FALSE
 
-	emergency.cancel(get_area(user))
+	var/area/signal_origin = hide_origin ? null : get_area(user)
+	emergency.cancel(signal_origin)
 	log_shuttle("[key_name(user)] has recalled the shuttle.")
 	message_admins("[ADMIN_LOOKUPFLW(user)] has recalled the shuttle.")
-	deadchat_broadcast(" has recalled the shuttle from [span_name("[get_area_name(user, TRUE)]")].", span_name("[user.real_name]"), user, message_type = DEADCHAT_ANNOUNCEMENT)
+	if(!hide_origin)
+		deadchat_broadcast(" has recalled the shuttle from [span_name("[get_area_name(user, TRUE)]")].", span_name("[user.real_name]"), user, message_type = DEADCHAT_ANNOUNCEMENT)
 	return TRUE
 
 /// Can this user recall the emergency shuttle? Returns TRUE if they can, otherwise returns FALSE.
@@ -549,7 +549,7 @@ SUBSYSTEM_DEF(shuttle)
 			var/mob/living/silicon/ai/AI = thing
 			if(AI.deployed_shell && !AI.deployed_shell.client)
 				continue
-			if(AI.stat || !AI.client)
+			if(IS_UNCONSCIOUS_OR_CRIT(AI) || !AI.client)
 				continue
 		else if(istype(thing, /obj/machinery/computer/communications))
 			var/obj/machinery/computer/communications/C = thing

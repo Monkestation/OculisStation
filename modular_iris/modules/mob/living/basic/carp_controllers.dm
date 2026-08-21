@@ -7,10 +7,4 @@
 		BB_CARPS_FEAR_FISHERMAN = TRUE,
 	)
 	ai_traits = PASSIVE_AI_FLAGS
-	planning_subtrees = list(
-		/datum/ai_planning_subtree/pet_planning,
-		/datum/ai_planning_subtree/find_nearest_thing_which_attacked_me_to_flee,
-		/datum/ai_planning_subtree/flee_target,
-		/datum/ai_planning_subtree/flee_target/from_fisherman,
-		/datum/ai_planning_subtree/basic_melee_attack_subtree/no_fisherman,
-	)
+	behavior_tree_json = "code/modules/mob/living/basic/space_fauna/carp/carp_pet.bt.json"

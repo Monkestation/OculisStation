@@ -140,6 +140,14 @@
 	icon_state = "cult_sharpener_used"
 	drop_sound = SFX_STONE_DROP
 	pickup_sound = SFX_STONE_PICKUP
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
+
+// Doesn't mess with the spawners and replaces it anywhere if its ever spawns outside of heartkin maps
+/obj/item/hearthkin_ship_fragment_inactive/xenoarch/Initialize(mapload)
+	. = ..()
+	if(!length(SSmapping.levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND)))
+		new /obj/item/stack/sheet/mineral/runite{amount = 5}(get_turf(src))
+		return INITIALIZE_HINT_QDEL
 
 /obj/item/hearthkin_ship_fragment_active
 	name = "fragment of the Stjarndrakkr"
@@ -171,12 +179,6 @@
 	playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE)
 	qdel(src)
 	return ITEM_INTERACT_SUCCESS
-
-/// Adds a rare xenoarch mat to global list "tech_reward" if the map has the prerequisit for the icecat camp to spawn
-/datum/controller/subsystem/mapping/Initialize()
-	. = ..()
-	if(length(SSmapping.levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND)))
-		GLOB.tech_reward[/obj/item/hearthkin_ship_fragment_inactive] = 1
 
 ///Adds an icon for the hammer in the crafting menu.
 /datum/asset/spritesheet_batched/crafting/create_spritesheets()

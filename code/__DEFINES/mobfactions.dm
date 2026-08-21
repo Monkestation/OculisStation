@@ -91,6 +91,9 @@
 #define FACTION_RAPTOR "raptor"
 ///holy faction, for anything part of the church
 #define FACTION_HOLY "holy"
+/// Creatures that are spawned on the escape shuttle
+#define FACTION_SHUTTLE "shuttle"
+
 // Antagonist factions
 
 /// Cultists and their constructs
@@ -102,6 +105,10 @@
 
 /// Generates a mob faction for the passed owner, used by stabilized pink extracts
 #define FACTION_PINK_EXTRACT(owner) "pink_[owner]"
+
+// OCULIS EDIT ADDITION START
+#define FACTION_VIOLET "violet"
+// OCULIS EDIT ADDITION END
 
 /**
  * SET_FACTION_AND_ALLIES_FROM(destination, source)

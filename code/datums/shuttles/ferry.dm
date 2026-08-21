@@ -1,11 +1,12 @@
 /datum/map_template/shuttle/ferry
 	port_id = "ferry"
+	prefix = "_maps/shuttles/ferry/"
 	name = "Base Shuttle Template (Ferry)"
 
 /datum/map_template/shuttle/ferry/base
 	suffix = "base"
 	name = "transport ferry"
-	description = "Standard issue Box/Metastation CentCom ferry."
+	description = "Standard issue Box/Metastation SectCom ferry." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Standard issue Box/Metastation CentCom ferry."
 
 /datum/map_template/shuttle/ferry/meat
 	suffix = "meat"
@@ -32,7 +33,7 @@
 /datum/map_template/shuttle/ferry/kilo
 	suffix = "kilo"
 	name = "kilo transport ferry"
-	description = "Standard issue CentCom Ferry for Kilo pattern stations. Includes additional equipment and rechargers."
+	description = "Standard issue SectCom Ferry for Kilo pattern stations. Includes additional equipment and rechargers." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Standard issue CentCom Ferry for Kilo pattern stations. Includes additional equipment and rechargers."
 
 /datum/map_template/shuttle/ferry/northstar
 	suffix = "northstar"

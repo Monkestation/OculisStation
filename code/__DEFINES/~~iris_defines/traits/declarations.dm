@@ -42,9 +42,6 @@
 ///Mob isn't burnt when injecting/ingesting sulfuric acid
 #define TRAIT_ACIDBLOOD "acid_blood"
 
-/// Gives us medium night vision, same as thermal but without seeing through walls
-#define TRAIT_MEDIUM_NIGHT_VISION "medium_night_vision"
-
 //// The trait for undersized quirk
 #define TRAIT_UNDERSIZED "undersized"
 
@@ -61,6 +58,3 @@
 
 /// Allows the user to instantly reload.
 #define TRAIT_INSTANT_RELOAD "instant_reload"
-
-//// The trait for Holosynths
-#define TRAIT_HOLOSYNTH "holosynthetic"

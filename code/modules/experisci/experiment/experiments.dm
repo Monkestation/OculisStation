@@ -198,7 +198,7 @@
 
 /datum/experiment/scanning/random/plants/traits
 	name = "Unique Biomatter Mutation Sample"
-	description = "We here at CentCom are on the look out for rare and exotic plants with unique properties to brag about to our shareholders. We're looking for a sample with a very specific genes currently."
+	description = "We here at SectCom are on the look out for rare and exotic plants with unique properties to brag about to our shareholders. We're looking for a sample with a very specific genes currently." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "We here at CentCom are on the look out for rare and exotic plants with unique properties to brag about to our shareholders. We're looking for a sample with a very specific genes currently."
 	performance_hint = "The wide varities of plants on station each carry various traits, some unique to them. Look for plants that may mutate into what we're looking for."
 	total_requirement = 3
 	possible_plant_genes = list(/datum/plant_gene/trait/squash, /datum/plant_gene/trait/cell_charge, /datum/plant_gene/trait/glow/shadow, /datum/plant_gene/trait/teleport, /datum/plant_gene/trait/brewing, /datum/plant_gene/trait/juicing, /datum/plant_gene/trait/eyes, /datum/plant_gene/trait/sticky)
@@ -458,9 +458,7 @@
 	. = ..()
 	if (!.)
 		return
-	if (isandroid(check))
-		return TRUE
-	if (length(check.organs) < 6 || length(check.get_missing_limbs()) > 1)
+	if (length(check.get_missing_limbs()) > 1)
 		return FALSE
 
 	var/static/list/augmented_organ_slots = list(
@@ -471,11 +469,23 @@
 		ORGAN_SLOT_LIVER,
 		ORGAN_SLOT_STOMACH,
 	)
+
+	// some species don't need a stomach, lungs, heart or liver. This is the case for androids, which are fully augged humies with a few extra quirks.
+	var/organs_left_to_check = length(augmented_organ_slots)
+	for(var/skip_organ_trait in list(TRAIT_NOHUNGER, TRAIT_NOBREATH, TRAIT_NOBLOOD, TRAIT_LIVERLESS_METABOLISM))
+		if(HAS_TRAIT(check, skip_organ_trait))
+			organs_left_to_check--
+
 	for (var/obj/item/organ/organ as anything in check.organs)
 		if (!(organ.slot in augmented_organ_slots))
 			continue
 		if (!IS_ROBOTIC_ORGAN(organ))
 			return FALSE
+		organs_left_to_check--
+
+	if(organs_left_to_check > 0) //we're missing some organs like ears, eyes, liver etc.
+		return FALSE
+
 	for (var/obj/item/bodypart/bodypart as anything in check.get_bodyparts())
 		if (!IS_ROBOTIC_LIMB(bodypart))
 			return FALSE

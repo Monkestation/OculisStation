@@ -20,10 +20,11 @@
 	uniform.set_sensor_mode(SENSOR_OFF)
 
 /obj/structure/mannequin/operative_barracks/wildcard
+	abstract_type = /obj/structure/mannequin/operative_barracks/wildcard
 
 /obj/structure/mannequin/operative_barracks/wildcard/Initialize(mapload)
 	/// If we are anything but the abstract type, it implies we already generated and are ready for a normal initialization
-	if(type != /obj/structure/mannequin/operative_barracks/wildcard)
+	if(type != abstract_type)
 		return ..()
 	/// Build a list of all wildcard subtypes and pick one to load
 	var/wildcard_mannequins = list()
@@ -230,7 +231,7 @@
 	)
 
 /obj/structure/mannequin/operative_barracks/wildcard/intern
-	name = "centcom intern mannequin"
+	name = "SectCom intern mannequin" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "centcom intern mannequin"
 	starting_items = list(
 		/obj/item/clothing/glasses/sunglasses/robohand,
 		/obj/item/clothing/under/rank/centcom/officer,

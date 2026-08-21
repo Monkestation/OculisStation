@@ -5,7 +5,6 @@
 /datum/design/board/traffic
 	name = "Computer Design (Traffic Console)"
 	desc = "Allows for the construction of Traffic Control Console."
-	id = "s_traffic"
 	build_path = /obj/item/circuitboard/computer/comm_traffic
 	category = list(
 		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_TELECOMMS
@@ -63,7 +62,7 @@
 /obj/machinery/computer/telecomms/traffic/proc/create_log(entry)
 	if(!user_name)
 		CRASH("[type] tried to create a log with no user_name!")
-	access_log += "\[[time_stamp()]\] [user_name] [entry]"
+	access_log += "\[[server_timestamp()]\] [user_name] [entry]"
 
 /obj/machinery/computer/telecomms/traffic/ui_interact(mob/user, datum/tgui/ui)
 	if(is_banned_from(user.ckey, JOB_TELECOMMS_SPECIALIST))
@@ -116,7 +115,7 @@
 		var/message = "[key_name_admin(usr)] has completelly cleared the NTSL console of code and re-compiled as an admin, this should only be done in severe rule infractions."
 		message_admins(message)
 		logger.Log(LOG_NTSL, "[key_name(src)] [message] [loc_name(src)]")
-		access_log += "\[[time_stamp()]\] ERR !NTSL REMOTELLY CLEARED BY NANOTRASEN STAFF!"
+		access_log += "\[[server_timestamp()]\] ERR !NTSL REMOTELLY CLEARED BY NANOTRASEN STAFF!"
 		return TRUE
 	if(.)
 		return

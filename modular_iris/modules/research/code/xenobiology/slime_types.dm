@@ -1,7 +1,7 @@
 // Turns the slime into a unique variant, if available
 /mob/living/basic/slime/proc/unique_mutate(needed_color = SLIME_TYPE_GREY, datum/slime_type/unique/unique_type, obj/item/item = null)
 	unique_type = possible_slime_types[unique_type]
-	if(slime_type.colour == needed_color && life_stage == SLIME_LIFE_STAGE_ADULT && !unique_type.obtained && stat == CONSCIOUS)
+	if(slime_type.colour == needed_color && life_stage == SLIME_LIFE_STAGE_ADULT && !unique_type.obtained && stat == STABLE)
 		if(item)
 			item.forceMove(src)
 		unique_type.obtained = TRUE

@@ -13,13 +13,13 @@
 	inherent_biotypes = MOB_ORGANIC | MOB_HUMANOID
 	mutantlungs = /obj/item/organ/lungs/nitrogen/vox
 	mutantbrain = /obj/item/organ/brain/cybernetic/cortical/vox //reparented vox brain
-	breathid = "n2"
+	meat = /obj/item/food/meat/slab/chicken/human
 
 	mutanttongue = /obj/item/organ/tongue/vox
 	payday_modifier = 1.0
 	outfit_important_for_life = /datum/outfit/vox
 	species_language_holder = /datum/language_holder/vox
-	exotic_bloodtype = BLOOD_TYPE_VOX //IRIS EDIT
+	exotic_bloodtype = /datum/blood_type/vox //IRIS EDIT
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 
 	// Vox are cold resistant, but also heat sensitive

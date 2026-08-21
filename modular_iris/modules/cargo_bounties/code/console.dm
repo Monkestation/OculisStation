@@ -6,7 +6,6 @@
 /datum/design/board/bounty
 	name = "Computer Design (Bounty Console)"
 	desc = "Allows for the construction of circuit boards used to build a Bounty Console."
-	id = "cargo_bounty"
 	build_path = /obj/item/circuitboard/computer/bounty
 	category = list("Computer Boards")
 	departmental_flags = DEPARTMENT_BITFLAG_CARGO
@@ -25,7 +24,7 @@
 	var/printer_ready = 0 //cooldown var
 	var/static/datum/bank_account/cargocash
 
-/obj/machinery/computer/bounty/Initialize()
+/obj/machinery/computer/bounty/Initialize(mapload)
 	. = ..()
 	printer_ready = world.time + PRINTER_TIMEOUT
 	cargocash = SSeconomy.get_dep_account(ACCOUNT_CAR)

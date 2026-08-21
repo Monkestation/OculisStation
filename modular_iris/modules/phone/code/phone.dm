@@ -349,7 +349,7 @@ GLOBAL_LIST_EMPTY_TYPED(phones, /datum/component/phone)
 	if(!call_log)
 		call_log = list()
 
-	call_log.Insert(1, "[station_time_timestamp()] - [entry_text]")
+	call_log.Insert(1, "[round_timestamp()] - [entry_text]")
 
 	// Keep log size reasonable for performance
 	if(length(call_log) > 15) // Reduced from 20 to 15 for better performance

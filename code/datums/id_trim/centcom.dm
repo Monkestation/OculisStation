@@ -39,14 +39,14 @@
 /// Trim for Centcom Interns.
 /datum/id_trim/centcom/intern
 	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_WEAPONS)
-	assignment = "CentCom Intern"
+	assignment = "SectCom Intern" // OCULIS EDIT, SectCommening 2, ORIGINAL: assignment = "CentCom Intern"
 	big_pointer = FALSE
 	honorifics = list("Intern")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
 /// Trim for Centcom Head Interns. Different assignment, common station access added on.
 /datum/id_trim/centcom/intern/head
-	assignment = "CentCom Head Intern"
+	assignment = "SectCom Head Intern" // OCULIS EDIT, SectCommening 2, ORIGINAL: assignment = "CentCom Head Intern"
 	big_pointer = TRUE
 	honorifics = list("Head Intern")
 	honorific_positions = HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE

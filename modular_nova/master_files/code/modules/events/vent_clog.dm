@@ -9,6 +9,10 @@
 		/mob/living/basic/snail,
 	//	Nova additions:
 		/mob/living/basic/pet/chinchilla,
+		/mob/living/basic/pet/cat/clown,
+		/mob/living/basic/pet/cat/fennec,
+		/mob/living/basic/pet/cat/mime,
+		/mob/living/basic/mouse/clown,
 	)
 	return pick(mob_list)
 
@@ -22,6 +26,8 @@
 	//	Nova additions:
 		/mob/living/basic/bee/toxin,
 		/mob/living/basic/carp,
+		/mob/living/basic/pet/dog/pitbull/hungry,
+		/mob/living/basic/syndimouse,
 	)
 	return pick(mob_list)
 
@@ -32,10 +38,10 @@
 	/*	/mob/living/basic/carp, demoted */
 	/*	/mob/living/basic/cockroach/glockroach, removed because enough with the cockroaches, also a gun... rly? */
 	//	Nova additions:
-		/mob/living/simple_animal/hostile/cazador,
-		/mob/living/simple_animal/hostile/scorpion,
-		/mob/living/simple_animal/hostile/plantmutant,
-		/mob/living/simple_animal/hostile/bigcrab,
+		/mob/living/basic/cazador,
+		/mob/living/basic/scorpion,
+		/mob/living/basic/plantmutant,
+		/mob/living/basic/bigcrab,
 	)
 	return pick(mob_list)
 
@@ -54,5 +60,7 @@
 		/mob/living/basic/cockroach/bloodroach,
 		/mob/living/basic/zombie/cheesezombie,
 		/mob/living/basic/spider/giant/badnana_spider,
+		/mob/living/basic/pet/cat/tiger,
+		/mob/living/basic/pet/dog/pitbull,
 	)
 	return pick(mob_list)

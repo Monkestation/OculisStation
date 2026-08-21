@@ -35,19 +35,15 @@
 	light_on = TRUE
 
 /datum/ai_controller/basic_controller/poppy
+	behavior_tree_json = "modular_nova/master_files/code/modules/mob/living/pets/poppy.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 	)
 
 	ai_traits = STOP_MOVING_WHEN_PULLED
 	ai_movement = /datum/ai_movement/basic_avoidance
-	idle_behavior = /datum/idle_behavior/idle_random_walk
 
-	planning_subtrees = list(
-		/datum/ai_planning_subtree/random_speech/poppy,
-	)
-
-/datum/ai_planning_subtree/random_speech/poppy
+/datum/bt_node/ai_behavior/random_speech/poppy
 	speak = list("Hiss!", "HISS!", "Hissss?")
 	emote_hear = list("hisses.")
 	emote_see = list("runs in a circle.", "shakes.")
@@ -75,7 +71,7 @@
 		var/list/sm_chamber = get_area_turfs(/area/station/engineering/supermatter)
 		if(src.loc in sm_chamber)
 			safety_inspection = FALSE
-			priority_announce("This is a generated message due to an automated signal regarding the safety standards of the engineering department onboard [station_name()]. Due to the station engineers failing to meet the standard set by Central Command, each of them are now at risk of being forcefully enrolled in a re-evaluation program at later notice...", "Concerning the results of a safety inspection", type = "Priority")
+			priority_announce("This is a generated message due to an automated signal regarding the safety standards of the engineering department onboard [station_name()]. Due to the station engineers failing to meet the standard set by Sectorial Command, each of them are now at risk of being forcefully enrolled in a re-evaluation program at later notice...", "Concerning the results of a safety inspection", type = "Priority") // OCULIS EDIT, SectCommening 2, ORIGINAL: priority_announce("This is a generated message due to an automated signal regarding the safety standards of the engineering department onboard [station_name()]. Due to the station engineers failing to meet the standard set by Central Command, each of them are now at risk of being forcefully enrolled in a re-evaluation program at later notice...", "Concerning the results of a safety inspection", type = "Priority")
 			// It's just flavor, no tangible punishment
 	return ..()
 

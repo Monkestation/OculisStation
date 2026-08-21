@@ -6,7 +6,7 @@
 	health = 20
 	maxHealth = 20
 	max_stamina = BASIC_MOB_STAMINA_MATCH_HEALTH
-	gender = PLURAL
+	gender = PLURAL // Plural means we randomize by default.
 	living_flags = MOVES_ON_ITS_OWN
 	status_flags = CANPUSH | CANSTUN
 	fire_stack_decay_rate = -5 // Reasonably fast as NPCs will not usually actively extinguish themselves
@@ -85,6 +85,9 @@
 	///We only try to show a gibbing animation if this exists.
 	var/icon_gib = null
 
+	/// If we randomize our gender when its default is set to plural
+	var/randomize_gender = TRUE
+
 	///If the mob can be spawned with a gold slime core. HOSTILE_SPAWN are spawned with plasma, FRIENDLY_SPAWN are spawned with blood.
 	var/gold_core_spawnable = NO_SPAWN
 	///Sentience type, for slime potions. SHOULD BE AN ELEMENT BUT I DONT CARE ABOUT IT FOR NOW
@@ -107,7 +110,7 @@
 /mob/living/basic/Initialize(mapload)
 	. = ..()
 
-	if(gender == PLURAL)
+	if((gender == PLURAL) && randomize_gender)
 		gender = pick(MALE,FEMALE)
 
 	if(!real_name)
@@ -232,21 +235,22 @@
 	. += span_deadsay("Upon closer examination, [p_they()] appear[p_s()] to be [HAS_MIND_TRAIT(user, TRAIT_NAIVE) ? "asleep" : "dead"].")
 
 /mob/living/basic/proc/melee_attack(atom/target, list/modifiers, ignore_cooldown = FALSE)
-	if(!early_melee_attack(target, modifiers, ignore_cooldown))
+	var/early_melee_result = early_melee_attack(target, modifiers, ignore_cooldown)
+	if(early_melee_result) //Truthy value means we want to end the chain
+		if(!ignore_cooldown && early_melee_result == BASIC_MOB_END_ATTACK_CHAIN_COOLDOWN)
+			changeNext_move(melee_attack_cooldown)
 		return FALSE
 	var/result = target.attack_basic_mob(src, modifiers)
 	SEND_SIGNAL(src, COMSIG_HOSTILE_POST_ATTACKINGTARGET, target, result)
-	if(!ignore_cooldown)
-		changeNext_move(melee_attack_cooldown) // Set it again because objects like to fuck with it in attack_basic_mob
+	if(result && !ignore_cooldown) //Only set cooldown if the attack achieved something, which is the case when the value is true-ey. This could definitely be done better but is probably easier once living/simple is gone and we no longer use attack_animal.
+		changeNext_move(melee_attack_cooldown)
 	return result
 
 /mob/living/basic/proc/early_melee_attack(atom/target, list/modifiers, ignore_cooldown = FALSE)
 	face_atom(target)
-	if(!ignore_cooldown)
-		changeNext_move(melee_attack_cooldown) // Set cooldown early in case it is cancelled
 	if(SEND_SIGNAL(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, target, Adjacent(target), modifiers) & COMPONENT_HOSTILE_NO_ATTACK)
-		return FALSE //but more importantly return before attack_animal called
-	return TRUE
+		return BASIC_MOB_END_ATTACK_CHAIN //but more importantly return before attack_animal called
+	return BASIC_MOB_CONTINUE_ATTACK_CHAIN
 
 /mob/living/basic/resolve_unarmed_attack(atom/attack_target, list/modifiers)
 	melee_attack(attack_target, modifiers)
@@ -293,11 +297,6 @@
 		return
 	return relaydrive(user, direction)
 
-/mob/living/basic/get_status_tab_items()
-	. = ..()
-	. += "Health: [round((health / maxHealth) * 100)]%"
-	. += "Combat Mode: [combat_mode ? "On" : "Off"]"
-
 /mob/living/basic/compare_sentience_type(compare_type)
 	return sentience_type == compare_type
 
@@ -311,17 +310,6 @@
 	. = ..()
 	if (.)
 		update_held_items()
-
-/mob/living/basic/update_held_items()
-	. = ..()
-	if(isnull(client) || isnull(hud_used) || hud_used.hud_version == HUD_STYLE_NOHUD)
-		return
-	var/turf/our_turf = get_turf(src)
-	for(var/obj/item/held in held_items)
-		var/index = get_held_index_of_item(held)
-		SET_PLANE(held, ABOVE_HUD_PLANE, our_turf)
-		held.screen_loc = ui_hand_position(index)
-		client.screen |= held
 
 /mob/living/basic/get_body_temp_heat_damage_limit()
 	return maximum_survivable_temperature

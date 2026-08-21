@@ -26,17 +26,17 @@
 		/datum/reagent/carbon,
 		/datum/reagent/consumable/flour,
 		/datum/reagent/space_cleaner,
-		/datum/reagent/carpet/royal/blue,
-		/datum/reagent/carpet/orange,
+		// /datum/reagent/carpet/royal/blue, // OCULIS EDIT
+		// /datum/reagent/carpet/orange, // OCULIS EDIT
 		/datum/reagent/consumable/nutriment,
 		/datum/reagent/consumable/condensedcapsaicin,
 		/datum/reagent/drug/mushroomhallucinogen,
 		/datum/reagent/lube,
 		/datum/reagent/cryptobiolin,
 		/datum/reagent/blood,
-		/datum/reagent/medicine/c2/multiver,
+		// /datum/reagent/medicine/c2/multiver, // OCULIS EDIT
 		/datum/reagent/water/holywater,
-		/datum/reagent/consumable/ethanol,
+		// /datum/reagent/consumable/ethanol, // OCULIS EDIT
 		/datum/reagent/consumable/hot_coco,
 		/datum/reagent/consumable/yoghurt,
 		/datum/reagent/consumable/tinlux,
@@ -44,12 +44,12 @@
 		/datum/reagent/bluespace,
 		/datum/reagent/pax,
 		/datum/reagent/consumable/laughter,
-		/datum/reagent/concentrated_barbers_aid,
-		/datum/reagent/baldium,
+		// /datum/reagent/concentrated_barbers_aid, // OCULIS EDIT
+		// /datum/reagent/baldium, // OCULIS EDIT
 		/datum/reagent/colorful_reagent,
 		/datum/reagent/consumable/salt,
 		/datum/reagent/consumable/ethanol/beer,
-		/datum/reagent/hair_dye,
+		// /datum/reagent/hair_dye, // OCULIS EDIT
 		/datum/reagent/consumable/sugar,
 		/datum/reagent/glitter/random,
 		/datum/reagent/gravitum,

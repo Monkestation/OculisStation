@@ -1,26 +1,7 @@
-#define AMMO_MATS_SHOTGUN list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 4) // not quite as thick as a half-sheet
-
-#define AMMO_MATS_SHOTGUN_FLECH list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2,)
-
-#define AMMO_MATS_SHOTGUN_HIVE list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 1,\
-									/datum/material/silver = SMALL_MATERIAL_AMOUNT * 1,)
-
-#define AMMO_MATS_SHOTGUN_TIDE list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 1,\
-									/datum/material/gold = SMALL_MATERIAL_AMOUNT * 1,)
-
-#define AMMO_MATS_SHOTGUN_PLASMA list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 2,)
-
-#define AMMO_MATS_SHOTGUN_PENDART list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3,\
-									/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 1,)
-
 /obj/item/ammo_casing/shotgun
 	icon = 'modular_nova/modules/shotgunrebalance/icons/shotshells.dmi'
 	desc = "A 12 gauge iron slug."
-	custom_materials = AMMO_MATS_SHOTGUN
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/projectile/bullet/shotgun_slug
 	// tg stats at time of writing: 25 damage, 30 AP, 0 wound bonus, 15 exposed wound bonus
@@ -61,13 +42,14 @@
 /obj/item/ammo_casing/shotgun/beanbag
 	harmful = FALSE
 	ammo_categories = AMMO_CLASS_NONE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/ammo_casing/shotgun/incendiary
 	desc = "A 12 gauge shotgun slug coated with incendiary material.\
 		<br><br>\
 		<i>INCENDIARY: Sets targets aflame. Leaves a flaming trail when shot.</i>"
 	ammo_categories = AMMO_CLASS_NICHE
-	custom_materials = AMMO_MATS_SHOTGUN_PLASMA
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/ammo_casing/shotgun/incendiary/no_trail
 	desc = "A 12 gauge shotgun slug coated with incendiary material.\
@@ -88,11 +70,9 @@
 		<br><br>\
 		<i>METEOR: Fires a meteor-like projectile that knocks back movable objects like people and airlocks.</i>"
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6.45, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 4)
 
 /obj/item/ammo_casing/shotgun/pulseslug
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.51, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.12)
 
 /obj/item/ammo_casing/shotgun/frag12
 	name = "FRAG-12 slug"
@@ -141,6 +121,7 @@
 	variance = 27
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 
 /obj/projectile/bullet/pellet/shotgun_rubbershot
 	stamina = 10
@@ -163,7 +144,7 @@
 	ammo_categories = AMMO_CLASS_SUPER // i mean with exotic tech you get to print this for free anyway
 	// Points-cost is gone, this may need additional balance.
 	// Why didn't these already use flechette materials though??
-	custom_materials = AMMO_MATS_SHOTGUN_FLECH
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 2)
 
 /obj/projectile/bullet/pellet/flechette
 	// tg stats at time of writing: 2 damage, 8 pellets, 30 AP, -0.2 damage falloff 1.2 speed (base projectiles at 1.25), 5 wound bonus, 5 exposed wound bonus
@@ -184,7 +165,6 @@
 
 /obj/item/ammo_casing/shotgun/ion
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.41, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.07)
 
 /obj/item/ammo_casing/shotgun/scatterlaser
 	ammo_categories = AMMO_CLASS_NICHE // it's techy okay.
@@ -195,6 +175,7 @@
 
 /obj/item/ammo_casing/shotgun/dart
 	ammo_categories = AMMO_CLASS_NICHE_LTL // technically.
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/ammo_casing/shotgun/dart/piercing
 	name = "piercing shotgun dart"
@@ -323,6 +304,33 @@
 	custom_materials = AMMO_MATS_SHOTGUN_TIDE
 	ammo_categories = AMMO_CLASS_NICHE_LTL
 
+/obj/item/ammo_casing/shotgun/frangible
+	name = "frangible slug"
+	desc = "A weak anti material shell intended for dislodging airlock, breaking down barricades and structures. Not effective against people."
+	icon_state = "breacher"
+	projectile_type = /obj/projectile/bullet/frangible_slug
+	custom_materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 4, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2)
+
+/obj/projectile/bullet/frangible_slug
+	name = "frangible slug"
+	damage = 15 //I'd kill you if you manage to kill someone with this shit
+	wound_bonus = 30
+	exposed_wound_bonus = 30
+	demolition_mod = 2
+
+/obj/projectile/bullet/frangible_slug/on_hit(atom/target, blocked = 0, pierce_hit)
+	. = ..()
+
+	var/static/list/valid_targets_typecache = typecacheof(list(
+		/obj/structure/window,
+		/obj/machinery/door/airlock,
+		/obj/structure/grille,
+		/obj/structure/door_assembly,
+		/obj/machinery/door/window
+	))
+	if(is_type_in_typecache(target, valid_targets_typecache))
+		demolition_mod = 50
+
 /obj/item/ammo_casing/shotgun/hunter
 	name = "hunter slug shell"
 	desc = "A 12 gauge slug shell that fires specially designed slugs that deal extra damage to local fauna."
@@ -341,7 +349,7 @@
 /obj/projectile/bullet/shotgun_slug/hunter/on_hit(atom/target, blocked, pierce_hit)
 	if(ismineralturf(target))
 		var/turf/closed/mineral/mineral_turf = target
-		mineral_turf.gets_drilled(firer, FALSE)
+		mineral_turf.gets_drilled(firer)
 		if(range > 0)
 			return BULLET_ACT_FORCE_PIERCE
 		return ..()
@@ -351,10 +359,6 @@
 	if(target_mob.mob_biotypes & biotype_we_look_for || istype(target_mob, /mob/living/simple_animal/hostile/megafauna))
 		damage *= biotype_damage_multiplier
 	return ..()
-
-/obj/projectile/bullet/shotgun_slug/hunter/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = 5)
 
 /obj/item/ammo_casing/shotgun/honkshot
 	name = "confetti shell"

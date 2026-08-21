@@ -60,7 +60,7 @@
 #define CIV_JOB_SEC 4
 #define CIV_JOB_DRINK 5
 #define CIV_JOB_CHEM 6
-#define CIV_JOB_VIRO 7
+#define CIV_JOB_MED_VIRO 7
 #define CIV_JOB_SCI 8
 #define CIV_JOB_ENG 9
 #define CIV_JOB_MINE 10
@@ -68,7 +68,8 @@
 #define CIV_JOB_GROW 12
 #define CIV_JOB_ATMOS 13
 #define CIV_JOB_BITRUN 14
-#define CIV_JOB_RANDOM 24 // NOVA EDIT CHANGE - ORIGINAL: CIV_JOB_RANDOM 15
+#define CIV_JOB_RANDOM 26 // NOVA EDIT CHANGE - ORIGINAL: CIV_JOB_RANDOM 15
+#define CIV_JOB_VIRO 25 // NOVA EDIT ADDITION - We still have viro
 
 #define MAXIMUM_BOUNTY_JOBS 24 // NOVA EDIT CHANGE - ORIGINAL: #define MAXIMUM_BOUNTY_JOBS 14 //Should be equal to the highest numbered non-random job above.
 
@@ -83,6 +84,8 @@
 #define MARKET_TREND_STABLE 0
 
 #define MARKET_EVENT_PROBABILITY 8 //Probability of a market event firing, in percent. Fires once per material, every stock market tick.
+/// How much of the total value of a bounty cube does the player receive when the cube is exported?
+#define BOUNTY_CUT_STANDARD 0.3
 
 // Fair warning that these defines at present are not used in all tgui, static descriptions, or any varible names or comments
 /// The symbol for the default type of money used in the code.
@@ -98,3 +101,7 @@
 
 #define MONEY_MINING_SYMBOL "mp"
 #define MONEY_BITRUNNING_SYMBOL "np"
+
+//Mood event from minor slot events like winning/losing a few bits.
+#define SLOTS_MOOD_CATEGORY "slots"
+
