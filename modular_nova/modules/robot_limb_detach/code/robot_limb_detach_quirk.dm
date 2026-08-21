@@ -48,7 +48,9 @@
 
 	var/list/robot_parts = list()
 	for (var/obj/item/bodypart/possible_part as anything in cast_on.bodyparts)
-		if ((possible_part.bodytype & BODYTYPE_ROBOTIC) && !(possible_part.body_zone in exclusions)) //only robot limbs and only if they're not crucial to our like, ongoing life, you know?
+	//OCULIS EDIT START - Adds a check for !(possible_part.bodypart_flags & BODYPART_UNREMOVABLE) that for some reason did not exist before.
+		if ((possible_part.bodytype & BODYTYPE_ROBOTIC) && !(possible_part.bodypart_flags & BODYPART_UNREMOVABLE) && !(possible_part.body_zone in exclusions)) //only robot limbs and only if they're not crucial to our like, ongoing life, you know?
+	//OCULIS EDIT END
 			robot_parts += possible_part
 
 	if (!length(robot_parts))
