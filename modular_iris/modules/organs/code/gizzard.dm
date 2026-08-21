@@ -9,6 +9,7 @@
 	organ_flags = ORGAN_ORGANIC | ORGAN_EDIBLE | ORGAN_VIRGIN
 	use_mob_sprite_as_obj_sprite = FALSE
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/gizzard
+	food_reagents = /obj/item/organ::food_reagents //OCULIS EDIT ADDITION - You only get nutriment from eating roundstart wings, as opposed to growing REAL wings.
 
 /obj/item/organ/wings/functional/gizzard/get_action_path()
 	return /datum/action/innate/flight/gizzard
@@ -39,3 +40,8 @@
 	var/obj/item/organ/wings/functional/gizzard/gizzard = human.get_organ_slot(ORGAN_SLOT_GIZZARD)
 	if(gizzard?.can_fly())
 		gizzard.toggle_flight(human)
+
+//OCULIS EDIT ADDITION START - You do not get flight potion from grinding roundstart wings.
+/obj/item/organ/wings/functional/gizzard/grind_results()
+	return null
+//OCULIS EDIT ADDITION END
