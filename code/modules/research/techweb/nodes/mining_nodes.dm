@@ -54,18 +54,18 @@
 	id = TECHWEB_NODE_LOW_PRESSURE_EXCAVATION
 	display_name = "Low-Pressure Excavation"
 	description = "Research of Proto-Kinetic Accelerators (PKAs), pneumatic guns renowned for their exceptional performance in low-pressure environments."
-	prerequisite_nodes = list(/datum/techweb_node/mining, /datum/techweb_node/gas_compression)
-	unlocked_designs = list(
-		/datum/design/damage_mod,
-		/datum/design/range_mod,
-		/datum/design/cooldown_mod,
-		/datum/design/trigger_guard_mod,
-		/datum/design/hyperaccelerator,
-		/datum/design/damage_mod/borg,
-		/datum/design/range_mod/borg,
-		/datum/design/cooldown_mod/borg,
-		/datum/design/hyperaccelerator/borg,
-		/datum/design/anomaly_mod, //OCULIS EDIT ADDITION - ANOMALY_KITS
+	prereq_ids = list(TECHWEB_NODE_MINING, TECHWEB_NODE_GAS_COMPRESSION)
+	design_ids = list(
+		"damagemod",
+		"rangemod",
+		"cooldownmod",
+		"triggermod",
+		"hypermod",
+		"borg_upgrade_damagemod",
+		"borg_upgrade_rangemod",
+		"borg_upgrade_cooldownmod",
+		"borg_upgrade_hypermod",
+		"anomalymod", //OCULIS EDIT ADDITION - ANOMALY_KITS
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SUPPLY)
