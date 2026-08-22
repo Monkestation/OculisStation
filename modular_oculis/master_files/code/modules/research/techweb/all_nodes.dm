@@ -1,5 +1,5 @@
 /datum/techweb_node/xenobiology/New()
-	design_ids += list(
-		"limbdesign_arachnid",
+	unlocked_designs += list(
+		/datum/design/limb_disk/arachnid,
 	)
 	return ..()
