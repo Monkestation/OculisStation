@@ -527,6 +527,28 @@
 	// And we check the real state rather than reported_state
 	if(LIMB_HAS_ANY_SURGERY_STATE(src, ALL_SURGERY_SKIN_STATES))
 		/* // OCULIS EDIT REMOVAL START
+		if(HAS_SURGERY_STATE(reported_state, SURGERY_VESSELS_UNCLAMPED))
+			surgery_message += "blood vessels are unclamped and bleeding"
+		if(HAS_SURGERY_STATE(reported_state, SURGERY_VESSELS_CLAMPED))
+			surgery_message += "blood vessels are clamped shut"
+		if(HAS_SURGERY_STATE(reported_state, SURGERY_ORGANS_CUT))
+			surgery_message += "organs have been incised"
+		if(HAS_SURGERY_STATE(reported_state, SURGERY_BONE_SAWED))
+			surgery_message += "bones have been sawed apart"
+		if(HAS_SURGERY_STATE(reported_state, SURGERY_BONE_DRILLED))
+			surgery_message += "bones have been drilled through"
+		*/ // OCULIS EDIT REMOVAL END
+		// OCULIS EDIT ADDITION START
+		if(bodytype & (BODYTYPE_ROBOTIC|BODYTYPE_SYNTHETIC))
+			if(HAS_SURGERY_STATE(reported_state, SURGERY_SKIN_CUT))
+				surgery_message += "shell is unscrewed"
+			if(HAS_SURGERY_STATE(reported_state, SURGERY_SKIN_OPEN|SURGERY_VESSELS_CLAMPED))
+				surgery_message += "hatch is opened"
+			if(HAS_SURGERY_STATE(reported_state, SURGERY_ORGANS_CUT))
+				surgery_message += "electronics have been prepared"
+			if(HAS_SURGERY_STATE(reported_state, SURGERY_BONE_SAWED))
+				surgery_message += "endoskeleton has been unwrenched"
+		else
 			if(HAS_SURGERY_STATE(reported_state, SURGERY_VESSELS_UNCLAMPED))
 				surgery_message += "blood vessels are unclamped and bleeding"
 			if(HAS_SURGERY_STATE(reported_state, SURGERY_VESSELS_CLAMPED))
@@ -537,28 +559,6 @@
 				surgery_message += "bones have been sawed apart"
 			if(HAS_SURGERY_STATE(reported_state, SURGERY_BONE_DRILLED))
 				surgery_message += "bones have been drilled through"
-		*/ // OCULIS EDIT REMOVAL END
-		// OCULIS EDIT ADDITION START
-			if(bodytype & (BODYTYPE_ROBOTIC|BODYTYPE_SYNTHETIC))
-				if(HAS_SURGERY_STATE(reported_state, SURGERY_SKIN_CUT))
-					surgery_message += "shell is unscrewed"
-				if(HAS_SURGERY_STATE(reported_state, SURGERY_SKIN_OPEN|SURGERY_VESSELS_CLAMPED))
-					surgery_message += "hatch is opened"
-				if(HAS_SURGERY_STATE(reported_state, SURGERY_ORGANS_CUT))
-					surgery_message += "electronics have been prepared"
-				if(HAS_SURGERY_STATE(reported_state, SURGERY_BONE_SAWED))
-					surgery_message += "endoskeleton has been unwrenched"
-			else
-				if(HAS_SURGERY_STATE(reported_state, SURGERY_VESSELS_UNCLAMPED))
-					surgery_message += "blood vessels are unclamped and bleeding"
-				if(HAS_SURGERY_STATE(reported_state, SURGERY_VESSELS_CLAMPED))
-					surgery_message += "blood vessels are clamped shut"
-				if(HAS_SURGERY_STATE(reported_state, SURGERY_ORGANS_CUT))
-					surgery_message += "organs have been incised"
-				if(HAS_SURGERY_STATE(reported_state, SURGERY_BONE_SAWED))
-					surgery_message += "bones have been sawed apart"
-				if(HAS_SURGERY_STATE(reported_state, SURGERY_BONE_DRILLED))
-					surgery_message += "bones have been drilled through"
 		// OCULIS EDIT ADDITION END
 	if(HAS_SURGERY_STATE(reported_state, SURGERY_PROSTHETIC_UNSECURED))
 		surgery_message += "prosthetic item is unsecured"
