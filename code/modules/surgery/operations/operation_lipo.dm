@@ -106,39 +106,4 @@
 	preop_sound = 'sound/items/tools/ratchet.ogg'
 	success_sound = 'sound/items/handling/surgery/organ2.ogg'
 	required_bodytype = BODYTYPE_ROBOTIC
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE
-
-/datum/surgery_operation/limb/lipoplasty/mechanic/on_preop(obj/item/bodypart/limb, mob/living/surgeon, obj/item/tool, list/operation_args)
-	display_results(
-		surgeon,
-		limb.owner,
-		span_notice("You begin to engage [limb.owner]'s expulsion valve..."),
-		span_notice("[surgeon] begins to engage [limb.owner]'s expulsion valve."),
-		span_notice("[surgeon] begins to operate on [limb.owner]'s [limb.plaintext_zone] with [tool]."),
-	)
-	display_pain(limb.owner, "You feel a stabbing in your [limb.plaintext_zone]!", TRUE)
-
-/datum/surgery_operation/limb/lipoplasty/mechanic/on_success(obj/item/bodypart/limb, mob/living/surgeon, obj/item/tool, list/operation_args)
-	display_results(
-		surgeon,
-		limb.owner,
-		span_notice("You successfully remove excess fat from [limb.owner]'s body!"),
-		span_notice("[surgeon] successfully removes excess fat from [limb.owner]'s body!"),
-		span_notice("[surgeon] finishes expulsing excess fat from [limb.owner]'s [limb.plaintext_zone]."),
-	)
-	var/removednutriment = limb.owner.nutrition
-	limb.owner.overeatduration = 0 //patient is unfatted
-	limb.owner.set_nutrition(NUTRITION_LEVEL_WELL_FED)
-	removednutriment -= NUTRITION_LEVEL_WELL_FED //whatever was removed goes into the meat
-
-	if(limb.owner.flags_1 & HOLOGRAM_1)
-		return
-
-	var/typeofmeat = null
-	for(var/meat_path in limb.butcher_drops)
-		if(ispath(meat_path, /obj/item/food/meat))
-			typeofmeat = meat_path
-			break
-
-	if(!typeofmeat)
-		return
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE // OCULIS EDIT, ORIGINAL: operation_flags = parent_type::operation_flags | OPERATION_MECHANIC

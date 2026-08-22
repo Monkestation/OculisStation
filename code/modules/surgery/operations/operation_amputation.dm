@@ -65,7 +65,7 @@
 	name = "disassemble limb"
 	rnd_name = "Dissassembly (Amputation)"
 	required_bodytype = BODYTYPE_ROBOTIC
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE // OCULIS EDIT, ORIGINAL: operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 	implements = list(
 		/obj/item/shovel/giant_wrench = 0.33,
 		TOOL_WRENCH = 1,
@@ -91,34 +91,11 @@
 /datum/surgery_operation/limb/amputate/mechanic/get_recommended_tool()
 	return "[TOOL_WRENCH] / [TOOL_SAW]"
 
-/datum/surgery_operation/limb/amputate/mechanic/on_preop(obj/item/bodypart/limb, mob/living/surgeon, obj/item/tool, list/operation_args)
-	display_results(
-		surgeon,
-		limb.owner,
-		span_notice("You begin to sever [limb.owner]'s [limb.plaintext_zone]..."),
-		span_notice("[surgeon] begins to sever [limb.owner]'s [limb.plaintext_zone]."),
-		span_notice("[surgeon] begins to sever [limb.owner]'s [limb.plaintext_zone] with [tool]."),
-	)
-	display_pain(limb.owner, "You feel your connection to your [limb.plaintext_zone]'s shut down!", TRUE)
-
-/datum/surgery_operation/limb/amputate/mechanic/on_success(obj/item/bodypart/limb, mob/living/surgeon, obj/item/tool, list/operation_args)
-	display_results(
-		surgeon,
-		limb.owner,
-		span_notice("You successfully amputate [limb.owner]'s [limb.plaintext_zone]!"),
-		span_notice("[surgeon] successfully amputates [limb.owner]'s [limb.plaintext_zone]!"),
-		span_notice("[surgeon] finishes severing [limb.owner]'s [limb.plaintext_zone]."),
-	)
-	display_pain(limb.owner, "You can no longer feel your [limb.plaintext_zone]!", TRUE)
-	if(HAS_MIND_TRAIT(surgeon, TRAIT_MORBID))
-		surgeon.add_mood_event("morbid_dissection_success", /datum/mood_event/morbid_dissection_success)
-	limb.drop_limb()
-
 /datum/surgery_operation/limb/amputate/pegleg
 	name = "detach wooden limb"
 	rnd_name = "Detach Wooden Limb (Amputation)"
 	required_bodytype = BODYTYPE_PEG
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE
+	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC | OPERATION_SELF_OPERABLE // OCULIS EDIT, ORIGINAL: operation_flags = parent_type::operation_flags | OPERATION_MECHANICoperation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 	implements = list(
 		TOOL_SAW = 1,
 		/obj/item/shovel/serrated = 1,
@@ -137,4 +114,3 @@
 /datum/surgery_operation/limb/amputate/pegleg/all_required_strings()
 	. = ..()
 	. += "the limb must be wooden"
-
