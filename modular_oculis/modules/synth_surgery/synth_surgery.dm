@@ -32,7 +32,9 @@
 	display_pain(limb.owner, "Your hydraulics system errors out!", TRUE)
 
 /datum/surgery_operation/limb/bioware/vein_threading/mechanic/on_success(obj/item/bodypart/limb, mob/living/surgeon, tool, list/operation_args)
-	. = ..() // TODO SHROOPY
+	limb.owner.apply_status_effect(status_effect_gained)
+	if(limb.owner.ckey)
+		SSblackbox.record_feedback("tally", "bioware", 1, status_effect_gained)
 	display_results(
 		surgeon,
 		limb.owner,
@@ -53,7 +55,9 @@
 	display_pain(limb.owner, "Your hydraulics system errors out!", TRUE)
 
 /datum/surgery_operation/limb/bioware/muscled_veins/mechanic/on_success(obj/item/bodypart/limb, mob/living/surgeon, tool, list/operation_args)
-	. = ..() // TODO SHROOPY
+	limb.owner.apply_status_effect(status_effect_gained)
+	if(limb.owner.ckey)
+		SSblackbox.record_feedback("tally", "bioware", 1, status_effect_gained)
 	display_results(
 		surgeon,
 		limb.owner,
@@ -74,7 +78,9 @@
 	display_pain(limb.owner, "Your entire body goes numb!", TRUE)
 
 /datum/surgery_operation/limb/bioware/nerve_splicing/mechanic/on_success(obj/item/bodypart/limb, mob/living/surgeon, tool, list/operation_args)
-	. = ..() // TODO SHROOPY
+	limb.owner.apply_status_effect(status_effect_gained)
+	if(limb.owner.ckey)
+		SSblackbox.record_feedback("tally", "bioware", 1, status_effect_gained)
 	display_results(
 		surgeon,
 		limb.owner,
@@ -95,7 +101,9 @@
 	display_pain(limb.owner, "Your entire body goes numb!", TRUE)
 
 /datum/surgery_operation/limb/bioware/nerve_grounding/mechanic/on_success(obj/item/bodypart/limb, mob/living/surgeon, tool, list/operation_args)
-	. = ..() // TODO SHROOPY
+	limb.owner.apply_status_effect(status_effect_gained)
+	if(limb.owner.ckey)
+		SSblackbox.record_feedback("tally", "bioware", 1, status_effect_gained)
 	display_results(
 		surgeon,
 		limb.owner,
@@ -116,7 +124,9 @@
 	display_pain(limb.owner, "You suddenly lose connection to your limbs!", TRUE)
 
 /datum/surgery_operation/limb/bioware/ligament_hook/mechanic/on_success(obj/item/bodypart/limb, mob/living/surgeon, tool, list/operation_args)
-	. = ..() // TODO SHROOPY
+	limb.owner.apply_status_effect(status_effect_gained)
+	if(limb.owner.ckey)
+		SSblackbox.record_feedback("tally", "bioware", 1, status_effect_gained)
 	display_results(
 		surgeon,
 		limb.owner,
@@ -137,7 +147,9 @@
 	display_pain(limb.owner, "You lose connection to your limbs suddenly!", TRUE)
 
 /datum/surgery_operation/limb/bioware/ligament_reinforcement/mechanic/on_success(obj/item/bodypart/limb, mob/living/surgeon, tool, list/operation_args)
-	. = ..() // TODO SHROOPY
+	limb.owner.apply_status_effect(status_effect_gained)
+	if(limb.owner.ckey)
+		SSblackbox.record_feedback("tally", "bioware", 1, status_effect_gained)
 	display_results(
 		surgeon,
 		limb.owner,
@@ -158,7 +170,9 @@
 	display_pain(limb.owner, "Your mind swims with unintellible concepts, it's nearly too much to handle!", TRUE)
 
 /datum/surgery_operation/limb/bioware/cortex_folding/mechanic/on_success(obj/item/bodypart/limb, mob/living/surgeon, tool, list/operation_args)
-	. = ..() // TODO SHROOPY
+	limb.owner.apply_status_effect(status_effect_gained)
+	if(limb.owner.ckey)
+		SSblackbox.record_feedback("tally", "bioware", 1, status_effect_gained)
 	display_results(
 		surgeon,
 		limb.owner,
@@ -179,7 +193,9 @@
 	display_pain(limb.owner, "A loading screen with a spinning icon fills your entire vision...", TRUE)
 
 /datum/surgery_operation/limb/bioware/cortex_imprint/on_success(obj/item/bodypart/limb, mob/living/surgeon, tool, list/operation_args)
-	. = ..() // TODO SHROOPY
+	limb.owner.apply_status_effect(status_effect_gained)
+	if(limb.owner.ckey)
+		SSblackbox.record_feedback("tally", "bioware", 1, status_effect_gained)
 	display_results(
 		surgeon,
 		limb.owner,
