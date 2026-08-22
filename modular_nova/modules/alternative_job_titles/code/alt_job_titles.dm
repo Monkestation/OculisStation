@@ -69,6 +69,7 @@
 		"Beverage Architect",
 		"Barkeeper",
 		"Mixologist",
+		"Tavernkeeper", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/bitrunner
@@ -206,11 +207,12 @@
 	alt_titles = list(
 		"Chief Medical Officer",
 		"Chief Physician",
+		"Head Physician",
 		"Head of Medical",
 		"Medical Supervisor",
-		"Head Physician",
 		"Medical Director",
 		"Medical Administrator",
+		"Charge Nurse", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/clown
@@ -252,7 +254,10 @@
 		"Conservator",
 		"Journalist",
 		"Librarian",
+		"Assistant Librarian", // OCULIS EDIT ADDITION
 		"Scholar", // OCULIS EDIT ADDITION
+		"Literary Translator", // OCULIS EDIT ADDITION
+		"Interpreter", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/customs_agent
@@ -286,17 +291,22 @@
 /datum/job/doctor
 	alt_titles = list(
 		"Medical Doctor",
-		"General Practitioner",
 		"Medical Resident",
-		"Nurse",
-		"Physician",
-		"Surgeon",
+		"Medical Assistant",
 		"Medical Student",
-		"Clinician",
-		"Physician Assistant",
+		"Physician",
 		"Emergency Physician",
-		"Registered Nurse",
 		"Theoretical Physician", //OCULIS EDIT ADDITION
+		"Physician Assistant",
+		"Nurse",
+		"Registered Nurse",
+		"Practical Nurse", //OCULIS EDIT ADDITION
+		"Nursing Assistant", //OCULIS EDIT ADDITION
+		"Nursing Student", // OCULIS EDIT ADDITION
+		"Surgeon",
+		"Surgical Assistant", //OCULIS EDIT ADDITION
+		"General Practitioner",
+		"Clinician",
 	)
 
 /datum/job/engineering_guard //see orderly
@@ -401,10 +411,11 @@
 /datum/job/paramedic
 	alt_titles = list(
 		"Paramedic",
+		"Senior Paramedic", //OCULIS EDIT ADDITION
 		"Emergency Medical Technician",
+		"Emergency Medical Responder",
 		"Search and Rescue Technician",
 		"Trauma Team Responder",
-		"Emergency Medical Responder",
 	)
 
 /datum/job/prisoner
@@ -453,12 +464,13 @@
 /datum/job/roboticist
 	alt_titles = list(
 		"Roboticist",
-		"Biomechanical Engineer",
+		"Apprentice Roboticist",
 		"Cyberneticist",
-		"Mech Fabrication Specialist",
+		"Prosthetist", // OCULIS EDIT ADDITION
 		"Machinist",
 		"Mechatronic Engineer",
-		"Apprentice Roboticist",
+		"Biomechanical Engineer",
+		"Mech Fabrication Specialist",
 	)
 
 /datum/job/science_guard //See orderly

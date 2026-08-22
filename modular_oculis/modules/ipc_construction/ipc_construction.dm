@@ -21,7 +21,6 @@
 
 /datum/design/synth_construction
 	name = "Android Construction"
-	id = "synth_construction"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 10 SECONDS
 	materials = list(
@@ -78,7 +77,6 @@
 
 /datum/design/synth_positronic
 	name = "Android Positronic Brain"
-	id = "synth_positronic"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 10 SECONDS
 	materials = list(
@@ -95,7 +93,6 @@
 
 /datum/design/power_cord
 	name = "Charging Implant"
-	id = "power_cord"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 3 SECONDS
 	materials = list(
