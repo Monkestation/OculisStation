@@ -182,7 +182,7 @@
 	)
 	display_pain(limb.owner, "Your mind feels more open, and you start to grasp the edges of the strange concepts!", TRUE)
 
-/datum/surgery_operation/limb/bioware/cortex_imprint/on_preop(obj/item/bodypart/limb, mob/living/surgeon, tool)
+/datum/surgery_operation/limb/bioware/cortex_imprint/mechanic/on_preop(obj/item/bodypart/limb, mob/living/surgeon, tool)
 	display_results(
 		surgeon,
 		limb.owner,
@@ -192,7 +192,7 @@
 	)
 	display_pain(limb.owner, "A loading screen with a spinning icon fills your entire vision...", TRUE)
 
-/datum/surgery_operation/limb/bioware/cortex_imprint/on_success(obj/item/bodypart/limb, mob/living/surgeon, tool, list/operation_args)
+/datum/surgery_operation/limb/bioware/cortex_imprint/mechanic/on_success(obj/item/bodypart/limb, mob/living/surgeon, tool, list/operation_args)
 	limb.owner.apply_status_effect(status_effect_gained)
 	if(limb.owner.ckey)
 		SSblackbox.record_feedback("tally", "bioware", 1, status_effect_gained)
