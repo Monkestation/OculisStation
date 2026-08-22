@@ -206,7 +206,7 @@
 /datum/surgery_operation/limb/bioware/ligament_hook/mechanic
 	rnd_name = "Anchor Point Snaplocks (Ligament Hooks)"
 	desc = "Refactor a robotic patient's limb joints to allow for rapid detatchment, allowing limbs to be manually reattached if severed - at the cost of making them easier to detach as well." // OCULIS EDIT, ORIGINAL: desc = "Refactor a robotic patient's limb joints to allow for rapid deatchment, allowing limbs to be manually reattached if severed - \
-		// at the cost of making them easier to detach as well."
+		at the cost of making them easier to detach as well."
 	required_bodytype = BODYTYPE_ROBOTIC
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
@@ -353,6 +353,6 @@
 /datum/surgery_operation/limb/bioware/cortex_imprint/mechanic
 	rnd_name = "Wetware OS Ver 2.0 (Cortex Imprinting)"
 	desc = "Update a robotic patient's operating system to a newer version, improving overall performance and resilience. Shame about all the adware." // OCULIS EDIT, ORIGINAL: desc = "Update a robotic patient's operating system to a \"newer version\", improving overall performance and resilience. \
-	//Shame about all the adware."
+		Shame about all the adware."
 	required_bodytype = BODYTYPE_ROBOTIC
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
