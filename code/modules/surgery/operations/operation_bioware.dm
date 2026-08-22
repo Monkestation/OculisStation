@@ -138,7 +138,7 @@
 
 /datum/surgery_operation/limb/bioware/nerve_splicing/mechanic
 	rnd_name = "System Automatic Reset Subroutine (Spliced Nerves)"
-	desc = "Upgrade a robotic patient's automatic systems, allowing it to better resist stuns."
+	desc = "Upgrade a robotic patient's automatic systems, allowing them to better resist stuns." // OCULIS EDIT, ORIGINAL: desc = "Upgrade a robotic patient's automatic systems, allowing it to better resist stuns."
 	required_bodytype = BODYTYPE_ROBOTIC
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
@@ -172,7 +172,7 @@
 
 /datum/surgery_operation/limb/bioware/nerve_grounding/mechanic
 	rnd_name = "System Shock Dampening (Grounded Nerves)"
-	desc = "Install grounding rods into a robotic patient's systems, protecting them from electrical shocks." // OCULIS EDIT, ORIGINAL: desc = "Install grounding rods into a robotic patient's nervous system, protecting it from electrical shocks."
+	desc = "Install additional insulation for a robotic patient's systems, protecting them from electrical shocks." // OCULIS EDIT, ORIGINAL: desc = "Install grounding rods into a robotic patient's nervous system, protecting it from electrical shocks."
 	required_bodytype = BODYTYPE_ROBOTIC
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
@@ -205,8 +205,8 @@
 
 /datum/surgery_operation/limb/bioware/ligament_hook/mechanic
 	rnd_name = "Anchor Point Snaplocks (Ligament Hooks)"
-	desc = "Refactor a robotic patient's limb joints to allow for rapid deatchment, allowing limbs to be manually reattached if severed - \
-		at the cost of making them easier to detach as well."
+	desc = "Refactor a robotic patient's limb joints to allow for rapid detatchment, allowing limbs to be manually reattached if severed - at the cost of making them easier to detach as well." // OCULIS EDIT, ORIGINAL: desc = "Refactor a robotic patient's limb joints to allow for rapid deatchment, allowing limbs to be manually reattached if severed - \
+		// at the cost of making them easier to detach as well."
 	required_bodytype = BODYTYPE_ROBOTIC
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
@@ -352,7 +352,7 @@
 
 /datum/surgery_operation/limb/bioware/cortex_imprint/mechanic
 	rnd_name = "Wetware OS Ver 2.0 (Cortex Imprinting)"
-	desc = "Update a robotic patient's operating system to a \"newer version\", improving overall performance and resilience. \
-		Shame about all the adware."
+	desc = "Update a robotic patient's operating system to a newer version, improving overall performance and resilience. Shame about all the adware." // OCULIS EDIT, ORIGINAL: desc = "Update a robotic patient's operating system to a \"newer version\", improving overall performance and resilience. \
+	//Shame about all the adware."
 	required_bodytype = BODYTYPE_ROBOTIC
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC

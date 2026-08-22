@@ -6,7 +6,7 @@
 		span_notice("[surgeon] begins to sever [limb.owner]'s [limb.plaintext_zone]."),
 		span_notice("[surgeon] begins to sever [limb.owner]'s [limb.plaintext_zone] with [tool]."),
 	)
-	display_pain(limb.owner, "You feel your connection to your [limb.plaintext_zone]'s shut down!", TRUE)
+	display_pain(limb.owner, "You feel your connection to your [limb.plaintext_zone] begin to shut down!", TRUE)
 
 /datum/surgery_operation/limb/amputate/mechanic/on_success(obj/item/bodypart/limb, mob/living/surgeon, obj/item/tool, list/operation_args)
 	display_results(
@@ -29,7 +29,7 @@
 		span_notice("[surgeon] starts rerouting [limb.owner]'s hydraulics system."),
 		span_notice("[surgeon] starts manipulating [limb.owner]'s hydraulics system."),
 	)
-	display_pain(limb.owner, "Your hydraulics system errors out!", TRUE)
+	display_pain(limb.owner, "Your hydraulics system deactivates!", TRUE)
 
 /datum/surgery_operation/limb/bioware/vein_threading/mechanic/on_success(obj/item/bodypart/limb, mob/living/surgeon, tool, list/operation_args)
 	limb.owner.apply_status_effect(status_effect_gained)
@@ -42,7 +42,7 @@
 		span_notice("[surgeon] reroutes [limb.owner]'s hydraulics system into a resistant mesh!"),
 		span_notice("[surgeon] finishes manipulating [limb.owner]'s hydraulics system."),
 	)
-	display_pain(limb.owner, "Your hydraulics reactivate, now reinforced!", TRUE)
+	display_pain(limb.owner, "Your hydraulics system reactivates, rerouted and reinforced!", TRUE)
 
 /datum/surgery_operation/limb/bioware/muscled_veins/mechanic/on_preop(obj/item/bodypart/limb, mob/living/surgeon, tool)
 	display_results(
@@ -50,9 +50,9 @@
 		limb.owner,
 		span_notice("You start attaching redundancies to [limb.owner]'s hydraulics."),
 		span_notice("[surgeon] starts attaching redundancies around [limb.owner]'s hydraulics."),
-		span_notice("[surgeon] starts manipulating [limb.owner]'s hdraulics."),
+		span_notice("[surgeon] starts manipulating [limb.owner]'s hydraulics."),
 	)
-	display_pain(limb.owner, "Your hydraulics system errors out!", TRUE)
+	display_pain(limb.owner, "Your hydraulics system deactivates!", TRUE)
 
 /datum/surgery_operation/limb/bioware/muscled_veins/mechanic/on_success(obj/item/bodypart/limb, mob/living/surgeon, tool, list/operation_args)
 	limb.owner.apply_status_effect(status_effect_gained)
@@ -61,11 +61,11 @@
 	display_results(
 		surgeon,
 		limb.owner,
-		span_notice("You reshape [limb.owner]'s blood vessels, adding a muscled membrane!"),
-		span_notice("[surgeon] reshapes [limb.owner]'s blood vessels, adding a muscled membrane!"),
-		span_notice("[surgeon] finishes manipulating [limb.owner]'s blood vessels."),
+		span_notice("You finish attaching redundancies to [limb.owner]'s hydraulics!"),
+		span_notice("[surgeon] finishes attaching redundancies around [limb.owner]'s hydraulics."),
+		span_notice("[surgeon] finishes manipulating [limb.owner]'s hydraulics."),
 	)
-	display_pain(limb.owner, "You can feel your heartbeat's powerful pulses ripple through your body!")
+	display_pain(limb.owner, "Your hydraulics system reactivates, now with inline pumps!")
 
 /datum/surgery_operation/limb/bioware/nerve_splicing/mechanic/on_preop(obj/item/bodypart/limb, mob/living/surgeon, tool)
 	display_results(
@@ -94,9 +94,9 @@
 	display_results(
 		surgeon,
 		limb.owner,
-		span_notice("You start grounding [limb.owner]'s systems."),
-		span_notice("[surgeon] starts grounding [limb.owner]'s systems."),
-		span_notice("[surgeon] starts manipulating [limb.owner]'s systems."),
+		span_notice("You start insulating [limb.owner]'s systems."),
+		span_notice("[surgeon] starts insulating [limb.owner]'s systems."),
+		span_notice("[surgeon] starts manipulating [limb.owner]'s automatic systems."),
 	)
 	display_pain(limb.owner, "Your entire body goes numb!", TRUE)
 
@@ -107,9 +107,9 @@
 	display_results(
 		surgeon,
 		limb.owner,
-		span_notice("You successfully ground [limb.owner]'s systems!"),
-		span_notice("[surgeon] successfully grounds [limb.owner]'s systems!"),
-		span_notice("[surgeon] finishes manipulating [limb.owner]'s systems."),
+		span_notice("You successfully insulate [limb.owner]'s systems!"),
+		span_notice("[surgeon] successfully insulate [limb.owner]'s systems!"),
+		span_notice("[surgeon] finishes manipulating [limb.owner]'s automatic systems."),
 	)
 	display_pain(limb.owner, "You regain feeling in your body! You feel energized!", TRUE)
 
@@ -167,7 +167,7 @@
 		span_notice("[surgeon] starts totally reprogramming [limb.owner]'s neural network."),
 		span_notice("[surgeon] starts modifying [limb.owner]'s brain."),
 	)
-	display_pain(limb.owner, "Your mind swims with unintellible concepts, it's nearly too much to handle!", TRUE)
+	display_pain(limb.owner, "Your mind swims with unintelligible concepts, it's nearly too much to handle!", TRUE)
 
 /datum/surgery_operation/limb/bioware/cortex_folding/mechanic/on_success(obj/item/bodypart/limb, mob/living/surgeon, tool, list/operation_args)
 	limb.owner.apply_status_effect(status_effect_gained)
@@ -180,7 +180,7 @@
 		span_notice("[surgeon] totally reprograms [limb.owner]'s neural network!"),
 		span_notice("[surgeon] finishes modifying [limb.owner]'s brain."),
 	)
-	display_pain(limb.owner, "Your mind feels stronger... and more flexible!", TRUE)
+	display_pain(limb.owner, "Your mind feels more open, and you start to grasp the edges of the strange concepts!", TRUE)
 
 /datum/surgery_operation/limb/bioware/cortex_imprint/on_preop(obj/item/bodypart/limb, mob/living/surgeon, tool)
 	display_results(
@@ -203,7 +203,7 @@
 		span_notice("[surgeon] updates [limb.owner]'s operating system to a newer version!"),
 		span_notice("[surgeon] finishes modifying [limb.owner]'s brain."),
 	)
-	display_pain(limb.owner, "Your OS finishes updating! Your mind feels stronger... and more resilient!", TRUE)
+	display_pain(limb.owner, "Your OS finishes updating! Your mind feels stronger, and more resilient!", TRUE)
 
 /datum/surgery_operation/limb/lipoplasty/mechanic/on_preop(obj/item/bodypart/limb, mob/living/surgeon, obj/item/tool, list/operation_args)
 	display_results(
@@ -213,7 +213,7 @@
 		span_notice("[surgeon] begins to engage [limb.owner]'s expulsion valve."),
 		span_notice("[surgeon] begins to operate on [limb.owner]'s [limb.plaintext_zone] with [tool]."),
 	)
-	display_pain(limb.owner, "You feel a stabbing in your [limb.plaintext_zone]!", TRUE)
+	display_pain(limb.owner, "You feel a sharp sensation in your [limb.plaintext_zone]!", TRUE)
 
 /datum/surgery_operation/limb/lipoplasty/mechanic/on_success(obj/item/bodypart/limb, mob/living/surgeon, obj/item/tool, list/operation_args)
 	display_results(
