@@ -6,6 +6,11 @@
 	slot = ORGAN_SLOT_TASTEBOOSTER
 	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
 	icon_state = "gustatoryhypersensitizer"
+	custom_materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT*5,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT*5,
+		/datum/material/silver =SMALL_MATERIAL_AMOUNT*2,
+	)
 
 /obj/item/organ/cyberimp/mouth/tastebooster/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
@@ -77,6 +82,11 @@
 	actions_types = list(/datum/action/item_action/organ_action/musicsynth)
 	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
 	icon_state = "respiratoryharmonitron"
+	custom_materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT*8,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT*8,
+		/datum/material/uranium =SMALL_MATERIAL_AMOUNT * 3,
+	)
 
 
 /datum/augment_item/organ/mouth/musicsynth
@@ -86,7 +96,7 @@
 	path = /obj/item/organ/cyberimp/mouth/musicsynth
 
 /datum/action/item_action/organ_action/musicsynth
-	name = "Internal Synth"
+	name = "Internal Synthesizer"
 	desc = "Use your internal synthesizer to play music."
 	button_icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
 	button_icon_state = "respiratoryharmonitron"

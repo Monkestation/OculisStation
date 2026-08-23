@@ -11,6 +11,11 @@
 	actions_types = list(/datum/action/item_action/organ_action/use)
 	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
 	icon_state = "internalchronometer"
+	custom_materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT*8,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT*8,
+		/datum/material/silver =SMALL_MATERIAL_AMOUNT * 3,
+	)
 
 /obj/item/organ/cyberimp/arm/wristwatch/ui_action_click(mob/user, actiontype)
 	if(organ_flags & ORGAN_FAILING)
@@ -87,6 +92,11 @@
 	)
 	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
 	icon_state = "subdermalligatureattachmentpackage"
+	custom_materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT*8,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT*8,
+		/datum/material/titanium =SMALL_MATERIAL_AMOUNT * 3,
+	)
 
 /datum/design/slapcybernetic
 	name = "S.L.A.P."
