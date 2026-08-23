@@ -615,7 +615,7 @@
 		if(length(alerts))
 			can_breathe = FALSE
 			if(!panicking)
-				balloon_alert(src, jointext(alerts, "\n"))
+				balloon_alert(src, jointext(alerts, "\n") + "\ncontinuing anyways!")
 			for(var/alert in alerts)
 				to_chat(src, span_warning(capitalize(alert)))
 		// OCULIS EDIT ADDITION END
