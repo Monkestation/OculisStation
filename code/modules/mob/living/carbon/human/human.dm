@@ -598,10 +598,10 @@
 		var/alerts = list()
 
 		if (is_mouth_covered())
-			alerts += "remove your mask first!"
+			alerts += "your mouth is covered!"
 
 		if (target.is_mouth_covered())
-			alerts += "remove [target.p_their()] mask first!"
+			alerts += "[target.p_their()] mouth is covered!"
 
 		var/obj/item/organ/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
 		if(isnull(human_lungs))
@@ -614,9 +614,10 @@
 
 		if(length(alerts))
 			can_breathe = FALSE
-			balloon_alert(src, jointext(alerts, "\n"))
+			if(!panicking)
+				balloon_alert(src, jointext(alerts, "\n"))
 			for(var/alert in alerts)
-				to_chat(src, span_warning(alert))
+				to_chat(src, span_warning(capitalize(alert)))
 		// OCULIS EDIT ADDITION END
 
 		visible_message(span_notice("[src] is trying to perform CPR on [target.name]!"), \
