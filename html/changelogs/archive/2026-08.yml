@@ -369,9 +369,6 @@
   - bugfix: Fix spawn text appearing over HUD. Move spawn text to the top left of
       the screen
 2026-08-12:
-  XeonMations:
-  - bugfix: Moving a crate past a pixelshifted person will no longer cause their sprite
-      to move up.
   JohnFulpWillard:
   - qol: Alien larva's 'Evolve' button now says when it's ready, rather than being
       in the stat panel.
@@ -391,6 +388,9 @@
   - balance: Crusher trophies are now small and can be stowed in explorer webbings
   - balance: Crusher trophies are slightly cheaper to craft
   - balance: Icewing trophy backstep distance reduced from 2 to 1 to be less disorienting
+  XeonMations:
+  - bugfix: Moving a crate past a pixelshifted person will no longer cause their sprite
+      to move up.
   lelandkemble:
   - map: Added several holopads to Kilostation
   siliconOpossum:
@@ -424,6 +424,13 @@
       causes blood vessels to violently rupture all across your body.
   - rscadd: Added a new symptom, Mutated Regeneration. It heals you.
   - code_imp: improved code around suppressing virology symptom fluff text
+  ManiacalAnxiety:
+  - rscadd: Added 12 Titles, affecting CMO, Doctor, Roboticist, Curator, Bartender,
+      and Paramedic.
+  - rscadd: Added "Nurse" honorific to MD and "EMR", "AEMT" honorifics to Paramedic.
+  - qol: Re-formatted MD, CMO, Paramedic, and Roboticist titles for easier reading.
+  - rscadd: Added SDSM-35, IDC-27, Chuunibyou Manual, Toy Wizard Staff, and Nurse/Paramedic
+      uniforms to loadout.
   PapaMichael:
   - bugfix: You no longer hear radio TTS while unconscious
   SirNightKnight, JohnFulpWillard:
@@ -455,13 +462,6 @@
   sergeirocks100:
   - bugfix: The regular, midway, hearts, commie, freedom, and UK boxers, as well as
       the long johns, should all now use their proper digitigrade sprites.
-  ManiacalAnxiety:
-  - rscadd: Added 12 Titles, affecting CMO, Doctor, Roboticist, Curator, Bartender,
-      and Paramedic.
-  - rscadd: Added "Nurse" honorific to MD and "EMR", "AEMT" honorifics to Paramedic.
-  - qol: Re-formatted MD, CMO, Paramedic, and Roboticist titles for easier reading.
-  - rscadd: Added SDSM-35, IDC-27, Chuunibyou Manual, Toy Wizard Staff, and Nurse/Paramedic
-      uniforms to loadout.
 2026-08-14:
   FalloutFalcon:
   - bugfix: Ants and shade mobs are plural is seemingly intended
@@ -510,3 +510,20 @@
   Skies-Of-Blue:
   - balance: colour filters now affect held/equipped/stored items in addition to the
       standard game plane
+2026-08-23:
+  DeltaFire15:
+  - bugfix: Roundstart wings no longer contain the reagent that grants you flight
+      potion wings.
+  - bugfix: The Cybernetic Limb Mounts trait is now better at deciding whether you
+      should or shouldn't be able to pull off your own head (limb blacklisted if it
+      contains your brain instead of only if you are organic).
+  - bugfix: The Cybernetic Limb Mounts trait no longer lets you pull off limbs with
+      the BODYPART_UNREMOVABLE flag.
+  - bugfix: Surgical NIF repairs are no longer impossible.
+  Shroopy:
+  - rscadd: Added hand labelers and MOD paint kits to loadouts.
+  Skies-Of-Blue:
+  - balance: entombed characters spawning as a shaft miner will now be given the ash
+      accretion module, hopefully making it less of a miserable experience
+  XeonMations:
+  - balance: you can now get a maximum of 8 things per category in the loadouts menu
