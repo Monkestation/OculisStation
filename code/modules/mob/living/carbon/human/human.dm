@@ -604,13 +604,10 @@
 			alerts += "[target.p_their()] mouth is covered!"
 
 		var/obj/item/organ/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
-		if(isnull(human_lungs))
+		if(isnull(human_lungs) || istype(human_lungs, /obj/item/organ/lungs/synth))
 			alerts += "you don't have lungs!"
-		else
-			if(istype(human_lungs, /obj/item/organ/lungs/synth))
-				alerts += "your heatsink can't breathe!"
-			else if(human_lungs.organ_flags & ORGAN_FAILING)
-				alerts += "your lungs are too damaged!"
+		else if(human_lungs.organ_flags & ORGAN_FAILING)
+			alerts += "your lungs are too damaged!"
 
 		if(length(alerts))
 			can_breathe = FALSE
