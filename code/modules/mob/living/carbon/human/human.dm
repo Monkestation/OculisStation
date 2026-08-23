@@ -607,9 +607,9 @@
 		if(isnull(human_lungs))
 			alerts += "you don't have lungs!"
 		else
-			if(HAS_TRAIT_FROM(src, TRAIT_NOBREATH, DISEASE_TRAIT) || istype(human_lungs, /obj/item/organ/lungs/synth))
-				alerts += "you can't breathe!"
-			if(human_lungs.organ_flags & ORGAN_FAILING)
+			if(istype(human_lungs, /obj/item/organ/lungs/synth))
+				alerts += "your heatsink can't breathe!"
+			else if(human_lungs.organ_flags & ORGAN_FAILING)
 				alerts += "your lungs are too damaged!"
 
 		if(length(alerts))
