@@ -70,6 +70,13 @@
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/chem_storage)
+"gn" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 8
+	},
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/hallway/primary/central/aft)
 "gF" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
@@ -173,19 +180,17 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/east{
-	pixel_y = 4
-	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
 	},
 /obj/machinery/button/door/directional/east{
-	pixel_y = -9;
-	pixel_x = 23;
+	pixel_y = -12;
+	pixel_x = 22;
 	req_access = list("paramedic");
 	name = "Dispatch Shutter Control";
 	id = "med_dispatch"
 	},
+/obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 8
 	},
@@ -669,6 +674,19 @@
 /obj/structure/cable,
 /turf/closed/wall/r_wall,
 /area/station/medical/chemistry)
+"Ql" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 10
+	},
+/obj/effect/landmark/start/hangover,
+/obj/structure/chair/sofa/bench/right{
+	dir = 4;
+	pixel_x = -5
+	},
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
+/area/station/hallway/primary/central/aft)
 "QV" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/structure/chair/office/light{
@@ -740,6 +758,7 @@
 	dir = 9
 	},
 /obj/item/kirbyplants/random,
+/obj/machinery/light/cold/directional/north,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/hallway/primary/central/aft)
 "RS" = (
@@ -760,7 +779,8 @@
 /obj/machinery/button/door/directional/east{
 	id = "chemistry_shutters_south";
 	name = "Shutters Control";
-	req_access = list("pharmacy")
+	req_access = list("pharmacy");
+	pixel_y = -9
 	},
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 4
@@ -854,16 +874,23 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/pharmacy)
 "WF" = (
-/obj/effect/landmark/start/hangover,
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 8
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/station/hallway/primary/central/aft)
 "WW" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 8
+	},
 /obj/structure/sign/poster/official/moth_epi/directional/west,
-/turf/template_noop,
-/area/template_noop)
+/obj/structure/chair/sofa/bench/left{
+	dir = 4;
+	pixel_x = -5
+	},
+/obj/effect/landmark/start/assistant,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/hallway/primary/central/aft)
 "Xs" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -1089,7 +1116,7 @@ JI
 TC
 RB
 WF
-TC
+gn
 WW
-TC
+Ql
 "}
