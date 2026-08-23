@@ -5,7 +5,7 @@
 	///Flags for extra behavior (see AI_BEHAVIOR_* defines)
 	var/behavior_flags = NONE
 	///Cooldown between perform() calls; do not read directly  use get_cooldown()
-	var/time_between_perform = 0
+	var/time_between_perform = 10
 	/// TRUE after setup() has been called and before finish_action() completes.
 	var/running = FALSE
 	/// world.time when perform() may next be called.
