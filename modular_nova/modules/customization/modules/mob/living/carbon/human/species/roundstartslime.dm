@@ -530,7 +530,7 @@
 			if(SPT_PROB(5, seconds_per_tick))
 				slime_person.adjust_nutrition((rand(5,25)))
 
-/datum/status_effect/slime_washing/get_examine_text()
+/datum/status_effect/slime_washing/get_examine_text(mob/examiner)
 	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of [owner.p_their()] body and vanishing.")
 */ // OCULIS EDIT REMOVAL END
 
@@ -586,7 +586,7 @@
 	. = ..()
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/status_effect/slime_hydrophobia, update=TRUE)
 
-/datum/status_effect/slime_hydrophobia/get_examine_text()
+/datum/status_effect/slime_hydrophobia/get_examine_text(mob/examiner)
 	return span_notice("[owner.p_They()] is oozing out an oily coating onto [owner.p_their()] outer membrane, water rolling right off.")
 */ // OCULIS EDIT REMOVAL END
 
