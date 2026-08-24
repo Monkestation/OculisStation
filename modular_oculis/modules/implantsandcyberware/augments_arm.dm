@@ -55,7 +55,6 @@
 /datum/design/wristwatch
 	name = "Internal Chronometer"
 	desc = "Simple cybernetic that turns your wrist itself into a wristwatch, so that you can tell the time anywhere, anytime."
-	id = "ci-wristwatch"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 6 SECONDS
 	materials = list(
@@ -70,13 +69,10 @@
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/techweb_node/wristwatch
-	id = TECHWEB_NODE_WRISTWATCH
 	display_name = "Biomorphological Tempotechnics"
 	description = "Timetelling in the age of cybernetic enhancement."
-	prereq_ids = list(TECHWEB_NODE_CYBER_IMPLANTS, TECHWEB_NODE_HOLOGRAPHICS)
-	design_ids = list(
-		"ci-wristwatch"
-	)
+	prereq_ids = list(/datum/techweb_node/cyber/cyber_implants, /datum/techweb_node/holographics)
+	unlocked_designs = list(/datum/design/wristwatch)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS / 2)
 	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_MEDICAL, RADIO_CHANNEL_SCIENCE)
 
@@ -101,7 +97,6 @@
 /datum/design/slapcybernetic
 	name = "S.L.A.P."
 	desc = "Palm-implanted dermal reinforcement ligatures to increase the durability of the hands."
-	id = "ci-slap"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 6 SECONDS
 	materials = list(
@@ -116,13 +111,10 @@
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/techweb_node/slapbooster
-	id = TECHWEB_NODE_SLAPBOOSTER
 	display_name = "Nanomechatronic Bioligatures"
 	description = "Peace through Power. Power through really fancy tiny zipties."
-	prereq_ids = list(TECHWEB_NODE_CYBER_IMPLANTS, TECHWEB_NODE_BIO_SCAN, TECHWEB_NODE_SEC_EQUIP)
-	design_ids = list(
-		"ci-slap"
-	)
+	prerequisite_nodes = list(/datum/techweb_node/cyber/cyber_implants, /datum/techweb_node/bio_scan, /datum/techweb_node/sec_equip)
+	unlocked_designs = list(/datum/design/slapcybernetic)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS / 2)
 	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_MEDICAL, RADIO_CHANNEL_SCIENCE)
 	discount_experiments = list(/datum/experiment/physical/slap_someone = TECHWEB_TIER_1_POINTS/2)

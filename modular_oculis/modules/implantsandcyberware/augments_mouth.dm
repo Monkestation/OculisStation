@@ -48,7 +48,6 @@
 /datum/design/tastebooster
 	name = "Gustatory Hypersensitizer"
 	desc = "This cybernetic implant greatly increases the taste sensitivity of the implantee."
-	id = "ci-tastebooster"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 6 SECONDS
 	materials = list(
@@ -62,14 +61,11 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
-/datum/techweb_node/tastebooster
-	id = TECHWEB_NODE_TASTEBOOSTER
+/datum/techweb_node/cyber/tastebooster
 	display_name = "Gastrointestinal Thingamawidgetry"
 	description = "Shove a microchip in your mouth, taste things better. Makes logical sense."
-	prereq_ids = list(TECHWEB_NODE_FOOD_PROC, TECHWEB_NODE_CYBER_IMPLANTS)
-	design_ids = list(
-		"ci-tastebooster"
-	)
+	prerequisite_nodes = list(/datum/techweb_node/food_proc, /datum/techweb_node/cyber/cyber_implants)
+	unlocked_designs = list(/datum/design/tastebooster)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS / 2)
 	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_MEDICAL, RADIO_CHANNEL_SCIENCE)
 
@@ -120,7 +116,6 @@
 /datum/design/musicsynth
 	name = "Respiratory Harmonitron"
 	desc = "This tracheal synthesizer system accepts neural commands, allowing for users to \"sing\" their own backing instrumentation!"
-	id = "ci-harmonitron"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 6 SECONDS
 	materials = list(
@@ -134,13 +129,10 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
-/datum/techweb_node/musicsynth
-	id = TECHWEB_NODE_MUSICSYNTH
+/datum/techweb_node/cyber/musicsynth
 	display_name = "Neurosynchronous Harmonization"
 	description = "Music from your mind! The wonders of modern technology."
-	prereq_ids = list(TECHWEB_NODE_GAS_COMPRESSION, TECHWEB_NODE_CYBER_IMPLANTS)
-	design_ids = list(
-		"ci-harmonitron"
-	)
+	prerequisite_nodes = list(/datum/techweb_node/gas_compression, /datum/techweb_node/cyber/cyber_implants)
+	unlocked_designs = list(/datum/design/musicsynth)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS / 2)
 	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_MEDICAL, RADIO_CHANNEL_SCIENCE)

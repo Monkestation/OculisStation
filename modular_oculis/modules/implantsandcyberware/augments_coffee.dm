@@ -105,7 +105,6 @@
 /datum/design/caffinator
 	name = "NT-CFFE Caffinator"
 	desc = "This thigh-implanted cybernetic utilizes the very real science of hemosuccoric convertotronology to transmute bloodborne nutrients into tasty and energizing coffee! Contains integrated cup dispenser and cardboard recycler. (Cardboard not included.)"
-	id = "ci-caffinator"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 6 SECONDS
 	materials = list(
@@ -119,13 +118,10 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
-/datum/techweb_node/caffinator
-	id = TECHWEB_NODE_CAFFINATOR
+/datum/techweb_node/cyber/caffinator
 	display_name = "Hemosuccoric Convertotronology"
 	description = "Blood = Coffee"
-	prereq_ids = list(TECHWEB_NODE_FOOD_PROC, TECHWEB_NODE_CYBER_IMPLANTS)
-	design_ids = list(
-		"ci-caffinator"
-	)
+	prerequisite_nodes = list(/datum/techweb_node/food_proc, /datum/techweb_node/cyber/cyber_implants)
+	unlocked_designs = list(/datum/design/caffinator)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS / 2)
 	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_MEDICAL, RADIO_CHANNEL_SCIENCE)
