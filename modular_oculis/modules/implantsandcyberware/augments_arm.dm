@@ -71,7 +71,7 @@
 /datum/techweb_node/wristwatch
 	display_name = "Biomorphological Tempotechnics"
 	description = "Timetelling in the age of cybernetic enhancement."
-	prereq_ids = list(/datum/techweb_node/cyber/cyber_implants, /datum/techweb_node/holographics)
+	prerequisite_nodes = list(/datum/techweb_node/cyber/cyber_implants, /datum/techweb_node/holographics)
 	unlocked_designs = list(/datum/design/wristwatch)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS / 2)
 	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_MEDICAL, RADIO_CHANNEL_SCIENCE)
