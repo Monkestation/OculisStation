@@ -15,14 +15,13 @@
 	id = "pharmacy_shutters";
 	name = "Pharmacy Shutters"
 	},
-/obj/machinery/door/window/left/directional/north{
-	name = "Pharmacy Desk";
-	req_access = list("pharmacy");
-	dir = 2
-	},
 /obj/effect/turf_decal/tile/yellow/fourcorners,
 /obj/structure/desk_bell/department/medical{
 	pixel_x = -8
+	},
+/obj/machinery/door/window/left/directional/south{
+	name = "Pharmacy Desk";
+	req_access = list("pharmacy")
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
