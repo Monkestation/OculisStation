@@ -9,7 +9,7 @@
 		BODY_ZONE_L_ARM = ORGAN_SLOT_WRISTWATCH_L,
 	)
 	actions_types = list(/datum/action/item_action/organ_action/use)
-	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
+	icon = 'modular_oculis/modules/cybernetics/icons/newcybers.dmi'
 	icon_state = "internalchronometer"
 	custom_materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,
@@ -86,7 +86,7 @@
 		BODY_ZONE_R_ARM = ORGAN_SLOT_PALM_R,
 		BODY_ZONE_L_ARM = ORGAN_SLOT_PALM_L,
 	)
-	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
+	icon = 'modular_oculis/modules/cybernetics/icons/newcybers.dmi'
 	icon_state = "subdermalligatureattachmentpackage"
 	custom_materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,

@@ -4,7 +4,7 @@
 	special_desc = "And massively so. Maybe cut back on the spices if you get one of these."
 	w_class = WEIGHT_CLASS_TINY
 	slot = ORGAN_SLOT_TASTEBOOSTER
-	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
+	icon = 'modular_oculis/modules/cybernetics/icons/newcybers.dmi'
 	icon_state = "gustatoryhypersensitizer"
 	custom_materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5,
@@ -76,7 +76,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	slot = ORGAN_SLOT_MUSICSYNTH
 	actions_types = list(/datum/action/item_action/organ_action/musicsynth)
-	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
+	icon = 'modular_oculis/modules/cybernetics/icons/newcybers.dmi'
 	icon_state = "respiratoryharmonitron"
 	custom_materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,
@@ -94,7 +94,7 @@
 /datum/action/item_action/organ_action/musicsynth
 	name = "Internal Synthesizer"
 	desc = "Use your internal synthesizer to play music."
-	button_icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
+	button_icon = 'modular_oculis/modules/cybernetics/icons/newcybers.dmi'
 	button_icon_state = "respiratoryharmonitron"
 	var/datum/song/song
 

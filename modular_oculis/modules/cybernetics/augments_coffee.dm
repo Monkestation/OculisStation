@@ -10,7 +10,7 @@
 	)
 	slot = ORGAN_SLOT_CAFFINATOR_R
 	actions_types = list(/datum/action/item_action/organ_action/use)
-	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
+	icon = 'modular_oculis/modules/cybernetics/icons/newcybers.dmi'
 	icon_state = "ntcffecaffinator"
 	custom_materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,
