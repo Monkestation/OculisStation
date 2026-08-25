@@ -12,8 +12,8 @@
 	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
 	icon_state = "internalchronometer"
 	custom_materials = list(
-		/datum/material/iron = SMALL_MATERIAL_AMOUNT*8,
-		/datum/material/glass = SMALL_MATERIAL_AMOUNT*8,
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
 		/datum/material/silver =SMALL_MATERIAL_AMOUNT * 3,
 	)
 
@@ -58,8 +58,8 @@
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 6 SECONDS
 	materials = list(
-		/datum/material/iron = SMALL_MATERIAL_AMOUNT*8,
-		/datum/material/glass = SMALL_MATERIAL_AMOUNT*8,
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
 		/datum/material/silver =SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/organ/cyberimp/arm/wristwatch
@@ -89,8 +89,8 @@
 	icon = 'modular_oculis/modules/implantsandcyberware/icons/newcybers.dmi'
 	icon_state = "subdermalligatureattachmentpackage"
 	custom_materials = list(
-		/datum/material/iron = SMALL_MATERIAL_AMOUNT*8,
-		/datum/material/glass = SMALL_MATERIAL_AMOUNT*8,
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
 		/datum/material/titanium =SMALL_MATERIAL_AMOUNT * 3,
 	)
 
@@ -100,8 +100,8 @@
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 6 SECONDS
 	materials = list(
-		/datum/material/iron = SMALL_MATERIAL_AMOUNT*8,
-		/datum/material/glass = SMALL_MATERIAL_AMOUNT*8,
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
 		/datum/material/titanium =SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/organ/cyberimp/arm/slap
