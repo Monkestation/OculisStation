@@ -14,7 +14,7 @@
 	custom_materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/silver =SMALL_MATERIAL_AMOUNT * 3,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 3,
 	)
 
 /obj/item/organ/cyberimp/arm/wristwatch/ui_action_click(mob/user, actiontype)
@@ -60,7 +60,7 @@
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/silver =SMALL_MATERIAL_AMOUNT * 3,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/organ/cyberimp/arm/wristwatch
 	category = list(
@@ -91,7 +91,7 @@
 	custom_materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/titanium =SMALL_MATERIAL_AMOUNT * 3,
+		/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 3,
 	)
 
 /datum/design/slapcybernetic
@@ -102,7 +102,7 @@
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/titanium =SMALL_MATERIAL_AMOUNT * 3,
+		/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/organ/cyberimp/arm/slap
 	category = list(

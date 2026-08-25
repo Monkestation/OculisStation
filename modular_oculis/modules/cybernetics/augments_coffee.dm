@@ -15,7 +15,7 @@
 	custom_materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/silver =SMALL_MATERIAL_AMOUNT * 3,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	var/numberofcups = 10
 	COOLDOWN_DECLARE(dispense_cooldown)
@@ -110,7 +110,7 @@
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/silver =SMALL_MATERIAL_AMOUNT * 3,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/organ/cyberimp/caffinator/unloaded
 	category = list(

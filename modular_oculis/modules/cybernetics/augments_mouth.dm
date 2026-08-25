@@ -9,7 +9,7 @@
 	custom_materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 5,
-		/datum/material/silver =SMALL_MATERIAL_AMOUNT * 2,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2,
 	)
 
 /obj/item/organ/cyberimp/mouth/tastebooster/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
@@ -53,7 +53,7 @@
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT*5,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT*5,
-		/datum/material/silver =SMALL_MATERIAL_AMOUNT*2,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT*2,
 	)
 	build_path = /obj/item/organ/cyberimp/mouth/tastebooster
 	category = list(
@@ -81,7 +81,7 @@
 	custom_materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/uranium =SMALL_MATERIAL_AMOUNT * 3,
+		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
 	)
 
 
@@ -121,7 +121,7 @@
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/uranium =SMALL_MATERIAL_AMOUNT * 3,
+		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/organ/cyberimp/mouth/musicsynth
 	category = list(
