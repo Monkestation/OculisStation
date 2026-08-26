@@ -40,7 +40,7 @@
 	del_timer_id = QDEL_IN_STOPPABLE(src, duration)
 	return TRUE
 
-/* // OCULIS EDIT REMOVAL START
+/* // OCULIS EDIT REMOVAL START - these just barely work at all, given the variety of characters, what they breathe, and if they breathe at all
 /datum/hallucination/fake_alert/need_oxygen
 	alert_category = ALERT_NOT_ENOUGH_OXYGEN
 	alert_type = /atom/movable/screen/alert/not_enough_oxy
