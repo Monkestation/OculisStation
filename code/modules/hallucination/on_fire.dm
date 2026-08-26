@@ -3,7 +3,7 @@
 
 /datum/hallucination/fire
 	random_hallucination_weight = 3
-	hallucination_tier = HALLUCINATION_TIER_UNCOMMON
+	hallucination_tier = HALLUCINATION_TIER_RARE // OCULIS EDIT, ORIGINAL: hallucination_tier = HALLUCINATION_TIER_UNCOMMON
 
 	/// Are we currently burning our mob?
 	var/active = TRUE
