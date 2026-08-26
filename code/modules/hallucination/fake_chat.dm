@@ -108,16 +108,17 @@
 			*/ // OCULIS EDIT REMOVAL END
 			// OCULIS EDIT ADDITION START
 			chosen = pick_weight(list(
-				pick("Help!", "Help!!", "Help me!!") = 1,
-				pick("Help, [pick_list_replacements(HALLUCINATION_FILE, "location")][prob(50)?"!":"!!"]", "[pick_list_replacements(HALLUCINATION_FILE, "location")], help[prob(50)?"!":"!!"]") = 1,
-				"[accused_name] is [pick_list_replacements(HALLUCINATION_FILE, "accusations")][prob(50)?"!":"!!"]" = 1,
-				"[accused_name] has [pick_list_replacements(HALLUCINATION_FILE, "contraband")][prob(50)?"!":"!!"]" = 1,
-				"[pick_list_replacements(HALLUCINATION_FILE, "threat")] at [pick_list_replacements(HALLUCINATION_FILE, "location")][pick(".", "!", "!!")]" = 1,
-				"Where's [hallucinator_name]?" = 1,
-				"[hallucinator_name]?" = 1,
-				"[hallucinator_name], got a [pick("sec", "second", "moment", "minute")]?" = 1,
-				pick("[pick("What'd", "What did")] you need again, [hallucinator_name]?", "[hallucinator_name], [pick("what'd", "what did")] you need again?") = 1,
-				prob(50)?uppertext(pick_list_replacements(HALLUCINATION_FILE, "swears")):pick_list_replacements(HALLUCINATION_FILE, "swears") = 2,
+				pick("Help!", "Help!!", "Help me!!") = 2,
+				pick("Help, [pick_list_replacements(HALLUCINATION_FILE, "location")][prob(50)?"!":"!!"]", "[pick_list_replacements(HALLUCINATION_FILE, "location")], help[prob(50)?"!":"!!"]") = 2,
+				"[accused_name] is [pick_list_replacements(HALLUCINATION_FILE, "accusations")][prob(50)?"!":"!!"]" = 2,
+				"[accused_name] has [pick_list_replacements(HALLUCINATION_FILE, "contraband")][prob(50)?"!":"!!"]" = 2,
+				"[pick_list_replacements(HALLUCINATION_FILE, "threat")] at [pick_list_replacements(HALLUCINATION_FILE, "location")][pick(".", "!", "!!")]" = 2,
+				"Where's [hallucinator_name]?" = 2,
+				"Arrest [hallucinator_name]!" = 1,
+				"[hallucinator_name]?" = 2,
+				"[hallucinator_name], got a [pick("sec", "second", "moment", "minute")]?" = 2,
+				pick("[pick("What'd", "What did")] you need again, [hallucinator_name]?", "[hallucinator_name], [pick("what'd", "what did")] you need again?") = 2,
+				prob(50)?uppertext(pick_list_replacements(HALLUCINATION_FILE, "swears")):pick_list_replacements(HALLUCINATION_FILE, "swears") = 4,
 			))
 			// OCULIS EDIT ADDITION END
 		else
