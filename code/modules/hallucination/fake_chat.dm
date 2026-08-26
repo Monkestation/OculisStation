@@ -74,14 +74,14 @@
 	// OCULIS EDIT ADDITION START
 	var/accused = pick(get_crewmember_minds())
 	var/accused_name = pick_weight(list(
-		first_name(accused.name) = 4
-		last_name(accused.name) = 2
-		accused.name = 1
+		first_name(accused.name) = 4,
+		last_name(accused.name) = 2,
+		accused.name = 1,
 	))
 	var/hallucinator_name = pick_weight(list(
-		first_name(hallucinator.name) = 4
-		last_name(hallucinator.name) = 2
-		hallucinator.name = 1
+		first_name(hallucinator.name) = 4,
+		last_name(hallucinator.name) = 2,
+		hallucinator.name = 1,
 	))
 	// OCULIS EDIT ADDITION END
 
