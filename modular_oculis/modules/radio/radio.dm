@@ -10,7 +10,7 @@
 	icon_state = "syndie_headset"
 	inhand_icon_state = null
 	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/syndie.ogg'
-	keyslot = new /obj/item/encryptionkey/headset_syndicate/interdyne
+	keyslot = new /obj/item/encryptionkey/headset_syndicate/ds2
 
 /obj/item/radio/headset/ds2/Initialize(mapload)
 	. = ..()
