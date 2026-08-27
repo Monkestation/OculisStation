@@ -15,7 +15,7 @@
 	ckeywhitelist = list("thedragmeme")
 
 /datum/loadout_item/under/jumpsuit/sweater_dress
-	name = "Virgin Killer Sweater"
+	name = "Open-Backed Sweater"
 	item_path = /obj/item/clothing/under/sweater_dress
 	ckeywhitelist = list("thedragmeme")
 
