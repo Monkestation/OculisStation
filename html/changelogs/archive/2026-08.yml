@@ -537,7 +537,7 @@
       and change the legs from "Normal Legs" to "Digitigrade Legs".
 2026-08-21:
   Morskoikot:
-  - rscadd: 'Added Chemnaga, Leopard seal, Insect + winged alt and Bunny taur sprites.'
+  - rscadd: Added Chemnaga, Leopard seal, Insect + winged alt and Bunny taur sprites.
   SmArtKar:
   - rscadd: Every 5 minutes 2-4 random cargo exports get tripled in price, lets go
       gambling!
@@ -561,6 +561,15 @@
   YuiY1997:
   - map: added dorms common area automapper template
 2026-08-23:
+  DeltaFire15:
+  - bugfix: Roundstart wings no longer contain the reagent that grants you flight
+      potion wings.
+  - bugfix: The Cybernetic Limb Mounts trait is now better at deciding whether you
+      should or shouldn't be able to pull off your own head (limb blacklisted if it
+      contains your brain instead of only if you are organic).
+  - bugfix: The Cybernetic Limb Mounts trait no longer lets you pull off limbs with
+      the BODYPART_UNREMOVABLE flag.
+  - bugfix: Surgical NIF repairs are no longer impossible.
   FalloutFalcon:
   - bugfix: Anchored Items cant be looted with quick inserting from bags
   JohnFulpWillard:
@@ -571,22 +580,13 @@
   Richard Blonski:
   - bugfix: Chat Highlight sounds are off by default now.
   - qol: Chat Highlights won't trigger on self-actions or radio channel names.
-  SmArtKar:
-  - rscdel: Goldgrub no longer reproduce unless hand fed ores
-  DeltaFire15:
-  - bugfix: Roundstart wings no longer contain the reagent that grants you flight
-      potion wings.
-  - bugfix: The Cybernetic Limb Mounts trait is now better at deciding whether you
-      should or shouldn't be able to pull off your own head (limb blacklisted if it
-      contains your brain instead of only if you are organic).
-  - bugfix: The Cybernetic Limb Mounts trait no longer lets you pull off limbs with
-      the BODYPART_UNREMOVABLE flag.
-  - bugfix: Surgical NIF repairs are no longer impossible.
   Shroopy:
   - rscadd: Added hand labelers and MOD paint kits to loadouts.
   Skies-Of-Blue:
   - balance: entombed characters spawning as a shaft miner will now be given the ash
       accretion module, hopefully making it less of a miserable experience
+  SmArtKar:
+  - rscdel: Goldgrub no longer reproduce unless hand fed ores
   XeonMations:
   - balance: you can now get a maximum of 8 things per category in the loadouts menu
 2026-08-24:
@@ -597,12 +597,12 @@
   Neocloudy:
   - bugfix: '[NOVA] Delayed unrestricted access on airlocks now works on TG maps,
       and any Nova maps that may implement it.'
-  levels0:
-  - rscadd: certain cursed mirrors might now talk
   XeonMations:
   - bugfix: fixed the game not compiling
   curiousbookshelf:
   - map: Removed the extra set of Jaws of Recovery on Void Raptor
+  levels0:
+  - rscadd: certain cursed mirrors might now talk
 2026-08-25:
   curiousbookshelf:
   - map: Added paramedic dispatch to Void Raptor
@@ -618,3 +618,35 @@
 2026-08-27:
   Shroopy:
   - rscadd: Adds In-Trial titles for heads of staff, and Blueshield.
+2026-08-28:
+  Absolucy:
+  - qol: Meteor shield satellites can now be shrunk down into tiny capsules, and deployed
+      from said capsules.
+  - balance: The meteor shield crate now contains 5 shield sat capsules.
+  - qol: Meteors now drop debris when zapped by meteor defense sats.
+  - qol: Examining meteor defense sats now also shows how many meteors have been zapped
+      overall by all sats.
+  - balance: Slightly boosted the range of meteor defense satellite from 14 to 16
+      tiles.
+  - qol: You now only need engineering access to order meteor satellites, not command
+      access.
+  DeltaFire15:
+  - qol: Lung organ failure messages are now different if you do not breathe.
+  - qol: Lung organ failure messages no longer fire every organ tick, only being guaranteed
+      on the first.
+  - spellcheck: The feeling you get from lung failure if you need lungs to breathe
+      is no longer "sudden" after the first tick.
+  Shroopy:
+  - qol: Reverted the command bar starting on Say. It now starts in Command mode.
+  - qol: Non-breathing CPR messages are now (hopefully) more clear, go into your chat,
+      and no longer spam you.
+  - bugfix: Fixed a runtime preventing giving non-breathing CPR without lungs.
+  - refactor: Refactored non-breathing CPR.
+  - balance: Self-respiration no longer blocks giving breathing CPR.
+  Skies-Of-Blue:
+  - bugfix: proto-kinetic hammers will no longer knockback immovable entities such
+      as tendrils
+  - bugfix: being polymorphed will no longer trigger claustrophobia in those who have
+      it
+  curiousbookshelf:
+  - qol: Touched up the Crew Monitor UI
