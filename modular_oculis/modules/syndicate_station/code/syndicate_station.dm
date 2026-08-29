@@ -7,11 +7,11 @@
 	name = "SSS Octavia"
 	icon_state = "syndie-ship"
 	ambience_index = AMBIENCE_DANGER
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = TRUE
 	default_gravity = STANDARD_GRAVITY
-	area_flags = NOTELEPORT
-	flags_1 = NONE
+	area_flags = HIDDEN_AREA | EVENT_PROTECTED | NOTELEPORT
+	flags_1 = CAN_BE_DIRTY_1
 
 /area/centcom/octavia/briefing_room
 	name = "SSS Octavia - Briefing Room"
