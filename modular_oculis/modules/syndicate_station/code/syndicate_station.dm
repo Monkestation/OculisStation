@@ -3,8 +3,8 @@
 	map_dir = "_maps/oculis/lazy_templates"
 	map_name = "syndicate_station"
 
-/area/centcom/syndicate_mothership
-	name = "Syndicate Space Station"
+/area/centcom/octavia
+	name = "SSS Octavia"
 	icon_state = "syndie-ship"
 	requires_power = FALSE
 	default_gravity = STANDARD_GRAVITY
@@ -12,34 +12,34 @@
 	flags_1 = NONE
 	ambience_index = AMBIENCE_DANGER
 
-/area/centcom/syndicate_mothership/control
-	name = "Syndicate Space Station - Control Room"
+/area/centcom/octavia/control
+	name = "SSS Octavia - Control Room"
 	icon_state = "syndie-control"
 	static_lighting = TRUE
 
-/area/centcom/syndicate_mothership/expansion_bombthreat
-	name = "Syndicate Space Station - Ordnance Laboratory"
+/area/centcom/octavia/expansion_bombthreat
+	name = "SSS Octavia - Ordnance Laboratory"
 	icon_state = "syndie-elite"
 	static_lighting = TRUE
 	ambience_index = AMBIENCE_ENGI
 
-/area/centcom/syndicate_mothership/expansion_bioterrorism
-	name = "Syndicate Space Station - Bio-Weapon Laboratory"
+/area/centcom/octavia/expansion_bioterrorism
+	name = "SSS Octavia - Bio-Weapon Laboratory"
 	icon_state = "syndie-elite"
 	static_lighting = TRUE
 	ambience_index = AMBIENCE_MEDICAL
 
-/area/centcom/syndicate_mothership/expansion_chemicalwarfare
-	name = "Syndicate Space Station - Chemical Weapon Manufacturing Plant"
+/area/centcom/octavia/expansion_chemicalwarfare
+	name = "SSS Octavia - Chemical Weapon Manufacturing Plant"
 	icon_state = "syndie-elite"
 	static_lighting = TRUE
 	ambience_index = AMBIENCE_REEBE
 
-/area/centcom/syndicate_mothership/expansion_fridgerummage
-	name = "Syndicate Space Station - Perishables and Foodstuffs Storage"
+/area/centcom/octavia/expansion_fridgerummage
+	name = "SSS Octavia - Perishables and Foodstuffs Storage"
 	icon_state = "syndie-elite"
 	static_lighting = TRUE
 
-/area/centcom/syndicate_mothership/expansion_custodialcloset
-	name = "Syndicate Space Station - Custodial Closet"
+/area/centcom/octavia/expansion_custodialcloset
+	name = "SSS Octavia - Custodial Closet"
 	icon_state = "syndie-elite"
