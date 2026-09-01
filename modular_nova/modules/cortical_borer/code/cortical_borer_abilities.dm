@@ -27,10 +27,8 @@
 
 /datum/action/cooldown/borer/Trigger(trigger_flags, atom/target)
 	. = ..()
-/* OCULIS EDIT REMOVAL -- Remove this when borer abilities get reworked in nova
 	if(!.)
 		return
-*/
 	if(!iscorticalborer(owner))
 		to_chat(owner, span_warning("You must be a cortical borer to use this action!"))
 		return FALSE
@@ -48,6 +46,11 @@
 		return FALSE
 
 	return . == FALSE ? FALSE : TRUE //. can be null, true, or false. There's a difference between null and false here
+// OCULIS EDIT ADDITION START -- Remove this when borer abilities get reworked in nova
+/datum/action/cooldown/borer/Activate(atom/target)
+	..()
+	return TRUE
+// OCULIS EDIT ADDITION END
 
 //inject chemicals into your host
 /datum/action/cooldown/borer/inject_chemical
