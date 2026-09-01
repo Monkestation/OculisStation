@@ -78,7 +78,7 @@
 			else if(!(turf_coverage[turf] & TURF_SOLID) && ISINRANGE(turf.x, min_x, max_x) && ISINRANGE(turf.y, min_y, max_y))
 				turf_coverage[turf] |= TURF_NEWLY_COVERED
 
-/atom/movable/screen/meteor_sat_turf_preview/proc/generate_appearance() as /icon
+/atom/movable/screen/meteor_sat_turf_preview/proc/generate_appearance()
 	var/icon/new_icon = icon('icons/ui_icons/minimap/minimap.dmi')
 
 	var/min_x = world.maxx
