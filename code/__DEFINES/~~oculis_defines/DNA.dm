@@ -9,3 +9,4 @@
 #define SPECIES_ARACHNID "arachnid"
 #define FEATURE_ARACHNID_APPENDAGES "arachnid_appendages"
 #define FEATURE_ARACHNID_CHELICERAE "arachnid_chelicerae"
+#define ORGAN_SLOT_FLESHWELD "organ_slot_fleshweld"
