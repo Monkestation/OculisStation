@@ -92,9 +92,8 @@ GLOBAL_VAR_INIT(total_meteors_zapped, 0)
 		return
 	if((obj_flags & EMAGGED) || !active)
 		QDEL_NULL(monitor)
-	else
-		if(QDELETED(monitor))
-			monitor = new(src, kill_range)
+	else if(QDELETED(monitor))
+		monitor = new(src, kill_range)
 
 /obj/machinery/satellite/meteor_shield/proc/setup_proxies()
 	if(QDELETED(src))
@@ -110,10 +109,28 @@ GLOBAL_VAR_INIT(total_meteors_zapped, 0)
 		return
 	var/turf/our_loc = get_turf(src)
 	var/turf/target_loc = locate(our_loc.x, our_loc.y, target_z)
-	if(QDELETED(target_loc))
+	if(isnull(target_loc))
 		return
 	var/obj/effect/abstract/meteor_shield_proxy/new_proxy = new(target_loc, src)
 	proxies[target_z] = new_proxy
+
+/obj/machinery/satellite/meteor_shield/proc/get_covered_turfs(target_z)
+	. = list()
+	var/turf/our_turf = get_turf(src)
+	if(isnull(target_z) || target_z == our_turf.z)
+		for(var/turf/turf as anything in RANGE_TURFS(kill_range, our_turf))
+			if(check_los(our_turf, turf))
+				. += turf
+	if(target_z == our_turf.z) // we only wanted our own z-level, dont check proxies at all
+		return
+	for(var/z, value in proxies)
+		if(!isnull(target_z) && z != target_z)
+			continue
+		var/obj/effect/abstract/meteor_shield_proxy/proxy = value
+		var/turf/proxy_turf = get_turf(proxy)
+		for(var/turf/turf as anything in RANGE_TURFS(kill_range, proxy_turf))
+			if(check_los(proxy_turf, turf))
+				. += turf
 
 /obj/machinery/satellite/meteor_shield/piercing
 	check_sight = FALSE
