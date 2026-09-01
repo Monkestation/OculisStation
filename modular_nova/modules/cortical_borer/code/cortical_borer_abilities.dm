@@ -27,8 +27,10 @@
 
 /datum/action/cooldown/borer/Trigger(trigger_flags, atom/target)
 	. = ..()
+/* OCULIS EDIT REMOVAL -- Remove this when borer abilities get reworked in nova
 	if(!.)
 		return
+*/
 	if(!iscorticalborer(owner))
 		to_chat(owner, span_warning("You must be a cortical borer to use this action!"))
 		return FALSE
