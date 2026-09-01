@@ -86,7 +86,12 @@
 	var/max_x = 1
 	var/max_y = 1
 
+#ifdef SPACEMAN_DMM // stupid workaround for dreamchecker/sdmm issue
+	for(var/k, turf_flags in turf_coverage)
+		var/turf/turf = k
+#else
 	for(var/turf/turf as anything, turf_flags in turf_coverage)
+#endif
 		var/color
 		if(turf == center)
 			color = "#F2B33D"
