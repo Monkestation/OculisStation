@@ -28,10 +28,11 @@
 		qdel(meteor)
 
 /obj/machinery/satellite/meteor_shield/proc/check_los(turf/source, turf/target) as num
+	return !check_sight || has_view_line(source, target)
+
+/proc/has_view_line(turf/source, turf/target)
 	// if something goes fucky wucky, let's just assume line-of-sight by default
 	. = TRUE
-	if(!check_sight)
-		return TRUE
 	for(var/turf/segment as anything in get_line(source, target))
 		if(isclosedturf(segment) && !istransparentturf(segment))
 			return FALSE
