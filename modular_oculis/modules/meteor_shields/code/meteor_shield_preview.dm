@@ -19,7 +19,6 @@
 
 /atom/movable/screen/meteor_sat_turf_preview/Initialize(mapload, datum/hud/hud_owner, atom/source, view_range)
 	..()
-	src.center = center
 	if(!isatom(source) || QDELING(source))
 		. = INITIALIZE_HINT_QDEL
 		CRASH("Tried to create [type] with an invalid source!")
