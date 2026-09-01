@@ -6,6 +6,11 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 #define KEYCARD_PIN_UNRESTRICT "Unrestrict Permit Firing Pins" //NOVA EDIT
 #define KEYCARD_ENG_OVERRIDE "Engineering Override Access" //NOVA EDIT
 
+// OCULIS EDIT ADDITION START - OCULIS_ALERTS
+#define KEYCARD_WHITE_ALERT "White Alert"
+#define KEYCARD_CRIMSON_ALERT "Crimson Alert"
+// OCULIS EDIT ADDITION END
+
 #define ACCESS_GRANTING_COOLDOWN (30 SECONDS)
 
 /obj/machinery/keycard_auth
@@ -100,6 +105,16 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 				sendEvent(KEYCARD_ENG_OVERRIDE)
 				. = TRUE
 		//NOVA EDIT END
+		// OCULIS EDIT ADDITION START - OCULIS_ALERTS
+		if("white_alert")
+			if(!event_source)
+				sendEvent(KEYCARD_WHITE_ALERT)
+				. = TRUE
+		if("crimson_alert")
+			if(!event_source)
+				sendEvent(KEYCARD_CRIMSON_ALERT)
+				. = TRUE
+		// OCULIS EDIT ADDITION END
 		if("give_janitor_access")
 			var/mob/living/living_user = usr
 			if(!living_user || !istype(living_user))
@@ -177,6 +192,14 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 		if(KEYCARD_ENG_OVERRIDE)
 			toggle_eng_override()
 		//NOVA EDIT END
+		//OCULIS EDIT ADDITION START - OCULIS_ALERTS
+		if(KEYCARD_WHITE_ALERT)
+			SSsecurity_level.set_level(SEC_LEVEL_WHITE)
+		if(KEYCARD_CRIMSON_ALERT)
+			SSsecurity_level.set_level(SEC_LEVEL_CRIMSON)
+			GLOB.force_eng_override = TRUE
+			SEND_GLOBAL_SIGNAL(COMSIG_GLOB_FORCE_ENG_OVERRIDE, TRUE)
+		// OCULIS EDIT ADDITION END
 
 /// Subtype which is stuck to a wall
 /obj/machinery/keycard_auth/wall_mounted
@@ -220,3 +243,7 @@ GLOBAL_VAR_INIT(emergency_access, FALSE)
 #undef KEYCARD_BSA_UNLOCK
 #undef KEYCARD_PIN_UNRESTRICT //NOVA EDIT
 #undef KEYCARD_ENG_OVERRIDE //NOVA EDIT
+// OCULIS EDIT ADDITION START - OCULIS_ALERTS
+#undef KEYCARD_WHITE_ALERT
+#undef KEYCARD_CRIMSON_ALERT
+// OCULIS EDIT ADDITION END

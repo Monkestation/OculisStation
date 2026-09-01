@@ -7,7 +7,7 @@ export const KeycardAuth = (props) => {
   const { act, data } = useBackend();
   return (
     // NOVA EDIT: height 125 -> 190, eng override/firing pin
-    <Window width={375} height={190}>
+    <Window width={375} height={240}> {/* OCULIS EDIT - height 190 -> 240 - OCULIS_ALERTS */}
       <Window.Content>
         <Section>
           <Box>
@@ -33,12 +33,29 @@ export const KeycardAuth = (props) => {
                   <>
                     <Button
                       icon="exclamation-triangle"
+                      color="red" // OCULIS ADDITION EDIT - OCULIS_ALERTS
                       fluid
                       onClick={() => {
                         return act('red_alert');
                       }}
                       content="Red Alert"
                     />
+                    {/* OCULIS EDIT ADDITION START - OCULIS_ALERTS */}
+                    <Button
+                      icon="plus"
+                      color="white"
+                      fluid
+                      onClick={() => act('white_alert')}
+                      content="White Alert"
+                    />
+                    <Button
+                      icon="radiation"
+                      backgroundColor="#7a1420"
+                      fluid
+                      onClick={() => act('crimson_alert')}
+                      content="Crimson Alert"
+                    />
+                    {/* OCULIS EDIT ADDITION END - OCULIS_ALERTS */}
                     <Button
                       icon="id-card-o"
                       fluid
