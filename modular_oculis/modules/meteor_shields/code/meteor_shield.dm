@@ -27,12 +27,17 @@ GLOBAL_VAR_INIT(total_meteors_zapped, 0)
 	register_context()
 
 /obj/machinery/satellite/meteor_shield/Destroy()
+	// close any meteor sat previews we might have open
+	for(var/mob/living/nearby in orange(1, src))
+		close_meteor_sat_preview_for(nearby, src)
+		UnregisterSignal(nearby, COMSIG_MOVABLE_MOVED)
 	QDEL_NULL(monitor)
 	proxies.Cut()
 	return ..()
 
 /obj/machinery/satellite/meteor_shield/examine(mob/user)
 	. = ..()
+	. += span_notice("[EXAMINE_HINT("Right-click")] the satellite with a [EXAMINE_HINT("multitool")] to see a preview of its coverage.")
 	. += span_info("It has stopped <b>[meteors_zapped]</b> meteors so far.")
 	. += span_info("Overall, all meteor defense satellites have stopped a combined <b>[GLOB.total_meteors_zapped]</b> meteors this shift.")
 
@@ -69,6 +74,8 @@ GLOBAL_VAR_INIT(total_meteors_zapped, 0)
 
 /obj/machinery/satellite/meteor_shield/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	context[SCREENTIP_CONTEXT_LMB] = active ? "Deactivate" : "Activate"
+	if(held_item?.tool_behaviour == TOOL_MULTITOOL)
+		context[SCREENTIP_CONTEXT_RMB] = "Toggle coverage preview"
 	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/machinery/satellite/meteor_shield/toggle(mob/user)
@@ -76,6 +83,19 @@ GLOBAL_VAR_INIT(total_meteors_zapped, 0)
 	if(.)
 		user.log_message("[active ? "" : "de"]activated [src] at [AREACOORD(src)]", LOG_GAME)
 	setup_proximity()
+
+/obj/machinery/satellite/meteor_shield/multitool_act_secondary(mob/living/user, obj/item/tool)
+	if(toggle_meteor_sat_preview_for(user, src))
+		RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(on_coverage_viewer_moved))
+	else
+		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
+	return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/satellite/meteor_shield/proc/on_coverage_viewer_moved(mob/living/mover)
+	SIGNAL_HANDLER
+	if(!mover.Adjacent(src))
+		close_meteor_sat_preview_for(mover, src)
+		UnregisterSignal(mover, COMSIG_MOVABLE_MOVED)
 
 /obj/machinery/satellite/meteor_shield/emag_act(mob/user, obj/item/card/emag/emag_card)
 	. = ..()
@@ -118,7 +138,10 @@ GLOBAL_VAR_INIT(total_meteors_zapped, 0)
 	. = list()
 	var/turf/our_turf = get_turf(src)
 	if(isnull(target_z) || target_z == our_turf.z)
-		for(var/turf/turf as anything in RANGE_TURFS(kill_range, our_turf))
+		var/list/nearby_turfs = RANGE_TURFS(kill_range, our_turf)
+		// fun trick to avoid an implicit copy :3
+		for(var/idx = 1 to length(nearby_turfs))
+			var/turf/turf = nearby_turfs[idx]
 			if(check_los(our_turf, turf))
 				. += turf
 	if(target_z == our_turf.z) // we only wanted our own z-level, dont check proxies at all
@@ -128,7 +151,9 @@ GLOBAL_VAR_INIT(total_meteors_zapped, 0)
 			continue
 		var/obj/effect/abstract/meteor_shield_proxy/proxy = value
 		var/turf/proxy_turf = get_turf(proxy)
-		for(var/turf/turf as anything in RANGE_TURFS(kill_range, proxy_turf))
+		var/list/nearby_turfs = RANGE_TURFS(kill_range, proxy_turf)
+		for(var/idx = 1 to length(nearby_turfs))
+			var/turf/turf = nearby_turfs[idx]
 			if(check_los(proxy_turf, turf))
 				. += turf
 
