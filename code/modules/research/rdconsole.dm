@@ -245,7 +245,7 @@ Nothing else in the console has ID requirements.
 		if (stored_research.hidden_nodes[node_path])
 			continue
 
-		var/mob/node_queuer = stored_research.research_queue_nodes[node_path]
+		var/mob/node_queuer = stored_research?.research_queue_nodes[node_path]?.resolve() // OCULIS EDIT, ORIGINAL: var/mob/node_queuer = stored_research.research_queue_nodes[node_path]
 		var/enqueued_by_user = !isnull(node_queuer) && node_queuer == user
 
 		data["nodes"] += list(list(
