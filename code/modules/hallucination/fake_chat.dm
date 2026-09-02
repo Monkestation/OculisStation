@@ -72,7 +72,7 @@
 		return
 
 	// OCULIS EDIT ADDITION START
-	var/accused = pick(get_crewmember_minds())
+	var/datum/mind/accused = pick(get_crewmember_minds())
 	var/accused_name = pick_weight(list(
 		first_name(accused.name) = 4,
 		last_name(accused.name) = 2,
