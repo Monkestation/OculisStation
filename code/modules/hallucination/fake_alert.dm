@@ -40,7 +40,6 @@
 	del_timer_id = QDEL_IN_STOPPABLE(src, duration)
 	return TRUE
 
-/* // OCULIS EDIT REMOVAL START - these just barely work at all, given the variety of characters, what they breathe, and if they breathe at all
 /datum/hallucination/fake_alert/need_oxygen
 	alert_category = ALERT_NOT_ENOUGH_OXYGEN
 	alert_type = /atom/movable/screen/alert/not_enough_oxy
@@ -48,11 +47,12 @@
 /datum/hallucination/fake_alert/need_plasma
 	alert_category = ALERT_NOT_ENOUGH_PLASMA
 	alert_type = /atom/movable/screen/alert/not_enough_plas
+	hallucination_tier = HALLUCINATION_TIER_VERYSPECIAL // OCULIS EDIT ADDITION - obviously fake for 99% of characters
 
 /datum/hallucination/fake_alert/need_co2
 	alert_category = ALERT_NOT_ENOUGH_CO2
 	alert_type = /atom/movable/screen/alert/not_enough_co2
-*/ // OCULIS EDIT REMOVAL END
+	hallucination_tier = HALLUCINATION_TIER_VERYSPECIAL // OCULIS EDIT ADDITION - obviously fake for 99% of characters
 
 /datum/hallucination/fake_alert/bad_oxygen
 	alert_category = ALERT_TOO_MUCH_OXYGEN
