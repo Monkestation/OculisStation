@@ -30,12 +30,22 @@
 /atom/movable/screen/meteor_sat_turf_preview/LateInitialize()
 	get_preview_turfs()
 	generate_appearance()
+	addtimer(CALLBACK(src, PROC_REF(safety_close)), 5 MINUTES) // safety timer to ensure we self-close after 5 minutes, in case something breaks
 
 /atom/movable/screen/meteor_sat_turf_preview/Destroy(force)
 	source_weakref = null
 	center = null
 	turf_coverage.Cut()
 	return ..()
+
+/atom/movable/screen/meteor_sat_turf_preview/proc/safety_close()
+	SIGNAL_HANDLER
+	if(QDELETED(src))
+		return
+	var/mob/our_mob = get_mob()
+	if(our_mob)
+		our_mob.balloon_alert(our_mob, "automatically closed coverage preview")
+	hud.remove_screen_object(src, update = TRUE)
 
 /atom/movable/screen/meteor_sat_turf_preview/proc/get_preview_turfs()
 	turf_coverage.Cut()
