@@ -1,6 +1,6 @@
 GLOBAL_VAR_INIT(BACKSTAGE_COLOR, "#c654ff")
 GLOBAL_VAR_INIT(backstage_allowed, TRUE)	// used with admin verbs to disable backstage - not a config option
-GLOBAL_LIST_EMPTY(ckey_to_backstage_name)
+GLOBAL_ALIST_EMPTY(ckey_to_backstage_name)
 
 #define BACKSTAGE_LISTEN_PLAYER 1
 #define BACKSTAGE_LISTEN_ADMIN 2
@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(ckey_to_backstage_name)
 GAME_VERB(/client, backstage, "Backstage OOC", "OOC")
 	VERB_ARG(msg, VERB_ARG_TYPE_TEXT, VERB_ARG_SOURCE_INPUT)
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, span_danger("Speech is currently admin-disabled."))
+		to_chat(src, span_danger("Speech is currently admin-disabled."))
 		return
 
 	if(!mob)
@@ -19,9 +19,9 @@ GAME_VERB(/client, backstage, "Backstage OOC", "OOC")
 	var/is_security = FALSE
 
 	if(!holder)
-		var/job = mob?.mind.assigned_role.title
+		var/job = mob?.mind.assigned_role?.title
 		is_security = job && BACKSTAGE_JOBS[job]
-		is_antag = mob.mind && length(mob.mind.antag_datums)
+		is_antag = length(mob.mind?.antag_datums)
 		if(!is_security && !is_antag)
 			to_chat(src, span_danger("You're not a security role or an antagonist!"))
 			return
@@ -56,24 +56,22 @@ GAME_VERB(/client, backstage, "Backstage OOC", "OOC")
 
 	//Anonimity for players and deadminned admins
 	if(!holder || holder.deadmined)
-		if(!GLOB.ckey_to_backstage_name[key])
+		if(!GLOB.ckey_to_backstage_name[ckey])
 			if(is_antag) // check for antag first in case sec is antag, somehow
-				GLOB.ckey_to_backstage_name[key] = "Operator [pick(GLOB.phonetic_alphabet)] [rand(1, 99)]"
+				GLOB.ckey_to_backstage_name[ckey] = "Operator [pick(GLOB.phonetic_alphabet)] [rand(1, 99)]"
 			else // is_security, presumably
-				GLOB.ckey_to_backstage_name[key] = "Deputy [pick(GLOB.phonetic_alphabet)] [rand(1, 99)]"
-		keyname = GLOB.ckey_to_backstage_name[key]
+				GLOB.ckey_to_backstage_name[ckey] = "Deputy [pick(GLOB.phonetic_alphabet)] [rand(1, 99)]"
+		keyname = GLOB.ckey_to_backstage_name[ckey]
 		anon = TRUE
 
 	var/list/listeners = list()
 
-	for(var/iterated_player in GLOB.player_list)
-		var/mob/iterated_mob = iterated_player
+	for(var/mob/iterated_mob as anything in GLOB.player_list)
 		//Admins with muted OOC do not get to listen to Backstage, but normal players do, as it could be admins talking important stuff to them
 		if(iterated_mob.client?.holder && !iterated_mob.client?.holder?.deadmined && iterated_mob.client?.prefs?.chat_toggles & CHAT_OOC)
 			listeners[iterated_mob.client] = BACKSTAGE_LISTEN_ADMIN
-		else
-			if(is_security || is_antag)
-				listeners[iterated_mob.client] = BACKSTAGE_LISTEN_PLAYER
+		else if(is_security || is_antag)
+			listeners[iterated_mob.client] = BACKSTAGE_LISTEN_PLAYER
 
 	for(var/client/iterated_client as anything in listeners)
 		var/mode = listeners[iterated_client]
@@ -90,8 +88,7 @@ GAME_VERB(/client, backstage, "Backstage OOC", "OOC")
 	else //otherwise just toggle it
 		GLOB.backstage_allowed = !GLOB.backstage_allowed
 	var/list/listeners = list()
-	for(var/iterated_player in GLOB.player_list)
-		var/mob/iterated_mob = iterated_player
+	for(var/mob/iterated_mob as anything in GLOB.player_list)
 		if(!iterated_mob.client?.holder?.deadmined)
 			listeners[iterated_mob.client] = TRUE
 		else
@@ -99,14 +96,13 @@ GAME_VERB(/client, backstage, "Backstage OOC", "OOC")
 				var/datum/mind/mob_mind = iterated_mob.mind
 				if(BACKSTAGE_JOBS[mob_mind.assigned_role] || length(mob_mind.antag_datums))
 					listeners[iterated_mob.client] = TRUE
-	for(var/iterated_listener in listeners)
-		var/client/iterated_client = iterated_listener
+	for(var/client/iterated_client as anything in listeners)
 		to_chat(iterated_client, span_oocplain("<b>The backstage channel has been globally [GLOB.backstage_allowed ? "enabled" : "disabled"].</b>"))
 
 ADMIN_VERB(togglebackstage, R_ADMIN, "Toggle Backstage OOC", "Toggles Backstage OOC.", ADMIN_CATEGORY_SERVER)
 	toggle_backstage()
-	log_admin("[key_name(usr)] toggled Backstage OOC.")
-	message_admins("[key_name_admin(usr)] toggled Backstage OOC.")
+	log_admin("[key_name(user)] toggled Backstage OOC.")
+	message_admins("[key_name_admin(user)] toggled Backstage OOC.")
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Backstage OOC", "[GLOB.backstage_allowed ? "Enabled" : "Disabled"]"))
 
 #undef BACKSTAGE_LISTEN_PLAYER
