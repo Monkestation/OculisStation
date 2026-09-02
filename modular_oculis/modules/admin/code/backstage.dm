@@ -107,7 +107,7 @@ ADMIN_VERB(togglebackstage, R_ADMIN, "Toggle Backstage OOC", "Toggles Backstage 
 	toggle_backstage()
 	log_admin("[key_name(usr)] toggled Backstage OOC.")
 	message_admins("[key_name_admin(usr)] toggled Backstage OOC.")
-	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Backstage OOC", "[GLOB.backstage_allowed ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc! // I don't know what this comment is trying to say but I left it in because I copy-pasted it.
+	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Backstage OOC", "[GLOB.backstage_allowed ? "Enabled" : "Disabled"]"))
 
 #undef BACKSTAGE_LISTEN_PLAYER
 #undef BACKSTAGE_LISTEN_ADMIN
