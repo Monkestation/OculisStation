@@ -118,7 +118,7 @@
 				"[hallucinator_name]?" = 2,
 				"[hallucinator_name], got a [pick("sec", "second", "moment", "minute")]?" = 2,
 				pick("[pick("What'd", "What did")] you need again, [hallucinator_name]?", "[hallucinator_name], [pick("what'd", "what did")] you need again?") = 2,
-				prob(50)?uppertext(pick_list_replacements(HALLUCINATION_FILE, "swears")):pick_list_replacements(HALLUCINATION_FILE, "swears") = 4,
+				"[prob(50)?uppertext(pick_list_replacements(HALLUCINATION_FILE, "swears")):pick_list_replacements(HALLUCINATION_FILE, "swears")][pick(".", "!", "!!")]" = 4,
 			))
 			// OCULIS EDIT ADDITION END
 		else
