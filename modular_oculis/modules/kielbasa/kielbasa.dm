@@ -8,6 +8,7 @@
 	name = "\improper Kielbasa Grenade Launcher"
 	desc = /obj/item/gun/ballistic/automatic/sol_grenade_launcher::desc + " This one seems to have been modified to accept magazines full of sausages instead of grenades."
 	accepted_magazine_type = /obj/item/ammo_box/magazine/c980_sausage
+	spawnwithmagazine = FALSE
 
 /obj/item/ammo_box/magazine/c980_sausage
 	name = "\improper Kielbasa grenade box"
@@ -23,6 +24,8 @@
 	ammo_type = /obj/item/ammo_casing/c980sausage
 	caliber = CALIBER_980TYDHOUER
 	max_ammo = 4
+	start_empty = TRUE
+
 
 /obj/item/ammo_box/magazine/c980_sausage/drum
 	name = "\improper Kielbasa grenade drum"
@@ -33,6 +36,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 	max_ammo = 6
+
 
 /obj/item/ammo_casing/c980sausage
 	name = ".980 Sausage"
@@ -49,7 +53,7 @@
 	harmful = FALSE //Clearly.
 	ammo_categories = AMMO_CLASS_NONE
 
-/obj/item/ammo_casing/c980/Initialize(mapload)
+/obj/item/ammo_casing/c980sausage/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/caseless, FALSE)
 
