@@ -5,7 +5,7 @@
 	icon_state = "kitsuitcase"
 
 /obj/item/gun/ballistic/automatic/sol_grenade_launcher/kielbasa
-	name = "Kielbasa Grenade Launcher"
+	name = "\improper Kielbasa Grenade Launcher"
 	desc = /obj/item/gun/ballistic/automatic/sol_grenade_launcher::name + " This one seems to have been modified to accept magazines full of sausages instead of grenades."
 	accepted_magazine_type = /obj/item/ammo_box/magazine/c980_sausage
 
@@ -24,7 +24,7 @@
 	caliber = CALIBER_980TYDHOUER
 	max_ammo = 4
 
-obj/item/ammo_box/magazine/c980_sausage/drum
+/obj/item/ammo_box/magazine/c980_sausage/drum
 	name = "\improper Kielbasa grenade drum"
 	desc = "A drum for .980 sausages, holds six of them."
 
@@ -54,18 +54,65 @@ obj/item/ammo_box/magazine/c980_sausage/drum
 	caliber = CALIBER_980TYDHOUER
 	projectile_type = /obj/projectile/bullet/sausage
 
-	custom_materials = AMMO_MATS_GRENADE
+	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT)
 
-	harmful = FALSE //Erm, technically
+	harmful = FALSE //Clearly.
 	ammo_categories = AMMO_CLASS_NONE
 	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c980sausage
+
 
 /obj/projectile/bullet/sausage
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "sausage"
 	name = ".980 Sausage"
 	damage = 0
-	stamina = 30
+	stamina = 40
 	range = 14
 	speed = 1
 	sharpness = NONE
+
+/obj/projectile/bullet/sausage/on_hit(atom/target, blocked, pierce_hit)
+	. = ..()
+	new /obj/item/food/sausage(get_turf(target))
+
+/datum/crafting_recipe/kielbasa_gun
+	name = "Kielbasa Grenade Launcher"
+	result = /obj/item/gun/ballistic/automatic/sol_grenade_launcher/kielbasa
+	reqs = list(
+		/obj/item/gun/ballistic/automatic/sol_grenade_launcher,
+	)
+	tool_paths = list(/obj/item/weaponcrafting/kielbasa_kit)
+	blacklist = list(/obj/item/gun/ballistic/automatic/sol_grenade_launcher/kielbasa)
+	time = 10 SECONDS
+	category = CAT_WEAPON_RANGED
+
+/datum/crafting_recipe/kielbasa_mag
+	name = "Kielbasa grenade box"
+	result = /obj/item/ammo_box/magazine/c980_sausage
+	reqs = list(
+		/obj/item/ammo_box/magazine/c980_grenade,
+	)
+	tool_paths = list(/obj/item/weaponcrafting/kielbasa_kit)
+	blacklist = list(/obj/item/ammo_box/magazine/c980_grenade/drum)
+	time = 5 SECONDS
+	category = CAT_WEAPON_AMMO
+
+/datum/crafting_recipe/kielbasa_drum_mag
+	name = "Kielbasa grenade drum"
+	result = /obj/item/ammo_box/magazine/c980_sausage/drum
+	reqs = list(
+		/obj/item/ammo_box/magazine/c980_grenade/drum,
+	)
+	tool_paths = list(/obj/item/weaponcrafting/kielbasa_kit)
+	time = 5 SECONDS
+	category = CAT_WEAPON_AMMO
+
+/datum/crafting_recipe/kielbasa_ammo
+	name = ".980 Sausage caliber conversion"
+	result = /obj/item/ammo_casing/c980sausage
+	reqs = list(
+		/obj/item/food/sausage,
+	)
+	tool_behaviors = TOOL_KNIFE
+	time = 1 SECONDS
+	category = CAT_WEAPON_AMMO
