@@ -6,7 +6,7 @@
 
 /obj/item/gun/ballistic/automatic/sol_grenade_launcher/kielbasa
 	name = "\improper Kielbasa Grenade Launcher"
-	desc = /obj/item/gun/ballistic/automatic/sol_grenade_launcher::name + " This one seems to have been modified to accept magazines full of sausages instead of grenades."
+	desc = /obj/item/gun/ballistic/automatic/sol_grenade_launcher::desc + " This one seems to have been modified to accept magazines full of sausages instead of grenades."
 	accepted_magazine_type = /obj/item/ammo_box/magazine/c980_sausage
 
 /obj/item/ammo_box/magazine/c980_sausage
@@ -34,16 +34,6 @@
 
 	max_ammo = 6
 
-/obj/item/ammo_box/magazine/ammo_stack/c980sausage
-	name = ".980 Sausages"
-	desc = "A stack of .980 sausages."
-	caliber = CALIBER_980TYDHOUER
-	ammo_type = /obj/item/ammo_casing/c980sausage
-	casing_phrasing = "sausage"
-	max_ammo = 6
-	casing_w_spacing = 3
-	casing_z_padding = 9
-
 /obj/item/ammo_casing/c980sausage
 	name = ".980 Sausage"
 	desc = "A large sausage that deals stamina damage and is a sausage."
@@ -58,8 +48,10 @@
 
 	harmful = FALSE //Clearly.
 	ammo_categories = AMMO_CLASS_NONE
-	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c980sausage
 
+/obj/item/ammo_casing/c980/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/caseless, FALSE)
 
 /obj/projectile/bullet/sausage
 	icon = 'icons/obj/food/meat.dmi'
@@ -79,7 +71,7 @@
 	name = "Kielbasa Grenade Launcher"
 	result = /obj/item/gun/ballistic/automatic/sol_grenade_launcher/kielbasa
 	reqs = list(
-		/obj/item/gun/ballistic/automatic/sol_grenade_launcher,
+		/obj/item/gun/ballistic/automatic/sol_grenade_launcher = 1,
 	)
 	tool_paths = list(/obj/item/weaponcrafting/kielbasa_kit)
 	blacklist = list(/obj/item/gun/ballistic/automatic/sol_grenade_launcher/kielbasa)
@@ -90,7 +82,7 @@
 	name = "Kielbasa grenade box"
 	result = /obj/item/ammo_box/magazine/c980_sausage
 	reqs = list(
-		/obj/item/ammo_box/magazine/c980_grenade,
+		/obj/item/ammo_box/magazine/c980_grenade = 1,
 	)
 	tool_paths = list(/obj/item/weaponcrafting/kielbasa_kit)
 	blacklist = list(/obj/item/ammo_box/magazine/c980_grenade/drum)
@@ -101,7 +93,7 @@
 	name = "Kielbasa grenade drum"
 	result = /obj/item/ammo_box/magazine/c980_sausage/drum
 	reqs = list(
-		/obj/item/ammo_box/magazine/c980_grenade/drum,
+		/obj/item/ammo_box/magazine/c980_grenade/drum = 1,
 	)
 	tool_paths = list(/obj/item/weaponcrafting/kielbasa_kit)
 	time = 5 SECONDS
@@ -111,8 +103,26 @@
 	name = ".980 Sausage caliber conversion"
 	result = /obj/item/ammo_casing/c980sausage
 	reqs = list(
-		/obj/item/food/sausage,
+		/obj/item/food/sausage = 1,
 	)
 	tool_behaviors = TOOL_KNIFE
 	time = 1 SECONDS
 	category = CAT_WEAPON_AMMO
+
+/datum/supply_pack/security/armory/kielbasa
+	name = "Kielbasa conversion kit"
+	desc = "Convert your Kiboko hardware into Kielbasa hardware."
+	cost = CARGO_CRATE_VALUE * 15
+	contains = list(/obj/item/weaponcrafting/kielbasa_kit)
+	crate_name = "kielbasa conversion crate"
+	order_flags = ORDER_CONTRABAND
+
+/datum/market_item/weapon/kielbasa
+	name = "Kiboko upgrade kit"
+	desc = "Some sort of weird conversion kit for a standard Kiboko grenade launcher. Quality not guarenteed."
+	item = /obj/item/weaponcrafting/kielbasa_kit
+
+	price_min = CARGO_CRATE_VALUE * 10
+	price_max = CARGO_CRATE_VALUE * 20
+	stock_max = 2
+	availability_prob = 60
