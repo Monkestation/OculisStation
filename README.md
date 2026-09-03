@@ -9,6 +9,7 @@
 
 | Website                  | Link                                                                                                                                   |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| How to Write a Design Doc| [https://hackmd.io/@tgstation/BkzmU9EyK](https://hackmd.io/@tgstation/BkzmU9EyK)                                                       |
 | Git / GitHub cheatsheet  | [https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833](https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833) |
 | Guide to Modularization  | [./modular_oculis/readme.md](./modular_oculis/readme.md)                                                                               |
 | Guide to Mirroring       | [./modular_oculis/mirroring_guide.md](./modular_oculis/mirroring_guide.md)                                                             |
