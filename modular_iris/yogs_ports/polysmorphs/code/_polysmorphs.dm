@@ -41,7 +41,7 @@
 	coldmod = 0.75
 	heatmod = 1.5
 	species_language_holder = /datum/language_holder/polysmorph
-	exotic_bloodtype = BLOOD_TYPE_POLYSMORPH
+	exotic_bloodtype = /datum/blood_type/polysmorph
 	meat = /obj/item/food/meat/slab/xeno
 	skinned_type = /obj/item/stack/sheet/animalhide/xeno
 	gib_anim = "gibbed-a"

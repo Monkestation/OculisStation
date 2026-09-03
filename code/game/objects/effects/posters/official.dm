@@ -216,12 +216,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/fruit_bowl, 32)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/pda_ad, 32)
 
+/* // OCULIS EDIT REMOVAL START
 /obj/structure/sign/poster/official/enlist
 	name = "Enlist" // but I thought deathsquad was never acknowledged
 	desc = "Enlist in the Nanotrasen Deathsquadron reserves today!"
 	icon_state = "enlist"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/enlist, 32)
+*/ // OCULIS EDIT REMOVAL END
 
 /obj/structure/sign/poster/official/nanomichi_ad
 	name = "Nanomichi Ad"
@@ -255,6 +257,25 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/the_owl, 32)
 	name = "No ERP"
 	desc = "This poster reminds the crew that Enterprise Resource Planning is not allowed by company policy, in accordance with Eidolon governmental regulations on megacorporations." // OCULIS EDIT
 	icon_state = "no_erp"
+	/// Tracks poster state for the hidden interaction
+	VAR_PRIVATE/corrupted = FALSE
+
+/obj/structure/sign/poster/official/no_erp/tear_poster(mob/user)
+	if(prob(99) && !check_holidays(APRIL_FOOLS))
+		return ..()
+
+	visible_message(span_notice("[user] rips [src] in a single, decisive motion... revealing another poster?"))
+	playsound(src, 'sound/items/poster/poster_ripped.ogg', 100, TRUE)
+	if(corrupted)
+		name = initial(name)
+		desc = initial(desc)
+		icon_state = initial(icon_state)
+		corrupted = FALSE
+	else
+		name = "Yes ERP"
+		desc = "This poster reminds the crew that Enterprise Resource Planning is both effective and critical for the station's operations."
+		icon_state = "yes_erp"
+		corrupted = TRUE
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/no_erp, 32)
 

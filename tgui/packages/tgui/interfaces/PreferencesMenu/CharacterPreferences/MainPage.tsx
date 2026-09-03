@@ -529,9 +529,10 @@ export function MainPage(props: MainPageProps) {
   }
 
   const [currentPrefPage, setCurrentPrefPage] = useState(PrefPage.Visual);
-
+  const erpEnabled = !!data.erp_pref;
+  const filteredCurrentPrefPage = currentPrefPage
   let prefPageContents;
-  switch (currentPrefPage) {
+  switch (filteredCurrentPrefPage) {
     case PrefPage.Visual:
       prefPageContents = (
         <PreferenceList
@@ -559,7 +560,7 @@ export function MainPage(props: MainPageProps) {
       );
       break;
     default:
-      exhaustiveCheck(currentPrefPage);
+      exhaustiveCheck(filteredCurrentPrefPage);
   }
   // NOVA EDIT ADDITION END
 
@@ -610,7 +611,7 @@ export function MainPage(props: MainPageProps) {
                 }}
                 setGender={createSetPreference(act, 'gender')}
                 showGender={
-                  currentSpeciesData ? !!currentSpeciesData.sexes : true
+                  true // OCULIS EDIT, don't force people to have or not have a gender, ORIGINAL: currentSpeciesData ? !!currentSpeciesData.sexes : true
                 }
                 // NOVA EDIT ADDITION START
                 handleFood={() => {

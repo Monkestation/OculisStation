@@ -5,9 +5,6 @@
 	// Use the new basic mobs system instead.
 	// If you are refactoring a simple_animal, REMOVE it from this list
 	var/list/allowed_types = list(
-		/mob/living/simple_animal/bot,
-		/mob/living/simple_animal/bot/mulebot,
-		/mob/living/simple_animal/bot/mulebot/paranormal,
 		/mob/living/simple_animal/hostile,
 		/mob/living/simple_animal/hostile/asteroid,
 		/mob/living/simple_animal/hostile/asteroid/elite,
@@ -18,8 +15,6 @@
 		/mob/living/simple_animal/hostile/asteroid/elite/legionnaire,
 		/mob/living/simple_animal/hostile/asteroid/elite/legionnairehead,
 		/mob/living/simple_animal/hostile/asteroid/elite/pandora,
-		/mob/living/simple_animal/hostile/asteroid/polarbear,
-		/mob/living/simple_animal/hostile/asteroid/polarbear/lesser,
 		/mob/living/simple_animal/hostile/megafauna,
 		/mob/living/simple_animal/hostile/megafauna/bubblegum,
 		/mob/living/simple_animal/hostile/megafauna/bubblegum/hallucination,
@@ -43,17 +38,8 @@
 
 		// MODULAR NOVA ENTRIES
 		// PLEASE REFACTOR THESE AS YOU CAN
-		/mob/living/simple_animal/hostile/bigcrab,
-		/mob/living/simple_animal/hostile/cazador,
-		/mob/living/simple_animal/hostile/mannequin,
 		/mob/living/simple_animal/hostile/megafauna/gladiator,
 		/mob/living/simple_animal/hostile/megafauna/hierophant/astrum,
-		/mob/living/simple_animal/hostile/mutantliz,
-		/mob/living/simple_animal/hostile/plantmutant,
-		/mob/living/simple_animal/hostile/scorpion,
-		/mob/living/simple_animal/hostile/syndimouse,
-		/mob/living/simple_animal/hostile/trog,
-		/mob/living/simple_animal/hostile/true_changeling,
 
 		/mob/living/simple_animal/hostile/ooze/grapes/xenobio, // update when grapes are updated, must be here to stop errors
 

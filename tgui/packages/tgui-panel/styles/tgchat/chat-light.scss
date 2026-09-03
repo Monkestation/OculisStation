@@ -247,6 +247,7 @@ a:visited {
 .prefix,
 .ooc,
 .looc,
+.do, // OCULIS EDIT ADDITION
 .adminooc,
 .admin,
 .medal,
@@ -586,7 +587,7 @@ h2.alert {
 }
 
 .green {
-  color: hsl(132.9, 100%, 50.6%);
+  color: hsl(132.8, 93.4%, 29.6%);
 }
 
 .grey {
@@ -967,6 +968,11 @@ h2.alert {
 .upside_down {
   transform: rotate(180deg);
   display: inline-block;
+}
+
+.mansus {
+  color: #0b8000;
+  text-shadow: 0 0 6px #0b8000;
 }
 
 .cyan {
@@ -1439,5 +1445,11 @@ $border-width-px: $border-width * 1px;
   100% {
     color: #9b6000;
   }
+}
+
+// Headshots are photos, not sprites, so undo the pixelated `img` rule from earlier in this file
+.examine_headshot img {
+  image-rendering: auto;
+  border-color: hsla(220, 40%, 25%, 0.35);
 }
 // NOVA EDIT ADDITION END

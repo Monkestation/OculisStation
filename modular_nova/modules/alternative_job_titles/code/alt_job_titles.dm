@@ -14,6 +14,7 @@
 		"AI",
 		"Automated Overseer",
 		"Station Intelligence",
+		"Site Intelligence", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/assistant
@@ -68,6 +69,7 @@
 		"Beverage Architect",
 		"Barkeeper",
 		"Mixologist",
+		"Tavernkeeper", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/bitrunner
@@ -98,6 +100,7 @@
 		"Command Bodyguard",
 		"Corporate Protection Specialist",
 		"Executive Protection Agent",
+		"Blueshield In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/botanist
@@ -118,7 +121,10 @@
 		"Bouncer",
 		"Service Guard",
 		"Doorman",
-		"Service Guard Cadet", //OCULIS ADDITION
+		"Doorwoman", // OCULIS EDIT ADDITION
+		"Service Guard Cadet", // OCULIS EDIT ADDITION
+		"Civil Protection Officer",
+		"Public Peacekeeper",
 	)
 
 /datum/job/corrections_officer
@@ -139,6 +145,7 @@
 		"Site Director",
 		"Site Administrator",
 		"Station Commander",
+		"Captain In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/cargo_technician
@@ -196,17 +203,20 @@
 		"Engineering Foreman",
 		"Engineering Supervisor",
 		"Head of Engineering",
+		"Chief Engineer In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/chief_medical_officer
 	alt_titles = list(
 		"Chief Medical Officer",
 		"Chief Physician",
+		"Head Physician",
 		"Head of Medical",
 		"Medical Supervisor",
-		"Head Physician",
 		"Medical Director",
 		"Medical Administrator",
+		"Charge Nurse", // OCULIS EDIT ADDITION
+		"Chief Medical Officer In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/clown
@@ -215,6 +225,7 @@
 		"Comedian",
 		"Jester",
 		"Joker",
+		"Prankster", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/cook
@@ -237,6 +248,7 @@
 		"Funeral Director",
 		"Medical Examiner",
 		"Mortician",
+		"Undertaker", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/curator
@@ -246,14 +258,20 @@
 		"Conservator",
 		"Journalist",
 		"Librarian",
+		"Assistant Librarian", // OCULIS EDIT ADDITION
+		"Scholar", // OCULIS EDIT ADDITION
+		"Literary Translator", // OCULIS EDIT ADDITION
+		"Interpreter", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/customs_agent
 	alt_titles = list(
 		"Customs Agent",
 		"Supply Guard",
-		"Union Customs Agent", //OCULIS ADDITION START
-		"Supply Guard Trainee",
+		"Union Customs Agent", //OCULIS ADDITION
+		"Supply Guard Trainee", //OCULIS ADDITION
+		"Deck Defense Officer", //OCULIS ADDITION
+		"Delivery Escort",
 	)
 
 /datum/job/cyborg
@@ -277,36 +295,32 @@
 /datum/job/doctor
 	alt_titles = list(
 		"Medical Doctor",
-		"General Practitioner",
 		"Medical Resident",
-		"Nurse",
-		"Physician",
-		"Surgeon",
+		"Medical Assistant",
 		"Medical Student",
-		"Clinician",
-		"Physician Assistant",
+		"Physician",
 		"Emergency Physician",
+		"Theoretical Physician", //OCULIS EDIT ADDITION
+		"Physician Assistant",
+		"Nurse",
 		"Registered Nurse",
-		"Theoretical Physician", //OCULIS ADDITION
+		"Practical Nurse", //OCULIS EDIT ADDITION
+		"Nursing Assistant", //OCULIS EDIT ADDITION
+		"Nursing Student", // OCULIS EDIT ADDITION
+		"Surgeon",
+		"Surgical Assistant", //OCULIS EDIT ADDITION
+		"General Practitioner",
+		"Clinician",
 	)
 
-/datum/job/engineering_guard //see orderly //OCULIS EDIT, alt titles
+/datum/job/engineering_guard //see orderly
 	alt_titles = list(
 		"Engineering Guard",
-		"OSHA Enforcer",
-		"Engineering Guard In-Training",
-		"Equipment Inspector",
-	)
-
-/datum/job/explorer // IRIS EDIT - EXPLORER JOB
-	alt_titles = list(
-		"Explorer",
-		"Surveyor",
-		"Pioneer",
-		"Navigator",
-		"Frontiersperson",
-		"Apprentice Explorer",
-		"Union Explorer", //OCULIS ADDITION
+		"OSHA Enforcer", //OCULIS EDIT ADDITION, alt titles
+		"Engineering Guard In-Training", //OCULIS EDIT ADDITION, alt titles
+		"Equipment Inspector", //OCULIS EDIT ADDITION, alt titles
+		"Power Plant Guard",
+		"Construction Guard",
 	)
 
 /datum/job/geneticist
@@ -317,6 +331,7 @@
 		"Gene Analyzer",
 		"Gene Tailor",
 		"Mutation Researcher",
+		"Genetic Engineer", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/head_of_personnel
@@ -326,7 +341,9 @@
 		"Employment Officer",
 		"Human Resources Officer",
 		"Executive Officer",
-		"Senior Sapient Resources Agent", // IRIS EDIT - new title
+		"First Officer", // OCULIS EDIT ADDITION
+		"Senior Sophont Resources Agent", // OCULIS EDIT ADDITION
+		"Head of Personnel In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/head_of_security
@@ -334,10 +351,13 @@
 		"Head of Security",
 		"Chief Constable",
 		"Chief of Security",
+		"Chief Security Officer", // OCULIS EDIT ADDITION
 		"Security Commander",
 		"Security Supervisor",
 		"Security Director",
 		"Sheriff",
+		"Marshall", // OCULIS EDIT ADDITION
+		"Head of Security In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/janitor
@@ -358,8 +378,8 @@
 		"Lawyer",
 		"Barrister",
 		"Defense Attorney",
-		"Sapient Resources Agent", // IRIS EDIT - it's "Sapient" now
-		"Internal Affairs Agent",
+		"Sophont Resources Agent", // OCULIS EDIT ADDITION
+		// "Internal Affairs Agent", // OCULIS EDIT REMOVAL
 		"Legal Clerk",
 		"Prosecutor",
 		"Attorney At Law",
@@ -391,22 +411,25 @@
 	alt_titles = list(
 		"Orderly",
 		"Medical Guard",
-		"Medical Guard In-Training", //OCULIS ADDITION
+		"Medical Guard In-Training", //OCULIS EDIT ADDITION
 	) //other dept guards' alt-titles should be kept to [department] guard to avoid confusion, unless the department gets a re-do.
 
 /datum/job/paramedic
 	alt_titles = list(
 		"Paramedic",
+		"Senior Paramedic", //OCULIS EDIT ADDITION
 		"Emergency Medical Technician",
+		"Emergency Medical Responder",
 		"Search and Rescue Technician",
 		"Trauma Team Responder",
-		"Emergency Medical Responder",
 	)
 
 /datum/job/prisoner
 	alt_titles = list(
 		"Prisoner",
+		"Convict", // OCULIS EDIT ADDITION
 		"Minimum Security Prisoner",
+		"Medium Security Prisoner", // OCULIS EDIT ADDITION
 		"Maximum Security Prisoner",
 		"SuperMax Security Prisoner",
 		"Protective Custody Prisoner",
@@ -430,6 +453,7 @@
 		"Supply Foreman",
 		"Union Requisitions Officer",
 		"Warehouse Supervisor",
+		"Quartermaster In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/research_director
@@ -442,24 +466,29 @@
 		"Silicon Administrator",
 		"Research Administrator",
 		"Director of Science",
+		"Research Director In-Trial", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/roboticist
 	alt_titles = list(
 		"Roboticist",
-		"Biomechanical Engineer",
+		"Apprentice Roboticist",
 		"Cyberneticist",
-		"Mech Fabrication Specialist",
+		"Prosthetist", // OCULIS EDIT ADDITION
 		"Machinist",
 		"Mechatronic Engineer",
-		"Apprentice Roboticist",
+		"Biomechanical Engineer",
+		"Mech Fabrication Specialist",
 	)
 
-/datum/job/science_guard //See orderly //OCULIS EDIT, alt titles
+/datum/job/science_guard //See orderly
 	alt_titles = list(
 		"Science Guard",
-		"Research Facility Protector",
-		"Science Guard Trainee",
+		"Research Facility Protector", //OCULIS EDIT ADDITION, alt titles
+		"Science Guard Trainee", //OCULIS EDIT ADDITION, alt titles
+		"Hazardous Experiment Overwatch",
+		"Xenobiological Recontainment Officer",
+		"Expedition Protection Agent",
 	)
 /datum/job/scientist
 	alt_titles = list(
@@ -484,8 +513,11 @@
 		"Security Operative",
 		"Security Cadet",
 		"Security Specialist",
+		"Junior Officer", // OCULIS EDIT ADDITION
+		"Senior Officer", // OCULIS EDIT ADDITION
 		"Deputy",
 		"Constable",
+		"Peace Officer", // OCULIS EDIT ADDITION
 	)
 
 /datum/job/shaft_miner
@@ -539,5 +571,8 @@
 		"Brig Sergeant",
 		"Brig Governor",
 		"Dispatch Officer",
+		"Armaments Supervisor", // OCULIS EDIT ADDITION
 		"Jailer",
+		"Sentry", // OCULIS EDIT ADDITION
+		"Armorer", // OCULIS EDIT ADDITION
 	)

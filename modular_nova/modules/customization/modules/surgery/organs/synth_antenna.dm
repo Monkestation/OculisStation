@@ -12,8 +12,12 @@
 
 /datum/bodypart_overlay/mutant/synth_antenna
 	feature_key = FEATURE_SYNTH_ANTENNA
-	layers = EXTERNAL_ADJACENT | EXTERNAL_FRONT
+	layers = list(
+		EXTERNAL_FRONT = BODY_FRONT_LAYER,
+		EXTERNAL_ADJACENT = BODY_ADJ_LAYER,
+	)
 	color_source = ORGAN_COLOR_OVERRIDE
+	offset_location = UPPER_BODY
 
 /datum/bodypart_overlay/mutant/synth_antenna/override_color(rgb_value)
 	return draw_color

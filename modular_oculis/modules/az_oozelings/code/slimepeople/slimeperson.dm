@@ -1,7 +1,7 @@
 /datum/species/jelly/slime
 	/// The manager instance used to link all of someone's slimeperson bodies.
 	var/datum/slimeperson_manager/manager
-	/// If TRUE, then the next `spec_life` will ensure that the slime body is added to the manager, if there is one.
+	/// If TRUE, then the next `on_life` will ensure that the slime body is added to the manager, if there is one.
 	/// Mostly a simple workaround for ensuring cloned/recreated bodies are properly linked.
 	var/needs_manager_update = FALSE
 
@@ -21,7 +21,7 @@
 	manager?.remove_body(slime)
 	return ..()
 
-/datum/species/jelly/slime/spec_life(mob/living/carbon/human/slime, seconds_per_tick)
+/datum/species/jelly/slime/on_life(mob/living/carbon/human/slime, seconds_per_tick)
 	if(needs_manager_update && manager)
 		manager.add_body(slime)
 		needs_manager_update = FALSE

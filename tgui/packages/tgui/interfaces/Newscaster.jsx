@@ -81,7 +81,7 @@ const NewscasterChannelCreation = (props) => {
   const { creating_channel, awaiting_approval, name, desc } = data;
 
   if (awaiting_approval) {
-    return <LoadingScreen label="Awaiting Central Command approval..." />;
+    return <LoadingScreen label="Awaiting Sectorial Command approval..." />; // OCULIS EDIT, SectCommening 2, ORIGINAL: return <LoadingScreen label="Awaiting Central Command approval..." />;
   }
 
   if (!creating_channel) {
@@ -164,7 +164,7 @@ const NewscasterChannelCreation = (props) => {
               setcross_sector(!cross_sector);
               setLockedmode(true);
             }}
-            tooltip="Cross-sector newscaster messaging will require Central Command approval for each article. Cross-sector channels are automatically locked."
+            tooltip="Cross-sector newscaster messaging will require Sectorial Command approval for each article. Cross-sector channels are automatically locked." // OCULIS EDIT, SectCommening 2, ORIGINAL: tooltip="Cross-sector newscaster messaging will require Central Command approval for each article. Cross-sector channels are automatically locked."
             tooltipPosition="bottom-start"
           >
             Make cross-sector?

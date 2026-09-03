@@ -309,7 +309,7 @@ export function sanitizeText(
   tags = defTag,
   forbidAttr = forbiddenAttr,
   advTags = advTag,
-): string | { sanitized: string; blockedSummary?: string } {
+): string {
   // This is VERY important to think first if you NEED
   // the tag you put in here. We are pushing all this
   // though dangerouslySetInnerHTML and even though
@@ -341,14 +341,6 @@ export function sanitizeText(
     ALLOWED_ATTR: allowedAttr,
     FORBID_ATTR: forbiddenAttr,
   });
-
-  // If we have blocked CSS items, return object for admin logging
-  if (blockedCssItems.length > 0) {
-    return {
-      sanitized: sanitized,
-      blockedSummary: `Blocked CSS: ${blockedCssItems.join(', ')}`,
-    };
-  }
 
   return sanitized;
 }

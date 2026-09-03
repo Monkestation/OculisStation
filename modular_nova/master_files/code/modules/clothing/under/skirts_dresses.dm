@@ -1,5 +1,3 @@
-#define SKIRTS_DRESSES_DIGIFILE 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses_digi.dmi'
-
 /obj/item/clothing/under/dress
 	body_parts_covered = CHEST|GROIN	//For reference
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY //For reference - We dont want to cut a random hole in dresses
@@ -56,6 +54,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/dress/skirt/nova/red_skirt
 	name = "red bra and skirt"
@@ -64,6 +63,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/dress/skirt/nova/black_skirt
 	name = "black bra and skirt"
@@ -72,12 +72,14 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/dress/skirt/nova/jean
 	name = "jean skirt"
 	desc = "Technically, is there much difference between these and jorts? It's just one big hole instead of two. Does that make this a jirt?"
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
 	icon_state = "/obj/item/clothing/under/dress/skirt/nova/jean"
 	post_init_icon_state = "jean_skirt"
@@ -226,6 +228,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/dress/wedding_dress
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
@@ -239,6 +242,7 @@
 	flags_inv = HIDESHOES
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/dress/wedding_dress/ribbon
 	name = "wedding dress with ribbon"
@@ -314,6 +318,19 @@
 /obj/item/clothing/under/dress/nova/giant_scarf/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/giant_scarf, initial_skin = "Plain")
 
+/obj/item/clothing/under/dress/nova/open_backed_sweater
+	name = "open-backed sweater"
+	desc = "An open backed sweater."
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/open_backed_sweater"
+	post_init_icon_state = "open_backed_sweater"
+	greyscale_config = /datum/greyscale_config/open_backed_sweater
+	greyscale_config_worn = /datum/greyscale_config/open_backed_sweater/worn
+	greyscale_colors = "#90babe"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	body_parts_covered = CHEST|GROIN
+
 /datum/atom_skin/midnight_gown
 	abstract_type = /datum/atom_skin/midnight_gown
 	greyscale_item_path = /obj/item/clothing/under/dress/nova/midnight_gown
@@ -343,6 +360,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = FALSE
 	alternate_worn_layer = ABOVE_SHOES_LAYER
@@ -497,6 +515,7 @@
 	body_parts_covered = GROIN|LEGS
 	has_sensor = NO_SENSORS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/dress/skirt/nova/loincloth/loincloth_alt
 	name = "shorter loincloth"

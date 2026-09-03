@@ -63,7 +63,13 @@
 	return
 
 /mob/living/basic/mining/legion_brood/melee_attack(mob/living/target, list/modifiers, ignore_cooldown)
-	if (ishuman(target) && target.stat > SOFT_CRIT)
+	//OCULIS EDIT START - SKULLS WILL DIE IF THEY ATTEMPT TO HEAL A BOSS, BOSSES ARE STRONG ENTITIES WHO SHOULD NOT RECEIVE HEALING
+	if (faction_check(target.get_faction(), FACTION_BOSS))
+		visible_message(span_warning("[src] attempts to melds with [target]'s flesh, but is destroyed by the energy radiating from them!"))
+		death()
+		return
+	//OCULIS EDIT END
+	if (ishuman(target) && IS_UNCONSCIOUS(target))
 		infest(target)
 		return
 
@@ -90,8 +96,8 @@
 
 /// Returns the kind of legion we make out of the target
 /mob/living/basic/mining/legion_brood/proc/get_legion_type(mob/living/carbon/human/target)
-	if (ismonkey(target))
-		return /mob/living/basic/mining/legion/monkey
+	if (HAS_TRAIT(target, TRAIT_LESSER_HUMANOID))
+		return /mob/living/basic/mining/legion/lesser
 	if (HAS_TRAIT(target, TRAIT_DWARF))
 		return /mob/living/basic/mining/legion/dwarf
 	return /mob/living/basic/mining/legion
@@ -103,8 +109,17 @@
 	else
 		add_ally(creator)
 	created_by = WEAKREF(creator)
-	ai_controller?.set_blackboard_key(BB_LEGION_BROOD_CREATOR, creator)
 	RegisterSignal(creator, COMSIG_QDELETING, PROC_REF(creator_destroyed))
+	if (!ai_controller)
+		return
+
+	ai_controller.set_blackboard_key(BB_LEGION_BROOD_CREATOR, creator)
+	if (!creator.ai_controller)
+		return
+
+	// Inherit our creator's target and reinforcement requests
+	ai_controller.set_blackboard_key(BB_CURRENT_TARGET, creator.ai_controller.blackboard[BB_CURRENT_TARGET])
+	ai_controller.set_blackboard_key(BB_MINING_MOB_REINFORCEMENTS_REQUESTS, creator.ai_controller.blackboard[BB_MINING_MOB_REINFORCEMENTS_REQUESTS])
 
 /// Reference handling
 /mob/living/basic/mining/legion_brood/proc/creator_destroyed()
@@ -127,6 +142,6 @@
 	has_emissive = FALSE
 
 /mob/living/basic/mining/legion_brood/snow/get_legion_type(mob/living/target)
-	if (ismonkey(target))
-		return /mob/living/basic/mining/legion/monkey/snow
+	if (HAS_TRAIT(target, TRAIT_LESSER_HUMANOID))
+		return /mob/living/basic/mining/legion/lesser/snow
 	return /mob/living/basic/mining/legion/snow

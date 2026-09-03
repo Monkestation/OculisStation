@@ -8,62 +8,6 @@ macro "default"
 		name = "SHIFT+UP"
 		command = ".winset :map.right-click=true"
 
-
-menu "menu"
-	elem
-		name = "&File"
-		command = ""
-		saved-params = "is-checked"
-	elem "reconnectbutton"
-		name = "&Reconnect"
-		command = ".reconnect"
-		category = "&File"
-		saved-params = "is-checked"
-    elem
-		name = "&Connect to Relay"
-		command = "connect-to-relay"
-        category = "&File"
-		saved-params = "is-checked"
-	elem
-		name = "&Quit\tAlt-F4"
-		command = ".quit"
-		category = "&File"
-		saved-params = "is-checked"
-	elem "help-menu"
-		name = "&Help"
-		command = ""
-		saved-params = "is-checked"
-	elem
-		name = "&Admin Help\tF1"
-		command = "adminhelp"
-		category = "&Help"
-		saved-params = "is-checked"
-	elem
-		name = "&Hotkeys"
-		command = "Hotkeys-Help"
-		category = "&Help"
-		saved-params = "is-checked"
-	elem
-		name = "Refresh TGUI"
-		command = "refresh-tgui"
-		category = "&Help"
-		saved-params = "is-checked"
-	elem
-		name = "Fix Chat"
-		command = "fix-chat"
-		category = "&Help"
-		saved-params = "is-checked"
-	elem  "Use Internet Routing Relay"
-		name = "Internet Routing Relays"
-		command = "internet-routing-relays"
-		saved-params = "is-checked"
-	elem
-		name = "Stop All Sounds"
-		command = "stop-sounds"
-		category = "&Help"
-		saved-params = "is-checked"
-
-
 window "mainwindow"
 	elem "mainwindow"
 		type = MAIN
@@ -76,7 +20,6 @@ window "mainwindow"
 		statusbar = false
 		icon = 'modular_iris\\master_files\\icons\\ui_icons\\common\\oculis_logo_32.png'
 		macro = "default"
-		menu = "menu"
 	elem "split"
 		type = CHILD
 		pos = 0,0
@@ -134,7 +77,7 @@ window "mapwindow"
 		right-click = true
 		saved-params = "zoom;letterbox;zoom-mode"
 		style = "img.icon { width: auto; height: auto } .center { text-align: center; } .maptext { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1px black; color: white; line-height: 1.0; } .command_headset { font-weight: bold; } .context { font-family: 'Pixellari'; font-size: 12pt; -dm-text-outline: 1px black; }  .subcontext { font-family: 'TinyUnicode'; font-size: 12pt; line-height: 0.75; } .small { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; } .big { font-family: 'Pixellari'; font-size: 12pt; } .reallybig { font-size: 12pt; } .extremelybig { font-size: 12pt; } .greentext { color: #00FF00; font-size: 6pt; } .redtext { color: #FF0000; font-size: 6pt; } .clown { color: #FF69BF; font-weight: bold; } .his_grace { color: #15D512; } .hypnophrase { color: #0d0d0d; font-weight: bold; } .yell { font-weight: bold; } .italics { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; }"
-	elem "status_bar"
+    elem "status_bar"
 		type = LABEL
 		pos = 0,470
 		size = 128x10
@@ -146,7 +89,7 @@ window "mapwindow"
 		saved-params = ""
 		text = ""
 		align = left
-	elem "nova_title_browser"
+    elem "nova_title_browser"
 		type = BROWSER
 		pos = 0,0
 		size = 640x480
@@ -157,6 +100,15 @@ window "mapwindow"
 		is-disabled = true
 		saved-params = ""
 		auto-format = false
+	elem "escape_menu"
+		type = BROWSER
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = none
+		inner-background-color = transparent
+		is-visible = false
 
 window "info_and_buttons"
 	elem "info_and_buttons"
@@ -173,6 +125,7 @@ window "info_and_buttons"
 		size = 640x477
 		anchor1 = 0,0
 		anchor2 = 100,100
+		background-color = #ffc41f
 		saved-params = "splitter"
 		left = "infobuttons"
 		right = "infowindow"
@@ -187,71 +140,79 @@ window "infobuttons"
 		size = 640x30
 		anchor1 = 0,0
 		anchor2 = 100,100
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
 	elem "changelog"
 		type = BUTTON
 		pos = 0,5
-		size = 87x25
+		size = 85x25
 		anchor1 = 0,0
-		anchor2 = 15,100
+		anchor2 = 14,100
+		background-color = none
 		saved-params = "is-checked"
 		text = "Changelog"
 		command = "changelog"
 	elem "rules"
 		type = BUTTON
-		pos = 92,5
-		size = 88x25
-		anchor1 = 15,0
+		pos = 90,5
+		size = 85x25
+		anchor1 = 14,0
 		anchor2 = 29,100
+		background-color = none
 		saved-params = "is-checked"
 		text = "Rules"
 		command = "rules"
 	elem "wiki"
 		type = BUTTON
-		pos = 185,5
-		size = 87x25
+		pos = 180,5
+		size = 85x25
 		anchor1 = 29,0
 		anchor2 = 43,100
+		background-color = none
 		saved-params = "is-checked"
 		text = "Wiki"
 		command = "wiki"
-	elem "forum"
-		type = BUTTON
-		pos = 277,5
-		size = 87x25
-		anchor1 = 43,0
-		anchor2 = 57,100
-		saved-params = "is-checked"
-		text = "Forum"
-		command = "forum"
 	elem "github"
 		type = BUTTON
-		pos = 369,5
-		size = 87x25
-		anchor1 = 57,0
-		anchor2 = 71,100
+		pos = 270,5
+		size = 85x25
+		anchor1 = 43,0
+		anchor2 = 57,100
+		background-color = none
 		saved-params = "is-checked"
 		text = "GitHub"
 		command = "github"
-	elem "report-issue"
-		type = BUTTON
-		pos = 461,5
-		size = 87x25
-		anchor1 = 71,0
-		anchor2 = 85,100
-		saved-params = "is-checked"
-		text = "Report Issue"
-		command = "report-issue"
 	elem "fullscreen-toggle"
 		type = BUTTON
-		pos = 553,5
-		size = 89x25
-		anchor1 = 85,0
-		anchor2 = 99,100
+		pos = 360,5
+		size = 85x25
+		anchor1 = 57,0
+		anchor2 = 72,100
+		background-color = none
 		saved-params = "is-checked"
 		text = "Fullscreen"
 		command = "fullscreen"
+	elem "reconnect"
+		type = BUTTON
+		pos = 450,5
+		size = 85x25
+		anchor1 = 72,0
+		anchor2 = 86,100
+		background-color = none
+		saved-params = "is-checked"
+		text = "Reconnect"
+		command = ".reconnect"
+	elem "report-issue"
+		type = BUTTON
+		pos = 540,5
+		size = 94x25
+		anchor1 = 86,0
+		anchor2 = 100,100
+		background-color = none
+		saved-params = "is-checked"
+		text = "Report Issue"
+		command = "report-issue"
 
 window "infowindow"
 	elem "infowindow"
@@ -260,29 +221,6 @@ window "infowindow"
 		size = 640x475
 		anchor1 = -1,-1
 		anchor2 = -1,-1
-		saved-params = "pos;size;is-minimized;is-maximized"
-		is-pane = true
-	elem "info_split"
-		type = CHILD
-		pos = 0,5
-		anchor1 = 0,0
-		anchor2 = 100,100
-		size = 640x475
-		is-vert = false
-		splitter = 97.5
-        background-color = #ffc41f
-		show-splitter = false
-		saved-params = "splitter"
-		left = "info"
-		right = "input_buttons"
-
-window "info"
-	elem "info_main"
-		type = MAIN
-		pos = 0,0
-		size = 640x475
-		anchor1 = 0,0
-		anchor2 = 100,100
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
 	elem "info_child"
@@ -373,7 +311,7 @@ window "inputwindow"
 	elem "input"
 		type = INPUT
 		pos = 0,0
-		size = 480x20
+		size = 480x25
 		anchor1 = 0,0
 		anchor2 = 100,100
 		is-default = true
@@ -393,7 +331,7 @@ window "inputbuttons"
 	elem "saybutton"
 		type = BUTTON
 		pos = 0,0
-		size = 40x20
+		size = 40x25
 		anchor1 = 0,0
 		anchor2 = 25,100
 		font-size = 4
@@ -406,7 +344,7 @@ window "inputbuttons"
 	elem "whisperbutton"
 		type = BUTTON
 		pos = 40,0
-		size = 40x20
+		size = 40x25
 		anchor1 = 25,0
 		anchor2 = 50,100
 		font-size = 4
@@ -419,7 +357,7 @@ window "inputbuttons"
 	elem "mebutton"
 		type = BUTTON
 		pos = 80,0
-		size = 40x20
+		size = 40x25
 		anchor1 = 50,0
 		anchor2 = 75,100
 		font-size = 4
@@ -432,7 +370,7 @@ window "inputbuttons"
 	elem "oocbutton"
 		type = BUTTON
 		pos = 120,0
-		size = 40x20
+		size = 40x25
 		anchor1 = 75,0
 		anchor2 = 100,100
 		font-size = 4
@@ -447,15 +385,35 @@ window "output_legacy"
 	elem "output_legacy"
 		type = MAIN
 		pos = 0,0
-		size = 640x456
+		size = 640x475
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
+    elem "output_and_input_legacy"
+        type = CHILD
+        pos = 0,0
+        size = 640x475
+        anchor1 = 0,0
+        anchor2 = 100,100
+        saved-params = "splitter"
+        left = "output_legacy_pane"
+        right = "input_buttons"
+        splitter = 97.5
+        show-splitter = false
+
+window "output_legacy_pane"
+    elem "output_legacy_pane"
+        type = MAIN
+        pos = 0,0
+        size = 640x475
+        anchor1 = -1,-1
+        anchor2 = -1,-1
+        is-pane = true
 	elem "output"
 		type = OUTPUT
 		pos = 0,0
-		size = 640x456
+		size = 640x475
 		anchor1 = 0,0
 		anchor2 = 100,100
 		is-default = true
@@ -465,7 +423,7 @@ window "output_browser"
 	elem "output_browser"
 		type = MAIN
 		pos = 0,0
-		size = 640x456
+		size = 640x475
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		saved-params = "pos;size;is-minimized;is-maximized"
@@ -473,7 +431,7 @@ window "output_browser"
 	elem "browseroutput"
 		type = BROWSER
 		pos = 0,0
-		size = 640x456
+		size = 640x475
 		anchor1 = 0,0
 		anchor2 = 100,100
 		saved-params = ""
@@ -552,4 +510,3 @@ window "tgui_say"
 		anchor1 = 0,0
 		anchor2 = 0,0
 		saved-params = ""
-

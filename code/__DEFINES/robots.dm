@@ -4,7 +4,6 @@
 #define LAW_ZEROTH "zeroth"
 #define LAW_INHERENT "inherent"
 #define LAW_SUPPLIED "supplied"
-#define LAW_ION "ion"
 #define LAW_HACKED "hacked"
 
 //AI notification defines
@@ -90,7 +89,6 @@ GLOBAL_LIST_EMPTY(cyborg_all_models_icon_list)
 /// Default view range for finding targets.
 #define DEFAULT_SCAN_RANGE 7
 //Amount of time that must pass after a Commissioned bot gets saluted to get another.
-#define BOT_COMMISSIONED_SALUTE_DELAY (60 SECONDS)
 
 //Bot mode defines displaying how Bots act
 ///The Bot is currently active, and will do whatever it is programmed to do.
@@ -408,3 +406,10 @@ DEFINE_BITFIELD(janitor_mode_flags, list(
 
 /// Default offsets for riding a cyborg
 #define DEFAULT_ROBOT_RIDING_OFFSETS list(TEXT_NORTH = list(0, 4), TEXT_SOUTH = list(0, 4), TEXT_EAST = list(-6, 3), TEXT_WEST = list(6, 3))
+
+
+//mulebots
+#define MULEBOT_MOOD_ANNOYED "ANNOYED"
+#define MULEBOT_MOOD_CHIME "CHIME"
+#define MULEBOT_MOOD_DELIGHT "DELIGHT"
+#define MULEBOT_MOOD_SIGH "SIGH"

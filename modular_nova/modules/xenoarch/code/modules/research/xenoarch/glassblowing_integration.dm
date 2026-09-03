@@ -3,6 +3,7 @@
 	desc = "A tool that, with the assistance of a magnifying lens, allows you to view what is small."
 	icon_state = "magnifying_glass"
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT)
+	w_class = WEIGHT_CLASS_SMALL // OCULIS EDIT ADDITION
 
 /datum/crafting_recipe/magnifying_glass
 	name = "Magnifying Glass"

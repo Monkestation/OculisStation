@@ -34,7 +34,7 @@
 
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/storage/bag/garment/brig_officer(src)
-	new /obj/item/radio/headset/interdyne(src)
+	new /obj/item/radio/headset/ds2(src) // OCULIS EDIT, ORIGINAL: new /obj/item/radio/headset/interdyne(src)
 
 /obj/structure/closet/secure_closet/des_two/brig_officer_locker/populate_contents_immediate()
 	. = ..()
@@ -52,9 +52,9 @@
 /obj/structure/closet/secure_closet/des_two/armory_gear_locker/PopulateContents()
 	..()
 
-	new /obj/item/storage/belt/holster/nukie(src)
-	new /obj/item/storage/belt/holster/nukie(src)
-	new /obj/item/storage/belt/holster/nukie(src)
+	new /obj/item/storage/belt/holster(src)
+	new /obj/item/storage/belt/holster(src)
+	new /obj/item/storage/belt/holster(src)
 	new /obj/item/clothing/suit/armor/vest(src)
 	new /obj/item/clothing/suit/armor/vest(src)
 	new /obj/item/clothing/suit/armor/vest(src)

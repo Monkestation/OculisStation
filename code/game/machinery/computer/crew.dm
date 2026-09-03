@@ -6,6 +6,7 @@
 /obj/machinery/computer/crew
 	name = "crew monitoring console"
 	desc = "Used to monitor active health sensors built into most of the crew's uniforms."
+	icon_state = MAP_SWITCH("computer", "/obj/machinery/computer/crew")
 	icon_screen = "crew"
 	icon_keyboard = "med_key"
 	circuit = /obj/item/circuitboard/computer/crew
@@ -76,6 +77,7 @@
 	records.set_output(new_table)
 
 /obj/machinery/computer/crew/syndie
+	icon_state = MAP_SWITCH("computer", "/obj/machinery/computer/crew/syndie")
 	icon_keyboard = "syndie_key"
 
 /obj/machinery/computer/crew/ui_interact(mob/user)
@@ -179,7 +181,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 /datum/crewmonitor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "CrewConsole")
+		ui = new(user, src, "CrewConsoleOculis") // OCULIS EDIT Originally: ui = new(user, src, "CrewConsole") | Touches up the Crew Monitor UI
 		ui.open()
 
 /datum/crewmonitor/proc/show(mob/M, source)
@@ -251,10 +253,15 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			"ijob" = UNKNOWN_JOB_ID,
 		)
 
+		entry["icon"] = "question" // OCULIS EDIT ADDITION
 		// ID and id-related data
 		var/obj/item/card/id/id_card = tracked_living_mob.get_idcard(hand_first = FALSE)
 		if (id_card)
 			entry["name"] = id_card.registered_name
+			// OCULIS EDIT ADDITION START
+			var/datum/job/gotten_job = SSjob.get_job(id_card.assignment)
+			entry["icon"] = gotten_job ? gotten_job?.tgui_icon : "question"
+			// OCULIS EDIT ADDITION END
 			entry["assignment"] = id_card.assignment
 			var/trim_assignment = id_card.get_trim_assignment()
 			/* // NOVA EDIT REMOVAL START - Just so we can indent this after an else
@@ -274,8 +281,8 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			continue
 		// NOVA EDIT ADDITION END
 
-		// NOVA EDIT ADDITION START - Checking for robotic race
-		if (issynthetic(tracked_human))
+		// NOVA EDIT ADDITION START - Checking for synthetic races
+		if (issynthetic(tracked_human) || isprotean(tracked_human))
 			entry["is_robot"] = TRUE
 		// NOVA EDIT ADDITION END
 
@@ -301,7 +308,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			entry["life_status"] = tracked_living_mob.stat
 		else if (sensor_mode == SENSOR_LIVING)
 			// binary sensors should only report alive or dead
-			entry["life_status"] = (tracked_living_mob.stat == DEAD) ? DEAD : CONSCIOUS
+			entry["life_status"] = (tracked_living_mob.stat == DEAD) ? DEAD : STABLE
 
 		// Damage
 		if (sensor_mode >= SENSOR_VITALS)
@@ -335,7 +342,11 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			var/mob/living/silicon/ai/AI = usr
 			if(!istype(AI))
 				return
-			AI.ai_tracking_tool.track_name(AI, params["name"])
+			// We need to do this because the ID might add an honorific and otherwise break tracking
+			var/mob/living/target = locate(params["ref"]) in GLOB.mob_living_list
+			if(isnull(target))
+				return
+			AI.ai_tracking_tool.track_mob(AI, target)
 
 #undef SENSORS_UPDATE_PERIOD
 #undef UNKNOWN_JOB_ID

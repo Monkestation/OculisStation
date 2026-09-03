@@ -111,15 +111,7 @@ export class PrimaryView extends Component {
                       disabled={!savableData || tooManyCharacters}
                       color="good"
                       onClick={() => {
-                        const result = sanitizeText(textAreaText, false);
-                        if (typeof result === 'object' && result !== null) {
-                          act('add_text', {
-                            text: result.sanitized,
-                            blocked_summary: result.blockedSummary,
-                          });
-                        } else {
-                          act('add_text', { text: result });
-                        }
+                        act('add_text', { text: sanitizeText(textAreaText, false)});
                         setTextAreaText('');
                         if (Object.keys(inputFieldData).length) {
                           act('fill_input_field', {

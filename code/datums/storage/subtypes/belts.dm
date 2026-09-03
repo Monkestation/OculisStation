@@ -18,7 +18,7 @@
 
 /datum/storage/medical_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
-	set_holdable(list(
+	set_holdable(can_hold_list = list(
 		/obj/item/bikehorn/rubberducky,
 		/obj/item/blood_filter,
 		/obj/item/blood_scanner,
@@ -33,7 +33,6 @@
 		/obj/item/clothing/mask/surgical,
 		/obj/item/clothing/neck/stethoscope,
 		/obj/item/construction/plumbing,
-		/obj/item/crowbar/power/paramedic,
 		/obj/item/dnainjector,
 		/obj/item/extinguisher/mini,
 		/obj/item/flashlight/pen,
@@ -80,7 +79,7 @@
 		// NOVA EDIT ADDITION START
 		/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown,
 		/obj/item/hypospray/mkii,
-		/obj/item/storage/hypospraykit/,
+		/obj/item/storage/hypospraykit,
 		/obj/item/reagent_containers/cup/vial,
 		/obj/item/weaponcell/medical,
 		/obj/item/handheld_soulcatcher,
@@ -171,6 +170,32 @@
 		/obj/item/wrench,
 		/obj/item/wormhole_jaunter,
 		/obj/item/skeleton_key,
+		/obj/item/crusher_trophy,
+		/obj/item/storage/box/kinetic, // OCULIS EDIT ADDITION START - ADDS THE WASTELAND GUN AMMOS TO THE EXPLORER WEBBING
+		/obj/item/ammo_box/magazine/pksmgmag,
+		/obj/item/storage/box/kinetic/shotgun,
+		/obj/item/storage/box/kinetic/shotgun/sniperslug,
+		/obj/item/storage/box/kinetic/shotgun/rockbreaker,
+		/obj/item/ammo_box/magazine/ammo_stack/kineticmagnum,
+		/obj/item/ammo_casing/shotgun/kinetic,
+		/obj/item/ammo_casing/shotgun/kinetic/sniperslug,
+		/obj/item/ammo_casing/shotgun/kinetic/rockbreaker,
+		/obj/item/gun/ballistic/revolver/govmining, //:trollface: explorer webbing full of revolvers? What are you, revolver ocelot?
+		/obj/item/ammo_casing/govmining,
+		/obj/item/ammo_box/govmining,
+		/obj/item/storage/box/kinetic/govmining,
+		/obj/item/storage/box/kinetic/govmining/smallcase,
+		/obj/item/ammo_casing/shotgun/hydrakinetic,
+		/obj/item/storage/box/kinetic/autoshotgun,
+		/obj/item/ammo_box/magazine/autoshotgun,
+		/obj/item/ammo_casing/a762kinetic,
+		/obj/item/ammo_box/a762kinetic,
+		/obj/item/storage/box/kinetic/kineticlmg,
+		/obj/item/ammo_casing/minerjdj,
+		/obj/item/ammo_box/magazine/ammo_stack/govmining,
+		/obj/item/ammo_box/magazine/ammo_stack/kineticmagnum,
+		/obj/item/ammo_box/magazine/ammo_stack/autoshotgun, // OCULIS EDIT ADDITION END
+
 	))
 
 ///Primitive mining belt
@@ -407,8 +432,8 @@
 		/obj/item/clothing/neck/heretic_focus,
 		/obj/item/codex_cicatrix,
 		/obj/item/eldritch_potion,
-		/obj/item/food/grown/poppy, // Used to regain a Living Heart.
-		/obj/item/food/grown/harebell, // Used to reroll targets
+		/obj/item/food/grown/flower/poppy, // Used to regain a Living Heart.
+		/obj/item/food/grown/flower/harebell, // Used to reroll targets
 		/obj/item/melee/rune_carver,
 		/obj/item/melee/sickly_blade,
 		/obj/item/organ, // Organs are also often used in rituals.

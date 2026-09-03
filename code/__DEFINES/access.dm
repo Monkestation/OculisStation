@@ -237,7 +237,7 @@
 /// Bitflag for Captain ID card accesses. See CAPTAIN_ACCESS.
 #define ACCESS_FLAG_CAPTAIN (1 << 3)
 /// Displayed name for Centcom ID card accesses.
-#define ACCESS_FLAG_CENTCOM_NAME "Centcom"
+#define ACCESS_FLAG_CENTCOM_NAME "SectCom" // OCULIS EDIT, SectCommening 2, ORIGINAL: #define ACCESS_FLAG_CENTCOM_NAME "Centcom"
 /// Bitflag for Centcom ID card accesses. See CENTCOM_ACCESS.
 #define ACCESS_FLAG_CENTCOM (1 << 4)
 /// Displayed name for Syndicate ID card accesses.
@@ -555,7 +555,7 @@
 	ACCESS_VAULT, \
 )
 /// Name for the Centcom region.
-#define REGION_CENTCOM "Central Command"
+#define REGION_CENTCOM "Sectorial Command" // OCULIS EDIT, SectCommening 2, ORIGINAL: #define REGION_CENTCOM "Central Command"
 /// Used to seed the accesses_by_region list in SSid_access. A list of all CENTCOM_ACCESS regional accesses.
 #define REGION_ACCESS_CENTCOM CENTCOM_ACCESS
 

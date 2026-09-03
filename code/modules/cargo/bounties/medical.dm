@@ -12,7 +12,7 @@
 
 /datum/bounty/item/medical/lung
 	name = "Lungs"
-	description = "A recent explosion at Central Command has left multiple staff with punctured lungs. Ship spare lungs to be rewarded. We'll take cybernetic ones if need be, but only if they're upgraded."
+	description = "A recent explosion at Sectorial Command has left multiple staff with punctured lungs. Ship spare lungs to be rewarded. We'll take cybernetic ones if need be, but only if they're upgraded." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "A recent explosion at Central Command has left multiple staff with punctured lungs. Ship spare lungs to be rewarded. We'll take cybernetic ones if need be, but only if they're upgraded."
 	reward = CARGO_CRATE_VALUE * 10
 	required_count = 3
 	wanted_types = list(
@@ -25,7 +25,7 @@
 
 /datum/bounty/item/medical/appendix
 	name = "Appendix"
-	description = "Chef Gibb of Central Command wants to prepare a meal using a very special delicacy: an appendix. If you ship one, he'll pay."
+	description = "Chef Gibb of Sectorial Command wants to prepare a meal using a very special delicacy: an appendix. If you ship one, he'll pay." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Chef Gibb of Central Command wants to prepare a meal using a very special delicacy: an appendix. If you ship one, he'll pay."
 	reward = CARGO_CRATE_VALUE * 5 //there are no synthetic appendixes
 	wanted_types = list(/obj/item/organ/appendix = TRUE)
 
@@ -46,7 +46,7 @@
 
 /datum/bounty/item/medical/liver
 	name = "Livers"
-	description = "Multiple high-ranking CentCom diplomats have been hospitalized with liver failure after a recent meeting with Third Soviet Union ambassadors. Help us out, will you? We'll take cybernetic ones if need be, but only if they're upgraded."
+	description = "Multiple high-ranking SectCom diplomats have been hospitalized with liver failure after a recent meeting with Third Soviet Union ambassadors. Help us out, will you? We'll take cybernetic ones if need be, but only if they're upgraded." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Multiple high-ranking CentCom diplomats have been hospitalized with liver failure after a recent meeting with Third Soviet Union ambassadors. Help us out, will you? We'll take cybernetic ones if need be, but only if they're upgraded."
 	reward = CARGO_CRATE_VALUE * 10
 	required_count = 3
 	wanted_types = list(
@@ -83,19 +83,19 @@
 
 /datum/bounty/item/medical/lizard_tail
 	name = "Lizard Tail"
-	description = "The Wizard Federation has made off with Nanotrasen's supply of lizard tails. While CentCom is dealing with the wizards, can the station spare a tail of their own?"
+	description = "The Wizard Federation has made off with Nanotrasen's supply of lizard tails. While SectCom is dealing with the wizards, can the station spare a tail of their own?" // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "The Wizard Federation has made off with Nanotrasen's supply of lizard tails. While CentCom is dealing with the wizards, can the station spare a tail of their own?"
 	reward = CARGO_CRATE_VALUE * 6
 	wanted_types = list(/obj/item/organ/tail/lizard = TRUE)
 
 /datum/bounty/item/medical/cat_tail
 	name = "Cat Tail"
-	description = "Central Command has run out of heavy duty pipe cleaners. Can you ship over a cat tail to help us out?"
+	description = "Sectorial Command has run out of heavy duty pipe cleaners. Can you ship over a cat tail to help us out?" // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Central Command has run out of heavy duty pipe cleaners. Can you ship over a cat tail to help us out?"
 	reward = CARGO_CRATE_VALUE * 6
 	wanted_types = list(/obj/item/organ/tail/cat = TRUE)
 
 /datum/bounty/item/medical/chainsaw
 	name = "Chainsaw"
-	description = "A CMO at CentCom is having trouble operating on golems. She requests one chainsaw, please."
+	description = "A CMO at SectCom is having trouble operating on golems. She requests one chainsaw, please." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "A CMO at CentCom is having trouble operating on golems. She requests one chainsaw, please."
 	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(/obj/item/chainsaw = TRUE)
 
@@ -107,7 +107,7 @@
 
 /datum/bounty/item/medical/surgerycomp
 	name = "Surgery Computer"
-	description = "After another freak bombing incident at our annual cheesefest at CentCom, we have a massive stack of injured crew on our end. Please send us a fresh surgery computer, if at all possible."
+	description = "After another freak bombing incident at our annual cheesefest at SectCom, we have a massive stack of injured crew on our end. Please send us a fresh surgery computer, if at all possible." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "After another freak bombing incident at our annual cheesefest at CentCom, we have a massive stack of injured crew on our end. Please send us a fresh surgery computer, if at all possible."
 	reward = CARGO_CRATE_VALUE * 12
 	wanted_types = list(/obj/machinery/computer/operating = TRUE)
 

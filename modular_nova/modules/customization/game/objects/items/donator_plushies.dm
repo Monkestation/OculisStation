@@ -5,6 +5,7 @@
 * Please contact Golden if you want your plushie(s) usable on maps.
 */
 
+/* // OCULIS EDIT REMOVAL START
 
 // Donation reward for tobjv
 /obj/item/toy/plush/nova/donator/tesh
@@ -50,12 +51,6 @@
 	name = "commanding fox plush"
 	desc = "A large stuffed fox which radiates confidence and vigor from their emerald eyes."
 	icon_state = "plushie_chiara"
-
-// Donation reward for Superlagg
-/obj/item/toy/plush/nova/donator/plushie_dan
-	name = "comfy fox plush"
-	desc = "A stuffed fox with an aura of endearment leaking from their soft exterior."
-	icon_state = "plushie_dan"
 
 //Donation reward for KLB100
 /obj/item/toy/plush/nova/donator/plushie_jeanne
@@ -250,6 +245,38 @@
 	)
 	squeak_override = list('modular_nova/modules/emotes/sound/voice/arf.ogg'= 1)
 
+//Donation rewards for PyriteChimera
+/obj/item/toy/plush/nova/donator/plush_celica
+	name = "researcher serpent plushie"
+	desc = "A deceptively soft plushie of a familiar slime scientist. It seems far too tired for existence and smells oddly of vanilla."
+	icon_state = "plushie_celica"
+	throw_range = 1
+	throw_speed = 1
+	attack_verb_continuous = list(
+		"glomps",
+	)
+	attack_verb_simple = list(
+		"glomp",
+	)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/slime_bubble.ogg' = 1)
+	gender = FEMALE
+
+/obj/item/toy/plush/nova/donator/plush_lasti
+	name = "\improper Espatier Captain fox plushie"
+	desc = "A marketable plushie of a veteran, white-furred fox created by the Espatiers to try and boost recruitment numbers. \
+			Strangely, while holding this you feel like someone's got your back."
+	icon_state = "plushie_lasti"
+	attack_verb_continuous = list(
+		"barks an order at",
+		"issues an NJP to",
+	)
+	attack_verb_simple = list(
+		"bark an order at",
+		"issue an NJP to",
+	)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/fox_squeak.ogg' = 1)
+	gender = MALE
+
 /*
 * Plushies beyond this did not have "Donation reward for:" when moved to this file.
 * Please do not put anything else into this mess, and organize your plushie like the rest above.
@@ -331,7 +358,7 @@
 		"Cut it out, or I'm telling chat!",
 	)
 
-/obj/item/toy/plush/nova/donator/zapp/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/toy/plush/nova/donator/zapp/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	say(pick(hit_response))
 
@@ -768,7 +795,7 @@
 	)
 	COOLDOWN_DECLARE(chunko_cooldown)
 
-/obj/item/toy/plush/nova/donator/chunko/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/toy/plush/nova/donator/chunko/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	if(!COOLDOWN_FINISHED(src, chunko_cooldown))
 		return
@@ -929,3 +956,4 @@
 	squeak_override = list(
 		'modular_nova/modules/emotes/sound/voice/slime_pop.ogg' = 1,
 	)
+*/ // OCULIS EDIT REMOVAL END

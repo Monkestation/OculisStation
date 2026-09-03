@@ -4,7 +4,7 @@
 /datum/area_spawn/phone
 	target_areas = list(/area/station/command/bridge)
 	desired_atom = /obj/machinery/phone_base/rotary
-	blacklisted_stations = list("Biodome", "Kilo Station", "Oshan", "Ouroboros", "Snowglobe Station", "Runtime Station", "MultiZ Debug", "Gateway Test", "Blueshift", "Minimal Runtime Station")
+	blacklisted_stations = list("Runtime Station", "MultiZ Debug", "Gateway Test", "Minimal Runtime Station")
 
 /datum/area_spawn/phone/ce
 	target_areas = list(/area/station/command/heads_quarters/ce)

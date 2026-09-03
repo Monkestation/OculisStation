@@ -1,9 +1,5 @@
 #define MAX_NAVIGATE_RANGE 145
 
-/mob/living
-	/// Are we currently pathfinding for the navigate verb?
-	var/navigating = FALSE
-
 /mob/living/proc/create_astar_navigation()
 	var/list/destination_list = list()
 	for(var/atom/destination as anything in GLOB.navigate_destinations)

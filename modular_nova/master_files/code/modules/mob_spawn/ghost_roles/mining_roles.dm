@@ -73,7 +73,18 @@
 	ears = /obj/item/radio/headset/interdyne/comms
 
 /datum/outfit/lavaland_syndicate/comms/space
-	ears = /obj/item/radio/headset/syndicate/alt
+	// ears = /obj/item/radio/headset/syndicate/alt // OCULIS EDIT REMOVAL
+	// OCULIS EDIT ADDITION START
+	ears = /obj/item/radio/headset/syndicate/alt/comms/space
+	head = /obj/item/clothing/head/hats/hos/beret/syndicate
+	uniform = /obj/item/clothing/under/syndicate/nova/overalls
+	back = /obj/item/storage/backpack/tinypakb
+	glasses = null
+	suit = null
+	r_hand = null
+	r_pocket = null
+	l_pocket = null
+	// OCULIS EDIT ADDITION END
 
 /// Interdyne Planetary Base(s)
 
@@ -94,9 +105,11 @@
 	quirks_enabled = TRUE
 	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
+/* // OCULIS EDIT REMOVAL START
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/special(mob/living/spawned_mob, mob/mob_possessor, apply_prefs)
 	. = ..()
 	spawned_mob.grant_language(/datum/language/codespeak, source = LANGUAGE_SPAWNER)
+*/ // OCULIS EDIT REMOVAL END
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/ice
 	outfit = /datum/outfit/interdyne_planetary_base/ice

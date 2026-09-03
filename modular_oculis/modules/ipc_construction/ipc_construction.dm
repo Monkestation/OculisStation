@@ -1,6 +1,7 @@
 /mob/living/carbon/human/species/synth/empty
 	name = "synth assembly"
 	desc = "Prints out a fully prepared synthetic chest, ready for further construction."
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/gold = SHEET_MATERIAL_AMOUNT)
 
 /mob/living/carbon/human/species/synth/empty/Initialize(mapload)
 	var/mob/living/carbon/human/species/synth/synth_body = src
@@ -20,7 +21,6 @@
 
 /datum/design/synth_construction
 	name = "Android Construction"
-	id = "synth_construction"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 10 SECONDS
 	materials = list(
@@ -46,6 +46,7 @@
 	fail_message = "<span class='notice'>The compact positronic brain buzzes quietly, and the golden lights fade away. Perhaps you could try again?</span>"
 	new_mob_message = "<span class='notice'>The compact positronic brain chimes quietly.</span>"
 	recharge_message = "<span class='warning'>The compact positronic brain isn't ready to activate again yet! Give it some time to recharge.</span>"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/silver = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/mmi/posibrain/ipc/transfer_personality(mob/dead/observer/candidate)
 	if(candidate)
@@ -76,7 +77,6 @@
 
 /datum/design/synth_positronic
 	name = "Android Positronic Brain"
-	id = "synth_positronic"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 10 SECONDS
 	materials = list(
@@ -93,7 +93,6 @@
 
 /datum/design/power_cord
 	name = "Charging Implant"
-	id = "power_cord"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 3 SECONDS
 	materials = list(

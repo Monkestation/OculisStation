@@ -72,7 +72,7 @@
 		SPECIES_PERK_ICON = "allergies",
 		SPECIES_PERK_NAME = "Scaled Body",
 		SPECIES_PERK_DESC = "Lizards have a harder time being cut up due to \
-     						 their scales, so surgery on them takes longer.",
+							their scales, so surgery on them takes longer.",
 	))
 
 	perk_descriptions += list(list(
@@ -80,7 +80,7 @@
 		SPECIES_PERK_ICON = "biohazard",
 		SPECIES_PERK_NAME = "Toxin Weakness",
 		SPECIES_PERK_DESC = "Lizards have a weakness to toxins, taking additional \
-     						 damage from them, and being worse at purging them from their body.",
+							damage from them, and being worse at purging them from their body.",
 	))
 
 	return perk_descriptions

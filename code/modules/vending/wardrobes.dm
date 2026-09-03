@@ -427,7 +427,7 @@ GLOBAL_VAR_INIT(roaches_deployed, FALSE)
 		/obj/item/construction/plumbing/service = 1,
 	)
 	refill_canister = /obj/item/vending_refill/wardrobe/bar_wardrobe
-	payment_department = ACCOUNT_MED
+	payment_department = ACCOUNT_SRV
 	extra_price = PAYCHECK_COMMAND
 
 /obj/item/vending_refill/wardrobe/bar_wardrobe
@@ -589,6 +589,9 @@ GLOBAL_VAR_INIT(roaches_deployed, FALSE)
 	premium = list(
 		/obj/item/clothing/head/chaplain/bishopmitre = 1,
 		/obj/item/clothing/suit/chaplainsuit/bishoprobe = 1,
+		/obj/item/clothing/head/costume/pharaoh = 1,
+		/obj/item/clothing/head/costume/nemes = 1,
+		/obj/item/clothing/suit/costume/nemes = 1,
 	)
 	refill_canister = /obj/item/vending_refill/wardrobe/chap_wardrobe
 	payment_department = ACCOUNT_SRV
@@ -727,7 +730,7 @@ GLOBAL_VAR_INIT(roaches_deployed, FALSE)
 
 /obj/machinery/vending/wardrobe/cent_wardrobe
 	name = "\improper CentDrobe"
-	desc = "A one-of-a-kind vending machine for all your centcom aesthetic needs!"
+	desc = "A one-of-a-kind vending machine for all your SectCom aesthetic needs!" // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = "A one-of-a-kind vending machine for all your centcom aesthetic needs!"
 	icon_state = "centdrobe"
 	product_ads = "Show those ERTs who's the most stylish in the briefing room!"
 	vend_reply = "Thank you for using the CentDrobe!"

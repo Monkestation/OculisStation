@@ -5,11 +5,11 @@
 	type_to_generate = /datum/loadout_item/pocket_items
 	tab_order = LOADOUT_POCKET_OTHER
 	/// How many pocket items are allowed
-	VAR_PRIVATE/max_allowed = 3 // NOVA EDIT - Expanded loadout framework - ORIGINAL: VAR_PRIVATE/max_allowed = 2
+	//  VAR_PRIVATE/max_allowed = 3 // OCULIS EDIT REMOVAL // NOVA EDIT - Expanded loadout framework - ORIGINAL: VAR_PRIVATE/max_allowed = 2
 
 /datum/loadout_category/pocket/New()
 	. = ..()
-	category_info = "([max_allowed] allowed)"
+	// category_info = "([max_allowed] allowed)" // OCULIS EDIT REMOVAL
 
 /datum/loadout_category/pocket/handle_duplicate_entires(
 	datum/preference_middleware/loadout/manager,
@@ -331,7 +331,7 @@
 
 	UnregisterSignal(source, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 	var/datum/record/crew/record = find_record(source.real_name)
-	record?.medical_notes += new /datum/medical_note("Central Command", "Patient is a registered brain donor for Robotics research.", null)
+	record?.medical_notes += new /datum/medical_note("Sectorial Command", "Patient is a registered brain donor for Robotics research.", null) // OCULIS EDIT, SectCommening 2, ORIGINAL: record?.medical_notes += new /datum/medical_note("Central Command", "Patient is a registered brain donor for Robotics research.", null)
 
 /datum/loadout_item/pocket_items/candles
 	name = "Box of Candles"

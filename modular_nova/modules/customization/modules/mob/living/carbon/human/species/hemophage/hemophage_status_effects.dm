@@ -70,6 +70,9 @@
 	id = "hemokinetic_regen"
 	alert_type = /atom/movable/screen/alert/status_effect/hemokinetic_regen
 	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
+	//OCULIS EDIT START
+	var/healed_bodytypes = BODYTYPE_ORGANIC
+	//OCULIS EDIT END
 
 
 /datum/status_effect/hemokinetic_regen/on_apply()
@@ -77,6 +80,11 @@
 	var/mob/living/carbon/carbon_owner = owner
 	if(!istype(carbon_owner))
 		return
+	//OCULIS EDIT START
+	var/obj/item/organ/heart/hemophage/tumor = owner.get_organ_slot(ORGAN_SLOT_HEART)
+	if(tumor && istype(tumor))
+		healed_bodytypes = tumor.affected_bodytypes
+	//OCULIS EDIT END
 	if((owner.get_brute_loss() + carbon_owner.get_fire_loss()) >= DAMAGE_LIMIT_HEMOKINETIC_REGEN)
 		to_chat(carbon_owner, span_warning("Your body is too damaged to be healed with hemokinesis!"))
 		return
@@ -95,8 +103,10 @@
 		qdel(src)
 
 	var/amount_healed = 0
-	amount_healed += carbon_owner.adjust_brute_loss(-HEMOKINETIC_REGEN_HEALING * seconds_between_ticks, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
-	amount_healed += carbon_owner.adjust_fire_loss(-HEMOKINETIC_REGEN_HEALING * seconds_between_ticks, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
+	//OCULIS EDIT START
+	amount_healed += carbon_owner.adjust_brute_loss(-HEMOKINETIC_REGEN_HEALING * seconds_between_ticks, updating_health = FALSE, required_bodytype = healed_bodytypes)
+	amount_healed += carbon_owner.adjust_fire_loss(-HEMOKINETIC_REGEN_HEALING * seconds_between_ticks, updating_health = FALSE, required_bodytype = healed_bodytypes)
+	//OCULIS EDIT END
 	if(amount_healed)
 		carbon_owner.adjust_blood_volume(-HEMOKINETIC_REGEN_BLOOD_CONSUMPTION * amount_healed)
 		carbon_owner.updatehealth()
@@ -223,6 +233,9 @@
 	/// Current multiplier for how much blood they spend healing themselves for every point of damage healed.
 	var/blood_to_health_multiplier = 1
 	var/cost_blood = 5
+	//OCULIS EDIT START
+	var/healed_bodytypes = BODYTYPE_ORGANIC
+	//OCULIS EDIT END
 
 /atom/movable/screen/alert/status_effect/blood_regen_active
 	name = "Enhanced Regeneration"
@@ -262,6 +275,9 @@
 		linked_alert.add_overlay(tumor_heart)
 		tumor_heart.layer = old_layer
 		tumor_heart.plane = old_plane
+		//OCULIS EDIT START
+		healed_bodytypes = tumor_heart.affected_bodytypes
+		//OCULIS EDIT END
 
 	return .
 
@@ -273,7 +289,7 @@
 
 	to_chat(owner, span_notice("You feel the pulse of the tumor in your chest returning back to normal."))
 
-
+//OCULIS EDIT START
 /datum/status_effect/blood_regen_active/tick(seconds_between_ticks)
 	var/mob/living/carbon/human/regenerator = owner
 
@@ -284,7 +300,7 @@
 	var/brute_damage = regenerator.get_brute_loss()
 
 	// We have to check for the damaged bodyparts like this as well, to account for robotic bodyparts, as we don't want to heal those. Stupid, I know, but that's the best proc we got to check that currently.
-	if(brute_damage && length(regenerator.get_damaged_bodyparts(brute = TRUE, burn = FALSE, required_bodytype = BODYTYPE_ORGANIC)))
+	if(brute_damage && length(regenerator.get_damaged_bodyparts(brute = TRUE, burn = FALSE, required_bodytype = healed_bodytypes)))
 		brutes_to_heal = min(max_blood_for_regen, min(BLOOD_REGEN_BRUTE_AMOUNT, brute_damage) * seconds_between_ticks)
 		blood_used += brutes_to_heal * blood_to_health_multiplier
 		max_blood_for_regen -= brutes_to_heal * blood_to_health_multiplier
@@ -292,13 +308,13 @@
 	var/burns_to_heal = NONE
 	var/burn_damage = regenerator.get_fire_loss()
 
-	if(burn_damage && max_blood_for_regen > NONE && length(regenerator.get_damaged_bodyparts(brute = FALSE, burn = TRUE, required_bodytype = BODYTYPE_ORGANIC)))
+	if(burn_damage && max_blood_for_regen > NONE && length(regenerator.get_damaged_bodyparts(brute = FALSE, burn = TRUE, required_bodytype = healed_bodytypes)))
 		burns_to_heal = min(max_blood_for_regen, min(BLOOD_REGEN_BURN_AMOUNT, burn_damage) * seconds_between_ticks)
 		blood_used += burns_to_heal * blood_to_health_multiplier
 		max_blood_for_regen -= burns_to_heal * blood_to_health_multiplier
 
 	if(brutes_to_heal || burns_to_heal)
-		regenerator.heal_overall_damage(brutes_to_heal, burns_to_heal, NONE, BODYTYPE_ORGANIC)
+		regenerator.heal_overall_damage(brutes_to_heal, burns_to_heal, NONE, healed_bodytypes)
 
 	var/toxin_damage = regenerator.get_tox_loss()
 
@@ -314,7 +330,7 @@
 
 	regenerator.blood_volume = max(regenerator.blood_volume - blood_used * cost_blood, MINIMUM_VOLUME_FOR_REGEN)
 	new /obj/effect/temp_visual/heal(get_turf(regenerator), COLOR_EFFECT_HEAL_RED)
-
+//OCULIS EDIT END
 // IRIS EDIT END
 
 #undef BLOOD_REGEN_BRUTE_AMOUNT

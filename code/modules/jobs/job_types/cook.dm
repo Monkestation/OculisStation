@@ -51,6 +51,7 @@
 		JOB_CHEF,
 	)
 	job_flags = STATION_JOB_FLAGS
+	tgui_icon = FA_ICON_UTENSILS
 
 /datum/job/cook/award_service(client/winner, award)
 	winner.give_award(award, winner.mob)
@@ -77,7 +78,7 @@
 	belt = /obj/item/modular_computer/pda/cook
 	ears = /obj/item/radio/headset/headset_srv
 	head = /obj/item/clothing/head/utility/chefhat
-	mask = /obj/item/clothing/mask/fakemoustache/italian
+	// mask = /obj/item/clothing/mask/fakemoustache/italian // OCULIS EDIT REMOVAL
 
 	skillchips = list(/obj/item/skillchip/job/chef)
 

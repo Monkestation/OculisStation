@@ -34,6 +34,7 @@
 	voice_of_god_silence_power = 3
 
 	job_tone = "silence"
+	tgui_icon = FA_ICON_COMMENT_SLASH
 
 /datum/job/mime/after_spawn(mob/living/spawned, client/player_client)
 	if (ishuman(spawned))
@@ -87,7 +88,7 @@
 /obj/item/book/granter/action/spell/mime/mimery/on_reading_start(mob/living/user)
 	var/list/spell_icons = list()
 	var/list/name_to_spell = list()
-	for(var/datum/action/type as anything in list(/datum/action/cooldown/spell/conjure/invisible_wall, /datum/action/cooldown/spell/conjure/invisible_chair, /datum/action/cooldown/spell/conjure_item/invisible_box))
+	for(var/datum/action/type as anything in list(/datum/action/cooldown/spell/conjure/invisible_wall, /datum/action/cooldown/spell/conjure/invisible_chair, /datum/action/cooldown/spell/conjure_item/invisible_box, /datum/action/cooldown/spell/touch/mime_grayscale)) // NOVA CHANGE - Mime Monochrome - Adds '/datum/action/cooldown/spell/touch/mime_grayscale' - ORIGINAL: for(var/datum/action/type as anything in list(/datum/action/cooldown/spell/conjure/invisible_wall, /datum/action/cooldown/spell/conjure/invisible_chair, /datum/action/cooldown/spell/conjure_item/invisible_box))
 		if(!(locate(type) in user.actions))
 			spell_icons[initial(type.name)] = image(icon = initial(type.button_icon), icon_state = initial(type.button_icon_state))
 		name_to_spell[initial(type.name)] = type
@@ -109,7 +110,7 @@
 	qdel(src)
 
 /obj/item/book/granter/action/spell/mime/mimery/can_learn(mob/living/user)
-	for(var/type in list(/datum/action/cooldown/spell/conjure/invisible_wall, /datum/action/cooldown/spell/conjure/invisible_chair, /datum/action/cooldown/spell/conjure_item/invisible_box))
+	for(var/type in list(/datum/action/cooldown/spell/conjure/invisible_wall, /datum/action/cooldown/spell/conjure/invisible_chair, /datum/action/cooldown/spell/conjure_item/invisible_box, /datum/action/cooldown/spell/touch/mime_grayscale)) // NOVA CHANGE - Mime Monochrome - Adds '/datum/action/cooldown/spell/touch/mime_grayscale' - ORIGINAL: for(var/type in list(/datum/action/cooldown/spell/conjure/invisible_wall, /datum/action/cooldown/spell/conjure/invisible_chair, /datum/action/cooldown/spell/conjure_item/invisible_box))
 		if(!(locate(type) in user.actions))
 			return TRUE
 	to_chat(user, span_warning("You already know the secrets of mimery!"))

@@ -12,6 +12,7 @@
 	exp_required_type_department = EXP_TYPE_COMMAND
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "BLUESHIELD"
+	tgui_icon = FA_ICON_SHIELD_DOG
 
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_CMD
@@ -94,7 +95,7 @@
 	name = "streamlined hellfire laser carbine"
 	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'
 	icon_state = "bshg"
-	desc = parent_type::desc + " This one has been tinkered with by Central Command technicians to add blue-tinted furniture and squeeze out a few extra shots before running dry."
+	desc = parent_type::desc + " This one has been tinkered with by Sectorial Command technicians to add blue-tinted furniture and squeeze out a few extra shots before running dry." // OCULIS EDIT, SectCommening 2, ORIGINAL: desc = parent_type::desc + " This one has been tinkered with by Central Command technicians to add blue-tinted furniture and squeeze out a few extra shots before running dry."
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire/blueshield)
 
 /obj/item/choice_beacon/blueshield

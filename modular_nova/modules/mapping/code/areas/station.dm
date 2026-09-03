@@ -16,7 +16,7 @@
 	icon_state = "capt_dining"
 
 /area/station/command/cc_dock
-	name = "Central Command Ferry Dock"
+	name = "Sectorial Command Ferry Dock" // OCULIS EDIT, SectCommening 2, ORIGINAL: name = "Central Command Ferry Dock"
 	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "cc_dock"
 

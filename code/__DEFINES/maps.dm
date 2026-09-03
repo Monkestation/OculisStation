@@ -73,7 +73,7 @@ Always compile, always use that verb, and always make sure that it works for wha
 
 // traits
 // boolean - marks a level as having that property if present
-#define ZTRAIT_CENTCOM "CentCom"
+#define ZTRAIT_CENTCOM "SectCom" // OCULIS EDIT, SectCommening 2, ORIGINAL: #define ZTRAIT_CENTCOM "CentCom"
 #define ZTRAIT_STATION "Station"
 #define ZTRAIT_MINING "Mining"
 #define ZTRAIT_RESERVED "Transit/Reserved"
@@ -135,7 +135,7 @@ Always compile, always use that verb, and always make sure that it works for wha
 ///Z level traits for Deep Space
 #define ZTRAITS_SPACE list(ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_SPACE_RUINS = TRUE)
 ///Z level traits for
-#define ZTRAITS_WILDS list(\
+#define ZTRAITS_ICY_WILDS list(\
 	ZTRAIT_LINKAGE = GRIDLINKED, \
 	ZTRAIT_ICE_RUINS = TRUE, \
 	ZTRAIT_SNOWSTORM = FALSE, \
@@ -159,8 +159,9 @@ Always compile, always use that verb, and always make sure that it works for wha
 #define DECLARE_LEVEL(NAME, TRAITS) list(DL_NAME = NAME, DL_TRAITS = TRAITS)
 
 // must correspond to _basemap.dm for things to work correctly
+// OCULIS EDIT, SectCommening 2, ORIGINAL: DECLARE_LEVEL("CentCom", ZTRAITS_CENTCOM),
 #define DEFAULT_MAP_TRAITS list(\
-	DECLARE_LEVEL("CentCom", ZTRAITS_CENTCOM),\
+	DECLARE_LEVEL("SectCom", ZTRAITS_CENTCOM),\
 )
 
 // Camera lock flags

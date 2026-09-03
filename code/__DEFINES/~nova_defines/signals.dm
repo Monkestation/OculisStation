@@ -13,6 +13,8 @@
 #define COMSIG_HOSTILE_MOB_LOST_TARGET "hostile_mob_lost_target"
 ///When a client is given direct control of a mob via [/datum/admin_verb/cmd_give_direct_control()].
 #define COMSIG_MOB_GIVE_DIRECT_CONTROL "mob_give_direct_control"
+/// Lets objects subscribe to step events on a target mob.
+#define COMSIG_GENERAL_STEP_ACTION "general_step_action"
 
 //Gun signals
 ///When a gun is switched to automatic fire mode
@@ -112,3 +114,8 @@
 
 /// Signal sent whenever a gun with a barrel booster toggles its barrel booster.
 #define COMSIG_GUN_BOOSTER_TOGGLED "gun_booster_toggled"
+
+/// The signal sent when an atom/movable should try to toggle their hiding.
+/// Gets called on the target, with (hiding, play_feedback = TRUE) as its args.
+/// Used for `/datum/element/can_hide`
+#define COMSIG_MOVABLE_TOGGLE_HIDING "movable_toggle_hiding"

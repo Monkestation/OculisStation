@@ -51,6 +51,12 @@
 				human_holder.balloon_alert(human_holder, "suit life support restored!")
 				human_holder.adjust_jitter(-(life_support_failure_threshold / 2)) // clear half of it, wow, that was unpleasant
 
+/// Proteans already have their own built-in modsuit, so they cannot take the entombed quirk.
+/datum/quirk/equipping/entombed/is_species_appropriate(datum/species/mob_species)
+	if(ispath(mob_species, /datum/species/protean))
+		return FALSE
+	return ..()
+
 /datum/quirk/equipping/entombed/proc/life_support_failure()
 	// Warn the player and begin the gradual dying process.
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -172,6 +178,7 @@
 	var/modsuit_desc = client_source?.prefs.read_preference(/datum/preference/text/entombed_mod_desc)
 	if (modsuit_desc)
 		modsuit.desc = modsuit_desc
+		ADD_TRAIT(modsuit, TRAIT_WAS_RENAMED, "Loadout")  //OCULIS ADDITION: adds examine hyperlink to the controller
 
 	var/modsuit_skin_prefix = client_source?.prefs.read_preference(/datum/preference/text/entombed_mod_prefix)
 	if (modsuit_skin_prefix)
@@ -198,6 +205,7 @@
 	. = ..()
 	// quickly deploy it on roundstart. we can't do this in add_unique because that gets called in the preview screen, which overwrites people's loadout stuff in suit/shoes/gloves slot. very unfun for them
 	install_quirk_interaction_features() // have to do this here to ensure all traumas and the like from quirks are applied to our mob
+	install_job_relevant_features() // OCULIS EDIT ADDITION: supporting job-specific MODules
 	modsuit.quick_activation()
 
 /datum/quirk/equipping/entombed/remove()
@@ -231,6 +239,21 @@
 	if (human_holder.get_quirk(/datum/quirk/paraplegic))
 		var/obj/item/mod/module/anomaly_locked/antigrav/entombed/ambulator = new
 		modsuit.install(ambulator, human_holder)
+
+// OCULIS EDIT ADDITION START: supporting job-specific MODules
+
+/datum/quirk/equipping/entombed/proc/install_job_relevant_features()
+	// if a job needs more support than standard to function, add a module here!
+	if (!modsuit)
+		return
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	if (human_holder && human_holder.mind && human_holder.mind.assigned_role)
+	// Entombed miners are practically forced to use a raptor due to the slowdown, not to mention the armor penalty. Ash accretion throws them a bone and makes it more tolerable to play
+		if (human_holder.mind.assigned_role.title == JOB_SHAFT_MINER)
+			var/obj/item/mod/module/ash_accretion/accretion = new
+			modsuit.install(accretion, human_holder)
+
+// OCULIS EDIT ADDITION END
 
 /datum/quirk_constant_data/entombed
 	associated_typepath = /datum/quirk/equipping/entombed

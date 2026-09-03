@@ -102,7 +102,7 @@
 	/// If objects are below this layer, we pass through them
 	var/hit_threshhold = PROJECTILE_HIT_THRESHHOLD_LAYER
 
-	/// How many tiles we pass in a single SSprojectiles tick
+	/// How many tiles we pass in a single SSprojectiles tick - increased by 25% for bullets and beams on init in projectile_speed.dm // OCULIS COMMENT EDIT
 	var/speed = 1.25
 
 	/// The current angle of the projectile. Initially null, so if the arg is missing from [/fire()], we can calculate it from firer and target as fallback.
@@ -272,6 +272,8 @@
 	/// If true directly targeted turfs can be hit
 	var/can_hit_turfs = FALSE
 
+	var/lavafauna_mod = 1 //OCULIS EDIT - This essentially lets your adjust a projectiles damage multiplier vs LAVALAND fauna. By default shouldn't change damage at all for anything else if left at 1.
+
 /obj/projectile/Initialize(mapload)
 	. = ..()
 	maximum_range = range
@@ -397,11 +399,18 @@
 	if((blocked >= 100 || (damage && damage_type != BRUTE)) && impact_effect_type && !hitscan)
 		new impact_effect_type(target_turf, impact_x, impact_y)
 
+
 	var/mob/living/living_target = target
 	get_embed()?.try_embed_projectile(src, target, hit_limb_zone, blocked, pierce_hit)
 	var/reagent_note
 	if(reagents?.reagent_list)
 		reagent_note = "REAGENTS: [pretty_string_from_reagent_list(reagents.reagent_list)]"
+
+	//OCULIS EDIT START - Essentially multiplies damage by fauna mod if its a lavaland fauna
+	var/targetfaction = living_target.get_faction()
+	if(faction_check(targetfaction, list(FACTION_MINING, FACTION_BOSS)))
+		damage *= lavafauna_mod
+	//OCULIS EDIT END - Used to allow wasteland guns to do damage to fauna without obliterating people
 
 	if(ismob(firer) && !do_not_log)
 		log_combat(firer, living_target, "shot", src, reagent_note)
@@ -1259,8 +1268,8 @@
 	free_hitscan_forceMove = TRUE
 	forceMove(source_loc)
 	starting = source_loc
-	pixel_x = source.pixel_x
-	pixel_y = source.pixel_y
+	pixel_x = source.pixel_x - source.base_pixel_x
+	pixel_y = source.pixel_y - source.base_pixel_y
 	original = target
 
 	// Trim off excess pixel_x/y by converting them into turf offset
@@ -1347,7 +1356,7 @@
 
 	var/ox = round(screenview[1] * 0.5) - user.client.pixel_x //"origin" x
 	var/oy = round(screenview[2] * 0.5) - user.client.pixel_y //"origin" y
-	angle = ATAN2(tx - oy, ty - ox)
+	angle = ATAN2(ty - oy, tx - ox)
 	return list(angle, p_x, p_y)
 
 /obj/projectile/experience_pressure_difference()

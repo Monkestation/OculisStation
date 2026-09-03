@@ -22,9 +22,9 @@
 	name = "proto-kinetic machete"
 	desc = "A further-developed iteration of the proto-kinetic crusher, compacting the essentials of the kinetic crusher's destabilizer unit \
 		into a package light enough to be used one-handed and capable of deflecting a blow or two, in return for losses in raw performance."
-	force = 10
+	force = 15 //OCULIS EDIT - SALTMINING - ORIGINAL : 15 - BUFFS THE MACHETE TO HAVE FULL FORCE WHEN ONE HANDED
 	force_wielded = 15
-	block_chance = 15
+	block_chance = 25 //OCULIS EDIT - SALTMINING - ORIGINAL : 15 - BUFFS BLOCK CHANCE A BIT TO MAKE IT MORE LIKELY TO ROLL
 	slot_flags = ITEM_SLOT_BELT
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	attack_verb_continuous = list(
@@ -50,10 +50,12 @@
 /obj/item/kinetic_crusher/machete/Initialize(mapload)
 	. = ..()
 	update_wielding()
+	qdel(GetComponent(/datum/component/two_handed)) //OCULIS EDIT - SALTMINING - THE MACHETE WAS ALWAYS MEANT TO BE ONE HANDED, NOT WIELDED
 	AddComponent(/datum/component/butchering, \
 		speed = 4 SECONDS, \
 		effectiveness = 150, \
 	)
+
 /obj/item/kinetic_crusher/machete/update_wielding()
 	// Component that handles special behaviour for force differences between wielding and unwielding
 	AddComponent(/datum/component/two_handed, force_unwielded = 10, force_wielded = 15) // If you happen to sharpen the machete, you will increase its sharpness but until you wield it, you will not get the force values applied (consequence of one-handed use).
@@ -158,7 +160,7 @@
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_PACIFISM) || !HAS_TRAIT(src, TRAIT_WIELDED))
 		return
-	else if(!QDELETED(target) && !target.anchored)
+	else if(!QDELETED(target) && !target.anchored && !(target.move_resist == INFINITY)) // OCULIS EDIT: PKHammer can no longer displace tendrils - ORIGINAL: else if(!QDELETED(target) && !target.anchored)
 		var/whack_speed = (2)
 		target.throw_at(throw_target, 2, whack_speed, user, gentle = TRUE)
 
@@ -213,6 +215,7 @@
 /obj/item/kinetic_crusher/claw/Initialize(mapload)
 	. = ..()
 	update_wielding()
+	qdel(GetComponent(/datum/component/two_handed)) //OCULIS EDIT - SALTMINING - THE CLAWS WERE MEANT TO BE ONLY ONE HANDED, NEVER TWO
 	AddComponent(/datum/component/butchering, \
 		speed = 5 SECONDS, \
 		effectiveness = 100, \

@@ -57,7 +57,7 @@
 	if (!istype(attacker))
 		return
 	for (var/mob/living/basic/clown/harbringer in oview(src, 7))
-		harbringer.ai_controller.insert_blackboard_key_lazylist(BB_BASIC_MOB_RETALIATE_LIST, attacker)
+		harbringer.ai_controller.set_blackboard_key_assoc_lazylist(BB_BASIC_MOB_RETALIATE_LIST, attacker, world.time)
 
 /mob/living/basic/clown/melee_attack(atom/target, list/modifiers, ignore_cooldown = FALSE)
 	if(!istype(target, /obj/item/food/grown/banana/bunch))
@@ -68,7 +68,7 @@
 
 /mob/living/basic/clown/get_bloodtype()
 	if (check_holidays(APRIL_FOOLS))
-		return get_blood_type(BLOOD_TYPE_CLOWN)
+		return get_blood_type(/datum/blood_type/clown)
 	return ..()
 
 /mob/living/basic/clown/lube

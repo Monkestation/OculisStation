@@ -9,6 +9,11 @@ GLOBAL_LIST_INIT(nearsighted_glasses, list(
 	"Jamjar" = /obj/item/clothing/glasses/regular/jamjar,
 	"Binoclard" = /obj/item/clothing/glasses/regular/kim,
 	"Modern" = /obj/item/clothing/glasses/regular/modern, // NOVA EDIT ADDITION
+	// OCULIS EDIT ADDITION START
+	"Transparent Glasses" = /obj/item/clothing/glasses/regular/transparent,
+	"Transparent Circle Glasses" = /obj/item/clothing/glasses/regular/circle/transparent,
+	"Transparent Thin Glasses" = /obj/item/clothing/glasses/regular/thin/transparent,
+	// OCULIS EDIT ADDITION END
 
 ))
 
@@ -125,4 +130,12 @@ GLOBAL_LIST_INIT(quirk_chipped_choice, list(
 	"\"Space Station 13: The Musical\"" = /obj/item/skillchip/musical,
 	"Mast-Angl-Er" = /obj/item/skillchip/master_angler,
 	"Kommand" = /obj/item/skillchip/big_pointer,
+))
+
+///Spacer quirk
+GLOBAL_LIST_INIT(spacer_height_choices, list(
+	"Extra Tall" = HUMAN_HEIGHT_TALLEST,
+	"Tall" = HUMAN_HEIGHT_TALLER,
+	"Above Average" = HUMAN_HEIGHT_TALL, // NOVA EDIT ADDITION
+	"Average" = HUMAN_HEIGHT_MEDIUM, // NOVA EDIT ADDITION
 ))

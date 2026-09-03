@@ -307,7 +307,7 @@
 			/mob/living/basic/mining/ice_demon,
 			/mob/living/basic/mining/ice_whelp,
 			/mob/living/basic/mining/lobstrosity,
-			/mob/living/simple_animal/hostile/asteroid/polarbear,
+			/mob/living/basic/mining/polarbear,
 			/mob/living/basic/mining/wolf,
 		)
 		new mob_type(success_rune.drop_location())
@@ -397,7 +397,7 @@
 	var/list/asked_voters = list()
 
 	for(var/mob/living/carbon/human/poll_human in range(2, src_turf))
-		if(poll_human.stat != CONSCIOUS) //must be conscious
+		if(IS_UNCONSCIOUS_OR_CRIT(poll_human)) //must be conscious
 			continue
 
 		if(!poll_human.mind.has_antag_datum(/datum/antagonist/ashwalker)) //must be an ashwalker

@@ -17,7 +17,7 @@
 
 /datum/bounty/item/special/syndicate_documents
 	name = "Syndicate Documents"
-	description = "Intel regarding the syndicate is highly prized at CentCom. If you find syndicate documents, ship them. You could save lives."
+	description = "Intel regarding the syndicate is highly prized at SectCom. If you find syndicate documents, ship them. You could save lives." // OCULIS EDIT, SectCommening 2, ORIGINAL: description = "Intel regarding the syndicate is highly prized at CentCom. If you find syndicate documents, ship them. You could save lives."
 	reward = CARGO_CRATE_VALUE * 30
 	wanted_types = list(
 		/obj/item/documents/syndicate = TRUE,

@@ -87,7 +87,7 @@
 		return
 	var/obj/item/ammo_casing/ammo_type = loaded_magazine.ammo_type
 	var/ammo_caliber = initial(ammo_type.caliber)
-	var/obj/item/ammo_casing/ammo_parent_type = type2parent(ammo_type)
+	var/obj/item/ammo_casing/ammo_parent_type = ammo_type::parent_type
 
 	if(ammo_caliber == initial(ammo_parent_type.caliber) && ammo_caliber != null)
 		ammo_type = ammo_parent_type
@@ -392,7 +392,6 @@
 /datum/design/board/ammo_workbench
 	name = "Ammunition Workbench"
 	desc = "A machine made specifically for manufacturing ammunition."
-	id = "ammo_workbench"
 	build_path = /obj/item/circuitboard/machine/ammo_workbench
 	category = list(RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_FAB)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY

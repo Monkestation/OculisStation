@@ -256,6 +256,11 @@
 	reskin_datum = /datum/atom_skin/cableknit_sweater
 	group = "Casualwear"
 
+/datum/loadout_item/under/miscellaneous/open_backed_sweater
+	name = "Open-Backed Sweater"
+	item_path = /obj/item/clothing/under/dress/nova/open_backed_sweater
+	group = "Casualwear"
+
 /datum/loadout_item/under/jumpsuit/turtleneck
 	name = "Turtleneck w/ Pants"
 	item_path = /obj/item/clothing/under/greyscale/turtleneck
@@ -299,4 +304,14 @@
 /datum/loadout_item/under/miscellaneous/shorter_overall
 	name = "Shorter Overall"
 	item_path = /obj/item/clothing/under/pants/nova/shorted_overall
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/pen_skirt
+	name = "Pen Skirt"
+	item_path = /obj/item/clothing/under/dress/nova/pen_skirt
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/formal_pen_skirt
+	name = "Formal Pen Skirt"
+	item_path = /obj/item/clothing/under/dress/nova/formal_pen_skirt
 	group = "Casualwear"

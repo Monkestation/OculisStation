@@ -20,7 +20,7 @@
 		If you choose to \"Do Not Resuscitate\" upon death, another ghost will be allowed to take over the body. \
 		You still roll for midround antagonists."
 
-/datum/quirk/death_dnr_poll/add_unique(client/client_source)
+/datum/quirk/death_dnr_poll/add(client/client_source) // OCULIS EDIT change from add_unique to add
 	. = ..()
 	RegisterSignal(quirk_holder, COMSIG_LIVING_DNR, PROC_REF(mob_died))
 
