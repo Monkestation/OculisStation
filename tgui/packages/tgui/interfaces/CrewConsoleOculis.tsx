@@ -15,7 +15,6 @@ import { createSearch } from 'tgui-core/string';
 import { useBackend } from '../backend';
 import { COLORS } from '../constants';
 import { Window } from '../layouts';
-import { JOB2ICON } from './common/JobToIcon';
 
 const HEALTH_COLOR_BY_LEVEL = [
   '#17d568',
@@ -27,7 +26,7 @@ const HEALTH_COLOR_BY_LEVEL = [
 ];
 
 const STAT_LIVING = 0;
-const STAT_DEAD = 4;
+const STAT_DEAD = 3;
 
 //const COMPACT_MARGIN = 0;
 const COMFY_MARGIN = 1;
@@ -172,6 +171,7 @@ type CrewSensor = {
   ref: string;
   is_robot: BooleanLike; // NOVA EDIT ADDITION
   can_track: BooleanLike; // NOVA EDIT ADDITION
+  icon: string; // OCULIS EDIT ADDITION
 };
 
 type CrewConsoleData = {
@@ -285,15 +285,17 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
     burndam,
     brutedam,
     area,
+    ref,
     is_robot, // NOVA EDIT ADDITION
     can_track, // NOVA EDIT ADDITION
+    icon, // OCULIS EDIT ADDITION
   } = sensor_data;
 
   return (
     <Table.Row className="candystripe" m={COMFY_MARGIN}>
       <Table.Cell bold={jobIsHead(ijob)} color={jobToColor(ijob)}>
         <Box inline width={1.5}>
-          <Icon name={JOB2ICON[sensor_data.assignment || ''] || 'question'} />
+          <Icon name={icon} />
         </Box>
         {name}
         {assignment !== undefined ? ` (${assignment})` : ''}
@@ -352,7 +354,7 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
             disabled={!can_track} // NOVA EDIT ADDITION
             onClick={() =>
               act('select_person', {
-                name: name,
+                ref: ref,
               })
             }
           >

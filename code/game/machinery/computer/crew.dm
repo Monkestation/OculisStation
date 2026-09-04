@@ -253,10 +253,15 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			"ijob" = UNKNOWN_JOB_ID,
 		)
 
+		entry["icon"] = "question" // OCULIS EDIT ADDITION
 		// ID and id-related data
 		var/obj/item/card/id/id_card = tracked_living_mob.get_idcard(hand_first = FALSE)
 		if (id_card)
 			entry["name"] = id_card.registered_name
+			// OCULIS EDIT ADDITION START
+			var/datum/job/gotten_job = SSjob.get_job(id_card.assignment)
+			entry["icon"] = gotten_job ? gotten_job?.tgui_icon : "question"
+			// OCULIS EDIT ADDITION END
 			entry["assignment"] = id_card.assignment
 			var/trim_assignment = id_card.get_trim_assignment()
 			/* // NOVA EDIT REMOVAL START - Just so we can indent this after an else
