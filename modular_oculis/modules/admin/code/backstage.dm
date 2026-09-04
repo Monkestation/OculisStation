@@ -70,8 +70,10 @@ GAME_VERB(/client, backstage, "Backstage OOC", "OOC")
 		//Admins with muted OOC do not get to listen to Backstage, but normal players do, as it could be admins talking important stuff to them
 		if(iterated_mob.client?.holder && !iterated_mob.client?.holder?.deadmined && iterated_mob.client?.prefs?.chat_toggles & CHAT_OOC)
 			listeners[iterated_mob.client] = BACKSTAGE_LISTEN_ADMIN
-		else if(is_security || is_antag)
-			listeners[iterated_mob.client] = BACKSTAGE_LISTEN_PLAYER
+		else
+			var/listener_job = iterated_mob.mind?.assigned_role?.title
+			if((listener_job && BACKSTAGE_JOBS[listener_job]) || (length(iterated_mob.mind?.antag_datums))) // if the listener is sec or an antag
+				listeners[iterated_mob.client] = BACKSTAGE_LISTEN_PLAYER
 
 	for(var/client/iterated_client as anything in listeners)
 		var/mode = listeners[iterated_client]
