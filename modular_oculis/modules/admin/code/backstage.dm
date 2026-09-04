@@ -91,11 +91,10 @@ GAME_VERB(/client, backstage, "Backstage OOC", "OOC")
 	for(var/mob/iterated_mob as anything in GLOB.player_list)
 		if(!iterated_mob.client?.holder?.deadmined)
 			listeners[iterated_mob.client] = TRUE
-		else
-			if(iterated_mob.mind)
-				var/datum/mind/mob_mind = iterated_mob.mind
-				if(BACKSTAGE_JOBS[mob_mind.assigned_role] || length(mob_mind.antag_datums))
-					listeners[iterated_mob.client] = TRUE
+		else if(iterated_mob.mind)
+			var/datum/mind/mob_mind = iterated_mob.mind
+			if(BACKSTAGE_JOBS[mob_mind.assigned_role] || length(mob_mind.antag_datums))
+				listeners[iterated_mob.client] = TRUE
 	for(var/client/iterated_client as anything in listeners)
 		to_chat(iterated_client, span_oocplain("<b>The backstage channel has been globally [GLOB.backstage_allowed ? "enabled" : "disabled"].</b>"))
 
