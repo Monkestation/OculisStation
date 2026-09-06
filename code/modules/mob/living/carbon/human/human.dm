@@ -572,27 +572,50 @@
 			balloon_alert(src, "[target.p_they()] [target.p_are()] dead!")
 			return FALSE
 
-		var/can_breathe = TRUE // OCULIS EDIT ADDITION - If FALSE, then chest compressions are the only option
-
+		/* // OCULIS EDIT REMOVAL START
 		if (is_mouth_covered())
 			balloon_alert(src, "remove your mask first!")
-			can_breathe = FALSE // OCULIS EDIT, ORIGINAL: return FALSE
+			return FALSE
 
 		if (target.is_mouth_covered())
 			balloon_alert(src, "remove [target.p_their()] mask first!")
-			can_breathe = FALSE // OCULIS EDIT, ORIGINAL: return FALSE
+			return FALSE
 
 		if(HAS_TRAIT_FROM(src, TRAIT_NOBREATH, DISEASE_TRAIT))
 			to_chat(src, span_warning("you can't breathe!"))
-			can_breathe = FALSE // OCULIS EDIT, ORIGINAL: return FALSE
+			return FALSE
 
 		var/obj/item/organ/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
-		if(isnull(human_lungs) || istype(human_lungs, /obj/item/organ/lungs/synth)) // OCULIS EDIT, ORIGINAL: if(isnull(human_lungs))
+		if(isnull(human_lungs))
 			balloon_alert(src, "you don't have lungs!")
-			can_breathe = FALSE // OCULIS EDIT, ORIGINAL: return FALSE
+			return FALSE
 		if(human_lungs.organ_flags & ORGAN_FAILING)
 			balloon_alert(src, "your lungs are too damaged!")
-			can_breathe = FALSE // OCULIS EDIT, ORIGINAL: return FALSE
+			return FALSE
+		*/ // OCULIS EDIT REMOVAL END
+		// OCULIS EDIT ADDITION START
+		var/can_breathe = TRUE // If FALSE, then chest compressions are the only option
+		var/alerts = list()
+
+		if (is_mouth_covered())
+			alerts += "your mouth is covered!"
+
+		if (target.is_mouth_covered())
+			alerts += "[target.p_their()] mouth is covered!"
+
+		var/obj/item/organ/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
+		if(isnull(human_lungs) || istype(human_lungs, /obj/item/organ/lungs/synth))
+			alerts += "you don't have lungs!"
+		else if(human_lungs.organ_flags & ORGAN_FAILING)
+			alerts += "your lungs are too damaged!"
+
+		if(length(alerts))
+			can_breathe = FALSE
+			if(!panicking)
+				balloon_alert(src, jointext(alerts, "\n") + "\ncontinuing anyways!")
+			for(var/alert in alerts)
+				to_chat(src, span_warning(capitalize(alert)))
+		// OCULIS EDIT ADDITION END
 
 		visible_message(span_notice("[src] is trying to perform CPR on [target.name]!"), \
 						can_breathe ? span_notice("You try to perform CPR on [target.name]... Hold still!"):span_notice("You try to perform CPR on [target.name] without mouth-to-mouth... Hold still!")) // OCULIS EDIT, ORIGINAL: span_notice("You try to perform CPR on [target.name]... Hold still!"))
