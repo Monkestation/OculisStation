@@ -316,3 +316,4 @@
 	desc = "A less morally questionable device, useful in activating new cyborgs!"
 	contains = list(/obj/item/mmi/posibrain/syndie/interdyne)
 	cost = CARGO_CRATE_VALUE * 5
+

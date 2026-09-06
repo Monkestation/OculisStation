@@ -2947,6 +2947,11 @@
 /obj/machinery/processor/slime/fullupgrade,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
+"za" = (
+/obj/item/flatpack/ammo_workbench,
+/obj/item/ammo_workbench_module/lethal_super,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/main/vault)
 "ze" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
@@ -3044,7 +3049,10 @@
 "zV" = (
 /obj/machinery/airalarm/directional/east,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
-/obj/machinery/photocopier/gratis,
+/obj/machinery/photocopier/gratis{
+	starting_paper = 30;
+	starting_toner = /obj/item/toner
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "zW" = (
@@ -5329,10 +5337,10 @@
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/med/viro)
 "SA" = (
-/obj/machinery/chem_dispenser/fullupgrade,
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
 	},
+/obj/machinery/chem_dispenser/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "SF" = (
@@ -5589,7 +5597,7 @@
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/machinery/door/firedoor,
-/obj/machinery/chem_master/fullupgrade,
+/obj/machinery/chem_master/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "TV" = (
@@ -7724,7 +7732,7 @@ fm
 vu
 vu
 dU
-dn
+za
 UE
 Qd
 jw
