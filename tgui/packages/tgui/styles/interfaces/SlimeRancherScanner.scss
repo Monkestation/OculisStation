@@ -1,0 +1,360 @@
+// THIS IS A OCULIS UI FILE
+.theme-slime_rancher_scanner {
+	--slime-housing: oklch(0.28 0.035 245);
+	--slime-cream: oklch(0.95 0.025 85);
+	--slime-ink: oklch(0.3 0.035 245);
+	--slime-cyan: oklch(0.76 0.105 205);
+	--slime-raspberry: oklch(0.51 0.17 355);
+	--slime-good: oklch(0.75 0.13 145);
+	--slime-caution: oklch(0.82 0.13 80);
+	--slime-danger: oklch(0.7 0.15 30);
+	--slime-track: oklch(0.87 0.025 85);
+	--slime-highlight: oklch(1 0 0 / 0.55);
+	--slime-shadow: oklch(0.2 0.035 245 / 0.22);
+	--color-base: var(--slime-housing);
+	--color-text: var(--slime-cream);
+	--titlebar-background: var(--slime-housing);
+	--titlebar-text: var(--slime-cream);
+	--button-background-danger: var(--slime-raspberry);
+
+	.Window {
+		background: var(--slime-housing);
+	}
+
+	.Layout__content {
+		background-image: none;
+	}
+
+	.TitleBar {
+		border-bottom-color: var(--slime-cyan);
+		box-shadow: none;
+	}
+
+	.SlimeRancherScanner {
+		color: var(--slime-ink);
+		font-size: 1rem;
+		line-height: 1.4;
+		font-variant-numeric: tabular-nums;
+		scrollbar-color: var(--slime-cyan) var(--slime-housing);
+
+		.Window__contentPadding {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			align-items: start;
+			gap: 1rem;
+			margin: 1rem;
+			height: auto;
+		}
+
+		@media (max-width: 620px) {
+			.Window__contentPadding {
+				grid-template-columns: minmax(0, 1fr);
+			}
+		}
+
+		h1,
+		h2,
+		p {
+			margin: 0;
+		}
+
+		h1 {
+			font-size: 1.5rem;
+			line-height: 1.25;
+			text-wrap: balance;
+		}
+
+		h2 {
+			font-size: 1.167rem;
+			line-height: 1.4;
+		}
+
+		.ProgressBar {
+			--progress-bar-color: var(--slime-cyan);
+			min-height: 1.833rem;
+			padding: 0 0.667rem;
+			overflow: hidden;
+			border: 0;
+			border-radius: 999px;
+			background: var(--slime-track);
+			color: var(--slime-ink);
+			font-weight: bold;
+			box-shadow: inset 0 1px 2px var(--slime-shadow);
+		}
+
+		.ProgressBar--color--good {
+			--progress-bar-color: var(--slime-good);
+		}
+
+		.ProgressBar--color--average {
+			--progress-bar-color: var(--slime-caution);
+		}
+
+		.ProgressBar--color--bad {
+			--progress-bar-color: var(--slime-danger);
+		}
+
+		.SlimeRancherScanner__instability--locked {
+			--progress-bar-color: oklch(0.73 0.012 245);
+		}
+
+		.ProgressBar__fill {
+			border-radius: inherit;
+			box-shadow: inset 0 1px 0 var(--slime-highlight);
+			transition: background-color 120ms ease-out;
+		}
+
+		.NoticeBox {
+			margin: 0;
+			padding: 0.667rem 1rem;
+			border-radius: 1.333rem;
+			background: var(--slime-caution);
+			color: var(--slime-ink);
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		.NoticeBox--type--danger {
+			background: var(--slime-danger);
+			font-weight: bold;
+		}
+
+		.NoticeBox--type--info {
+			background: oklch(0.9 0.035 205);
+		}
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--slime-cyan);
+		outline-offset: 2px;
+	}
+
+	.Tooltip {
+		border-radius: 1rem;
+		background: var(--slime-housing);
+		color: var(--slime-cream);
+		backdrop-filter: none;
+		box-shadow: 0 2px 6px var(--slime-shadow);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.TitleBar__close,
+		.TitleBar__statusIcon,
+		.Tooltip.Floating--animated,
+		.SlimeRancherScanner .ProgressBar,
+		.SlimeRancherScanner .ProgressBar__fill {
+			transition: none;
+		}
+	}
+}
+
+.SlimeRancherScanner {
+	&__vitals,
+	&__mutations,
+	&__empty {
+		padding: 1rem;
+		border-radius: 2rem;
+		background: var(--slime-cream);
+		box-shadow:
+			inset 0 2px 0 var(--slime-highlight),
+			0 3px 0 var(--slime-shadow);
+	}
+
+	&__vitals,
+	&__mutations,
+	&__recipes {
+		display: grid;
+		gap: 1rem;
+	}
+
+	&__mutations {
+		> h2 {
+			justify-self: start;
+			padding: 0.333rem 1rem;
+			border-radius: 999px;
+			background: var(--slime-raspberry);
+			color: var(--slime-cream);
+		}
+	}
+
+	&__identity {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	&__identity-text {
+		min-width: 0;
+	}
+
+	&__portrait-well {
+		display: grid;
+		place-items: center;
+		flex: 0 0 88px;
+		width: 88px;
+		height: 88px;
+		border: 4px solid var(--slime-cyan);
+		border-radius: 50%;
+		background: var(--slime-housing);
+		box-shadow: 0 2px 0 var(--slime-shadow);
+	}
+
+	&__portrait {
+		position: relative;
+		width: 64px;
+		height: 64px;
+
+		&--transparent {
+			opacity: 0.7;
+		}
+	}
+
+	&__sprite {
+		position: absolute;
+		top: 0;
+		left: 0;
+		image-rendering: pixelated;
+	}
+
+	&__name {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5em;
+		min-width: 0;
+		overflow-wrap: anywhere;
+		font-weight: bold;
+	}
+
+	&__swatch {
+		flex: 0 0 0.8em;
+		width: 0.8em;
+		height: 0.8em;
+		border-radius: 50%;
+		background: var(--slime-color);
+		box-shadow: 0 0 0 1px var(--slime-shadow);
+
+		// the backend's rainbow color is gray, so this one needs its own spectrum
+		&--rainbow {
+			background: linear-gradient(120deg,
+				oklch(0.7 0.17 25), oklch(0.85 0.14 85),
+				oklch(0.78 0.14 145), oklch(0.76 0.105 205),
+				oklch(0.65 0.16 295), oklch(0.72 0.16 355));
+		}
+	}
+
+	&__life-stage {
+		display: inline-block;
+		margin-top: 0.667rem;
+		padding: 0.167rem 0.667rem;
+		border-radius: 999px;
+		background: var(--slime-cyan);
+		font-weight: bold;
+	}
+
+	&__meters,
+	&__meter,
+	&__drain {
+		display: grid;
+		gap: 0.333rem;
+		min-width: 0;
+	}
+
+	&__meters {
+		gap: 0.667rem;
+	}
+
+	&__meter > span:first-child {
+		font-weight: bold;
+	}
+
+	&__readings {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.667rem;
+
+		> div {
+			display: grid;
+			gap: 0.167rem;
+			padding: 0.667rem 1rem;
+			border-radius: 1.333rem;
+			background: var(--slime-track);
+		}
+
+		strong {
+			font-size: 1.333rem;
+		}
+	}
+
+	&__recipe {
+		padding: 0.667rem;
+		border-radius: 1.333rem;
+		background: oklch(0.98 0.015 85);
+		box-shadow: 0 2px 0 var(--slime-shadow);
+	}
+
+	&__recipe-heading {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.667rem;
+		margin-bottom: 0.667rem;
+	}
+
+	&__ready {
+		padding: 0.167rem 0.667rem;
+		border-radius: 999px;
+		background: var(--slime-good);
+		font-weight: bold;
+	}
+
+	&__requirements {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.667rem;
+	}
+
+	&__requirement {
+		display: flex;
+		align-items: center;
+		gap: 0.667rem;
+		min-width: 0;
+		max-width: 100%;
+		overflow-wrap: anywhere;
+
+		> img {
+			flex-shrink: 0;
+			image-rendering: pixelated;
+		}
+
+		&--done .SlimeRancherScanner__requirement-name {
+			text-decoration: line-through;
+		}
+	}
+
+	&__completed {
+		flex-shrink: 0;
+		padding: 0.25rem;
+		border-radius: 50%;
+		background: var(--slime-good);
+	}
+
+	&__drain {
+		flex: 1;
+	}
+
+	&__empty {
+		grid-column: 1 / -1;
+		display: grid;
+		justify-items: center;
+		gap: 1rem;
+		padding: 2rem;
+		text-align: center;
+
+		> .Icon {
+			padding: 1rem;
+			border-radius: 50%;
+			background: var(--slime-cyan);
+		}
+	}
+}

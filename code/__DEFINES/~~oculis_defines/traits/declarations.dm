@@ -15,4 +15,7 @@
 /// Trait that allows whoever has it to walk through arachnid webbing without slowdown.
 #define TRAIT_ARACHNID_WEB_SURFER "arachnid_web_surfer"
 
+/// Trait that prevents mobs from squashing other mobs by walking over them.
+#define TRAIT_DOESNT_SQUASH "doesnt_squash"
+
 // END TRAIT DEFINES
