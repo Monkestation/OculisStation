@@ -441,7 +441,7 @@
 		. = message_larva
 	else if(isAI(user) && message_AI)
 		. = message_AI
-	else if(ismonkey(user) && message_monkey)
+	else if(HAS_TRAIT(user, TRAIT_LESSER_HUMANOID) && message_monkey)
 		. = message_monkey
 	// OCULIS EDIT ADDITION START - hologram specific emotes
 	else if (HAS_TRAIT(user, TRAIT_HOLOSYNTH) && message_hologram)

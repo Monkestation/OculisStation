@@ -8,7 +8,7 @@ import { createRoot } from 'react-dom/client';
 import { createLogger } from 'tgui/logging';
 import { Tooltip } from 'tgui-core/components';
 import { EventEmitter } from 'tgui-core/events';
-/*import { classes } from 'tgui-core/react';*/ // IRIS removal
+import { classes } from 'tgui-core/react';
 import { store } from '../events/store';
 import { scrollTrackingAtom } from './atom';
 import {
@@ -96,11 +96,10 @@ function updateMessageBadge(message) {
   const foundBadge = node.querySelector('.Chat__badge');
   const badge = foundBadge || document.createElement('div');
   badge.textContent = times;
-  /* badge.className = classes(['Chat__badge', 'Chat__badge--animate']);
+  badge.className = classes(['Chat__badge', 'Chat__badge--animate']);
   requestAnimationFrame(() => {
     badge.className = 'Chat__badge';
-  });*/
-  badge.className = 'Chat__badge'; // IRIS EDIT
+  });
   if (!foundBadge) {
     node.appendChild(badge);
   }
@@ -419,12 +418,11 @@ class ChatRenderer {
     }
   }
 
-  /* getCombinableMessage(predicate) {
+  getCombinableMessage(predicate) {
     const now = Date.now();
     const len = this.visibleMessages.length;
     const from = len - 1;
-    const to = Math.max(0, len - COMBINE_MAX_MESSAGES);*/ // IRIS EDIT
-  getCombinableMessage(predicate, now, from, to) {
+    const to = Math.max(0, len - COMBINE_MAX_MESSAGES);
     for (let i = from; i >= to; i--) {
       const message = this.visibleMessages[i];
 
@@ -473,16 +471,10 @@ class ChatRenderer {
     const fragment = document.createDocumentFragment();
     const countByType = {};
     let node;
-
-    // IRIS EDIT
-    const len = this.visibleMessages.length;
-    const from = len - 1;
-    const to = Math.max(0, len - COMBINE_MAX_MESSAGES);
     for (const payload of batch) {
       const message = createMessage(payload);
       // Combine messages
-      const combinable = this.getCombinableMessage(message, now, from, to);
-      // IRIS EDIT END
+      const combinable = this.getCombinableMessage(message);
       if (combinable) {
         combinable.times = (combinable.times || 1) + 1;
         updateMessageBadge(combinable);
