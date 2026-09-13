@@ -2,6 +2,15 @@
 "a" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/supply)
+"b" = (
+/obj/machinery/light/directional/east,
+/obj/machinery/conveyor_switch/oneway{
+	dir = 8;
+	id = "QMLoad";
+	name = "Loading Lever"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/supply)
 "c" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst/left,
 /turf/open/floor/plating/airless,
@@ -9,51 +18,28 @@
 "d" = (
 /turf/template_noop,
 /area/template_noop)
-"e" = (
+"f" = (
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/supply)
+"g" = (
+/obj/machinery/light/directional/east,
 /obj/machinery/conveyor_switch/oneway{
 	id = "QMUnload";
 	name = "Unloading Lever"
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
-"f" = (
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/supply)
-"g" = (
-/obj/machinery/button/door/directional/south{
-	name = "Off Ramp Toggle";
-	id = "QMLoaddoor";
+"n" = (
+/obj/machinery/button/door/directional/north{
+	name = "On Ramp Toggle";
+	id = "QMUnloaddoor";
 	req_access = list("cargo")
 	},
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "QMUnload"
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/supply)
-"i" = (
-/obj/machinery/door/poddoor{
-	id = "QMLoaddoor";
-	name = "Supply Dock Unloading Door"
-	},
-/obj/effect/landmark/flaps_install,
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "QMUnload"
-	},
-/turf/open/floor/plating,
-/area/shuttle/supply)
-"m" = (
-/obj/machinery/door/poddoor{
-	id = "QMUnloaddoor";
-	name = "Supply Dock Loading Door"
-	},
-/obj/effect/landmark/flaps_install,
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "QMLoad"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
 "r" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
@@ -67,53 +53,61 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/supply)
 "w" = (
-/obj/machinery/power/shuttle_engine/heater,
-/obj/structure/window/reinforced/spawner/directional/west,
-/turf/open/floor/plating,
-/area/shuttle/supply)
-"x" = (
 /obj/machinery/conveyor{
-	dir = 8;
-	id = "QMLoad"
+	dir = 4;
+	id = "QMUnload"
 	},
-/obj/machinery/button/door/directional/north{
-	name = "On Ramp Toggle";
-	id = "QMUnloaddoor";
+/obj/machinery/button/door/directional/south{
+	name = "Off Ramp Toggle";
+	id = "QMLoaddoor";
 	req_access = list("cargo")
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
-"A" = (
-/obj/machinery/power/shuttle_engine/heater,
-/obj/structure/window/reinforced/spawner/directional/east,
+"z" = (
+/obj/effect/landmark/flaps_install,
+/obj/machinery/door/poddoor{
+	id = "QMLoaddoor";
+	name = "Supply Dock Unloading Door"
+	},
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "QMUnload"
+	},
 /turf/open/floor/plating,
 /area/shuttle/supply)
-"B" = (
-/obj/machinery/power/shuttle_engine/propulsion/burst/right,
-/turf/open/floor/plating/airless,
+"A" = (
+/obj/machinery/power/shuttle_engine/heater,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/plating,
 /area/shuttle/supply)
-"X" = (
-/obj/machinery/conveyor_switch/oneway{
+"C" = (
+/obj/effect/landmark/flaps_install,
+/obj/machinery/door/poddoor{
+	id = "QMUnloaddoor";
+	name = "Supply Dock Loading Door"
+	},
+/obj/machinery/conveyor{
 	dir = 8;
-	id = "QMLoad";
-	name = "Loading Lever"
+	id = "QMLoad"
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/plating,
 /area/shuttle/supply)
-"Y" = (
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+"I" = (
+/obj/docking_port/mobile/supply{
+	dwidth = 5
+	},
 /obj/machinery/door/airlock/shuttle{
 	name = "Supply Shuttle Airlock"
 	},
-/obj/docking_port/mobile/supply,
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
-"Z" = (
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
-/obj/machinery/door/airlock/shuttle{
-	name = "Supply Shuttle Airlock"
-	},
-/turf/open/floor/mineral/plastitanium,
+"V" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/power/shuttle_engine/heater,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/plating,
 /area/shuttle/supply)
 
 (1,1,1) = {"
@@ -121,11 +115,11 @@ d
 a
 a
 a
-a
 r
 r
-a
-a
+r
+r
+r
 a
 a
 d
@@ -133,14 +127,14 @@ d
 (2,1,1) = {"
 a
 a
-t
 s
 s
 s
 s
 s
 s
-t
+s
+s
 A
 c
 "}
@@ -155,8 +149,8 @@ f
 f
 f
 f
-s
-a
+A
+c
 "}
 (4,1,1) = {"
 r
@@ -169,12 +163,12 @@ f
 f
 f
 f
-s
-a
+V
+c
 "}
 (5,1,1) = {"
-r
-s
+a
+a
 f
 f
 f
@@ -187,30 +181,30 @@ s
 a
 "}
 (6,1,1) = {"
+d
 a
-a
-t
-x
+n
 f
-X
-e
+b
+f
+f
 f
 g
-t
+f
 w
-B
+a
 "}
 (7,1,1) = {"
 d
 a
-a
-m
-Z
+C
 r
-r
-Y
-i
 t
+r
+I
+r
+t
+r
+z
 a
-d
 "}
