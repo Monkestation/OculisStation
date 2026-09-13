@@ -743,11 +743,17 @@
 	for (var/module_slow in module_slowdowns)
 		total_slowdown += module_slow
 
+	/* // OCULIS EDIT REMOVAL START
 	for(var/datum/mod_part/part_datum as anything in get_part_datums(all = TRUE))
 		var/obj/item/part = part_datum.part_item
 		part.slowdown = total_slowdown / length(mod_parts)
 		if (!part_datum.sealed)
 			part.slowdown = max(part.slowdown, 0)
+	*/ // OCULIS EDIT REMOVAL END
+	// OCULIS EDIT ADDITION START
+	for(var/obj/item/part as anything in get_parts())
+		part.slowdown = slowdown_deployed / (length(mod_parts) - 1)
+	// OCULIS EDIT ADDITION END
 	wearer?.update_equipment_speed_mods()
 
 /obj/item/mod/control/proc/power_off()
