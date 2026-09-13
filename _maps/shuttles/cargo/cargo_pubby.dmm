@@ -36,8 +36,8 @@
 	req_access = list("cargo")
 	},
 /obj/machinery/conveyor{
-	dir = 8;
-	id = "QMLoad"
+	dir = 4;
+	id = "QMUnload"
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
@@ -53,27 +53,27 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/supply)
 "w" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "QMUnload"
-	},
 /obj/machinery/button/door/directional/south{
 	name = "Off Ramp Toggle";
 	id = "QMLoaddoor";
 	req_access = list("cargo")
 	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "QMLoad"
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
 "z" = (
-/obj/effect/landmark/flaps_install,
-/obj/machinery/door/poddoor{
-	id = "QMLoaddoor";
-	name = "Supply Dock Unloading Door"
-	},
 /obj/machinery/conveyor{
-	dir = 4;
-	id = "QMUnload"
+	dir = 8;
+	id = "QMLoad"
 	},
+/obj/machinery/door/poddoor{
+	id = "QMUnloaddoor";
+	name = "Supply Dock Loading Door"
+	},
+/obj/effect/landmark/flaps_install,
 /turf/open/floor/plating,
 /area/shuttle/supply)
 "A" = (
@@ -82,15 +82,15 @@
 /turf/open/floor/plating,
 /area/shuttle/supply)
 "C" = (
-/obj/effect/landmark/flaps_install,
-/obj/machinery/door/poddoor{
-	id = "QMUnloaddoor";
-	name = "Supply Dock Loading Door"
-	},
 /obj/machinery/conveyor{
-	dir = 8;
-	id = "QMLoad"
+	dir = 4;
+	id = "QMUnload"
 	},
+/obj/machinery/door/poddoor{
+	id = "QMLoaddoor";
+	name = "Supply Dock Unloading Door"
+	},
+/obj/effect/landmark/flaps_install,
 /turf/open/floor/plating,
 /area/shuttle/supply)
 "I" = (
@@ -185,11 +185,11 @@ d
 a
 n
 f
-b
-f
-f
-f
 g
+f
+f
+f
+b
 f
 w
 a
