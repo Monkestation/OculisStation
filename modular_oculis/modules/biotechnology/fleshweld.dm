@@ -170,4 +170,4 @@
 	rate_up_lim = 20 //affected by pH too
 	purity_min = 0.3
 	reaction_flags = REACTION_PH_VOL_CONSTANT
-	reaction_tags = REACTION_TAG_MEDIUM | REACTION_TAG_HEALING | REACTION_TAG_TOXIN
+	reaction_tags = REACTION_TAG_MEDIUM | REACTION_TAG_HEALING
