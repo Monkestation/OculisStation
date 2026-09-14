@@ -1,3 +1,5 @@
+GLOBAL_LIST_INIT(global_resforms, typesof(/mob/living/simple_animal/formic))
+
 /obj/machinery/contactscanner
 	name = "formic scanner array"
 	icon = 'modular_oculis/modules/contact_science/icons/contact_equipment.dmi'
@@ -168,11 +170,6 @@
 	circuit = /obj/item/circuitboard/machine/contactplatform
 	var/obj/machinery/contactscanner/linkedscanner
 	var/failure_chance = 10
-	var/list/mobslist
-
-/obj/machinery/contactplatform/Initialize(mapload)
-	. = ..()
-	mobslist = typesof(/mob/living/simple_animal/formic)
 
 /obj/machinery/contactplatform/crowbar_act(mob/user, obj/item/tool)
 	return default_deconstruction_crowbar(user, tool)
@@ -213,7 +210,7 @@
 		return
 	else //spawn resonance form here
 		var/chosen
-		chosen = pick(mobslist)
+		chosen = pick(GLOB.global_resforms)
 		var/mob/living/simple_animal/formic/spawnedform = new chosen(get_turf(src))
 		linkedscanner.contacted_form = spawnedform
 		return
