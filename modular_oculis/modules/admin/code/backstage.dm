@@ -1,5 +1,5 @@
-GLOBAL_VAR_INIT(BACKSTAGE_SEC_COLOR, "#5900ff")
-GLOBAL_VAR_INIT(BACKSTAGE_ANTAG_COLOR, "#ff0062")
+GLOBAL_VAR_INIT(BACKSTAGE_SEC_COLOR, "#0080FF")
+GLOBAL_VAR_INIT(BACKSTAGE_ANTAG_COLOR, "#ff0000")
 GLOBAL_VAR_INIT(backstage_allowed, TRUE)	// used with admin verbs to disable backstage - not a config option
 GLOBAL_ALIST_EMPTY(ckey_to_backstage_name)
 
