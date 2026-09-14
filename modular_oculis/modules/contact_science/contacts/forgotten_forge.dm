@@ -25,8 +25,12 @@
 	)
 
 	var/loyalty = 0 //goes up by 1 with each augmentation, similar to Philosopher's Camera.
-	var/loyalty_threshold = 6 //at the threshold, breach
+	var/loyalty_threshold = 4 //at the threshold, breach. randomized a bit when initialized
 	var/firstaugment = TRUE //after first augment, unlock new echoes
+
+/mob/living/simple_animal/formic/forgotten_forge/Initialize(mapload)
+	. = ..()
+	loyalty_threshold += rand(0, 3)
 
 /mob/living/simple_animal/formic/forgotten_forge/echo_success()
 	var/successful_echo = awaiting_response
