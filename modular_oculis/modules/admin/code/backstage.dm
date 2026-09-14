@@ -1,4 +1,5 @@
-GLOBAL_VAR_INIT(BACKSTAGE_COLOR, "#c654ff")
+GLOBAL_VAR_INIT(BACKSTAGE_SEC_COLOR, "#5900ff")
+GLOBAL_VAR_INIT(BACKSTAGE_ANTAG_COLOR, "#ff0062")
 GLOBAL_VAR_INIT(backstage_allowed, TRUE)	// used with admin verbs to disable backstage - not a config option
 GLOBAL_ALIST_EMPTY(ckey_to_backstage_name)
 
@@ -77,7 +78,13 @@ GAME_VERB(/client, backstage, "Backstage OOC", "OOC")
 
 	for(var/client/iterated_client as anything in listeners)
 		var/mode = listeners[iterated_client]
-		var/color = (!anon && CONFIG_GET(flag/allow_admin_ooccolor) && iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color)) ? iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color) : GLOB.BACKSTAGE_COLOR
+		var/color
+		if ((!anon && CONFIG_GET(flag/allow_admin_ooccolor) && iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color)))
+			color = iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color)
+		else if (is_antag)
+			color = GLOB.BACKSTAGE_ANTAG_COLOR
+		else // is_security, presumably
+			color = GLOB.BACKSTAGE_SEC_COLOR
 		var/name = (mode == BACKSTAGE_LISTEN_ADMIN && anon) ? "([key])[keyname]" : keyname
 		to_chat(iterated_client, span_oocplain("<font color='[color]'><b><span class='prefix'>BACKSTAGE:</span> <EM>[name]:</EM> <span class='message linkify'>[msg]</span></b></font>"), avoid_highlighting = (iterated_client == src))
 
