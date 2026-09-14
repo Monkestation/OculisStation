@@ -1,4 +1,4 @@
-GLOBAL_LIST_INIT(global_resforms, typesof(/mob/living/simple_animal/formic))
+GLOBAL_LIST_INIT(global_resforms, subtypesof(/mob/living/simple_animal/formic))
 
 /obj/machinery/contactscanner
 	name = "formic scanner array"
