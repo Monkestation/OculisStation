@@ -30,10 +30,7 @@
 	var/feeding_timer_current = 220 //dont let it get hungry!
 
 	var/list/obj/item/potential_rewards = list(
-		/obj/item/clothing/glasses/night/panopticon,
-		/obj/item/organ/eyes/robotic/binoculars/panopticon,
-		/obj/item/organ/ears/cybernetic/whisper/panopticon,
-		/obj/item/clothing/glasses/meson/panopticon
+		/obj/item/raw_anomaly_core/panopticon
 	)
 
 /mob/living/simple_animal/formic/panopticon_beast/Life(seconds_per_tick = SSMOBS_DT)
@@ -106,54 +103,77 @@
 	rewards = 0
 	langsay("Reward.")
 
-/obj/item/clothing/glasses/night/panopticon //unique reward, special NVGs which grant invisibility sight
-	name = "panopticon goggles"
-	desc = "A pair of night-vision goggles with antiperceptive sensors. You can't turn them off."
-	icon = 'modular_oculis/modules/contact_science/icons/observer_items.dmi'
-	icon_state = "night"
-	color_cutoffs = list(20, 20, 20)
-	glass_colour_type = /datum/client_colour/glass_colour/gray
-	invis_view = INVISIBILITY_REVENANT
-	invis_override = 50
-	actions_types = null //no turning them off
+/obj/effect/anomaly/panopticon //unique anomaly type. must exist for the core to exist
+	name = "panopticon anomaly"
+	anomaly_core = /obj/item/assembly/signaler/anomaly/panopticon
+	icon = 'modular_oculis/modules/contact_science/icons/special_anomalies.dmi'
+	icon_state = "panopticon"
+	var/effect_range = 5
 
-/obj/item/wallframe/camera/all //cut unique reward, camera assembly which autoinstalls with all upgrades. the panopticon wants more eyes. cut because its kinda lame
-	name = "panopticon camera assembly"
-	desc = "An automatic construction assembly for a fully-upgraded camera."
-	result_path = /obj/machinery/camera/all
+/obj/effect/anomaly/panopticon/Initialize(mapload, new_lifespan)
+	. = ..()
+	apply_wibbly_filters(src)
 
-/obj/item/ammo_casing/shotgun/panopticon //cut unique reward, shotgun shell with the breach monster's projectile. cut for not really fitting, kept for admin shenanigans
-	name = "forever gaze"
-	desc = "A strange shotgun shell, loaded with... what is that? It feels hungry."
-	icon = 'modular_oculis/modules/contact_science/icons/observer_items.dmi'
-	icon_state = "panshell"
-	projectile_type = /obj/projectile/panopticon_ball
+/obj/effect/anomaly/panopticon/anomalyEffect()
+	..()
+	for(var/obj/machinery/camera/C in range(effect_range, src))
+		C.camera_enabled = FALSE
+	for(var/obj/machinery/light/L in range(effect_range, src))
+		L.break_light_tube()
 
-/obj/item/organ/eyes/robotic/binoculars/panopticon //unique reward, digital magnification optics with night vision
-	name = "panopticon optics"
-	desc = "A pair of cybernetic eyes with night vision and zoom capabilities. They look eager to surveil."
-	icon = 'modular_oculis/modules/contact_science/icons/observer_items.dmi'
-	icon_state = "eyes"
-	eye_color_left = "#ffffff"
-	eye_color_right = "#ffffff"
-	organ_flags = ORGAN_ROBOTIC
-	color_cutoffs = list(15, 15, 15)
+/obj/item/assembly/signaler/anomaly/panopticon
+	name = "\improper panopticon anomaly core"
+	desc = "The neutralized core of a panopticon anomaly. Somehow, it feels like it's looking at you. It'd probably be valuable for research."
+	icon = 'modular_oculis/modules/contact_science/icons/special_anomalies.dmi'
+	icon_state = "panopticon_core"
+	core_color = COLOR_BLACK
+	anomaly_type = /obj/effect/anomaly/panopticon
+	var/effect_range = 2
 
-/obj/item/organ/ears/cybernetic/whisper/panopticon //unique reward, cybernetic ears with whisper-hearing and xray hearing
-	name = "panopticon ears"
-	desc = "A pair of hypersensitive cybernetic ears with whisper sensitivity and wall-ignorant audioperception. They look hungry for whispers."
-	icon = 'modular_oculis/modules/contact_science/icons/observer_items.dmi'
-	icon_state = "ears"
-	organ_traits = list(TRAIT_GOOD_HEARING, TRAIT_XRAY_HEARING)
-	damage_multiplier = 2.5
+/obj/item/assembly/signaler/anomaly/panopticon/signal()
+	do_sparks(3, FALSE, get_turf(src))
+	for(var/obj/machinery/camera/C in range(effect_range, src))
+		C.camera_enabled = FALSE
+	for(var/obj/machinery/light/L in range(effect_range, src))
+		L.break_light_tube()
 
-/obj/item/clothing/glasses/meson/panopticon
-	name = "panopticon visor"
-	desc = "A pair of meson goggles which channels your hearing into the ability to see life-matrices through walls, at the price of deafness."
-	icon = 'modular_oculis/modules/contact_science/icons/observer_items.dmi'
-	icon_state = "meson"
-	vision_flags = SEE_MOBS | SEE_TURFS
-	clothing_traits = list(TRAIT_MADNESS_IMMUNE, TRAIT_DEAF)
+/obj/item/raw_anomaly_core/panopticon
+	name = "raw panopticon core"
+	desc = "The raw core of a panopticon anomaly, full of glaring eyes and waiting teeth."
+	anomaly_type = /obj/item/assembly/signaler/anomaly/panopticon
+	icon = 'modular_oculis/modules/contact_science/icons/special_anomalies.dmi'
+	icon_state = "rawcore_panopticon"
+
+/obj/item/clothing/suit/armor/reactive/panopticon //reactive panopticon armor, creates multitool-style arrows towards all nearby player characters
+	name = "reactive panopticon armor"
+	desc = "An experimental suit of armor with a reactive sensor array aligned with a sight-manipulating threat detector.
+	emp_message = span_warning("The reactive armor's sight-manipulators begin to short!")
+	cooldown_message = span_danger("The reactive detection system is still recharging! It fails to activate!")
+	reactivearmor_cooldown_duration = 5 SECONDS
+	var/effect_range = 5
+
+/obj/item/clothing/suit/armor/reactive/fire/reactive_activation(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+	var/datum/hud/user_hud = owner.hud_used
+	if(!user_hud)
+		return
+	owner.visible_message(span_danger("[src] blocks [attack_text], revealing lifeforms nearby!"))
+	for(var/mob/living/carbon/human/H in range(effect_range * 2, owner))
+		if(H != owner)
+			var/dir = get_dir(owner, H)
+			var/atom/movable/screen/multitool_arrow/arrow = user_hud.add_screen_object(/atom/movable/screen/multitool_arrow, HUD_MULTITOOL_ARROW, HUD_GROUP_INFO, update_screen = TRUE)
+			arrow.color = COLOR_RED
+			arrow.transform = matrix(dir2angle(dir), MATRIX_ROTATE)
+			QDEL_IN(arrow, 1.5 SECONDS)
+
+/obj/item/clothing/suit/armor/reactive/panopticon/emp_activation(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+	owner.visible_message(span_danger("[src] fizzles, altering nearby cameras and lights!"))
+	do_sparks(3, FALSE, get_turf(owner))
+	for(var/obj/machinery/camera/C in range(effect_range, owner))
+		C.camera_enabled = FALSE
+	for(var/obj/machinery/light/L in range(effect_range, owner))
+		L.break_light_tube()
+	reactivearmor_cooldown = world.time + reactivearmor_cooldown_duration
+	return FALSE
 
 /mob/living/simple_animal/hostile/panopticon_beast //breaching version
 	name = "Panopticon Beast"
@@ -199,7 +219,7 @@
 	say(pick(projectile_lines))
 	playsound(src, 'sound/effects/portal/portal_travel.ogg', 35)
 
-/obj/projectile/panopticon_ball //slow, piercing projectile which deals suffocation damage
+/obj/projectile/panopticon_ball //slow, piercing projectile which deals burn and stamina damage
 	name = "panopticon sphere"
 	icon = 'modular_oculis/modules/contact_science/icons/observer_items.dmi'
 	icon_state = "beast_projectile"
@@ -209,7 +229,7 @@
 	damage = 25
 	stamina = 10
 	immobilize = 1 SECONDS
-	jitter = 1 SECONDS
+	jitter = 3 SECONDS
 	damage_type = BURN
 	reflectable = FALSE
 	armor_flag = ENERGY

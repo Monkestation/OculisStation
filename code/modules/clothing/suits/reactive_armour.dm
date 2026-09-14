@@ -17,6 +17,7 @@
 		/obj/effect/anomaly/dimensional = /obj/item/clothing/suit/armor/reactive/barricade,
 		/obj/effect/anomaly/ectoplasm = /obj/item/clothing/suit/armor/reactive/ectoplasm,
 		/obj/effect/anomaly/weather = /obj/item/clothing/suit/armor/reactive/weather,
+		/obj/effect/anomaly/panopticon = /obj/item/clothing/suit/armor/reactive/panopticon, //OCULIS EDIT ADDITION - CONTACT_SCIENCE - Special effect for the panopticon beast's special anomaly core
 	)
 
 	if(istype(tool, /obj/item/assembly/signaler/anomaly))
