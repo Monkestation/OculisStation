@@ -34,9 +34,3 @@
 /datum/augment_item/organ/fangs/stoat
 	name = "Stoat Fangs"
 	path = /obj/item/organ/fangs/stoat
-
-
-
-
-
-
