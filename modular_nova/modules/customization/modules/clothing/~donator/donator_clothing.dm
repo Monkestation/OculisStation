@@ -258,7 +258,7 @@
 //Donation reward for Thedragmeme
 //Have I reached suspiciously wealthy furry status yet? /j
 /obj/item/clothing/under/sweater_dress
-	name = "virgin killer sweater"
+	name = "open-backed sweater"
 	desc = "A meticulously knitted sweater that shows off ALL the right places. This is BARELY considered work attire."
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
@@ -590,7 +590,7 @@
 	visor_flags_inv = HIDEFACIALHAIR | HIDESNOUT
 	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
-	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
+	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT
 	alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER
 	use_radio_beeps_tts = TRUE
 
