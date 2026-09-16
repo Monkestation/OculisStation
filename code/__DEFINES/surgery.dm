@@ -53,6 +53,9 @@
 /// Organ flag for nanomachine organs
 #define ORGAN_NANOMACHINE (1<<20)
 // NOVA EDIT ADDITION END
+// OCULIS EDIT ADDITION START - Biobooster
+#define ORGAN_BIOBOOSTED (1<<21)
+// OCULIS EDIT ADDITION END
 
 /// Organ flags that correspond to bodytypes
 #define ORGAN_TYPE_FLAGS (ORGAN_ORGANIC | ORGAN_ROBOTIC | ORGAN_MINERAL | ORGAN_GHOST)
