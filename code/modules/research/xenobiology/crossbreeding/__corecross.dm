@@ -88,6 +88,10 @@ To add a crossbreed:
 			itemcolor = "#FFB6C1"
 		if(SLIME_TYPE_ADAMANTINE)
 			itemcolor = "#008B8B"
+		// OCULIS EDIT ADDITION START - rainbow crossbreeds actually look rainbow instead of sitting there grey
+		if(SLIME_TYPE_RAINBOW)
+			rainbow_effect()
+		// OCULIS EDIT ADDITION END
 	add_atom_colour(itemcolor, FIXED_COLOUR_PRIORITY)
 
 /obj/item/slimecrossbeaker //To be used as a result for extract reactions that make chemicals.
