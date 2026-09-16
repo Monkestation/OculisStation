@@ -7,13 +7,18 @@
 
 /obj/item/organ/proc/start_bioboost()
 	organ_flags |= ORGAN_BIOBOOSTED
+	if(bioboost_start_message)
+		to_chat(owner, bioboost_start_message)
 
 /obj/item/organ/proc/end_bioboost()
 	organ_flags &= ~ORGAN_BIOBOOSTED
+	if(bioboost_end_message)
+		to_chat(owner, bioboost_end_message)
+
 
 /obj/item/organ/bioimplant/fleshwelder
 	name = "fleshwelding gland"
-	desc = "This bioengineered circulatory organ stimulates immune responses to tissue damage. Overstressing the gland may lead to pain, fatigue, or tissue damage."
+	desc = "This bioengineered circulatory organ stimulates immune responses to tissue damage. Overstressing the gland may lead to pain, fatigue, internal bleeding, or poisoning."
 	icon_state = "heart-on"
 
 	zone = BODY_ZONE_CHEST
@@ -31,7 +36,8 @@
 	attack_verb_continuous = list("glands", "welds")
 	attack_verb_simple = list("gland", "weld")
 	can_bioboost = TRUE
-	bioboost_start_message = span_info("Your skin burns with ")
+	bioboost_start_message = span_info("Your flesh aches with a revitalizing heat!")
+	bioboost_end_message = span_info("The energy fades.")
 
 	// meds are stored in the... medicine sac i guess??
 	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5, /datum/reagent/medicine/fleshsolder = 5)
@@ -43,9 +49,22 @@
 
 /obj/item/organ/bioimplant/fleshwelder/on_life(seconds_per_tick)
 	. = ..()
-	if(organ_flags && ORGAN_FAILING)
+	if(organ_flags & ORGAN_FAILING)
 		if(SPT_PROB(10, seconds_per_tick))
-			owner.adjust_tox_loss(10, forced = TRUE)
+			owner.adjust_brute_loss(10, forced = TRUE)
+			to_chat(owner, span_danger("It feels like your blood is frozen!"))
+		return
+	if(damage > high_threshold)
+		if(SPT_PROB(5, seconds_per_tick))
+			to_chat(owner, span_warning("The fuzz flares to an agonizing potency."))
+			owner.adjust_dizzy_up_to(20 SECONDS, 1 MINUTES)
+			if(prob(20))
+				owner.vomit(VOMIT_CATEGORY_BLOOD)
+	else if(damage > low_threshold)
+		if(SPT_PROB(5, seconds_per_tick))
+			to_chat(owner, span_warning("The fuzz flares to an agonizing potency."))
+			if(prob(20))
+				owner.vomit(VOMIT_CATEGORY_BLOOD)
 	for(var/datum/wound/toweld as anything in owner.all_wounds)
 		var/self_damage = toweld.on_fleshweld(power, bloodfix, burnfix, bonefix)
 		if(self_damage)
@@ -84,19 +103,27 @@
 	return 0
 
 /datum/wound/burn/flesh/on_fleshweld(power, bloodfix, burnfix, bonefix)
+	if(burnfix == 0)
+		return 0
 	infection = min((infection - (0.05 * burnfix * power)), 0)
 	flesh_damage = min((flesh_damage - (0.05 * burnfix * power)), 0)
 	return 0.2
 
 /datum/wound/slash/flesh/on_fleshweld(power, bloodfix, burnfix, bonefix)
+	if(bloodfix == 0)
+		return 0
 	blood_flow = min((blood_flow -(0.05 * bloodfix * power)), 0)
 	return 0.2
 
 /datum/wound/pierce/on_fleshweld(power, bloodfix, burnfix, bonefix)
+	if(bloodfix == 0)
+		return 0
 	blood_flow = min((blood_flow -(0.05 * bloodfix * power)), 0)
 	return 0.4 //punctures are harder to clot
 
 /datum/wound/blunt/bone/on_fleshweld(power, bloodfix, burnfix, bonefix)
+	if(bonefix == 0)
+		return 0
 	cryo_progress += 0.5 * power * bonefix
 	return 0.5 //bones are quite heavy
 
@@ -116,42 +143,42 @@
 		if(2)
 			to_chat(affected_mob, span_warning("You feel cold. Very, very, cold."))
 		if(3 to 10)
-			fleshweldit(1, 1, 2, 1)
+			fleshweldit(1, 1, 2, 1, affected_mob)
 			if(prob(25))
 				to_chat(affected_mob, span_warning("Your skin stings with a pervasive chill."))
 				affected_mob.adjust_stamina_loss(20)
 				affected_mob.adjust_jitter_up_to(20 SECONDS, 5 MINUTES)
 		if(11 to 20)
-			fleshweldit(2, 1, 2, 2)
+			fleshweldit(2, 1, 2, 2, affected_mob)
 			if(prob(35))
 				to_chat(affected_mob, span_warning("You feel <i>horrible.</i> Every motion is a struggle."))
 				affected_mob.adjust_stamina_loss(30)
-				affected_mob.adjust_jitter_up_to(1 MINUTE, 10 MINUTES)
+				affected_mob.adjust_jitter_up_to(1 MINUTES, 10 MINUTES)
 				affected_mob.adjust_eye_blur(2 SECONDS)
 				affected_mob.adjust_tox_loss(2, forced = TRUE)
 		if(21 to 30)
-			fleshweldit(3, 2, 2, 2)
+			fleshweldit(3, 2, 2, 2, affected_mob)
 			if(prob(50))
 				to_chat(affected_mob, span_danger("HOLY FUCK IT *BURNS!*"))
 				affected_mob.adjust_stamina_loss(40)
-				affected_mob.emote(pick(list("scream", "whimper")))
+				affected_mob.emote("scream")
 				affected_mob.adjust_eye_blur(2 SECONDS)
-				affected_mob.adjust_jitter_up_to(1 MINUTE, 10 MINUTES)
+				affected_mob.adjust_jitter_up_to(1 MINUTES, 10 MINUTES)
 				affected_mob.adjust_tox_loss(5, forced = TRUE)
 				for(var/obj/item/organ/ouch as anything in affected_mob.organs)
 					if(prob(50))
 						ouch.apply_organ_damage(ouch.maxHealth * 0.1)
 		if(31 to INFINITY) // more than one full-ass syringe (aka, you chose this you dingus (or severe medical malpractice ig))
 			to_chat(affected_mob, span_danger("You think you're falling apart. Suddenly, the pain stops. You can't move. Everything cuts to black."))
-			fleshweldit(100, 2, 2, 2)
+			fleshweldit(100, 2, 2, 2, affected_mob)
 			affected_mob.adjust_tox_loss(100)
 			affected_mob.Unconscious(10 SECONDS)
 			volume = 0
 
 
 
-/datum/reagent/medicine/fleshsolder/proc/fleshweldit(power, bloodfix, burnfix, bonefix)
-	for(var/datum/wound/toweld as anything in owner.all_wounds)
+/datum/reagent/medicine/fleshsolder/proc/fleshweldit(power, bloodfix, burnfix, bonefix, mob/living/carbon/affected_mob)
+	for(var/datum/wound/toweld in affected_mob.all_wounds)
 		toweld.on_fleshweld(power, bloodfix, burnfix, bonefix)
 
 /datum/chemical_reaction/medicine/fleshsolder
@@ -170,4 +197,4 @@
 	rate_up_lim = 20 //affected by pH too
 	purity_min = 0.3
 	reaction_flags = REACTION_PH_VOL_CONSTANT
-	reaction_tags = REACTION_TAG_MEDIUM | REACTION_TAG_HEALING
+	reaction_tags = REACTION_TAG_HEALING
