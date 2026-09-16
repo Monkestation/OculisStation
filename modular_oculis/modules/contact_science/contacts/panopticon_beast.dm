@@ -146,24 +146,28 @@
 
 /obj/item/clothing/suit/armor/reactive/panopticon //reactive panopticon armor, creates multitool-style arrows towards all nearby player characters
 	name = "reactive panopticon armor"
-	desc = "An experimental suit of armor with a reactive sensor array aligned with a sight-manipulating threat detector.
+	desc = "An experimental suit of armor with a reactive sensor array aligned with a sight-manipulating threat detector."
 	emp_message = span_warning("The reactive armor's sight-manipulators begin to short!")
 	cooldown_message = span_danger("The reactive detection system is still recharging! It fails to activate!")
 	reactivearmor_cooldown_duration = 5 SECONDS
 	var/effect_range = 5
 
-/obj/item/clothing/suit/armor/reactive/fire/reactive_activation(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+/obj/item/clothing/suit/armor/reactive/panopticon/reactive_activation(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	var/datum/hud/user_hud = owner.hud_used
 	if(!user_hud)
 		return
 	owner.visible_message(span_danger("[src] blocks [attack_text], revealing lifeforms nearby!"))
-	for(var/mob/living/carbon/human/H in range(effect_range * 2, owner))
+	var/threats_counted = 0
+	do_sparks(3, FALSE, get_turf(owner))
+	for(var/mob/living/H in range(effect_range * 2, owner))
 		if(H != owner)
+			threats_counted += 1
+			var/arrow_key = "threat_arrow_" + threats_counted
 			var/dir = get_dir(owner, H)
-			var/atom/movable/screen/multitool_arrow/arrow = user_hud.add_screen_object(/atom/movable/screen/multitool_arrow, HUD_MULTITOOL_ARROW, HUD_GROUP_INFO, update_screen = TRUE)
+			var/atom/movable/screen/multitool_arrow/arrow = user_hud.add_screen_object(/atom/movable/screen/multitool_arrow, arrow_key, HUD_GROUP_INFO, update_screen = TRUE)
 			arrow.color = COLOR_RED
 			arrow.transform = matrix(dir2angle(dir), MATRIX_ROTATE)
-			QDEL_IN(arrow, 1.5 SECONDS)
+			QDEL_IN(arrow, 0.75 SECONDS)
 
 /obj/item/clothing/suit/armor/reactive/panopticon/emp_activation(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	owner.visible_message(span_danger("[src] fizzles, altering nearby cameras and lights!"))
@@ -221,7 +225,7 @@
 
 /obj/projectile/panopticon_ball //slow, piercing projectile which deals burn and stamina damage
 	name = "panopticon sphere"
-	icon = 'modular_oculis/modules/contact_science/icons/observer_items.dmi'
+	icon = 'modular_oculis/modules/contact_science/icons/observer_items_old.dmi'
 	icon_state = "beast_projectile"
 	hitsound = 'sound/effects/portal/portal_travel.ogg'
 	projectile_piercing = PASSTABLE | PASSGLASS | PASSGRILLE | PASSMOB | PASSCLOSEDTURF | PASSMACHINE | PASSSTRUCTURE | PASSFLAPS | PASSDOORS
