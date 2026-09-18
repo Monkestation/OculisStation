@@ -3,6 +3,7 @@
 	/// it causing conflicts in the future.
 	var/chemical_flags_nova = NONE
 
+
 /datum/reagent/drug/nicotine
 	addiction_types = list(/datum/addiction/nicotine = 40)
 

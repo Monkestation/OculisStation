@@ -50,6 +50,12 @@ GLOBAL_LIST_INIT(reagent_containers, list(
 		/obj/item/reagent_containers/hypospray/medipen/deforest/printable
 	)),
 	// NOVA EDIT ADDITION END
+// OCULIS EDIT ADDITION START
+		CAT_INTERDYNE_INJECTORS = typecacheof(list(
+	/obj/item/reagent_containers/hypospray/medipen/interdyne
+// OCULIS EDIT ADDITION END
+)),
+
 ))
 
 /// list of all /datum/chemical_reaction datums indexed by their typepath. Use this for general lookup stuff
