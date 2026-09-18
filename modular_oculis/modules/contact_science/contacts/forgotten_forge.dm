@@ -187,3 +187,8 @@
 	var/relative_direction = get_dir(src, target)
 	var/atom/throw_target = get_edge_target_turf(target, relative_direction)
 	src.throw_at(throw_target, 3, 3, src, gentle = TRUE)
+
+/mob/living/simple_animal/formic/forgotten_forge/resonate_info()
+	var/list/message = list()
+	message += "Loyalty: [loyalty]"
+	return message

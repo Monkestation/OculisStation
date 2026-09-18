@@ -8,6 +8,7 @@
 		/datum/design/board/contactscanner,
 		/datum/design/board/contactplatform,
 		/datum/design/contactanalyzer,
+		/datum/design/contactresonator,
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)

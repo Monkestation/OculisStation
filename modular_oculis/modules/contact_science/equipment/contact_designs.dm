@@ -28,3 +28,14 @@
 		RND_CATEGORY_TOOLS
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
+/datum/design/contactresonator
+	name = "Contact Resonator"
+	desc = "A device for reading frequencies within Anomalous Resonance Forms for hidden data."
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/plasma =SMALL_MATERIAL_AMOUNT*2, /datum/material/gold =SMALL_MATERIAL_AMOUNT*2, /datum/material/glass =SMALL_MATERIAL_AMOUNT*0.5)
+	build_path = /obj/item/contactresonator
+	category = list(
+		RND_CATEGORY_TOOLS
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE

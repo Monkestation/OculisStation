@@ -390,3 +390,14 @@
 /obj/item/slimecross/gentle/parasite
 	extract_type = /obj/item/slime_extract/parasite
 	colour = SLIME_TYPE_PARASITE
+
+/mob/living/simple_animal/formic/divine_congealment/resonate_info()
+	var/list/message = list()
+	message += "Absorbed slimes: [absorbed_slimes]"
+	message += "Clarium: [absorbed_clarium]u"
+	message += "Ferrum: [absorbed_ferrum]u"
+	message += "Aurum: [absorbed_aurum]u"
+	message += "Radium: [absorbed_radium]u"
+	message += "Crystallum: [absorbed_crystallum]u"
+	message += "Viral Risk: [viral_risk]%"
+	return message

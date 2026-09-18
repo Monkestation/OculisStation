@@ -246,3 +246,8 @@
 	)
 
 	ai_movement = /datum/ai_movement/basic_avoidance
+
+/mob/living/simple_animal/formic/panopticon_beast/resonate_info()
+	var/list/message = list()
+	message += "Satiation: [feeding_timer_current]"
+	return message

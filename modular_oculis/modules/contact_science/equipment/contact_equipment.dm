@@ -284,3 +284,39 @@ GLOBAL_LIST_INIT(global_resforms, subtypesof(/mob/living/simple_animal/formic))
 
 	to_chat(user, boxed_message(jointext(message, "\n")), type = MESSAGE_TYPE_INFO)
 	analyzed_form.establish_link(user)
+
+/obj/item/contactresonator
+	name = "contact resonator"
+	desc = "A hand-held resonator which scans anomalous resonance forms for data which may otherwise be undetectable."
+	icon = 'modular_oculis/modules/contact_science/icons/contact_equipment.dmi'
+	icon_state = "resonator"
+	w_class = WEIGHT_CLASS_SMALL
+	obj_flags = CONDUCTS_ELECTRICITY
+	item_flags = NOBLUDGEON
+	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_SUITSTORE
+	throwforce = 0
+	throw_speed = 3
+	throw_range = 7
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT * 0.3, /datum/material/glass=SMALL_MATERIAL_AMOUNT * 0.2)
+	interaction_flags_click = NEED_LITERACY|NEED_LIGHT|ALLOW_RESTING
+	pickup_sound = 'sound/items/handling/gas_analyzer/gas_analyzer_pickup.ogg'
+	drop_sound = 'sound/items/handling/gas_analyzer/gas_analyzer_drop.ogg'
+
+	var/scan_distance = 5
+
+/obj/item/contactresonator/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(istype(interacting_with, /mob/living/simple_animal/formic) && can_see(user, interacting_with, scan_distance) && do_after(user, 2 SECONDS, src))
+		var/mob/living/simple_animal/formic/analyzed_mob = interacting_with
+		resonate_form(analyzed_mob, user)
+		return ITEM_INTERACT_SUCCESS
+
+/obj/item/contactresonator/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(istype(interacting_with, /mob/living/simple_animal/formic) && can_see(user, interacting_with, scan_distance) && do_after(user, 2 SECONDS, src))
+		var/mob/living/simple_animal/formic/analyzed_mob = interacting_with
+		resonate_form(analyzed_mob, user)
+		return ITEM_INTERACT_SUCCESS
+
+/obj/item/contactresonator/proc/resonate_form(mob/living/simple_animal/formic/analyzed_form, mob/living/user)
+	playsound(user, SFX_INDUSTRIAL_SCAN, 20, TRUE, -2, TRUE, FALSE)
+	user.visible_message(span_notice("[user] uses the contact resonator on [icon2html(icon, viewers(user))] [analyzed_form]."), span_notice("You use the contact resonator on [icon2html(icon, user)] [analyzed_form]."))
+	to_chat(user, boxed_message(jointext(analyzed_form.resonate_info(), "\n")), type = MESSAGE_TYPE_INFO)

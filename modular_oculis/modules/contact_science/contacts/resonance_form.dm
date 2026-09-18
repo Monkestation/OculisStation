@@ -102,3 +102,8 @@
 
 /mob/living/simple_animal/formic/proc/stop_everything() //function for stopping effects when cutting the connection
 	return
+
+/mob/living/simple_animal/formic/proc/resonate_info() //function for returning hidden info for the resonator. do not include in resforms with no specified info to share
+	var/list/message = list()
+	message += "No hidden data detected." //replace this with the actual info
+	return message
