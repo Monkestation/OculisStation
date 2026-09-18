@@ -10,7 +10,6 @@ import { toFixed } from 'tgui-core/math';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { RecipeLookup } from './common/RecipeLookup';
 
 export const BorerChem = (props) => {
   const { act, data } = useBackend();
