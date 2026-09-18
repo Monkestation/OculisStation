@@ -15,7 +15,7 @@
 	if (isnull(limb.owner))
 		return ..()
 
-	if (HAS_TRAIT(limb.owner, TRAIT_CURSED) && (limb.mangled_state & BODYPART_MANGLED_INTERIOR))
+	if ((HAS_TRAIT(limb.owner, TRAIT_CURSED) && !HAS_TRAIT((limb.owner), TRAIT_CURSED_SUPPRESS)) && (limb.mangled_state & BODYPART_MANGLED_INTERIOR)) // OCULIS EDIT - CONTACT_SCIENCE - ORIGINAL: if (HAS_TRAIT(limb.owner, TRAIT_CURSED)limb.owner && (limb.get_mangled_state() & BODYPART_MANGLED_INTERIOR))
 		return ..()
 
 	if (limb.owner.stat >= HARD_CRIT)

@@ -965,7 +965,7 @@
 /obj/structure/transport/linear/tram/proc/estop_throw(throw_direction)
 	for(var/mob/living/passenger in transport_contents)
 		var/mob_throw_chance = transport_controller_datum.throw_chance
-		if(prob(mob_throw_chance || 17.5) || HAS_TRAIT(passenger, TRAIT_CURSED)) // sometimes you go through a window, especially with bad luck
+		if(prob(mob_throw_chance || 17.5) || (HAS_TRAIT(passenger, TRAIT_CURSED) && !HAS_TRAIT((passenger), TRAIT_CURSED_SUPPRESS))) // sometimes you go through a window, especially with bad luck // OCULIS EDIT - CONTACT_SCIENCE - ORIGINAL: if(prob(mob_throw_chance || 17.5) || HAS_TRAIT(passenger, TRAIT_CURSED)passenger)
 			passenger.AddElement(/datum/element/window_smashing, duration = 1.5 SECONDS)
 		var/throw_target = get_edge_target_turf(src, throw_direction)
 		passenger.throw_at(throw_target, 30, 7, force = MOVE_FORCE_OVERPOWERING)

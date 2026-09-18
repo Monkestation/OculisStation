@@ -88,6 +88,8 @@ To add a crossbreed:
 			itemcolor = "#FFB6C1"
 		if(SLIME_TYPE_ADAMANTINE)
 			itemcolor = "#008B8B"
+		if(SLIME_TYPE_PARASITE) // OCULIS EDIT ADDITION - CONTACT_SCIENCE
+			itemcolor = COLOR_PALE_GREEN
 	add_atom_colour(itemcolor, FIXED_COLOUR_PRIORITY)
 
 /obj/item/slimecrossbeaker //To be used as a result for extract reactions that make chemicals.

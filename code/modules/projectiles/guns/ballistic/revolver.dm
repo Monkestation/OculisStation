@@ -285,7 +285,7 @@ GAME_VERB(/obj/item/gun/ballistic/revolver, spin, "Spin Chamber", null)
 	if(!spun)
 		to_chat(user, span_warning("You need to spin \the [src]'s chamber first!"))
 		return TRUE // no melee attack
-	if(HAS_TRAIT(user, TRAIT_CURSED)) // I cannot live, I cannot die, trapped in myself, body my holding cell.
+	if((HAS_TRAIT(user, TRAIT_CURSED) && !HAS_TRAIT((user), TRAIT_CURSED_SUPPRESS))) // I cannot live, I cannot die, trapped in myself, body my holding cell. // OCULIS EDIT - CONTACT_SCIENCE - ORIGINAL: if(HAS_TRAIT(user, TRAIT_CURSED)user)
 		to_chat(user, span_warning("What a horrible night... To have a curse!"))
 		return TRUE // no melee attack
 	if(loc != user)

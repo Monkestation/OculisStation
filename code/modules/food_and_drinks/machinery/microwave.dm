@@ -596,7 +596,7 @@
 		balloon_alert(cooker, "no power draw!")
 		return
 
-	if(cooker && HAS_TRAIT(cooker, TRAIT_CURSED) && prob(7))
+	if(cooker && (HAS_TRAIT(cooker, TRAIT_CURSED) && !HAS_TRAIT((cooker), TRAIT_CURSED_SUPPRESS)) && prob(7)) // OCULIS EDIT - CONTACT_SCIENCE - ORIGINAL: if(cooker && HAS_TRAIT(cooker, TRAIT_CURSED)cooker && prob(7))
 		muck()
 		return
 
@@ -735,7 +735,7 @@
 		broken = REALLY_BROKEN
 		explosion(src, heavy_impact_range = 1, light_impact_range = 2, flame_range = 1)
 
-	var/cursed_chef = cooker && HAS_TRAIT(cooker, TRAIT_CURSED)
+	var/cursed_chef = cooker && (HAS_TRAIT(cooker, TRAIT_CURSED) && !HAS_TRAIT((cooker), TRAIT_CURSED_SUPPRESS)) // OCULIS EDIT - CONTACT_SCIENCE - ORIGINAL: var/cursed_chef = cooker && HAS_TRAIT(cooker, TRAIT_CURSED)cooker
 	var/metal_amount = 0
 	for(var/obj/item/cooked_item in ingredients)
 		var/sigreturn = cooked_item.microwave_act(src, cooker, randomize_pixel_offset = ingredients.len)
@@ -892,7 +892,7 @@
  */
 /obj/machinery/microwave/proc/charge_loop_finish(mob/cooker)
 	operating = FALSE
-	var/cursed_chef = cooker && HAS_TRAIT(cooker, TRAIT_CURSED)
+	var/cursed_chef = cooker && (HAS_TRAIT(cooker, TRAIT_CURSED) && !HAS_TRAIT((cooker), TRAIT_CURSED_SUPPRESS)) // OCULIS EDIT - CONTACT_SCIENCE - ORIGINAL: var/cursed_chef = cooker && HAS_TRAIT(cooker, TRAIT_CURSED)cooker
 	if(cursed_chef && prob(5))
 		spark()
 		broken = REALLY_BROKEN

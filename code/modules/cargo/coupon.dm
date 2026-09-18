@@ -86,7 +86,7 @@
 	if(!cursed.GetComponent(/datum/component/omen))
 		cursed.AddComponent(/datum/component/omen, src, 1)
 		return TRUE
-	if(HAS_TRAIT(cursed, TRAIT_CURSED))
+	if((HAS_TRAIT(cursed, TRAIT_CURSED) && !HAS_TRAIT((cursed), TRAIT_CURSED_SUPPRESS))) // OCULIS EDIT - CONTACT_SCIENCE - ORIGINAL: if(HAS_TRAIT(cursed, TRAIT_CURSED)cursed)
 		to_chat(cursed, span_warning("What a horrible night... To have a curse!"))
 	addtimer(CALLBACK(src, PROC_REF(curse_heart), cursed), 5 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
 

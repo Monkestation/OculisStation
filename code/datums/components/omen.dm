@@ -115,6 +115,11 @@
 /datum/component/omen/proc/check_airlock_crush(mob/living/source, obj/machinery/door/airlock/darth_airlock, forced, force_crush)
 	SIGNAL_HANDLER
 
+	//OCULIS EDIT ADDITION START- CONTACT_SCIENCE - Suppress effect if curse suppression is active from the Black Cat's Cloak
+	if(HAS_TRAIT(source, TRAIT_CURSED_SUPPRESS))
+		return NONE
+	//OCULIS EDIT ADDITION END
+
 	if(force_crush || !roll_for_accident(25))
 		return NONE
 
@@ -129,6 +134,11 @@
 	if(!source.Adjacent(darth_vendor) || !roll_for_accident(10))
 		return NONE
 
+	//OCULIS EDIT ADDITION START- CONTACT_SCIENCE - Suppress effect if curse suppression is active from the Black Cat's Cloak
+	if(HAS_TRAIT(source, TRAIT_CURSED_SUPPRESS))
+		return NONE
+	//OCULIS EDIT ADDITION END
+
 	consume_omen()
 	to_chat(source, span_warning("As you grab [vended_item] from the slot, [darth_vendor] wobbles ominously..."))
 	INVOKE_ASYNC(darth_vendor, TYPE_PROC_REF(/obj/machinery/vending, tilt), source)
@@ -140,6 +150,11 @@
 
 	if(source.stat == DEAD || HAS_TRAIT(source, TRAIT_STASIS))
 		return
+
+	//OCULIS EDIT ADDITION START- CONTACT_SCIENCE - Suppress effect if curse suppression is active from the Black Cat's Cloak
+	if(HAS_TRAIT(source, TRAIT_CURSED_SUPPRESS))
+		return
+	//OCULIS EDIT ADDITION END
 
 	if(roll_for_accident(0.001))
 		spontaneous_combustion(source)
@@ -234,6 +249,11 @@
 	if(fall_down())
 		return
 
+	//OCULIS EDIT ADDITION START- CONTACT_SCIENCE - Suppress effect if curse suppression is active from the Black Cat's Cloak
+	if(HAS_TRAIT(source, TRAIT_CURSED_SUPPRESS))
+		return
+	//OCULIS EDIT ADDITION END
+
 /// Attempts to throw us down a nearby open space
 /datum/component/omen/proc/fall_down()
 	var/mob/living/our_guy = parent
@@ -258,6 +278,10 @@
 /// Gaze into a mirror and see if something bad happens
 /datum/component/omen/proc/mirror_interaction()
 	var/mob/living/our_guy = parent
+	//OCULIS EDIT ADDITION START- CONTACT_SCIENCE - Suppress effect if curse suppression is active from the Black Cat's Cloak
+	if(HAS_TRAIT(our_guy, TRAIT_CURSED_SUPPRESS))
+		return
+	//OCULIS EDIT ADDITION END
 	var/obj/structure/mirror/evil_mirror = locate() in get_turf(our_guy)
 	if(isnull(evil_mirror) || !roll_for_accident(10))
 		REMOVE_TRAIT(our_guy, TRAIT_NO_MIRROR_REFLECTION, REF(src))
@@ -305,6 +329,11 @@
 /// If we get knocked down, see if we have a really bad slip and bash our head hard
 /datum/component/omen/proc/check_slip(mob/living/our_guy, amount)
 	SIGNAL_HANDLER
+
+	//OCULIS EDIT ADDITION START- CONTACT_SCIENCE - Suppress effect if curse suppression is active from the Black Cat's Cloak
+	if(HAS_TRAIT(our_guy, TRAIT_CURSED_SUPPRESS))
+		return
+	//OCULIS EDIT ADDITION END
 
 	if(!our_guy.get_bodypart(BODY_ZONE_HEAD) || !roll_for_accident(15)) // Bonk!
 		return

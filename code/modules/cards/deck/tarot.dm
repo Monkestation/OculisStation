@@ -30,7 +30,7 @@
 
 /obj/item/toy/cards/deck/tarot/pick_card(mob/living/user, list/obj/item/toy/singlecard/cards)
 	// If the user is cursed they have increase chance of drawing Death or The Tower
-	if(!HAS_TRAIT(user, TRAIT_CURSED))
+	if(!(HAS_TRAIT(user, TRAIT_CURSED) && !HAS_TRAIT((user), TRAIT_CURSED_SUPPRESS))) // OCULIS EDIT - CONTACT_SCIENCE - ORIGINAL: if(!HAS_TRAIT(user, TRAIT_CURSED)user)
 		return ..()
 
 	var/total_card = length(cards)

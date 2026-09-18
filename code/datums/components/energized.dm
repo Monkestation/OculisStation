@@ -70,7 +70,7 @@
 		return FALSE
 
 	var/toast_prob = NORMAL_TOAST_PROB
-	if(source.broken || source.burnt || HAS_TRAIT(future_tram_victim, TRAIT_CURSED))
+	if(source.broken || source.burnt || (HAS_TRAIT(future_tram_victim, TRAIT_CURSED) && !HAS_TRAIT((future_tram_victim), TRAIT_CURSED_SUPPRESS))) // OCULIS EDIT - CONTACT_SCIENCE - ORIGINAL: if(source.broken || source.burnt || HAS_TRAIT(future_tram_victim, TRAIT_CURSED)future_tram_victim)
 		toast_prob = BROKEN_TOAST_PROB
 
 	if(prob(100 - toast_prob))

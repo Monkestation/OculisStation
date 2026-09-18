@@ -61,6 +61,7 @@
 #define SLIME_TYPE_SEPIA "sepia"
 #define SLIME_TYPE_SILVER "silver"
 #define SLIME_TYPE_YELLOW "yellow"
+#define SLIME_TYPE_PARASITE "parasite" //OCULIS EDIT ADDITION - CONTACT SCIENCE
 
 // Not a real slime type, used to create random slimes
 #define SLIME_TYPE_RANDOM "random"
