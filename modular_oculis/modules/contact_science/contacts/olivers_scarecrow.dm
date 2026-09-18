@@ -200,9 +200,13 @@
 			complexity = true_complexity
 			balloon_alert(user, "module unlocked!")
 			decoded = TRUE
-		else //tesla punishment for incorrect code
-			balloon_alert(user, "code incorrect!")
-			var/mob/living/victim = user
+		else //electrical injection punishment for incorrect code
+			if(entered_code) //prevent punishment for empty code box
+				balloon_alert(user, "code incorrect!")
+				user.reagents?.add_reagent(/datum/reagent/teslium,10)
+				playsound(user, 'modular_nova/modules/hyposprays/sound/hypospray.ogg', 40, TRUE, -2, TRUE, FALSE)
+				to_chat(user, span_warning("You feel an injection perforate your hand!"))
+				user.dropItemToGround(src)
 
 /obj/item/mod/module/dispenser/mirage/dreamcoil/on_use(mob/activator)
 	var/obj/item/grenade/dreamcoil/grenade = ..()
